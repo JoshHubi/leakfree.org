@@ -1,0 +1,1079 @@
+/****************************/
+/* VIC Cipher Encoder v1.0  */
+/*                          */
+/* A. Horn (no relation)    */
+/* a.k.a. Player            */
+/*                          */
+/* Comments in next version */
+/*                          */
+/* Do not repeat letters in */
+/* the keyword in this      */
+/* version!!                */
+/****************************/
+
+#include <stdio.h>
+
+int debug = 0;
+
+char keyword[10];
+char song[100];
+char date[10];
+int id = 0;
+char identifier[6];
+
+int sequentialize(char* array, int small)
+{
+  int pos = 0;
+  char count = 1;
+  char let = 'a';
+
+  while(let <= 'z')
+  {
+    pos = 0;
+    while(array[pos] != '\n')
+    {
+      if(array[pos] == let)
+      {
+        array[pos] = count;
+        
+        if(small && (count == 10))
+        {
+          array[pos] = 0;
+        }
+
+        count++;
+      }
+      pos++;
+    }
+    let++;
+  }
+
+  array[10] = '\n';  
+ 
+  if(debug)
+  {
+    printf("\narray: ");
+    int c = 0;
+    while(c < 10)
+    {
+      printf("%i ", array[c]);
+      c++;
+    } 
+    printf("\n"); 
+  }
+}
+
+int sequentializenum(char* array, int small, int size)
+{
+  int pos = 0;
+  char count = 1;
+  char num = 1;
+  char temp[size];
+  
+  while(pos != size)
+  {
+    temp[pos] = array[pos];
+    pos++;
+  }
+
+  while(num != 10)
+  {
+    pos = 0;
+    while(pos != size)
+    {
+      if(temp[pos] == num)
+      {
+        array[pos] = count;
+
+        if(small && (count == 10))
+        {
+          array[pos] = 0;
+        }
+
+        count++;
+      }
+      pos++;
+    }
+    num++;
+  }
+
+  pos = 0;
+  while(pos != size)
+  {
+    if(temp[pos] == 0)
+    {
+      array[pos] = count;
+ 
+      if(small && (count == 10))
+      {
+        array[pos] = 0;
+      }
+
+      count++;
+    }
+    pos++;
+  }
+ 
+  if(debug)
+  {
+    printf("\narray: ");
+    int c = 0;
+    while(c < size)
+    {
+      printf("%i ", array[c]);
+      c++;
+    }
+    printf("\n");
+  }
+}
+
+int chainadd(char* array, int index, int digits)
+{
+  int c = 0;
+  char temp = 0;
+  
+  while(index < digits)
+  {
+    temp = array[c] + array[c + 1];
+    if(temp > 9)
+    {
+      temp = temp - 10;
+    }
+    array[index] = temp;
+    index++;
+    c++;
+  }
+
+  if(debug)
+  {
+    c = 0;
+
+    printf("chain array: ");   
+ 
+    while(c < digits)
+    {
+      printf("%i ", array[c]);
+      c++;
+    }
+    printf("\n");
+  }
+}
+
+main()
+{
+  printf("Input keyword: ");
+
+  int c = 0;
+
+  while((keyword[c] = getchar()) != '\n')
+  {
+    if(keyword[c] != ' ')
+    {
+      c++;
+    }
+  }
+
+  if(debug) printf("keyword: %s", keyword); 
+
+  printf("\nInput line from song: ");
+
+  c = 0;
+
+  while((song[c] = getchar()) != '\n')
+  {
+    if(song[c] != ' ')
+    {
+      c++;
+    }
+  }
+
+  if(debug) printf("song: %s", song);
+
+  printf("\nInput date: ");
+
+  c = 0;
+   
+  while((date[c] = getchar()) != '\n')
+  {
+    c++;
+  }
+
+  if(debug) printf("date: %s", date);
+
+  printf("\nInput ID: ");
+
+  c = 0;
+  char s[10];
+
+  while((s[c] = getchar()) != '\n')
+  {
+    c++;
+  }
+
+  id = atoi(s);
+
+  if(debug) printf("id: %i\n", id);
+
+  char s1[11];
+  char s2[11];
+  c = 0;
+
+  while(c != 10)
+  {
+    s1[c] = song[c];
+    c++;
+  }
+  
+  s1[10] = '\n';
+
+  printf("\ns1: %s\n", s1);
+  
+  int d = 0;
+
+  while(c != 20)
+  {
+    s2[d] = song[c];
+    c++;
+    d++;
+  }
+
+  s2[10] = '\n';
+
+  printf("\ns2: %s\n", s2);
+
+  sequentialize(&s1, 1);
+  
+  sequentialize(&s2, 1);
+
+  printf("\ns1: ");
+  c = 0;
+  while(c < 10)
+  {
+    printf("%i ", s1[c]);
+    c++;
+  }
+  printf("\n");
+  
+  printf("\ns2: ");
+  c = 0;
+  while(c < 10)
+  {
+    printf("%i ", s2[c]);
+    c++;
+  }
+  printf("\n");
+
+  printf("\nInput 5-digit message identifier: ");  
+
+  c = 0;
+
+  while((identifier[c] = getchar()) != '\n')
+  {
+    c++;
+  }
+
+  if(debug) printf("identifier: %s\n", identifier);
+
+  c = 0;
+  char temp[11];
+  char permid[6];
+  
+  while(c < 5)
+  {
+    identifier[c] = identifier[c] - 48;
+    permid[c] = identifier[c];
+    date[c] = date[c] - 48;
+
+    if(identifier[c] < date[c])
+    {
+      identifier[c] = identifier[c] + 10;
+    }
+
+    temp[c] = (identifier[c] - date[c]);  
+    c++;
+  }
+
+  if(debug) 
+  {
+    printf("temp: ");
+    
+    c = 0;
+    
+    while(c < 5)
+    {
+      printf("%i ", temp[c]);
+      c++;
+    }
+    printf("\n");
+  }
+
+  chainadd(&temp, 5, 10);
+
+  c = 0;
+  char g[11];  
+
+  while(c < 10)
+  {
+    g[c] = temp[c] + s1[c];
+   
+    if(g[c] > 9)
+    {
+      g[c] = g[c] - 10;
+    }
+    
+    c++;
+  }
+
+  c = 0;
+   
+  printf("g: ");
+   
+  while(c < 10)
+  {
+    printf("%i ", g[c]);
+    c++;
+  }
+
+  printf("\n");
+
+  c = 0;
+  char t[11];
+  int index = 0;
+
+  while(c < 10)
+  {
+    index = g[c] - 1;
+
+    if(index == -1)
+    {
+      index = 9;
+    }
+
+    t[c] = s2[index];
+
+    c++;
+  }    
+
+  c = 0;
+
+  printf("t: ");   
+
+  while(c < 10)
+  {
+    printf("%i ", t[c]);
+    c++;
+  }
+  printf("\n");
+
+  char tempu[61];
+  c = 0;
+
+  while(c < 10)
+  {
+    tempu[c] = t[c];
+    c++;
+  }
+
+  chainadd(&tempu, 10, 60);
+
+  if(debug)
+  {
+    c = 0;
+  
+    printf("tempu: ");
+  
+    while(c < 60)
+    {
+      printf("%i ", tempu[c]);
+      c++;
+    }
+
+    printf("\n");
+
+  }
+
+  char u[51];
+
+  c = 0;
+
+  while(c < 50)
+  {
+    u[c] = tempu[c + 10];
+    c++;
+  }    
+
+  c = 0;
+
+  printf("u: ");
+
+  while(c < 50)
+  {
+    printf("%i ", u[c]);
+    c++;
+  }
+    
+  printf("\n");
+
+  int trans1 = 0;
+  int trans2 = 0;
+
+  trans2 = id + u[49];
+  trans1 = id + u[48];  
+
+  if(debug) printf("trans2: %i\n", trans2);
+  if(debug) printf("trans1: %i\n", trans1);
+
+  c = 48;
+ 
+  while(u[49] == u[c])
+  {
+    c--;
+    trans1 = id + u[c];
+
+    if(debug) printf("trans1: %i\n", trans1);
+  }
+
+  sequentializenum(&t, 1, 10);
+
+  if(debug)
+  {
+    c = 0;
+
+    printf("seqT: ");
+
+    while(c < 10)
+    {
+       printf("%i ", t[c]);
+       c++;
+    }
+  
+    printf("\n");
+  }
+
+  char columns[51];
+
+  c = 0;
+
+  while(c != 10)
+  {
+    index = t[c] - 1;
+
+    if(index == -1)
+    {
+      index = 9;
+    }
+
+    columns[index*5] = u[c];
+    columns[index*5+1] = u[c+10];
+    columns[index*5+2] = u[c+20];
+    columns[index*5+3] = u[c+30];
+    columns[index*5+4] = u[c+40];
+
+    c++;
+  }
+
+  if(debug)
+  {
+    c = 0;
+   
+    printf("columns: ");
+
+    while(c < 50)
+    {
+      printf("%i ", columns[c]);
+      c++;
+    }
+  
+    printf("\n");
+  } 
+
+  char k1[trans1 + 1];
+  char k2[trans2 + 1];
+
+  c = 0;
+
+  while(c < trans1)
+  {
+    k1[c] = columns[c];
+    c++;
+  }
+
+  d = 0;
+
+  while(d < trans2)
+  {
+    k2[d] = columns[c];
+    d++;
+    c++;
+  }
+
+  if(debug)
+  {
+    c = 0;
+  
+    printf("k1unseq: ");
+
+    while(c < trans1)
+    {
+      printf("%i ", k1[c]);
+      c++;
+    }
+  
+    printf("\n");
+
+    c = 0;
+
+    printf("k2unseq: ");  
+
+    while(c < trans2)
+    {
+      printf("%i ", k2[c]);
+      c++;
+    }
+
+    printf("\n");
+  }
+
+  sequentializenum(&k1, 0, trans1);
+  sequentializenum(&k2, 0, trans2);
+
+  c = 0;
+  
+  printf("k1: ");
+   
+  while(c < trans1)
+  {
+    printf("%i ", k1[c]);
+    c++;
+  }
+
+  printf("\n");
+ 
+  c = 0;
+
+  printf("k2: ");
+
+  while(c < trans2)
+  {
+    printf("%i ", k2[c]);
+    c++;
+  }
+
+  printf("\n");
+
+  char c5[11];
+
+  c = 0;
+
+  while(c < 10)
+  {
+    c5[c] = u[c+40];
+    c++;
+  }
+
+  if(debug)
+  {
+    c = 0;
+  
+    printf("u5: ");
+
+    while(c < 10)
+    {
+      printf("%i ", c5[c]);
+      c++;
+    }
+  
+    printf("\n");
+  }
+
+  sequentializenum(&c5, 1, 10);
+
+  if(debug)
+  {
+    c = 0;
+
+    printf("c5: ");
+
+    while(c < 10)
+    {
+      printf("%i ", c5[c]);
+      c++;
+    }
+
+    printf("\n");
+  }
+/*
+  printf("Enter start indicator: ");
+
+  char startind[5];
+
+  while((startind[c] = getchar()) != '\n')
+  {
+    c++;
+  }
+  
+  if(debug) printf("%s\n", startind);
+*/
+  char checkerboard[31];
+  c = 0;
+
+  while(keyword[c] != '\n')
+  {
+    checkerboard[c] = keyword[c];
+    if(checkerboard[c] > 90)
+    {
+      checkerboard[c] = checkerboard[c] - 32;
+    }
+    c++;
+  }
+
+  while(c < 10)
+  {
+    checkerboard[c] = ' ';
+    c++;
+  }
+
+  char let = 'A';
+  d = 0;
+  int top = 1;
+
+  while(c < 19)
+  {
+    d = 0;
+
+    while(d < 10 && d != -1)
+    {
+      if(let == checkerboard[d])
+      {
+        let++;
+        d = -1;
+      }
+      else
+      {
+        d++;
+      }
+    }
+
+    if(d != -1)
+    {
+      if(top)
+      {
+        checkerboard[c] = let;
+        top = 0;
+      }
+      else
+      {
+        checkerboard[c+10] = let;
+        top = 1;
+	c++;
+      }
+
+      let++;
+    }
+  }
+
+  checkerboard[19] = '.';
+  checkerboard[29] = '#';
+
+  c = 0;
+  
+  printf("\n\ncheckerboard:\n  ");
+
+  while(c < 10)
+  {
+    printf("%i ", c5[c]);
+    c++;
+  }
+
+  printf("\n  ");
+
+  c = 0;
+
+  while(c < 10)
+  {
+    printf("%c ", checkerboard[c]);
+    c++;
+  }
+
+  printf("\n%i ", c5[8]);
+
+  while(c < 20)
+  {
+    printf("%c ", checkerboard[c]);
+    c++;
+  }
+
+  printf("\n%i ", c5[9]);
+
+  while(c < 30)
+  {
+    printf("%c ", checkerboard[c]);
+    c++;
+  }
+  printf("\n\n");
+
+  printf("Input message: ");
+
+  char message[500];
+  c = 3;
+
+  message[0] = '.';
+  message[1] = '.';
+  message[2] = ' ';
+
+  while((message[c] = getchar()) != '\n')
+  {
+    if(message[c] > 90)
+    {
+      message[c] = message[c] - 32;
+    }
+    c++;
+  }
+
+  if(debug) printf("message: %s\n", message);
+
+  int messize = c;
+
+  c--;
+
+  printf("\nEnter a random number between 0 and %i: ", c);  
+
+  char randnum[5];
+  c = 0;
+
+  while((randnum[c] = getchar()) != '\n')
+  {
+    c++;
+  }
+
+  printf("\n\n");
+
+  int intrandnum = atoi(randnum);
+
+  if(debug) printf("randnum: %i\n", intrandnum);
+
+  char splitmes[500];
+  c = intrandnum;
+  d = 0;
+
+  while(c < messize)
+  {
+    splitmes[d] = message[c];
+    d++;
+    c++;
+  }
+
+  c = 0;
+
+  while(c < intrandnum)
+  {
+    splitmes[d] = message[c];
+    d++;
+    c++;
+  }
+  
+  if(debug) printf("splitmes: %s\n", splitmes);
+
+  c = 0;
+  int e = 0;
+  int f = 0;
+  char nummes[500];
+
+  while(c < d)
+  {
+    if(splitmes[c] != ' ')
+    {
+      e = 0;
+
+      while(splitmes[c] != checkerboard[e])
+      {
+        e++;
+      }
+
+      if(e < 10)
+      {
+        nummes[f] = c5[e];
+	f++;
+      }
+      if(e > 9 && e < 20)
+      {
+        nummes[f] = c5[8];
+        nummes[f+1] = c5[e - 10];
+        f = f + 2;
+      }
+      if(e > 19 && e < 30)
+      {
+        nummes[f] = c5[9];
+        nummes[f+1] = c5[e - 20];
+        f = f + 2;
+      }
+    } 
+    c++;
+  }
+
+  nummes[f] = -1;
+
+  c = 0;
+
+  if(debug) printf("nummes: ");
+
+  while(nummes[c] != -1)
+  {
+    if(debug) printf("%i", nummes[c]);
+      
+    c++;
+  }
+
+  printf("\n");
+
+
+  while((c%5) != 0)
+  {
+    nummes[c] = 0;
+    c++;
+  }
+
+  messize = c--;
+  
+  if(debug)
+  {
+    printf("K1: ");
+    
+    c = 0;
+  
+    while(c < trans1)
+    {
+      printf("%i ", k1[c]);
+      
+      c++;
+    }
+    printf("\n");
+  }
+
+  c = 0;
+  d = 1;
+  e = 0;
+  int n = 0;
+  char nummes2[500];
+
+  while(d <= trans1)
+  {
+    c = 0;
+
+    while(k1[c] != d)
+    {
+      c++;
+    }
+
+    n = 0;
+
+    while((c + (n*trans1)) < messize)
+    {
+      nummes2[e] = nummes[c + (n*trans1)];
+      n++;
+      e++;
+    }
+
+    d++;
+  }
+
+  if(debug)
+  {
+    c = 0;
+
+    printf("nummes2: ");
+
+    while(c < messize)
+    {
+      printf("%i", nummes2[c]);
+      
+      c++;
+    }
+    
+    printf("\n");
+  }
+
+  int height = messize / trans2;
+  int rem = 0;
+
+  if((rem = (messize % trans2)) != 0)
+  {
+    height++;
+  }
+
+  c = 0;
+  d = 0;
+  e = 2;
+  f = 0;
+
+  while(k2[c] != 1)
+  {
+    nummes[c] = nummes2[c];
+    c++;
+  }
+
+  int first = c;
+  d = c;
+  c = 0;
+  f = d;
+
+  while(e != height)
+  {
+    while(c <= d)
+    {
+      nummes[c+((e-1)*trans2)] = nummes2[f];
+      c++;
+      f++;
+    }
+
+    e++;
+    d++;
+    c = 0;
+  }
+
+  if(rem != 0)
+  {
+    c = 0;
+
+    while(c < rem)
+    {
+      nummes[c+((height-1)*trans2)] = nummes2[f];
+      c++;
+      f++;
+    }
+  }
+
+  c = first;
+  e = 1;
+
+  while(e < height)
+  {
+    while(c < (trans2*e))
+    {
+      nummes[c] = nummes2[f];
+      c++;
+      f++;
+    }
+    
+    first++;
+    c = first + (e*trans2);    
+    e++;
+  }
+
+  if(debug)
+  {
+    c = 0;
+ 
+    printf("nummes3: ");
+  
+    while(c < messize)
+    {
+      printf("%i", nummes[c]);
+
+      c++;
+    }
+
+    printf("\n");
+  }
+
+  c = 0;
+  d = 1;
+  e = 0;
+  n = 0;
+
+  while(d <= trans2)
+  {
+    c = 0;
+
+    while(k2[c] != d)
+    {
+      c++;
+    }
+
+    n = 0;
+
+    while((c + (n*trans2)) < messize)
+    {
+      nummes2[e] = nummes[c + (n*trans2)];
+      n++;
+      e++;
+    }
+
+    d++;
+  }
+
+  if(debug)
+  {
+    c = 0;
+
+    printf("nummes4: ");
+
+    while(c < messize)
+    {
+      printf("%i", nummes2[c]);
+
+      c++;
+    }
+
+    printf("\n");
+  }
+
+  int fin;
+  c = 0;
+
+  while(date[c] != '\n')
+  {
+    c++;
+  }
+
+  fin = (5*((date[c-1] - 48) - 1));
+  n = messize;
+  messize = messize + 5;
+
+  while(fin > 0)
+  {
+    nummes2[n + 4] = nummes2[n - 1];
+    n--;
+    fin--;
+  }
+
+  nummes2[n] = permid[0];
+  nummes2[n + 1] = permid[1];
+  nummes2[n + 2] = permid[2];
+  nummes2[n + 3] = permid[3];
+  nummes2[n + 4] = permid[4];
+
+  if(debug)
+  {
+    c = 0;
+
+    printf("nummes5: ");
+
+    while(c < messize)
+    {
+      printf("%i", nummes2[c]);
+
+      c++;
+    }
+
+    printf("\n");
+  }
+
+  c = 0;
+
+  printf("\ncode: \n");
+
+  while(c < messize)
+  {
+    if((c % 5) == 0)
+    {
+      printf(" ");
+    }
+    
+    printf("%i", nummes2[c]);
+
+    c++;
+  }
+  
+  printf("\n");
+}

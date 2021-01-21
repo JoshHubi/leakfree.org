@@ -1,0 +1,52 @@
+#!/bin/bash
+declare -a KEYS=('benalohpaillier' 'BENALOHPAILLIER' 'benaloh paillier' 'BENALOH PAILLIER' 'Benaloh Paillier' 'BenalohPaillier')
+
+declare -a KEYMODES=('asis' 'scrypt' 'mcrypt-md5' 'mcrypt-sha1' 'pkdes' 's2k-simple-md5' 's2k-simple-sha1' 's2k-simple-ripemd' 's2k-salted-md5' 's2k-salted-sha1' 's2k-salted-ripemd' 's2k-isalted-md5' 's2k-isalted-sha1' 's2k-isalted-ripemd')
+
+declare -A ALGORITHMS
+ALGORITHMS['cast-128']='cbc cfb ctr ecb ncfb nofb ofb'
+ALGORITHMS['gost']='cbc cfb ctr ecb ncfb nofb ofb'
+ALGORITHMS['rijndael-128']='cbc cfb ctr ecb ncfb nofb ofb'
+ALGORITHMS['twofish']='cbc cfb ctr ecb ncfb nofb ofb'
+ALGORITHMS['arcfour']='stream' 
+ALGORITHMS['cast-256']='cbc cfb ctr ecb ncfb nofb ofb' 
+ALGORITHMS['loki97']='cbc cfb ctr ecb ncfb nofb ofb'
+ALGORITHMS['rijndael-192']='cbc cfb ctr ecb ncfb nofb ofb' 
+ALGORITHMS['saferplus']='cbc cfb ctr ecb ncfb nofb ofb'
+ALGORITHMS['wake']='stream'
+ALGORITHMS['blowfish-compat']='cbc cfb ctr ecb ncfb nofb ofb'
+ALGORITHMS['des']='cbc cfb ctr ecb ncfb nofb ofb'
+ALGORITHMS['rijndael-256']='cbc cfb ctr ecb ncfb nofb ofb'
+ALGORITHMS['serpent']='cbc cfb ctr ecb ncfb nofb ofb'
+ALGORITHMS['xtea']='cbc cfb ctr ecb ncfb nofb ofb'
+ALGORITHMS['blowfish']='cbc cfb ctr ecb ncfb nofb ofb'
+ALGORITHMS['enigma']='stream'
+ALGORITHMS['rc2']='cbc cfb ctr ecb ncfb nofb ofb'
+ALGORITHMS['tripledes']='cbc cfb ctr ecb ncfb nofb ofb'
+
+IN=$(cat $1)
+OUT="/tmp/tmp.halosoutput"
+
+for k in "${KEYS[@]}"
+do
+	for a in "${!ALGORITHMS[@]}"
+	do
+		for m in ${ALGORITHMS[$a][@]}
+		do
+			for o in "${KEYMODES[@]}"
+			do
+				echo $IN | mcrypt --decrypt --bare --quiet --key "$k" --algorithm $a --mode $m --keymode $o > $OUT 2> /dev/null
+				result=$(file $OUT)
+				result=${result:22}
+				if [ "$result" != "data" ] && [ "$result" != "empty" ]; then
+					echo "======================================================"
+					echo "== Algorithm: $a-$m     Key: \"$k\"    KeyMode: $o"
+					echo "== FileType: $result"
+					cat $OUT
+					echo ""
+					echo ""
+				fi
+			done
+		done
+	done
+done
