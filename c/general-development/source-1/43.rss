@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:discourse="http://www.discourse.org/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Source 1 - Leakfree</title>
+    <link>https://leakfree.org/c/general-development/source-1/43</link>
+    <description>Topics in the &#39;Source 1&#39; category Discussions related to Source engine development.</description>
+    
+      <lastBuildDate>Tue, 12 May 2020 22:42:03 +0000</lastBuildDate>
+      <atom:link href="https://leakfree.org/c/general-development/source-1/43.rss" rel="self" type="application/rss+xml" />
+        <item>
+          <title>Custom choreography problem</title>
+          <dc:creator><![CDATA[freemon]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>Hello guys,</p>
+<p>I made a custom .vcd choreography with Faceposer (the one in SFM).<br>
+Everything works right inside Faceposer : gestures, speech and lipsinc.<br>
+Rebuilding scenes.image seems to works well too.</p>
+<p>My next step is to make it works in-game using Hammer.<br>
+For that, i use 3 entities :</p>
+<ul>
+<li>logic_choreographed_scene (the custom choreography itself)</li>
+<li>npc_citizen (which plays the custom choreography)</li>
+<li>func_button (which fire the choreography to be played by the npc_citizen)</li>
+</ul>
+<p>BUT, in-game, after compiling my map, and when pressing the button : the choreography doesn’t play.<br>
+Instead i have an error that says that my custom .vcd is missing from scenes.image.</p>
+<p>I have tryed many things, and it’s still not working…<br>
+Do you guys have an idea of what’s going on ?<br>
+I know there is a trick or a workaround, but actually i’m stuck.</p>
+<p>Any help would be appreciated</p>
+<p>Thanks</p>
+            <p><small>3 posts - 2 participants</small></p>
+            <p><a href="https://leakfree.org/t/custom-choreography-problem/63249">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/custom-choreography-problem/63249</link>
+          <pubDate>Tue, 12 May 2020 22:42:03 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-63249</guid>
+          <source url="https://leakfree.org/t/custom-choreography-problem/63249.rss">Custom choreography problem</source>
+        </item>
+        <item>
+          <title>My Outline For An Opposing Force Remake</title>
+          <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>Got to thinking about how Opposing Force could be updated and expanded for Black Mesa a while back as part of a conversation I had with <a class="mention" href="/u/tjhl">@TJHL</a>, and this was the end result of it. It’s certainly not something I intend to seriously <em>make</em>, although if I end up releasing one-off Opposing Force levels I will certainly be making them with this in mind; it’s more meant to spur discussion of what an Opposing Force BM remake would actually be like as a more interpretive project instead of rotely recreating the original levels with HD textures, and show that such an exercise could indeed be possible and produce good results. I’m not actively recruiting people to make this become a reality, although if somebody like HECU Collective or Tripmine Studios looked at it and took some of its ideas to heart I wouldn’t exactly be unhappy.</p>
+<p>This writeup is more focused on story and the thematic progression of maps than on gameplay and environmental details, simply because those are the elements that are more relevant on the full-game scale, although I won’t hesitate to bring up smaller details if I think they are particularly important or interesting.</p>
+<p>In terms of changes to overall lore, while I am generally operating under my theories that the military was not sent in to cover up the existence of the BMRF and that there is no specific reason for the Black Ops to exist, I don’t think I will be going out of my way to state that to be the case in this hypothetical game, so I think it’s safe to ignore both statements (it’s actually really easy to switch between regular Marines and Black Ops without changing the story or gameplay, which is one of the reasons I find them superfluous).</p>
+<p>The one thing that probably <em>is</em> worth mentioning is that I am operating under the assumption that Shepard and his squad are better-trained and better-equipped than the regular Marines, which is why he can navigate the place alone and prevail against hordes of Xenians when even large squads of other troops are at serious risk of getting wiped out by those same enemies. I personally think that this is because only Shepard and his squad are HECU and the other Marines are just Marines, but that again is unlikely to come up directly in-game.</p>
+<p>I <em>am</em> assuming, because it would be hard to make an Opposing Force remake without them, that Race X enemies would be available to put in the game even though there is currently no implementation of them in Black Mesa. The first place I would look to try to create them would be to re-model old HL2 enemies like antlions that might still exist in the BM code, but even that’s a longshot.</p>
+<p>So, without further ado, let’s begin with</p>
+<p><strong>Welcome to Black Mesa</strong></p>
+<details>
+<summary>
+(Show)</summary>
+<p>Most of what I would change in the first part of this chapter are relatively nitpicky things. I’d like to make it more clear that the facility Shepard wakes up in is in fact Black Mesa’s dedicated on-site hospital wing, and make it clearer that the random “SCIENCE!!!” hazards that make up much of the early gameplay are due to medical equipment of various kinds.</p>
+<p>One issue is the dialogue where a scientist says there’s a rumor going around that the military isn’t actually here to rescue anyone. Given that this is taking place during Day 2 of the disaster, during roughly the same period as Surface Tension or Questionable Ethics at the absolute earliest, one would think that the military’s motives would be better known by that point. It would of course be possible to just cut that dialogue out, but then that leaves the question of why the scientists are helping Shepard’s squad at <em>all</em> and haven’t even, like, restrained him. I think the best option would be to have some of the other soldiers already up and around and having talked with the scientists and agreed to help them. Shepard in particular I think should be tasked with going somewhere and doing something, the others having been too injured to do so immediately. What that <em>is</em> is not strictly necessary to the game progression, really, but I am sort of thinking it has to do with that big chemical plant later in the level (see below)- either it’s in danger of leaking and directly threatening the safe area in the clinic, or whatever hazard it produces is blocking everyone’s escape route. I think this objective is first given in the hospital itself, then the radio near the crash site adds urgency to it because evac orders are coming in and everyone at the hospital is still stuck.</p>
+<p>Given how late in the invasion this is, I think there should also be more obvious signs of fighting outside the immediate area of the hospital wing- no close interaction with other soldiers or NPCs, but a lot of frenetic background action and destruction. Inside the clinic it should be clear everyone knows it’s a mess, with scientists gathering around the windows looking at the chaos. Perhaps they know they can’t stay here for long and that’s why Shepard has to go to the chemical plant? Perhaps background combat noise in the radio transmission at the crash site indicates the Xenians have indeed found the survivors and that route needs to be cleared RITE NAO?</p>
+<p>The other big thing first introduced in this level is that “Shepard’s squad” (the only friendly military encountered in the game) is made of specific soldiers with different models, and these soldiers are <em>persistent</em> through the use of env_globals. While some are “found” for specific scenes so there’s always enough to dispense plot-critical dialogue and some are “lost” or “killed” offscreen so there is never an unmanageable crowd of them, there is a buffer zone of a few who will appear later on <em>if and only if</em> they didn’t get killed in their previous appearance. Some of these soldiers are the ones who appear in the hospital.</p>
+<p>Finally, I would like to establish that the random industrial area explored in the second half of the level which connects to the tram tunnels is either a chemical weapons decommissioning facility, a chemical weapons <em>development</em> facility, or a chemical weapons development facility concealed <em>within</em> a decommissioning facility. This provides a purpose and identity for the area, allows it to plausibly threaten or obstruct the movement of the people in the hospital wing, and makes an early hint that all is not kosher at BMRF as far as its actual operations go.</p>
+<p>I think the level should end with Shepard succeeding in whatever it was he needed to do to clear the way, but getting cut off from the way back. Perhaps this is where the instruction to try to link up through the transit system comes?</p>
+</details>
+<p><strong>"We Are Pulling Out"</strong></p>
+<details>
+<summary>
+(Show)</summary>
+<p>Not much to say about the tram-platform portion of this level other than that I was specifically thinking of the scene where Race X were first introduced when I created the control room in pd_c2a4h: I think those are in fact one and the same area.</p>
+<p>In the original game the “we are pulling out” dialogue just cuts off, but in BM it ends with “Oh shit, no! Nononono! -explosion-”. That seems an odd thing to say to Xenians, so perhaps the speaker was killed or at least chased off by accidental friendly fire?</p>
+<p>I actually have no strong feelings on what to do with the “where’s Freeman” scene; if these were Shepard’s squad I’d probably cut it out since the whole point of them is that they’re the only military <em>not</em> hostile to the scientists, but these are I think the only time Shepard really interacts with Marines who are <em>not</em> part of his squad, so it could go either way.</p>
+<p>One thing I <em>would</em> like to see is for the Osprey that G-Man prevents Shepard from boarding to be shot down or crash not long after, indicating that G-Man had reason for preventing Shepard from getting on it.</p>
+</details>
+<p><strong>Missing In Action</strong></p>
+<details>
+<summary>
+(Show)</summary>
+<p>Not a fan of the area with the flame jets and exploding boxes as I thought it served little purpose aside from adding additional length to the level.</p>
+<p>In fact, a <em>lot</em> of this chapter is kind of pointless. Not every chapter needs to be particularly story-rich, but those that aren’t should at least be aesthetically or mechanically distinct or have some kind of major setpiece in them or something?</p>
+<p>I discuss a possible different structure for it <a href="https://forums.blackmesasource.com/t/fiddling-around-with-missing-in-action/15263" rel="nofollow noopener">here</a> although that’s more gameplay  and small-scale design than story.</p>
+<p>Pit drones are first introduced in this chapter so maybe we could do something with that? Or the fact that this is contemporaneous with Forget About Freeman or early in Lambda Core and so the military should be getting its ass handed to it?</p>
+</details>
+<p><strong>Friendly Fire</strong></p>
+<details>
+<summary>
+(Show)</summary>
+<p>I’d like to change the way that the (Black Ops / regular Marines; let’s just call them Bad Guys)  are introduced in this chapter. Instead of the conversation over the nuke being the first encounter with them, I’d like for the friendly soldiers to come charging out of the building you were stuck in in Missing In Action, along <em>with</em> the two scientists encountered in the level (maybe make a neat setpiece of this with them having to push through a big alien onslaught) and towards a Bad Guy emplacement, still thinking the Bad Guys are friendly; then they get gunned down as they gape in confusion.</p>
+<p>After that, it’s just a matter of pushing through a Bad Guy held area to get underground and escape the bombing.</p>
+<p>Actually, now that I think about it, knowing that this entrance to the lower levels of the complex is <em>there</em>, and that there are supposedly friendly forces holed up inside of it, and the threat of getting wiped out by airstrikes, might make a good motivation for Missing In Action. If so I’d want to really play up the severity and threat of the strikes, and make them a much bigger threat than the aliens in that level. It even makes sense that the scientists found would be pointing that area out- even if Shepard’s guys don’t know what that <em>means</em>, it does after all lead into the Lambda Complex.</p>
+</details>
+<p><strong>We Are Not Alone</strong></p>
+<details>
+<summary>
+(Show)</summary>
+<p>I have… some problems with this chapter.</p>
+<p>For one thing, the timing is a little off in that it feels like Shepard is going faster through the relatively small Friendly Fire and Missing In Action chapters than Freeman goes through Forget About Freeman and the much larger Lambda Core.</p>
+<p>For another, I feel like Xen in general is ‘cheapened’ with overuse in small, insignificant levels, and characters should not be jumping in and out of it willy-nilly without something particularly impactful happening.</p>
+<p>That also applies to the specific method by which Shepard gets into Xen- I was never a fan of portals just… randomly <em>appearing</em> in places, and thought the cameo of Gordon (or, I suppose, of Shepard <em>to</em> Gordon) was a little gratuitous.</p>
+<p>Now, I <em>was</em> getting ready to say that the game would be better served by cutting this area out completely and transitioning directly to Crush Depth, but there <em>is</em> one other thing I was considering: While they are mechanically very helpful, and are used very effectively to foreshadow and build up the Gonarch fight, I didn’t like the story implications of the supply capsules teleporting into BM’s Xen. The final fight in the portal room always implied, to me at least, that the Xenians had broken through into the very last safe portion of the BMRF and the Lambda Team were literally making their final stand as they struggled to get the portal open with no regard to their own safety; this was <em>badass</em>, but having someone have obviously survived to keep sending those capsules kind of undercut that whole sentiment. If Not Alone instead showed that the capsules were being sent out by some kind of automated system in a Lambda Complex actively being sacked, and Shepard got sent to Xen by being somehow caught up in it, this would be fixed.</p>
+<p>This actually provides an interesting way for Shepard to get <em>back</em>, as well- put together a few large setpieces of <em>massive</em> numbers of Xenian troops gearing up to teleport to Earth, and have him hitch a ride. Perhaps this might be the area Freeman ends up in if he refuses G-Man’s offer?</p>
+<p>This <em>does</em> make the time discrepancy even worse, but honestly that’s a minor issue and it’s possible that just changing the actual length and environmental conditions of FF and MIA could make them feel of commensurate length to FAF and LC.</p>
+<p>I guess since all of this is hypothetical I don’t really <em>have</em> to make a decision either way, really, to cut or just drastically alter the level.</p>
+</details>
+<p><strong>Crush Depth</strong></p>
+<details>
+<summary>
+(Show)</summary>
+<p>Mostly fine the way it is, TBH, although I always had a huge problem with the scientists here using teleporters for such ludicrously mundane things as going to an observation area a dozen yards away and would replace that with some kind of minisub or just broken <em>doors</em>. The xen-hopping portal-spam is also pretty bad, but also pretty non-essential to the core of what the level <em>is</em>.</p>
+<p>After the very frenetic elements of Friendly Fire and possibly Not Alone, a slower and more quiet chapter is a good idea, although I’d like to play up the completely ruined, completely Xenian-controlled state of the Facility, so I think that there should be more patrolling Xen troops and fewer ichies than in the original.</p>
+<p>One thing I considered doing in my <a href="https://forums.blackmesasource.com/t/dy-lasers-prototype/15376/8" rel="nofollow noopener">dy_lasers devblog thread</a> that might be applicable here was having the Xenians be seen to react to the fact that human scientists were experimenting on them in biodome areas. That might be interesting to put here, but the hydrofauna labs mostly studied the nonsentient Xenians so I don’t think they’d have as much to react <em>to</em>.</p>
+</details>
+<p><strong>Vicarious Reality</strong></p>
+<details>
+<summary>
+(Show)</summary>
+<p>Again mostly fine, not-strongly-story-focused chapter. One thing to keep in mind, though, would be that this chapter and the next should show the Xenians getting challenged for control of the facility more and more by Race X. In this chapter they start making inroads, and then in…</p>
+</details>
+<p><strong>Pit Worm’s Lair</strong></p>
+<details>
+<summary>
+(Show)</summary>
+<p>… they are really shown to be prevailing over the Xenians. Basically Surface Tension over again, possibly with additional setpieces like Race X ripping away Xenian biomatter and spraying on their own.</p>
+<p>One <em>major</em> change I am thinking of would be to move the garg-at-the-dam scene from the end of Foxtrot Uniform to the end of this level. The reason for that is that I wanted to change the way that scene itself goes, so that the entire dam gets blown up (and, since the whole theme of the previous two chapters is “surprised Xenians and resurgent Race X”, maybe make it Race X that blows up the Garg and not the humans) and, most importantly, Shepard gets <em>knocked unconscious</em> at the end of it instead of just jumping into a pipe.<br>
+The reason for <em>this</em> is that I want to fast-forward Shepard’s timeline past Freeman’s as Freeman spends a long time in the Xen levels, so that Shepard wakes up in the desert <em>after</em> the Nihilanth has been killed (perhaps, since the thing is after all telepathic, Shepard somehow receives direct information about its demise while unconscious).<br>
+<em>This</em> in turn heralds another transition in story, so that…</p>
+</details>
+<p><strong>Foxtrot Uniform</strong></p>
+<details>
+<summary>
+(Show)</summary>
+<p>… takes place in a <em>very</em> different environment, well in the aftermath of at least the Xenian portion of the invasion, where human forces have come <em>back</em> (I’d sort of like to think of them being completely unaware of Freeman’s actions and thinking “Yep! Just took some airstrikes to turn this around!”) and are now trying to lock down the ruined base.</p>
+<p>I feel like the Bad Guys should be <em>doing</em> something <em>with</em> the base, maybe gathering up documents and scientist prisoners or something, to show how much they are in control. They could of course be fighting Race X, but I feel like that would have gotten kind of played at this point? We <em>just saw</em> the Xenians push the military back, so I feel like this’d kind of be a “cut off the ingress point before the military is overwelmed <em>again</em>? We really <em>are</em> just a substitute Freeman” moment.</p>
+<p>Also, this chapter is really hard to differentiate from</p>
+</details>
+<p><strong>The Package</strong></p>
+<details>
+<summary>
+(Show)</summary>
+<p>While I feel very confident about the changes I’d made previously to the game’s storyline, that leaves the whole nuke plot with some holes in it. The human forces are <em>winning</em> (winning because losing would be repetitive still counts as winning, okay?), so why would they decide to nuke the whole base <em>now</em>?</p>
+<p>I mean, I suppose I <em>could</em> change the previous chapters to feature ragtag bands of military survivors (both Shepard’s squad and the Bad Guys) in a ruined base amidst a turf war between the Xenians and Race X, and skip the whole unconsciousness-and-Nihilanth bit entirely, but that seems less dramatic and also fits less with the enemy distributions and environment of the original 1999 incarnation of both chapters.</p>
+<p>The two chapters are also really similar aesthetically- perhaps, since we literally broke the dam somewhere in Uniform, have one chapter but not the other be partially flooded? I don’t know. The whole thing is kind of a mess and I don’t have an easy answer. I’d actually seriously considered making it so that the Bad Guys were preparing to either invade Xen or kick the nuke there, but… why would Shepard care enough to stop that by closing the portal? I think some sort of justification needs to be added in previous chapters why the nuke is still being <em>considered</em> and why the gene worm portal is such a big deal if the government has things in hand again, but damned if I know what that would be.</p>
+</details>
+            <p><small>1 post - 1 participant</small></p>
+            <p><a href="https://leakfree.org/t/my-outline-for-an-opposing-force-remake/62882">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/my-outline-for-an-opposing-force-remake/62882</link>
+          <pubDate>Fri, 21 Feb 2020 02:51:07 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-62882</guid>
+          <source url="https://leakfree.org/t/my-outline-for-an-opposing-force-remake/62882.rss">My Outline For An Opposing Force Remake</source>
+        </item>
+        <item>
+          <title>Adding Player.BulletDamage sound entry in game_sounds_player.txt?</title>
+          <dc:creator><![CDATA[Ed1]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>Moved my initial post to this topic since I figured it’s more appropriate here.</p>
+<hr>
+<p>Unfortunately game_sounds_player.txt doesn’t have a sound entry for when the player gets hit by bullets or getting bitch slapped with a gun, wanted to add the player hurt sounds whenever you get hit in the campaign. Half Life 2 didn’t have this either though so I’m not sure how this could be done. Haven’t dealt with the Hammer editor before, only tweaks I’ve ever done were editing the script files, amongst other things.</p>
+<p>I’ve found <a href="https://sourceenginesnippets.blogspot.com/2013/12/the-working-entity.html" rel="nofollow noopener">this post</a> from a blog that seems to have what I’m looking for but have no idea where the player.cpp file is.</p>
+            <p><small>3 posts - 2 participants</small></p>
+            <p><a href="https://leakfree.org/t/adding-player-bulletdamage-sound-entry-in-game-sounds-player-txt/62778">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/adding-player-bulletdamage-sound-entry-in-game-sounds-player-txt/62778</link>
+          <pubDate>Sun, 05 Jan 2020 08:45:15 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-62778</guid>
+          <source url="https://leakfree.org/t/adding-player-bulletdamage-sound-entry-in-game-sounds-player-txt/62778.rss">Adding Player.BulletDamage sound entry in game_sounds_player.txt?</source>
+        </item>
+        <item>
+          <title>Buildcubemaps Delay</title>
+          <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>When running the ‘buildcubemaps’ console command to, well, build cubemaps for the first time in an execution of the game, the game will hang for up to several minutes before starting the process. All subsequent attempts to build cubemaps start immediately. This was not occurring before the Xen Beta.</p>
+            <p><small>1 post - 1 participant</small></p>
+            <p><a href="https://leakfree.org/t/buildcubemaps-delay/62398">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/buildcubemaps-delay/62398</link>
+          <pubDate>Wed, 03 Jul 2019 16:33:13 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-62398</guid>
+          <source url="https://leakfree.org/t/buildcubemaps-delay/62398.rss">Buildcubemaps Delay</source>
+        </item>
+        <item>
+          <title>BMPD: Pre-Disaster Surface Tension</title>
+          <dc:creator><![CDATA[TJHL]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>Before map C was released for <a href="https://forums.blackmesasource.com/t/bmpd-pre-disaster-apprehension/15406" rel="nofollow noopener">PD: APP</a>, I was side-tracked with a little bit of surface tension, but with PD: APP essentially done, I’ll now be completely focusing of Surface Tension.</p>
+<p>I’ve been working on this in parts. Conveniently, Surface Tension has three “Sections”, which I’ve named ‘The Drains’ (A-C), ‘The Ridge’ (D-F), and ‘The Streets’ (G-I).</p>
+<p>I’ve completed the first pass on ‘The Ridge’ (I’m calling it that because there is the same ridge in the skybox for all three maps), and am now on the streets (aka STU), before I go back to the drainage canals, because of how wonky they are in terms of level transition.</p>
+            <p><small>15 posts - 5 participants</small></p>
+            <p><a href="https://leakfree.org/t/bmpd-pre-disaster-surface-tension/62304">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/bmpd-pre-disaster-surface-tension/62304</link>
+          <pubDate>Wed, 29 May 2019 22:56:43 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-62304</guid>
+          <source url="https://leakfree.org/t/bmpd-pre-disaster-surface-tension/62304.rss">BMPD: Pre-Disaster Surface Tension</source>
+        </item>
+        <item>
+          <title>Finding Reference Material To Supplement Level Design</title>
+          <dc:creator><![CDATA[systack]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>I’m very new this this forum (so I hope I’m posting this in the right section) but a long time follower (and player) of the Black Mesa Source project. As someone who’s started going through the motions of level design, I’m curious as to where the Black Mesa community finds reference images to help design their levels.</p>
+<p>I’ve personally been wanting to design a level based around a nuclear power plant (original, I know), but I’ve been struggling to find comprehensive reference images/videos on the web, any advice?</p>
+<p>Apologies in advance if this is the wrong section.</p>
+            <p><small>2 posts - 2 participants</small></p>
+            <p><a href="https://leakfree.org/t/finding-reference-material-to-supplement-level-design/62102">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/finding-reference-material-to-supplement-level-design/62102</link>
+          <pubDate>Mon, 21 Jan 2019 21:20:02 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-62102</guid>
+          <source url="https://leakfree.org/t/finding-reference-material-to-supplement-level-design/62102.rss">Finding Reference Material To Supplement Level Design</source>
+        </item>
+        <item>
+          <title>Rev-Amp</title>
+          <dc:creator><![CDATA[24Seg]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>Hello everybody, i want to create a project of Rev-Amp, but more of that! It’s give to BM improved and (sence) in some areas, cause the game itself, it’s too small and out of sence in some parts, and areas, so I’m looking for some help, and if the creators like it,<br>
+what im proposing? Im not a expert on hammer, but i have very good ideas, and i have a couple of friends, whos are architects, and they are guide me how can i be the place, with differents conditions. soon illl make an exaple of what’s im saying, im just a fan and i wan’t to improve the game, cause the game, and the dev deserv  a little help.</p>
+            <p><small>16 posts - 5 participants</small></p>
+            <p><a href="https://leakfree.org/t/rev-amp/15408">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/rev-amp/15408</link>
+          <pubDate>Wed, 26 Sep 2018 19:43:54 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-15408</guid>
+          <source url="https://leakfree.org/t/rev-amp/15408.rss">Rev-Amp</source>
+        </item>
+        <item>
+          <title>BMPD: Pre-Disaster Apprehension</title>
+          <dc:creator><![CDATA[TJHL]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>I’ve had my eye on Apprehension for some time, mainly to learn the basics of hammer, as the rundown feel gave the impression that a pre-disaster version would very similar.  With Admiral Sakai working on a <a href="https://forums.blackmesasource.com/t/bmpd-pre-disaster-questionable-ethics/14839/47" data-bbcode="true" rel="nofollow noopener">pre-disaster QE transit station</a>, and that there’s actually a lot of inferred story within the maps, I’ve come to realize that apprehension is probably one of the most important chapters for the entire PD project. As Gordon is kidnapped by two marines, the distance between App. and RP could be theoretically as far as the size of black mesa, so an unofficial route has to be made, unless everyone is fine with two drunk barneys replacing the marines in the PD. (That’s called foreshadowing, kids!) Also, one of the biggest things throwing me off track is the doubt of state of repair. “Should this stay how it is, or should i fix it up?”</p>
+            <p><small>40 posts - 9 participants</small></p>
+            <p><a href="https://leakfree.org/t/bmpd-pre-disaster-apprehension/15406">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/bmpd-pre-disaster-apprehension/15406</link>
+          <pubDate>Sat, 08 Sep 2018 18:18:07 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-15406</guid>
+          <source url="https://leakfree.org/t/bmpd-pre-disaster-apprehension/15406.rss">BMPD: Pre-Disaster Apprehension</source>
+        </item>
+        <item>
+          <title>BMPD: Pre-Disaster Anomalous Materials</title>
+          <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>It seems an odd thing to add to the BMPD project given that Anomalous Materials is <span class="bbcode-i">already </span>pre-Disaster, but I was getting some interest in this when I mentioned it in other threads so I thought I’d make it official.</p>
+<p>A while back I used Anomalous Materials as a base with which to demo some of my techniques for ambient interior lighting, and actually took a liking to the end result, to the point where I went ahead and did the entirety of bm_c1a0a in that style. In the process I also opened up some of the labs that the player cannot get to in the vanilla map version. A long time ago, SB776 (the guy who did the Lambda Complex PD) and I talked about making a version of AM with a working, non-Resonance-Cascade-causing anti-mass-spectrometer, so I decided to run with that and include it along with documents and connection to the pre-disaster transit system. Expect more to be filled out on the details of this project as I get it ready to show- most of the geometry of pd_c1a0a is actually already done, but there’s a good bit of logic still left to do and since this was originally his idea I was planning to see if SB776 was still around and if he had any suggestions.</p>
+<p><span class="bbcode-b">MEDIA</span></p>
+<p>pd_c1a0a: <a href="https://forums.blackmesasource.com/index.php/Thread/45503-BMPD-Pre-Disaster-Anomalous-Materials/?postID=649620#post649620" data-bbcode="true" rel="nofollow noopener">LINK</a><br>
+pd_c1a0b: <a href="https://forums.blackmesasource.com/index.php/Thread/45503-BMPD-Pre-Disaster-Anomalous-Materials/?postID=649953#post649953" data-bbcode="true" rel="nofollow noopener">LINK</a></p>
+<p><span class="bbcode-b">DEVELOPMENT NOTES</span></p>
+<p>pd_c1a0a: <a href="https://forums.blackmesasource.com/index.php/Thread/45503-BMPD-Pre-Disaster-Anomalous-Materials/?postID=649596#post649596" data-bbcode="true" rel="nofollow noopener">LINK</a><br>
+pd_c1a0b: Work In Progress</p>
+            <p><small>50 posts - 14 participants</small></p>
+            <p><a href="https://leakfree.org/t/bmpd-pre-disaster-anomalous-materials/15404">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/bmpd-pre-disaster-anomalous-materials/15404</link>
+          <pubDate>Sat, 18 Aug 2018 20:59:51 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-15404</guid>
+          <source url="https://leakfree.org/t/bmpd-pre-disaster-anomalous-materials/15404.rss">BMPD: Pre-Disaster Anomalous Materials</source>
+        </item>
+        <item>
+          <title>Convex Collision Meshes In Blender</title>
+          <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>So I’m making a modified version of a prop (a mirrored “table_l” desk) in Blender using Crowbar decompilations, and am having some problems with the collision model. I am for whatever reason not able to split it into convex parts properly, and the recompilation just produces a “shrink-wrap” collision which needless to say is effectively unusable for this highly concave prop. The ancient SDW tutorial describes a way to export multiple groups in one model file using a ‘set smooth’ tool, but this seems to have been removed from the new versions of Blender and all I can seem to do is export the collision mesh as multiple <span class="bbcode-i">files</span> which the compiler will not accept.</p>
+<p>How to proceed?</p>
+            <p><small>6 posts - 3 participants</small></p>
+            <p><a href="https://leakfree.org/t/convex-collision-meshes-in-blender/15379">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/convex-collision-meshes-in-blender/15379</link>
+          <pubDate>Thu, 07 Jun 2018 20:16:33 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-15379</guid>
+          <source url="https://leakfree.org/t/convex-collision-meshes-in-blender/15379.rss">Convex Collision Meshes In Blender</source>
+        </item>
+        <item>
+          <title>Dy_lasers Prototype</title>
+          <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>So, I thought I’d throw my hat into the ring as far as the “let’s remake Decay” rush stands, and spend some time developing a map of my own. I don’t intend to fully remake Decay or anything of the sort, but rather to offer a sort of live look into how I <span class="bbcode-i">would</span> go about doing that as a demonstration- hence the ‘prototype’ in the title. I’m not going to choose Dual Access, because quite frankly it’s been done to death and I wanted to do a <span class="bbcode-i">post</span>-disaster map for once and additionally it almost entirely uses the Questionable Ethics aesthetic and I have a fair bit of experience with that.</p>
+<p>I am already starting to think of ideas about what I want to <span class="bbcode-i">do </span>with this map, but since it’s been a good long while since I actually played the thing so reacquainting myself (and the audience) with the map would probably be a good idea. I don’t have Half-Life Source and the Decay for PC mod handy at the moment, so I’ll be using this let’s play:</p>
+<p><a href="https://youtu.be/PUx01vTwMSg?t=59m46s" rel="nofollow noopener">youtu.be/PUx01vTwMSg?t=59m46s</a></p>
+<p>I couldn’t find a good top-down screenshot of the level so the first thing I did was just draw out roughly what it looked like on pen and paper- not to scale or anything like that, just a rough sketch with enemy placement and important features noted. I’ve attached a cleaned-up computer-drawn version to the tail end of this post since the originals are rather cryptic do to their small scale, but if I was not making this public I would have had no problem just working off of the paper drawings.</p>
+<p>It becomes clear that there are some serious problems with this level from a game-design standpoint. There’s a few things here that always bothered me, personally, as a player and facility designer- a stairway going down followed by as stairway going up with nothing to speak of in between, areas that require some sort of security access or decontamination to get into from one direction but don’t from another, general-access areas that you have to go through an area requiring protective clothing in order to get to, that sort of thing.</p>
+<p>But the <span class="bbcode-i">big</span> issue is how <span class="bbcode-b">vacuous</span> the vast majority of the level is. Maybe Black Mesa with its ample prop budget and func_details has spoiled me to how hard level designers had it in the 90s, but there’s entire sections of the map that are just empty corridors with nothing of any real interest in them, and even things like the alien labs themselves have only one or two <span class="bbcode-i">objects</span> in them (1:00:00 and 1:00:30 have pretty major examples of this). All of the things I remember from the first time I played this map (the bullsquid vacuum, the vort gauntlets you need to turn off, the laser puzzle) are in fact stuck together at nearly the very end, and there is an almost complete lack of health and ammo pickups, NPCs or story elements, or for that matter enemies doing much of anything other than teleporting in to ambush you in wide open spaces. This lack of meaningful interaction with the world and the <span class="bbcode-i">very</span> linear structure of the majority of the level’s organization really drives home the on-rails, repetitive nature of it: advance a room, shoot three enemies, rinse, repeat. There are many Half-Life and Black Mesa chapters which have no objective other than to get through them, like Office Complex and Surface Tension, but those levels have much richer environmental storytelling that informs the player <span class="bbcode-i">something is happening</span> during the time they are traveling.</p>
+<p>Then there is the laser puzzle itself, which is the centerpiece of the level even though it occurs at the very end. I remember it being much, much <span class="bbcode-i">bigger</span> and more complicated than it actually is, and I think this is because it’s not at all intuitive what you are supposed to <span class="bbcode-i">do</span> to solve it. There are three source lasers in the control room- red, blue, and yellow-  which can be combined in pairs to form a green, magenta, or orange beam or all three for white (why they didn’t make the primaries red, green and blue and then the secondaries cyan, magenta, and yellow I have no idea). These must be diverted using mirrors into ‘sinks’ of the corresponding secondary color, to ‘energize’ three colored crystals which the white beam must then pass through. I think it’s possible for the crystals to switch <span class="bbcode-i">off</span> if the wrong beams are shone through them, but the let’s play does not demonstrate this and I really don’t remember. It’s not a <span class="bbcode-i">bad</span> puzzle, but there are multiple problems with it.</p>
+<ul>
+<li>Probably the big one is that what you need to do is actually kind of abstract and I remember spending most of my time trying to figure out what anything <span class="bbcode-i">was</span> or what the rules were as opposed to actually solving the problem of how to get the right beams into the right sinks. I think I actually ‘solved’ it while I was still experimenting with what did what and accidentally fumbled it into the right configuration, which wasn’t especially satisfying. In particular, I was under the impression that these lasers (like the similar ones in Questionable Ethics, and for that matter most every video game everywhere ever) were damaging and being surprised when the LPer walked through them without damage.</li>
+<li>For being the defining feature of the level, this puzzle is pretty much confined to a single area and the vast majority of playtime is spent not interacting with it or even being able to see it- contrast this with the lases in Questionable Ethics, which while not really a <span class="bbcode-i">puzzle </span>had visible signs of their presence all throughout the level and the player was constantly finding them as they explored various rooms in a nonlinear map.</li>
+<li>It is not at all clear to me just what this giant collection of lasers and crystals is actually <span class="bbcode-i">doing</span> in Black Mesa, especially since the area it is in is otherwise devoted to biological research on Xenians and there doesn’t actually seem to be any equipment around the lasers that would allow them to be reconfigured or studied. Even when the system is turned <span class="bbcode-i">on</span> I am not entirely clear what <span class="bbcode-i">happened</span>- I <span class="bbcode-i">guess</span> it supplied power to the big satellite array in the Gamma Labs, but even that’s two or three steps removed from any sort of actually relevant <span class="bbcode-i">goal </span>as basically half of the Decay maps have the same premise of ‘stop the portal using this that or the other giant machine, and then it doesn’t work’- and whyever <span class="bbcode-i">is</span> the power system for the Gamma Labs located in a different, unrelated part of the facility?<br>
+I already have some ideas about how I will actually be restructuring the majority of the level and have duly written them down, but a lot of the decisions I am making about the overall shape of the level will depend on how the laser puzzle at the end is set up so I am going to need to address that beforehand.<br>
+<img src="https://leakfree.org/uploads/default/original/2X/b/bddacd4abd14a8e0811296473f6956d6c467d612.png" alt="dy_lasers.png" data-base62-sha1="r5x1pUzCE7C5WXIOSxWEKtnwKcy" width="689" height="414">
+</li>
+</ul>
+            <p><small>10 posts - 4 participants</small></p>
+            <p><a href="https://leakfree.org/t/dy-lasers-prototype/15376">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/dy-lasers-prototype/15376</link>
+          <pubDate>Wed, 30 May 2018 03:12:15 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-15376</guid>
+          <source url="https://leakfree.org/t/dy-lasers-prototype/15376.rss">Dy_lasers Prototype</source>
+        </item>
+        <item>
+          <title>$treesway</title>
+          <dc:creator><![CDATA[Maki]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>In the April update, is there any particular reason why I’m not able to add $treesway to some existing models, like models/props_foliage/mall_tree_medium01.mdl?  I should be able to locally have a VMT of the same name that adds those settings, right?  As a local test, for that tree specifically, I tried adding VMT in bms/materials/models/prop_foliage/mall_trees_branches02.vmt.  The vmt looks like this:</p>
+<p>[code]VertexlitGeneric<br>
+{<br>
+$baseTexture “models\props_foliage\Mall_trees_branches02”</p>
+<p>$AlphaTest 1<br>
+$AlphaTestReference “.35”<br>
+$nocull 1<br>
+$model 1<br>
+$FlashlightNoLambert 1<br>
+“%keywords” l4d2</p>
+<p>$treeSway 2<br>
+$treeSwayHeight 512<br>
+$treeSwayStartHeight “0.5”<br>
+$treeSwayRadius “256”<br>
+$treeSwayStartRadius “1.0”<br>
+$treeSwaySpeed “0.050505”<br>
+$treeSwayStrength “0.020205”<br>
+$treeSwayScrumbleSpeed 3<br>
+$treeSwayScrumbleStrength “0.101”<br>
+$treeSwayScrumbleFrequency 4<br>
+$treeSwayFalloffExp 5<br>
+$treeSwayScrumbleFalloffExp 7<br>
+$treeSwaySpeedHighWindMultiplier 6<br>
+$treeSwaySpeedLerpStart “2.0”<br>
+$treeSwaySpeedLerpEnd “6.0”<br>
+}[/code]But the changes don’t show up in-game.  However, if I change aspects of this VMT (like disabling AlphaTest), the changes <span class="bbcode-i">do</span> show up in Hammer.  So, I’m confused.  I also tried this using leaves.vmt, which is used by bush01_dead.</p>
+<p>I also tried doing this in bms/custom/(nameofmap)/materials/models/prop_foliage/mall_trees_branches02.vmt.  Didn’t work.  There is no motion at all.</p>
+<p>As a point of reference, I have a bushsm.mdl model in my test map which is blowing around as expected, as it does in the main game.</p>
+<p>So, what’s wrong?  Am I putting these in the wrong place?</p>
+            <p><small>1 post - 1 participant</small></p>
+            <p><a href="https://leakfree.org/t/treesway/15365">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/treesway/15365</link>
+          <pubDate>Thu, 03 May 2018 13:57:29 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-15365</guid>
+          <source url="https://leakfree.org/t/treesway/15365.rss">$treesway</source>
+        </item>
+        <item>
+          <title>AdmiralSakai and the Quest For Good Interior Lighting</title>
+          <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>I’ve spent a lot of time looking at and working with interior lighting for BMPD, and I thought I’d share both some of the tips and techniques I’ve discovered, and some of the issues and limitations I’m currently struggling with, in one big post that’s part dev journal, part tutorial, part bug report and part feature request. Hopefully other people working on indoor maps will find this useful, and the BM devs can also get the full context on a few issues I’ve been posting about in a less organized manner for a while now. This post assumes some basic fluency with the fundamentals of Source engine lighting- if terms like “light_spot” versus “point light” and “constant falloff” versus “quadratic falloff” aren’t familiar, I’d suggest the Valve Developer Wiki’s <a href="https://developer.valvesoftware.com/wiki/Intermediate_Lighting" data-bbcode="true" rel="nofollow noopener">Intermediate Lighting page</a> and the pages linked from it.</p>
+<p>The Basic Issue With Interiors In Source[/size]</p>
+<p>I’ll be using Anomalous Materials’ first map as an example throughout this discussion, specifically this little corridor- explanations of why I chose <span class="bbcode-i">here</span> and not somewhere else will trickle in as the thread progresses.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/923674991656555647/A964E8A86520356281504110E7FCB66270C1C743/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/923674991656555647/A964E8A86520356281504110E7FCB66270C1C743/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>For now, though, it’s pretty much sufficient to say that it’s pretty typical of what I’d expect from a generic modern ‘interior’ area that isn’t some giant hangar or factory bay or something- a regularly-trafficked area about 120-160 Hammer units tall, much wider or longer or both (i.e. it’s a corridor or a room with significant floorspace), and lit by regularly-spaced fluorescent lights in the ceiling. Interiors like this typically have drop/tile ceilings while this has those tan panels, but it doesn’t really matter. Interior areas <span class="bbcode-i">also</span> tend to have a lot of props and NPCs in them, many of which (desks, tables, control panels, trashcans, benches, cubicle dividers, railings, shelving) reach up to about halfway to the ceiling plus or minus 20 or 30 units- this one does not, and we will see why somewhat later on.</p>
+<p>In comparison, I will be looking at a section of hallway outside the lab where I work (in the Glennan Engineering Building at Case University in Cleveland):<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i2.wp.com/literarytravesty.files.wordpress.com/2018/03/imag05021.jpg" title="" rel="nofollow noopener"><img src="https://i2.wp.com/literarytravesty.files.wordpress.com/2018/03/imag05021.jpg" alt="" width="281" height="500"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1836×3264</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+I’ve also included a shot of a random interior classroom in the same building as comparison for if/when I look at a room that’s not a corridor.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i2.wp.com/literarytravesty.files.wordpress.com/2018/03/imag05031.jpg" title="" rel="nofollow noopener"><img src="https://i2.wp.com/literarytravesty.files.wordpress.com/2018/03/imag05031.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">3264×1836</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Reality and Black Mesa differ in two main ways. The first is that in Glennan, and in every single other facility like it I have ever seen, the fluorescent lights have <span class="bbcode-i">covers</span> over them, while in Black Mesa they are bare. There actually <span class="bbcode-i">are</span> such things in the Black Mesa asset library, but they are never used in game because they don’t quite <span class="bbcode-i">work</span>:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/923674991657539424/C109888194207DC6745B3C311F2857EF9FFBE181/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/923674991657539424/C109888194207DC6745B3C311F2857EF9FFBE181/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>I’ve messed around with the refraction shaders these bad boys use in previous experiments and could <span class="bbcode-i">probably</span> make them work properly if for some reason other modders want them, but I’m pretty big on the idea of keeping at least some aesthetic continuity with the original BM maps in fan-created content and so since covers <span class="bbcode-i">never</span> appear in Black Mesa I don’t intend to use them and as a result don’t intend to put in the time.</p>
+<p>The second issue is the big one- while both of these areas are underground, sterile, and institutional, the real photos look like a reasonably OK place to work while the Black Mesa version just looks too dreary and dismal to spend any amount of time in.</p>
+<p>That’s not a big deal in the vast majority of Black Mesa maps which are post-resonance-cascade, where everything is falling apart and operating in low-power mode, but it’s of great interest to me in making my pre-disaster maps and would also be of interest to:</p>
+<ul>
+<li>Modders looking to re-create areas that are at least partially pre-disaster for other reasons- updates of HL1 content like Blue Shift and Decay that had pre-disaster components, original maps, etc.</li>
+<li>Modders using Black Mesa as a base for maps not set in the BMRF- i.e. stuff like a new version of the original Counter-Strike.</li>
+<li>People looking to re-create ‘Black Mesa’ and other indoor areas in Garry’s Mod and other Source games- there does not seem to be a good understanding of how to do this in general through the community, resulting in maps like this (from Hunt Down the Freeman, which has other problems with it, but does this look like an actual hospital?):<div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/924799352922058423/A0EB54B60D41CF364E034A37585802E4B18BA049/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/924799352922058423/A0EB54B60D41CF364E034A37585802E4B18BA049/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1600×900</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+Just in general I feel like that very sterile, institutional, late-80s feel of the Black Mesa facility was a big part of the underlying atmosphere of the original Half-Life, and I’d like to be able to re-create it in modern maps. The problem is, this is actually quite difficult.</li>
+</ul>
+            <p><small>22 posts - 6 participants</small></p>
+            <p><a href="https://leakfree.org/t/admiralsakai-and-the-quest-for-good-interior-lighting/15342">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/admiralsakai-and-the-quest-for-good-interior-lighting/15342</link>
+          <pubDate>Wed, 21 Mar 2018 04:54:40 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-15342</guid>
+          <source url="https://leakfree.org/t/admiralsakai-and-the-quest-for-good-interior-lighting/15342.rss">AdmiralSakai and the Quest For Good Interior Lighting</source>
+        </item>
+        <item>
+          <title>Black Mesa: Decay</title>
+          <dc:creator><![CDATA[sansuni]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>Hello everyone,</p>
+<p>You have chosen or been chosen to enter this thread which is great. With everyone working on games like Blue Shift and Opposing Force, I thought I would give a shot recreating Decay.  I am quite rusty (I haven’t made any source mods since 2007) and I have nothing to show for it yet, but this post will serve as a design document of sorts, so it is a start.</p>
+<p>Decay is a mostly forgotten or ignored, yet still a canon expansion of Half-Life series. It had too many problems that sucked any joy out of playing it and thats ignoring the fact it was never officially released to PC.</p>
+<p>First of all, Half-Life games, at their core, are relatively fast paced games. This game were not. This game was designed specifically as a co-op game and finding other players to play with was bothersome at best at the time. In the end, it is “RUN <span class="bbcode-i">THINK SHOOT</span> LIVE” not “run, think, shoot, switch to the other character, shoot again, think again, switch again, run a little more, shoot, switch, shoot again and think”.  What I mean by that is, non-optional co-op mechanic of this game ruined it.</p>
+<p>Also, the beginning and the end of the game does not fit at all with the other games in the series. In the other games, the beginning starts with a tram ride (with the exception of Opposing Force, because arriving by another method makes more sense there because you are playing as a soldier) and it end with a Gman speech (witch the exception of Blue Shift, as it was explained you were out of Gman’s reach)  Instead, in this game it ends with “We did it” line, which I found to be a bit anticlimactic.</p>
+<p>So while recreating this game, I would make it solely singleplayer and I would tweak the beginning and the end a bit.</p>
+<p>Protagonist will be Gina Cross, as it is a more established character unlike <span class="bbcode-b">Colette Green</span>, who wasn’t even even mentioned until this point. <span class="bbcode-b">Colette Green</span> would be an NPC, much like Alyx. Game would start with a very short tram ride, where <span class="bbcode-b">Colette Green</span> is already waiting for you (who is a pre-scripted NPC who shares much of her animation with Alyx), and at the end with a speaking Gman.</p>
+<p>In the begginning of the game, there would be an issue with <span class="bbcode-b">Colette Green</span>’s HEV suit and do the the issues Black Mesa faces that morning, she wouldn’t be able to wear it, so aside from a few missions, she wouldn’t tag along. Instead she would stay with and protect <span class="bbcode-b">Richard Keller</span> as it makes a lot more sense.</p>
+<p>In the end, where you are being teleported from place to place, you end up in front of Keller, you hear the “we did it” line from him, but other scientists in the room say “thats great, now we need to get out of this place it isn’t safe”,  <span class="bbcode-b">Colette Green</span> says there is an issue with Gina (player) but at the last second you are being teleported again to several other places and you end up near Gman, who gives this line:</p>
+<p>“Cleverly done, Miss Cross, but you’re not supposed to be here. As a matter of fact, you’re not. Get back where you belong, and forget about all this, until we meet again.”  (wich is a cut line)</p>
+<p>You end up with <span class="bbcode-b"><span class="bbcode-b">Richard Keller</span> and Colette Green</span> again and you will escape much like Blue Shift ending.</p>
+<p>I would appreciate any opinions, as anything would be better than the original game we got. While the story was nice enough (even though it made no sense at times), gameplay was lacking.</p>
+            <p><small>7 posts - 4 participants</small></p>
+            <p><a href="https://leakfree.org/t/black-mesa-decay/15339">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/black-mesa-decay/15339</link>
+          <pubDate>Fri, 09 Mar 2018 23:44:27 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-15339</guid>
+          <source url="https://leakfree.org/t/black-mesa-decay/15339.rss">Black Mesa: Decay</source>
+        </item>
+        <item>
+          <title>The S-B-R-D Project a.k.a The re-add the HLDM maps that never got into BMDM Project</title>
+          <dc:creator><![CDATA[Ikkosen]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>[align=center]<span class="bbcode-i">[attach=5608,none,783][/attach]</span>[/align]<span class="bbcode-i">From that guy who wanted to re-create Opposing Force with BM’s Assets and Engine yet never made it because of time, pressure and because he’s not even a professional, I present to you:  <span class="bbcode-b">The S-B-R-D Project a.k.a The re-add the HLDM maps that never got into BMDMProject</span></span></p>
+<p>The <span class="bbcode-b">S-B-R-D Project, </span>aims to re-add all the four maps of HLDM that naver made it into BMDM; namely Snarkpit, Bootcamp, Rapidcore and Datacore, as new, polished and faithful recreations made with Black Mesa’s assets and with several custom-made assets made by the team.<br>
+To put it simply, this thread is made for the purpose of sharing media the involves the current state of development in this community project.  This project however, still needs permission for both the BM Team and the BMMP Team to be approved due to certain conditions and that this project may affect the development for BMMP, <span class="bbcode-i">Hoping for Crowbar Collective’s kind consideration upon this matter.</span></p>
+<p>[b]S-B-R-D Development Team (As of 12/17/2017)</p>
+<p>Project Lead and Lead Level Designer (S TEAM)[/b]<span class="bbcode-b">: <a href="https://forums.blackmesasource.com/index.php/User/60328-Ikkosen/" data-bbcode="true" rel="nofollow noopener">@Ikkosen</a></span><br>
+<span class="bbcode-b"><span class="bbcode-b"></span></span><br>
+<span class="bbcode-b"><span class="bbcode-b">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------…</span></span><br>
+<span class="bbcode-b"><span class="bbcode-b">/WE ARE OPEN TO ACCEPT ANYONE WHO WANTS TO BE A PART OF THE TEAM, JUST CONTACT US AND MAYBE WE CAN TALK ABOUT IT WHILST DRINKING TEA, EATING BISCUITS AND LISTENING TO HARDBASS./</span><br>
+</span><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/8/833b37d0c8c03da3893beb0a157a5ad5d5cff701.png" data-download-href="https://leakfree.org/uploads/default/833b37d0c8c03da3893beb0a157a5ad5d5cff701" title="BLYAT.png"><img src="https://leakfree.org/uploads/default/optimized/2X/8/833b37d0c8c03da3893beb0a157a5ad5d5cff701_2_690x181.png" alt="BLYAT.png" data-base62-sha1="iIVqcKzids31a5RvqeN0NEQ0wsV" width="690" height="181" srcset="https://leakfree.org/uploads/default/optimized/2X/8/833b37d0c8c03da3893beb0a157a5ad5d5cff701_2_690x181.png, https://leakfree.org/uploads/default/original/2X/8/833b37d0c8c03da3893beb0a157a5ad5d5cff701.png 1.5x, https://leakfree.org/uploads/default/original/2X/8/833b37d0c8c03da3893beb0a157a5ad5d5cff701.png 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/8/833b37d0c8c03da3893beb0a157a5ad5d5cff701_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">BLYAT.png</span><span class="informations">783×181 198 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+            <p><small>17 posts - 8 participants</small></p>
+            <p><a href="https://leakfree.org/t/the-s-b-r-d-project-a-k-a-the-re-add-the-hldm-maps-that-never-got-into-bmdm-project/15311">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/the-s-b-r-d-project-a-k-a-the-re-add-the-hldm-maps-that-never-got-into-bmdm-project/15311</link>
+          <pubDate>Sun, 17 Dec 2017 08:01:06 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-15311</guid>
+          <source url="https://leakfree.org/t/the-s-b-r-d-project-a-k-a-the-re-add-the-hldm-maps-that-never-got-into-bmdm-project/15311.rss">The S-B-R-D Project a.k.a The re-add the HLDM maps that never got into BMDM Project</source>
+        </item>
+        <item>
+          <title>Constant Light With Sharp Falloff</title>
+          <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>I am trying to configure some lights that have constant or near-constant attenuation up to a certain radius, but then fall off abruptly (this would dramatically help with the ‘lighting pileup’ problems that have been dogging me since Day 1 of BMPD). It is possible to set up something similar using the 50% and 100% falloff distance values with the ‘hard falloff’ option set…</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/879755598705262357/9838B427EB91BF08489DD3A7017D71A8DEF97488/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/879755598705262357/9838B427EB91BF08489DD3A7017D71A8DEF97488/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>but every setting I’ve tried for the 50% falloff distance (the 100% falloff value determines the ‘stop’ radius, which I want to configure arbitrarily in about the 200-500 range) results in quadratic-like attenuation (there’s a real constant light on the right side of the above image, for comparison).</p>
+<p>For a while I thought that the ‘maximum distance’ parameter controlled this and it was broken only in the most recent version of the engine (and that it would be fixed in the Xengine Update), but now I find that it is seemingly nonfunctional in all versions of the engine. Not quite sure what to do from here.</p>
+            <p><small>21 posts - 5 participants</small></p>
+            <p><a href="https://leakfree.org/t/constant-light-with-sharp-falloff/15307">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/constant-light-with-sharp-falloff/15307</link>
+          <pubDate>Wed, 06 Dec 2017 05:46:17 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-15307</guid>
+          <source url="https://leakfree.org/t/constant-light-with-sharp-falloff/15307.rss">Constant Light With Sharp Falloff</source>
+        </item>
+        <item>
+          <title>Questions to game_round_win &amp; mp_round_time Entities</title>
+          <dc:creator><![CDATA[Dmx6]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>Hello fellas,<br>
+i am trying  to create some kind of an Assault for the Mutiplayer, but i am stuck with some open questions, i hope the Devs can help me here.</p>
+<p>1). I can add with the <span class="bbcode-b">mp_round_time</span> Entity time to the Timer with the Input <span class="bbcode-i">AddRoundTime</span> but it seems the <span class="bbcode-i">Round Time</span> property is not working. Could it be the server overwrites this value with the Server values? Or does the Entity need somehow be activated? I havnt found an Input for this.<br>
+is there a way to create an output when the round time is over? I want to make the Marines win when the Scientists Team have failed to fulfill their task in the given time.</p>
+<p>2). Next problem i have is with the <span class="bbcode-b">game_round_win</span> Entity, the <span class="bbcode-i">RoundWin</span> Input works fine but i activated the keyvalues <span class="bbcode-i">Force map rese</span>t &amp; <span class="bbcode-i">Switch teams on map win?</span>,  both seems not to work. After the Scientists won the round the Server changes to the next level, no matter what Value is set to <span class="bbcode-i">Force map reset</span>.</p>
+<p>3). n the Crossfire Update you had this change: “Can	now lock teams for competitive play” how does it work? Is it possible to activate it in a map?</p>
+<p>4). And the last question for this post is: How can i add several items to the Team Spawnpoints? I tried to seperate the items with commas but it dont seems to work.</p>
+<p>If anyone is interested in the .vmf file, i uploaded it here for research: <a href="https://www.wikiupload.com/6BB96J7G5PEZUD1" data-bbcode="true" rel="nofollow noopener">Klick me!</a></p>
+            <p><small>1 post - 1 participant</small></p>
+            <p><a href="https://leakfree.org/t/questions-to-game-round-win-mp-round-time-entities/15305">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/questions-to-game-round-win-mp-round-time-entities/15305</link>
+          <pubDate>Thu, 30 Nov 2017 10:59:07 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-15305</guid>
+          <source url="https://leakfree.org/t/questions-to-game-round-win-mp-round-time-entities/15305.rss">Questions to game_round_win &amp; mp_round_time Entities</source>
+        </item>
+        <item>
+          <title>Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</title>
+          <dc:creator><![CDATA[jadebenn]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>I’ve got an odd issue with one of my maps I’m working on. I’m running into an issue with trying to compile the loop mod version of bm_c2a2a with the new tools.  Specifically, the map will compile with no errors under the 2007 SDK, but the EXACT SAME .vmf will fail under SDK 2013 with a max brushsides error. What’s really baffling about this is that the limit seems to be <span class="bbcode-i">significantly</span> lower in the 2013 sdk, to the point where I’ve cut large portions of the map, and yet I’m <span class="bbcode-i">still</span> getting a max brushsides error.</p>
+<p>Anyone have any idea what might be going on? Corrupt geometry? Something else? Any help would be appreciated.</p>
+            <p><small>18 posts - 5 participants</small></p>
+            <p><a href="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298</link>
+          <pubDate>Tue, 14 Nov 2017 01:49:00 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-15298</guid>
+          <source url="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298.rss">Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</source>
+        </item>
+        <item>
+          <title>Black Mesa: Down Under</title>
+          <dc:creator><![CDATA[Gerald_Foreman]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/4/4199b50fb63c9441e013c43ccd194cb46ac4c985.jpeg" data-download-href="https://leakfree.org/uploads/default/4199b50fb63c9441e013c43ccd194cb46ac4c985" title=""><img src="https://leakfree.org/uploads/default/optimized/2X/4/4199b50fb63c9441e013c43ccd194cb46ac4c985_2_690x388.jpeg" alt="" data-base62-sha1="9mklOESKn5VldvYgZ9hqnf8S2jP" width="690" height="388" srcset="https://leakfree.org/uploads/default/optimized/2X/4/4199b50fb63c9441e013c43ccd194cb46ac4c985_2_690x388.jpeg, https://leakfree.org/uploads/default/optimized/2X/4/4199b50fb63c9441e013c43ccd194cb46ac4c985_2_1035x582.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/4/4199b50fb63c9441e013c43ccd194cb46ac4c985_2_1380x776.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/4/4199b50fb63c9441e013c43ccd194cb46ac4c985_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080 774 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/1/1ceaf6bd1aad77d3367d89c5c7f1e4c573c501fe.jpeg" data-download-href="https://leakfree.org/uploads/default/1ceaf6bd1aad77d3367d89c5c7f1e4c573c501fe" title=""><img src="https://leakfree.org/uploads/default/optimized/2X/1/1ceaf6bd1aad77d3367d89c5c7f1e4c573c501fe_2_690x388.jpeg" alt="" data-base62-sha1="47OMab7qb5fCFVTonKzVushR7wW" width="690" height="388" srcset="https://leakfree.org/uploads/default/optimized/2X/1/1ceaf6bd1aad77d3367d89c5c7f1e4c573c501fe_2_690x388.jpeg, https://leakfree.org/uploads/default/optimized/2X/1/1ceaf6bd1aad77d3367d89c5c7f1e4c573c501fe_2_1035x582.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/1/1ceaf6bd1aad77d3367d89c5c7f1e4c573c501fe_2_1380x776.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/1/1ceaf6bd1aad77d3367d89c5c7f1e4c573c501fe_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080 765 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Just a few images of stuff ive been working on dont know wether i should continue or not but so far i dont have too much to show except these suggestions and critizism would be appreciated</p>
+            <p><small>4 posts - 3 participants</small></p>
+            <p><a href="https://leakfree.org/t/black-mesa-down-under/15281">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/black-mesa-down-under/15281</link>
+          <pubDate>Sat, 30 Sep 2017 18:20:48 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-15281</guid>
+          <source url="https://leakfree.org/t/black-mesa-down-under/15281.rss">Black Mesa: Down Under</source>
+        </item>
+        <item>
+          <title>Ear ringing sound Effect - Fix possible in player.cpp</title>
+          <dc:creator><![CDATA[LordDz]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>Hello dear developers.<br>
+Please me a favor and just set this to false:<br>
+bool ear_ringing = distanceFromPlayer &lt; MIN_EAR_RINGING_DISTANCE ? true : false;<br>
+<a href="https://github.com/ValveSoftware/source-sdk-2013/blob/master/sp/src/game/server/player.cpp" data-bbcode="true" rel="nofollow noopener">https://github.com/ValveSoftware/source-sdk-2013/blob/master/sp/src/game/server/player.cpp</a></p>
+<p>I and a lot of other people hate this sound effect.<br>
+If you don’t want to remove it, please make it an option  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p><a href="https://steamcommunity.com/app/4000/discussions/1/490123727974086656/" data-bbcode="true" rel="nofollow noopener">https://steamcommunity.com/app/4000/discussions/1/490123727974086656/</a><br>
+<a href="https://steamcommunity.com/app/320/discussions/0/598198173699323912/" data-bbcode="true" rel="nofollow noopener">https://steamcommunity.com/app/320/discussions/0/598198173699323912/</a><br>
+<a href="https://facepunch.com/showthread.php?t=1355524" data-bbcode="true" rel="nofollow noopener">https://facepunch.com/showthread.php?t=1355524</a><br>
+<a href="https://forums.alliedmods.net/showthread.php?p=2409439" data-bbcode="true" rel="nofollow noopener">https://forums.alliedmods.net/showthread.php?p=2409439</a></p>
+<p>Playing with multiplayer with this sound, while having a headset really sucks.</p>
+            <p><small>4 posts - 3 participants</small></p>
+            <p><a href="https://leakfree.org/t/ear-ringing-sound-effect-fix-possible-in-player-cpp/15278">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/ear-ringing-sound-effect-fix-possible-in-player-cpp/15278</link>
+          <pubDate>Tue, 26 Sep 2017 20:01:47 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-15278</guid>
+          <source url="https://leakfree.org/t/ear-ringing-sound-effect-fix-possible-in-player-cpp/15278.rss">Ear ringing sound Effect - Fix possible in player.cpp</source>
+        </item>
+        <item>
+          <title>Note to self: limit human_commanders</title>
+          <dc:creator><![CDATA[ESToomere]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>Heya! I’ve been lurking here for years, pretty sure I used to also have an account, but guess not. Just wanted to make myself known, say hi, and tell a little story.</p>
+<p>Anyway, I recently got the itch again to map for Source and decided to try Black Mesa as a base. For that I created a small map to test out some combat related nodes and NPC behaviours.</p>
+<p>Simple really: 2 guards with pistols, 1 with a shotty vs. 4-8 randomly spawning grunts (all 4 versions) with a sprinkle of randomly teleporting alien slaves. Just an endless combat ballet.</p>
+<p>Long story short, I had to go AFK for 2 minutes which turned into an hour, upon returning I was faced with 1 FPS speeds and horrible memories back from the time I tried to run HL2 on a Pentium 3. I suspect the reason might be the non-despawning commander caps. What do you think?</p>
+<div class="spoiler">
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/866238131812567960/533205C2C4EFBCC9303E8819424895F16C10CFBA/?interpolation=lanczos-none&amp;output-format=jpeg&amp;output-quality=95&amp;fit=inside%7C1024:575&amp;composite-to%3D%2A%2C%2A%7C1024%3A575&amp;background-color=black" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/866238131812567960/533205C2C4EFBCC9303E8819424895F16C10CFBA/?interpolation=lanczos-none&amp;output-format=jpeg&amp;output-quality=95&amp;fit=inside%7C1024:575&amp;composite-to%3D%2A%2C%2A%7C1024%3A575&amp;background-color=black" alt="" width="690" height="387"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1024×575</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/866238131812567765/F7CABC2013C15AEBF275A36783207E4ED57FADA0/?interpolation=lanczos-none&amp;output-format=jpeg&amp;output-quality=95&amp;fit=inside%7C1024:575&amp;composite-to%3D%2A%2C%2A%7C1024%3A575&amp;background-color=black" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/866238131812567765/F7CABC2013C15AEBF275A36783207E4ED57FADA0/?interpolation=lanczos-none&amp;output-format=jpeg&amp;output-quality=95&amp;fit=inside%7C1024:575&amp;composite-to%3D%2A%2C%2A%7C1024%3A575&amp;background-color=black" alt="" width="690" height="387"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1024×575</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+</div>
+            <p><small>1 post - 1 participant</small></p>
+            <p><a href="https://leakfree.org/t/note-to-self-limit-human-commanders/15272">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/note-to-self-limit-human-commanders/15272</link>
+          <pubDate>Sat, 23 Sep 2017 18:11:12 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-15272</guid>
+          <source url="https://leakfree.org/t/note-to-self-limit-human-commanders/15272.rss">Note to self: limit human_commanders</source>
+        </item>
+        <item>
+          <title>Fiddling around with Missing In Action</title>
+          <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>I decided to post this as its own thread since there’s any number of different Opposing Force remakes floating around to which it could be relevant. It just sort of grew organically out of a few Steam conversations between myself, MisterDigitalGuy, and Rabinovitch, and while I don’t really have any long-term plans for its development I figured it was worth sharing with the community on general grounds.</p>
+<p><a href="https://www.youtube.com/watch?v=VEmwml4GJ-E" rel="nofollow noopener">youtube.com/watch?v=VEmwml4GJ-E</a></p>
+<p>I’m mostly concerned about the latter sections of the Opposing Force chapter <span class="bbcode-i">Missing in Action</span> (<span class="bbcode-i">~</span>20:30 to 28:00 in the above video), which consists of a number of isolated areas that have very little aesthetic or logical continuity with each other and additionally include some odd skylight placement suggesting that areas open to the sky are below those that show <span class="bbcode-i">caves</span>. Looking at the mix of offices, storage, and the garage down below I am thinking it would be better suited to reinterpretation as a mixed-use topside complex like the ones explored in Surface Tension. Thinking about it in more depth…</p>
+<p>The vehicle garage at 20:50 and the surrounding areas I think would convert very well into the sort of subterrenean tunnels and garages seen throughout Surface Tension…</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/852725391214078865/76A0C1404F7267AB2AC97DFDE514A38EBAF02D21/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/852725391214078865/76A0C1404F7267AB2AC97DFDE514A38EBAF02D21/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+Instead of the long personnel elevator shaft we see in ~21:30 there’s a <span class="bbcode-i">freight</span> elevator of the type seen in bm_c2a5e, or possibly one more similar to bm_c3a1b:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/852725391214082695/97913AB4950E0ED21DBE6A1D851FCBC31D92F4C7/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/852725391214082695/97913AB4950E0ED21DBE6A1D851FCBC31D92F4C7/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/852725391214096552/D7DCA3B82B50CE00401F26E7DEE0DEDB93A61409/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/852725391214096552/D7DCA3B82B50CE00401F26E7DEE0DEDB93A61409/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>My original plan was for this elevator to go up multiple floors like in the original, losing power halfway up and having to be fixed, but now I’m thinking it just goes up one level. Either way, it opens into a ground-level (first floor, topside) storage facility that replaces the area from ~21:20 to 21:40- the same piles of crates, etc., but set up more like the warehouse areas on the first floors of the canonical ST buildings.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/852725391214133567/F28EA924F7D80C304D5BC31867CE38B8563E4123/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/852725391214133567/F28EA924F7D80C304D5BC31867CE38B8563E4123/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+The important thing is that there’s actually exits to the ground on this level, but they’re blocked off from the outside by some kind of rubble. There’s also a stairwell leading to the upper two floors of the building, which is what is blocked off on one level by live electrical wires and on the next by a locked door. The second floor is the lower-level office area shown from 22:20 to 25:00, redesigned more similarly to the topside offices seen throughout Surface Tension as opposed to the Office-Complex-like design seen in canon:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/852725391214200209/3CCEE935782F706841B965519EED30AFECB11104/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/852725391214200209/3CCEE935782F706841B965519EED30AFECB11104/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div>The player meets up with the soldiers as usual, but the engineer unlocks the door to the third floor of the stairwell instead of a random second elevator. There’s more offices up there corresponding to the ones from 25:40 to 26:50, but instead of the generator room the hole in the office leads directly to the roof, and from that roof Shepard can climb the rubble or a fire escape back down to the exterior of the building and the ground level. He clears the rubble away from the ground-level exit (wondering about how it could be moved- I’m thinking either a physics object like a pole wedged lengthwise across the alley against the door, a tank of water with a vale that can be drained to make it lighter, or something explosive to be used to blow a hole in the wall).</p>
+<p>Either way, the soldiers Shepard met on Level Two, along with the scientist in the maintenance area at 23:40 (and possibly the one who was behind the barricades at 21:00, provided the player took him up the freight elevator) leave via the un-blocked door and proceed to cut down the door to the nuke warehouse to continue with “Friendly Fire”.</p>
+<p>Overall, the trajectory of the level would look something like this:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/852725391214303845/7ED31D3BB5FE6A6446D51D01398D11A038E8D1B9/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/852725391214303845/7ED31D3BB5FE6A6446D51D01398D11A038E8D1B9/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>EDIT: One other small, unrelated thing that I think is worth mentioning w.r.t. Opposing Force is the hospital area at the very beginning- a lot of remakes seem to use the Lambda green metal wall texture in a direct copy from the original game, but really for a medical office applying that green-and-white coloration to a plaster and/or cinderblock texture would I think be much more appropriate. Like {I-M}Taz did with Office Complex, only whiter and more sterile (something the lighting would help with a great deal as well):<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/JCSmJUu.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/JCSmJUu.jpg" alt="" width="690" height="389"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">800×452</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/2w9mkt6.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/2w9mkt6.jpg" alt="" width="690" height="389"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">800×452</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+            <p><small>1 post - 1 participant</small></p>
+            <p><a href="https://leakfree.org/t/fiddling-around-with-missing-in-action/15263">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/fiddling-around-with-missing-in-action/15263</link>
+          <pubDate>Sat, 02 Sep 2017 22:09:55 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-15263</guid>
+          <source url="https://leakfree.org/t/fiddling-around-with-missing-in-action/15263.rss">Fiddling around with Missing In Action</source>
+        </item>
+        <item>
+          <title>How to use the &#39;Maximum Distance&#39; parameter on lights.</title>
+          <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>I’ve been messing around with the ‘Maximum Distance’ parameter to try to deal with those annoying ‘lighting pileup’ issues on my maps, but it doesn’t seem to do anything at all. Does anyone know what this is for? Is there a <span class="bbcode-i">proper</span> way to use it? The Source wiki just repeats the FGD description “This is the distance that light is allowed to cast, in inches.”, which is less than informative.</p>
+            <p><small>1 post - 1 participant</small></p>
+            <p><a href="https://leakfree.org/t/how-to-use-the-maximum-distance-parameter-on-lights/15261">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/how-to-use-the-maximum-distance-parameter-on-lights/15261</link>
+          <pubDate>Fri, 01 Sep 2017 02:45:35 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-15261</guid>
+          <source url="https://leakfree.org/t/how-to-use-the-maximum-distance-parameter-on-lights/15261.rss">How to use the &#39;Maximum Distance&#39; parameter on lights.</source>
+        </item>
+        <item>
+          <title>Cannot decompile 2: the Ichthyoquel</title>
+          <dc:creator><![CDATA[F_SchoManno]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>Creating a new thread instead of necroing another. Click <a href="https://forums.blackmesasource.com/index.php/Thread/29227-Cannot-decompile-Black-Mesa-animations/" data-bbcode="true" rel="nofollow noopener">here</a> for the first thread.<br>
+I am attempting to modify the Ichthyosaur’s model, but after recompiling I am left with this:</p>
+<p><img src="https://puu.sh/xlrLC/5b73dd1b0c.png" alt="" width="" height=""></p>
+<p>I have (more than sorta) determined that this is caused by the animations breaking upon being decompiled. I’ve searched high and low for an answer, and I have found that this is a relatively unknown issue, but nobody has yet figured out an answer (apart from remaking the animations themselves).</p>
+<p>Just as before, the model was modified in Blender, and Crowbar was used to decompile and recompile the model in question.</p>
+<p>As far as I know, this only applies to npc models that have existed since the mod version, and therefore may be caused by the models being manufactured with an old toolset/workflow unique to Black Mesa during it development as a mod.</p>
+<p>It should be noted that this effect still applies even before modifying the .smd in Blender [read: decompiling and recompiling the model only], which seems to support the theory above.</p>
+<p><span class="bbcode-s">Any</span><span class="bbcode-b">ACTUAL</span> help would be appreciated.</p>
+            <p><small>7 posts - 3 participants</small></p>
+            <p><a href="https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256</link>
+          <pubDate>Mon, 28 Aug 2017 10:40:54 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-15256</guid>
+          <source url="https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256.rss">Cannot decompile 2: the Ichthyoquel</source>
+        </item>
+        <item>
+          <title>Black Mesa: Decay</title>
+          <dc:creator><![CDATA[KevinJRattman]]></dc:creator>
+          <category>Source 1</category>
+          <description><![CDATA[
+            <p>[align=center]<img src="https://i.imgur.com/mUTloxl.png" alt="" width="161" height="81"></p>
+<p><img src="https://i.imgur.com/BzowQhL.png" alt="" width="161" height="81"></p>
+<p>Something I made up during the break.</p>
+<p>I didn’t see any Decay remakes in the Source Engine, so I think it deserves a work.[/size][/align]</p>
+            <p><small>14 posts - 6 participants</small></p>
+            <p><a href="https://leakfree.org/t/black-mesa-decay/15251">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/black-mesa-decay/15251</link>
+          <pubDate>Sun, 20 Aug 2017 15:31:17 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-15251</guid>
+          <source url="https://leakfree.org/t/black-mesa-decay/15251.rss">Black Mesa: Decay</source>
+        </item>
+  </channel>
+</rss>

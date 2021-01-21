@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:discourse="http://www.discourse.org/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Developer Logs - Leakfree</title>
+    <link>https://leakfree.org/c/black-mesa-archive/developer-logs/15</link>
+    <description>Topics in the &#39;Developer Logs&#39; category Get an inside look into the development of Black Mesa.</description>
+    
+      <lastBuildDate>Tue, 26 Dec 2017 18:55:50 +0000</lastBuildDate>
+      <atom:link href="https://leakfree.org/c/black-mesa-archive/developer-logs/15.rss" rel="self" type="application/rss+xml" />
+        <item>
+          <title>Tutorial - Ingame Light Editor</title>
+          <dc:creator><![CDATA[chetanjags]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <p>ello Guys, Since a lot of people were asking how to implement new lights I have uploaded some of our internal tutorial/test maps on <a href="https://www.dropbox.com/s/vu928yw5jw39b7i/tut_nextgen_lights_optimised.vmf?dl=0" data-bbcode="true">Dropbox</a>.<br>
+I would recommend checking out tut_nextgen_lights_optimised.vmf since it contains a lot of examples in a single map. Then you can check one of those specialized example/test maps too.<br>
+Please note that these maps are not the most optimized version of maps and they were just created to test/demo specific bugs/features.</p>
+<p>To help us configure new lights in a faster way we have implemented Ingame Light Editor. Here’s a quick tutorial/documentation from our internal forums -</p>
+<p>In game Light Editor - a Convar based system for easily selecting new Light entities and edit their properties via convar. (Whenever alex get free from UI he will look into UI for editor and even saving to vmf if its easy)</p>
+<p>Here’s the overall workflow -</p>
+<ol>
+<li>
+<p><span class="bbcode-b">le_editor_selection_mode_enabled</span> - Enable Light Editor selection mode. It will show you xyz axis and a box around light entity in your cross hair.<br>
+[ATTACHMENT NOT FOUND]</p>
+</li>
+<li>
+<p><span class="bbcode-b">le_editor_selection_lock</span> - Lock your selection.</p>
+</li>
+<li>
+<p>Opon locking its properties will be mapped to convars starting with <span class="bbcode-b">le_light_</span> and <span class="bbcode-b">le_gr_</span> . You can use these convars to modify different light properties and copy paste them to hammer later on.</p>
+</li>
+</ol>
+<p>[ATTACHMENT NOT FOUND][ATTACHMENT NOT FOUND]</p>
+<ol start="4">
+<li>
+<span class="bbcode-b">le_editor_selection_clear</span> - Once you are done with a selected light and if you want to clear selection you can use this convar. Once selection is reset all the helper meshes (box/sphere) will also disappear.</li>
+</ol>
+<p><span class="bbcode-b">List of Convars </span></p>
+<p>(Each of these le_light_* convar should have helpful descriptions but still in case someone needs more info feel free to ask questions.)</p>
+<p><span class="bbcode-b">Editor Convars</span></p>
+<p><span class="bbcode-b">le_editor_selection_mode_enabled </span>- Toggles New Light selection mode. When it is on, the bounding box, pivot and debugging text is displayed for whatever LIGHT the player is looking at.<br>
+<span class="bbcode-b">le_editor_selection_lock</span> - Locks the selected light and exits selection mode<br>
+<span class="bbcode-b">le_editor_print_selected_light_details</span> - print the details of selected light<br>
+<span class="bbcode-b">le_editor_selection_clear </span>- Clears Light Selection</p>
+<p><span class="bbcode-b">Editor config Convars</span></p>
+<p><span class="bbcode-b">le_config_selected_sphere_size </span>- Size of sphere shown around selected Light<br>
+<span class="bbcode-b">le_config_selection_box_size</span> - Size of box that appears during selection mode</p>
+<p><span class="bbcode-b">Light Properties Convars</span></p>
+<p>le_light_Pos<br>
+le_light_Col<br>
+etc</p>
+<p>le_gr_radius<br>
+le_gr_col_rays<br>
+etc</p>
+<aside class="quote no-group" data-username="Chetan">
+<div class="title">
+<div class="quote-controls"></div>
+ Chetan:</div>
+<blockquote>
+<p><span class="bbcode-b">NOTE - You cannot change Light Type (static/stationary/dynamic) at runtime. You cannot shadow shadowmap LOD at runtime. You cannot change cookie texture at runtime. Also You cannot change Light GodraysMode at runtime. I may add support for this in near future after an optimization pass on engine.</span></p>
+<p><span class="bbcode-b">I might add a convar to add lights at runtime too once above things are done but at the moment you can achieve that via ent_create.</span></p>
+</blockquote>
+</aside>
+<aside class="quote no-group" data-username="Chetan">
+<div class="title">
+<div class="quote-controls"></div>
+ Chetan:</div>
+<blockquote>
+<p>NOTE - Another important thing for people who don’t know this - sometimes in source engine convars are not processed unless we resume the game so some of the above convars wont take effect unless you go back into game from console. But again if you gents bind selection convars to shortcut keys there’s no need to open console anyways.</p>
+</blockquote>
+</aside>
+            <p><small>15 posts - 9 participants</small></p>
+            <p><a href="https://leakfree.org/t/tutorial-ingame-light-editor/15315">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/tutorial-ingame-light-editor/15315</link>
+          <pubDate>Tue, 26 Dec 2017 18:55:50 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-15315</guid>
+          <source url="https://leakfree.org/t/tutorial-ingame-light-editor/15315.rss">Tutorial - Ingame Light Editor</source>
+        </item>
+        <item>
+          <title>Xen 2.0 and prop models</title>
+          <dc:creator><![CDATA[bkdale86]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <p>Going to do things a bit different than what I usually do, I’ll give some background on how we are doing the levels and then show some of the small props I have been making. So we posted new images today to go along with the summer sale showing new images from the map Xen.  C4a1a which is where all the images have come from so far (except for my wire frame shots)  is a desert like area that is quite rocky and has many different islands. Adam, Shawn and I have been detailing the map using 3dsmax and a plug-in called WallWorm (WW) developed by Shawn Olsen (a team member and creator of the program, buy it it is great you will need Max though).  Our process is to import a vmf that a LD has already made and has been divided up into a instance for ease of bringing back into hammer later. Once in Max we can turn all the displacements into a sculpt mesh and sculpt it very easily. We also can vertex paint 4way blended textures onto the mesh. We also can sculpt the mesh to form around pretty much anything. Our next task is to place and scatter various props around that need to added to specific areas. We use an importer from WW to import either single source .mdls or large numbers of them into the scene. We can either place each prop by hand or use one of paint functions to paint props on the mesh or just shift drag them (copying them) . This is a pretty intensive process, but can be quite fun. We have rocks that are modular and can be rotated around to look different. We also have some large rock props that are used to cover larger areas. These all match our base rock texture.There is then a foliage pass that is either hand placed or in the case of the grass and some other plants scattered using a powerful program called forest. Once every thing is finished we collapse back to displacements, group props, cull polys, create collisions for the new groupings and export the vmf. The LD then takes and tweaks it all doing the optimizing,lighting scripting etc. By using this pipeline we can get really natural looking vegetation and rock formations. These end up being a lot more dense than doing it in hammer.<br>
+Here are a small sampling of the models I made to be scattered around in Xen.</p>
+<p>          <a href="https://i.imgur.com/OHBJlro.jpg" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="https://leakfree.org/uploads/default/original/2X/7/7fe7f80bb475dc7736a2ee8e47ff63a5203bd387.jpeg" width="508" height="500">
+          </a>
+<br>
+          <a href="https://i.imgur.com/b4LJtZs.jpg" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="https://leakfree.org/uploads/default/original/2X/2/258919b6fa31d0d4339fcdc2b5053366c0185fe6.jpeg" width="508" height="500">
+          </a>
+<br>
+          <a href="https://i.imgur.com/ptybWZr.jpg" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="https://leakfree.org/uploads/default/original/2X/b/b5412f6e50414fe418436254e1ed9ba6eca3099f.jpeg" width="690" height="355">
+          </a>
+<br>
+          <a href="https://i.imgur.com/aSwp3fW.jpg" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="https://leakfree.org/uploads/default/original/2X/5/5a9e99d6db640098d0d3b7b6025fa94be8c654bb.jpeg" width="508" height="500">
+          </a>
+</p>
+<p>These are the shots used in the media release just a bit bigger. Tree textures are just placeholder.<br>
+          <a href="https://i.imgur.com/uqAi7la.jpg" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="https://leakfree.org/uploads/default/original/2X/e/e2a26ab9c20f97458f34dea075b7130c533c3c25.jpeg" width="690" height="395">
+          </a>
+<br>
+          <a href="https://i.imgur.com/qTSlup8.jpg" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="https://leakfree.org/uploads/default/original/2X/1/15732ad5dfa118754c20f7cc5d2dde570cbd0d08.jpeg" width="690" height="395">
+          </a>
+<br>
+          <a href="https://i.imgur.com/3EN4m7Z.jpg" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="https://leakfree.org/uploads/default/original/2X/e/ed04410dc258ade0e6311a845bb1fc0f22719392.jpeg" width="690" height="395">
+          </a>
+<br>
+          <a href="https://i.imgur.com/pZeI6MF.jpg" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="https://leakfree.org/uploads/default/original/2X/d/da7a9100a0adae5f7076ba8e72d7826169e2ccb4.jpeg" width="690" height="395">
+          </a>
+<br>
+An overhead shot of this small portion of C4a1b.<br>
+          <a href="https://i.imgur.com/RAR2ZQu.jpg" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="https://leakfree.org/uploads/default/original/2X/9/99393c49a1d246f1b68dce05202478178141afc7.jpeg" width="690" height="396">
+          </a>
+</p>
+            <p><small>37 posts - 24 participants</small></p>
+            <p><a href="https://leakfree.org/t/xen-2-0-and-prop-models/15194">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/xen-2-0-and-prop-models/15194</link>
+          <pubDate>Tue, 20 Jun 2017 21:49:45 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-15194</guid>
+          <source url="https://leakfree.org/t/xen-2-0-and-prop-models/15194.rss">Xen 2.0 and prop models</source>
+        </item>
+        <item>
+          <title>BBMIP 3.0 or as I like to call it the vehicle update</title>
+          <dc:creator><![CDATA[bkdale86]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <p>I have been slowly replacing old models, and slipped in the crown vic in the last CU, but the real big one is this one. Couple of years ago before I really started to model a lot I got Robert to make a new jeep. This was before the steam release and with all the replacement I ended up doing, I didn’t have the time or experience compiling to really do it justice. Well while working on the STU stuff I made the trucks and a lot of the skybox props and ended up fixing up a lot of the old source game models so they all matched the style of the CSGO ones (i.e. very dark interiors,little detail and very dirty windows).  These include the big gray van and the little utility truck. Those were released with the last CU.  I had been using the parking lot in QE for my testing and noticed some things that really didn’t fit in with the rest of the updates I was doing.<br>
+For instance. Hummer didn’t have a dedicated interior. This was something I left out when I redid those models a couple of years ago, at the time it was detail you probably couldn’t see but ended up sticking out with all the changes and the new CSM.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/kN1P0Gz.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/kN1P0Gz.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">3840×2160</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+So I did a quick interior and fixed up the smoothing groups. Originally I did the remakes from a very old model we had from 2006 but I hadn’t been compiling my own models. This is the final result. Makes a big difference when you see the before and after IMO.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/6UgGmAU.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/6UgGmAU.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">3840×2160</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+M35 already had a decent darker interior so that didn’t need any changes, but the windows were different so redid those.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/0VqPioc.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/0VqPioc.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">3840×2160</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+So where is the Joop you ask? Good question!<br>
+When I posted my WIPs in the dev forum it started out with just me doing it for practice. The biggest hurdle was the number of replacement models it was going to require. There was a clean/dity one, open door shot up one (with 2 textures) crashed one and a burnt one. Luckily 3 of the 4 were already done. it just required lots of textures and planning. When Robert made the original model he got burned out making it (its a very nice model) and I volunteered to do the interior to help out. Since then we changed the look of the vehicles (see above). This actually (for once) worked out better for me because I had UV’d the model interior with the idea that it would be fully textured at a high resolution because this is pretty much the signature vehicle for us. So to help make all the vehicles blend I used the wheels from the CSGO models you see in STU. What I ended up with is this. Note these are mostly the WIP images from 2 months ago and they get better as they go. Please DO NOT CC THEM.<br>
+Base model texture with temp windows and temp normal/spec renders in toolbag2. The original model had solid top lights and front lights (this was to help with the alpha sorting issue the staggered single lights had on Adam’s Joop). After playing a ton of the division when it released I liked the effect they did with their vehicles. So I had to change things around so that there was glass/plastic overs over all the front and top lights. When I opened that up (with it being transparent) I needed some detail so I added spinners (not working) and other lights to the top set.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/pYDNqhh.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/pYDNqhh.jpg" alt="" width="690" height="394"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">3110×1776</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/bG6w4G2.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/bG6w4G2.jpg" alt="" width="690" height="430"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">2951×1841</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+The cool thing was Robert had made it modular for a civilian version with shared UVs so you now get a 4 fer.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/zguxSrx.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/zguxSrx.jpg" alt="" width="690" height="367"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">2472×1315</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/gP72GzZ.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/gP72GzZ.jpg" alt="" width="690" height="374"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">3143×1705</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+The problem I ran into was one of the versions needed to have blood all over because it was all shot up. I compromised and made the interior dark gray and light gray 2 toned so it would show up.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/RNxk6aO.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/RNxk6aO.jpg" alt="" width="690" height="453"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">2764×1817</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/MdqUxE1.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/MdqUxE1.jpg" alt="" width="690" height="305"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">3840×1698</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+So the fun began. I made a really high resolution bullet hole texture and then ended up trying 3 different sizes keeping in mind I was going to shrink the texture when I got done (its 2k in game but 4k in renders) but I wanted them to be readable not blobs. That carried over to the windshield. The texture was small in comparison and if were resized would look terrible. So I compromised and made the texture bigger (only 1024) but modeled in the holes into the window.<br>
+At this point I had most of the stuff done, but still needed to have a wrecked one. Since I was still working on all the different textures Robert was nice enough to model it with engine details which you may or may not be able to see in that shot. Believe me its all there and looks very cool. Also at this point the modeled front lights are showing up and they are broken with separate broken glass. The normal maps are getting closer to final here. Also note the collapsed airbag… I had to model that in there its my favorite part.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/HuzROh5.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/HuzROh5.jpg" alt="" width="690" height="319"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">3732×1730</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+So we end up with this.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/YPSEzHF.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/YPSEzHF.png" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+Well how does it match up in game? Glad you asked!</p>
+<p>These are all from my test area plus one from LB. Please do not comment on the sorting problems with the windows there is nothing I can do but make it worse (trust me I have tried lots of things)<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/7YMRaMR.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/7YMRaMR.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">3840×2160</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/vKn9Gat.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/vKn9Gat.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">3840×2160</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+Well you are probably thinking he forgot the damn burned up one…<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/Qi8KMHl.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/Qi8KMHl.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">3840×2160</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+Heavily influenced by the division in the way they did burned out detail. The seats are burned away so are the tires. But after looking at this for several days and going through lots of references I didn’t like how I picked the seats and tires to burn out but not the plastic bumper cover and wheel well splash guards and the dash etc. So back to the modeling board…oh and I had that groovy engine…<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/qkZeTcA.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/qkZeTcA.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">3840×2160</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/C265hnO.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/C265hnO.jpg" alt="" width="690" height="390"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">2980×1686</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+SO I’m completely worn out. That was basically about 90 hours worth of work but it was fun trying new things. Textures will probably still get tweaked but it’s mostly finished. Is it perfect not close, but I think it’s an improvement from what we had before and matches nicely with the rest of the vehicles. Now as for that ugly red truck…</p>
+<p>Oh forgot to mention who was responsible for what. Robert did the base models as mentioned I did all changes and interior models and the burnt model. All textures by me and the burnt substance was by Bard our mad (one of 2) texture geniuses.<br>
+Happy Memorial Day!</p>
+            <p><small>61 posts - 25 participants</small></p>
+            <p><a href="https://leakfree.org/t/bbmip-3-0-or-as-i-like-to-call-it-the-vehicle-update/14796">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/bbmip-3-0-or-as-i-like-to-call-it-the-vehicle-update/14796</link>
+          <pubDate>Sat, 28 May 2016 20:29:44 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-14796</guid>
+          <source url="https://leakfree.org/t/bbmip-3-0-or-as-i-like-to-call-it-the-vehicle-update/14796.rss">BBMIP 3.0 or as I like to call it the vehicle update</source>
+        </item>
+        <item>
+          <title>Surface Tension Uncut and Cascade Shadow Maps!</title>
+          <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <p><span class="bbcode-u"><span class="bbcode-b">Coming Soon!</span></span>[/size]</p>
+<p>Here’s a quick glimpse of what we are polishing for our next update. You’ve hopefully already seen our preview of Surface Tension: Uncut over at <a href="https://lambdageneration.com/discussion/half-life/interview-with-black-mesa-developer-chon-kemp-exclusive-look-at-surface-tension-uncut-info-on-xen-livestream-giveaway/" data-bbcode="true">Lambda Generation</a>. We are very excited to see how the community likes the uncut levels. We’ve done a ton of work since we’ve shown those screen shots, and even improved our AI for the Alien Grunts and Vortigaunts to help make this chapter be as fun and engaging as possible.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/z2tDtOu.jpg" title=""><img src="https://i.imgur.com/z2tDtOu.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Our BIG announcement though, is that we have implemented Cascaded Shadow Mapping, or CSM into the Black Mesa Engine. CSM brings the visual quality of the game to a whole new level. It’s hard to describe in words what CSM does to the game, so we’ve added a few screenshots below to give you a better idea. Notice the crisp shadows on the world and weapons, that originally weren’t there.</p>
+<p><span class="bbcode-b"><span class="bbcode-u">Cascade Shadow Maps!</span></span>[/size]</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/7D7PvbP.jpg" title=""><img src="https://i.imgur.com/7D7PvbP.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/y7hTxFF.jpg" title=""><img src="https://i.imgur.com/y7hTxFF.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/wbQzIfk.jpg" title=""><img src="https://i.imgur.com/wbQzIfk.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+New Shadows work on viewmodels too!</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/Mroo19G.gif" title=""><img src="https://i.imgur.com/Mroo19G.gif" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">960×540</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+Dynamic, Crisp shadows</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/1htD8lz.gif" title=""><img src="https://i.imgur.com/1htD8lz.gif" alt="" width="666" height="500"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">800×600</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+They work in real-time, they are not prebaked!</p>
+<p><span class="bbcode-b">[u]Why work on this?</span>[/u][/size]</p>
+<p>First, there were a lot of community members asking for this addition. One of our developers, Chon Kemp, added these levels into the mod version of the game, and people wanted to see it in the official version. To show we hear what the community is asking for, and as a small thanks for the people who have already bought the game we completely rebuilt the last three maps of Surface Tension based off of Half-Life (side note you can play Chon’s On A Rail: Uncut on the workshop).</p>
+<p>Second, Surface Tension did not feel complete without its later levels. The end of ST is the part where the H.E.C.U start to lose, and it sets up the events for Half-Life 2. It’s a very important part of the Half-Life story.</p>
+<p>Third, CSM was an absolute must for us to reach our vision for bringing Xen to life. We’ve brought CSM to you in this update as a little tiny taste of what is to come. We hope this excites you as much as it excites our team! Surface Tension: UNCUT was the perfect opportunity for us to test CSM and get it functioning on our already completed earthbound levels, as well as a number of other techniques to be used in completing Xen.</p>
+<p><span class="bbcode-u"><span class="bbcode-b">When with this be released?</span></span>[/size]</p>
+<p>You can expect the Surface Tension Update to launch later this month.</p>
+<p>Developer TextFAMGUY1 (Chon Kemp) is also writing a dev blog about the development and the story behind Surface Tension: Uncut. Expect to see that quite soon, keep checking back for more!</p>
+            <p><small>136 posts - 42 participants</small></p>
+            <p><a href="https://leakfree.org/t/surface-tension-uncut-and-cascade-shadow-maps/14749">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/surface-tension-uncut-and-cascade-shadow-maps/14749</link>
+          <pubDate>Fri, 06 May 2016 03:52:25 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-14749</guid>
+          <source url="https://leakfree.org/t/surface-tension-uncut-and-cascade-shadow-maps/14749.rss">Surface Tension Uncut and Cascade Shadow Maps!</source>
+        </item>
+        <item>
+          <title>BBMIP 2.5</title>
+          <dc:creator><![CDATA[bkdale86]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <p>More stuff from the last few days. The slime in the last pic is much larger now.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/r73Srrt.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/r73Srrt.jpg" alt="" width="528" height="500"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1937×1832</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/fWIjpjp.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/fWIjpjp.jpg" alt="" width="374" height="500"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1265×1688</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+            <p><small>15 posts - 9 participants</small></p>
+            <p><a href="https://leakfree.org/t/bbmip-2-5/14731">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/bbmip-2-5/14731</link>
+          <pubDate>Fri, 08 Apr 2016 00:19:01 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-14731</guid>
+          <source url="https://leakfree.org/t/bbmip-2-5/14731.rss">BBMIP 2.5</source>
+        </item>
+        <item>
+          <title>BBMIP2.4</title>
+          <dc:creator><![CDATA[bkdale86]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <p>There have been a few things getting finished here recently, thought I’d make a new thread. Working on a few things for STU.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/qtuiL87.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/qtuiL87.jpg" alt="" width="690" height="472"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">2285×1565</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+This one is a test. Might turn into something…who knows.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/7T59G8T.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/7T59G8T.jpg" alt="" width="690" height="374"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">3427×1861</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+            <p><small>35 posts - 13 participants</small></p>
+            <p><a href="https://leakfree.org/t/bbmip2-4/14713">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/bbmip2-4/14713</link>
+          <pubDate>Mon, 21 Mar 2016 03:12:27 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-14713</guid>
+          <source url="https://leakfree.org/t/bbmip2-4/14713.rss">BBMIP2.4</source>
+        </item>
+        <item>
+          <title>Texture Lights and Bounce lighting in VRAD</title>
+          <dc:creator><![CDATA[CornetTheory]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <p>This post is to describe the new commands added to Vrad, for your mapping pleasure. This is not intended to be a technical document, as I will be simplifying how vrad works. But, this should give you an idea of what is going on.<br>
+These options only effect the baked lightmap generated by vrad, they will not effect impact in-game performance.</p>
+<p><code> -choptexlights: Enables chopping of texture lights. Control texture light quality with lightmap density in hammer.
+  Dramatically increases both texture light quality and render time.
+ -extratransfers: Enable overscaling of light transfers
+ -transferscale:: default 1.0 ; This is the scale factor of light transfers. increased values make surfaces transfer extra light
+  (a scale of 2.0-4.0 suggested)
+ -satthresh: Default 0.4 ; This is the threshold that checks how saturated a material color is. Used with -satthreshscale:
+ -satthreshscale: Default 3.0 ; The amount to scale light transfers from surfaces that pass the saturation threshold</code><span class="bbcode-b">-choptexlights (False by default)[/size]</span><br>
+<span class="bbcode-b">[/size]</span><br>
+<span class="bbcode-b">Vrad “chops” the bsp surfaces into “patches” that get the calculated lighting. the patches act as the pixels of the light map so to speak. Vrad chops up surfaces according to the lightmap size, set in hammer. <span class="bbcode-b">vrad takes the light brightness values from each patch, and raytraces that data to every other patch in a large huge matrix; also using fancy physics based falloff calculations. </span><span class="bbcode-b">When texture lights are used, these patches are set to be bright, and give off light.</span> </span></p>
+<p><span class="bbcode-b">By default, vrad is set to ignore the chopping of surfaces that have flagged unlit materials. It is set this way to save compile time, because surfaces that don’t receive lighting ( such as nodraw and water, etc.) don’t need to have detailed lightmaps.</span></p>
+<p><span class="bbcode-b">The problem with this, is that if you use texture lights, the texture light material will not be chopped, and you get something like this:</span></p>
+<p><span class="bbcode-b"><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/3/380a0fd864e47c29918dbd17c3a425844b93640f.jpeg" data-download-href="https://leakfree.org/uploads/default/380a0fd864e47c29918dbd17c3a425844b93640f" title="vrad_test0013.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/3/380a0fd864e47c29918dbd17c3a425844b93640f_2_690x500.jpeg" alt="vrad_test0013.jpg" data-base62-sha1="7ZKilh36WrLzEHeLKWQEHlR4FS7" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/3/380a0fd864e47c29918dbd17c3a425844b93640f_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/3/380a0fd864e47c29918dbd17c3a425844b93640f_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/3/380a0fd864e47c29918dbd17c3a425844b93640f_2_1380x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/3/380a0fd864e47c29918dbd17c3a425844b93640f_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">vrad_test0013.jpg</span><span class="informations">1680×1050 115 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></span></p>
+<p><span class="bbcode-b">Exciting blobs of light coming from patches that are too big!</span></p>
+<p><span class="bbcode-b">So to fix this, </span></p>
+<p><span class="bbcode-b">1. Add a small lightmap value to your texture lights.</span><br>
+<span class="bbcode-b">2. compile with -choptexlights to true.</span></p>
+<p><span class="bbcode-b">and you will get something like this:</span></p>
+<p><span class="bbcode-b"><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/e/e847bc287aa52d79b92905a6cd9848543a07e450.jpeg" data-download-href="https://leakfree.org/uploads/default/e847bc287aa52d79b92905a6cd9848543a07e450" title="vrad_test0011.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/e/e847bc287aa52d79b92905a6cd9848543a07e450_2_690x500.jpeg" alt="vrad_test0011.jpg" data-base62-sha1="x8QsO8O21LjaxW4pk95MwV29N7y" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/e/e847bc287aa52d79b92905a6cd9848543a07e450_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/e/e847bc287aa52d79b92905a6cd9848543a07e450_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/e/e847bc287aa52d79b92905a6cd9848543a07e450_2_1380x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/e/e847bc287aa52d79b92905a6cd9848543a07e450_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">vrad_test0011.jpg</span><span class="informations">1680×1050 235 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></span></p>
+<p><span class="bbcode-b">A few notes:</span></p>
+<p><span class="bbcode-b">1. be careful with the lightmap size, it’s like adding thousands of point lights</span>. If your area light right next to a wall, like above, then use smaller light maps, but if it is far away, small lightmaps are not needed.<br>
+2. It is possible, for example, to have a modelled light fixture (neon signs, etc. ) use a texture light:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/f/f4c22696a268c14c4863179d125b8e5c89f3c284.jpeg" data-download-href="https://leakfree.org/uploads/default/f4c22696a268c14c4863179d125b8e5c89f3c284" title="vrad_test0000.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/f/f4c22696a268c14c4863179d125b8e5c89f3c284_2_690x500.jpeg" alt="vrad_test0000.jpg" data-base62-sha1="yVet49EDqn9BLWZmBZQG82cfxcg" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/f/f4c22696a268c14c4863179d125b8e5c89f3c284_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/f/f4c22696a268c14c4863179d125b8e5c89f3c284_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/f/f4c22696a268c14c4863179d125b8e5c89f3c284_2_1380x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/f/f4c22696a268c14c4863179d125b8e5c89f3c284_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">vrad_test0000.jpg</span><span class="informations">1680×1050 257 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+Now you can have your “Eat-at-Joe’s” sign light up more realistically in source.</p>
+<p>[/size]<br>
+<span class="bbcode-b">-extratransfers (default set to false)[/size]</span><br>
+<span class="bbcode-b">-transferscale: Default 1.0[/size]</span></p>
+<p>As described above, patches give light to other patches. So this option lets you set a multiplier for how much light gets transferred. This can be used to uniformly scale up the lighting in a dark map for example. It is especially good for maps that rely heavily on natural light for indoor lighting.<br>
+To use this, set -extratransfers to true and give a value (other than 1) to -transferscale.</p>
+<p>value of 1:<br>
+<span class="bbcode-b"><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/a/a3d03c30c758ed37304de05331aa0cebecd642d9.jpeg" data-download-href="https://leakfree.org/uploads/default/a3d03c30c758ed37304de05331aa0cebecd642d9" title="vrad_test0015.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/a/a3d03c30c758ed37304de05331aa0cebecd642d9_2_690x500.jpeg" alt="vrad_test0015.jpg" data-base62-sha1="nn9Y6fHVuxeglbFtZoPWZYLLlu9" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/a/a3d03c30c758ed37304de05331aa0cebecd642d9_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/a/a3d03c30c758ed37304de05331aa0cebecd642d9_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/a/a3d03c30c758ed37304de05331aa0cebecd642d9_2_1380x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/a/a3d03c30c758ed37304de05331aa0cebecd642d9_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">vrad_test0015.jpg</span><span class="informations">1680×1050 173 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></span></p>
+<p>[/size]higher values:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/a/a786468ab1621c7b5e5da093f35bb71817977c98.jpeg" data-download-href="https://leakfree.org/uploads/default/a786468ab1621c7b5e5da093f35bb71817977c98" title="lightmaps.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/a/a786468ab1621c7b5e5da093f35bb71817977c98_2_690x500.jpeg" alt="lightmaps.jpg" data-base62-sha1="nTZq8FZqA9Fl7KBmTXh8UfnR76w" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/a/a786468ab1621c7b5e5da093f35bb71817977c98_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/a/a786468ab1621c7b5e5da093f35bb71817977c98_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/a/a786468ab1621c7b5e5da093f35bb71817977c98_2_1380x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/a/a786468ab1621c7b5e5da093f35bb71817977c98_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">lightmaps.jpg</span><span class="informations">2214×1264 926 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/4/47e0b8e54447d1a46a9ce03a1276d0c415699a4a.jpeg" data-download-href="https://leakfree.org/uploads/default/47e0b8e54447d1a46a9ce03a1276d0c415699a4a" title="cornet_dm10006.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/4/47e0b8e54447d1a46a9ce03a1276d0c415699a4a_2_690x500.jpeg" alt="cornet_dm10006.jpg" data-base62-sha1="afRmFmlpD3Y66R1tVzhjXLEAqh4" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/4/47e0b8e54447d1a46a9ce03a1276d0c415699a4a_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/4/47e0b8e54447d1a46a9ce03a1276d0c415699a4a_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/4/47e0b8e54447d1a46a9ce03a1276d0c415699a4a_2_1380x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/4/47e0b8e54447d1a46a9ce03a1276d0c415699a4a_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">cornet_dm10006.jpg</span><span class="informations">1680×1050 125 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><span class="bbcode-b"> -satthresh: Default 0.4 ;</span><br>
+<span class="bbcode-b"> -satthreshscale: Default 3.0</span>[/size]</p>
+<p>This, when used with the above command, lets you choose only saturated textures to apply extra light transfers to.</p>
+<p>-satthresh is a value from 0.0 to 1.0 that represents the “saturation” value in a HSV calculation derived from the material color.<br>
+setting this to 0.0 will exaggerate all materials, while a value of 0.5 will exaggerate only materials with a saturation of 0.5 or higher.</p>
+<p>-satthreshscale is the multiplication factor of the desired saturated material.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/e/efa41f528a41000431889aa5013d6ac5991daefe.jpeg" data-download-href="https://leakfree.org/uploads/default/efa41f528a41000431889aa5013d6ac5991daefe" title="vrad_test0001.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/e/efa41f528a41000431889aa5013d6ac5991daefe_2_690x500.jpeg" alt="vrad_test0001.jpg" data-base62-sha1="ybXKfswPEb25RQXJKug3eGaTWLc" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/e/efa41f528a41000431889aa5013d6ac5991daefe_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/e/efa41f528a41000431889aa5013d6ac5991daefe_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/e/efa41f528a41000431889aa5013d6ac5991daefe_2_1380x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/e/efa41f528a41000431889aa5013d6ac5991daefe_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">vrad_test0001.jpg</span><span class="informations">1680×1050 216 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/a/af2603166c94c6cc5f11aec27989538b8fc45263.jpeg" data-download-href="https://leakfree.org/uploads/default/af2603166c94c6cc5f11aec27989538b8fc45263" title="cornet_dm10005.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/a/af2603166c94c6cc5f11aec27989538b8fc45263_2_690x500.jpeg" alt="cornet_dm10005.jpg" data-base62-sha1="oZqZRw7X8GdvVCwQs1xv98O04a7" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/a/af2603166c94c6cc5f11aec27989538b8fc45263_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/a/af2603166c94c6cc5f11aec27989538b8fc45263_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/a/af2603166c94c6cc5f11aec27989538b8fc45263_2_1380x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/a/af2603166c94c6cc5f11aec27989538b8fc45263_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">cornet_dm10005.jpg</span><span class="informations">1680×1050 298 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>The red textures are transferring way more light and color to the surrounding textures, while the bland textures on the right are mostly unaffected.</p>
+<p>This could be used to get a “mirror’s edge” type of effect, to  exaggerate red painted objectives for example.</p>
+<p>That’s all folks, let me know if you need any clarification!</p>
+            <p><small>3 posts - 3 participants</small></p>
+            <p><a href="https://leakfree.org/t/texture-lights-and-bounce-lighting-in-vrad/14676">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/texture-lights-and-bounce-lighting-in-vrad/14676</link>
+          <pubDate>Wed, 10 Feb 2016 08:45:53 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-14676</guid>
+          <source url="https://leakfree.org/t/texture-lights-and-bounce-lighting-in-vrad/14676.rss">Texture Lights and Bounce lighting in VRAD</source>
+        </item>
+        <item>
+          <title>BBMIP 2.3</title>
+          <dc:creator><![CDATA[bkdale86]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <p>Well the end of the year was a zoo, but lots was finished for CU2. Now lots of things are being done for CU3/STU. Here is a small sample of the most recent stuff.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/xnkjW0N.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/xnkjW0N.jpg" alt="" width="690" height="434"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">2041×1286</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/5vQr1dL.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/5vQr1dL.jpg" alt="" width="379" height="500"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1361×1793</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+And finally a sample of the skybox models.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/UoqbsDp.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/UoqbsDp.jpg" alt="" width="690" height="368"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1500×800</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+            <p><small>36 posts - 16 participants</small></p>
+            <p><a href="https://leakfree.org/t/bbmip-2-3/14659">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/bbmip-2-3/14659</link>
+          <pubDate>Tue, 02 Feb 2016 03:39:50 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-14659</guid>
+          <source url="https://leakfree.org/t/bbmip-2-3/14659.rss">BBMIP 2.3</source>
+        </item>
+        <item>
+          <title>BBMIP 2.2</title>
+          <dc:creator><![CDATA[bkdale86]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <p>Since Adam and Chon have been posting about the new additions to CU2, I’ll add my contributions (there is ton’s more this is just a sampling).<br>
+Since we updated the crossbow view model we needed to redo the world models so this is what I came up with.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/Y4BrlKV.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/Y4BrlKV.jpg" alt="" width="690" height="493"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1862×1331</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+Also redone is the clip.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/Ohtkgs3.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/Ohtkgs3.jpg" alt="" width="559" height="500"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1314×1174</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+Finally the new bolts. Our old ones didn’t make sense with the fiction based on a neurotoxin substance in the tranq so they were also redone (x2 as it happened).<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/rEgSo9a.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/rEgSo9a.jpg" alt="" width="690" height="307"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1959×872</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+The MP version is also different being an exploding bolt. Enjoy.</p>
+            <p><small>11 posts - 8 participants</small></p>
+            <p><a href="https://leakfree.org/t/bbmip-2-2/14476">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/bbmip-2-2/14476</link>
+          <pubDate>Tue, 24 Nov 2015 23:16:40 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-14476</guid>
+          <source url="https://leakfree.org/t/bbmip-2-2/14476.rss">BBMIP 2.2</source>
+        </item>
+        <item>
+          <title>The December Update, Part 2</title>
+          <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <p>Welcome to December Update, Part 2. <a href="https://forums.blackmesasource.com/index.php/Thread/28613-The-December-Update/?postID=614513#post614513" data-bbcode="true">You can read Part 1 of our reveal about the December Update here.</a><br>
+<span class="bbcode-i"><span class="bbcode-b"><br>
+Important Point: </span>This update WILL NOT contain Xen. We are hard at work on Xen and are preparing media to show to you guys. But there will not be a release of Xen soon and we still do not have a timeframe for it.</span></p>
+<p>Here are some more interesting details for what’s to come in December’s Content Update 2. This list is not exhaustive. The update is huge and there’s going to be A LOT of stuff.</p>
+<p><span class="bbcode-b">Godrays</span><br>
+Godrays (also known as Crepuscular Rays if you want to be more scientific) are the first of the new graphical features we have written with Xen in mind. We’re testing them by deploying them publicly on our existing singleplayer and multiplayer maps. Very pretty, and highly customisable per level - useful for modders and level designers.</p>
+<p><img src="https://i.imgur.com/SXYmT4G.gif" alt="" width="600" height="310"></p>
+<p><img alt=""></p>
+<p><img src="https://i.imgur.com/7jipFDf.gif" alt="" width="600" height="310"></p>
+<p><span class="bbcode-b">Shell Ejection</span><br>
+Marines and other players in multiplayer now eject weapon brass when firing. Seems like a small touch, but in a big firefight with multiple Marines it can actually add quite a lot to the atmosphere!</p>
+<p><span class="bbcode-b">AI Tweaks</span><br>
+We’ve started our first round of AI tweaks. There will be more to come. One big one was tweaking the way Marines react to Alien Grunts. They used to use grenade avoidance behaviours to try and escape the Alien Grunt’s Hornets, which led to some very odd behaviours in fights between them. They now no longer do that. They would also try and avoid their own grenades which led to some odd behaviour too. They don’t do that anymore, either.</p>
+<p><span class="bbcode-b">Multiplayer Tweaks and Changes</span><br>
+Multiplayer has seen quite a bit of love for this update, though there’s plenty to come for you singleplayers too!</p>
+<p>Firstly, all of the base multiplayer code was completely rewritten from scratch. This is HUGE. MP should now be far more responsive, better performing, and less buggy/crashy.</p>
+<ul>
+<li>Fixed prediction/lag compensation on the Crossbow. Zoomed fire should now be extremely responsive and reliable.</li>
+<li>Added subtle spawn effects/sounds for weapon and player spawns.</li>
+<li>Added a “walk” function.</li>
+<li>Unlocked all movement related cvars to allow us to better tweak movement and feel to match HL1.</li>
+<li>Removed some Taus and ammo from most maps, to better match the fact that the Tau is really, really powerful now.</li>
+<li>Better colours on the scoreboard/coloured killfeed and coloured chat for better clarity.<br>
+And many more! We may reveal more later!</li>
+</ul>
+<p><span class="bbcode-b">Bugfixes</span></p>
+<ul>
+<li>Fixed .357 Guard being unable to fire.</li>
+<li>Fixed Hivehand falling through the elevator on C2A5E.</li>
+<li>Headcrabs now properly inherit momentum when shot off Zombies instead of just falling to the ground.</li>
+<li>Crossbow’s lowered sensitivity when zoomed in now works properly. No more weird feeling.<br>
+And many more! We may reveal more later here too!</li>
+</ul>
+<p><span class="bbcode-b">Crossfire, and a Singleplayer Update</span><br>
+Next part, we will talk about the main MP focus of the update: Crossfire! That’s right, Crossfire is coming in the December Update, better than ever! And we also have a Singleplayer Update lined up for Content Update 2, which we suspect a lot of you have been anticipating and excited for (reiteration: it is NOT Xen!)</p>
+<p><img alt=""><br>
+<span class="bbcode-i">Work in Progress. Map is still being polished!</span></p>
+<p>Join us soon for the next part!</p>
+            <p><small>143 posts - 48 participants</small></p>
+            <p><a href="https://leakfree.org/t/the-december-update-part-2/14473">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/the-december-update-part-2/14473</link>
+          <pubDate>Mon, 23 Nov 2015 11:40:51 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-14473</guid>
+          <source url="https://leakfree.org/t/the-december-update-part-2/14473.rss">The December Update, Part 2</source>
+        </item>
+        <item>
+          <title>The December Update</title>
+          <dc:creator><![CDATA[Adam-Bomb]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <p>You may have saw the <a href="https://forums.blackmesasource.com/index.php/Thread/28607-Introducing-The-New-Crossbow-Model/?pageNo=1" data-bbcode="true">crossbow update</a> that Chon posted. We originally had two game updates planed, but decided it was better to merge them into one big update for December. We historically have been all about surprise updates, but now we want to be more open to show people that we are making progress, and to hopefully build some excitement for the December update. So throughout this month I’ll be posting previews of the coming features.</p>
+<p><span class="bbcode-b">Weapon Drag</span><br>
+First up we added weapon drag. It’s a seemingly small feature, but I think it adds a lot. You can set how much sway you have. So you can blow it out if you love it, or turn it to zero if you hate it. There also is an editable amount of weapon bob when you walk.<br>
+<img src="https://i.imgur.com/kWJvRwM.gif" alt="" width="420" height="280"></p>
+<p><span class="bbcode-b">New Egon Model</span><br>
+We made a new Egon model. It is very similar to the last one, but more polished and without the deleted back faces.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/y7zvWwk.jpg" title=""><img src="https://i.imgur.com/y7zvWwk.jpg" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">800×500</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><span class="bbcode-b">Gman Arms</span><br>
+We created some Gman arms, so when you select him in MP the arms are accurate.  He also no longer explodes into HEV gibs  <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/QvAEcmX.jpg" title=""><img src="https://i.imgur.com/QvAEcmX.jpg" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">800×500</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><span class="bbcode-b">Bug Fixes</span><br>
+-Fixed Steam Cloud<br>
+-Flashlight is now brighter and has a wider radius!<br>
+-Fixed satchel detonation to be faster and not switch mouse buttons on last satchel<br>
+-Fixed the MP5 grenade spawning from then center of the screen when fired<br>
+-Score persist on leaving and rejoining a MP match</p>
+<p>That’s just a quick sample. I’ll be back through out the month to show off some new stuff that you guys/gals will hopefully find more and more interesting!</p>
+            <p><small>71 posts - 35 participants</small></p>
+            <p><a href="https://leakfree.org/t/the-december-update/14453">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/the-december-update/14453</link>
+          <pubDate>Thu, 05 Nov 2015 10:19:36 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-14453</guid>
+          <source url="https://leakfree.org/t/the-december-update/14453.rss">The December Update</source>
+        </item>
+        <item>
+          <title>Introducing: The New Crossbow Model!</title>
+          <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <p>Greetings all!</p>
+<p>We’ve been a bit quiet on the forum front for a while, but we have been steadily toiling away on Content Update 2! Content Update 2 is going to be a huge, awesome update, and we’re super excited for the coming weeks. Over the next few weeks, I will be periodically showing off snippets of what’s to come in Content Update 2 to you guys. There’s a lot!</p>
+<p>First up, in today’s post: CU2 will feature 3 new weapon models. The Crossbow, the Shotgun, and the Gluon. All are completely new models/textures. The Shotgun and Gluon still currently (and probably will continue to) use the old animations, the Crossbow has also been completely reanimated. Stylistically, the Crossbow and Shotgun are both quite different to the models which you can see in retail at the moment (which are the same as the mod release), and are now much closer to their HL1 counterparts, design wise. This is part of our effort to bring our viewmodels all up to the same high standard and ethic for design, and this marks an end to our weapon remodels. The Gluon is pretty much the same looking as it was before, just with a higher polycount and a cleaner texture.</p>
+<p>Below you can see far too many screenshots of the new Crossbow. Please remember that this is still a work in progress! Feel free to discuss and comment. We’re very happy with how it’s turning out - I personally think we’ve kept the distinctive look and style of the HL1 Crossbow intact (it’s much less generic looking now), and kept it to a very high quality.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/Bx1I53l.jpg" title=""><img src="https://i.imgur.com/Bx1I53l.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/5RKbWaj.jpg" title=""><img src="https://i.imgur.com/5RKbWaj.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/zZKcK30.jpg" title=""><img src="https://i.imgur.com/zZKcK30.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/gVtOqyc.jpg" title=""><img src="https://i.imgur.com/gVtOqyc.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/uzKDquJ.jpg" title=""><img src="https://i.imgur.com/uzKDquJ.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/MbRC0PL.jpg" title=""><img src="https://i.imgur.com/MbRC0PL.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/QEIEjNE.jpg" title=""><img src="https://i.imgur.com/QEIEjNE.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+            <p><small>42 posts - 29 participants</small></p>
+            <p><a href="https://leakfree.org/t/introducing-the-new-crossbow-model/14449">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/introducing-the-new-crossbow-model/14449</link>
+          <pubDate>Sat, 31 Oct 2015 23:35:18 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-14449</guid>
+          <source url="https://leakfree.org/t/introducing-the-new-crossbow-model/14449.rss">Introducing: The New Crossbow Model!</source>
+        </item>
+        <item>
+          <title>The Story of Crossfire, Pt 1</title>
+          <dc:creator><![CDATA[Fr0z3n]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <p>[align=center]The Story of Crossfire, Pt 1.[/size][/size][/align]<br>
+[/size]<br>
+[align=center]A disclaimer: Everything within this blog post talks about things that are still in development. That means, the next blog post you read, it’s possible things have changed or have been redone. Nothing shown represents any final ideas or themes. As with <span class="bbcode-i">everything</span> in the game industry, everything is subject to change.[/size][/align]</p>
+<p>The Half-Life 1 Crossfire was a bit… how to put it… under detailed. There wasn’t too much to the visuals beyond the concrete buildings, large bunker walls and the assumed endless spread of the desert. Much like with the rest of Black Mesa, we’ve taken the original levels and used them as a base, filling in our own details. In some cases, we expanded on existing stories that these levels told. In other cases, we’ve created our own stories unique to the world. Crossfire is currently exploring one of these unique stories.</p>
+<p>When we make our multiplayer levels, we try multiple different things with the visuals of the map. There’s specific ‘feels’ and stories that we want to tell with the map, but we aren’t sure what the best background is to evoke these feelings, or tell this stories. Many times, we’ll go through three, four, sometimes five different theme bases before we decide on one that we like. Lambdabunker for example went through three or so different themeing ideas, just around the existing underground carpark, theme. This part of development is REALLY important as it literally sets the tone for the rest of the maps development and artstyle. Once we leave this part of development, do we rarely comeback to it. There have been some cases, but those were outstanding events.</p>
+<p>Level designer JeanPaul Jarreau (JP, for short), has decided to take Crossfire into a not well explored region of the Black Mesa complex. Pulling on the idea of ‘crossing over,’ JP is turning Crossfire into one of Black Mesa’s containment/ecosystem isolation chambers. Sorry, while this may bring up visions and memories of Jurassic Park, I can safely say that we don’t have any dinosaurs.</p>
+<p>Crossfire has 3 major sections. The close-quarters section where all the weapons are and where the players spawn. This is the area where you’ll see most of the action as players scrambled to get weapons.  There is the ‘no-mans-land,’ a barren yard where the first thing you see are two iconic tall towers and a couple of not-so-friendly looking 50cal’s staring right back at you. Finally, the most important section, the nuke button room; the room that gives Crossfire its fame and fun. JP wanted to give visual significance to crossing over from the weapon/spawn section, to no-mans-land, and this is where the containment idea I came from. You can see the large fence barrier between the two zones.</p>
+<p>Below are some images of what crossfire looks now. There’s a lot less of that gray blockiness from a weeks ago, no? Let us know what you’re thinking! Who knows where this will go? What is trying to be contained? Who knows! Maybe, you’ll find out next time, in The Story of Crossfire, pt 2.<br>
+[/size]<br>
+[align=center]<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/wCUf9tW.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/wCUf9tW.png" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/XyLiDdf.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/XyLiDdf.png" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/9vzIg58.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/9vzIg58.png" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/V4vvsZp.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/V4vvsZp.png" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/uLnWxQX.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/uLnWxQX.png" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/0SPak62.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/0SPak62.png" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/CpaXOmb.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/CpaXOmb.png" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div>[/size][/align]</p>
+            <p><small>20 posts - 14 participants</small></p>
+            <p><a href="https://leakfree.org/t/the-story-of-crossfire-pt-1/14389">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/the-story-of-crossfire-pt-1/14389</link>
+          <pubDate>Wed, 02 Sep 2015 18:20:53 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-14389</guid>
+          <source url="https://leakfree.org/t/the-story-of-crossfire-pt-1/14389.rss">The Story of Crossfire, Pt 1</source>
+        </item>
+        <item>
+          <title>BBMIP 2.1</title>
+          <dc:creator><![CDATA[bkdale86]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <p>[sup]Been working on several things after taking a bit of a break. Most of the things were skybox models. This was one that wasn’t. [/sup]<br>
+Just a Shot with AO.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/jU39ehV.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/jU39ehV.jpg" alt="" width="690" height="442"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">2618×1680</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Base textures (no grunge)<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/GfmfTls.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/GfmfTls.jpg" alt="" width="690" height="449"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">3101×2021</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Final hlmv shot.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/v0ICj1N.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/v0ICj1N.jpg" alt="" width="690" height="382"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">3061×1697</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+            <p><small>44 posts - 15 participants</small></p>
+            <p><a href="https://leakfree.org/t/bbmip-2-1/14387">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/bbmip-2-1/14387</link>
+          <pubDate>Sun, 30 Aug 2015 21:41:35 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-14387</guid>
+          <source url="https://leakfree.org/t/bbmip-2-1/14387.rss">BBMIP 2.1</source>
+        </item>
+        <item>
+          <title>Announcing: The Story of Crossfire</title>
+          <dc:creator><![CDATA[Fr0z3n]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <p>Hey everyone!</p>
+<p>Everyday, we get asked a singular question: “WHERE’S XE-”- … No, not that one.“Where’s Crossfire?” … Yea, that one. Until now, we’ve just been saying “we’re working on it!” or something to that effect. Today however, is different. We’re now able to answer that question.</p>
+<p>It’s boring and painful (mostly boring) working on something that you can’t talk about and everyone wants to know about it. Sorry guys, we aren’t ready to talk about Xen yet, despite how boring/painful it is for us. Instead, we’re going to be talking about Crossfire. Yep, we’re going to be bringing you guys into the inner workings of what it’s like to work on a multiplayer map for Black Mesa Multiplayer! Now, we’re cheating a little. This isn’t a start-from-scratch development cycle, we’ve been tweaking the layout of Crossfire for a little while now so that it plays just as everyone remembers it back in the day.</p>
+<p>We’re going to make the process as simple and as understandable as possible. It’s going to be quick! Let me lay out really quickly what we are planning to do with the rest of the development of Crossfire.</p>
+<ul>
+<li>We’re going to show you guys what development versions of Crossfire look like. So you get to see it through all its different stages. I’ve added shots of the unarted version of Crossfire below.</li>
+<li>We’ll say why we do what we do. Why are we using this colour light? Why are the weapons placed the way they are? Why the heck is it taking so long!?! If there’s something you don’t necessarily think works, let us know.</li>
+<li>Anything you want to know? Ask! We’ll take questions from you guys and have the MP team answer all the questions we can for you.</li>
+<li>Finally, we’ll welcome you play the development and internal version of Crossfire, via the Black Mesa Public Beta and our Beta Servers. More info on that later.<br>
+We’re totally excited to be able to start showing off what we’ve been doing with Crossfire and being able to give you guys another window into the world of Black Mesa Multiplayer Development. Stay tuned to the normal channels for more information as it comes up.</li>
+</ul>
+<p><a href="https://www.facebook.com/BlackMesaDevs" data-bbcode="true" rel="nofollow noopener">Facebook</a> | <a href="https://twitter.com/BlackMesaDevs" data-bbcode="true" rel="nofollow noopener">Twitter</a> |<a href="https://steamcommunity.com/groups/BlackMesa" data-bbcode="true" rel="nofollow noopener">Steam Group</a></p>
+<p><span class="bbcode-b">- The MP Team  :thumbup: </span></p>
+<p>          <a href="https://i.imgur.com/APGsxSh.png" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="https://leakfree.org/uploads/default/original/2X/0/00228effa79503e9f8c2b0398bfbf8e567641840.jpeg" width="690" height="388">
+          </a>
+<br>
+          <a href="https://i.imgur.com/kzAPjMO.png" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="https://leakfree.org/uploads/default/original/2X/6/6d95f0aed1864c7f00394be536d76ea3ab33a55e.jpeg" width="690" height="388">
+          </a>
+<br>
+          <a href="https://i.imgur.com/v0zBWMH.png" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="https://leakfree.org/uploads/default/original/2X/b/b619a6b3bd9870437e99d26af8515ae77318743d.jpeg" width="690" height="388">
+          </a>
+<br>
+          <a href="https://i.imgur.com/dIsofDK.png" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="https://leakfree.org/uploads/default/original/2X/a/a45df7dc996a8c3e65f5a79f202bc7b3bc4a0df7.jpeg" width="690" height="388">
+          </a>
+</p>
+            <p><small>27 posts - 15 participants</small></p>
+            <p><a href="https://leakfree.org/t/announcing-the-story-of-crossfire/14371">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/announcing-the-story-of-crossfire/14371</link>
+          <pubDate>Fri, 14 Aug 2015 20:39:52 +0000</pubDate>
+          <discourse:topicPinned>Yes</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-14371</guid>
+          <source url="https://leakfree.org/t/announcing-the-story-of-crossfire/14371.rss">Announcing: The Story of Crossfire</source>
+        </item>
+        <item>
+          <title>BBMIP 2.0</title>
+          <dc:creator><![CDATA[bkdale86]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <p>So I have taken some time off after the big push this year with finishing all the redos and odd jobs for release and now I have gotten back into learning more about some new programs I’ve purchased.  I bought the web tutorials from Gnomon and have been referencing them while practicing on some maps.  World machine is pretty complex but very powerful, there are lots of neat effects you can get with some practice (and some luck !) This is my first full non-tutorial attempt at some terrain. Texture is @ 2k.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/H7tDc4A.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/H7tDc4A.jpg" alt="" width="690" height="325"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">3161×1491</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>This is the same model just about 95% smaller poly wise rendered in toolbag.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/Me0AnCC.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/Me0AnCC.jpg" alt="" width="690" height="400"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">2709×1571</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>One of the tutorial files that I have edited to make something Black Mesa-y,<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/22eNZL0.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/22eNZL0.jpg" alt="" width="690" height="409"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">2798×1662</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+            <p><small>11 posts - 8 participants</small></p>
+            <p><a href="https://leakfree.org/t/bbmip-2-0/14246">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/bbmip-2-0/14246</link>
+          <pubDate>Mon, 22 Jun 2015 02:17:41 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-14246</guid>
+          <source url="https://leakfree.org/t/bbmip-2-0/14246.rss">BBMIP 2.0</source>
+        </item>
+        <item>
+          <title>BBMIP 18ish</title>
+          <dc:creator><![CDATA[bkdale86]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <p>I guess I’ll try this again one last time…</p>
+<p>Been doing a lot of work for SP/MP. Probably got another 30-40 models done (just an estimate). I thought I was through with all the consoles but one kept bothering me, especially the old keyboards on them…SO<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/nbegOvO.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/nbegOvO.jpg" alt="" width="690" height="339"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">3020×1486</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+Remember the rules and please don’t derail   <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+            <p><small>62 posts - 23 participants</small></p>
+            <p><a href="https://leakfree.org/t/bbmip-18ish/13752">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/bbmip-18ish/13752</link>
+          <pubDate>Tue, 14 Apr 2015 21:35:43 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-13752</guid>
+          <source url="https://leakfree.org/t/bbmip-18ish/13752.rss">BBMIP 18ish</source>
+        </item>
+        <item>
+          <title>An Undertow Is Born: The Story of Undertow</title>
+          <dc:creator><![CDATA[JordanFanaris]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <p>Bringing a map that’s been played over and over again since 1998 into the modern era is a dangerous business. In this  rambly post I’ll be sharing my experience carrying the weight of fifteen years of fond memories and nostalgic familiarity attached to the original Undertow, under the constant threat of becoming <span class="bbcode-i">that evil monster who ruined my favorite thing and must never be forgiven.</span>[/size]</p>
+<p><span class="bbcode-b">TIME TAKES ITS TOLL[/size]</span><br>
+[/size]</p>
+<p>Undertow was originally released in 1998, long before anyone started churning out online multiplayer shooters that outsell James Cameron films. As such, FPS level design wasn’t an established craft yet, and nobody <span class="bbcode-i">really</span> knew what they were doing. Matters were only made worse by how little manpower and time went into the original Half Life’s multiplayer mode. Valve was like two dozen dudes sleeping in tents at the base camp of the Mt. Everest of Cash Dollars that they would spend the next 15 years scaling. Subtransit, Boot Camp, Crossfire, Undertow, and Snark Pit were all made by the same designer in a very short period of time. The result was maps that were interesting and unusual by modern standards, since they didn’t follow the “conventional wisdom” that most level designers pick up nowadays, but often very crude and deeply flawed. Our first step when remaking a multiplayer map is to make a “one-to-one” version, which is completely identical to the original, and test it out to see how well it’s held up. So when I first got permission to start on Undertow, that’s exactly what I did.[/size]</p>
+<p><img alt=""><br>
+<span class="bbcode-i">                                                                                                   One (1) Undertow, in its original habitat</span><br>
+[align=center][/align]Unfortunately, it was garbage. Undertow’s layout, with its flat, empty hallways and sometimes confusing rooms, had not aged well. The reception from our testers was pretty universally negative, both from those who played the original game and those who hadn’t. Later on we got a full server of people and played the original in Half Life, and even in its original context a lot of people just found it boring. Running around barren halls shooting at your friends was revolutionary fifteen years ago, but today people expect more varied and interesting spaces to play in. I saw this as a great chance to take some creative liberties and make something new, a proper redo instead of a direct port with some pretty paint slapped over it. So I started from scratch.[/size]</p>
+<p><span class="bbcode-b">WHAT MAKES AN UNDERTOW?[/size]</span></p>
+<p>The first challenge I faced with my “remake” was answering two questions:[/size]</p>
+<ol>
+<li>Why isn’t this map fun?[/size]</li>
+<li>What makes this map Undertow? In other words: What should I keep to make the map recognizably Undertow, while changing up everything else to make the map fun?[/size]<br>
+The first question was easier than the second. The layout was extremely dated and felt very rushed. I got the feeling that there was a concrete idea for the river, and for the big rooms where it started and ended, but the rest of the map consisted of a bunch of flat, boring gray hallways quickly thrown together to connect those spaces:</li>
+</ol>
+<p>[/size]<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/uN7olBO.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/uN7olBO.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">800×450</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<span class="bbcode-i">                                Four (4) Boring Undertow Hallways, in Half Life</span></p>
+<p>These kinds of spaces just aren’t very fun to play in. In addition to being boring to look at, there’s nowhere to run, jump, and hide. Fun gameplay in a modern game requires more variety, different heights let players move strategically to gain the upper hand, little nooks and crannies and side rooms make fights less predictable and add a lot of tactical options, especially when you’re being chased down by a better-equipped player. Every fight in these halls has players shooting and moving straight ahead, without any way to take advantage of the environment. The ideal Undertow would strip away as much of this bland, cramped space as possible in favor of the much more enjoyable big, open spaces that the hallways connect, which leads me to the answer to the second question:</p>
+<p><img alt=""><br>
+<span class="bbcode-i">                                         One (1) Undertow, Simplified</span><br>
+[/size]<br>
+[/size]<span class="bbcode-b">AN UNDERTOW IS BORN[/size]</span></p>
+<p>The most important and fun areas of Undertow are the three main open areas: the 3-level atrium in the middle (“<span class="bbcode-b">Mid</span>”), the room where the river originates from the big vat where the gluon gun lives (“<span class="bbcode-b">Vat Room</span>”), and the underground sewer room where the river dumps the players (“<span class="bbcode-b">Sewer</span>”). The new Undertow would keep the concepts of those three areas intact, as well as their locations relative to one another, but the new versions would be redesigned from the ground up to be fun, complex places to fight in and explore. The connecting hallway routes would be rerouted <span class="bbcode-i">through</span> mid and/or turned into bigger interior spaces to get rid of the bland corridors and dump more players into the open areas.[/size]</p>
+<p><img alt=""><br>
+<span class="bbcode-i">One (1) Undertow Mid, Old</span></p>
+<p><img alt=""><br>
+<span class="bbcode-i">One (1) Undertow Mid, First Revision</span><br>
+<span class="bbcode-b">[/size]</span><br>
+<span class="bbcode-b">AN UNDERTOW HAS A SOLID CORE[/size]</span></p>
+<p>Mid was the first area I remade, and the most important part of the layout. All paths converge here; players should be able to choose from a number of paths here, to get wherever they want. My biggest goal with Mid was to create an interesting combat space with lots of possible paths, since this is where all the players converge from the other rooms. I also wanted to connect the second-floor areas both to each other and to the ground floor; the old upstairs areas were dead-end hallways with only one entrance and a window to shoot out of, which made them hard to clear out and encouraged players to camp up there for ages. Giving the players lots of freedom of movement was important. This layout has lots of interconnected loops, so players can plan out paths to “patrol,” restocking on weapons and searching for enemies. The player will never come to a dead end then have to backtrack to get out.[/size]</p>
+<p>[/size]<img alt=""><br>
+<span class="bbcode-i"> One (1) Undertow Mid, in Beta</span></p>
+<p>In the end I turned the upstairs areas into buildings with direct connections to the first floor, and connected them with bridges over the river. This made the upstairs positions a lot harder to camp, since enemies could come from many directions, and made the upstairs much more accessible and feel much less isolated from the rest of the map. I also “broke” the hallway that wrapped around mid, preventing players from completely bypassing the outdoor space. This area got a whole bunch of weapon pickups added in, since it’s now a major combat area. The side hallways have been turned into fairly spacious building interiors with irregularly-shaped rooms and lots of big doors and windows opening into mid, so they feel more like extensions of mid than isolated hallways. Mid as a whole was received very positively by playtesters and hasn’t been changed much since the first version.[/size]</p>
+            <p><small>14 posts - 11 participants</small></p>
+            <p><a href="https://leakfree.org/t/an-undertow-is-born-the-story-of-undertow/13750">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/an-undertow-is-born-the-story-of-undertow/13750</link>
+          <pubDate>Sun, 12 Apr 2015 04:39:50 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-13750</guid>
+          <source url="https://leakfree.org/t/an-undertow-is-born-the-story-of-undertow/13750.rss">An Undertow Is Born: The Story of Undertow</source>
+        </item>
+        <item>
+          <title>The Story of Gasworks, Part 4</title>
+          <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <p><span class="bbcode-b">[/size]</span><span class="bbcode-b">HOME STRETCH[/size]</span></p>
+<p>Apologies for the delay in getting this one out. Work on Black Mesa has been extremely busy recently, for reasons which should excite you. BM, coupled with a busy full time job, some personal/family issues, and just life in general has made free time to do stuff like this community blog frighteningly scarce!</p>
+<p>At any rate, the next blog for Gasworks will in all likelihood be the final one. As a treat for you guys, the next one, which I’m hoping to get out relatively soon, will have some “retail ready” shots in it, showcasing how the map will likely look at release. I still wouldn’t consider it “official media” as they’ll just be shots which I take and upload. This iteration’s story is a lot shorter than the other ones as it had less input from me. This will hopefully outline the process of final iteration and solidification of our bases, for the MP maps.</p>
+<p><span class="bbcode-u"><span class="bbcode-b">FIGHTING BURNOUT[/size]</span></span></p>
+<p><span class="bbcode-b">LINGERING ISSUES</span>[/size]<br>
+Moving on from Iteration 3, the map and its art had been progressing quite nicely, up to this point. I had a good vision and direction going, it would just need a lot of refinement to bring it up to our quality standard for DM, and to make it BM quality. There were, however, still some issues lying beneath the surface. The first was that my style of detailing was quite cluttered, and was making parts of the map a bit cramped and hard to read. I was still, to an extent, putting detail in unimportant places, which was making the map visually distracting in places where it shouldn’t be. I had a lot of pipes sticking out and creating awkward navigation, and a bunch of other things. I also hadn’t really done any “fine” detailing yet, which is where you really drill down into the world and give it a story and make it seem rich and alive. Overall, the map was still a bit on the bland side. The base was going to need some reworking and I still needed to consolidate the art style and pallet further to come up with something more cohesive and visually appealing.</p>
+<p><span class="bbcode-b">DON’T BURN OUT!</span>[/size]<br>
+At this point, I was 8 months into my position on the team, and my work on BM had been almost entirely comprised of Gasworks and organising our multiplayer testing sessions, feedback, and gameplay design. I was burning out a bit, so I took some time off Gasworks to work on another MP map for a while, and recharge my batteries and inspiration. For a little while, I passed Gasworks onto JP, our multiplayer lead, who at this point has rubbed his dirty fingers all over every MP map. I kid! He’s an amazing and experienced mapper. He has taught me a lot of important design principles and is one of the key reasons our MP maps are so wonderfully detailed without being cluttered or distracting - a key consideration when designing high quality MP maps.</p>
+<p><span class="bbcode-b">THE JP PRINCIPLE</span>[/size]<br>
+After a few weeks off, working on <em><strong>BD</strong></em>****, I wanted my map back, and was ready to work on it some more. It returned to me in a shockingly different state! It had been transformed far beyond what I’d initially imagined, but in the opposite direction! A LOT had been deleted and stripped back, and the map was far barer and less visually noisy than before. Us MP designers, at this point, like to think of it as the “JP Principle,” which has affected all of our maps (including his own, Stalkyard!). Bring a map up to 50 - 70% completion, and then watch JP delete it all back to 40%. He is our resident deleter, but I mean that in the nicest way possible.</p>
+<p>I’m joking in part, but this has actually been a pretty important aspect of our MP design which has helped bolster the quality a lot. Pretty much all the maps have undergone a process where the mapper has realised the vision and has started to build on it, but in a somewhat flawed way, and the map has then been stripped back to that vision’s barest essence, ready for reseeding, with a more robust and solid version of that direction. And it’s actually worked really well, despite being taxing in some regards (particularly emotionally, I’m a wreck!). All of our MP maps have received this treatment, for the better.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/GdR7WH6.jpg" title=""><img src="https://i.imgur.com/GdR7WH6.jpg" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>[b]<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/D78pbJ4.jpg" title=""><img src="https://i.imgur.com/D78pbJ4.jpg" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/LHmfADZ.jpg" title=""><img src="https://i.imgur.com/LHmfADZ.jpg" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>[/b][/size]<span class="bbcode-u"><span class="bbcode-b">THE AFTERMATH - ON THE RIGHT TRACK[/size]</span></span>[b]</p>
+<p>DEALING WITH FEEDBACK[/b][/size]<br>
+I was initially pretty taken aback by this - it felt like a lot of my work had been done away with and that it was more wasted time, in the face of the map already having been redone twice. However, as a designer who wishes to improve and constantly better his work, I have learned that the initial emotional reaction to feedback or changes made to your work MUST be suppressed. So many times now I’ve learned to silence the voice which immediately says “HE DID WHAT!?” “WHY DOES HE THINK THAT!?” “WHY CHANGE THAT!?” etc, in favour of just letting it slide and thinking about it. It’s important, as the defensive, immediate reaction is really a very human response. If I could give one important bit of advice to level designers it would be to NEVER deflect criticism from its initial reading. Always take time to think it over, beyond the initial, often emotional reactionary response. It’s important. I’ve found myself warm to a lot of ideas and changes after a few days despite vehemently opposing them initially, or after some argument with the team members who put them forward.</p>
+<p>This might seem like a long and wasteful process, but, at least across an online team who are very taxed for time, is simply the way of iteration on a team aiming for very high quality. It’s painful and tough, but ultimately makes the product a lot stronger, and it sure does mean we put a lot of love into it!</p>
+<p><span class="bbcode-b">BACK TO BASICS</span>[/size]<br>
+JP was very gameplay oriented in what he’d done with the map. He’d stripped a lot of it back down to basics and ripped away a lot of my complex brushwork, detailing, lighting and such. It wasn’t being stripped back to square one, more like square three or four out of ten. He’d also tidied up a lot of my brushwork and architecture, making the map much neater and cleaner constructed in the editor. Beyond this point, I learned my lesson from this - and since then my details, brushwork, texturing and changes have generally been very neat and well constructed, without cluttering. He’d kept most of my foundation, but tidied a lot of it up where it was a bit sloppy. Pretty shocking difference, eh? Try and think of it from the point of view of the creator.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/YRMyb85.jpg" title=""><img src="https://i.imgur.com/YRMyb85.jpg" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/ITfjRtu.jpg" title=""><img src="https://i.imgur.com/ITfjRtu.jpg" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+[b]<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/YsLUc9O.jpg" title=""><img src="https://i.imgur.com/YsLUc9O.jpg" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>VISUAL REDIRECTION[/b][/size]<br>
+Visually, this version threw me into something of a bit of disarray. It might seem like an overall step backward, from the previous version, to the untrained eye. As you can see, the map had become very visually no-frills. The lighting was super basic and utilitarian (also unfinished by a long stretch), some might say the map had become very bland. That isn’t levied as a criticism - that was the intention, really, and in some ways was how I should have done the map the whole time. Get the map to a polished, simple base and THEN put together the art - rather than what I had done before which had really been mixing those two stages. This was now the finished base. I would then be doing the art over the next few months. It was challenging, but the end result was worth it.</p>
+<p><span class="bbcode-u"><span class="bbcode-b">CONCLUSION</span></span>[/size]</p>
+<p>There isn’t much more to say about this version other than it finally cleared the map of the “ghosts” and mistakes of the previous versions, and finally set me up for success. The rest of the work on the map (which would admittedly take a very long time) was the art pass and small iterations on the layout. Boy does this version transform once the new lighting, colour pallet, and fine details are in, and I can’t wait to show it off in the next post!</p>
+<p>The art pass involved me adapting my previous ideas and visual styles, from Iteration 3, onto this base. And it turned out really well. I will outline this entire arting process extensively in the next post. Until next time, friends!</p>
+<p>As a final thing, here’s a nice timeline of Gasworks’s currently revealed iterations. Left earliest, to right, latest. I love it - shows me how far it’s come! The final shot is the one we released a few months ago (that shot is from a version which was still not release ready, but was close-ish.)</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/Mfuvghm.jpg" title=""><img src="https://i.imgur.com/Mfuvghm.jpg" alt="" width="690" height="77"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">9600×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+            <p><small>24 posts - 16 participants</small></p>
+            <p><a href="https://leakfree.org/t/the-story-of-gasworks-part-4/13707">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/the-story-of-gasworks-part-4/13707</link>
+          <pubDate>Mon, 16 Feb 2015 14:53:21 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-13707</guid>
+          <source url="https://leakfree.org/t/the-story-of-gasworks-part-4/13707.rss">The Story of Gasworks, Part 4</source>
+        </item>
+        <item>
+          <title>BBMIP 17</title>
+          <dc:creator><![CDATA[bkdale86]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <p>Thankfully the holidays are over and hopefully there will be more time for BM. While taking a break from the consoles I redid the nitrogen tank model. The polycount increase really helps the prop especially the top portion which screamed low poly to me (a lot).<br>
+Comparison shot. Ignore the smoothing errors on the old prop.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/QuUfT2t.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/QuUfT2t.jpg" alt="" width="690" height="487"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">2819×1992</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+All 4 replacements with chrome texture.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/xZzHrGS.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/xZzHrGS.jpg" alt="" width="690" height="487"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">2819×1992</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+            <p><small>122 posts - 34 participants</small></p>
+            <p><a href="https://leakfree.org/t/bbmip-17/13636">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/bbmip-17/13636</link>
+          <pubDate>Sun, 04 Jan 2015 00:00:45 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-13636</guid>
+          <source url="https://leakfree.org/t/bbmip-17/13636.rss">BBMIP 17</source>
+        </item>
+        <item>
+          <title>BBMIP 16</title>
+          <dc:creator><![CDATA[bkdale86]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <p>Very little to show for the last several weeks…we are VERY busy at work. I did get a 4k monitor and have been using it lately to multitask. I did manage to do a few things today. Brought the security console (and the corner one) up to the rest of the games standard detail wise. If you have a good memory or sharp eyes you should spot the differences.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/IxEQ0Ci.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/IxEQ0Ci.jpg" alt="" width="609" height="500"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1927×1580</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+            <p><small>52 posts - 19 participants</small></p>
+            <p><a href="https://leakfree.org/t/bbmip-16/13617">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/bbmip-16/13617</link>
+          <pubDate>Sun, 21 Dec 2014 08:36:28 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-13617</guid>
+          <source url="https://leakfree.org/t/bbmip-16/13617.rss">BBMIP 16</source>
+        </item>
+        <item>
+          <title>The Story of Gasworks, Part 3</title>
+          <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <aside class="quote no-group">
+<blockquote>
+<p><span class="bbcode-b">RULES/DISCLAIMER</span>[/SIZE]</p>
+<p><span class="bbcode-b"><span class="bbcode-u">Breaking these rules will result in infractions, bans, rejections, ejections, and if you push me too far, I’ll come round to your house give you a little whack with a crowbar.</span></span></p>
+<p>Very importantly, any images which I post in this thread are ABSOLUTELY NOT REPRESENTATIVE OF THE FINAL PRODUCT. The majority of what I’m going to post here are from very early development versions which were scrapped and redone, from scratch, because they were not good enough. NOTHING you see here represents how Gasworks, or Black Mesa currently looks. Do not judge the game based on what I post here. If images or topics from this thread start getting circulated, with people saying: “look how awful Black Mesa MP looks!” then I will stop doing these entirely. This is the top rule for these blog posts.</p>
+<p>This is a personal dev blog, and is not sanctioned by the Black Mesa team. My views, design abilities and comments do not reflect that of the dev team.</p>
+<p>Please stay on topic. I will happily answer questions and chat, but I won’t answer questions unrelated to my current posts. I am going through the map’s development chronologically. We will get to current versions, eventually.</p>
+<p>Also, don’t be mean. As the least experienced level designer on the team, I have learned incredible amounts over the course of my time here, and vastly improved my abilities. I’m aiming, here, to outline the mistakes and process that led me to this stage. Comment on my mistakes and problems, and give thoughts, by all means, but if people start to be cruel or nasty, they will get infractions. We’re only human.</p>
+</blockquote>
+</aside>
+            <p><small>28 posts - 22 participants</small></p>
+            <p><a href="https://leakfree.org/t/the-story-of-gasworks-part-3/13609">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/the-story-of-gasworks-part-3/13609</link>
+          <pubDate>Mon, 15 Dec 2014 15:09:01 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-13609</guid>
+          <source url="https://leakfree.org/t/the-story-of-gasworks-part-3/13609.rss">The Story of Gasworks, Part 3</source>
+        </item>
+        <item>
+          <title>The Story of Gasworks, Part 2</title>
+          <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <aside class="quote no-group">
+<blockquote>
+<p><span class="bbcode-b">RULES/DISCLAIMER</span>[/SIZE]</p>
+<p><span class="bbcode-b"><span class="bbcode-u">Breaking these rules will result in infractions, bans, rejections, ejections, and if you push me too far, I’ll come round to your house give you a little whack with a crowbar.</span></span></p>
+<p>Very importantly, any images which I post in this thread are ABSOLUTELY NOT REPRESENTATIVE OF THE FINAL PRODUCT. The majority of what I’m going to post here are from very early development versions which were scrapped and redone, from scratch, because they were not good enough. NOTHING you see here represents how Gasworks, or Black Mesa currently looks. Do not judge the game based on what I post here. If images or topics from this thread start getting circulated, with people saying: “look how awful Black Mesa MP looks!” then I will stop doing these entirely. This is the top rule for these blog posts.</p>
+<p>This is a personal dev blog, and is not sanctioned by the Black Mesa team. My views, design abilities and comments do not reflect that of the dev team.</p>
+<p>Please stay on topic. I will happily answer questions and chat, but I won’t answer questions unrelated to my current posts. I am going through the map’s development chronologically. We will get to current versions, eventually.</p>
+<p>Also, don’t be mean. As the least experienced level designer on the team, I have learned incredible amounts over the course of my time here, and vastly improved my abilities. I’m aiming, here, to outline the mistakes and process that led me to this stage. Comment on my mistakes and problems, and give thoughts, by all means, but if people start to be cruel or nasty, they will get infractions. We’re only human.</p>
+</blockquote>
+</aside>
+            <p><small>22 posts - 15 participants</small></p>
+            <p><a href="https://leakfree.org/t/the-story-of-gasworks-part-2/13584">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/the-story-of-gasworks-part-2/13584</link>
+          <pubDate>Mon, 01 Dec 2014 18:32:34 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-13584</guid>
+          <source url="https://leakfree.org/t/the-story-of-gasworks-part-2/13584.rss">The Story of Gasworks, Part 2</source>
+        </item>
+        <item>
+          <title>BBMIP 15</title>
+          <dc:creator><![CDATA[bkdale86]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <p>Got some time this week so the redo of the console models is now 2/3 done. Same story as console2 from a couple of weeks ago. Basic model stayed the same, details and textures are all new.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/3X/e/e/ee4f8103346995e473d99cffac1cb1de8aa46a3c.jpeg" data-download-href="https://leakfree.org/uploads/default/ee4f8103346995e473d99cffac1cb1de8aa46a3c" title=""><img src="https://leakfree.org/uploads/default/optimized/3X/e/e/ee4f8103346995e473d99cffac1cb1de8aa46a3c_2_690x398.jpeg" alt="" data-base62-sha1="y0bYpC2EneC4b4SdMs3VZYYKj9O" width="690" height="398" srcset="https://leakfree.org/uploads/default/optimized/3X/e/e/ee4f8103346995e473d99cffac1cb1de8aa46a3c_2_690x398.jpeg, https://leakfree.org/uploads/default/optimized/3X/e/e/ee4f8103346995e473d99cffac1cb1de8aa46a3c_2_1035x597.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/3X/e/e/ee4f8103346995e473d99cffac1cb1de8aa46a3c_2_1380x796.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/3X/e/e/ee4f8103346995e473d99cffac1cb1de8aa46a3c_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1110 241 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+There are also alternate textures for off.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/3X/5/d/5d8175703f62d6e4cc4cf1257c0a1f5e8329cfe9.jpeg" data-download-href="https://leakfree.org/uploads/default/5d8175703f62d6e4cc4cf1257c0a1f5e8329cfe9" title=""><img src="https://leakfree.org/uploads/default/optimized/3X/5/d/5d8175703f62d6e4cc4cf1257c0a1f5e8329cfe9_2_690x344.jpeg" alt="" data-base62-sha1="dlbLFo6kFEZVKTnyB1FMwp3UnOx" width="690" height="344" srcset="https://leakfree.org/uploads/default/optimized/3X/5/d/5d8175703f62d6e4cc4cf1257c0a1f5e8329cfe9_2_690x344.jpeg, https://leakfree.org/uploads/default/optimized/3X/5/d/5d8175703f62d6e4cc4cf1257c0a1f5e8329cfe9_2_1035x516.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/3X/5/d/5d8175703f62d6e4cc4cf1257c0a1f5e8329cfe9_2_1380x688.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/3X/5/d/5d8175703f62d6e4cc4cf1257c0a1f5e8329cfe9_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1549×773 190 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+Going to get started on console3 here tomorrow.</p>
+            <p><small>53 posts - 17 participants</small></p>
+            <p><a href="https://leakfree.org/t/bbmip-15/13565">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/bbmip-15/13565</link>
+          <pubDate>Fri, 21 Nov 2014 00:55:48 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-13565</guid>
+          <source url="https://leakfree.org/t/bbmip-15/13565.rss">BBMIP 15</source>
+        </item>
+        <item>
+          <title>The Story of Gasworks</title>
+          <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+          <category>Developer Logs</category>
+          <description><![CDATA[
+            <p>Greetings, community!</p>
+<p>My name is Chon Kemp, one of the new level designers on Black Mesa. Those of you who know me, may know me as Text FAMGUY1, or the guy who made the Uncut stuff for Black Mesa. I was brought on to help with Black Mesa’s multiplayer. The majority of my work since joining the team has been in 3 primary areas: Gasworks, Lambdabunker, and MP testing.</p>
+<p>I am starting up a little community dev blog, for those of you who are interested. Let me explain to you how this is hopefully going to work.</p>
+<p>This dev blog will be a detailed account of the entire development of the multiplayer map Gasworks, from start to its current state. Each chapter will examine a specific iteration of the map, and each chapter is broken down into two parts/posts. My aim is to post a part a week. One part of a chapter will look at the story behind the iteration, and will talk about the story of the team, myself, and the decisions/mistakes I made on that iteration, as well as some positives. The second part of each chapter will then examine and explain an element of the design theory which I outlined in the previous post, and how it applies. One part on story, one part on design theory. Something like maybe 10 chapters overall. A bit of fun, a bit of story, a bit of learning. A fairly personal story. The idea is to show you guys the amount of work and failure that goes into a Black Mesa map.</p>
+<p>Unfortunately, this is also me you’re dealing with. I have a lot of trouble writing concisely. I write a lot. Sorry! I just can’t help it. I hope some of you find the strength to read through it.</p>
+<aside class="quote no-group">
+<blockquote>
+<p><span class="bbcode-b">RULES/DISCLAIMER</span>[/SIZE]</p>
+<p><span class="bbcode-b"><span class="bbcode-u">Breaking these rules will result in infractions, bans, rejections, ejections, and if you push me too far, I’ll come round to your house give you a little whack with a crowbar.</span></span></p>
+<p>Very importantly, any images which I post in this thread are ABSOLUTELY NOT REPRESENTATIVE OF THE FINAL PRODUCT. The majority of what I’m going to post here are from very early development versions which were scrapped and redone, from scratch, because they were not good enough. NOTHING you see here represents how Gasworks, or Black Mesa currently looks. Do not judge the game based on what I post here. If images or topics from this thread start getting circulated, with people saying: “look how awful Black Mesa MP looks!” then I will stop doing these entirely. This is the top rule for these blog posts.</p>
+<p>This is a personal dev blog, and is not sanctioned by the Black Mesa team. My views, design abilities and comments do not reflect that of the dev team.</p>
+<p>Please stay on topic. I will happily answer questions and chat, but I won’t answer questions unrelated to my current posts. I am going through the map’s development chronologically. We will get to current versions, eventually.</p>
+<p>Also, don’t be mean. As the least experienced level designer on the team, I have learned incredible amounts over the course of my time here, and vastly improved my abilities. I’m aiming, here, to outline the mistakes and process that led me to this stage. Comment on my mistakes and problems, and give thoughts, by all means, but if people start to be cruel or nasty, they will get infractions. We’re only human.</p>
+</blockquote>
+</aside>
+            <p><small>32 posts - 19 participants</small></p>
+            <p><a href="https://leakfree.org/t/the-story-of-gasworks/13553">Read full topic</a></p>
+          ]]></description>
+          <link>https://leakfree.org/t/the-story-of-gasworks/13553</link>
+          <pubDate>Sat, 15 Nov 2014 02:10:00 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">leakfree.org-topic-13553</guid>
+          <source url="https://leakfree.org/t/the-story-of-gasworks/13553.rss">The Story of Gasworks</source>
+        </item>
+  </channel>
+</rss>
