@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Cannot decompile Surface Tension</title>
+    <link>https://leakfree.org/t/cannot-decompile-surface-tension/14272</link>
+    <description>Hey there,
+I&#39;m having a lot of trouble decompiling the &quot;Cliffside&quot; map of Surface Tension.
+I use BSPSrc to decompile my maps, I&#39;m using the latest version with the game set to Black Mesa.
+When it decompiles, often when I open it up in Hammer it hangs. I&#39;ve decompiled the &quot;laser&quot; part of Questionable Ethics and it works fine, albeit with some missing textures.
+I left Hammer for 10 minutes on the hanged screen and it still did nothing. I had to force close it from Task Manager.
+
+This is the output from BSPSRC.
+
+[code=&#39;bspsrc.log&#39;][info] Loading C:\Program Files (x86)\Steam\steamapps\common\Black Mesa\vmex\cliffsidevista.bsp
+[warning] BspFileReader: Static prop struct size mismatch: expected 72, got 76 (using DStaticPropV10)
+[warning] BspFileReader: Falling back to static prop v4
+[info] BSP version: 20
+[info] Game: Black Mesa
+[info] Writing brushes and planes
+[info] Writing displacements
+[info] Writing entities
+[info] Writing func_details
+[info] Writing info_overlays
+[info] Writing prop_statics
+[info] Writing env_cubemaps
+[info] Writing func_ladders
+[info] Finished decompiling C:\Program Files (x86)\Steam\steamapps\common\Black Mesa\vmex\cliffsidevista.bsp
+[info] Processed 1 file(s) in 10.3130 seconds[/code]
+Note the lines with [warning].
+
+I tried it with VMEX as well, but it produces a corrupt hammer file as the decompilation hangs. Here&#39;s the output.
+
+
+[code=&#39;vmex.log&#39;]C:\Program Files (x86)\Steam\steamapps\common\Black Mesa\vmex&gt;java -jar Vmex.jar
+Valve Map Extractor v0.98g - by Rof ([rof@mellish.org.uk](mailto:rof@mellish.org.uk))
+Reading C:\Program Files (x86)\Steam\steamapps\common\Black Mesa\vmex\cliffsidevista.bsp
+Header
+Ident: 1347633750
+Version: 20
+Lump 0: 34154556, 309621, 0, 0 Entities  309621 bytes
+Lump 1: 1036, 390160, 0, 0 Planes  19508
+Lump 2: 1239096, 5056, 0, 0 TexData  158
+Lump 3: 733492, 197844, 0, 0 Vertexes  16487
+Lump 4: 34121804, 32749, 0, 0 Visibility  32749 bytes
+Lump 5: 931336, 81248, 0, 0 Nodes  2539
+Lump 6: 1012584, 226512, 0, 0 TexInfo  3146
+Lump 7: 23175532, 580496, 1, 0 Faces  10366
+Lump 9: 34467992, 220, 2, 0 Occlusion  220 bytes
+Lump 10: 391196, 84064, 1, 0 Leafs  1501
+Lump 11: 24336524, 20732, 0, 0   -20732
+Lump 12: 25154128, 168824, 0, 0 Edges  42206
+Lump 13: 24863132, 290996, 0, 0 SurfEdges  72749
+Lump 14: 25322952, 4176, 0, 0 Models  87
+Lump 16: 24836684, 19452, 0, 0 LeafFaces  9726
+Lump 17: 24856136, 6996, 0, 0 LeafBrushes  3498
+Lump 18: 24695440, 15804, 0, 0 Brushes  1317
+Lump 19: 24711244, 125440, 0, 0 BrushSides  15680
+Lump 20: 25327128, 48, 0, 0 Areas  6
+Lump 21: 25327176, 84, 0, 0 AreaPortals  7
+Lump 26: 1244152, 352000, 0, 0 DispInfo  2000
+Lump 27: 24357256, 338184, 0, 0 OriginalFaces  6039
+Lump 29: 34481852, 39421399, 0, 0 PhysCollide  39421399 bytes
+Lump 30: 73903252, 33132, 0, 0 VertNormals  2761
+Lump 31: 73936384, 97050, 0, 0 VertNormalIndices  48525
+Lump 33: 1596152, 4122400, 0, 0 DispVerts  206120
+Lump 34: 22900056, 179593, 0, 0 DispLightmapSamplePositions  179593 bytes
+Lump 35: 74038692, 334013, 0, 0 GameLump  334013 bytes
+Lump 36: 34467980, 12, 0, 0 LeafWaterData  1
+Lump 37: 23100384, 18940, 0, 0 Primatives  1894
+Lump 39: 23119324, 56208, 0, 0 PrimIndicies  28104
+Lump 40: 74372708, 8190701, 0, 0 PakFile  8190701 bytes
+Lump 41: 34468216, 288, 0, 0 ClipPortalVerts  24
+Lump 42: 34468504, 928, 0, 0 Cubemaps  58
+Lump 43: 34469432, 6745, 0, 0 TexDataStringData  6745 bytes
+Lump 44: 34476180, 632, 0, 0 TexDataStringTable  158
+Lump 45: 34476812, 4928, 0, 0 Overlays  14
+Lump 46: 74033436, 5254, 0, 0 LeafMinDistToWater  5254 bytes
+Lump 47: 23079652, 20732, 0, 0 FaceMacroTextureInfo  20732 bytes
+Lump 48: 5718552, 691904, 0, 0 DispTris  691904 bytes
+Lump 51: 559324, 10508, 0, 0 XBLightMapPages  -10508
+Lump 52: 548816, 10508, 0, 0 XBLightMapPageInfos  -10508
+Lump 53: 25327260, 8794544, 1, 0 LightingHDR  8794544 bytes
+Lump 54: 34464180, 3800, 1, 0 WorldlightsHDR  3800 bytes
+Lump 55: 569832, 163660, 1, 0 LeafAmbientLightingHDR  163660 bytes
+Lump 56: 475260, 73556, 1, 0 LeafAmbientLighting  73556 bytes
+Lump 58: 23756028, 580496, 1, 0 FacesHDR  -580496
+Lump 59: 34468212, 4, 0, 0 MapFlags  -4
+Lump 60: 34481740, 112, 0, 0   -112
+Lump 61: 6410456, 16489600, 0, 0   -16489600
+MapRev: 1311
+Vertexes 16487
+Min/Max: (-14299.0, -14560.0, -10176.0) - (11048.0, 11032.0, 9383.0)
+Edges 42206
+Faces 10366
+Orig faces 6039
+Models 87
+Surfedges 72749
+Marks
+Texinfo 3146
+Texdata 158
+Texdata string data
+Texdata string table 158
+Entities 1250
+4 game lumps:
+ sprp 0 10
+ dprp 0 4
+ dplt 0 0
+ dplh 0 0
+
+Prop_statics 510
+Cubemaps 58
+Planes 19508
+Brushes 1317
+Brushsides 15680
+Dispinfo 2000
+Dispverts 206120
+Disptris 691904
+Nodes 2539
+Leaves 2627
+Leaf faces 9726
+Leaf brushes 3498
+Overlays 14
+Fixing envmapped texture names
+
+Writing cliffsidevista_d.vmf
+Decompiling via brushes and planes
+Assigning brushes to models
+
+Largest worldbrush: 1191
+Calculating lightmap resolutions
+
+World
+...........................................................................................................
+Displacements
+...........................................................................................................
+Entities
+...........................................................................................................
+Func_details
+...........................................................................................................
+Overlays
+..............
+Prop_statics
+...java.lang.ArrayIndexOutOfBoundsException: 17408[/code]
+I shortened the dots because they spammed the log. There were some ! signs inside the ....s. (Full log is here: [url]https://pastebin.com/S22ydf0L[/url])
+
+If anyone could help me with this please assist. I really want to decompile this map.</description>
+    
+    <lastBuildDate>Sat, 11 Jul 2015 15:21:35 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/cannot-decompile-surface-tension/14272.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Cannot decompile Surface Tension</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>Wait, I’m stupid.<br>
+You’ll need to switch your BM version to the public Beta branch. After that, if you want to revert back, you can copy  the VMFs and revert.</p>
+          <p><a href="https://leakfree.org/t/cannot-decompile-surface-tension/14272/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cannot-decompile-surface-tension/14272/5</link>
+        <pubDate>Sat, 11 Jul 2015 15:21:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14272-5</guid>
+        <source url="https://leakfree.org/t/cannot-decompile-surface-tension/14272.rss">Cannot decompile Surface Tension</source>
+      </item>
+      <item>
+        <title>Cannot decompile Surface Tension</title>
+        <dc:creator><![CDATA[CitadelCore]]></dc:creator>
+        <description><![CDATA[
+            <p><span class="bbcode-s">Actually, no. There’s no folder called that. I did a search for *.VMF files in my BMS directory - and found none. Am I doing something wrong?</span><br>
+<span class="bbcode-s"></span><br>
+<span class="bbcode-b">WAIT- </span>I found it by opting in to the public beta. Nevermind.</p>
+          <p><a href="https://leakfree.org/t/cannot-decompile-surface-tension/14272/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cannot-decompile-surface-tension/14272/4</link>
+        <pubDate>Sat, 11 Jul 2015 14:54:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14272-4</guid>
+        <source url="https://leakfree.org/t/cannot-decompile-surface-tension/14272.rss">Cannot decompile Surface Tension</source>
+      </item>
+      <item>
+        <title>Cannot decompile Surface Tension</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>Look in your bms directory. There’s a folder called mapsrc (common\Black Mesa\bms\mapsrc). That has all the SP VMFs.</p>
+          <p><a href="https://leakfree.org/t/cannot-decompile-surface-tension/14272/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cannot-decompile-surface-tension/14272/3</link>
+        <pubDate>Sat, 11 Jul 2015 11:28:02 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14272-3</guid>
+        <source url="https://leakfree.org/t/cannot-decompile-surface-tension/14272.rss">Cannot decompile Surface Tension</source>
+      </item>
+      <item>
+        <title>Cannot decompile Surface Tension</title>
+        <dc:creator><![CDATA[CitadelCore]]></dc:creator>
+        <description><![CDATA[
+            <p>Bumping because of no replies.</p>
+          <p><a href="https://leakfree.org/t/cannot-decompile-surface-tension/14272/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cannot-decompile-surface-tension/14272/2</link>
+        <pubDate>Sat, 11 Jul 2015 10:36:23 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14272-2</guid>
+        <source url="https://leakfree.org/t/cannot-decompile-surface-tension/14272.rss">Cannot decompile Surface Tension</source>
+      </item>
+      <item>
+        <title>Cannot decompile Surface Tension</title>
+        <dc:creator><![CDATA[CitadelCore]]></dc:creator>
+        <description><![CDATA[
+            <p>Hey there,<br>
+I’m having a lot of trouble decompiling the “Cliffside” map of Surface Tension.<br>
+I use BSPSrc to decompile my maps, I’m using the latest version with the game set to Black Mesa.<br>
+When it decompiles, often when I open it up in Hammer it hangs. I’ve decompiled the “laser” part of Questionable Ethics and it works fine, albeit with some missing textures.<br>
+I left Hammer for 10 minutes on the hanged screen and it still did nothing. I had to force close it from Task Manager.</p>
+<p>This is the output from BSPSRC.</p>
+<p><code>[info] Loading C:\Program Files (x86)\Steam\steamapps\common\Black Mesa\vmex\cliffsidevista.bsp
+[warning] BspFileReader: Static prop struct size mismatch: expected 72, got 76 (using DStaticPropV10)
+[warning] BspFileReader: Falling back to static prop v4
+[info] BSP version: 20
+[info] Game: Black Mesa
+[info] Writing brushes and planes
+[info] Writing displacements
+[info] Writing entities
+[info] Writing func_details
+[info] Writing info_overlays
+[info] Writing prop_statics
+[info] Writing env_cubemaps
+[info] Writing func_ladders
+[info] Finished decompiling C:\Program Files (x86)\Steam\steamapps\common\Black Mesa\vmex\cliffsidevista.bsp
+[info] Processed 1 file(s) in 10.3130 seconds</code><br>
+Note the lines with [warning].</p>
+<p>I tried it with VMEX as well, but it produces a corrupt hammer file as the decompilation hangs. Here’s the output.</p>
+<p>[code=‘vmex.log’]C:\Program Files (x86)\Steam\steamapps\common\Black Mesa\vmex&gt;java -jar Vmex.jar<br>
+Valve Map Extractor v0.98g - by Rof (<a href="mailto:rof@mellish.org.uk">rof@mellish.org.uk</a>)<br>
+Reading C:\Program Files (x86)\Steam\steamapps\common\Black Mesa\vmex\cliffsidevista.bsp<br>
+Header<br>
+Ident: 1347633750<br>
+Version: 20<br>
+Lump 0: 34154556, 309621, 0, 0 Entities  309621 bytes<br>
+Lump 1: 1036, 390160, 0, 0 Planes  19508<br>
+Lump 2: 1239096, 5056, 0, 0 TexData  158<br>
+Lump 3: 733492, 197844, 0, 0 Vertexes  16487<br>
+Lump 4: 34121804, 32749, 0, 0 Visibility  32749 bytes<br>
+Lump 5: 931336, 81248, 0, 0 Nodes  2539<br>
+Lump 6: 1012584, 226512, 0, 0 TexInfo  3146<br>
+Lump 7: 23175532, 580496, 1, 0 Faces  10366<br>
+Lump 9: 34467992, 220, 2, 0 Occlusion  220 bytes<br>
+Lump 10: 391196, 84064, 1, 0 Leafs  1501<br>
+Lump 11: 24336524, 20732, 0, 0   -20732<br>
+Lump 12: 25154128, 168824, 0, 0 Edges  42206<br>
+Lump 13: 24863132, 290996, 0, 0 SurfEdges  72749<br>
+Lump 14: 25322952, 4176, 0, 0 Models  87<br>
+Lump 16: 24836684, 19452, 0, 0 LeafFaces  9726<br>
+Lump 17: 24856136, 6996, 0, 0 LeafBrushes  3498<br>
+Lump 18: 24695440, 15804, 0, 0 Brushes  1317<br>
+Lump 19: 24711244, 125440, 0, 0 BrushSides  15680<br>
+Lump 20: 25327128, 48, 0, 0 Areas  6<br>
+Lump 21: 25327176, 84, 0, 0 AreaPortals  7<br>
+Lump 26: 1244152, 352000, 0, 0 DispInfo  2000<br>
+Lump 27: 24357256, 338184, 0, 0 OriginalFaces  6039<br>
+Lump 29: 34481852, 39421399, 0, 0 PhysCollide  39421399 bytes<br>
+Lump 30: 73903252, 33132, 0, 0 VertNormals  2761<br>
+Lump 31: 73936384, 97050, 0, 0 VertNormalIndices  48525<br>
+Lump 33: 1596152, 4122400, 0, 0 DispVerts  206120<br>
+Lump 34: 22900056, 179593, 0, 0 DispLightmapSamplePositions  179593 bytes<br>
+Lump 35: 74038692, 334013, 0, 0 GameLump  334013 bytes<br>
+Lump 36: 34467980, 12, 0, 0 LeafWaterData  1<br>
+Lump 37: 23100384, 18940, 0, 0 Primatives  1894<br>
+Lump 39: 23119324, 56208, 0, 0 PrimIndicies  28104<br>
+Lump 40: 74372708, 8190701, 0, 0 PakFile  8190701 bytes<br>
+Lump 41: 34468216, 288, 0, 0 ClipPortalVerts  24<br>
+Lump 42: 34468504, 928, 0, 0 Cubemaps  58<br>
+Lump 43: 34469432, 6745, 0, 0 TexDataStringData  6745 bytes<br>
+Lump 44: 34476180, 632, 0, 0 TexDataStringTable  158<br>
+Lump 45: 34476812, 4928, 0, 0 Overlays  14<br>
+Lump 46: 74033436, 5254, 0, 0 LeafMinDistToWater  5254 bytes<br>
+Lump 47: 23079652, 20732, 0, 0 FaceMacroTextureInfo  20732 bytes<br>
+Lump 48: 5718552, 691904, 0, 0 DispTris  691904 bytes<br>
+Lump 51: 559324, 10508, 0, 0 XBLightMapPages  -10508<br>
+Lump 52: 548816, 10508, 0, 0 XBLightMapPageInfos  -10508<br>
+Lump 53: 25327260, 8794544, 1, 0 LightingHDR  8794544 bytes<br>
+Lump 54: 34464180, 3800, 1, 0 WorldlightsHDR  3800 bytes<br>
+Lump 55: 569832, 163660, 1, 0 LeafAmbientLightingHDR  163660 bytes<br>
+Lump 56: 475260, 73556, 1, 0 LeafAmbientLighting  73556 bytes<br>
+Lump 58: 23756028, 580496, 1, 0 FacesHDR  -580496<br>
+Lump 59: 34468212, 4, 0, 0 MapFlags  -4<br>
+Lump 60: 34481740, 112, 0, 0   -112<br>
+Lump 61: 6410456, 16489600, 0, 0   -16489600<br>
+MapRev: 1311<br>
+Vertexes 16487<br>
+Min/Max: (-14299.0, -14560.0, -10176.0) - (11048.0, 11032.0, 9383.0)<br>
+Edges 42206<br>
+Faces 10366<br>
+Orig faces 6039<br>
+Models 87<br>
+Surfedges 72749<br>
+Marks<br>
+Texinfo 3146<br>
+Texdata 158<br>
+Texdata string data<br>
+Texdata string table 158<br>
+Entities 1250<br>
+4 game lumps:<br>
+sprp 0 10<br>
+dprp 0 4<br>
+dplt 0 0<br>
+dplh 0 0</p>
+<p>Prop_statics 510<br>
+Cubemaps 58<br>
+Planes 19508<br>
+Brushes 1317<br>
+Brushsides 15680<br>
+Dispinfo 2000<br>
+Dispverts 206120<br>
+Disptris 691904<br>
+Nodes 2539<br>
+Leaves 2627<br>
+Leaf faces 9726<br>
+Leaf brushes 3498<br>
+Overlays 14<br>
+Fixing envmapped texture names</p>
+<p>Writing cliffsidevista_d.vmf<br>
+Decompiling via brushes and planes<br>
+Assigning brushes to models</p>
+<p>Largest worldbrush: 1191<br>
+Calculating lightmap resolutions</p>
+<p>World<br>
+…<br>
+Displacements<br>
+…<br>
+Entities<br>
+…<br>
+Func_details<br>
+…<br>
+Overlays<br>
+…<br>
+Prop_statics<br>
+…java.lang.ArrayIndexOutOfBoundsException: 17408[/code]<br>
+I shortened the dots because they spammed the log. There were some ! signs inside the …s. (Full log is here: <a href="https://pastebin.com/S22ydf0L" data-bbcode="true" rel="nofollow noopener">https://pastebin.com/S22ydf0L</a>)</p>
+<p>If anyone could help me with this please assist. I really want to decompile this map.</p>
+          <p><a href="https://leakfree.org/t/cannot-decompile-surface-tension/14272/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cannot-decompile-surface-tension/14272/1</link>
+        <pubDate>Wed, 01 Jul 2015 04:30:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14272-1</guid>
+        <source url="https://leakfree.org/t/cannot-decompile-surface-tension/14272.rss">Cannot decompile Surface Tension</source>
+      </item>
+  </channel>
+</rss>

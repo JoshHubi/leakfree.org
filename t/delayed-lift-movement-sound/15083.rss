@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Delayed lift movement sound</title>
+    <link>https://leakfree.org/t/delayed-lift-movement-sound/15083</link>
+    <description>One of my more recent mapping endeavors has run into a fairly annoying and somewhat strange issue. Recently, while modifying the elevator at the end of the first map of We&#39;ve Got Hostiles, I discovered that the movement sound that the elevator makes does not come on until a few seconds into the ride (it is probably worth noting that I have modified the lift so that the sound comes from the func_tracktrain that makes up the lift, rather than having an ambient_generic use the lift as a sound source). Furthermore, this problem did not occur in a test map in which everything surrounding the lift had been removed. This problem also extends to the startup sound that the lift is supposed to make, since the sound never plays. Any assistance would be welcome, and I will post the VMF/BSP if necessary.</description>
+    
+    <lastBuildDate>Thu, 23 Feb 2017 23:02:20 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/delayed-lift-movement-sound/15083.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Delayed lift movement sound</title>
+        <dc:creator><![CDATA[MisterDigitalGuy]]></dc:creator>
+        <description><![CDATA[
+            <p>So, it now appears that the lift sounds have stopped working entirely. Notably, I did change the lift to be a func_door, so it may or may not have an effect on the sounds. Oddly enough, it did work once (this was when the start/stop/start closing/stop closing sounds all had values entered), but after removing some of these values due to the fact that sound now sources from separate ambient_generics, the movement sound refuses to work. I’m getting pretty desperate (since this is the sole factor delaying the release of an update to my map pack), so I’ve decided to post the VMF in the hopes that someone will be able to figure out where I went wrong, which can be downloaded <a href="https://www.mediafire.com/file/8xkg1v248gsbqg6/pd_c1a3a_backup.vmf" data-bbcode="true" rel="nofollow noopener">here</a>. Any help would really be appreciated, since I’d really like to get this issue solved as soon as possible.</p>
+          <p><a href="https://leakfree.org/t/delayed-lift-movement-sound/15083/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/delayed-lift-movement-sound/15083/5</link>
+        <pubDate>Thu, 23 Feb 2017 23:02:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15083-5</guid>
+        <source url="https://leakfree.org/t/delayed-lift-movement-sound/15083.rss">Delayed lift movement sound</source>
+      </item>
+      <item>
+        <title>Delayed lift movement sound</title>
+        <dc:creator><![CDATA[MisterDigitalGuy]]></dc:creator>
+        <description><![CDATA[
+            <p>I ran a few tests, and the issue has only gotten more cryptic. Changing the soundscape type doesn’t seem to help, and deleting the soundscape and replacing it with one with identical properties doesn’t seem to work either. A friend of mine who is more well versed in this kind of stuff than me checked the soundscape’s properties, and wasn’t able to find any parameters that would prevent surrounding sounds from playing. As I said before, if it would aid in the fixing of the problem, I will upload the VMF, although I’m not sure if that’s where the issue lies.</p>
+          <p><a href="https://leakfree.org/t/delayed-lift-movement-sound/15083/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/delayed-lift-movement-sound/15083/4</link>
+        <pubDate>Sat, 04 Feb 2017 19:41:05 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15083-4</guid>
+        <source url="https://leakfree.org/t/delayed-lift-movement-sound/15083.rss">Delayed lift movement sound</source>
+      </item>
+      <item>
+        <title>Delayed lift movement sound</title>
+        <dc:creator><![CDATA[MisterDigitalGuy]]></dc:creator>
+        <description><![CDATA[
+            <p>I did some digging, and it’s not quite that. The culprit appears to be a soundscape entity located outside the lift shaft, as compiling the map with the soundscape removed fixes the issue of the lift sound not playing when it should (alas, the startup sound still doesn’t work). I’m assuming that there’s some sort of setting on the soundscape that’s causing interference, but since I’m no expert on this kind of stuff, I’m not sure what to do to remedy this issue.</p>
+          <p><a href="https://leakfree.org/t/delayed-lift-movement-sound/15083/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/delayed-lift-movement-sound/15083/3</link>
+        <pubDate>Mon, 30 Jan 2017 21:46:23 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15083-3</guid>
+        <source url="https://leakfree.org/t/delayed-lift-movement-sound/15083.rss">Delayed lift movement sound</source>
+      </item>
+      <item>
+        <title>Delayed lift movement sound</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>If removing everything else fixed the issue, then there is probably a logic_auto somewhere interacting with the lift to cause this behavior.</p>
+          <p><a href="https://leakfree.org/t/delayed-lift-movement-sound/15083/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/delayed-lift-movement-sound/15083/2</link>
+        <pubDate>Sun, 29 Jan 2017 23:07:31 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15083-2</guid>
+        <source url="https://leakfree.org/t/delayed-lift-movement-sound/15083.rss">Delayed lift movement sound</source>
+      </item>
+      <item>
+        <title>Delayed lift movement sound</title>
+        <dc:creator><![CDATA[MisterDigitalGuy]]></dc:creator>
+        <description><![CDATA[
+            <p>One of my more recent mapping endeavors has run into a fairly annoying and somewhat strange issue. Recently, while modifying the elevator at the end of the first map of We’ve Got Hostiles, I discovered that the movement sound that the elevator makes does not come on until a few seconds into the ride (it is probably worth noting that I have modified the lift so that the sound comes from the func_tracktrain that makes up the lift, rather than having an ambient_generic use the lift as a sound source). Furthermore, this problem did not occur in a test map in which everything surrounding the lift had been removed. This problem also extends to the startup sound that the lift is supposed to make, since the sound never plays. Any assistance would be welcome, and I will post the VMF/BSP if necessary.</p>
+          <p><a href="https://leakfree.org/t/delayed-lift-movement-sound/15083/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/delayed-lift-movement-sound/15083/1</link>
+        <pubDate>Sun, 29 Jan 2017 22:59:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15083-1</guid>
+        <source url="https://leakfree.org/t/delayed-lift-movement-sound/15083.rss">Delayed lift movement sound</source>
+      </item>
+  </channel>
+</rss>

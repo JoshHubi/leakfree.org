@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Black Mesa [MOD Edition] Crashes at random</title>
+    <link>https://leakfree.org/t/black-mesa-mod-edition-crashes-at-random/14785</link>
+    <description>Hello Gordon Freemen,
+I&#39;ve been having this problem for a good while. At first, with the old first release of the mod edition, I&#39;ve been getting &quot;hl2.exe has stopped working&quot; and &quot;Can&#39;t load lump 53, allocation of xxxxxxxx bytes failed!!!&quot;. I got fed up with it and redownloaded Black Mesa mod edition from GamersHell. Performance-wise is better than before, and I thought the crashes were gone...
+
+Until I hit &quot;Questionable Ethics&quot;. Yeah, yeah, the game crashed a couple of parts before, but only in Questionable Ethics did I raise concern. First crash occurred during loading when you jump off of the wall that you blasted with the laser. I got &quot;Can&#39;t load lump 8, allocation of 24 million-some bytes failed!!!&quot; (don&#39;t know the exact values). This alerted me, and restarted the game. Now, in the scripted battle where the Marines lock you down and ambush you, I got ANOTHER crash, but &quot;hl2.exe has stopped working&quot;. I checked the Event Viewer for this and it traced the faulty module down to C:\Games\Steam\steam.dll.
+
+Here is the Event log:
+
+[code=&#39;Event Viewer crash log&#39;]Log Name:      Application
+Source:        Application Error
+Date:          5/23/2016 07:44:44
+Event ID:      1000
+Task Category: (100)
+Level:         Error
+Keywords:      Classic
+User:          N/A
+Computer:      Kensta
+Description:
+Faulting application name: hl2.exe, version: 0.0.0.0, time stamp: 0x470c11ae
+Faulting module name: steam.dll, version: 0.0.0.0, time stamp: 0x5723ddc7
+Exception code: 0xc0000409
+Fault offset: 0x0002c311
+Faulting process ID: 0x3464
+Faulting application start time: 0x01d1b4830a43fc70
+Faulting application path: C:\Games\Steam\steamapps\common\Source SDK Base 2007\hl2.exe
+Faulting module path: C:\Games\Steam\steam.dll
+Report ID: 83884da3-b19e-46f4-84fc-9afa0a4a4972
+Faulting package full name: 
+Faulting package-relative application ID: 
+Event Xml:
+&lt;Event xmlns=&quot;https://schemas.microsoft.com/win/2004/08/events/event&quot;&gt;
+  &lt;System&gt;
+    &lt;Provider Name=&quot;Application Error&quot; /&gt;
+    &lt;EventID Qualifiers=&quot;0&quot;&gt;1000&lt;/EventID&gt;
+    &lt;Level&gt;2&lt;/Level&gt;
+    &lt;Task&gt;100&lt;/Task&gt;
+    &lt;Keywords&gt;0x80000000000000&lt;/Keywords&gt;
+    &lt;TimeCreated SystemTime=&quot;2016-05-22T23:44:44.654596000Z&quot; /&gt;
+    &lt;EventRecordID&gt;35935&lt;/EventRecordID&gt;
+    &lt;Channel&gt;Application&lt;/Channel&gt;
+    &lt;Computer&gt;Kensta&lt;/Computer&gt;
+    &lt;Security /&gt;
+  &lt;/System&gt;
+  &lt;EventData&gt;
+    &lt;Data&gt;hl2.exe&lt;/Data&gt;
+    &lt;Data&gt;0.0.0.0&lt;/Data&gt;
+    &lt;Data&gt;470c11ae&lt;/Data&gt;
+    &lt;Data&gt;steam.dll&lt;/Data&gt;
+    &lt;Data&gt;0.0.0.0&lt;/Data&gt;
+    &lt;Data&gt;5723ddc7&lt;/Data&gt;
+    &lt;Data&gt;c0000409&lt;/Data&gt;
+    &lt;Data&gt;0002c311&lt;/Data&gt;
+    &lt;Data&gt;3464&lt;/Data&gt;
+    &lt;Data&gt;01d1b4830a43fc70&lt;/Data&gt;
+    &lt;Data&gt;C:\Games\Steam\steamapps\common\Source SDK Base 2007\hl2.exe&lt;/Data&gt;
+    &lt;Data&gt;C:\Games\Steam\steam.dll&lt;/Data&gt;
+    &lt;Data&gt;83884da3-b19e-46f4-84fc-9afa0a4a4972&lt;/Data&gt;
+    &lt;Data&gt;
+    &lt;/Data&gt;
+    &lt;Data&gt;
+    &lt;/Data&gt;
+  &lt;/EventData&gt;
+&lt;/Event&gt;[/code]I verified SDK 2007 tool cache with the old Black Mesa and it found 7 faulty elements and redownloaded them a few days ago. I just finished verifying it again and found no faults. This is a real bummer. I will try to have Steam re-download steam.dll and see if it fixes the problem. Otherwise, I&#39;ve tried all solutions to no fix, especially on the engine errors (inability to load lump 8, whatever the heck lump 8 is).
+
+If you so demand, I&#39;ll put my specs here:
+Windows 10 x64 ver 1511
+500 GB 7200-RPM HDD
+Intel Core i5-4210U @ 1.7 GHz up to 2.7 GHz
+Intel HD Graphics 4400
+4 GB DDR3 RAM
+
+It cannot be the system, because when I played the old version of the Black Mesa Mod a few years ago, it was silky smooth and never crashed when I put in the forcepreload tweaks. I will keep you updated on more crashes and my fix attempts.
+
+DISCLAIMER: Since this is the mod version and not the Retail version, there is no .DMP file that I can find in the Steam/dumps directory. Sorry to the OP of that stickied topic.
+
+EDIT 1: I&#39;ve been closely observing the behavior of the crashes. They seem to increase in frequency when I&#39;m recording Black Mesa gameplay to show to my friends that are reluctant on getting the game. Maybe the extra RAM, CPU and HDD usage could be what causes the crashes, but I don&#39;t know. I only know what I&#39;ve observed. I use Bandicam with Intel Quick Sync on the GPU side as a game recorder.
+
+EDIT 2: I managed to fully play through the battle without problems, but when I decided to record Take 2, I finished the battle, but right before I reached the HEV charging station, the game bugged out with severe graphical glitches then proceeded to freeze, I had to run Task Manager to force quit the game. Since I failed to get a actual screengrab of the glitch, I took a screengrab from the recorded video. I also experienced this glitch back in We&#39;ve Got Hostiles, also triggered by the game recorder.
+[img]https://puu.sh/p1ESF/617fc2265f.png[/img]</description>
+    
+    <lastBuildDate>Sun, 22 May 2016 23:59:47 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/black-mesa-mod-edition-crashes-at-random/14785.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Black Mesa [MOD Edition] Crashes at random</title>
+        <dc:creator><![CDATA[Kensta]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello Gordon Freemen,<br>
+I’ve been having this problem for a good while. At first, with the old first release of the mod edition, I’ve been getting “hl2.exe has stopped working” and “Can’t load lump 53, allocation of xxxxxxxx bytes failed!!!”. I got fed up with it and redownloaded Black Mesa mod edition from GamersHell. Performance-wise is better than before, and I thought the crashes were gone…</p>
+<p>Until I hit “Questionable Ethics”. Yeah, yeah, the game crashed a couple of parts before, but only in Questionable Ethics did I raise concern. First crash occurred during loading when you jump off of the wall that you blasted with the laser. I got “Can’t load lump 8, allocation of 24 million-some bytes failed!!!” (don’t know the exact values). This alerted me, and restarted the game. Now, in the scripted battle where the Marines lock you down and ambush you, I got ANOTHER crash, but “hl2.exe has stopped working”. I checked the Event Viewer for this and it traced the faulty module down to C:\Games\Steam\steam.dll.</p>
+<p>Here is the Event log:</p>
+<p><code>Log Name:      Application
+Source:        Application Error
+Date:          5/23/2016 07:44:44
+Event ID:      1000
+Task Category: (100)
+Level:         Error
+Keywords:      Classic
+User:          N/A
+Computer:      Kensta
+Description:
+Faulting application name: hl2.exe, version: 0.0.0.0, time stamp: 0x470c11ae
+Faulting module name: steam.dll, version: 0.0.0.0, time stamp: 0x5723ddc7
+Exception code: 0xc0000409
+Fault offset: 0x0002c311
+Faulting process ID: 0x3464
+Faulting application start time: 0x01d1b4830a43fc70
+Faulting application path: C:\Games\Steam\steamapps\common\Source SDK Base 2007\hl2.exe
+Faulting module path: C:\Games\Steam\steam.dll
+Report ID: 83884da3-b19e-46f4-84fc-9afa0a4a4972
+Faulting package full name: 
+Faulting package-relative application ID: 
+Event Xml:
+&lt;Event xmlns="https://schemas.microsoft.com/win/2004/08/events/event"&gt;
+  &lt;System&gt;
+    &lt;Provider Name="Application Error" /&gt;
+    &lt;EventID Qualifiers="0"&gt;1000&lt;/EventID&gt;
+    &lt;Level&gt;2&lt;/Level&gt;
+    &lt;Task&gt;100&lt;/Task&gt;
+    &lt;Keywords&gt;0x80000000000000&lt;/Keywords&gt;
+    &lt;TimeCreated SystemTime="2016-05-22T23:44:44.654596000Z" /&gt;
+    &lt;EventRecordID&gt;35935&lt;/EventRecordID&gt;
+    &lt;Channel&gt;Application&lt;/Channel&gt;
+    &lt;Computer&gt;Kensta&lt;/Computer&gt;
+    &lt;Security /&gt;
+  &lt;/System&gt;
+  &lt;EventData&gt;
+    &lt;Data&gt;hl2.exe&lt;/Data&gt;
+    &lt;Data&gt;0.0.0.0&lt;/Data&gt;
+    &lt;Data&gt;470c11ae&lt;/Data&gt;
+    &lt;Data&gt;steam.dll&lt;/Data&gt;
+    &lt;Data&gt;0.0.0.0&lt;/Data&gt;
+    &lt;Data&gt;5723ddc7&lt;/Data&gt;
+    &lt;Data&gt;c0000409&lt;/Data&gt;
+    &lt;Data&gt;0002c311&lt;/Data&gt;
+    &lt;Data&gt;3464&lt;/Data&gt;
+    &lt;Data&gt;01d1b4830a43fc70&lt;/Data&gt;
+    &lt;Data&gt;C:\Games\Steam\steamapps\common\Source SDK Base 2007\hl2.exe&lt;/Data&gt;
+    &lt;Data&gt;C:\Games\Steam\steam.dll&lt;/Data&gt;
+    &lt;Data&gt;83884da3-b19e-46f4-84fc-9afa0a4a4972&lt;/Data&gt;
+    &lt;Data&gt;
+    &lt;/Data&gt;
+    &lt;Data&gt;
+    &lt;/Data&gt;
+  &lt;/EventData&gt;
+&lt;/Event&gt;</code>I verified SDK 2007 tool cache with the old Black Mesa and it found 7 faulty elements and redownloaded them a few days ago. I just finished verifying it again and found no faults. This is a real bummer. I will try to have Steam re-download steam.dll and see if it fixes the problem. Otherwise, I’ve tried all solutions to no fix, especially on the engine errors (inability to load lump 8, whatever the heck lump 8 is).</p>
+<p>If you so demand, I’ll put my specs here:<br>
+Windows 10 x64 ver 1511<br>
+500 GB 7200-RPM HDD<br>
+Intel Core i5-4210U @ 1.7 GHz up to 2.7 GHz<br>
+Intel HD Graphics 4400<br>
+4 GB DDR3 RAM</p>
+<p>It cannot be the system, because when I played the old version of the Black Mesa Mod a few years ago, it was silky smooth and never crashed when I put in the forcepreload tweaks. I will keep you updated on more crashes and my fix attempts.</p>
+<p>DISCLAIMER: Since this is the mod version and not the Retail version, there is no .DMP file that I can find in the Steam/dumps directory. Sorry to the OP of that stickied topic.</p>
+<p>EDIT 1: I’ve been closely observing the behavior of the crashes. They seem to increase in frequency when I’m recording Black Mesa gameplay to show to my friends that are reluctant on getting the game. Maybe the extra RAM, CPU and HDD usage could be what causes the crashes, but I don’t know. I only know what I’ve observed. I use Bandicam with Intel Quick Sync on the GPU side as a game recorder.</p>
+<p>EDIT 2: I managed to fully play through the battle without problems, but when I decided to record Take 2, I finished the battle, but right before I reached the HEV charging station, the game bugged out with severe graphical glitches then proceeded to freeze, I had to run Task Manager to force quit the game. Since I failed to get a actual screengrab of the glitch, I took a screengrab from the recorded video. I also experienced this glitch back in We’ve Got Hostiles, also triggered by the game recorder.<br>
+<img src="https://puu.sh/p1ESF/617fc2265f.png" alt="" width="" height=""></p>
+          <p><a href="https://leakfree.org/t/black-mesa-mod-edition-crashes-at-random/14785/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-mod-edition-crashes-at-random/14785/1</link>
+        <pubDate>Sun, 22 May 2016 23:59:47 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14785-1</guid>
+        <source url="https://leakfree.org/t/black-mesa-mod-edition-crashes-at-random/14785.rss">Black Mesa [MOD Edition] Crashes at random</source>
+      </item>
+  </channel>
+</rss>

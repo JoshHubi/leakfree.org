@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Compile Tools - Differences Between Engine Versions?</title>
+    <link>https://leakfree.org/t/compile-tools-differences-between-engine-versions/13711</link>
+    <description>There&#39;s got to be a better title for this thread than that... Oh well.
+
+Backstory: I&#39;m a huge nerd when it comes to game development. Prototypes and the like are massively interesting to me, even if they crash a lot. As a result, I&#39;ve got both the leaked 2003 HL2 binaries and the older &quot;WC Map pack&quot; on this computer ([b]THERE IS NO DISTRIBUTION GOING ON IN THIS THREAD [/b]- I&#39;m assuming that since discussion is okay, this thread is fine too, I apologize if that&#39;s not the case). Out of boredom/curiosity, I&#39;ve tried fixing up a few of the leaked maps to run in-game (more specifically, Synergy, for one of my friends and I to mess about in) with varying levels of success (Since a lot of these maps are from, like, 2001/2002, they work quite differently entity-wise to the &quot;final&quot; engine). I was working on fixing up one map when I ran into... Something kind of strange.
+
+For starters, the map has no leaks. The compile log and lack of a pointfile agree with me on this. There are a bunch of lights scattered throughout the map, too. The thing is, when I compile the map to run in Synergy, it comes out fullbright under a full compile (VRAD/VVIS included). I tried fiddling with it for a while to see if I could fix it, no dice.
+
+On a whim, though, I tried compiling it via the L4D1 Authoring Tools. I didn&#39;t bother fixing up any of the problems like missing models or obsolete entities in doing so, it was just for a laugh. What confused me, though, is that it came out properly lit in L4D1. While I know the compile tools are going to get updated alongside the engine branch, I don&#39;t understand how L4D&#39;s build tools can light the level properly, while Synergy&#39;s (Which are the same as the 2013 Source SDK, IIRC) can&#39;t.
+
+[b]Basically: [/b]Does anyone know why the different compile tools would be giving off different results like this? I&#39;m not overly concerned with &quot;fixing&quot; it, since this was just a side project type of thing, but I&#39;m confused as to what the deal is here.</description>
+    
+    <lastBuildDate>Sat, 21 Feb 2015 01:13:04 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/compile-tools-differences-between-engine-versions/13711.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Compile Tools - Differences Between Engine Versions?</title>
+        <dc:creator><![CDATA[KyuuGryphon]]></dc:creator>
+        <description><![CDATA[
+            <p>Tried that, no dice.</p>
+<p>Having said that, I did manage to get it working - I selected all the lights and moved them down a few units (I think 2 or 3 of them were clipping into models), and deleted a bunch of extraneous light_environment entities… And suddenly it’s lit up properly in Synergy.</p>
+<p>I’m not entirely sure which of those two made the difference, but… Mystery kind of solved?</p>
+          <p><a href="https://leakfree.org/t/compile-tools-differences-between-engine-versions/13711/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/compile-tools-differences-between-engine-versions/13711/3</link>
+        <pubDate>Sat, 21 Feb 2015 01:13:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13711-3</guid>
+        <source url="https://leakfree.org/t/compile-tools-differences-between-engine-versions/13711.rss">Compile Tools - Differences Between Engine Versions?</source>
+      </item>
+      <item>
+        <title>Compile Tools - Differences Between Engine Versions?</title>
+        <dc:creator><![CDATA[Adam-Bomb]]></dc:creator>
+        <description><![CDATA[
+            <p>The newer engine does not use LDR lighting. The old map may be trying to use LDR lighting, causing it to be full bright. If you set up HDR it may fix it. Also make sure you game is running at the correct DX level.</p>
+<p>type<br>
+-dxlevel</p>
+<p>It should be set to:<br>
+-dxlevel 90</p>
+          <p><a href="https://leakfree.org/t/compile-tools-differences-between-engine-versions/13711/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/compile-tools-differences-between-engine-versions/13711/2</link>
+        <pubDate>Fri, 20 Feb 2015 23:47:10 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13711-2</guid>
+        <source url="https://leakfree.org/t/compile-tools-differences-between-engine-versions/13711.rss">Compile Tools - Differences Between Engine Versions?</source>
+      </item>
+      <item>
+        <title>Compile Tools - Differences Between Engine Versions?</title>
+        <dc:creator><![CDATA[KyuuGryphon]]></dc:creator>
+        <description><![CDATA[
+            <p>There’s got to be a better title for this thread than that… Oh well.</p>
+<p>Backstory: I’m a huge nerd when it comes to game development. Prototypes and the like are massively interesting to me, even if they crash a lot. As a result, I’ve got both the leaked 2003 HL2 binaries and the older “WC Map pack” on this computer (<span class="bbcode-b">THERE IS NO DISTRIBUTION GOING ON IN THIS THREAD </span>- I’m assuming that since discussion is okay, this thread is fine too, I apologize if that’s not the case). Out of boredom/curiosity, I’ve tried fixing up a few of the leaked maps to run in-game (more specifically, Synergy, for one of my friends and I to mess about in) with varying levels of success (Since a lot of these maps are from, like, 2001/2002, they work quite differently entity-wise to the “final” engine). I was working on fixing up one map when I ran into… Something kind of strange.</p>
+<p>For starters, the map has no leaks. The compile log and lack of a pointfile agree with me on this. There are a bunch of lights scattered throughout the map, too. The thing is, when I compile the map to run in Synergy, it comes out fullbright under a full compile (VRAD/VVIS included). I tried fiddling with it for a while to see if I could fix it, no dice.</p>
+<p>On a whim, though, I tried compiling it via the L4D1 Authoring Tools. I didn’t bother fixing up any of the problems like missing models or obsolete entities in doing so, it was just for a laugh. What confused me, though, is that it came out properly lit in L4D1. While I know the compile tools are going to get updated alongside the engine branch, I don’t understand how L4D’s build tools can light the level properly, while Synergy’s (Which are the same as the 2013 Source SDK, IIRC) can’t.</p>
+<p><span class="bbcode-b">Basically: </span>Does anyone know why the different compile tools would be giving off different results like this? I’m not overly concerned with “fixing” it, since this was just a side project type of thing, but I’m confused as to what the deal is here.</p>
+          <p><a href="https://leakfree.org/t/compile-tools-differences-between-engine-versions/13711/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/compile-tools-differences-between-engine-versions/13711/1</link>
+        <pubDate>Fri, 20 Feb 2015 20:05:46 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13711-1</guid>
+        <source url="https://leakfree.org/t/compile-tools-differences-between-engine-versions/13711.rss">Compile Tools - Differences Between Engine Versions?</source>
+      </item>
+  </channel>
+</rss>

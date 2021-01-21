@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>sentences.txt</title>
+    <link>https://leakfree.org/t/sentences-txt/14900</link>
+    <description>Is there a sentences.txt for Black Mesa, and if there is, where is it?  ?(   I&#39;m trying to reconstruct the military vox voice lines (which are awesome!) into single .wavs for my own personal use. However, I want to use the alarms like buzwarn.wav and dadeda.wav with them, and I can&#39;t find which alarms to use for which sentences. And I don&#39;t want to spend time listening to the actual sentences ingame. Help is appreciated!  &lt;3 
+
+If your not sure what I&#39;m looking for, here&#39;s an example from Half Life 2&#39;s sentences.txt:
+COMBINE_ALERT0 npc/combine_soldier/vo/(v100) on2(p110) contactconfim V_G0_PLAYERS, range V_DISTS meters, bearing V_DIRS degrees off1 {Len 1.13 closecaption NPC_Combine.Alert}</description>
+    
+    <lastBuildDate>Tue, 09 Aug 2016 20:04:13 +0000</lastBuildDate>
+    <category>Black Mesa</category>
+    <atom:link href="https://leakfree.org/t/sentences-txt/14900.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>sentences.txt</title>
+        <dc:creator><![CDATA[aSpire]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you! I’m a big fan of your VOX addons!! I’m using Audacity to compile the .wavs, and I’m just making them for personal amusement</p>
+          <p><a href="https://leakfree.org/t/sentences-txt/14900/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/sentences-txt/14900/3</link>
+        <pubDate>Tue, 09 Aug 2016 20:04:13 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14900-3</guid>
+        <source url="https://leakfree.org/t/sentences-txt/14900.rss">sentences.txt</source>
+      </item>
+      <item>
+        <title>sentences.txt</title>
+        <dc:creator><![CDATA[KevinJRattman]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes, there are sentences.txt located in resource folder that can be found in bm_misc_dir.vpk. For example, the VOX system at the end of OAR,</p>
+<p>[tt]<br>
+C2A2C_launch_0 buzwarn(p95) buzwarn(p95) buzwarn(p95 e95) satellite(e70) launch(e70) system(e70) activated. {Len 9.13}<br>
+C2A2C_launch_1 twenty(e75) seconds(e70) remaining {Len 3.71}<br>
+C2A2C_launch_2 fifteen seconds {Len 2.76}<br>
+C2A2C_launch_3 ten nine eight seven six five four three two one zero launch(e65) is(e70) go {Len 14.84}<br>
+[/tt]</p>
+<p>The announcement file is then compiled with script which look like this:</p>
+<p>[tt]<br>
+response “announce_rocketlaunch”<br>
+{<br>
+sequential<br>
+norepeat<br>
+sentence “!C2A2C_launch_0” soundlevel “SNDLVL_TALKING”<br>
+sentence “!C2A2C_launch_1” soundlevel “SNDLVL_TALKING”<br>
+sentence “!C2A2C_launch_2” soundlevel “SNDLVL_TALKING”<br>
+sentence “!C2A2C_launch_3” soundlevel “SNDLVL_TALKING”<br>
+}<br>
+[/tt]</p>
+<p>But a personal opinion is that to not use them for the time being and just use external programs to combine the words wave file to construct a single sentence wave file and use that to play sound in the map.</p>
+          <p><a href="https://leakfree.org/t/sentences-txt/14900/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/sentences-txt/14900/2</link>
+        <pubDate>Tue, 09 Aug 2016 19:41:00 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14900-2</guid>
+        <source url="https://leakfree.org/t/sentences-txt/14900.rss">sentences.txt</source>
+      </item>
+      <item>
+        <title>sentences.txt</title>
+        <dc:creator><![CDATA[aSpire]]></dc:creator>
+        <description><![CDATA[
+            <p>Is there a sentences.txt for Black Mesa, and if there is, where is it?  ?(   I’m trying to reconstruct the military vox voice lines (which are awesome!) into single .wavs for my own personal use. However, I want to use the alarms like buzwarn.wav and dadeda.wav with them, and I can’t find which alarms to use for which sentences. And I don’t want to spend time listening to the actual sentences ingame. Help is appreciated!  &lt;3</p>
+<p>If your not sure what I’m looking for, here’s an example from Half Life 2’s sentences.txt:<br>
+COMBINE_ALERT0 npc/combine_soldier/vo/(v100) on2(p110) contactconfim V_G0_PLAYERS, range V_DISTS meters, bearing V_DIRS degrees off1 {Len 1.13 closecaption NPC_Combine.Alert}</p>
+          <p><a href="https://leakfree.org/t/sentences-txt/14900/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/sentences-txt/14900/1</link>
+        <pubDate>Tue, 09 Aug 2016 19:28:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14900-1</guid>
+        <source url="https://leakfree.org/t/sentences-txt/14900.rss">sentences.txt</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/tutorial-tow-missle-system/11639 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 10:52:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>[Tutorial] TOW missle system - Source 1 - Leakfree</title>
+    <meta name="description" content="Setting up the TOW is very simular to the way the 50. cal works. The difference is that the TOW’s ammo is fed manually by the player. 
+
+
+Create a prop_dynamic 
+Name: tow_launcher_model 
+Model: models/props_marines/tow_mi&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="11639.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;[Tutorial] TOW missle system&#39;" href="11639.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/tutorial-tow-missle-system/11639" />
+<meta name="twitter:url" content="https://leakfree.org/t/tutorial-tow-missle-system/11639" />
+<meta property="og:title" content="[Tutorial] TOW missle system" />
+<meta name="twitter:title" content="[Tutorial] TOW missle system" />
+<meta property="og:description" content="Setting up the TOW is very simular to the way the 50. cal works. The difference is that the TOW’s ammo is fed manually by the player.    Create a prop_dynamic  Name: tow_launcher_model  Model: models/props_marines/tow_missile_system.mdl    Create a brush behind the TOW model in which the player can stand and turn it into func_multiple.  Name: tow_control  Tag Flags: Clients    Create a brush ( l:64, w:16, h:8 ) with the toolsinvisible texture and make it cover the length of the barrel. Turn it i..." />
+<meta name="twitter:description" content="Setting up the TOW is very simular to the way the 50. cal works. The difference is that the TOW’s ammo is fed manually by the player.    Create a prop_dynamic  Name: tow_launcher_model  Model: models/props_marines/tow_missile_system.mdl    Create a brush behind the TOW model in which the player can stand and turn it into func_multiple.  Name: tow_control  Tag Flags: Clients    Create a brush ( l:64, w:16, h:8 ) with the toolsinvisible texture and make it cover the length of the barrel. Turn it i..." />
+<meta property="article:published_time" content="2012-11-05T10:46:46+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="11639.html">[Tutorial] TOW missle system</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/7.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>General Development</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/source-1/43.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #ED207B'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Source 1</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Hezus.html'><span itemprop='name'>Hezus</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11639.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-11-05T10:46:46Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T09:52:36Z' class='post-time'>
+                August 11, 2020,  9:52am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Setting up the TOW is very simular to the way the <a href="https://forums.blackmesasource.com/showthread.php?t=14981" data-bbcode="true" rel="nofollow noopener">50. cal</a> works. The difference is that the TOW’s ammo is fed manually by the player.</p>
+<ol>
+<li>
+<p>Create a prop_dynamic<br>
+Name: tow_launcher_model<br>
+Model: models/props_marines/tow_missile_system.mdl</p>
+</li>
+<li>
+<p>Create a brush behind the TOW model in which the player can stand and turn it into func_multiple.<br>
+Name: tow_control<br>
+Tag Flags: Clients</p>
+</li>
+<li>
+<p>Create a brush ( l:64, w:16, h:8 ) with the toolsinvisible texture and make it cover the length of the barrel. Turn it into a func_tow. Make sure the origin of this brush is moved to the middle of the TOW model, right at the pivot where it can rotate and move up and down. Turn the angle in the direction of the brush according to the direction of the model.</p>
+</li>
+</ol>
+<p>Name: tow_launcher<br>
+Parent: tow_launcher_model<br>
+Control Volume: tow_control</p>
+<p>These settings control the movement range (Yaw=horizontal, pitch=vertical):<br>
+Yaw rate: 45<br>
+Yaw  range: 120<br>
+Pitch rate: 45<br>
+Pitch range: 15</p>
+<p>These settings connect the model animations to the func_tow:<br>
+Gun Base Attachment: animation<br>
+Gun Barrel Attachment: muzzle<br>
+Gun Yaw Post Param: aim_yaw<br>
+Gun pitch Pose Param: aim_pitch</p>
+<p>Tag Flags: Active, Only Direct, Controllable, Non-Solid.</p>
+<ol start="4">
+<li>Now place a few item_tow_missle entities around. These are the missles to feed into the launcher. You should be left with something simular to this:</li>
+</ol>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<p>Compile and witness the destruction!</p>
+<ol start="5">
+<li>If you want the TOW to have more ammo, you can set up a missle spawner. Create an npc_maker.<br>
+Name: tow_spawner<br>
+Numb. of NPCs: 50<br>
+Class name of spawned NPC: item_tow_missile (type, don’t select from menu)</li>
+</ol>
+<p>Now go into the func_tow’s output and enter:<br>
+OnFire &gt; tow_spawner &gt; Spawn (Delay: 3)</p>
+<ol start="6">
+<li>You can also set up the TOW to be NPC controlled, although only the player can reload the weapon, so enemy grunts can only fire one shot, which makes them pretty useless. In theory you could set up a friendly NPC to control the launcher, so the player can reload the weapon while he fires, although it seems Barney doesn’t want to control the TOW in the current version of BM. You might be able to come up with some clever solution like a model replacement of a grunt with ai_relations or something. If you really want to set up a NPC controlled TOW, refer the the example RMF below.</li>
+</ol>
+<p><a href="https://www.deved-portal.com/hezus/up/tutorials/tow_tutorial.zip" data-bbcode="true" rel="nofollow noopener">Example RMF</a></p>
+        </div>
+
+        <meta itemprop='headline' content='[Tutorial] TOW missle system'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/D3lta.html'><span itemprop='name'>D3lta</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11639.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-11-05T19:15:09Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:52:47Z' class='post-time'>
+                November 25, 2018,  2:52am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Damn you’re fast with things like this.<br>
+Are you also gonna make a tutorial to kill a Garg?</p>
+        </div>
+
+        <meta itemprop='headline' content='[Tutorial] TOW missle system'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Hezus.html'><span itemprop='name'>Hezus</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11639.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-11-05T22:10:09Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:52:48Z' class='post-time'>
+                November 25, 2018,  2:52am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="TehBoxNoob">
+<div class="title">
+<div class="quote-controls"></div>
+ TehBoxNoob:</div>
+<blockquote>
+<p>Damn you’re fast with things like this.<br>
+Are you also gonna make a tutorial to kill a Garg?</p>
+</blockquote>
+</aside>
+<p>Sometimes when I have to figure something out for my own project, I also write a tutorial in the process, so I can share that knowledge with other people. Thusfar I have not used a garg, so there is no tutorial about that, yet.</p>
+<p>If it works the same as in HL1, killing a garg is handled code-wise mostly. It’s probably precoded to only take damage from explosives. But I’ll have to look into that first to make sure.</p>
+        </div>
+
+        <meta itemprop='headline' content='[Tutorial] TOW missle system'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Chickenprotector.html'><span itemprop='name'>Chickenprotector</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11639.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-11-05T23:37:50Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:52:49Z' class='post-time'>
+                November 25, 2018,  2:52am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>… actually the devs rigged it to only be killed by scripted sequences, doesn’t matter how much ammunition you throw at it, it won’t die.</p>
+        </div>
+
+        <meta itemprop='headline' content='[Tutorial] TOW missle system'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Hezus.html'><span itemprop='name'>Hezus</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11639.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-11-06T09:54:51Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:52:53Z' class='post-time'>
+                November 25, 2018,  2:52am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Chickenprotector">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/chickenprotector/40/5653_2.jpg" class="avatar"> Chickenprotector:</div>
+<blockquote>
+<p>… actually the devs rigged it to only be killed by scripted sequences, doesn’t matter how much ammunition you throw at it, it won’t die.</p>
+</blockquote>
+</aside>
+<p>Hmm… that surely complicates things. I do have some ideas for a work-around, though. I’ll fiddle around a bit and see if I can get it to work.</p>
+        </div>
+
+        <meta itemprop='headline' content='[Tutorial] TOW missle system'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Hezus.html'><span itemprop='name'>Hezus</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11639.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-11-08T11:20:25Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:53:31Z' class='post-time'>
+                November 25, 2018,  2:53am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Little update on the garg question:</p>
+<p>I’ve been experimenting but apparently the garg is only set up to work in scripted sequences. The entity supports no parents so you can’t manualy add sequences or explosions to him. Plus, it has only very specific death animations, which would look odd in a normal fight. Even if you came up with a creative way for it to take damage, it would still look dodgy when he dies.</p>
+<p>With a little luck the Dev’s update the Garg with proper animations and health system for the Xen update.</p>
+        </div>
+
+        <meta itemprop='headline' content='[Tutorial] TOW missle system'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Chickenprotector.html'><span itemprop='name'>Chickenprotector</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11639.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-11-08T12:15:34Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:53:31Z' class='post-time'>
+                November 25, 2018,  2:53am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Found a convar “sk_debug_gargantua_death” it’ll die to explosives then, and just turn into gibs (no explosions, etc), but beyond that, I can’t do anything more. Gotta agree with you Hezus, I do hope they add that in later on.</p>
+        </div>
+
+        <meta itemprop='headline' content='[Tutorial] TOW missle system'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/tutorial-tow-missle-system/11639 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 10:52:49 GMT -->
+</html>

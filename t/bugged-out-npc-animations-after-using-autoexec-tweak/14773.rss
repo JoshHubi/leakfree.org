@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Bugged out NPC animations after using autoexec tweak</title>
+    <link>https://leakfree.org/t/bugged-out-npc-animations-after-using-autoexec-tweak/14773</link>
+    <description>Hello, Gordon Freemans (heh)
+I&#39;ve been playing Black Mesa for a good while on and off, and decided to do some advanced tweaking to optimize my game as I play it on an average laptop with Intel HD 4400 graphics w/ modded-for-gaming video drivers. Enough of that, I&#39;m not here to talk about video-related problems.
+
+After using a certain user&#39;s autoexec taken from a Steam article, every NPC quit animating properly. Here&#39;s the contents of the original autoexec taken from that article before I meddled with its settings:
+
+[code=&#39;autoexec.cfg&#39;]exec config.cfg
+
+sv_forcepreload &quot;1&quot;
+mp_decals &quot;4096.000000&quot;
+cl_downloadfilter &quot;none&quot;
+cl_forcepreload &quot;1&quot;
+cl_ragdoll_collide &quot;1&quot;
+cl_interp &quot;0&quot;
+cl_interp_ratio &quot;1&quot;
+rate &quot;128000&quot;
+cl_updaterate &quot;66&quot;
+cl_cmdrate &quot;67&quot;
+fps_max &quot;300&quot;
+sensitivity &quot;5.800000&quot;
+snd_mixahead &quot;1&quot;
+snd_musicvolume &quot;0.700000&quot;
+volume &quot;1.000000&quot;
+cl_smoothtime &quot;0.01&quot;
+r_lod &quot;-8&quot;
+mat_picmip &quot;-10&quot;
+mat_parallaxmap &quot;1&quot;
+
+cl_new_impact_effects &quot;1&quot;
+cl_burninggibs &quot;1&quot;
+
+mat_queue_mode &quot;2&quot;
+mat_compressedtextures &quot;0&quot;
+mat_use_compressed_hdr_textures &quot;1&quot; (def 1, must be 1 for skyboxes to render fully)
+r_threaded_renderables &quot;1&quot;
+snd_mix_async &quot;1&quot;
+r_threaded_client_shadow_manager &quot;1&quot;
+cl_threaded_bone_setup &quot;1&quot;
+cl_threaded_client_leaf_system &quot;1&quot;
+
+//exec threading.cfg[/code]
+The clientside interpolation tweaks caused every single NPC to have below-30-FPS-ish animations. I edited out some stuff here and there to what it is now:
+
+[code=&#39;edited autoexec&#39;]exec config.cfg
+
+sv_forcepreload &quot;1&quot;
+cl_downloadfilter &quot;none&quot;
+cl_forcepreload &quot;1&quot;
+cl_ragdoll_collide &quot;1&quot;
+fps_max &quot;300&quot;
+snd_mixahead &quot;0.1&quot;
+snd_mix_async 1
+snd_musicvolume &quot;0.700000&quot;
+volume &quot;1.000000&quot;
+cl_smoothtime &quot;0.01&quot;
+r_lod &quot;-8&quot;
+mat_picmip &quot;-1&quot;
+mat_parallaxmap &quot;1&quot;
+cl_interp_npcs &quot;1&quot;
+
+cl_new_impact_effects &quot;1&quot;
+cl_burninggibs &quot;1&quot;
+mem_max_heapsize 2048
+dsp_enhance_stereo 1
+
+ai_reaction_delay_alert &quot;0.3&quot;
+ai_reaction_delay_idle &quot;0.75&quot;
+sk_max_9mm	&quot;300&quot;
+sk_max_357	&quot;36&quot;
+sk_max_grenade_mp5	&quot;5&quot;
+
+alias	&quot;+melee&quot;	&quot;use weapon_crowbar; +attack&quot;
+alias	&quot;-melee&quot;	&quot;-attack; lastinv&quot;
+bind	&quot;f&quot;	&quot;+melee&quot;
+
+//exec threading.cfg[/code]Additionally, I meddled around with cl_interp settings ingame to see if I, myself, can resolve this (not really) gamebreaking problem without assistance from other people. Changing cl_interp back to 1 fixed the animations, BUT traded off with unsynced hitboxes. Turning it back to 0 and doing cl_interp_npcs 1 did not completely fix the problem, it remedied some of the NPC movement animations, but attack and all other animations are still static. I tried to remove the autoexec lines and used the -autoconfig launch parameter, but still no bueno. I regretted using this user&#39;s tweak and carelessly copy-pasting in those lines of CVars.
+
+I am using the mod version, by the way, as I cannot invest in getting the retail edition on Steam. Also, reinstalling the game is not an option, as I thoroughly dug through my Downloads and realized I deleted the BM installer. I wouldn&#39;t want to spend a lot of time re-downloading the game on a 250 kilobyte-per-second connection. It feels weird to have Houndeyes running up to you like as if they&#39;re using invisible hoverboards, and it also feels weird to have NPCs with &lt; 30 FPS-ish laggy animations.
+
+I will provide a video upon request if you still do not understand the problem. I really look forward to some assistance, since I can&#39;t get myself to play this game with this current problem.
+
+Edit: I have to say in advanced, before you all throw at me the common problem of &quot;your laptop is not powerful enough to run this game&quot;, I&#39;ll tell you what, I made damn sure that this game runs in 60 FPS with all graphics turned high, except that I have to leave anti-aliasing off. The bugged 30-FPS-ish NPC animations also happen even though the game is running in 60 FPS as well. Please think before giving me that answer, as sadly the OP of the respective Steam article instantly threw at me instead of actually helping me, and I have a hard time tolerating people that reply but with no intention to help.</description>
+    
+    <lastBuildDate>Thu, 19 May 2016 07:54:27 +0000</lastBuildDate>
+    <category>Help!</category>
+    <atom:link href="https://leakfree.org/t/bugged-out-npc-animations-after-using-autoexec-tweak/14773.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Bugged out NPC animations after using autoexec tweak</title>
+        <dc:creator><![CDATA[Kensta]]></dc:creator>
+        <description><![CDATA[
+            <p>Nevermind, I fixed the issue by turning off all interpolation and reverting the rate and clientside updaterate to 64. This topic may now be closed.</p>
+          <p><a href="https://leakfree.org/t/bugged-out-npc-animations-after-using-autoexec-tweak/14773/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bugged-out-npc-animations-after-using-autoexec-tweak/14773/2</link>
+        <pubDate>Thu, 19 May 2016 07:54:27 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14773-2</guid>
+        <source url="https://leakfree.org/t/bugged-out-npc-animations-after-using-autoexec-tweak/14773.rss">Bugged out NPC animations after using autoexec tweak</source>
+      </item>
+      <item>
+        <title>Bugged out NPC animations after using autoexec tweak</title>
+        <dc:creator><![CDATA[Kensta]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello, Gordon Freemans (heh)<br>
+I’ve been playing Black Mesa for a good while on and off, and decided to do some advanced tweaking to optimize my game as I play it on an average laptop with Intel HD 4400 graphics w/ modded-for-gaming video drivers. Enough of that, I’m not here to talk about video-related problems.</p>
+<p>After using a certain user’s autoexec taken from a Steam article, every NPC quit animating properly. Here’s the contents of the original autoexec taken from that article before I meddled with its settings:</p>
+<p>[code=‘autoexec.cfg’]exec config.cfg</p>
+<p>sv_forcepreload “1”<br>
+mp_decals “4096.000000”<br>
+cl_downloadfilter “none”<br>
+cl_forcepreload “1”<br>
+cl_ragdoll_collide “1”<br>
+cl_interp “0”<br>
+cl_interp_ratio “1”<br>
+rate “128000”<br>
+cl_updaterate “66”<br>
+cl_cmdrate “67”<br>
+fps_max “300”<br>
+sensitivity “5.800000”<br>
+snd_mixahead “1”<br>
+snd_musicvolume “0.700000”<br>
+volume “1.000000”<br>
+cl_smoothtime “0.01”<br>
+r_lod “-8”<br>
+mat_picmip “-10”<br>
+mat_parallaxmap “1”</p>
+<p>cl_new_impact_effects “1”<br>
+cl_burninggibs “1”</p>
+<p>mat_queue_mode “2”<br>
+mat_compressedtextures “0”<br>
+mat_use_compressed_hdr_textures “1” (def 1, must be 1 for skyboxes to render fully)<br>
+r_threaded_renderables “1”<br>
+snd_mix_async “1”<br>
+r_threaded_client_shadow_manager “1”<br>
+cl_threaded_bone_setup “1”<br>
+cl_threaded_client_leaf_system “1”</p>
+<p>//exec threading.cfg[/code]<br>
+The clientside interpolation tweaks caused every single NPC to have below-30-FPS-ish animations. I edited out some stuff here and there to what it is now:</p>
+<p>[code=‘edited autoexec’]exec config.cfg</p>
+<p>sv_forcepreload “1”<br>
+cl_downloadfilter “none”<br>
+cl_forcepreload “1”<br>
+cl_ragdoll_collide “1”<br>
+fps_max “300”<br>
+snd_mixahead “0.1”<br>
+snd_mix_async 1<br>
+snd_musicvolume “0.700000”<br>
+volume “1.000000”<br>
+cl_smoothtime “0.01”<br>
+r_lod “-8”<br>
+mat_picmip “-1”<br>
+mat_parallaxmap “1”<br>
+cl_interp_npcs “1”</p>
+<p>cl_new_impact_effects “1”<br>
+cl_burninggibs “1”<br>
+mem_max_heapsize 2048<br>
+dsp_enhance_stereo 1</p>
+<p>ai_reaction_delay_alert “0.3”<br>
+ai_reaction_delay_idle “0.75”<br>
+sk_max_9mm	“300”<br>
+sk_max_357	“36”<br>
+sk_max_grenade_mp5	“5”</p>
+<p>alias	“+melee”	“use weapon_crowbar; +attack”<br>
+alias	“-melee”	“-attack; lastinv”<br>
+bind	“f”	“+melee”</p>
+<p>//exec threading.cfg[/code]Additionally, I meddled around with cl_interp settings ingame to see if I, myself, can resolve this (not really) gamebreaking problem without assistance from other people. Changing cl_interp back to 1 fixed the animations, BUT traded off with unsynced hitboxes. Turning it back to 0 and doing cl_interp_npcs 1 did not completely fix the problem, it remedied some of the NPC movement animations, but attack and all other animations are still static. I tried to remove the autoexec lines and used the -autoconfig launch parameter, but still no bueno. I regretted using this user’s tweak and carelessly copy-pasting in those lines of CVars.</p>
+<p>I am using the mod version, by the way, as I cannot invest in getting the retail edition on Steam. Also, reinstalling the game is not an option, as I thoroughly dug through my Downloads and realized I deleted the BM installer. I wouldn’t want to spend a lot of time re-downloading the game on a 250 kilobyte-per-second connection. It feels weird to have Houndeyes running up to you like as if they’re using invisible hoverboards, and it also feels weird to have NPCs with &lt; 30 FPS-ish laggy animations.</p>
+<p>I will provide a video upon request if you still do not understand the problem. I really look forward to some assistance, since I can’t get myself to play this game with this current problem.</p>
+<p>Edit: I have to say in advanced, before you all throw at me the common problem of “your laptop is not powerful enough to run this game”, I’ll tell you what, I made damn sure that this game runs in 60 FPS with all graphics turned high, except that I have to leave anti-aliasing off. The bugged 30-FPS-ish NPC animations also happen even though the game is running in 60 FPS as well. Please think before giving me that answer, as sadly the OP of the respective Steam article instantly threw at me instead of actually helping me, and I have a hard time tolerating people that reply but with no intention to help.</p>
+          <p><a href="https://leakfree.org/t/bugged-out-npc-animations-after-using-autoexec-tweak/14773/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bugged-out-npc-animations-after-using-autoexec-tweak/14773/1</link>
+        <pubDate>Wed, 18 May 2016 17:53:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14773-1</guid>
+        <source url="https://leakfree.org/t/bugged-out-npc-animations-after-using-autoexec-tweak/14773.rss">Bugged out NPC animations after using autoexec tweak</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/the-story-of-crossfire-pt-1/14389 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:32:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>The Story of Crossfire, Pt 1 - Developer Logs - Leakfree</title>
+    <meta name="description" content="[align=center]The Story of Crossfire, Pt 1.[/size][/size][/align] 
+[/size] 
+[align=center]A disclaimer: Everything within this blog post talks about things that are still in development. That means, the next blog post yo&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="14389.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;The Story of Crossfire, Pt 1&#39;" href="14389.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/the-story-of-crossfire-pt-1/14389" />
+<meta name="twitter:url" content="https://leakfree.org/t/the-story-of-crossfire-pt-1/14389" />
+<meta property="og:title" content="The Story of Crossfire, Pt 1" />
+<meta name="twitter:title" content="The Story of Crossfire, Pt 1" />
+<meta property="og:description" content="[align=center]The Story of Crossfire, Pt 1.[/size][/size][/align]  [/size]  [align=center]A disclaimer: Everything within this blog post talks about things that are still in development. That means, the next blog post you read, it’s possible things have changed or have been redone. Nothing shown represents any final ideas or themes. As with everything in the game industry, everything is subject to change.[/size][/align]  The Half-Life 1 Crossfire was a bit… how to put it… under detailed. There w..." />
+<meta name="twitter:description" content="[align=center]The Story of Crossfire, Pt 1.[/size][/size][/align]  [/size]  [align=center]A disclaimer: Everything within this blog post talks about things that are still in development. That means, the next blog post you read, it’s possible things have changed or have been redone. Nothing shown represents any final ideas or themes. As with everything in the game industry, everything is subject to change.[/size][/align]  The Half-Life 1 Crossfire was a bit… how to put it… under detailed. There w..." />
+<meta property="article:published_time" content="2015-09-02T18:20:53+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="14389.html">The Story of Crossfire, Pt 1</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/6.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa Archive</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/developer-logs/15.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Developer Logs</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14389.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-02T18:20:53Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:24:12Z' class='post-time'>
+                August 11, 2020, 11:24am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>[align=center]The Story of Crossfire, Pt 1.[/size][/size][/align]<br>
+[/size]<br>
+[align=center]A disclaimer: Everything within this blog post talks about things that are still in development. That means, the next blog post you read, it’s possible things have changed or have been redone. Nothing shown represents any final ideas or themes. As with <span class="bbcode-i">everything</span> in the game industry, everything is subject to change.[/size][/align]</p>
+<p>The Half-Life 1 Crossfire was a bit… how to put it… under detailed. There wasn’t too much to the visuals beyond the concrete buildings, large bunker walls and the assumed endless spread of the desert. Much like with the rest of Black Mesa, we’ve taken the original levels and used them as a base, filling in our own details. In some cases, we expanded on existing stories that these levels told. In other cases, we’ve created our own stories unique to the world. Crossfire is currently exploring one of these unique stories.</p>
+<p>When we make our multiplayer levels, we try multiple different things with the visuals of the map. There’s specific ‘feels’ and stories that we want to tell with the map, but we aren’t sure what the best background is to evoke these feelings, or tell this stories. Many times, we’ll go through three, four, sometimes five different theme bases before we decide on one that we like. Lambdabunker for example went through three or so different themeing ideas, just around the existing underground carpark, theme. This part of development is REALLY important as it literally sets the tone for the rest of the maps development and artstyle. Once we leave this part of development, do we rarely comeback to it. There have been some cases, but those were outstanding events.</p>
+<p>Level designer JeanPaul Jarreau (JP, for short), has decided to take Crossfire into a not well explored region of the Black Mesa complex. Pulling on the idea of ‘crossing over,’ JP is turning Crossfire into one of Black Mesa’s containment/ecosystem isolation chambers. Sorry, while this may bring up visions and memories of Jurassic Park, I can safely say that we don’t have any dinosaurs.</p>
+<p>Crossfire has 3 major sections. The close-quarters section where all the weapons are and where the players spawn. This is the area where you’ll see most of the action as players scrambled to get weapons.  There is the ‘no-mans-land,’ a barren yard where the first thing you see are two iconic tall towers and a couple of not-so-friendly looking 50cal’s staring right back at you. Finally, the most important section, the nuke button room; the room that gives Crossfire its fame and fun. JP wanted to give visual significance to crossing over from the weapon/spawn section, to no-mans-land, and this is where the containment idea I came from. You can see the large fence barrier between the two zones.</p>
+<p>Below are some images of what crossfire looks now. There’s a lot less of that gray blockiness from a weeks ago, no? Let us know what you’re thinking! Who knows where this will go? What is trying to be contained? Who knows! Maybe, you’ll find out next time, in The Story of Crossfire, pt 2.<br>
+[/size]<br>
+[align=center]<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/wCUf9tW.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/wCUf9tW.png" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/XyLiDdf.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/XyLiDdf.png" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/9vzIg58.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/9vzIg58.png" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/V4vvsZp.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/V4vvsZp.png" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/uLnWxQX.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/uLnWxQX.png" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/0SPak62.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/0SPak62.png" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/CpaXOmb.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/CpaXOmb.png" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div>[/size][/align]</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Crossfire, Pt 1'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Nintyuk.html'><span itemprop='name'>Nintyuk</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14389.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-02T18:43:35Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:38:03Z' class='post-time'>
+                November 25, 2018,  4:38am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>A few missed spaces but overall a interesting read.<br>
+Looking forward to part 2.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Crossfire, Pt 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Turret_Cube.html'><span itemprop='name'>Turret_Cube</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14389.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-02T18:50:49Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:38:03Z' class='post-time'>
+                November 25, 2018,  4:38am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Looks like it’s coming together nicely! You keep teasing the new crossbow model its unfair.<br>
+Hopefully there will be a BIG explosion, not just a fade too white.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Crossfire, Pt 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14389.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-02T19:02:36Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:38:03Z' class='post-time'>
+                November 25, 2018,  4:38am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Very nice, and I can’t tell you how glad I am this is not another water treatment area. In between Residue Processing, the Hazard Course mod, and Undertow, Black Mesa was shaping up to be just a giant water plant with some labs scattered around.  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Crossfire, Pt 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/yrr.html'><span itemprop='name'>yrr</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14389.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-02T19:14:25Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:38:03Z' class='post-time'>
+                November 25, 2018,  4:38am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Looks and reads nice, although the rocks look a bit too blocky and thus odd. Or is it on purpose ?</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Crossfire, Pt 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14389.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-02T19:21:12Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:38:03Z' class='post-time'>
+                November 25, 2018,  4:38am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="yrr">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/y/2bfe46/40.png" class="avatar"> yrr:</div>
+<blockquote>
+<p>Looks and reads nice, although the rocks look a bit too blocky and thus odd. Or is it on purpose ?</p>
+</blockquote>
+</aside>
+<p>They’re blocky because they’re just blocked out. No time invested in displacements yet to make 'em look nice.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Crossfire, Pt 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Ammat_the_Ankh.html'><span itemprop='name'>Ammat_the_Ankh</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14389.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-02T21:20:43Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:38:03Z' class='post-time'>
+                November 25, 2018,  4:38am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Looks good so far!</p>
+<p>I know the original was equipped with cannons on the towers instead of machine guns. What was the reason for changing them? Did the cannons not playtest well?</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Crossfire, Pt 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/MisterDigitalGuy.html'><span itemprop='name'>MisterDigitalGuy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14389.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-03T02:22:53Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:38:04Z' class='post-time'>
+                November 25, 2018,  4:38am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Looks good, even for an early WIP.</p>
+<p>Can’t wait for the finished product to come out!</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Crossfire, Pt 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/fury.html'><span itemprop='name'>fury</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14389.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-03T05:17:06Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:38:07Z' class='post-time'>
+                November 25, 2018,  4:38am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Sadly I missed yesterdays stream… Will watch past broadcast when I’m at home. I really like the textures you’ve chosen for the spawn area. Especially the buildings look nice. The idea with this gigant fence is cool but I don’t like the gameplay changes that it brings. Because when you leave the spawn area and enter the helipad area in duel, you lose a lot of time and don’t get the chance to pick up much weapons. In HL1 the buildings between spawn area and helipads were a lot lower. That and the high sky ceiling above helipads allowed the player at helipads to boost himself up into the air via tau-jump to shoot over to the spawn area. It allowed some cool frags. Yea… But I guess I can live with that change.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Crossfire, Pt 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dune_Jumper.html'><span itemprop='name'>Dune_Jumper</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14389.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-03T07:06:02Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:38:07Z' class='post-time'>
+                November 25, 2018,  4:38am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Looks awesome already! Can’t wait to see what it’ll look like when its done.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Crossfire, Pt 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/ghostboy1225.html'><span itemprop='name'>ghostboy1225</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14389.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-03T12:34:47Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:38:08Z' class='post-time'>
+                November 25, 2018,  4:38am
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>awesome frozen this seems to be shaping to be very interesting !</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Crossfire, Pt 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/cisek66.html'><span itemprop='name'>cisek66</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14389.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-03T17:06:53Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:38:09Z' class='post-time'>
+                November 25, 2018,  4:38am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Side cliffs (these next to the fence) seem bit too high for me. But thats my personal opinion. I’d make them shorter and thicker. I mean, if theres nuke after nuke going down there, the how this fragile wall ‘survived’?</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Crossfire, Pt 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Chrillen.html'><span itemprop='name'>Chrillen</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14389.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-04T05:47:32Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:38:11Z' class='post-time'>
+                November 25, 2018,  4:38am
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The fence looks sort of weird right now. I get the idea, but it will take some getting used to. I also miss the grey and sand colour palette of OG Crossfire.</p>
+<p>I also look forward to seeing how you guys will make sense of Crossfire’s layout and level design, what with the indoor lifts and such, and making it appear sensible from a real world perspective. You’ve done a good job so far with all the other maps, so I have high hopes.</p>
+<aside class="quote no-group" data-username="cisek66">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/c/dbc845/40.png" class="avatar"> cisek66:</div>
+<blockquote>
+<p>Side cliffs (these next to the fence) seem bit too high for me. But thats my personal opinion. I’d make them shorter and thicker. I mean, if theres nuke after nuke going down there, the how this fragile wall ‘survived’?</p>
+</blockquote>
+</aside>
+<p>I disagree. Those high cliffs look imposing and I dig them. Everything else is also standing after the ‘nuke’, why is it so strange that the rock walls are?</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Crossfire, Pt 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/cisek66.html'><span itemprop='name'>cisek66</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14389.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-05T08:26:55Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:38:12Z' class='post-time'>
+                November 25, 2018,  4:38am
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Nukes are usually detonated some distance above target, so they fry everything it ultra high temperature, Schockwave energy is reduced, and it manages to destroy only large impact field structures, or weak parts of small structures ( wooden walls, windows etc. ) Anyone ever played Metro : 2033 or Last Light?<br>
+There was nuke, and all the buildings (except read below) are standing here.</p>
+<p>Unless its not nuke  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>It might be just napalm barrage or something  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>I’d just like the stone wall to look more ‘solid and organic’. Is that bad?<br>
+Anyway you can fell free to disagree, that makes the feedback better and help the devs.<br>
+And I never actually seen Rock walls like this. (I’m not talking about their blocked form) They are formed like some kind of regular wall. Same height and same width. They just don’t look organic to me. ( never been to desert and haven’t actually seen that so don’t care much about this post  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:">  ) It would look cool when the height of that wall was different at various spots, maybe even some kind of small crack in the stone wall.</p>
+<p>Anyway I’m pretty sure that ‘organic cliff’ is planned anyway  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Crossfire, Pt 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Chrillen.html'><span itemprop='name'>Chrillen</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14389.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-05T12:24:09Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:38:13Z' class='post-time'>
+                November 25, 2018,  4:38am
+              </time>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="cisek66">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/c/dbc845/40.png" class="avatar"> cisek66:</div>
+<blockquote>
+<p>I’d just like the stone wall to look more ‘solid and organic’. Is that bad?</p>
+<p>Anyway you can fell free to disagree, that makes the feedback better and help the devs.<br>
+And I never actually seen Rock walls like this. (I’m not talking about their blocked form) They are formed like some kind of regular wall. Same height and same width. They just don’t look organic to me. ( never been to desert and haven’t actually seen that so don’t care much about this post  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:">  ) It would look cool when the height of that wall was different at various spots, maybe even some kind of small crack in the stone wall.</p>
+<p>Anyway I’m pretty sure that ‘organic cliff’ is planned anyway  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+</blockquote>
+</aside>
+<p>Oh it is. What you’re seeing in the screenshots is just a rough blocking out of the cliff structure. It will look more natural once the map is closer to release.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Crossfire, Pt 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14389.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-11T21:24:23Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:38:30Z' class='post-time'>
+                November 25, 2018,  4:38am
+              </time>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Ammat the Ankh">
+<div class="title">
+<div class="quote-controls"></div>
+ Ammat the Ankh:</div>
+<blockquote>
+<p>Looks good so far!</p>
+<p>I know the original was equipped with cannons on the towers instead of machine guns. What was the reason for changing them? Did the cannons not playtest well?</p>
+</blockquote>
+</aside>
+<p>Just got some info on this.</p>
+<p>We’re looking into the Cannons.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Crossfire, Pt 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dmx6.html'><span itemprop='name'>Dmx6</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14389.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-10-07T16:43:45Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:39:32Z' class='post-time'>
+                November 25, 2018,  4:39am
+              </time>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Any news here?  <img src="../../images/emoji/twitter/frowningc164.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Crossfire, Pt 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/fury.html'><span itemprop='name'>fury</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14389.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-10-09T05:55:57Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:39:34Z' class='post-time'>
+                November 25, 2018,  4:39am
+              </time>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m also interessted what’s happening behind the curtain… Not that you need to spoil everything that comes with the next update… But I’d really like to know when the next update is going to get released. I don’t care how much content the next update will contain, but maybe it would make spawnprotection optional, remove spawn delay, bring back legacy spawning, crossbow fix, 357 nerf or improve anything else gameplay fundamental (movement, balance and game mechanics). It would definately get me to play this game again. However… Big updates might bring more players to the game… While small frequent updates might keep players actively play the game more (and maybe new players will join aswell… depends a lot on how/if people recommend BMDM)… Personally I think that BMDM should be polished when Xen comes out, because a lot of new players will buy BMDM when Xen gets released… all potential BMDM players. These people should experience a good working game from the start on.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Crossfire, Pt 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14389.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-10-09T17:43:43Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:39:35Z' class='post-time'>
+                November 25, 2018,  4:39am
+              </time>
+          <span itemprop='position'>#19</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Oh right.</p>
+<p>I was busy with things so I forgot to update you guys. Thats what I get for not putting it on my calendar!</p>
+<p>So far, no new news. We’ll be talking more soonerish about things.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Crossfire, Pt 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Sergeant_Guthrie.html'><span itemprop='name'>Sergeant_Guthrie</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14389.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-10-14T00:39:58Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:39:44Z' class='post-time'>
+                November 25, 2018,  4:39am
+              </time>
+          <span itemprop='position'>#20</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>You mentioned being reminded of Jurassic Park?</p>
+<p>Is the containment chamber is supposed to be some secure environment where packs of houndeyes and bullsquids are kept?</p>
+<p>All I can picture now, is getting to the containment chamber and finding the cages broken and the Xen creatures no where sight.</p>
+<p>(Bonus Points if there’s a field of long grass between the containment center and the nuke bunker to be ambushed in.)</p>
+<p>Now if only the Panthereye made it into Half Life, that’s all this scenario needs.</p>
+<p>…</p>
+<p>I’ll make serious suggestions for BMDM later, I’ve got a fan fic to write.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Crossfire, Pt 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/the-story-of-crossfire-pt-1/14389 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:32:56 GMT -->
+</html>

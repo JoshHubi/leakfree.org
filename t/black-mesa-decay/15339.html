@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/black-mesa-decay/15339 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:24:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Black Mesa: Decay - Source 1 - Leakfree</title>
+    <meta name="description" content="Hello everyone, 
+You have chosen or been chosen to enter this thread which is great. With everyone working on games like Blue Shift and Opposing Force, I thought I would give a shot recreating Decay.  I am quite rusty (I&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="15339.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Black Mesa: Decay&#39;" href="15339.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/black-mesa-decay/15339" />
+<meta name="twitter:url" content="https://leakfree.org/t/black-mesa-decay/15339" />
+<meta property="og:title" content="Black Mesa: Decay" />
+<meta name="twitter:title" content="Black Mesa: Decay" />
+<meta property="og:description" content="Hello everyone,  You have chosen or been chosen to enter this thread which is great. With everyone working on games like Blue Shift and Opposing Force, I thought I would give a shot recreating Decay.  I am quite rusty (I haven’t made any source mods since 2007) and I have nothing to show for it yet, but this post will serve as a design document of sorts, so it is a start.  Decay is a mostly forgotten or ignored, yet still a canon expansion of Half-Life series. It had too many problems that sucke..." />
+<meta name="twitter:description" content="Hello everyone,  You have chosen or been chosen to enter this thread which is great. With everyone working on games like Blue Shift and Opposing Force, I thought I would give a shot recreating Decay.  I am quite rusty (I haven’t made any source mods since 2007) and I have nothing to show for it yet, but this post will serve as a design document of sorts, so it is a start.  Decay is a mostly forgotten or ignored, yet still a canon expansion of Half-Life series. It had too many problems that sucke..." />
+<meta property="article:published_time" content="2018-03-09T23:44:27+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="15339.html">Black Mesa: Decay</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/7.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>General Development</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/source-1/43.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #ED207B'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Source 1</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/sansuni.html'><span itemprop='name'>sansuni</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15339.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2018-03-09T23:44:27Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:10:18Z' class='post-time'>
+                November 25, 2018,  5:10am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hello everyone,</p>
+<p>You have chosen or been chosen to enter this thread which is great. With everyone working on games like Blue Shift and Opposing Force, I thought I would give a shot recreating Decay.  I am quite rusty (I haven’t made any source mods since 2007) and I have nothing to show for it yet, but this post will serve as a design document of sorts, so it is a start.</p>
+<p>Decay is a mostly forgotten or ignored, yet still a canon expansion of Half-Life series. It had too many problems that sucked any joy out of playing it and thats ignoring the fact it was never officially released to PC.</p>
+<p>First of all, Half-Life games, at their core, are relatively fast paced games. This game were not. This game was designed specifically as a co-op game and finding other players to play with was bothersome at best at the time. In the end, it is “RUN <span class="bbcode-i">THINK SHOOT</span> LIVE” not “run, think, shoot, switch to the other character, shoot again, think again, switch again, run a little more, shoot, switch, shoot again and think”.  What I mean by that is, non-optional co-op mechanic of this game ruined it.</p>
+<p>Also, the beginning and the end of the game does not fit at all with the other games in the series. In the other games, the beginning starts with a tram ride (with the exception of Opposing Force, because arriving by another method makes more sense there because you are playing as a soldier) and it end with a Gman speech (witch the exception of Blue Shift, as it was explained you were out of Gman’s reach)  Instead, in this game it ends with “We did it” line, which I found to be a bit anticlimactic.</p>
+<p>So while recreating this game, I would make it solely singleplayer and I would tweak the beginning and the end a bit.</p>
+<p>Protagonist will be Gina Cross, as it is a more established character unlike <span class="bbcode-b">Colette Green</span>, who wasn’t even even mentioned until this point. <span class="bbcode-b">Colette Green</span> would be an NPC, much like Alyx. Game would start with a very short tram ride, where <span class="bbcode-b">Colette Green</span> is already waiting for you (who is a pre-scripted NPC who shares much of her animation with Alyx), and at the end with a speaking Gman.</p>
+<p>In the begginning of the game, there would be an issue with <span class="bbcode-b">Colette Green</span>’s HEV suit and do the the issues Black Mesa faces that morning, she wouldn’t be able to wear it, so aside from a few missions, she wouldn’t tag along. Instead she would stay with and protect <span class="bbcode-b">Richard Keller</span> as it makes a lot more sense.</p>
+<p>In the end, where you are being teleported from place to place, you end up in front of Keller, you hear the “we did it” line from him, but other scientists in the room say “thats great, now we need to get out of this place it isn’t safe”,  <span class="bbcode-b">Colette Green</span> says there is an issue with Gina (player) but at the last second you are being teleported again to several other places and you end up near Gman, who gives this line:</p>
+<p>“Cleverly done, Miss Cross, but you’re not supposed to be here. As a matter of fact, you’re not. Get back where you belong, and forget about all this, until we meet again.”  (wich is a cut line)</p>
+<p>You end up with <span class="bbcode-b"><span class="bbcode-b">Richard Keller</span> and Colette Green</span> again and you will escape much like Blue Shift ending.</p>
+<p>I would appreciate any opinions, as anything would be better than the original game we got. While the story was nice enough (even though it made no sense at times), gameplay was lacking.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa: Decay'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/drgibbles.html'><span itemprop='name'>drgibbles</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15339.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/b/bc5976c346401c394fae8e7a6528b336f21b2b9c.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2018-03-10T05:47:15Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:10:18Z' class='post-time'>
+                November 25, 2018,  5:10am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I always wondered what the trees meant on the decay memorandum. Does anyone know?<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/b/bc5976c346401c394fae8e7a6528b336f21b2b9c.jpg" data-download-href="https://leakfree.org/uploads/default/bc5976c346401c394fae8e7a6528b336f21b2b9c" title="466px-Decay_memorandum.jpg"><img src="../../uploads/default/original/2X/b/bc5976c346401c394fae8e7a6528b336f21b2b9c.jpg" alt="466px-Decay_memorandum.jpg" data-base62-sha1="qSdrhn0ZcS4BnnmDYk8kvlYTR6I" width="466" height="500" data-small-upload="../../uploads/default/optimized/2X/b/bc5976c346401c394fae8e7a6528b336f21b2b9c_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">466px-Decay_memorandum.jpg</span><span class="informations">466×599 50 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa: Decay'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/sansuni.html'><span itemprop='name'>sansuni</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15339.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2018-03-11T12:06:08Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:10:18Z' class='post-time'>
+                November 25, 2018,  5:10am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="drgibbles">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/d/74df32/40.png" class="avatar"> drgibbles:</div>
+<blockquote>
+<p>I always wondered what the trees meant on the decay memorandum. Does anyone know?</p>
+</blockquote>
+</aside>
+<p>I haven’t got the faintest idea, but knowing some of the backstory behind it (and correct me if I am wrong on this one) I would guess it is somehow related to the composition of test samples or something.  As far as I can recall, some other sample was to be used in the experiment and Colette Green (second player, though I wish to turn her into a full-fledged NPC) was the one who run small tests on the sample we use on original game first. This memo is about that change.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa: Decay'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Flavrans.html'><span itemprop='name'>Flavrans</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15339.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2018-03-12T20:14:24Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:10:19Z' class='post-time'>
+                November 25, 2018,  5:10am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>It’s a diagram of what’s called a <a href="https://en.wikipedia.org/wiki/Binary_space_partitioning" data-bbcode="true" rel="nofollow noopener">BSP tree</a>.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa: Decay'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/sansuni.html'><span itemprop='name'>sansuni</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15339.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2018-03-12T21:15:14Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:10:19Z' class='post-time'>
+                November 25, 2018,  5:10am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Flavrans">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/flavrans/40/4375_2.jpg" class="avatar"> Flavrans:</div>
+<blockquote>
+<p>It’s a diagram of what’s called a <a href="https://en.wikipedia.org/wiki/Binary_space_partitioning" data-bbcode="true" rel="nofollow noopener">BSP tree</a>.</p>
+</blockquote>
+</aside>
+<p>I was so wrong…   <img src="../../images/emoji/twitter/smileyc164.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa: Decay'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Molly.html'><span itemprop='name'>Molly</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15339.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2018-03-21T18:28:01Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:42:32Z' class='post-time'>
+                August 11, 2020, 11:42am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hey there! You’ve got a really solid plan for a mod here, and I appreciate that you want to show Decay some love (with a pretty solid modified storyline, I must say), but I have a concern.</p>
+<p><a href="https://www.moddb.com/mods/decay-source3" data-bbcode="true" rel="nofollow noopener">Decay: Source</a> has been in development for a while, and it’s confirmed to be both co-op and single-player. What will your mod do differently?</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa: Decay'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/sansuni.html'><span itemprop='name'>sansuni</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15339.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2018-03-21T22:24:37Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:42:32Z' class='post-time'>
+                August 11, 2020, 11:42am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Molly">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/m/df788c/40.png" class="avatar"> Molly:</div>
+<blockquote>
+<p>Hey there! You’ve got a really solid plan for a mod here, and I appreciate that you want to show Decay some love (with a pretty solid modified storyline, I must say), but I have a concern.</p>
+<p><a href="https://www.moddb.com/mods/decay-source3" data-bbcode="true" rel="nofollow noopener">Decay: Source</a> has been in development for a while, and it’s confirmed to be both co-op and single-player. What will your mod do differently?</p>
+</blockquote>
+</aside>
+<p>I am sorry to say this, but I actually dropped my project after someone pointed out that mod. I thought no one was working on it and I was wrong. (To be entirely honest, that wasn’t the only reason, like I stated before, I haven’t worked on any modding project since 2007, so I am rusty as hell and I basically have to relearn everything from scratch since hammer seems to be a bit different as well. And in the end, even if I did all that, which I tried, more likely then not I will have to drop it halfway because I absolutely hated the few test maps I created so far. So rather than starting something and dropping it after all that work like so many before me, I am dropping it now.)</p>
+<p>But to answer your question, I still like my ideas better and I don’t really like what they have created so far. I have absolutely no right to say anything bad about their project since I haven’t even gotten as far as they did so far, but in my honest opinion, they stuck waaaay too closely to original levels which was terrible to begin with. (and by today’s standards they are nothing but a blocky mess)  What I would have done would be to fallow Black Mesa’s example and reimagine those levels in a way that improves them while keeping the core idea behind the level intact.</p>
+<p>Also, I would have gotten rid of co-op entirely. I feel like getting rid of that aspect of the game and focusing more on the story and pacing is what this mod needs. (classic Half-Life formula would take care of the rest) Making Colette Green an NPC similar to Alyx would serve that purpose greatly. I would have kept two characters separate most of the game. They would work together only when it made some actual sense.</p>
+<p>Level wise, making them fit better with Black Mesa levels would be a lot nicer. Original levels didn’t even fit properly with the original Half-Life. There was a map with levels from all games merged, only one didn’t fit (at least mostly) was Decay. In the end levels just didn’t give the same feeling either.</p>
+<p>Lastly, it never felt like a proper Half-Life game. No one in their right mind could deny that and this would be one of the biggest things I would attempt to fix. It didn’t start properly (in a way that fits the previous games as I explained above) and it didn’t end properly. (not to mention it was quite anticlimactic, having a line like “we did it” is not a proper way to end a Half-Life game. Only exception was Blue-Shift as it made some sense there and it was handled a lot better as it was at least explained properly)  Starting with a tram ride and ending with a high note (G-man) would have made this game a whole a lot better. (I mean, seriously, G-man shows up only once in the entire game) I would have started the game with a short tram ride, and end it with a G-man cameo as I stated above. Middle section tries to connect with other games, but fails miserably, there are some issues with that. Supposedly, they just arrived at work and yet they are already wearing their HEV suits. Which doesn’t jam with the other games at all. They never try to escape after the events that took place and they are just blindly fallowing orders without any given explanation. When I say that, I know some information gets dropped via dialogue, not never directly to your character. It was explained properly In Half-Life, it was “Freeman, we need to do this to escape” in Decay “This and this will happen so girls you are going to do this and that”, it is never personalized. I would have made it so that it is directed at the player. (so having only a single playable character would have helped with that greatly) So it would be like “Cross, I know we all need to get out of here, but if we don’t do this there won’t be anywhere to escape to, so we need to do this before we escape. You are the only one who can pull this off.”  or something like that, with a lot of tweaks here and there.</p>
+<p>So my basic idea worked like that. But sadly I never really gotten far enough to execute most of them.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa: Decay'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/black-mesa-decay/15339 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:24:44 GMT -->
+</html>

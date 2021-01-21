@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Using a .bat to run dir on multiple locations on the network</title>
+    <link>https://leakfree.org/t/using-a-bat-to-run-dir-on-multiple-locations-on-the-network/8760</link>
+    <description>Hey
+
+I&#39;m a trainee ICT technician, but haven&#39;t a huge amount of knowledge when it comes to scripting. The most I&#39;ve really used cmd and MS-DOS for is running old games back in the days of apogee. *sigh* ah the memories...
+
+Anyways One of my tasks at my job is to keep an eye on the users to make sure that they aren&#39;t into stuff they shouldn&#39;t be. This also includes making sure that they aren&#39;t using company laptops to store pirated media.
+
+I&#39;m trying to write a batch file that can run the dir command on the network at work to display a list of all the files in a number of different locations. &#39;tisn&#39;t working for me. This is what I&#39;m trying to run:
+
+runas /user:domain\username &quot;dir \\computername\c$&quot;
+
+It then prompts me for a password, then gives the following error:
+2: The system cannot find the file specified.
+
+Anyone got any ideas?</description>
+    
+    <lastBuildDate>Fri, 18 May 2012 13:04:32 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/using-a-bat-to-run-dir-on-multiple-locations-on-the-network/8760.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Using a .bat to run dir on multiple locations on the network</title>
+        <dc:creator><![CDATA[IronManLok]]></dc:creator>
+        <description><![CDATA[
+            <p>in all honesty, ur using the wrong tool for the job, as using simple DOS commands ain’t flexible nor powerfull, and u will run into problems regarding UNC paths</p>
+<p>I recommend you writing a VBScript to handle the task, since it can be extremely flexible on what actions u can take after you find the files, and since it uses Windows API for most things, i doubt it will have a problem using UNC paths</p>
+<p>heres an example: <a href="https://www.tek-tips.com/faqs.cfm?fid=5515" data-bbcode="true" rel="nofollow noopener">https://www.tek-tips.com/faqs.cfm?fid=5515</a></p>
+          <p><a href="https://leakfree.org/t/using-a-bat-to-run-dir-on-multiple-locations-on-the-network/8760/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/using-a-bat-to-run-dir-on-multiple-locations-on-the-network/8760/4</link>
+        <pubDate>Fri, 18 May 2012 13:04:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-8760-4</guid>
+        <source url="https://leakfree.org/t/using-a-bat-to-run-dir-on-multiple-locations-on-the-network/8760.rss">Using a .bat to run dir on multiple locations on the network</source>
+      </item>
+      <item>
+        <title>Using a .bat to run dir on multiple locations on the network</title>
+        <dc:creator><![CDATA[Navitas]]></dc:creator>
+        <description><![CDATA[
+            <p>Unfortunately I’m just the trainee and don’t have access to any of the core network stuff, so I can’t log on to the server to monitor traffic. I know there must be better ways to handle and track all of this stuff (We’ll be getting handy spying software soon) but I’m still learning, and slowly but surely I’ll learn better ways of doing these things.</p>
+<p>Your link has been helpful, it explains why I can’t run dir remotely. I’ll have a look into ssh later  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>I’ve learnt that I can mount remote directories using the “net use” command, and then run a dir on the mounted directory. Crude, and I still have a lot of work on the script to do, but it gets the job done.</p>
+<p>net use /user:domain\user x: \computername\c$<br>
+dir x:</p>
+<p>Thanks heaps for your help! I welcome any more suggestions, I can’t promise though that I’ll have time to try them all out though as I’ve got to balance all my normal jobs with my tinkering.</p>
+          <p><a href="https://leakfree.org/t/using-a-bat-to-run-dir-on-multiple-locations-on-the-network/8760/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/using-a-bat-to-run-dir-on-multiple-locations-on-the-network/8760/3</link>
+        <pubDate>Thu, 17 May 2012 23:34:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-8760-3</guid>
+        <source url="https://leakfree.org/t/using-a-bat-to-run-dir-on-multiple-locations-on-the-network/8760.rss">Using a .bat to run dir on multiple locations on the network</source>
+      </item>
+      <item>
+        <title>Using a .bat to run dir on multiple locations on the network</title>
+        <dc:creator><![CDATA[BaTz281]]></dc:creator>
+        <description><![CDATA[
+            <p>Ahhh the memories indeed, I miss those days as well.</p>
+<p>Couldn’t you limit torrent traffic or monitor network activity, rather than trying to find stuff AFTER it’s downloaded?  Just a thought.</p>
+<p>As for the command you’re trying, I just ran it on our network at work and it ran fine…are you running it against fat clients?  Are you copying the .bat file to each machine, or are you running the script on your machine and just passing in parameters?</p>
+<p>Might want to check here - <a href="https://forums.vandyke.com/archive/index.php/t-959.html" data-bbcode="true" rel="nofollow noopener">https://forums.vandyke.com/archive/index.php/t-959.html</a></p>
+          <p><a href="https://leakfree.org/t/using-a-bat-to-run-dir-on-multiple-locations-on-the-network/8760/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/using-a-bat-to-run-dir-on-multiple-locations-on-the-network/8760/2</link>
+        <pubDate>Thu, 17 May 2012 12:47:19 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-8760-2</guid>
+        <source url="https://leakfree.org/t/using-a-bat-to-run-dir-on-multiple-locations-on-the-network/8760.rss">Using a .bat to run dir on multiple locations on the network</source>
+      </item>
+      <item>
+        <title>Using a .bat to run dir on multiple locations on the network</title>
+        <dc:creator><![CDATA[Navitas]]></dc:creator>
+        <description><![CDATA[
+            <p>Hey</p>
+<p>I’m a trainee ICT technician, but haven’t a huge amount of knowledge when it comes to scripting. The most I’ve really used cmd and MS-DOS for is running old games back in the days of apogee. <em>sigh</em> ah the memories…</p>
+<p>Anyways One of my tasks at my job is to keep an eye on the users to make sure that they aren’t into stuff they shouldn’t be. This also includes making sure that they aren’t using company laptops to store pirated media.</p>
+<p>I’m trying to write a batch file that can run the dir command on the network at work to display a list of all the files in a number of different locations. 'tisn’t working for me. This is what I’m trying to run:</p>
+<p>runas /user:domain\username “dir \computername\c$”</p>
+<p>It then prompts me for a password, then gives the following error:<br>
+2: The system cannot find the file specified.</p>
+<p>Anyone got any ideas?</p>
+          <p><a href="https://leakfree.org/t/using-a-bat-to-run-dir-on-multiple-locations-on-the-network/8760/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/using-a-bat-to-run-dir-on-multiple-locations-on-the-network/8760/1</link>
+        <pubDate>Tue, 15 May 2012 02:06:06 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-8760-1</guid>
+        <source url="https://leakfree.org/t/using-a-bat-to-run-dir-on-multiple-locations-on-the-network/8760.rss">Using a .bat to run dir on multiple locations on the network</source>
+      </item>
+  </channel>
+</rss>

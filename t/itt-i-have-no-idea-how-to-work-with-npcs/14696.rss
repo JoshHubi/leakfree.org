@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>ITT: I have no idea how to work with NPCs</title>
+    <link>https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696</link>
+    <description>Wow, okay. Where to begin.
+
+So while I&#39;ve been using Hammer for several years, I&#39;m still very much inexperienced in it. I think a big part of that is because almost all of my mapping experience is with Left 4 Dead, which means a lot of things that go for singleplayer mapping go out the window. A good majority of that is NPC-related stuff.
+
+In order to educate myself more on how things work, I got the idea in my head to try my hand at my own extension of On A Rail. To be clear, I don&#39;t have any intention of one-upping Text&#39;s OaRU or .RK&#39;s Loop Mod, they&#39;re both much better at this than I am. I just figured OaR would be a good place to experiment - it&#39;s mostly indoors, and despite how a lot of people feel about it, I have a bit of a soft spot for the original.
+
+I&#39;m currently on the first &quot;original&quot; map, which includes the Vort/HECU showdown over the two parallel tracks. However, I&#39;m running into problems with the NPCs pretty much all over the place. Here goes:
+
+1) There&#39;s a grunt manning the turret on the HECU side of the tracks. The problem is, I can&#39;t get him to shoot at anything - I think it might be that the Vorts are too far away, but I&#39;m not really sure how to rebuild the area to put them closer. I tried giving him an npc_bullseye to shoot at, but he&#39;s not shooting at that either. For that matter, even if I force him off the turret, he doesn&#39;t get out a weapon or try shooting anything, he just stands there.
+
+2) There are AI Nodes across the track so the NPCs can run up to each other instead of staying static on one side (also to avoid that issue where Vorts wouldn&#39;t attack, since I&#39;ve heard that&#39;s still present). This includes over the track that the player drives the tram over - I&#39;ve had a soldier run out in front of the tram and get stuck between it and the security gate twice now. I&#39;d like to keep them from running out into the track if possible - and if not, I can just stick a trigger_hurt filtered to NPCs on the front of the tram or something - but I&#39;d rather not delete the nodes so as to avoid any funny NPC behaviour as a result. I&#39;ve tried using an info_radial_link_controller, but the NPCs still run out into the track. The only thing I can think of using to stop them is an ai_battle_line, which brings me to...
+
+[s]3) In the upstairs office area, I&#39;ve got a scripted assault between the HECU and some Vorts that I want to play out. Problem is, it just won&#39;t work properly. The HECU have two ai_battle_lines to prevent them from straying too far from the &quot;showdown&quot; area, but they... just ignore the lines entirely. As far as I can tell, the entities are set up correctly - pretty much the same as they are in BM&#39;s c2a2b - but the HECU will just run past them like it&#39;s no big deal. I don&#39;t know if that&#39;s because they don&#39;t have sufficient cover, but I can&#39;t figure out what&#39;s wrong here.[/s]
+[s]Both the battle_line entities are set up like this:[/s]
+
+[s]Name: hecu_office_no_retreat[/s]
+[s]Actor(s) or squad to affect: c2a2a1_office_showdown_hecu[/s]
+[s]Active: Yes[/s]
+[s]Strict: Yes[/s]
+[s]Use parent&#39;s orientation flag unset[/s]
+
+[s]To prevent the player from getting absolutely smothered upon entering, they have an ai_relationship set to ignore the player until all the Vorts are dead. It&#39;s kinda strange to see them run to the end of the hallway where the player is and not do anything, to say the least, which is part of why I have the battle_lines set up.[/s]
+
+4) As part of said showdown, I&#39;ve got an AI Assault - admittedly a half-finished one - that&#39;s supposed to trigger once the first wave of Vorts is dead - the HECU are supposed to run down the hallway and around the corner to confront the next wave. It... seems to be halfway working. The HECU will run up to the hallway corner as intended, but inconsistently, and they don&#39;t go any further than that. Based on what the VDC says, I can&#39;t see anything wrong with my setup.
+
+ai_goal_assault:
+Name: hecu_office_assault
+Actor(s) to affect: c2a2a1_office_showdown_hecu
+Rally Point Set: office_hecu_assault_point_*
+Search Type: Entity Name
+Start Active: No
+Assault Cue: Don&#39;t wait for a cue
+Rally Point Selection Method: Random
+
+assault_rallypoint:
+Name: office_hecu_assault_point_* (5 total, one for each soldier)
+Assault Point: office_hecu_assault_goal
+Assault Delay: 0
+Priority: 1
+Force Crouch: No
+Urgent: No
+
+assault_assaultpoint:
+Name: office_hecu_assault_goal (there are three total, the other two have numbers appended)
+Next assault point: office_hecu_assault_goal_2/3 (respectively)
+Assault time out: 3.0
+Clear on contact with enemies: No
+Allow diversion: No
+Never Timeout: No
+Strict?: No
+Force Crouch: No
+Urgent: No
+Attack Tolerance: Large (10ft)
+Clear this point upon arrival flag is unset
+(all of these have the same settings, minus goal_3 not having a next assault point target)
+
+A math_counter keeps track of how many Vorts are alive, and when the first wave is dead, it fires an Activate output to the ai_goal_assault entity. When a BeginAssault input is fired (which it turns out I&#39;d accidentally deleted, oops) the soldiers will run to the corner of the hallway, but still make no real effort to actually stay around the first assault point. After that, they crowd around the next assault points without spreading out at all. Is this behaviour something that happens when they don&#39;t have any targets to attack?
+
+6) Last thing, pretty minor compared to everything else - in the office area, there&#39;s a small storage closet in the hallway that has a bullsquid hiding in it. The bullsquid is only woken when the door&#39;s open, to surprise the player - the thing is, upon opening the door, it promptly turns around and starts eating next to one of the walls. There aren&#39;t any ragdolls or NPCs... or pretty much anything in that corner yet, but it just ignores the player. I imagine it won&#39;t be too hard to work around this, but I&#39;m still wondering, what in the world is this all about?
+
+Whew, lots of questions, I apologize. Still, if anyone could point me in the right direction for any of these, it&#39;d be very much appreciated! Thanks.
+
+EDIT: So I just realized that I don&#39;t know how to read, and missed the part where ai_goal_standoff&#39;s are necessary to make ai_battle_line&#39;s work.
+
+Oops.
+
+EDIT 2: I have dreadfully screwed something up in modifying the office showdown. I&#39;ve tried turning it into a standoff instead, but the game has a tendency to crash when the second ai_battle_line is enabled. Is there a specific way to go about this?</description>
+    
+    <lastBuildDate>Fri, 25 Mar 2016 18:47:34 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>ITT: I have no idea how to work with NPCs</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>On the other hand, aiscripted_schedule is pretty much the only consistent way to get them to shoot at a specific target (in, for example, a scripted scene). Use the right tool for the right job.</p>
+          <p><a href="https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696/10</link>
+        <pubDate>Fri, 25 Mar 2016 18:47:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14696-10</guid>
+        <source url="https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696.rss">ITT: I have no idea how to work with NPCs</source>
+      </item>
+      <item>
+        <title>ITT: I have no idea how to work with NPCs</title>
+        <dc:creator><![CDATA[Maki]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<p>I think the npc_enemyfinder is currently busted, and is on the fix list for CU3, as a few of our own sequences rely on it. Hence why the entity is still in our FGDs and in our levels too.</p>
+<p>Don’t you just love engine ports?</p>
+</blockquote>
+</aside>
+<p>It’s also missing some functionality compared to Ep2, like the settings for FOV and distance, if I recall correctly.</p>
+<p>aiscripted_schedule is generally a bad idea.  While it will get the enemies to where you want them to go, it basically disables their common sense getting there.  The advantage of using an assault, even a simple assault where the rallypoint and assaultpoint are next to each other, is that the AI will work its way there while still being able to do other things and advance tactically.  aiscripted_schedules are also easily foiled if the player blocks the path in some way.  Enemies will give up and stand around looking stupid.  This is less probable in Black Mesa since the player can’t manipulate the world as easily, but it can happen if everyone is shuffling through one doorway.</p>
+<p>The UpdateEnemyMemory input invokes the same mechanism that the “Notify” options on ai_relationship do.  It basically says, “Hey, the player is over there.  Make of that what you will.”</p>
+<p>Some of Black Mesa’s enemies have a weird reaction delay, for whatever reason.  The stairway Vorts on the return trip in Bravado are a great example.  They’ll take a good 2-3 seconds to engage you, even if you’re standing right in front of them.  It doesn’t feel like the hallway Vorts earlier have the same issue.  Couldn’t really tell you why.   Perhaps it has to do with whether or not they already have line-of-sight when they spawn in.</p>
+<p>Standoffs are great for many reasons, but as you discovered, they need the ai_goal_standoff entity.  In actuality, the battle line is completely optional.  With or without it, enemies will seek info_node_hints with cover as they advance to their target or to the line.  I personally think they make the HECU more fair and fun, because they aren’t blazing headlong toward you trying to turn every battle into an in-your-face gunfight.  Standoffs force them to keep their distance and pop in and out of cover.  It forces a medium-range gunfight to occur, so I use them in most of my work and save the close-range stuff for Shotgunners and the like, making them distinguishable from the rest of the group because they are the ones who don’t stop advancing.</p>
+          <p><a href="https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696/9</link>
+        <pubDate>Fri, 25 Mar 2016 18:11:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14696-9</guid>
+        <source url="https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696.rss">ITT: I have no idea how to work with NPCs</source>
+      </item>
+      <item>
+        <title>ITT: I have no idea how to work with NPCs</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>I think the npc_enemyfinder is currently busted, and is on the fix list for CU3, as a few of our own sequences rely on it. Hence why the entity is still in our FGDs and in our levels too.</p>
+<p>Don’t you just love engine ports?</p>
+          <p><a href="https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696/8</link>
+        <pubDate>Mon, 21 Mar 2016 10:28:26 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14696-8</guid>
+        <source url="https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696.rss">ITT: I have no idea how to work with NPCs</source>
+      </item>
+      <item>
+        <title>ITT: I have no idea how to work with NPCs</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="dky.tehkingd.u">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/dky.tehkingd.u/40/4377_2.png" class="avatar"> dky.tehkingd.u:</div>
+<blockquote>
+<p>Hmm. Well if you really want omniscience, like I said, <span class="bbcode-b">ai_relationship</span> should have a flag that notifies subjects of target location. Actually I’m not entirely sure if that works the way it should, but I’ve never had reason to doubt that it does…</p>
+</blockquote>
+</aside>
+<p>I can confirm that it does work like it should.</p>
+<ol>
+<li>
+</li></ol>
+<p>On the func_tank, whats the Maximum target range? Try increase it?</p>
+<ol start="6">
+<li>On opening the door, input the bullsquid with</li>
+</ol>
+<p>SetReadinessHigh<br>
+UpdateEnemyMemory !player</p>
+<p>Should probably make it want to attack the player.</p>
+          <p><a href="https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696/7</link>
+        <pubDate>Sat, 19 Mar 2016 09:33:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14696-7</guid>
+        <source url="https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696.rss">ITT: I have no idea how to work with NPCs</source>
+      </item>
+      <item>
+        <title>ITT: I have no idea how to work with NPCs</title>
+        <dc:creator><![CDATA[KyuuGryphon]]></dc:creator>
+        <description><![CDATA[
+            <p>Actually, y’know, I’m not sure what the deal is with npc_enemyfinder in Steam Mesa. On one hand, as mentioned, I’ve tried using it - it still appears in Hammer, I guess since it’s defined in the base Source .fgd - and gotten negative results, but doing a filesearch in Notepad++ shows that it’s used several times in the official levels… Maybe one of the devs can shed some light on this?</p>
+<p>On that note, I’m <span class="bbcode-i">still</span> stumped on what the deal is with ai_battle_line’s. Short of using NPC clip brushes, is there anything I can do to make sure NPCs don’t actively try to cross the line? Particularly Vorts, I haven’t been able to get battlelines working for them at all.</p>
+          <p><a href="https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696/6</link>
+        <pubDate>Sat, 19 Mar 2016 06:44:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14696-6</guid>
+        <source url="https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696.rss">ITT: I have no idea how to work with NPCs</source>
+      </item>
+      <item>
+        <title>ITT: I have no idea how to work with NPCs</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>Huh, it may well be in Steam Mesa. I know it was definitely available back in the mod version. I guess it’s gone now.</p>
+<p>Hmm. Well if you really want omniscience, like I said, ai_relationship should have a flag that notifies subjects of target location. Actually I’m not entirely sure if that works the way it should, but I’ve never had reason to doubt that it does…</p>
+          <p><a href="https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696/5</link>
+        <pubDate>Sat, 19 Mar 2016 03:10:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14696-5</guid>
+        <source url="https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696.rss">ITT: I have no idea how to work with NPCs</source>
+      </item>
+      <item>
+        <title>ITT: I have no idea how to work with NPCs</title>
+        <dc:creator><![CDATA[KyuuGryphon]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="dky.tehkingd.u">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/dky.tehkingd.u/40/4377_2.png" class="avatar"> dky.tehkingd.u:</div>
+<blockquote>
+<aside class="quote no-group" data-username="KyuuGryphon">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/k/2bfe46/40.png" class="avatar"> KyuuGryphon:</div>
+<blockquote>
+<p>Last question: Is there a way to make NPC’s “alert” when waking them? In some of the maps, there are grunts that are supposed to “ambush” the player, but they don’t do a very good job - the default reaction time kicks in, so they take a few moments to actually target the player. Is there a way around this?</p>
+</blockquote>
+</aside>
+<p>You could try using a scripted schedule to set them to COMBAT and target the player. As for notifying them of the player’s location, ai_relationship has a flag that allows you to do that. I’m not entirely sure if that’s necessary though.</p>
+</blockquote>
+</aside>
+<p>Just tried using a scripted schedule to see how it’d go - It worked like a charm, thanks! Having said that…</p>
+<aside class="quote no-group" data-username="dky.tehkingd.u">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/dky.tehkingd.u/40/4377_2.png" class="avatar"> dky.tehkingd.u:</div>
+<blockquote>
+<p>If they’re far too stubborn to actually take notice that the player is there, you may want to consider using an npc_enemyfinder to make them omniscient, at least temporarily.</p>
+</blockquote>
+</aside>
+<p>Isn’t the npc_enemyfinder entity deprecated in Black Mesa? I tried using it for the office section of the second map at one point, as well as npc_create’ing it just now, and I’m getting an unknown entity error message.</p>
+          <p><a href="https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696/4</link>
+        <pubDate>Sat, 19 Mar 2016 02:40:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14696-4</guid>
+        <source url="https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696.rss">ITT: I have no idea how to work with NPCs</source>
+      </item>
+      <item>
+        <title>ITT: I have no idea how to work with NPCs</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="KyuuGryphon">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/k/2bfe46/40.png" class="avatar"> KyuuGryphon:</div>
+<blockquote>
+<p>Last question: Is there a way to make NPC’s “alert” when waking them? In some of the maps, there are grunts that are supposed to “ambush” the player, but they don’t do a very good job - the default reaction time kicks in, so they take a few moments to actually target the player. Is there a way around this?</p>
+</blockquote>
+</aside>
+<p>You could try using a scripted schedule to set them to COMBAT and target the player. As for notifying them of the player’s location, ai_relationship has a flag that allows you to do that. I’m not entirely sure if that’s necessary though.</p>
+<p>If they’re far too stubborn to actually take notice that the player is there, you may want to consider using an npc_enemyfinder to make them omniscient, at least temporarily.</p>
+          <p><a href="https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696/3</link>
+        <pubDate>Sat, 19 Mar 2016 02:07:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14696-3</guid>
+        <source url="https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696.rss">ITT: I have no idea how to work with NPCs</source>
+      </item>
+      <item>
+        <title>ITT: I have no idea how to work with NPCs</title>
+        <dc:creator><![CDATA[KyuuGryphon]]></dc:creator>
+        <description><![CDATA[
+            <p>Bumping this back up. I’ve been having… limited success with some of these issues. From the top:</p>
+<ol>
+<li>I managed to get the grunt to shoot using an npc_bullseye, so there was that. But, uh, in trying to figure out other NPC stuff, I seem to have broken things, because now he won’t get on the turret at all. He still shoots (not sure if he’s targeting the bullseye or the vorts themselves), but the input to get an NPC on the turret doesn’t seem to do anything. I suspect it’s related to the next issue…</li>
+</ol>
+<p>2/3) I am having a lot of issues with ai_battle_line’s here, and I have no idea what I’m doing wrong. More often than not, NPC’s completely ignore the line and its settings - passing it when it’s set to strict, a squad of Vorts immediately moving to the <span class="bbcode-i">wrong side</span> of the line (I’ve tried changing the angles, so AFAICT that’s not the issue), the office soldiers running way ahead towards the second battle line before it’s even enabled… I just have no idea what I’m doing wrong here. Can anyone explain how to set these up in a way that even an idiot like me can understand?</p>
+<ol start="4">
+<li>I’ve actually ditched this setup in favour of the battle lines. For what I want to do (have the grunts starting in one area of the hallway until the first wave of vorts is gone, then running around the corner to confront the next wave - if the player follows them after <span class="bbcode-i">all</span> the vorts are dead, they would ideally hang around in that corner of the hallway using cover and such), is it better/easier to use an Assault or a Stand-off? If an assault is the answer, how do I get those working nicely?</li>
+</ol>
+<p>5 (Which I mislabelled as 6, oops)) This one I did manage to figure out without too much difficulty, I had the bullsquid set to think outside its PVS by mistake, causing it to take interest in a ragdoll in the next room over. Oops.</p>
+<p>Last question: Is there a way to make NPC’s “alert” when waking them? In some of the maps, there are grunts that are supposed to “ambush” the player, but they don’t do a very good job - the default reaction time kicks in, so they take a few moments to actually target the player. Is there a way around this?</p>
+          <p><a href="https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696/2</link>
+        <pubDate>Fri, 18 Mar 2016 00:08:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14696-2</guid>
+        <source url="https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696.rss">ITT: I have no idea how to work with NPCs</source>
+      </item>
+      <item>
+        <title>ITT: I have no idea how to work with NPCs</title>
+        <dc:creator><![CDATA[KyuuGryphon]]></dc:creator>
+        <description><![CDATA[
+            <p>Wow, okay. Where to begin.</p>
+<p>So while I’ve been using Hammer for several years, I’m still very much inexperienced in it. I think a big part of that is because almost all of my mapping experience is with Left 4 Dead, which means a lot of things that go for singleplayer mapping go out the window. A good majority of that is NPC-related stuff.</p>
+<p>In order to educate myself more on how things work, I got the idea in my head to try my hand at my own extension of On A Rail. To be clear, I don’t have any intention of one-upping Text’s OaRU or .RK’s Loop Mod, they’re both much better at this than I am. I just figured OaR would be a good place to experiment - it’s mostly indoors, and despite how a lot of people feel about it, I have a bit of a soft spot for the original.</p>
+<p>I’m currently on the first “original” map, which includes the Vort/HECU showdown over the two parallel tracks. However, I’m running into problems with the NPCs pretty much all over the place. Here goes:</p>
+<ol>
+<li>
+<p>There’s a grunt manning the turret on the HECU side of the tracks. The problem is, I can’t get him to shoot at anything - I think it might be that the Vorts are too far away, but I’m not really sure how to rebuild the area to put them closer. I tried giving him an npc_bullseye to shoot at, but he’s not shooting at that either. For that matter, even if I force him off the turret, he doesn’t get out a weapon or try shooting anything, he just stands there.</p>
+</li>
+<li>
+<p>There are AI Nodes across the track so the NPCs can run up to each other instead of staying static on one side (also to avoid that issue where Vorts wouldn’t attack, since I’ve heard that’s still present). This includes over the track that the player drives the tram over - I’ve had a soldier run out in front of the tram and get stuck between it and the security gate twice now. I’d like to keep them from running out into the track if possible - and if not, I can just stick a trigger_hurt filtered to NPCs on the front of the tram or something - but I’d rather not delete the nodes so as to avoid any funny NPC behaviour as a result. I’ve tried using an info_radial_link_controller, but the NPCs still run out into the track. The only thing I can think of using to stop them is an ai_battle_line, which brings me to…</p>
+</li>
+</ol>
+<p><span class="bbcode-s">3) In the upstairs office area, I’ve got a scripted assault between the HECU and some Vorts that I want to play out. Problem is, it just won’t work properly. The HECU have two ai_battle_lines to prevent them from straying too far from the “showdown” area, but they… just ignore the lines entirely. As far as I can tell, the entities are set up correctly - pretty much the same as they are in BM’s c2a2b - but the HECU will just run past them like it’s no big deal. I don’t know if that’s because they don’t have sufficient cover, but I can’t figure out what’s wrong here.</span><br>
+<span class="bbcode-s">Both the battle_line entities are set up like this:</span></p>
+<p><span class="bbcode-s">Name: hecu_office_no_retreat</span><br>
+<span class="bbcode-s">Actor(s) or squad to affect: c2a2a1_office_showdown_hecu</span><br>
+<span class="bbcode-s">Active: Yes</span><br>
+<span class="bbcode-s">Strict: Yes</span><br>
+<span class="bbcode-s">Use parent’s orientation flag unset</span></p>
+<p><span class="bbcode-s">To prevent the player from getting absolutely smothered upon entering, they have an ai_relationship set to ignore the player until all the Vorts are dead. It’s kinda strange to see them run to the end of the hallway where the player is and not do anything, to say the least, which is part of why I have the battle_lines set up.</span></p>
+<ol start="4">
+<li>As part of said showdown, I’ve got an AI Assault - admittedly a half-finished one - that’s supposed to trigger once the first wave of Vorts is dead - the HECU are supposed to run down the hallway and around the corner to confront the next wave. It… seems to be halfway working. The HECU will run up to the hallway corner as intended, but inconsistently, and they don’t go any further than that. Based on what the VDC says, I can’t see anything wrong with my setup.</li>
+</ol>
+<p>ai_goal_assault:<br>
+Name: hecu_office_assault<br>
+Actor(s) to affect: c2a2a1_office_showdown_hecu<br>
+Rally Point Set: office_hecu_assault_point_*<br>
+Search Type: Entity Name<br>
+Start Active: No<br>
+Assault Cue: Don’t wait for a cue<br>
+Rally Point Selection Method: Random</p>
+<p>assault_rallypoint:<br>
+Name: office_hecu_assault_point_* (5 total, one for each soldier)<br>
+Assault Point: office_hecu_assault_goal<br>
+Assault Delay: 0<br>
+Priority: 1<br>
+Force Crouch: No<br>
+Urgent: No</p>
+<p>assault_assaultpoint:<br>
+Name: office_hecu_assault_goal (there are three total, the other two have numbers appended)<br>
+Next assault point: office_hecu_assault_goal_2/3 (respectively)<br>
+Assault time out: 3.0<br>
+Clear on contact with enemies: No<br>
+Allow diversion: No<br>
+Never Timeout: No<br>
+Strict?: No<br>
+Force Crouch: No<br>
+Urgent: No<br>
+Attack Tolerance: Large (10ft)<br>
+Clear this point upon arrival flag is unset<br>
+(all of these have the same settings, minus goal_3 not having a next assault point target)</p>
+<p>A math_counter keeps track of how many Vorts are alive, and when the first wave is dead, it fires an Activate output to the ai_goal_assault entity. When a BeginAssault input is fired (which it turns out I’d accidentally deleted, oops) the soldiers will run to the corner of the hallway, but still make no real effort to actually stay around the first assault point. After that, they crowd around the next assault points without spreading out at all. Is this behaviour something that happens when they don’t have any targets to attack?</p>
+<ol start="6">
+<li>Last thing, pretty minor compared to everything else - in the office area, there’s a small storage closet in the hallway that has a bullsquid hiding in it. The bullsquid is only woken when the door’s open, to surprise the player - the thing is, upon opening the door, it promptly turns around and starts eating next to one of the walls. There aren’t any ragdolls or NPCs… or pretty much anything in that corner yet, but it just ignores the player. I imagine it won’t be too hard to work around this, but I’m still wondering, what in the world is this all about?</li>
+</ol>
+<p>Whew, lots of questions, I apologize. Still, if anyone could point me in the right direction for any of these, it’d be very much appreciated! Thanks.</p>
+<p>EDIT: So I just realized that I don’t know how to read, and missed the part where ai_goal_standoff’s are necessary to make ai_battle_line’s work.</p>
+<p>Oops.</p>
+<p>EDIT 2: I have dreadfully screwed something up in modifying the office showdown. I’ve tried turning it into a standoff instead, but the game has a tendency to crash when the second ai_battle_line is enabled. Is there a specific way to go about this?</p>
+          <p><a href="https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696/1</link>
+        <pubDate>Sun, 28 Feb 2016 20:44:40 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14696-1</guid>
+        <source url="https://leakfree.org/t/itt-i-have-no-idea-how-to-work-with-npcs/14696.rss">ITT: I have no idea how to work with NPCs</source>
+      </item>
+  </channel>
+</rss>

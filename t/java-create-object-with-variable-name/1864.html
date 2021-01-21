@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/java-create-object-with-variable-name/1864 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 14:17:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>JAVA Create object with variable name - Help and Support - Leakfree</title>
+    <meta name="description" content="Ok, this seems to be an age old question, evidently. Is it possible to create / reference an object in Java using a variable name? 
+For example: 
+
+String objName = &amp;quot;object1&amp;quot;;
+carObject objName = new carObject;
+objName = &amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="1864.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;JAVA Create object with variable name&#39;" href="1864.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/java-create-object-with-variable-name/1864" />
+<meta name="twitter:url" content="https://leakfree.org/t/java-create-object-with-variable-name/1864" />
+<meta property="og:title" content="JAVA Create object with variable name" />
+<meta name="twitter:title" content="JAVA Create object with variable name" />
+<meta property="og:description" content="Ok, this seems to be an age old question, evidently. Is it possible to create / reference an object in Java using a variable name?  For example:   String objName = &quot;object1&quot;; carObject objName = new carObject; objName = &quot;object2&quot;; carObject objName = new carObject; object1.speedUp(); object2.speedUp();   Now, that won’t work for obvious reasons. But is there any way I could accomplish the effect I’m going for here?" />
+<meta name="twitter:description" content="Ok, this seems to be an age old question, evidently. Is it possible to create / reference an object in Java using a variable name?  For example:   String objName = &quot;object1&quot;; carObject objName = new carObject; objName = &quot;object2&quot;; carObject objName = new carObject; object1.speedUp(); object2.speedUp();   Now, that won’t work for obvious reasons. But is there any way I could accomplish the effect I’m going for here?" />
+<meta property="article:published_time" content="2009-11-19T15:20:49+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="1864.html">JAVA Create object with variable name</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/technology-and-gaming/19.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #8C6238'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Technology and Gaming</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/technology-and-gaming/help-and-support/39.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #808281'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Help and Support</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dillxn.html'><span itemprop='name'>Dillxn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1864.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-11-19T15:20:49Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:51:41Z' class='post-time'>
+                November 24, 2018,  6:51pm
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Ok, this seems to be an age old question, evidently. Is it possible to create / reference an object in Java using a variable name?</p>
+<p>For example:</p>
+<pre><code class="lang-auto">
+String objName = "object1";
+carObject objName = new carObject;
+objName = "object2";
+carObject objName = new carObject;
+object1.speedUp();
+object2.speedUp();
+ </code></pre>
+<p>Now, that won’t work for obvious reasons. But is there any way I could accomplish the effect I’m going for here?</p>
+        </div>
+
+        <meta itemprop='headline' content='JAVA Create object with variable name'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Level.html'><span itemprop='name'>Level</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1864.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-11-19T18:11:35Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:51:45Z' class='post-time'>
+                November 24, 2018,  6:51pm
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I suppose you could make a method that you pass the variable to:</p>
+<pre><code class="lang-auto">carObject object1 = new carObject;  
+carObject object2 = new carObject; 
+speeder(object1);
+speeder(object2);</code></pre>
+<pre><code class="lang-auto">void speeder(carObject objectName) {
+objectName.speedUp();
+}</code></pre>
+<p>The way you want to do it doesn’t work. If you gave us the situation you wanted to use it in it’d probably make a lot more sense.</p>
+        </div>
+
+        <meta itemprop='headline' content='JAVA Create object with variable name'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/popsUlfr.html'><span itemprop='name'>popsUlfr</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1864.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-11-19T18:50:24Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:51:46Z' class='post-time'>
+                November 24, 2018,  6:51pm
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m not exactly sure what you want to achieve. The normal Syntax to create a new Object is as following:</p>
+<pre><code class="lang-auto">class temp = new class(); </code></pre>
+<p>A class defining a constructor may need parameters to be handed over.<br>
+“temp” is now your reference to the newly created Object. You can access the class’ methods by the normal “temp.doSomething()” syntax.</p>
+<p>You are creating a new String object and then you want to force another type onto it! As long as the new type is NOT one that extends on the previous class this operation won’t be allowed.</p>
+<aside class="quote no-group" data-username="Level">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/l/85e7bf/40.png" class="avatar"> Level:</div>
+<blockquote>
+<p>I suppose you could make a method that you pass the variable to:</p>
+<pre><code class="lang-auto">carObject object1 = new carObject;  
+carObject object2 = new carObject; 
+speeder(object1);
+speeder(object2);</code></pre>
+<pre><code class="lang-auto">void speeder(carObject objectName) {
+objectName.speedUp();
+}</code></pre>
+</blockquote>
+</aside>
+<p>There’s no point in defining an additional method to execute one you could as easely access as it is:</p>
+<pre><code class="lang-auto">carObject object1 = new carObject();
+carObject object2 = new carObject(); 
+object1.speedUp();
+object2.speedUp(); </code></pre>
+        </div>
+
+        <meta itemprop='headline' content='JAVA Create object with variable name'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dillxn.html'><span itemprop='name'>Dillxn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1864.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-11-19T19:22:20Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:51:47Z' class='post-time'>
+                November 24, 2018,  6:51pm
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="popsUlfr">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/p/ce7236/40.png" class="avatar"> popsUlfr:</div>
+<blockquote>
+<p>You are creating a new String object and then you want to force another type onto it! As long as the new type is NOT one that extends on the previous class this operation won’t be allowed.</p>
+</blockquote>
+</aside>
+<p>Right. I’m trying to take the text of the string and make it be the name of the new object, not making the string become the new object.</p>
+<p>Sorry if this doesn’t make sense, guys. But thanks for the help thus far! I’m not really applying this to anything yet, but my teacher wanted to know and I get extra credit if I can show him how.</p>
+        </div>
+
+        <meta itemprop='headline' content='JAVA Create object with variable name'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/popsUlfr.html'><span itemprop='name'>popsUlfr</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1864.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-11-19T19:39:13Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:51:47Z' class='post-time'>
+                November 24, 2018,  6:51pm
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>^ Changing the name of the Object? Would only be possible to do by handing it to another variable:</p>
+<p>Say you want “object1” to be <span class="bbcode-i">renamed</span> to “object2”:</p>
+<pre><code class="lang-auto">carObject object1 = new carObject();
+carObject object2 = object1; </code></pre>
+<p>Though this not a rename, you will end up with two references to the same object.</p>
+<p>I don’t see the point in that, sorry  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+<p>EDIT: It doesn’t make much sense as you can name it all you like when you’re actually typing code. So, my more sensical advice would be to highlight the name of your variable, press <span class="bbcode-i">delete</span> and finaly type in what you want it to look like  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>Expanding even more on that: once you create an object, you can not alter the name of the reference to it. It will eventually be recycled once the app detects it’s of no use anymore.<br>
+It would be a real nightmare if it were possible considering other objects may point into the void.</p>
+        </div>
+
+        <meta itemprop='headline' content='JAVA Create object with variable name'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dillxn.html'><span itemprop='name'>Dillxn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1864.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-11-19T20:01:27Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:51:48Z' class='post-time'>
+                November 24, 2018,  6:51pm
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Lol. Ok I’ll give an example.<br>
+Say a user inputs a number, and I want the program to create that amount of objects with a new name for each object.<br>
+i.e.</p>
+<pre><code class="lang-auto">public static void main(String[] args) throws IOException {
+	String output;
+	int x = 0;
+	inNum = consoleReader.nextLine();
+	for(x=0;x&lt;inNum;x++){
+		carObject ("obj"+x) = new carObj;
+	}
+	inNum = consoleReader.nextLine();
+	("obj"+inNum).speedUp();
+}</code></pre>
+<p>The string value of (“obj”+x) or (“obj”+inNum) would be parsed as the name of the object; I’m not trying to run the “speedUp” method on the string itself, just the object that’s named the value of that string.</p>
+<p>So, if the first number they inputted was 2, then 3 objects would be created:</p>
+<p><code>obj0
+obj1
+obj2</code></p>
+<p>If they inputted 2 as the second number, then it would be the same thing as</p>
+<pre><code class="lang-auto">obj2.speedUp();</code></pre>
+<p>Does that make things a bit clearer? I so suck at explaining things. Sorry D;</p>
+        </div>
+
+        <meta itemprop='headline' content='JAVA Create object with variable name'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/pfannkuchen_gesicht.html'><span itemprop='name'>pfannkuchen_gesicht</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1864.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-11-19T20:08:37Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:51:48Z' class='post-time'>
+                November 24, 2018,  6:51pm
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>what about arrays?</p>
+<pre><code class="lang-auto">	for(x=0;x&lt;inNum;x++){
+		carObject obj[x] = new carObj;
+	}
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='JAVA Create object with variable name'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dillxn.html'><span itemprop='name'>Dillxn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1864.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-11-19T20:16:08Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:51:49Z' class='post-time'>
+                November 24, 2018,  6:51pm
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>By George, I think you’ve got it!<br>
+I’ll see if this counts. I can’t believe this simple solution evaded me!<br>
+Thanks!<br>
+-Dillon</p>
+        </div>
+
+        <meta itemprop='headline' content='JAVA Create object with variable name'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/popsUlfr.html'><span itemprop='name'>popsUlfr</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1864.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-11-19T20:19:36Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:51:49Z' class='post-time'>
+                November 24, 2018,  6:51pm
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yep, that’s what I would have suggested aswell.</p>
+<p>First you would need to declare it:</p>
+<pre><code class="lang-auto">carObject[] obj = new carObject[maxlength]; </code></pre>
+<p>“maxlength” should be the max number entered as argument when parsing.</p>
+<p>The for loop:</p>
+<pre><code class="lang-auto">for(int x=0;x&lt;inNum;x++){
+        obj[x] = new carObject();
+    } </code></pre>
+<p>EDIT fixed “i” instead of “x”</p>
+        </div>
+
+        <meta itemprop='headline' content='JAVA Create object with variable name'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dillxn.html'><span itemprop='name'>Dillxn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1864.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-11-19T20:58:05Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:51:50Z' class='post-time'>
+                November 24, 2018,  6:51pm
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yes! I got the extra credit! Thank you guys so much!</p>
+        </div>
+
+        <meta itemprop='headline' content='JAVA Create object with variable name'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Level.html'><span itemprop='name'>Level</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1864.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-11-19T22:37:40Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:51:55Z' class='post-time'>
+                November 24, 2018,  6:51pm
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="pfannkuchen_gesicht">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/p/ee7513/40.png" class="avatar"> pfannkuchen_gesicht:</div>
+<blockquote>
+<p>what about arrays?</p>
+<pre><code class="lang-auto">	for(x=0;x&lt;inNum;x++){
+		carObject obj[x] = new carObj;
+	}
+</code></pre>
+</blockquote>
+</aside>
+<p>I was just thinking that right after I read the above post.</p>
+        </div>
+
+        <meta itemprop='headline' content='JAVA Create object with variable name'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dillxn.html'><span itemprop='name'>Dillxn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1864.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-11-20T03:52:28Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:52:04Z' class='post-time'>
+                November 24, 2018,  6:52pm
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yeah I was required to run the loop to make them all new objects, I found.</p>
+        </div>
+
+        <meta itemprop='headline' content='JAVA Create object with variable name'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Guf.html'><span itemprop='name'>Guf</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1864.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-11-23T01:28:42Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:53:19Z' class='post-time'>
+                November 24, 2018,  6:53pm
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>To answer your question more specifically, you can do what you ask (to create an object reference more dynamically) using reflection, but to make use of it you still need to store it somewhere.<br>
+To use “dynamically named storage” in a completely general sense, I’d recommend (assuming this is all in the context of your console app) using a HashTable to assign names to objects.<br>
+Putting all that together you’d get the ability to create a new object from an arbitrary type and store it under an arbitrary name.</p>
+        </div>
+
+        <meta itemprop='headline' content='JAVA Create object with variable name'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Level.html'><span itemprop='name'>Level</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1864.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-11-24T00:48:12Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:53:53Z' class='post-time'>
+                November 24, 2018,  6:53pm
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Dillxn">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/d/9f8e36/40.png" class="avatar"> Dillxn:</div>
+<blockquote>
+<p>Yeah I was required to run the loop to make them all new objects, I found.</p>
+</blockquote>
+</aside>
+<p>Yep, that’ll happen, because you could initialize them each to use different constructors or variables or something if you wanted.</p>
+        </div>
+
+        <meta itemprop='headline' content='JAVA Create object with variable name'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/java-create-object-with-variable-name/1864 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 14:17:20 GMT -->
+</html>

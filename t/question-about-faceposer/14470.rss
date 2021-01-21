@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Question about Faceposer</title>
+    <link>https://leakfree.org/t/question-about-faceposer/14470</link>
+    <description>So, I realize this is an extremely specialized, specific inquiry - but what&#39;s the plan with Faceposer and scenes.image for Black Mesa mods?  Is loading loose .vcd files allowed?  What about the closed captioning system?</description>
+    
+    <lastBuildDate>Fri, 20 Nov 2015 19:12:57 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/question-about-faceposer/14470.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Question about Faceposer</title>
+        <dc:creator><![CDATA[Maki]]></dc:creator>
+        <description><![CDATA[
+            <p>But yeah, I do run into that problem where Faceposer can’t find any VCDs I make because it’s looking in the wrong spots:</p>
+<p>Scenes: Searching ‘D:\Steam\steamapps\common\Black Mesa\bms\bms_textures.vpk\scenes*.vcd’ - Found 0 scenes.<br>
+Scenes: Searching ‘D:\Steam\steamapps\common\Black Mesa\bms\bms_materials.vpk\scenes*.vcd’ - Found 0 scenes.<br>
+Scenes: Searching ‘D:\Steam\steamapps\common\Black Mesa\bms\bms_models.vpk\scenes*.vcd’ - Found 0 scenes.<br>
+Scenes: Searching ‘D:\Steam\steamapps\common\Black Mesa\bms\bms_misc.vpk\scenes*.vcd’ - Found 0 scenes.<br>
+Scenes: Searching ‘D:\Steam\steamapps\common\Black Mesa\bms\bms_sounds_misc.vpk\scenes*.vcd’ - Found 0 scenes.<br>
+Scenes: Searching ‘D:\Steam\steamapps\common\Black Mesa\bms\bms_sound_vo_english.vpk\scenes*.vcd’ - Found 0 scenes.<br>
+Scenes: Searching ‘D:\Steam\steamapps\common\Black Mesa\hl2\hl2_misc.vpk\scenes*.vcd’ - Found 0 scenes.<br>
+Scenes: Searching ‘D:\Steam\steamapps\common\Black Mesa\hl2\hl2_sounds_misc.vpk\scenes*.vcd’ - Found 0 scenes.<br>
+Scenes: Searching ‘D:\Steam\steamapps\common\Black Mesa\hl2\h\scenes*.vcd’ - Found 0 scenes.</p>
+<p>The last one being the odd one, really.  VProject doesn’t seem to affect that location.  Could be looking for a real gameinfo.txt, I guess.  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>Like I said, I do wonder if BM’s devs would entertain the possibility of loading loose VCDs.  It would make this whole process so much easier.</p>
+          <p><a href="https://leakfree.org/t/question-about-faceposer/14470/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/question-about-faceposer/14470/6</link>
+        <pubDate>Fri, 20 Nov 2015 19:12:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14470-6</guid>
+        <source url="https://leakfree.org/t/question-about-faceposer/14470.rss">Question about Faceposer</source>
+      </item>
+      <item>
+        <title>Question about Faceposer</title>
+        <dc:creator><![CDATA[Maki]]></dc:creator>
+        <description><![CDATA[
+            <p>It’s a long story, but the same tricks you can use to get HL2’s Faceposer going can be used for Black Mesa too.</p>
+<p>For starters, you want to create a shortcut to Faceposer that points to Black Mesa as the game.  So, the target should be something like:<br>
+“D:\Steam\steamapps\common\Black Mesa\bin\hlfaceposer.exe” -game “d:\steam\steamapps\common\Black Mesa\bms”</p>
+<p>You can fix the missing icons using the .zip mentioned at the top of this page and extracting it to the Black Mesa/bin folder.<br>
+<a href="https://developer.valvesoftware.com/wiki/Choreography_creation" data-bbcode="true" rel="nofollow noopener">https://developer.valvesoftware.com/wiki/Choreography_creation</a></p>
+<p>You can get the model browser to work by setting up empty, dummy folders in bms/models.  For example, if you want to load a scientist, you create a chain of empty folders like bms/models/humans.</p>
+<p>Amusingly, their ties are physics-simulated in Faceposer. X)</p>
+<p>That’s about as far as I’ve gotten.  So, the thing that interests me is scenes.image.  Scenes.image is, of course, a file compilation of all of the .vcd scene files in one place.  Valve originally added it for consoles because it was much faster than loading a bunch of loose files, and then they applied it to the PC as well for the same reason.  But the problem with scenes.image is that there’s only one.</p>
+<p>In HL2, if you wanted to have Faceposed NPCs, that pretty much meant you needed to make a Sourcemod with a custom scenes.image which contained your scenes plus all of Valve’s.  Otherwise, you’d be overwriting the game’s scenes.image and that would be a bad thing.</p>
+<p>So, given that Black Mesa has no concept of Sourcemods, I’m not sure how scenes.image works in this case.  I don’t know if the whole /custom thing applies to scenes.image.   If it doesn’t, you can obviously see how you can have issues here.  If one mod edited scenes.image one way, and another did it differently, how would it work?  Black Mesa does have all their raw .vcds in the bms_misc vpks, so I don’t think there’d be a problem compiling a new scenes.image if need be.</p>
+<p>The VDC describes a way to re-implement the loading of loose VCD files too:<br>
+<a href="https://developer.valvesoftware.com/wiki/Scenes.image" data-bbcode="true" rel="nofollow noopener">https://developer.valvesoftware.com/wiki/Scenes.image</a></p>
+<p>I’m not sure how well that works, but it sidesteps the need to have scenes.image.  Black Mesa mods could just distribute their own VCDs and the game would find and use them, even if they weren’t in scenes.image.  It may not be the cleanest or fastest solution, but it is the most flexible and future proof, I think.</p>
+          <p><a href="https://leakfree.org/t/question-about-faceposer/14470/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/question-about-faceposer/14470/5</link>
+        <pubDate>Fri, 20 Nov 2015 18:10:31 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14470-5</guid>
+        <source url="https://leakfree.org/t/question-about-faceposer/14470.rss">Question about Faceposer</source>
+      </item>
+      <item>
+        <title>Question about Faceposer</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p>To be fair,  faceposer’s UI has been broken since, like, the 2009 SDK update. It’s by no means specific to BM.<br>
+Does make it a bit hard to get started in it unless you have a screenshot of the interface before the button icons disappeared.</p>
+          <p><a href="https://leakfree.org/t/question-about-faceposer/14470/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/question-about-faceposer/14470/4</link>
+        <pubDate>Fri, 20 Nov 2015 15:48:05 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14470-4</guid>
+        <source url="https://leakfree.org/t/question-about-faceposer/14470.rss">Question about Faceposer</source>
+      </item>
+      <item>
+        <title>Question about Faceposer</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Note that since scenes.image is a one-off file, it will (<span class="bbcode-i">likely</span>- been a while since I checked!) need to be added to a Custom folder instead of just put in a regular mod pack.</p>
+<p>I played around a little bit with the copy of FacePoser that ships with BM and it seemed <span class="bbcode-i">really</span> broken to me, but if you can get it to work more power to you.</p>
+          <p><a href="https://leakfree.org/t/question-about-faceposer/14470/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/question-about-faceposer/14470/3</link>
+        <pubDate>Fri, 20 Nov 2015 01:52:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14470-3</guid>
+        <source url="https://leakfree.org/t/question-about-faceposer/14470.rss">Question about Faceposer</source>
+      </item>
+      <item>
+        <title>Question about Faceposer</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>Users can automatically generate a scenes.image that includes all of their scenes using Faceposer by just opening it and closing it (or going to File &gt;Rebuild IIRC).<br>
+Total speculation, but the way Source’s captions work, I don’t think they can support multiple mod’s different CC files.  I’m guessing that’s something that people will either have to put up with being broken, or manually merge the CCs themselves, as they’ve been doing.</p>
+          <p><a href="https://leakfree.org/t/question-about-faceposer/14470/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/question-about-faceposer/14470/2</link>
+        <pubDate>Thu, 19 Nov 2015 19:32:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14470-2</guid>
+        <source url="https://leakfree.org/t/question-about-faceposer/14470.rss">Question about Faceposer</source>
+      </item>
+      <item>
+        <title>Question about Faceposer</title>
+        <dc:creator><![CDATA[Maki]]></dc:creator>
+        <description><![CDATA[
+            <p>So, I realize this is an extremely specialized, specific inquiry - but what’s the plan with Faceposer and scenes.image for Black Mesa mods?  Is loading loose .vcd files allowed?  What about the closed captioning system?</p>
+          <p><a href="https://leakfree.org/t/question-about-faceposer/14470/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/question-about-faceposer/14470/1</link>
+        <pubDate>Thu, 19 Nov 2015 18:54:31 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14470-1</guid>
+        <source url="https://leakfree.org/t/question-about-faceposer/14470.rss">Question about Faceposer</source>
+      </item>
+  </channel>
+</rss>

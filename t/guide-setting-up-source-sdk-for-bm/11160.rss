@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>GUIDE: Setting up Source SDK for BM</title>
+    <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160</link>
+    <description>I see some people asking for a guide on how to set up the Source SDK to make content for Black Mesa. If this was already posted somewhere, my apologies.
+
+Here is how it&#39;s done:
+
+1. Make sure Black Mesa, Source SDK Base 2007 and Source SDK are all properly installed. Run Source SDK at least once for it to create all the folder structures. Also run Black Mesa at least once, so you know SDK Base 2007 is properly installed.
+
+2. Go to your Steam folder (mostly in C:\Program Files(x86)\Steam\). Then go to \Steam\steamapps\youraccountname\sourcesdk\bin\source2007\bin\ (where &quot;youraccountname&quot; is the name of your Steam account, of course)
+
+3. In this folder, find the GameConfig file. If you have never used SDK before, this file does not exist yet and you&#39;ll have to make one yourself. Open the existing GameConfig or create your own by making a new Notepad file named GameConfig.
+
+[COLOR=&#39;Red&#39;]NOTE: Since it&#39;s a text file, .txt should be the extension of the file. If you have hidden extensions for known files (which is default in Windows), just call it GameConfig. The extention .txt will be added by Notepad automaticly.
+
+4. In the GameConfig file add the following:
+
+[code]
+&quot;Configs&quot;
+{
+	&quot;Games&quot;
+	{
+		&quot;Black Mesa&quot;
+		{
+			&quot;GameDir&quot;		&quot;c:\program files\steam\steamapps\sourcemods\BMS&quot;
+			&quot;hammer&quot;
+			{
+				&quot;GameData0&quot;		&quot;c:\program files\steam\steamapps\sourcemods\BMS\bms.fgd&quot;
+				&quot;TextureFormat&quot;		&quot;5&quot;
+				&quot;MapFormat&quot;		&quot;4&quot;
+				&quot;DefaultTextureScale&quot;		&quot;0.250000&quot;
+				&quot;DefaultLightmapScale&quot;		&quot;16&quot;
+				&quot;GameExe&quot;		&quot;c:\program files\steam\steamapps\youraccountname\half-life 2\hl2.exe&quot;
+				&quot;DefaultSolidEntity&quot;		&quot;func_detail&quot;
+				&quot;DefaultPointEntity&quot;		&quot;info_player_start&quot;
+				&quot;BSP&quot;		&quot;c:\program files\steam\steamapps\youraccountname\sourcesdk\bin\source2007\bin\vbsp.exe&quot;
+				&quot;Vis&quot;		&quot;c:\program files\steam\steamapps\youraccountname\sourcesdk\bin\source2007\bin\vvis.exe&quot;
+				&quot;Light&quot;		&quot;c:\program files\steam\steamapps\youraccountname\sourcesdk\bin\source2007\bin\vrad.exe&quot;
+				&quot;GameExeDir&quot;		&quot;c:\program files\steam\steamapps\youraccountname\half-life 2&quot;
+				&quot;MapDir&quot;		&quot;c:\program files\steam\steamapps\sourcemods\BMS\maps&quot;
+				&quot;BSPDir&quot;		&quot;c:\program files\steam\steamapps\sourcemods\BMS\maps&quot;
+				&quot;CordonTexture&quot;		&quot;tools\toolsskybox&quot;
+				&quot;MaterialExcludeCount&quot;		&quot;0&quot;
+			}
+		}
+		&quot;SDKVersion&quot;		&quot;3&quot;
+}
+[/code]
+
+5. Now edit all the paths so they correspond with your computer&#39;s set up. In other words: check where your Black Mesa, Half-Life 2 and Source SDK are installed and change the lines accordingly to that.
+
+A more detailed look at the parameters:
+GameDir = The folder where Black Mesa is installed.
+GameData0 = Where the Black Mesa FGD file is. 
+GameExe = Where your Half-Life 2 installation is (the hl2.exe file)
+BSP = Where the BSP compile tool is found. Make sure you use the one for SDK 2007.
+VIS = Where the VIS compile tool is.
+Light = Where the RAD compile tool is.
+MapDir = Where you put your RMF files.
+BSPDir = Where the BSPs need to be placed after compiling (BMS\maps folder).
+
+[COLOR=&#39;red&#39;]NOTE: If you&#39;re editing an existing GameConfig file, look at the file&#39;s layout first. See where sections begin and end (with brackets { / }). So if &quot;Configs&quot; and &quot;Games&quot; are already there, only copy the &quot;Black Mesa&quot; part somewhere between the other game configs. You also won&#39;t have to put &quot;SDKVersion&quot; twice into 1 file. Make sure the existing &quot;SDKVersion&quot; is 3. If this is a different number, Hammer Editor won&#39;t work properly.
+
+[COLOR=&#39;red&#39;]NOTE2: Pay attention to the &quot;Program Files&quot; folder. If you are running a 64-bit version of Windows, the Program Files folder is called &quot;Program Files (x86)&quot;.
+
+6. Save the file and then restart Source SDK. Then select Source Engine 2007 and you should see Black Mesa on the list. 
+
+And you&#39;re done!  :slight_smile: 
+
+If you have any questions, feel free to ask!</description>
+    
+    <lastBuildDate>Mon, 29 Jun 2015 13:03:51 +0000</lastBuildDate>
+    <category>Help!</category>
+    <atom:link href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[Tenshi07]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Crypt">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/crypt/40/4394_2.png" class="avatar"> Crypt:</div>
+<blockquote>
+<p>Yeah, just use the hammer.exe included with Black Mesa (common\Black Mesa\bin) and it’s pre-set up.</p>
+</blockquote>
+</aside>
+<p>Thanks for this, because I was wondering if there was something more streamlined or not. I’m not quite ready to open the tools yet, because I am still working out the map on paper (tablet actually). I want to make sure the basic direction and elements of the map are shelled out properly from the very start. That way I don’t get distracted by unnecessary details.</p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/87">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/87</link>
+        <pubDate>Mon, 29 Jun 2015 13:03:51 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-87</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[killer_monkey]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks guys. I’m gonna try and make co-op map and see if it works</p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/86">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/86</link>
+        <pubDate>Thu, 14 May 2015 03:23:40 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-86</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>Yeah, just use the hammer.exe included with Black Mesa (common\Black Mesa\bin) and it’s pre-set up.</p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/85">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/85</link>
+        <pubDate>Thu, 14 May 2015 02:20:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-85</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[Mr_GameCrazy]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="killer monkey">
+<div class="title">
+<div class="quote-controls"></div>
+ killer monkey:</div>
+<blockquote>
+<p>So, how does one get the Steam Black Mesa to work in Hammer? Is it really obvious and I’m just dumb?</p>
+</blockquote>
+</aside>
+<p>You should be able to use Hammer as soon as you have the Steam version of Black Mesa installed.</p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/84">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/84</link>
+        <pubDate>Thu, 14 May 2015 02:13:39 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-84</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[killer_monkey]]></dc:creator>
+        <description><![CDATA[
+            <p>So, how does one get the Steam Black Mesa to work in Hammer? Is it really obvious and I’m just dumb?</p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/83">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/83</link>
+        <pubDate>Thu, 14 May 2015 02:02:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-83</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[MatiasKiller21]]></dc:creator>
+        <description><![CDATA[
+            <p>What is your specs on your computer?</p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/82">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/82</link>
+        <pubDate>Thu, 14 May 2015 01:17:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-82</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[ac3d]]></dc:creator>
+        <description><![CDATA[
+            <p>I just downloaded Early Access and I’m getting this error when launching the game:<br>
+<img alt=""></p>
+<p>I’ve done an integrity check and it’s not finding any corrupt files, anyone know how to fix this?</p>
+<p>edit: deleted steam, re-downloaded, works now, yes, I was that desperate to play it again  <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/81">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/81</link>
+        <pubDate>Mon, 11 May 2015 07:51:26 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-81</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[Mr_GameCrazy]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Asatrix">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/a/77aa72/40.png" class="avatar"> Asatrix:</div>
+<blockquote>
+<p>Is this still valid for the Early Access copy?</p>
+</blockquote>
+</aside>
+<p>It’s not. The Steam version of Black Mesa uses its own configuration.</p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/80">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/80</link>
+        <pubDate>Mon, 11 May 2015 06:44:05 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-80</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[Asatrix]]></dc:creator>
+        <description><![CDATA[
+            <p>Is this still valid for the Early Access copy?</p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/79">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/79</link>
+        <pubDate>Mon, 11 May 2015 06:29:14 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-79</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[Humam]]></dc:creator>
+        <description><![CDATA[
+            <p>Latest guide:</p>
+<p>go to common/Black Mesa/bin/hammer.exe</p>
+<p>Worked.</p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/78">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/78</link>
+        <pubDate>Fri, 08 May 2015 19:04:02 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-78</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>Guides are incoming very shortly. We’re working on it.</p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/77">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/77</link>
+        <pubDate>Tue, 05 May 2015 18:31:50 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-77</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[Mr_GameCrazy]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="fury">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/f/3bc359/40.png" class="avatar"> fury:</div>
+<blockquote>
+<p>Hey guys. Can you please explain how to set up Source SDK for making Black Mesa Deathmatch maps?</p>
+</blockquote>
+</aside>
+<p>The Steam version of Black Mesa has its own SDK so I don’t think that’s necessary. Besides, the OP hasn’t been around here in a long time.</p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/76">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/76</link>
+        <pubDate>Tue, 05 May 2015 18:26:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-76</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[fury]]></dc:creator>
+        <description><![CDATA[
+            <p>Hey guys. Can you please explain how to set up Source SDK for making Black Mesa Deathmatch maps?</p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/75">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/75</link>
+        <pubDate>Tue, 05 May 2015 18:20:02 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-75</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>A note to anyone who gets an error saying that your GameConfig.txt file does not exist when you run my setup tool:</p>
+<p>Run ‘hammer.exe’ in Source SDK Base 2013 Singleplayer\bin FIRST, and then try again. (If you installed Multiplayer, run hammer.exe from Source SDK Base 2013 Multiplayer\bin instead.)</p>
+<p>Thanks!</p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/74">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/74</link>
+        <pubDate>Mon, 15 Dec 2014 05:54:44 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-74</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[Chrillen]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m having some trouble compiling maps properly.</p>
+<p>The apparent issue is that after compiling, it can’t find the map in the BMS/maps-directory, despite it being set up accordingly. I managed to do a successful compile earlier on (this would be weeks ago), so when the map loads, it’s still an early version of it. When I copied the content to a new map, renamed it and compiled, I got this message:</p>
+<p>The command failed. Windows reported the error:<br>
+“The system cannot find the file specified.”</p>
+<p>Edit:<br>
+Nevermind. I apparently fixed it myself by actually making a skybox instead of just using cordon.</p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/73">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/73</link>
+        <pubDate>Sat, 15 Nov 2014 09:38:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-73</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>First off, don’t blame him for <span class="bbcode-i">your</span> failures. It’s really unbecoming to join a community and your first words being passive-aggressive towards someone who was only being helpful. &gt; <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+<p>Secondly, I assume you mean the Source SDK launcher, which has been phased out for over a year. I’m sort of amazed you’re still trying to use it.</p>
+<p>Next, GameConfig.txt is a Base 2013 file, it’ll be in your <span class="bbcode-i">Source SDK Base 2013 SP\bin</span> folder, not the BMS one (And if you couldn’t find GameInfo.txt in the BMS folder, you didn’t try at all  <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"> ).</p>
+<p>Lastly, what exactly is your issue? Or the error you mentioned? We need some more info to solve your problem.</p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/72">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/72</link>
+        <pubDate>Sat, 15 Nov 2014 07:46:44 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-72</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[Happy_Dog]]></dc:creator>
+        <description><![CDATA[
+            <p>1st off, thanks for fragging my source sdk, second off, the solutions for gameConfig.txt missing dont work, Black Mesa will run fine, but It keeps showing the same error! I even looked for a GameConfig.txt or Gameinfo.txt in BMS, but alas to nothing. Please, Ive spent 3  hours trying to get this work and pulling my hair, and now I have a bloody Fragged source sdk. Any Help?</p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/71">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/71</link>
+        <pubDate>Sat, 15 Nov 2014 02:44:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-71</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[Spartan6914]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="dky.tehkingd.u">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/dky.tehkingd.u/40/4377_2.png" class="avatar"> dky.tehkingd.u:</div>
+<blockquote>
+<p>Very interesting. Do me a favor and change the first line that says “GameConfig.txt” to “Configs” (with the capital C) and see if that fixes the issue.</p>
+</blockquote>
+</aside>
+<p>Thanks it works now!</p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/70">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/70</link>
+        <pubDate>Wed, 21 May 2014 15:05:13 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-70</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>Very interesting. Do me a favor and change the first line that says “GameConfig.txt” to “Configs” (with the capital C) and see if that fixes the issue.</p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/69">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/69</link>
+        <pubDate>Tue, 20 May 2014 20:19:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-69</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[Spartan6914]]></dc:creator>
+        <description><![CDATA[
+            <p>Well, the only GameConfig.txt that I’ve got is that one and the only “Config” I see is the one of the title in the file (as you can see in the screenshots)<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/3X/f/7/f72f3b31a16f392fb48f92592bc77c9d4f0cb924.jpeg" data-download-href="https://leakfree.org/uploads/default/f72f3b31a16f392fb48f92592bc77c9d4f0cb924" title=""><img src="https://leakfree.org/uploads/default/optimized/3X/f/7/f72f3b31a16f392fb48f92592bc77c9d4f0cb924_2_690x219.jpeg" alt="" data-base62-sha1="zgH7UDf0HSsxHsyrzUgbzBKrZLC" width="690" height="219" srcset="https://leakfree.org/uploads/default/optimized/3X/f/7/f72f3b31a16f392fb48f92592bc77c9d4f0cb924_2_690x219.jpeg, https://leakfree.org/uploads/default/optimized/3X/f/7/f72f3b31a16f392fb48f92592bc77c9d4f0cb924_2_1035x328.jpeg 1.5x, https://leakfree.org/uploads/default/original/3X/f/7/f72f3b31a16f392fb48f92592bc77c9d4f0cb924.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/3X/f/7/f72f3b31a16f392fb48f92592bc77c9d4f0cb924_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1258×401 151 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+and<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/3X/a/6/a62b2de555db904ef5266d5343555524670eb599.jpeg" data-download-href="https://leakfree.org/uploads/default/a62b2de555db904ef5266d5343555524670eb599" title=""><img src="https://leakfree.org/uploads/default/optimized/3X/a/6/a62b2de555db904ef5266d5343555524670eb599_2_681x500.jpeg" alt="" data-base62-sha1="nHZLOMOINLH3TVHSuI8RsFhqMKl" width="681" height="500" srcset="https://leakfree.org/uploads/default/optimized/3X/a/6/a62b2de555db904ef5266d5343555524670eb599_2_681x500.jpeg, https://leakfree.org/uploads/default/optimized/3X/a/6/a62b2de555db904ef5266d5343555524670eb599_2_1021x750.jpeg 1.5x, https://leakfree.org/uploads/default/original/3X/a/6/a62b2de555db904ef5266d5343555524670eb599.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/3X/a/6/a62b2de555db904ef5266d5343555524670eb599_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1258×923 419 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+So I don’t know if the problem is in it^^</p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/68">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/68</link>
+        <pubDate>Tue, 20 May 2014 19:24:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-68</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>Interesting. Just a hunch, but for the file <span class="bbcode-i">Steam\steamapps\common\Source SDK 2013 Singleplayer\bin\GameConfig.txt</span>, is the first line “Configs” with a capital C, or a lowercase c?</p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/67">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/67</link>
+        <pubDate>Tue, 20 May 2014 08:17:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-67</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[Spartan6914]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="dky.tehkingd.u">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/dky.tehkingd.u/40/4377_2.png" class="avatar"> dky.tehkingd.u:</div>
+<blockquote>
+<p>I’d need something more descriptive than that. Ideally a screenshot of the tool and the error, but if not, then precise instructions to reproduce the problem would help.</p>
+</blockquote>
+</aside>
+<p>Here’s the screenshot with the error and all my configuration<br>
+<img src="https://leakfree.org/uploads/default/original/2X/b/b5025feb6431913a253a84d593be82d58eb42cf2.jpeg" alt="bandicam 2014-05-20 08-16-27-269.jpg" data-base62-sha1="pPhvC1rhtgmHO5vZ5zCrDwQVWlY" width="653" height="385"></p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/66">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/66</link>
+        <pubDate>Tue, 20 May 2014 06:25:45 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-66</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>I’d need something more descriptive than that. Ideally a screenshot of the tool and the error, but if not, then precise instructions to reproduce the problem would help.</p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/65">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/65</link>
+        <pubDate>Mon, 19 May 2014 18:52:48 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-65</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[Spartan6914]]></dc:creator>
+        <description><![CDATA[
+            <p>I have a problem too : I installed it and all worked perfectly but one day, I launched Source SDK but Black Mesa wasn’t in the list as always. I tried to reinstall with your tool but when I press begin!, it shows an error : “error : Config”<br>
+Do you know why it shows that?</p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/64">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/64</link>
+        <pubDate>Mon, 19 May 2014 11:36:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-64</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+      <item>
+        <title>GUIDE: Setting up Source SDK for BM</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>Sounds like a gameinfo.txt issue. What does your gameinfo.txt look like in your SDK 2013/BMS folder?</p>
+          <p><a href="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/63">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160/63</link>
+        <pubDate>Tue, 13 May 2014 06:01:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11160-63</guid>
+        <source url="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160.rss">GUIDE: Setting up Source SDK for BM</source>
+      </item>
+  </channel>
+</rss>

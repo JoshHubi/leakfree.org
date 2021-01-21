@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Replacing Rosenberg in Half-Life: Blue Shift</title>
+    <link>https://leakfree.org/t/replacing-rosenberg-in-half-life-blue-shift/13288</link>
+    <description>So lately I&#39;ve been replacing my Half-Life models with their PS2/Decay counterparts and I&#39;ve been having trouble with one model in particular. I&#39;ve been trying to replace the Rosenberg from Blue Shift with the Rosenberg from Decay and I can&#39;t seem to figure out how. When I replace the standard scientist models with the PS2 models, it also replaces the Rosenberg. If I replace the scientist.mdl with the scientist_rosenberg.mdl from decay, it makes all of the scientists look like Rosenberg. Sorry if my explanation is confusing. If you know how to replace the Rosenberg model in Blue shift, your help would be greatly appreciated. 
+
+Edit: I also know that it IS possible because this person appears to have done it. [url]https://youtu.be/WBYs8pBIQrM?t=4m27s[/url]</description>
+    
+    <lastBuildDate>Wed, 11 Jun 2014 22:58:11 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/replacing-rosenberg-in-half-life-blue-shift/13288.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Replacing Rosenberg in Half-Life: Blue Shift</title>
+        <dc:creator><![CDATA[Scorpion42]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="deadlife101">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/d/839c29/40.png" class="avatar"> deadlife101:</div>
+<blockquote>
+<p>Thanks so much!</p>
+</blockquote>
+</aside>
+<p>Post pics!  <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+          <p><a href="https://leakfree.org/t/replacing-rosenberg-in-half-life-blue-shift/13288/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/replacing-rosenberg-in-half-life-blue-shift/13288/6</link>
+        <pubDate>Wed, 11 Jun 2014 22:58:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13288-6</guid>
+        <source url="https://leakfree.org/t/replacing-rosenberg-in-half-life-blue-shift/13288.rss">Replacing Rosenberg in Half-Life: Blue Shift</source>
+      </item>
+      <item>
+        <title>Replacing Rosenberg in Half-Life: Blue Shift</title>
+        <dc:creator><![CDATA[deadlife101]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks so much!</p>
+          <p><a href="https://leakfree.org/t/replacing-rosenberg-in-half-life-blue-shift/13288/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/replacing-rosenberg-in-half-life-blue-shift/13288/5</link>
+        <pubDate>Wed, 11 Jun 2014 02:19:14 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13288-5</guid>
+        <source url="https://leakfree.org/t/replacing-rosenberg-in-half-life-blue-shift/13288.rss">Replacing Rosenberg in Half-Life: Blue Shift</source>
+      </item>
+      <item>
+        <title>Replacing Rosenberg in Half-Life: Blue Shift</title>
+        <dc:creator><![CDATA[Scorpion42]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="deadlife101">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/d/839c29/40.png" class="avatar"> deadlife101:</div>
+<blockquote>
+<p>So lately I’ve been replacing my Half-Life models with their PS2/Decay counterparts and I’ve been having trouble with one model in particular. I’ve been trying to replace the Rosenberg from Blue Shift with the Rosenberg from Decay and I can’t seem to figure out how. When I replace the standard scientist models with the PS2 models, it also replaces the Rosenberg. If I replace the scientist.mdl with the scientist_rosenberg.mdl from decay, it makes all of the scientists look like Rosenberg. Sorry if my explanation is confusing. If you know how to replace the Rosenberg model in Blue shift, your help would be greatly appreciated.</p>
+</blockquote>
+</aside>
+<p>You have to decompile the PlayStation Scientist model, the PlayStation Rosenberg model and the Blue-Shift Scientist model. DO NOT USE MILKSHAPE TO DO THIS, as it screws up the animations.</p>
+<p>Copy the PlayStation Scientist’s QC file into an empty folder. This is where you will be building the model. That way you won’t have to start all over again if you screw up at one point.</p>
+<p>To get the heads right, you have to replace the “Slick” head in the QC with the Rosenberg head. These are meshes, but in Half-Life models, both meshes and animations are stored as .smd files. You can check which an .smd file is by opening it up in NotePad: All SMD files are divided into the sections “skeleton” and “time”, but meshes will additionally have a section called “triangles”.</p>
+<p>Write the name of the Rosenberg head mesh instead of the Slick mesh, under something like “bodygroups” in the QC.</p>
+<p>NOW! The game probably won’t Work right if animations are missing, so you have to check if there are any animations from the Blue Shift model that aren’t found in either of the PlayStation models. The easiest way to figure this out is by comparing the animation lists in the models’ QCs.</p>
+<p>Copy the listings of extra animations from the Blue-Shift QC into the QC in your working folder.</p>
+<p>Now we have to compile the model; I suggest using either GUIstudiomdl or Milkshape for this (You can use Milkshape to compile, it won’t break the model), as they don’t close Down if you get any errors in the process.</p>
+<p>All the files mentioned in your QC has to be accounted for: The textures used by the meshes have to be present in the folder listed under “$cdtexture” in the QC, the rest of the files in “$cd” If the folder listed is “.”, it’s the same directory as the QC.<br>
+The easiest way to make sure that all files are present is by copying all files there. In this case, I suggest starting with the PS2 Scientist model files, then the PS2 Rosenberg files and then the Blue Shift Scientist files (no overwriting).</p>
+<p>Now start compiling the model. You should get an error after a few seconds, due to the Blue Shift animations’ names for the bones being different from the other animations’ names for the bones. Often, it is something like “Forearm” being named “Arm2” or the other way around. The names have to be the same, so open up the animation the compiler is complaining about, open up a non-Blue-Shift animation, and try to replace the names in the Blue Shift one one at a time, each time trying compiling Again to see if it still complains.</p>
+<p>Once it finally stops complaining about one animation and move on to the next, copy the bone information to the other Blue-Shift animations. Compiling should hereafter be succesful.</p>
+<p>At best, the new animations will be a Little stiff. At worst, they will turn Rosenberg into a freak of nature. In the latter case, try Again. In the first, learn modelling.</p>
+<p>The PS2 Rosenberg for BS model should otherwise be functional by then.</p>
+<p>EDIT: The bone listing part of an SMD is actually called “nodes”, it’s the animation part that’s called skeleton, although for meshes it just coordinates the “t-pose”</p>
+          <p><a href="https://leakfree.org/t/replacing-rosenberg-in-half-life-blue-shift/13288/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/replacing-rosenberg-in-half-life-blue-shift/13288/4</link>
+        <pubDate>Tue, 10 Jun 2014 15:21:39 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13288-4</guid>
+        <source url="https://leakfree.org/t/replacing-rosenberg-in-half-life-blue-shift/13288.rss">Replacing Rosenberg in Half-Life: Blue Shift</source>
+      </item>
+      <item>
+        <title>Replacing Rosenberg in Half-Life: Blue Shift</title>
+        <dc:creator><![CDATA[sixcentgeorge]]></dc:creator>
+        <description><![CDATA[
+            <p>models are made for a game in particular , they have some parts and animations in common .<br>
+you need to use hlmv and the compilator /decompilator , it handles , to decompile the models and pass from one model to an other the smd[s] that are animations files .</p>
+<p>it is not as easy as i say because models have references points , i mean some models have fingers while others [ olders ] not…<br>
+may be you will need a tool named milkshape to help rebuilding models</p>
+<p>you will need bspedit from bot-united forum to check inside maps the models parameters<br>
+here is the fgd : <a href="https://developer.valvesoftware.com/wiki/Hl_bs.fgd" data-bbcode="true" rel="nofollow noopener">https://developer.valvesoftware.com/wiki/Hl_bs.fgd</a><br>
+and a link to an updated release made by old friends of decay team : <a href="https://old.hl-improvement.com/bshift.php" data-bbcode="true" rel="nofollow noopener">https://old.hl-improvement.com/bshift.php</a><br>
+website looks down but you can get file : <a href="https://anitalink.com/en/index.php?option=com_content&amp;view=article&amp;id=95&amp;Itemid=177" data-bbcode="true" rel="nofollow noopener">https://anitalink.com/en/index.php?option=com_content&amp;view=article&amp;id=95&amp;Itemid=177</a></p>
+          <p><a href="https://leakfree.org/t/replacing-rosenberg-in-half-life-blue-shift/13288/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/replacing-rosenberg-in-half-life-blue-shift/13288/3</link>
+        <pubDate>Tue, 10 Jun 2014 06:47:12 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13288-3</guid>
+        <source url="https://leakfree.org/t/replacing-rosenberg-in-half-life-blue-shift/13288.rss">Replacing Rosenberg in Half-Life: Blue Shift</source>
+      </item>
+      <item>
+        <title>Replacing Rosenberg in Half-Life: Blue Shift</title>
+        <dc:creator><![CDATA[deadlife101]]></dc:creator>
+        <description><![CDATA[
+            <p>bump</p>
+          <p><a href="https://leakfree.org/t/replacing-rosenberg-in-half-life-blue-shift/13288/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/replacing-rosenberg-in-half-life-blue-shift/13288/2</link>
+        <pubDate>Tue, 10 Jun 2014 04:50:07 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13288-2</guid>
+        <source url="https://leakfree.org/t/replacing-rosenberg-in-half-life-blue-shift/13288.rss">Replacing Rosenberg in Half-Life: Blue Shift</source>
+      </item>
+      <item>
+        <title>Replacing Rosenberg in Half-Life: Blue Shift</title>
+        <dc:creator><![CDATA[deadlife101]]></dc:creator>
+        <description><![CDATA[
+            <p>So lately I’ve been replacing my Half-Life models with their PS2/Decay counterparts and I’ve been having trouble with one model in particular. I’ve been trying to replace the Rosenberg from Blue Shift with the Rosenberg from Decay and I can’t seem to figure out how. When I replace the standard scientist models with the PS2 models, it also replaces the Rosenberg. If I replace the scientist.mdl with the scientist_rosenberg.mdl from decay, it makes all of the scientists look like Rosenberg. Sorry if my explanation is confusing. If you know how to replace the Rosenberg model in Blue shift, your help would be greatly appreciated.</p>
+<p>Edit: I also know that it IS possible because this person appears to have done it. <a href="https://youtu.be/WBYs8pBIQrM?t=4m27s" data-bbcode="true" rel="nofollow noopener">https://youtu.be/WBYs8pBIQrM?t=4m27s</a></p>
+          <p><a href="https://leakfree.org/t/replacing-rosenberg-in-half-life-blue-shift/13288/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/replacing-rosenberg-in-half-life-blue-shift/13288/1</link>
+        <pubDate>Sun, 08 Jun 2014 17:04:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13288-1</guid>
+        <source url="https://leakfree.org/t/replacing-rosenberg-in-half-life-blue-shift/13288.rss">Replacing Rosenberg in Half-Life: Blue Shift</source>
+      </item>
+  </channel>
+</rss>

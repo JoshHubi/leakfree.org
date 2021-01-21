@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Unforeseen Consequences Crash</title>
+    <link>https://leakfree.org/t/unforeseen-consequences-crash/11823</link>
+    <description>Hello everyone,
+
+First, to the BM team... very awesome job on this. I am impressed and even have dreamed what y&#39;all have come up with. Great job!
+
+Second, I am reporting an issue with a very specific event in the title.
+
+Now, I do not have a minidump file, none are located in the steamapps\name\source sdk base 2007\ folder. I did, however, gather the Windows Application Event Log which shows an issues with server.dll.
+
+[b]Here is the event log entry:[/b]
+[code]Log Name:      Application
+Source:        Application Error
+Date:          12/9/2012 3:36:05 AM
+Event ID:      1000
+Task Category: (100)
+Level:         Error
+Keywords:      Classic
+User:          N/A
+Computer:      3681QP1
+Description:
+Faulting application name: hl2.exe, version: 0.0.0.0, time stamp: 0x470c11ae
+Faulting module name: server.dll, version: 0.0.0.0, time stamp: 0x504ecc36
+Exception code: 0xc0000417
+Fault offset: 0x004bd0ad
+Faulting process id: 0x15a4
+Faulting application start time: 0x01cdd5f071950f0a
+Faulting application path: c:\program files (x86)\steam\steamapps\&lt;profile name&gt;\source sdk base 2007\hl2.exe
+Faulting module path: c:\program files (x86)\steam\steamapps\sourcemods\bms\bin\server.dll
+Report Id: da3acf78-41e3-11e2-b5df-534e57000000
+Event Xml:
+&lt;Event xmlns=&quot;https://schemas.microsoft.com/win/2004/08/events/event&quot;&gt;
+  &lt;System&gt;
+    &lt;Provider Name=&quot;Application Error&quot; /&gt;
+    &lt;EventID Qualifiers=&quot;0&quot;&gt;1000&lt;/EventID&gt;
+    &lt;Level&gt;2&lt;/Level&gt;
+    &lt;Task&gt;100&lt;/Task&gt;
+    &lt;Keywords&gt;0x80000000000000&lt;/Keywords&gt;
+    &lt;TimeCreated SystemTime=&quot;2012-12-09T09:36:05.000000000Z&quot; /&gt;
+    &lt;EventRecordID&gt;2798&lt;/EventRecordID&gt;
+    &lt;Channel&gt;Application&lt;/Channel&gt;
+    &lt;Computer&gt;COMP1&lt;/Computer&gt;
+    &lt;Security /&gt;
+  &lt;/System&gt;
+  &lt;EventData&gt;
+    &lt;Data&gt;hl2.exe&lt;/Data&gt;
+    &lt;Data&gt;0.0.0.0&lt;/Data&gt;
+    &lt;Data&gt;470c11ae&lt;/Data&gt;
+    &lt;Data&gt;server.dll&lt;/Data&gt;
+    &lt;Data&gt;0.0.0.0&lt;/Data&gt;
+    &lt;Data&gt;504ecc36&lt;/Data&gt;
+    &lt;Data&gt;c0000417&lt;/Data&gt;
+    &lt;Data&gt;004bd0ad&lt;/Data&gt;
+    &lt;Data&gt;15a4&lt;/Data&gt;
+    &lt;Data&gt;01cdd5f071950f0a&lt;/Data&gt;
+    &lt;Data&gt;c:\program files (x86)\steam\steamapps\&lt;profile name&gt;\source sdk base 2007\hl2.exe&lt;/Data&gt;
+    &lt;Data&gt;c:\program files (x86)\steam\steamapps\sourcemods\bms\bin\server.dll&lt;/Data&gt;
+    &lt;Data&gt;da3acf78-41e3-11e2-b5df-534e57000000&lt;/Data&gt;
+  &lt;/EventData&gt;
+&lt;/Event&gt;[/code]
+
+I have also included some screenshots.
+
+[b]A description of what I did to cause the error:[/b]
+I am in Sector B Coolant Reserve offices.
+
+After passing the dying guard and through the corridor (where it loads the next scene), you go through the door to the right. Obviously not the one with the cooking zombie.
+
+After entering the only door on the right, you normally choose to beat the large wood crates to the right. I, however, went left and was faced with a smaller wood crate and two shelves on either side. So, to explore, I jumped onto the single small crate and then to the shelf to the right of the crate when you entered the room. This is where the game crashed.
+
+An error message did display, I will replay the event to get that and attach it. It is attached but is not descriptive.
+
+I have also attached the scenes leading up to the point where you see the crate that I jumped onto to jump on the shelf to the right of that crate. Note that I did have to press the Shift key and then jump to get where I didn&#39;t fall before I was able to get to the shelf. If the Shift key was not pressed while running and jumping, you simply fell and the error did not display and the game continues on.
+
+Not sure if this helps with the overall game, but hey, it might help you find other things that could be wrong, etc.
+
+My system:
+Dell Vostro 3700
+Intel Core i5
+6 GB RAM
+Windows 7 64bit Professional w/ SP1
+NVidia GeForce GT 330M w/ 1 GB RAM
+
+Great job guys,
+Johnathan
+![bm_c1a1b0000.jpg|690x500](upload://hKU7Eecf7ryIC4BYW4YisYQTkDs.jpeg)
+![bm_c1a1c0003.jpg|690x500](upload://jxEWryCRggefnEHuPXwNOaWjSQK.jpeg)
+![bm_c1a1c0004.jpg|690x500](upload://eD8UOm3u9IxcSLaytggbJX5hSyS.jpeg)
+![bm_c1a1c0007.jpg|690x500](upload://s011C5pXQyP3qvvZHUPe6aZFSQo.jpeg)
+![hl2.exe crash.PNG|353x142](upload://xApXhTCHUsq78Ca97YEdmmnCGfM.png)</description>
+    
+    <lastBuildDate>Sun, 09 Dec 2012 09:45:46 +0000</lastBuildDate>
+    <category>In-game Issues (Mod)</category>
+    <atom:link href="https://leakfree.org/t/unforeseen-consequences-crash/11823.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Unforeseen Consequences Crash</title>
+        <dc:creator><![CDATA[JohnathanMorlock]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello everyone,</p>
+<p>First, to the BM team… very awesome job on this. I am impressed and even have dreamed what y’all have come up with. Great job!</p>
+<p>Second, I am reporting an issue with a very specific event in the title.</p>
+<p>Now, I do not have a minidump file, none are located in the steamapps\name\source sdk base 2007\ folder. I did, however, gather the Windows Application Event Log which shows an issues with server.dll.</p>
+<p><span class="bbcode-b">Here is the event log entry:</span></p>
+<p><code>Log Name:      Application
+Source:        Application Error
+Date:          12/9/2012 3:36:05 AM
+Event ID:      1000
+Task Category: (100)
+Level:         Error
+Keywords:      Classic
+User:          N/A
+Computer:      3681QP1
+Description:
+Faulting application name: hl2.exe, version: 0.0.0.0, time stamp: 0x470c11ae
+Faulting module name: server.dll, version: 0.0.0.0, time stamp: 0x504ecc36
+Exception code: 0xc0000417
+Fault offset: 0x004bd0ad
+Faulting process id: 0x15a4
+Faulting application start time: 0x01cdd5f071950f0a
+Faulting application path: c:\program files (x86)\steam\steamapps\&lt;profile name&gt;\source sdk base 2007\hl2.exe
+Faulting module path: c:\program files (x86)\steam\steamapps\sourcemods\bms\bin\server.dll
+Report Id: da3acf78-41e3-11e2-b5df-534e57000000
+Event Xml:
+&lt;Event xmlns="https://schemas.microsoft.com/win/2004/08/events/event"&gt;
+  &lt;System&gt;
+    &lt;Provider Name="Application Error" /&gt;
+    &lt;EventID Qualifiers="0"&gt;1000&lt;/EventID&gt;
+    &lt;Level&gt;2&lt;/Level&gt;
+    &lt;Task&gt;100&lt;/Task&gt;
+    &lt;Keywords&gt;0x80000000000000&lt;/Keywords&gt;
+    &lt;TimeCreated SystemTime="2012-12-09T09:36:05.000000000Z" /&gt;
+    &lt;EventRecordID&gt;2798&lt;/EventRecordID&gt;
+    &lt;Channel&gt;Application&lt;/Channel&gt;
+    &lt;Computer&gt;COMP1&lt;/Computer&gt;
+    &lt;Security /&gt;
+  &lt;/System&gt;
+  &lt;EventData&gt;
+    &lt;Data&gt;hl2.exe&lt;/Data&gt;
+    &lt;Data&gt;0.0.0.0&lt;/Data&gt;
+    &lt;Data&gt;470c11ae&lt;/Data&gt;
+    &lt;Data&gt;server.dll&lt;/Data&gt;
+    &lt;Data&gt;0.0.0.0&lt;/Data&gt;
+    &lt;Data&gt;504ecc36&lt;/Data&gt;
+    &lt;Data&gt;c0000417&lt;/Data&gt;
+    &lt;Data&gt;004bd0ad&lt;/Data&gt;
+    &lt;Data&gt;15a4&lt;/Data&gt;
+    &lt;Data&gt;01cdd5f071950f0a&lt;/Data&gt;
+    &lt;Data&gt;c:\program files (x86)\steam\steamapps\&lt;profile name&gt;\source sdk base 2007\hl2.exe&lt;/Data&gt;
+    &lt;Data&gt;c:\program files (x86)\steam\steamapps\sourcemods\bms\bin\server.dll&lt;/Data&gt;
+    &lt;Data&gt;da3acf78-41e3-11e2-b5df-534e57000000&lt;/Data&gt;
+  &lt;/EventData&gt;
+&lt;/Event&gt;</code></p>
+<p>I have also included some screenshots.</p>
+<p><span class="bbcode-b">A description of what I did to cause the error:</span><br>
+I am in Sector B Coolant Reserve offices.</p>
+<p>After passing the dying guard and through the corridor (where it loads the next scene), you go through the door to the right. Obviously not the one with the cooking zombie.</p>
+<p>After entering the only door on the right, you normally choose to beat the large wood crates to the right. I, however, went left and was faced with a smaller wood crate and two shelves on either side. So, to explore, I jumped onto the single small crate and then to the shelf to the right of the crate when you entered the room. This is where the game crashed.</p>
+<p>An error message did display, I will replay the event to get that and attach it. It is attached but is not descriptive.</p>
+<p>I have also attached the scenes leading up to the point where you see the crate that I jumped onto to jump on the shelf to the right of that crate. Note that I did have to press the Shift key and then jump to get where I didn’t fall before I was able to get to the shelf. If the Shift key was not pressed while running and jumping, you simply fell and the error did not display and the game continues on.</p>
+<p>Not sure if this helps with the overall game, but hey, it might help you find other things that could be wrong, etc.</p>
+<p>My system:<br>
+Dell Vostro 3700<br>
+Intel Core i5<br>
+6 GB RAM<br>
+Windows 7 64bit Professional w/ SP1<br>
+NVidia GeForce GT 330M w/ 1 GB RAM</p>
+<p>Great job guys,<br>
+Johnathan<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/7/7c72506f13070a3d17e04bb223bd20be8efc6ee6.jpeg" data-download-href="https://leakfree.org/uploads/default/7c72506f13070a3d17e04bb223bd20be8efc6ee6" title="bm_c1a1b0000.jpg"><img src="https://leakfree.org/uploads/default/original/2X/7/7c72506f13070a3d17e04bb223bd20be8efc6ee6.jpeg" alt="bm_c1a1b0000.jpg" data-base62-sha1="hKU7Eecf7ryIC4BYW4YisYQTkDs" width="690" height="500" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/7/7c72506f13070a3d17e04bb223bd20be8efc6ee6_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">bm_c1a1b0000.jpg</span><span class="informations">1359×765 89.2 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/8/88f760fa2e31cea64e35299d7e0ee383cd958466.jpeg" data-download-href="https://leakfree.org/uploads/default/88f760fa2e31cea64e35299d7e0ee383cd958466" title="bm_c1a1c0003.jpg"><img src="https://leakfree.org/uploads/default/original/2X/8/88f760fa2e31cea64e35299d7e0ee383cd958466.jpeg" alt="bm_c1a1c0003.jpg" data-base62-sha1="jxEWryCRggefnEHuPXwNOaWjSQK" width="690" height="500" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/8/88f760fa2e31cea64e35299d7e0ee383cd958466_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">bm_c1a1c0003.jpg</span><span class="informations">1478×832 85.9 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/6/668b30c6b76fcf22561ec7ef119830be27eaec72.jpeg" data-download-href="https://leakfree.org/uploads/default/668b30c6b76fcf22561ec7ef119830be27eaec72" title="bm_c1a1c0004.jpg"><img src="https://leakfree.org/uploads/default/original/2X/6/668b30c6b76fcf22561ec7ef119830be27eaec72.jpeg" alt="bm_c1a1c0004.jpg" data-base62-sha1="eD8UOm3u9IxcSLaytggbJX5hSyS" width="690" height="500" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/6/668b30c6b76fcf22561ec7ef119830be27eaec72_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">bm_c1a1c0004.jpg</span><span class="informations">1598×899 59.3 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/c/c43d599b734e77bafdaee76e55cb0da42f934550.jpeg" data-download-href="https://leakfree.org/uploads/default/c43d599b734e77bafdaee76e55cb0da42f934550" title="bm_c1a1c0007.jpg"><img src="https://leakfree.org/uploads/default/original/2X/c/c43d599b734e77bafdaee76e55cb0da42f934550.jpeg" alt="bm_c1a1c0007.jpg" data-base62-sha1="s011C5pXQyP3qvvZHUPe6aZFSQo" width="690" height="500" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/c/c43d599b734e77bafdaee76e55cb0da42f934550_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">bm_c1a1c0007.jpg</span><span class="informations">1598×899 36.1 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<img src="https://leakfree.org/uploads/default/original/2X/e/eb65a268833883d61da0fc95777cb4bcd5f69cfa.png" alt="hl2.exe crash.PNG" data-base62-sha1="xApXhTCHUsq78Ca97YEdmmnCGfM" width="353" height="142"></p>
+          <p><a href="https://leakfree.org/t/unforeseen-consequences-crash/11823/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/unforeseen-consequences-crash/11823/1</link>
+        <pubDate>Sun, 09 Dec 2012 09:45:46 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11823-1</guid>
+        <source url="https://leakfree.org/t/unforeseen-consequences-crash/11823.rss">Unforeseen Consequences Crash</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Document Generation Tutorial</title>
+    <link>https://leakfree.org/t/document-generation-tutorial/61982</link>
+    <description>Several people have asked how I am making the documents that I have been using in pre-disaster chapters, so I thought I&#39;d put together a quick tutorial on the subject.
+
+**Software Needed**
+
+* [LibreOffice](https://www.libreoffice.org/) with the &#39;Draw&#39; component, or any similar word processor with vector drawing functionality. A PhD student where I work uses PowerPoint for this. This tutorial assumes basic familiarity with the functionality of these types of programs.
+* [GIMP](https://www.gimp.org/). If you have Photoshop or another relatively heavy-duty image editing tool that will also work but GIMP is free. This tutorial assumes familiarity with common image-manipulation functions in these sort of programs 
+* [VTFEdit](https://nemesis.thewavelength.net/index.php?p=41). Having some knowledge of Source engine material creation will be helpful.
+* The Black Mesa release of the Hammer editor (duh).
+
+**Making Paper Documents**
+This is typically best done in Draw, with text boxes. If you want you can compose the actual text in the standard word processor and paste it over, but the next step requires copying and pasting the resulting document into GIMP and only the drawing editors can typically do that.
+![image|690x373](upload://dQmllUcRsCVi6XOhSYssTaBpzBw.png) 
+Stuff like the Black Mesa logo and paper formats (technical reports, memos, etc) I tend to copy from other documents to try to keep it consistent. The source documents I use are stored in the VPKs of the pre-disaster mods in case other people want access to them for this purpose.
+
+One thing I find useful is designing the entire document at twice the size it would actually be IRL- for instance instead of an 8.5 x 11 page with 12-point font I use a 17 x 22 page with 24-point font. This makes the resulting image crisper because of how Source handles texture resolutions (see below).
+
+Figures and graphs are typically things I find by typing a few terms vaguely related to the topic of the document into Google Images or Google Scholar. It can have a white or transparent background, either one works. Most of the handwritten annotations on documents are just another text box with a &#39;handwritten&#39; font; anything more complicated than that is a subject we&#39;ll get to later on.
+
+**Processing Typed Documents In GIMP**
+Once you have your document looking the way you want it, you&#39;ll want to have ready a blank paper texture in GIMP. You could just use a flat white rectangle, but actual paper does have some texture to it so I use a file called paper_big.tga that I got off of Google Images and keep in the &#39;materialsrc&#39; folder of the VPKs. There are also a couple of different notebook and graph papers in there, and you can find other paper backgrounds online.
+Whatever you use, it&#39;s a good idea to make sure it&#39;s sized at or a little under a power of 2 (1024, 2048, 4096, etc) along its long axis- I&#39;ll explain why in a later section.
+
+Hit Ctrl-A to select the entire page area in your drawing processor and paste it into GIMP. This will produce a new layer with your text converted to an image- you may need to move and resize it to match the dimensions of the paper, although obviously blowing it up too large will make the image blurry.
+
+![image|690x373](upload://alrFL6O7ORWkYK64tvugYEV33fO.png) 
+Finally, you will want to run the &#39;color to alpha&#39; filter with white selected as the alpha color. This will get rid of any white backgrounds on figures or drawings for you, but it will also allow a little bit of the paper background to show through in areas that were not perfectly black. This goes a long way to making it look as though the text is actually printed onto the background instead of just floating artificially above it.
+
+This is also the step where you can add things like highlighting and redaction using the &#39;brush&#39; tool. The &#39;multiply&#39; setting is good for highlighting because it will affect the white paper but not black print.
+
+**Using Preexisting Documents**
+Some things like equipment manuals, safety posters, and non-BM technical papers I just looked up on the Internet. GIMP has a very useful feature that allows you to import one or more pages from a PDF as an image file. Those typically have white backgrounds, so I just run the color-to-alpha filter on them and put an appropriate background behind them.
+
+**Using Hand-Drawn Figures**
+My preferred method of generating hand-drawn figures or doodles is to take them off of IRL sources. I work at a research university so there are tons of whiteboards and notebooks just lying around with random scientific scribblings for me to photograph; another good place to get materials like this is from YouTube where professors will often post videos of their lectures that you can take screenshots of; sometimes you can also find drawings of things just through Google Images but I&#39;d recommend looking at YouTube first. I suppose you could just draw and annotate diagrams yourself and photograph them, but I&#39;d worry that all of these documents supposedly by different people would come out all in the same style and all with the same handwriting.
+
+Regardless of source, typically what you get is a photo of a whiteboard, chalkboard, or piece of paper with stuff drawn on it. 
+![image|690x440](upload://8GAUp4Qqs8pJ4TFkB4osMR1K0NO.jpeg) 
+You&#39;ll want to begin by cropping out all of the surrounding material so that only the figure and the background are visible.
+![image|690x443](upload://uSprDkOgd4HdVxKTUfmQJ5TBPPe.jpeg)
+We will want to use &quot;color to alpha&quot; again to extract the figure, but to do that we want the background to be perfectly white and not the mix of light grays it is at the start. This can be achieved by using the &#39;Levels&#39; tool to shift the white threshold of the image but not the black. Sometimes you may need to make multiple passes to get rid of all color in the background without washing out the figure itself:
+![image|690x445](upload://iO15eDZdrtQ6U4kdIOKx8vOiuMD.jpeg) 
+![image|690x427](upload://ma43SYKCx44Bo1ucs7MAVilU0uQ.jpeg) 
+![image|690x423](upload://d2nq9ucCF7TIlP7xKlFym24OERE.png) 
+After that, using color to alpha (and optionally converting to grayscale or colorizing all or part of the image) will produce a nice drawing:
+![image|467x500](upload://kRNHX2S9o9CGFE4itRzDkF0dRhi.jpeg) 
+For drawings on chalkboards you may want to invert the colors to produce a dark drawing on a pale background.
+
+Basic things like scribbles, underlines, or circles can generally be found on Google Images.
+
+**Making Emails &amp; Other Computer Records**
+I typically start with a &#39;blank&#39; version of a common program like Outlook or Word. These can be made pretty simply just by finding a screenshot of the program on an older version of Windows and whiting out the text fields. If you wanted to be fancy I suppose you could set up your computer with a retro Windows theme and take screenshots off of that. Either way, I typically just edit the &#39;blank&#39; versions directly in GIMP to add my own text; for things like PowerPoint slides I copy stuff from Draw.
+![image|690x405](upload://tMReJKsUqppmxjYiQPZteipUo7n.png) 
+I&#39;ve found that 11-point Tahoma with anti-aliasing disabled very well approximates the system font on old versions of Windows.
+
+There&#39;s blank versions of each of the programs I&#39;ve used in the relevant pre-disaster VPK files.
+
+**The &#39;Terminal&#39; Screen Effect**
+Sometimes for older displays or ones that aren&#39;t a full computer monitor, I&#39;ve added a striated glow effect. This works best on diagrams that are predominantly a black background with light-colored shapes- the &#39;invert&#39; filter in GIMP can be very helpful in this regard.
+
+The actual filter is a four-step process: first, I add the &#39;Distorts &gt; Video&quot; filter to create the scan lines effect; then, I decompose the image into R, G, and B layers; then, _for each layer_, I run the &#39;artistic &gt; softglow&#39; filter; and finally recompose the image. This is necessary because if the softglow filter is applied to a full RGB image it just makes the glow white and not the color of what is glowing.
+
+**Final Preparation Of Document Textures**
+The first thing you will want to do once a document is concocted to your satisfaction is to adjust it so that no part of it is exactly 0-0-0 black. This is because the later Source visual effect will use an RGB value of 0 0 0 to decide _not_ to render portions of the image- this will cause portions of your document which are exactly black to render as &#39;holes&#39; through which the background can be seen. Setting the dark output level in the &#39;levels&#39; tool to 5 is a good way to remove any actual black areas without visibly altering the image:
+![image|320x500](upload://uf4C1g8JOwO1fmls09f0nlbfRJ6.png) 
+
+Next, make sure the image is scaled properly. Source Engine textures must be a power of 2 along each axis (although it needn&#39;t be the _same_ power of 2, i.e. the image can be a rectangle and not a square), but while it&#39;s good practice to fill as much of the available space in the image as possible the actual document need not take up _all_ of it. Since some images (like computer outputs) are supposed to be a specific pixel-for-pixel representation of something and even those that aren&#39;t can lose resolution when resized, you may want to scale the _canvas_ to a power of 2 without affecting the image.
+
+Export the image to some sort of lossless format, import it into VTFEdit, and save it as a VTF file somewhere in your materials directory. Make a corresponding VMT with the following information:
+
+&gt;LightmappedGeneric
+&gt;{
+&gt;	&quot;$basetexture&quot;	&quot;path/to/vtf&quot;
+&gt;	$selfillum 1
+&gt;	$selfillumtint &quot;[.75 .75 .75]&quot;
+&gt;}
+
+The $selfillumtint parameter determines how bright your document will look and is influenced by your tonemap settings. Generally you don&#39;t want them looking dark gray, but at the same time you don&#39;t want them to be at full brightness because then under most tonemap settings there will be heavy bloom that obscures the text.
+
+**Displaying The Document In Hammer**
+The apparatus for displaying a document consists of three parts.
+
+The first is the document itself, which is kept outside the main play area of the map with a point_camera pointed at it. I typically put mine all in a row in a single location, but they can really go anywhere.
+![image|690x373](upload://uV5BwPcmlYfg41aWdoY4QOkHXWV.png) 
+The size of the document texture in Hammer doesn&#39;t actually matter because Source maintains the original image resolution regardless of the texture scale- a texture will look just as crisp if it is on a large brush the player is far away from as it will on a small brush the player is close to. This is true for the camera entity as well. A document that takes up a little less than a 32-by-32 brush with the camera ~16 units away will typically be well-positioned to fill the screen. The brush behind the transparent document should be black. The camera doesn&#39;t need any special properties other than a unique name.
+
+The second component is a collection of player behavior and view-management entities. These include a logic_auto with the output
+&gt;OnMapSpawn \&lt;NAME OF YOUR SCRIPT_INTRO&gt; SetBlendMode 5
+
+a game_ui ent with the output
+&gt;PlayerOff \&lt;NAME OF THE FUNC_BUTTON BELOW&gt; PressOut
+
+and the &#39;Freeze Player&#39;, &#39;Hide Weapon&#39;, &#39;+Use Deactivates&#39;, and &#39;Jump Deactivates&#39; flags all set, and a script_intro entity which can be named anything. You only need one of these sets per map.
+
+Finally, each document you want to view needs a func_button entity with the &quot;Use Activates&quot;, &quot;Toggle&quot;, and &quot;Don&#39;t Move&quot; flags set and the outputs
+&gt;OnIn \&lt;NAME OF  YOUR SCRIPT_INTRO&gt; SetCameraViewEntity \&lt;NAME OF THE CAMERA THAT SHOWS YOUR DOCUMENT&gt;
+&gt;OnIn \&lt;NAME OF YOUR FUNC_UI&gt; Activate
+&gt;OnIn \&lt;NAME OF YOUR SCRIPT_INTRO&gt; Activate 0.01
+&gt;OnOut \&lt;NAME OF YOUR FUNC_UI&gt; Deactivate
+&gt;OnOut \&lt;NAME OF YOUR SCRIPT_INTRO&gt; Deactivate
+
+It is most convenient for all of your buttons to have the same target name.
+I made a small custom sprite to make the buttons visible, but this has no effect on their logic. The sprite texture is called documents/docflag_sprite.vmt and is available in any Pre-Disaster VPK.</description>
+    
+    <lastBuildDate>Tue, 22 Oct 2019 16:37:25 +0000</lastBuildDate>
+    <category>Black Mesa</category>
+    <atom:link href="https://leakfree.org/t/document-generation-tutorial/61982.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Document Generation Tutorial</title>
+        <dc:creator><![CDATA[Flavrans]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group quote-modified" data-username="Admiral_Sakai" data-post="2" data-topic="61982">
+<div class="title">
+<div class="quote-controls"></div>
+ Admiral_Sakai:</div>
+<blockquote>
+<p>[…] and more to the point the aspect ratio (or screen width and screen height) does not appear to be represented <em>by</em> any convar (which makes me wonder exactly how it is stored in the player options).</p>
+</blockquote>
+</aside>
+<p>The video settings are stored in <code>bms\videoconfig.cfg</code>. The screen width and height can be set from the console with <code>mat_setvideomode width height windowed_state</code>, and <code>mat_savechanges</code> saves the current video settings. The console command <code>mat_configcurrent</code> will show the current screen width and height, along with a few other video settings. But it’s a <em>command</em> that dumps information to the console, and not a numeric <em>variable</em>, so it wouldn’t have worked with the cvar material proxy if Black Mesa had supported it.</p>
+          <p><a href="https://leakfree.org/t/document-generation-tutorial/61982/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/document-generation-tutorial/61982/3</link>
+        <pubDate>Tue, 22 Oct 2019 16:37:25 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-61982-3</guid>
+        <source url="https://leakfree.org/t/document-generation-tutorial/61982.rss">Document Generation Tutorial</source>
+      </item>
+      <item>
+        <title>Document Generation Tutorial</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>I have recently begun experimenting with documents displayed using the screen_overlay functionality as opposed to the camera-pointing-at-a-brush system I’ve been using. This is what operates the elevator hint in Gasworks:</p>
+<p>They are much simpler to make, and also show a transparent background which is nice (<em>especially</em> for control panels that control things in the game world as opposed to just documents).</p>
+<p>The problem with these overlays is that they are affected by the <em>aspect ratio</em>. In contrast to the actual rendering of the game world, where widening the aspect ratio just causes more things on the sides of the screen to be visible, screenoverlays <em>stretch</em> with the aspect ratio, making things that were made to be square no longer be square and instead appear distorted.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/b/b310ed9b9dbf6aa83ef28eefb42f17bb6e9f2f88.jpeg" data-download-href="https://leakfree.org/uploads/default/b310ed9b9dbf6aa83ef28eefb42f17bb6e9f2f88" title=""><img src="https://leakfree.org/uploads/default/optimized/2X/b/b310ed9b9dbf6aa83ef28eefb42f17bb6e9f2f88_2_690x388.jpeg" alt="" data-base62-sha1="py5JBI5ztJxxzEktKONBYAmKCoM" width="690" height="388" srcset="https://leakfree.org/uploads/default/optimized/2X/b/b310ed9b9dbf6aa83ef28eefb42f17bb6e9f2f88_2_690x388.jpeg, https://leakfree.org/uploads/default/optimized/2X/b/b310ed9b9dbf6aa83ef28eefb42f17bb6e9f2f88_2_1035x582.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/b/b310ed9b9dbf6aa83ef28eefb42f17bb6e9f2f88_2_1380x776.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/b/b310ed9b9dbf6aa83ef28eefb42f17bb6e9f2f88_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080 501 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/9/922ed3cba026eb562d60855dcfed71d50c1b9136.jpeg" data-download-href="https://leakfree.org/uploads/default/922ed3cba026eb562d60855dcfed71d50c1b9136" title=""><img src="https://leakfree.org/uploads/default/optimized/2X/9/922ed3cba026eb562d60855dcfed71d50c1b9136_2_666x500.jpeg" alt="" data-base62-sha1="kRc2lbhi4dCqX1FKoOiu8Sn8ZEy" width="666" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/9/922ed3cba026eb562d60855dcfed71d50c1b9136_2_666x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/9/922ed3cba026eb562d60855dcfed71d50c1b9136_2_999x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/9/922ed3cba026eb562d60855dcfed71d50c1b9136_2_1332x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/9/922ed3cba026eb562d60855dcfed71d50c1b9136_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1400×1050 341 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>For things like the Gasworks hint/control panel this is not a <em>huge</em> deal, but for actual paper documents, particularly with those round Black Mesa logos on them, it looks pretty bad.</p>
+<p>For a given aspect ratio I can compensate by stretching the underlying texture in the other direction (this is why the hint panel in the top screenshot looks square), but currently this has to be hardcoded to a single aspect ratio (16:9 in my case)- and different people obviously use different ones. There seems to be no way to get this information into one of the default Source shaders to perform a dynamic texture transform: there is <a href="https://developer.valvesoftware.com/wiki/List_Of_Material_Proxies#Miscellaneous" rel="nofollow noopener">a ConVar material proxy</a> that purports to be able to read in variables from the console and use them in materials, but it does not seem to work in Black Mesa and more to the point the aspect ratio (or screen width and screen height) does not appear to be represented <em>by</em> any convar (which makes me wonder exactly how it is stored in the player options).</p>
+<p>Has anyone looked into this; I know a few other people were using overlays for things.</p>
+          <p><a href="https://leakfree.org/t/document-generation-tutorial/61982/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/document-generation-tutorial/61982/2</link>
+        <pubDate>Sun, 20 Oct 2019 21:34:06 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-61982-2</guid>
+        <source url="https://leakfree.org/t/document-generation-tutorial/61982.rss">Document Generation Tutorial</source>
+      </item>
+      <item>
+        <title>Document Generation Tutorial</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Several people have asked how I am making the documents that I have been using in pre-disaster chapters, so I thought I’d put together a quick tutorial on the subject.</p>
+<p><strong>Software Needed</strong></p>
+<ul>
+<li>
+<a href="https://www.libreoffice.org/" rel="nofollow noopener">LibreOffice</a> with the ‘Draw’ component, or any similar word processor with vector drawing functionality. A PhD student where I work uses PowerPoint for this. This tutorial assumes basic familiarity with the functionality of these types of programs.</li>
+<li>
+<a href="https://www.gimp.org/" rel="nofollow noopener">GIMP</a>. If you have Photoshop or another relatively heavy-duty image editing tool that will also work but GIMP is free. This tutorial assumes familiarity with common image-manipulation functions in these sort of programs</li>
+<li>
+<a href="https://nemesis.thewavelength.net/index.php?p=41" rel="nofollow noopener">VTFEdit</a>. Having some knowledge of Source engine material creation will be helpful.</li>
+<li>The Black Mesa release of the Hammer editor (duh).</li>
+</ul>
+<p><strong>Making Paper Documents</strong><br>
+This is typically best done in Draw, with text boxes. If you want you can compose the actual text in the standard word processor and paste it over, but the next step requires copying and pasting the resulting document into GIMP and only the drawing editors can typically do that.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/6/61077b5a129914f16de5a981639ac814b83245aa.png" data-download-href="https://leakfree.org/uploads/default/61077b5a129914f16de5a981639ac814b83245aa" title="image"><img src="https://leakfree.org/uploads/default/optimized/2X/6/61077b5a129914f16de5a981639ac814b83245aa_2_690x373.png" alt="image" data-base62-sha1="dQmllUcRsCVi6XOhSYssTaBpzBw" width="690" height="373" srcset="https://leakfree.org/uploads/default/optimized/2X/6/61077b5a129914f16de5a981639ac814b83245aa_2_690x373.png, https://leakfree.org/uploads/default/optimized/2X/6/61077b5a129914f16de5a981639ac814b83245aa_2_1035x559.png 1.5x, https://leakfree.org/uploads/default/optimized/2X/6/61077b5a129914f16de5a981639ac814b83245aa_2_1380x746.png 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/6/61077b5a129914f16de5a981639ac814b83245aa_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">1918×1038 192 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+Stuff like the Black Mesa logo and paper formats (technical reports, memos, etc) I tend to copy from other documents to try to keep it consistent. The source documents I use are stored in the VPKs of the pre-disaster mods in case other people want access to them for this purpose.</p>
+<p>One thing I find useful is designing the entire document at twice the size it would actually be IRL- for instance instead of an 8.5 x 11 page with 12-point font I use a 17 x 22 page with 24-point font. This makes the resulting image crisper because of how Source handles texture resolutions (see below).</p>
+<p>Figures and graphs are typically things I find by typing a few terms vaguely related to the topic of the document into Google Images or Google Scholar. It can have a white or transparent background, either one works. Most of the handwritten annotations on documents are just another text box with a ‘handwritten’ font; anything more complicated than that is a subject we’ll get to later on.</p>
+<p><strong>Processing Typed Documents In GIMP</strong><br>
+Once you have your document looking the way you want it, you’ll want to have ready a blank paper texture in GIMP. You could just use a flat white rectangle, but actual paper does have some texture to it so I use a file called paper_big.tga that I got off of Google Images and keep in the ‘materialsrc’ folder of the VPKs. There are also a couple of different notebook and graph papers in there, and you can find other paper backgrounds online.<br>
+Whatever you use, it’s a good idea to make sure it’s sized at or a little under a power of 2 (1024, 2048, 4096, etc) along its long axis- I’ll explain why in a later section.</p>
+<p>Hit Ctrl-A to select the entire page area in your drawing processor and paste it into GIMP. This will produce a new layer with your text converted to an image- you may need to move and resize it to match the dimensions of the paper, although obviously blowing it up too large will make the image blurry.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/4/48825c3d31c6aec2de3a8d268b1c63df7ef44b58.png" data-download-href="https://leakfree.org/uploads/default/48825c3d31c6aec2de3a8d268b1c63df7ef44b58" title="image"><img src="https://leakfree.org/uploads/default/optimized/2X/4/48825c3d31c6aec2de3a8d268b1c63df7ef44b58_2_690x373.png" alt="image" data-base62-sha1="alrFL6O7ORWkYK64tvugYEV33fO" width="690" height="373" srcset="https://leakfree.org/uploads/default/optimized/2X/4/48825c3d31c6aec2de3a8d268b1c63df7ef44b58_2_690x373.png, https://leakfree.org/uploads/default/optimized/2X/4/48825c3d31c6aec2de3a8d268b1c63df7ef44b58_2_1035x559.png 1.5x, https://leakfree.org/uploads/default/optimized/2X/4/48825c3d31c6aec2de3a8d268b1c63df7ef44b58_2_1380x746.png 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/4/48825c3d31c6aec2de3a8d268b1c63df7ef44b58_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">1919×1040 638 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+Finally, you will want to run the ‘color to alpha’ filter with white selected as the alpha color. This will get rid of any white backgrounds on figures or drawings for you, but it will also allow a little bit of the paper background to show through in areas that were not perfectly black. This goes a long way to making it look as though the text is actually printed onto the background instead of just floating artificially above it.</p>
+<p>This is also the step where you can add things like highlighting and redaction using the ‘brush’ tool. The ‘multiply’ setting is good for highlighting because it will affect the white paper but not black print.</p>
+<p><strong>Using Preexisting Documents</strong><br>
+Some things like equipment manuals, safety posters, and non-BM technical papers I just looked up on the Internet. GIMP has a very useful feature that allows you to import one or more pages from a PDF as an image file. Those typically have white backgrounds, so I just run the color-to-alpha filter on them and put an appropriate background behind them.</p>
+<p><strong>Using Hand-Drawn Figures</strong><br>
+My preferred method of generating hand-drawn figures or doodles is to take them off of IRL sources. I work at a research university so there are tons of whiteboards and notebooks just lying around with random scientific scribblings for me to photograph; another good place to get materials like this is from YouTube where professors will often post videos of their lectures that you can take screenshots of; sometimes you can also find drawings of things just through Google Images but I’d recommend looking at YouTube first. I suppose you could just draw and annotate diagrams yourself and photograph them, but I’d worry that all of these documents supposedly by different people would come out all in the same style and all with the same handwriting.</p>
+<p>Regardless of source, typically what you get is a photo of a whiteboard, chalkboard, or piece of paper with stuff drawn on it.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/3/3ce2070544c6c2873d112b9ebf41e75bf3565c10.jpeg" data-download-href="https://leakfree.org/uploads/default/3ce2070544c6c2873d112b9ebf41e75bf3565c10" title="image"><img src="https://leakfree.org/uploads/default/optimized/2X/3/3ce2070544c6c2873d112b9ebf41e75bf3565c10_2_690x440.jpeg" alt="image" data-base62-sha1="8GAUp4Qqs8pJ4TFkB4osMR1K0NO" width="690" height="440" srcset="https://leakfree.org/uploads/default/optimized/2X/3/3ce2070544c6c2873d112b9ebf41e75bf3565c10_2_690x440.jpeg, https://leakfree.org/uploads/default/optimized/2X/3/3ce2070544c6c2873d112b9ebf41e75bf3565c10_2_1035x660.jpeg 1.5x, https://leakfree.org/uploads/default/original/2X/3/3ce2070544c6c2873d112b9ebf41e75bf3565c10.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/3/3ce2070544c6c2873d112b9ebf41e75bf3565c10_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">1135×725 235 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+You’ll want to begin by cropping out all of the surrounding material so that only the figure and the background are visible.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/d/d867c36f6d28ec4844dad16a542b0fd7527c681c.jpeg" data-download-href="https://leakfree.org/uploads/default/d867c36f6d28ec4844dad16a542b0fd7527c681c" title="image"><img src="https://leakfree.org/uploads/default/optimized/2X/d/d867c36f6d28ec4844dad16a542b0fd7527c681c_2_690x443.jpeg" alt="image" data-base62-sha1="uSprDkOgd4HdVxKTUfmQJ5TBPPe" width="690" height="443" srcset="https://leakfree.org/uploads/default/optimized/2X/d/d867c36f6d28ec4844dad16a542b0fd7527c681c_2_690x443.jpeg, https://leakfree.org/uploads/default/optimized/2X/d/d867c36f6d28ec4844dad16a542b0fd7527c681c_2_1035x664.jpeg 1.5x, https://leakfree.org/uploads/default/original/2X/d/d867c36f6d28ec4844dad16a542b0fd7527c681c.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/d/d867c36f6d28ec4844dad16a542b0fd7527c681c_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">1127×725 170 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+We will want to use “color to alpha” again to extract the figure, but to do that we want the background to be perfectly white and not the mix of light grays it is at the start. This can be achieved by using the ‘Levels’ tool to shift the white threshold of the image but not the black. Sometimes you may need to make multiple passes to get rid of all color in the background without washing out the figure itself:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/8/83ce8d56350d394e14e7cab4216de6b6716e526f.jpeg" data-download-href="https://leakfree.org/uploads/default/83ce8d56350d394e14e7cab4216de6b6716e526f" title="image"><img src="https://leakfree.org/uploads/default/optimized/2X/8/83ce8d56350d394e14e7cab4216de6b6716e526f_2_690x445.jpeg" alt="image" data-base62-sha1="iO15eDZdrtQ6U4kdIOKx8vOiuMD" width="690" height="445" srcset="https://leakfree.org/uploads/default/optimized/2X/8/83ce8d56350d394e14e7cab4216de6b6716e526f_2_690x445.jpeg, https://leakfree.org/uploads/default/optimized/2X/8/83ce8d56350d394e14e7cab4216de6b6716e526f_2_1035x667.jpeg 1.5x, https://leakfree.org/uploads/default/original/2X/8/83ce8d56350d394e14e7cab4216de6b6716e526f.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/8/83ce8d56350d394e14e7cab4216de6b6716e526f_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">1127×727 187 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/9/9b531b40fd74ed69a55c82565628a06c81972b08.jpeg" data-download-href="https://leakfree.org/uploads/default/9b531b40fd74ed69a55c82565628a06c81972b08" title="image"><img src="https://leakfree.org/uploads/default/optimized/2X/9/9b531b40fd74ed69a55c82565628a06c81972b08_2_690x427.jpeg" alt="image" data-base62-sha1="ma43SYKCx44Bo1ucs7MAVilU0uQ" width="690" height="427" srcset="https://leakfree.org/uploads/default/optimized/2X/9/9b531b40fd74ed69a55c82565628a06c81972b08_2_690x427.jpeg, https://leakfree.org/uploads/default/optimized/2X/9/9b531b40fd74ed69a55c82565628a06c81972b08_2_1035x640.jpeg 1.5x, https://leakfree.org/uploads/default/original/2X/9/9b531b40fd74ed69a55c82565628a06c81972b08.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/9/9b531b40fd74ed69a55c82565628a06c81972b08_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">1187×735 262 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/5/5b6111fab27ed6d8424d02e1b8121cd345da358e.png" data-download-href="https://leakfree.org/uploads/default/5b6111fab27ed6d8424d02e1b8121cd345da358e" title="image"><img src="https://leakfree.org/uploads/default/optimized/2X/5/5b6111fab27ed6d8424d02e1b8121cd345da358e_2_690x423.png" alt="image" data-base62-sha1="d2nq9ucCF7TIlP7xKlFym24OERE" width="690" height="423" srcset="https://leakfree.org/uploads/default/optimized/2X/5/5b6111fab27ed6d8424d02e1b8121cd345da358e_2_690x423.png, https://leakfree.org/uploads/default/optimized/2X/5/5b6111fab27ed6d8424d02e1b8121cd345da358e_2_1035x634.png 1.5x, https://leakfree.org/uploads/default/original/2X/5/5b6111fab27ed6d8424d02e1b8121cd345da358e.png 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/5/5b6111fab27ed6d8424d02e1b8121cd345da358e_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">1189×729 113 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+After that, using color to alpha (and optionally converting to grayscale or colorizing all or part of the image) will produce a nice drawing:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/9/924069031042e3d53728263bbc7b4a2db61133fc.jpeg" data-download-href="https://leakfree.org/uploads/default/924069031042e3d53728263bbc7b4a2db61133fc" title="image"><img src="https://leakfree.org/uploads/default/optimized/2X/9/924069031042e3d53728263bbc7b4a2db61133fc_2_467x500.jpeg" alt="image" data-base62-sha1="kRNHX2S9o9CGFE4itRzDkF0dRhi" width="467" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/9/924069031042e3d53728263bbc7b4a2db61133fc_2_467x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/9/924069031042e3d53728263bbc7b4a2db61133fc_2_700x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/9/924069031042e3d53728263bbc7b4a2db61133fc_2_934x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/9/924069031042e3d53728263bbc7b4a2db61133fc_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">963×1029 338 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+For drawings on chalkboards you may want to invert the colors to produce a dark drawing on a pale background.</p>
+<p>Basic things like scribbles, underlines, or circles can generally be found on Google Images.</p>
+<p><strong>Making Emails &amp; Other Computer Records</strong><br>
+I typically start with a ‘blank’ version of a common program like Outlook or Word. These can be made pretty simply just by finding a screenshot of the program on an older version of Windows and whiting out the text fields. If you wanted to be fancy I suppose you could set up your computer with a retro Windows theme and take screenshots off of that. Either way, I typically just edit the ‘blank’ versions directly in GIMP to add my own text; for things like PowerPoint slides I copy stuff from Draw.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/d/d0c4ee78abf76d3d8887912d02ccaac256d4abb9.png" data-download-href="https://leakfree.org/uploads/default/d0c4ee78abf76d3d8887912d02ccaac256d4abb9" title="image"><img src="https://leakfree.org/uploads/default/original/2X/d/d0c4ee78abf76d3d8887912d02ccaac256d4abb9.png" alt="image" data-base62-sha1="tMReJKsUqppmxjYiQPZteipUo7n" width="690" height="405" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/d/d0c4ee78abf76d3d8887912d02ccaac256d4abb9_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">1059×623 27.8 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+I’ve found that 11-point Tahoma with anti-aliasing disabled very well approximates the system font on old versions of Windows.</p>
+<p>There’s blank versions of each of the programs I’ve used in the relevant pre-disaster VPK files.</p>
+<p><strong>The ‘Terminal’ Screen Effect</strong><br>
+Sometimes for older displays or ones that aren’t a full computer monitor, I’ve added a striated glow effect. This works best on diagrams that are predominantly a black background with light-colored shapes- the ‘invert’ filter in GIMP can be very helpful in this regard.</p>
+<p>The actual filter is a four-step process: first, I add the 'Distorts &gt; Video" filter to create the scan lines effect; then, I decompose the image into R, G, and B layers; then, <em>for each layer</em>, I run the ‘artistic &gt; softglow’ filter; and finally recompose the image. This is necessary because if the softglow filter is applied to a full RGB image it just makes the glow white and not the color of what is glowing.</p>
+<p><strong>Final Preparation Of Document Textures</strong><br>
+The first thing you will want to do once a document is concocted to your satisfaction is to adjust it so that no part of it is exactly 0-0-0 black. This is because the later Source visual effect will use an RGB value of 0 0 0 to decide <em>not</em> to render portions of the image- this will cause portions of your document which are exactly black to render as ‘holes’ through which the background can be seen. Setting the dark output level in the ‘levels’ tool to 5 is a good way to remove any actual black areas without visibly altering the image:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/d/d3f57255f0f74acb8decc0ac449632cfa0136018.png" data-download-href="https://leakfree.org/uploads/default/d3f57255f0f74acb8decc0ac449632cfa0136018" title="image"><img src="https://leakfree.org/uploads/default/original/2X/d/d3f57255f0f74acb8decc0ac449632cfa0136018.png" alt="image" data-base62-sha1="uf4C1g8JOwO1fmls09f0nlbfRJ6" width="320" height="500" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/d/d3f57255f0f74acb8decc0ac449632cfa0136018_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">373×581 13.8 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Next, make sure the image is scaled properly. Source Engine textures must be a power of 2 along each axis (although it needn’t be the <em>same</em> power of 2, i.e. the image can be a rectangle and not a square), but while it’s good practice to fill as much of the available space in the image as possible the actual document need not take up <em>all</em> of it. Since some images (like computer outputs) are supposed to be a specific pixel-for-pixel representation of something and even those that aren’t can lose resolution when resized, you may want to scale the <em>canvas</em> to a power of 2 without affecting the image.</p>
+<p>Export the image to some sort of lossless format, import it into VTFEdit, and save it as a VTF file somewhere in your materials directory. Make a corresponding VMT with the following information:</p>
+<blockquote>
+<p>LightmappedGeneric<br>
+{<br>
+“$basetexture”	“path/to/vtf”<br>
+$selfillum 1<br>
+$selfillumtint “[.75 .75 .75]”<br>
+}</p>
+</blockquote>
+<p>The $selfillumtint parameter determines how bright your document will look and is influenced by your tonemap settings. Generally you don’t want them looking dark gray, but at the same time you don’t want them to be at full brightness because then under most tonemap settings there will be heavy bloom that obscures the text.</p>
+<p><strong>Displaying The Document In Hammer</strong><br>
+The apparatus for displaying a document consists of three parts.</p>
+<p>The first is the document itself, which is kept outside the main play area of the map with a point_camera pointed at it. I typically put mine all in a row in a single location, but they can really go anywhere.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/d/d8b5515e74673dfc39968fa92a58c6bc21c121d9.png" data-download-href="https://leakfree.org/uploads/default/d8b5515e74673dfc39968fa92a58c6bc21c121d9" title="image"><img src="https://leakfree.org/uploads/default/optimized/2X/d/d8b5515e74673dfc39968fa92a58c6bc21c121d9_2_690x373.png" alt="image" data-base62-sha1="uV5BwPcmlYfg41aWdoY4QOkHXWV" width="690" height="373" srcset="https://leakfree.org/uploads/default/optimized/2X/d/d8b5515e74673dfc39968fa92a58c6bc21c121d9_2_690x373.png, https://leakfree.org/uploads/default/optimized/2X/d/d8b5515e74673dfc39968fa92a58c6bc21c121d9_2_1035x559.png 1.5x, https://leakfree.org/uploads/default/optimized/2X/d/d8b5515e74673dfc39968fa92a58c6bc21c121d9_2_1380x746.png 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/d/d8b5515e74673dfc39968fa92a58c6bc21c121d9_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">1920×1038 290 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+The size of the document texture in Hammer doesn’t actually matter because Source maintains the original image resolution regardless of the texture scale- a texture will look just as crisp if it is on a large brush the player is far away from as it will on a small brush the player is close to. This is true for the camera entity as well. A document that takes up a little less than a 32-by-32 brush with the camera ~16 units away will typically be well-positioned to fill the screen. The brush behind the transparent document should be black. The camera doesn’t need any special properties other than a unique name.</p>
+<p>The second component is a collection of player behavior and view-management entities. These include a logic_auto with the output</p>
+<blockquote>
+<p>OnMapSpawn &lt;NAME OF YOUR SCRIPT_INTRO&gt; SetBlendMode 5</p>
+</blockquote>
+<p>a game_ui ent with the output</p>
+<blockquote>
+<p>PlayerOff &lt;NAME OF THE FUNC_BUTTON BELOW&gt; PressOut</p>
+</blockquote>
+<p>and the ‘Freeze Player’, ‘Hide Weapon’, ‘+Use Deactivates’, and ‘Jump Deactivates’ flags all set, and a script_intro entity which can be named anything. You only need one of these sets per map.</p>
+<p>Finally, each document you want to view needs a func_button entity with the “Use Activates”, “Toggle”, and “Don’t Move” flags set and the outputs</p>
+<blockquote>
+<p>OnIn &lt;NAME OF  YOUR SCRIPT_INTRO&gt; SetCameraViewEntity &lt;NAME OF THE CAMERA THAT SHOWS YOUR DOCUMENT&gt;<br>
+OnIn &lt;NAME OF YOUR FUNC_UI&gt; Activate<br>
+OnIn &lt;NAME OF YOUR SCRIPT_INTRO&gt; Activate 0.01<br>
+OnOut &lt;NAME OF YOUR FUNC_UI&gt; Deactivate<br>
+OnOut &lt;NAME OF YOUR SCRIPT_INTRO&gt; Deactivate</p>
+</blockquote>
+<p>It is most convenient for all of your buttons to have the same target name.<br>
+I made a small custom sprite to make the buttons visible, but this has no effect on their logic. The sprite texture is called documents/docflag_sprite.vmt and is available in any Pre-Disaster VPK.</p>
+          <p><a href="https://leakfree.org/t/document-generation-tutorial/61982/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/document-generation-tutorial/61982/1</link>
+        <pubDate>Tue, 11 Dec 2018 02:17:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-61982-1</guid>
+        <source url="https://leakfree.org/t/document-generation-tutorial/61982.rss">Document Generation Tutorial</source>
+      </item>
+  </channel>
+</rss>

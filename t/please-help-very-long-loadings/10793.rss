@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Please HELP ! VERY LONG LOADINGS</title>
+    <link>https://leakfree.org/t/please-help-very-long-loadings/10793</link>
+    <description>[sry for my bad english]
+i have 6gb of ram and my vga is 2x6870 Ati And i Have core i7 950
+but when i playing black mesa , loadings are very very long
+at first the starting loading was very long too but i add this -dxlevel 90 in the launch option and it got fixed
+but still the in game loadings are very very long , and i dont think its because of the low RAM , because it only use 20% of my ram
+
+what should i do ? :[</description>
+    
+    <lastBuildDate>Sat, 22 Sep 2012 17:27:11 +0000</lastBuildDate>
+    <category>In-game Issues (Mod)</category>
+    <atom:link href="https://leakfree.org/t/please-help-very-long-loadings/10793.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[Georges]]></dc:creator>
+        <description><![CDATA[
+            <p>Agreed.</p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/40">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/40</link>
+        <pubDate>Sat, 22 Sep 2012 17:27:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-40</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <p>I don’t think discussing HDD-related problems should really continue in the bugtracker :-). But as for OP problem which is not yet proven to be unrelated to the game itself further discussion should really move there.</p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/39">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/39</link>
+        <pubDate>Sat, 22 Sep 2012 17:24:16 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-39</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[Georges]]></dc:creator>
+        <description><![CDATA[
+            <p>Please see <a href="https://bitbucket.org/bmscd/black-mesa-source/issue/62/very-long-loadings" data-bbcode="true" rel="nofollow noopener">here</a> to continue discussion on this bug.</p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/38">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/38</link>
+        <pubDate>Sat, 22 Sep 2012 17:08:24 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-38</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="xen0n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/x/d07c76/40.png" class="avatar"> xen0n:</div>
+<blockquote>
+<p>… Smart data’s “current pending sector count” value is 310 sectors. (btw, long time ago, i have set idle time before parking to maximum (i cant remeber the exact number) via WD’s dos program, if that’s important. yeah i have EARS just like lexa2). Talking of backup - it’s nearly impossible, since i will need another 1.5 tb hdd, which i don’t have, and i have no people to borrow it from.</p>
+</blockquote>
+</aside>
+<p>Pending sectors are not a read badblocks yet. But they could be. What it means is that there are some block on your HDD which it can’t read properly (i.e. reads report ECC checksum fatal error) and it don’t know for sure if the data in that block hadn’t been properly written there at the first place - for example due to power outage or due to some vibration hitting the drive exactly at the moment it had been writing the data into these sectors - or if the platter really corrupted at that exact spot. Drive have to be instructed to perform a write into that sector in order to determine what’s really going on there and either mark it as a “normal” sector or perform a remap operation if writing there results in error trying to read the data back.</p>
+<p>As for backup: you could try using online storage to backup at least most important parts of your data. Free dropbox account would offer you some amount of storage space. You could use Google Mail as a virtual Web HDD - there are special tools for that available both for linux (fuse-based filesystems) and Windows.</p>
+<aside class="quote no-group" data-username="xen0n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/x/d07c76/40.png" class="avatar"> xen0n:</div>
+<blockquote>
+<p>About bad blocks, is any of these programs for linux? Or it’s better to work with ntfs on windows?</p>
+</blockquote>
+</aside>
+<p>NTFS is not a thing to work with in your case. I personally use linux mostly for performing low-level HDD operations and fall back to FreeDOS or Windows only in case I can’t do something with the linux-based tools. If you’re not frightened with using linux, try booting into any ubuntu-derivate live cd and make sure to install tools like smartmon/smartctl, badblocks, dd and hdpart - they are the core bits of HDD testing on linux.</p>
+<p>Start with performing a read-write non-destructive HDD test using badblocks executing it like this:</p>
+<pre><code class="lang-auto">badblocks -b 4096 -c 1024 -o ~/hdd-badblocks-found.txt -n -s /dev/sda</code></pre>
+<p>Make sure (1) to replace /dev/sda with correct device name for your harddrive (you could use blkid tool to check which one is it) and (2) that you haven’t mounted the filesystem residing on this drive (cat /proc/mounts | grep -i “sda”).</p>
+<p>In case you get a non-empty hdd-badblocks-found.txt file in your temporary live-cd home dir - there are read problems with your HDD and you have to proceed with trying to repair sectors that are possibly bad by writing all zeroes into them. As this drive internally uses 4k sized sectors you would have to write with zeroes continous block consisting of eight 512 byte sectrors. Tool to use for this task is a "hdparm --write-sector ". Most tricky thing is to get correct LBA sector addresses to rewrite. You could recalculate them from block numbers stored in the hdd-badblocks-found.txt file (-b 4096 means that 4k sized blocks had been used while testing with badblock utility so you have to multiply this numbers by 8 to get LBA address of the starting 8x512 sectors wide block to be erased). Alternative way is to use “dmesg | grep -i ‘end request’” and snip LBA addresses from there.</p>
+<p>Be warned that the information in the sectors your HDD is unable to read is already irrecoverably lost. Thus the only thing you could do is to write zeroes in place of that info and hope that drive either would remap sectors (if they’re really a physical corruption of the platter) or would zero-out sector and mark it as normal. And it case you fail to properly calculate LBA address of the sectors to be filled with zeroes - you would damage your data even more than it’s already damaged by unreadable sectors.</p>
+<aside class="quote no-group" data-username="xen0n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/x/d07c76/40.png" class="avatar"> xen0n:</div>
+<blockquote>
+<p>I got a program here, it can only run 3 kinds of “S.M.A.R.T. self-tests”: short, extended and conveyance. …</p>
+</blockquote>
+</aside>
+<p>These tests won’t help - they are built-in tests your HDD is capable of performing on its own, without requiring your OS to supervise them. They won’t trigger fix and/or relocation of the sectors, you have to force your drive into writing something to the problematic sector in order to “heal” the drive. And OS won’t do it on her own (unless you’re using some advanced hardware RAID1 controller or if you have recent-enough linux kernel with mdadm-based RAID1/3/5/6 - which is not your case).</p>
+<p>It is really an offtopic to discuss here so feel free to PM me in case you want some more gory details on linux-based HDD “soft-repair” techniques. I don’t promise to answer in promptly manner (soon my vacation would end and I would have to go back doing my usual work stuff which doesn’t leave me with a lot free time really) but in any case I could try to help you with this problem with the experience and knowledge I’ve got on this subject.</p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/37">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/37</link>
+        <pubDate>Sat, 22 Sep 2012 12:40:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-37</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[xen0n]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="lexa2">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/34f0e0/40.png" class="avatar"> lexa2:</div>
+<blockquote>
+<p>TL;DR: Check your harddrive for bad blocks now. Check it’s S.M.A.R.T. status, make sure you don’t have non-zero “Reallocated sectors count”, “Reallocation events count” and “Pending sectors”. Use some surface scanning utility like “HDD Scan” or “mhdd” or “victoria” if you’re experienced enough with using “low level hdd access” programs. Ask more experienced friend for help in checking/diagnosing the health of your HDD. Backup your data first!</p>
+</blockquote>
+</aside>
+<p>Thanks for advices. Yeah, i seem to have a problem here. Smart data’s “current pending sector count” value is 310 sectors. (btw, long time ago, i have set idle time before parking to maximum (i cant remeber the exact number) via WD’s dos program, if that’s important. yeah i have EARS just like you). Talking of backup - it’s nearly impossible, since i will need another 1.5 tb hdd, which i don’t have, and i have no people to borrow it from.</p>
+<p>About bad blocks, is any of these programs for linux? Or it’s better to work with ntfs on windows? I got a program here, it can only run 3 kinds of “S.M.A.R.T. self-tests”: short, extended and conveyance. The description says that extended is the longest, but i’m not sure SMART self-testes can really solve the problem since it’s just tests. Can any program help me relocate those bad blocks to somewhere so they won’t be used, or mark them as unusable, or smt?</p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/36">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/36</link>
+        <pubDate>Sat, 22 Sep 2012 12:12:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-36</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Leijonasisu">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/9e8a1a/40.png" class="avatar"> Leijonasisu:</div>
+<blockquote>
+<p>WD greens are the slowest, noisiest hard drives ever… they’re absolutely horrible. Are you running them in raid or not? They’ve been known to have problems running in raid.</p>
+</blockquote>
+</aside>
+<p>[COLOR=‘Gray’]BTW I use WD Greens for home NAS server RAID setup, It’s a 12x 1.5TB WD EARS packed into a custom-built case coupled with a custom LFS-based linux environment handling so-called RAID60 (RAID0 over 2x[RAID6 built from 6 HDDs]) and they do perform pretty well for their cost. Previously I’ve been using Seagates in this NAS but had to replace them failing one by one. WD Green are not the fastest drives ever but they are not producing that much heat compared to “green” Seagate drives. Noise problem is easy to solve by enabling AAM using S.M.A.R.T. control tool if it’s something that bothers you and auto-parking heads on “idle” problem is easy to solve using WD-supplied “toggle parking” tool. I.e. my experience tells me that WD hard drives are not that bad really but they do require a special handling (like proper RAID and/or partition alignment on 4k boundaries) to perform best. And TBH as for me - all modern HDDs are crappy like hell and should not be trusted by all means. Redundant RAID types is the only way to go if you do really care about your data. And backups, backups, backups, backups… :-)[/SIZE]</p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/35">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/35</link>
+        <pubDate>Sat, 22 Sep 2012 11:39:47 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-35</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[Leijonasisu]]></dc:creator>
+        <description><![CDATA[
+            <p>I have 2, 1TB WD Greens. So I can agree on how bad they are, and I also get really long loading times. Even on a i7-2600, 16GB DDR3 1333, 2x GTX 560Ti ASUS Direct CU 448 Core Edition.</p>
+<p>So It’s not just you experiencing problems with this drive.</p>
+<p>Though my loading times, at worst would be about 45 seconds.</p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/34">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/34</link>
+        <pubDate>Sat, 22 Sep 2012 11:33:39 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-34</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="xen0n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/x/d07c76/40.png" class="avatar"> xen0n:</div>
+<blockquote>
+<p>… So during one of the lags I’ve opened the console (took a few min). The picture was like that: game lags and then red string appears in the console, that says something about been unable to load something (i think it was vertexes for 9mm.(cant remeber the extension)). then same lag again (one after another with no break) and same red string again.</p>
+</blockquote>
+</aside>
+<p>Smells like an HDD problem. Or - which is by far less probable - a bug in the game engine and/or some third-party antivirus or antispyware software preventing the game to load assets properly.</p>
+<aside class="quote no-group" data-username="xen0n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/x/d07c76/40.png" class="avatar"> xen0n:</div>
+<blockquote>
+<p>…<br>
+Error! Flag “$model” is multiply defined in material “models/props_am/capacitor”!<br>
+Dynamic prop prop_dynamic: no sequence named:idle_after<br>
+unrecognized conditional test !lowfill?$startfadesize in particle/smoke1/smoke1<br>
+unrecognized conditional test lowfill?$startfadesize in particle/smoke1/smoke1<br>
+unrecognized conditional test !lowfill?$endfadesize in particle/smoke1/smoke1<br>
+unrecognized conditional test lowfill?$endfadesize in particle/smoke1/smoke1<br>
+unrecognized conditional test lowfill?$blendframes in particle/smoke1/smoke1<br>
+unrecognized conditional test !lowfill?$depthblend in particle/smoke1/smoke1<br>
+unrecognized conditional test lowfill?$depthblend in particle/smoke1/smoke1<br>
+Redownloading all lightmaps<br>
+…</p>
+</blockquote>
+</aside>
+<p>These are generally ok. smoke1-related errors are due to using a material created for the earlier version of the engine using a conditional test which isn’t available in the Base 2007 SDK. You could fix it by using a “Reduce FPS dropdown in the test chamber pack” I had posted here:<br>
+<a href="https://forums.blackmesasource.com/showthread.php?t=14361" data-bbcode="true" rel="nofollow noopener">https://forums.blackmesasource.com/showthread.php?t=14361</a></p>
+<p>In any case it shouldn’t cause any troubles in general (expect for extra fillrate usage that could cause excess FPS dropdown when smoke1 is being used).</p>
+<aside class="quote no-group" data-username="xen0n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/x/d07c76/40.png" class="avatar"> xen0n:</div>
+<blockquote>
+<p>…<br>
+KeyValues Error: RecursiveLoadFromBuffer:  got EOF instead of keyname in file materials/models/props_lab/wallunit_display_screen3.vmt<br>
+UnlitGeneric, (<em>proxies</em>), (<em>AnimatedTexture</em>),<br>
+KeyValues Error: RecursiveLoadFromBuffer:  got EOF instead of keyname in file materials/models/props_lab/wallunit_display_screen4.vmt<br>
+UnlitGeneric, (<em>proxies</em>), (<em>AnimatedTexture</em>),<br>
+…<br>
+Error Vertex File for ‘weapons\w_9mmclip.mdl’ id 16 should be 1448297545<br>
+Error Vertex File for ‘weapons\w_9mmclip.mdl’ id 16 should be 1448297545<br>
+…</p>
+</blockquote>
+</aside>
+<p>These are really bad. It either game files are corrupt or a failing HDD. Game hits an  unexpected End Of File marker for two files and seems to read up invalid file contents from disk for w_9mmclip.mdl.</p>
+<aside class="quote no-group" data-username="xen0n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/x/d07c76/40.png" class="avatar"> xen0n:</div>
+<blockquote>
+<p>Error Vertex File for ‘weapons\w_9mmclip.mdl’ id 7 should be 1448297545<br>
+Error Vertex File for ‘weapons\w_9mmclip.mdl’ id 7 should be 1448297545</p>
+</blockquote>
+</aside>
+<p>Yet another problem with reading up the same file.</p>
+<p>TL;DR: Check your harddrive for bad blocks now. Check it’s S.M.A.R.T. status, make sure you don’t have non-zero “Reallocated sectors count”, “Reallocation events count” and “Pending sectors”. Use some surface scanning utility like “HDD Scan” or “mhdd” or “victoria” if you’re experienced enough with using “low level hdd access” programs. Ask more experienced friend for help in checking/diagnosing the health of your HDD. Backup your data first!</p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/33">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/33</link>
+        <pubDate>Sat, 22 Sep 2012 11:29:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-33</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[xen0n]]></dc:creator>
+        <description><![CDATA[
+            <p>Yeah, i know they are bad, i mean i’ve found that out when i bought it. I think it was one of the first to have a value of 1.5 tb which i really desired. Although the only thing bad about them is speed. (at least for windows, linux got issues with power save feature)</p>
+<p>No, it’s only one hdd, no raid.</p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/32">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/32</link>
+        <pubDate>Sat, 22 Sep 2012 11:20:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-32</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[Leijonasisu]]></dc:creator>
+        <description><![CDATA[
+            <p>WD greens are the slowest, noisiest hard drives ever… they’re absolutely horrible. Are you running them in raid or not? They’ve been known to have problems running in raid.</p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/31">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/31</link>
+        <pubDate>Sat, 22 Sep 2012 11:17:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-31</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[xen0n]]></dc:creator>
+        <description><![CDATA[
+            <p>I have just realized that it lags on exact spots - i got ultra-lag on the very same place that the last time.</p>
+<p>Yeah i have that WD Green 1.5 tb alone, and i got system on it. Bad, but it seem to be ok in most cases. (the cases when it’s not ok is when i download something from lan on 10 mbyte speed - that’s when hdd cant handle both system and download)</p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/30">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/30</link>
+        <pubDate>Sat, 22 Sep 2012 10:59:33 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-30</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[Leijonasisu]]></dc:creator>
+        <description><![CDATA[
+            <p>Sounds like you’ve got some horrible defrag or something… you never mentioned what kind of HDDs you have.</p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/29">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/29</link>
+        <pubDate>Sat, 22 Sep 2012 10:59:12 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-29</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[xen0n]]></dc:creator>
+        <description><![CDATA[
+            <p>I have the very same problem. The game just stucks at a certain moment of load (which can be seen on the load bar - it stops at exact moment). Loading takes 5-10 min (maybe more). And also i have lags during the game for 1-5 min. So during one of the lags I’ve opened the console (took a few min). The picture was like that: game lags and then red string appears in the console, that says something about been unable to load something (i think it was vertexes for 9mm.(cant remeber the extension)). then same lag again (one after another with no break) and same red string again. although there are more kinds of red strings but just vertexes for 9mm, i’ve seen lots of them from previous lags. I will now try to get a log, if i could (it’s nearly impossible - windows lags too bad)</p>
+<p>and oh, I had graphics on maximum and I didnt have a single lag, and no long load during the first mission - arrival. but soon after reactor have blowed it started to get bad. I’ve tryed to minimum the graphics and turned off those up-right corner options in “black mesa” tab - didn’t help.</p>
+<p>UPD :<br>
+I have graphics on maximum now and “black mesa” tab perfomance options on<br>
+Sorry, i couldn’t find spoiler button and [spoiler] doen’t seem to work.<br>
+When I only started the game I opened the console:<br>
+maxplayers set to 1<br>
+Steam config directory: d:\games\steam\steamapps\xen0n48\source sdk base 2007\platform\config<br>
+exec: couldn’t exec userconfig.cfg<br>
+Error! Flag “$model” is multiply defined in material “models/props_am/capacitor”!<br>
+Dynamic prop prop_dynamic: no sequence named:idle_after<br>
+unrecognized conditional test !lowfill?$startfadesize in particle/smoke1/smoke1<br>
+unrecognized conditional test lowfill?$startfadesize in particle/smoke1/smoke1<br>
+unrecognized conditional test !lowfill?$endfadesize in particle/smoke1/smoke1<br>
+unrecognized conditional test lowfill?$endfadesize in particle/smoke1/smoke1<br>
+unrecognized conditional test lowfill?$blendframes in particle/smoke1/smoke1<br>
+unrecognized conditional test !lowfill?$depthblend in particle/smoke1/smoke1<br>
+unrecognized conditional test lowfill?$depthblend in particle/smoke1/smoke1<br>
+Redownloading all lightmaps</p>
+<p>I started to load a quick save bm_c1a1c. Took 10 min. Log:</p>
+<p>ConVarRef  doesn’t point to an existing ConVar<br>
+Dropped xen0n from server (Disconnect by user.)<br>
+Loading game from SAVE\quick.sav…<br>
+No such variable “$selfillumtint” for material “models/props_lab/wallunit_display_screen1”<br>
+Error: Material “models/props_lab/wallunit_display_screen1” : proxy “Sine” unable to initialize!<br>
+No such variable “$selfillumtint” for material “models/props_lab/wallunit_display_screen2”<br>
+Error: Material “models/props_lab/wallunit_display_screen2” : proxy “Sine” unable to initialize!<br>
+KeyValues Error: RecursiveLoadFromBuffer:  got EOF instead of keyname in file materials/models/props_lab/wallunit_display_screen3.vmt<br>
+UnlitGeneric, (<em>proxies</em>), (<em>AnimatedTexture</em>),<br>
+KeyValues Error: RecursiveLoadFromBuffer:  got EOF instead of keyname in file materials/models/props_lab/wallunit_display_screen4.vmt<br>
+UnlitGeneric, (<em>proxies</em>), (<em>AnimatedTexture</em>),<br>
+No such variable “$selfillumtint” for material “models/props_lab/wallunit_display_screen5”<br>
+Error: Material “models/props_lab/wallunit_display_screen5” : proxy “Sine” unable to initialize!<br>
+No such variable “$selfillumtint” for material “models/props_lab/tv_ceiling_screen2”<br>
+Error: Material “models/props_lab/tv_ceiling_screen2” : proxy “Sine” unable to initialize!<br>
+No such variable “$selfillumtint” for material “models/props_lab/tv_ceiling_screen3”<br>
+Error: Material “models/props_lab/tv_ceiling_screen3” : proxy “Sine” unable to initialize!<br>
+No such variable “$selfillumtint” for material “models/props_lab/tv_ceiling_screen4”<br>
+Error: Material “models/props_lab/tv_ceiling_screen4” : proxy “Sine” unable to initialize!<br>
+No such variable “$selfillumtint” for material “models/props_lab/tv_ceiling_screen6”<br>
+Error: Material “models/props_lab/tv_ceiling_screen6” : proxy “Sine” unable to initialize!<br>
+No such variable “$selfillumtint” for material “models/props_lab/tv_ceiling_screen7”<br>
+Error: Material “models/props_lab/tv_ceiling_screen7” : proxy “Sine” unable to initialize!<br>
+Loading game from //MOD/SAVE/bm_c1a1c.HL1…<br>
+Error! Variable “$detail” is multiply defined in material “models/zombies/zscient_b”!<br>
+Error! Variable “$detailscale” is multiply defined in material “models/zombies/zscient_b”!<br>
+Error! Variable “$detailblendfactor” is multiply defined in material “models/zombies/zscient_b”!<br>
+Error! Variable “$detailblendmode” is multiply defined in material “models/zombies/zscient_b”!<br>
+Error! Variable “$detail” is multiply defined in material “models/zombies/zscient_h”!<br>
+Error! Variable “$detailscale” is multiply defined in material “models/zombies/zscient_h”!<br>
+Error! Variable “$detailblendfactor” is multiply defined in material “models/zombies/zscient_h”!<br>
+Error! Variable “$detailblendmode” is multiply defined in material “models/zombies/zscient_h”!<br>
+Error! Variable “$surfaceprop” is multiply defined in material “models/props_c17/oil_drum_chunks001a”!<br>
+Error Vertex File for ‘weapons\w_9mmclip.mdl’ id 16 should be 1448297545<br>
+Error Vertex File for ‘weapons\w_9mmclip.mdl’ id 16 should be 1448297545<br>
+Error! Variable “$detail” is multiply defined in material “models/xenians/houndeye/houndeye”!<br>
+Error! Variable “$detailscale” is multiply defined in material “models/xenians/houndeye/houndeye”!<br>
+Error! Variable “$detailblendfactor” is multiply defined in material “models/xenians/houndeye/houndeye”!<br>
+Error! Variable “$detailblendmode” is multiply defined in material “models/xenians/houndeye/houndeye”!<br>
+No caption found for ‘flesh.scrapesmooth’<br>
+Redownloading all lightmaps</p>
+<p>I start playing. First step. First lag. Log:</p>
+<p>Error Vertex File for ‘weapons\w_9mmclip.mdl’ id 7 should be 1448297545<br>
+Error Vertex File for ‘weapons\w_9mmclip.mdl’ id 7 should be 1448297545</p>
+<p>Tryed to disable and enable back head bobing here (if it’s important):<br>
+exec: couldn’t exec userconfig.cfg<br>
+Host_WriteConfiguration: Wrote cfg/config.cfg<br>
+exec: couldn’t exec userconfig.cfg<br>
+Host_WriteConfiguration: Wrote cfg/config.cfg<br>
+exec: couldn’t exec userconfig.cfg<br>
+Host_WriteConfiguration: Wrote cfg/config.cfg<br>
+exec: couldn’t exec userconfig.cfg<br>
+Host_WriteConfiguration: Wrote cfg/config.cfg</p>
+<p>The funny thing is that it does not lag when i just stand and observe the surroundings, but when i go WSAD it does</p>
+<p>On and on it lagged on every step and every action (like hitting a wall) sometimes (not every single time thought) giving this in the console:</p>
+<p>Error Vertex File for ‘weapons\w_9mmclip.mdl’ id 7 should be 1448297545<br>
+Error Vertex File for ‘weapons\w_9mmclip.mdl’ id 7 should be 1448297545</p>
+<p>I’ll try to get more log a bit later.</p>
+<p>Oh btw. I’ve reminded the lag it also showed (before): No caption found for ‘flesh.scrapesmooth’ - it showed no caption found for different things</p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/28">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/28</link>
+        <pubDate>Sat, 22 Sep 2012 10:32:47 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-28</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <p>Yet another thing to try: quit the game and remove folder /steamapps/sourcemods/BMS/maps/soundcache and file /steamapps/sourcemods/BMS/modelsounds.cache and let the game to rebuild models and sound cache on the next startup.</p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/27">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/27</link>
+        <pubDate>Thu, 20 Sep 2012 07:49:00 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-27</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <p>I don’t think you’re correct on this.</p>
+<p>Redownloading lightmaps you get is about the game re-reading from the hard drive and uploading to the video card memory space a special kind of textures called “lightmaps”, not about the game seeking out into the internet and downloading something from there.</p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/26">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/26</link>
+        <pubDate>Thu, 20 Sep 2012 06:34:49 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-26</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[omidelf]]></dc:creator>
+        <description><![CDATA[
+            <p>[COLOR=‘Red’]<span class="bbcode-b">guys i think i found out the PROBLEM !!!<br>
+</span><br>
+i think when you enter the new area , the game start to download some things and that was why because my loading was too long ! because i was downloading something else !! so the download speed of the game was too low [ i saw this in the console : Redownloading all lightmaps ! ]</p>
+<p>after i stopped that download , the loading was much faster ! less than 30 sec !</p>
+<p>i think that was the problem …</p>
+<p>So how can i stop in game download , so it don’t download anything when i enter new area ?</p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/25">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/25</link>
+        <pubDate>Thu, 20 Sep 2012 06:28:12 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-25</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[omidelf]]></dc:creator>
+        <description><![CDATA[
+            <p>guys at least answer this question :</p>
+<p><a href="https://forums.blackmesasource.com/showthread.php?p=502097" data-bbcode="true" rel="nofollow noopener">https://forums.blackmesasource.com/showthread.php?p=502097</a></p>
+<p>i cant even continue now !! what the hell should i do  <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/24">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/24</link>
+        <pubDate>Thu, 20 Sep 2012 05:47:26 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-24</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[omidelf]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="The_One_Above_all">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/t/aca169/40.png" class="avatar"> The_One_Above_all:</div>
+<blockquote>
+<p>You can use a program called Process Monitor to track what your computer is doing when Black Mesa Source is loading. Process Monitor tracks all file/registry and even network activity - it is an invaluable tool for troubleshooting computer problems. The only bad thing is it captures a TON of information, and it may be too complicated for a computer novice. Take a look and see if it’s for you! Process Monitor is free and is absolutely trustworthy.</p>
+<p><a href="https://technet.microsoft.com/en-us/sysinternals/bb896645" data-bbcode="true" rel="nofollow noopener">https://technet.microsoft.com/en-us/sysinternals/bb896645</a></p>
+<p>Here is a screenshot of what Process Monitor looks like: <a href="https://i.imgur.com/YBMJw.jpg" data-bbcode="true" rel="nofollow noopener">https://i.imgur.com/YBMJw.jpg</a></p>
+</blockquote>
+</aside>
+<p>yes i know that , my cpu usage is 10% , my ram usage is 20% , my DISK usage is very low , and i don’t think my network usage is important !</p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/23">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/23</link>
+        <pubDate>Thu, 20 Sep 2012 05:44:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-23</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="The_One_Above_all">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/t/aca169/40.png" class="avatar"> The_One_Above_all:</div>
+<blockquote>
+<p>… Process Monitor is free and is absolutely trustworthy…</p>
+</blockquote>
+</aside>
+<p>Yeah, tools by Mark Russinovich are gems for software troubleshooting. But they are IMO a bit too hard to understand and use by an average “simple PC user/games”. And I’m afraid PM won’t be of any use for troubleshooting this problem in case it’s something caused by CPU hogged in the system kernel space in sound card driver or in antivirus software “realtime activity monitor” trap.</p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/22">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/22</link>
+        <pubDate>Thu, 20 Sep 2012 03:09:44 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-22</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[The_One_Above_all]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="omidelf">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/o/34f0e0/40.png" class="avatar"> omidelf:</div>
+<blockquote>
+<p>more than 5 minute !<br>
+and im sure my ram is not slow because i played many games like crysis 1&amp;2 and BF3 and … but i didn’t have any problem with them</p>
+<p>do you think Re installing the game would help ?</p>
+</blockquote>
+</aside>
+<p>You can use a program called Process Monitor to track what your computer is doing when Black Mesa Source is loading. Process Monitor tracks all file/registry and even network activity - it is an invaluable tool for troubleshooting computer problems. The only bad thing is it captures a TON of information, and it may be too complicated for a computer novice. Take a look and see if it’s for you! Process Monitor is free and is absolutely trustworthy.</p>
+<p><a href="https://technet.microsoft.com/en-us/sysinternals/bb896645" data-bbcode="true" rel="nofollow noopener">https://technet.microsoft.com/en-us/sysinternals/bb896645</a></p>
+<p>Here is a screenshot of what Process Monitor looks like: <a href="https://i.imgur.com/YBMJw.jpg" data-bbcode="true" rel="nofollow noopener">https://i.imgur.com/YBMJw.jpg</a></p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/21">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/21</link>
+        <pubDate>Thu, 20 Sep 2012 01:42:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-21</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[sersoft]]></dc:creator>
+        <description><![CDATA[
+            <p>your ` key is probably in another language, make sure your keyboard is set to English</p>
+<p>To have it permanently on, put -console in launch options, to find it, right click BM on your game list and press properties.</p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/20</link>
+        <pubDate>Wed, 19 Sep 2012 21:35:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-20</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[omidelf]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="geekofalltrades">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/g/c2a13f/40.png" class="avatar"> geekofalltrades:</div>
+<blockquote>
+<p>You might need to enable the console in the “Advanced” section of the Keyboard tab in the settings menu.  This isn’t something you do in the console, though.  Right click on Black Mesa in your games list, bring up properties, and add “-nosound” to the end of the properties line.  Then launch Black Mesa and see if that fixes the loading problem.</p>
+</blockquote>
+</aside>
+<p>i try that too but it didn’t work …</p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/19</link>
+        <pubDate>Wed, 19 Sep 2012 20:42:39 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-19</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[geekofalltrades]]></dc:creator>
+        <description><![CDATA[
+            <p>You might need to enable the console in the “Advanced” section of the Keyboard tab in the settings menu.  This isn’t something you do in the console, though.  Right click on Black Mesa in your games list, bring up properties, and add “-nosound” to the end of the properties line.  Then launch Black Mesa and see if that fixes the loading problem.</p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/18</link>
+        <pubDate>Wed, 19 Sep 2012 20:05:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-18</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[omidelf]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="geekofalltrades">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/g/c2a13f/40.png" class="avatar"> geekofalltrades:</div>
+<blockquote>
+<p>This is almost certainly a caching problem of some kind.  lexa2 previously suggested that you try running the game with “-nosound” in the launch options - have you tried that?</p>
+</blockquote>
+</aside>
+<p>when i press <code>, the console don't show up ! why is that ? i checked the option &gt; keyboard , and the console key was "</code> "<br>
+but it wont work</p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/17</link>
+        <pubDate>Wed, 19 Sep 2012 19:09:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-17</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+      <item>
+        <title>Please HELP ! VERY LONG LOADINGS</title>
+        <dc:creator><![CDATA[geekofalltrades]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="omidelf">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/o/34f0e0/40.png" class="avatar"> omidelf:</div>
+<blockquote>
+<p>nope i was wrong i still have this stupid problem …<br>
+its wired because when i enter those areas that i have been before the loading only takes 4,5 sec but when i enter new areas it take more than 5 minute !!</p>
+</blockquote>
+</aside>
+<p>This is almost certainly a caching problem of some kind.  lexa2 previously suggested that you try running the game with “-nosound” in the launch options - have you tried that?</p>
+          <p><a href="https://leakfree.org/t/please-help-very-long-loadings/10793/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/please-help-very-long-loadings/10793/16</link>
+        <pubDate>Wed, 19 Sep 2012 18:43:50 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10793-16</guid>
+        <source url="https://leakfree.org/t/please-help-very-long-loadings/10793.rss">Please HELP ! VERY LONG LOADINGS</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Weapons naming and binding</title>
+    <link>https://leakfree.org/t/weapons-naming-and-binding/10717</link>
+    <description>Hello folks, not sure if this is the place to post it, so feel free to move it if you think there&#39;s a better place for this contribution (make it a Sticky, maybe?).
+
+So, I don&#39;t know about you but I really like binding weapons to specific keys so I don&#39;t have to be pressing numbers or scrolling in the middle of an encounter.
+
+Problems: weapons names in BMS differ from HL1 and HL2; plus, the names in folder C:/Program Files/Steam/SteamApps/SourceMods/BMS/models/weapons/ also differ from those used in the game (crazy but true).
+
+So here is my little contribution to the community:
+
+[b]Weapons names:[/b]
+
+[b][u]Crowbar:[/u][/b] [i]weapon_crowbar[/i]
+[b][u]Pistol (9mm):[/u][/b] [i]weapon_glock[/i]
+[b][u]SMG (9mm):[/u][/b] [i]weapon_mp5[/i]
+[b][u]Shotgun:[/u][/b] [i]weapon_shotgun[/i]
+[b][u]Hand grenade:[/u][/b] [i]weapon_frag[/i]
+[b][u]Missile launcher, RPG or Bazooka:[/u][/b] [i]weapon_rpg[/i]
+[b][u]Revolver (.357):[/u][/b] [i]weapon_357[/i]
+[b][u]Gauss, TauCannon, etc:[/u][/b] [i]weapon_tau[/i]
+[b][u]Hornet Gun, Hive Hand, etc:[/u][/b] [i]weapon_hivehand[/i]
+[b][u]Gluon Gun, Egon, etc:[/u][/b] [i]weapon_gluon[/i]
+[b][u]Slam, TripMine, etc:[/u][/b] [i]weapon_tripmine[/i]
+[b][u]Crossbow, xbow, etc:[/u][/b] [i]weapon_crossbow[/i]
+[b][u]Satchel Charge, Explosive Bag, etc:[/u][/b] [i]weapon_satchel[/i]
+
+As you see, many of them differ from HL1, HL2 and BMS/models/weapons/ directory.
+
+[u]How to bind them:[/u] [i]bind key &quot;use weapon_...&quot;[/i]
+
+[u]Example (my &#39;BMS/cfg/config.cfg&#39;):[/u]
+
+[i]
+bind &quot;ESCAPE&quot; &quot;cancelselect&quot;
+bind &quot;PAUSE&quot; &quot;pause&quot;
+bind &quot;SHIFT&quot; &quot;+speed&quot;
+bind &quot;ALT&quot; &quot;+walk&quot;
+bind &quot;CTRL&quot; &quot;+duck&quot;
+bind &quot;F3&quot; &quot;askconnect_accept&quot;
+bind &quot;F5&quot; &quot;jpeg&quot;
+bind &quot;F6&quot; &quot;save quick&quot;
+bind &quot;F9&quot; &quot;load quick&quot;
+bind &quot;MOUSE1&quot; &quot;+attack&quot;
+bind &quot;MOUSE2&quot; &quot;+attack2&quot;
+bind &quot;MOUSE4&quot; &quot;use weapon_satchel&quot;
+bind &quot;MOUSE5&quot; &quot;impulse 100&quot;
+bind &quot;MWHEELUP&quot; &quot;net_graph 3; cl_showpos 1&quot;
+bind &quot;MWHEELDOWN&quot; &quot;net_graph 0; cl_showpos 0&quot;
+cl_battery_dlights &quot;1&quot;
+cl_dlight_manager_max_fps &quot;45&quot;
+cl_dlight_manager_min_fps &quot;30&quot;
+cl_dlight_manager_enable &quot;1&quot;
+hud_postprocess &quot;1&quot;
+hud_bloomscale &quot;6&quot;
+cl_mdldetailfx_enable &quot;1&quot;
+cl_mdldetailfx_universal_hands &quot;1&quot;
+cl_mdldetailfx_enable_hands &quot;1&quot;
+cl_mdldetailfx_blood_time &quot;60&quot;
+cl_mdldetailfx_slime_time &quot;10&quot;
+cl_post_process_chromatic_enable &quot;1&quot;
+cl_post_process_noise_enable &quot;1&quot;
+cl_post_process_geiger_noise &quot;1&quot;
+cl_tram_units &quot;1&quot;
+cl_rumblescale &quot;1.0&quot;
+cl_debugrumble &quot;0&quot;
+cl_team &quot;default&quot;
+cl_class &quot;default&quot;
+hud_takesshots &quot;0&quot;
+cl_showhelp &quot;0&quot;
+cam_snapto &quot;0&quot;
+cam_ideallag &quot;4.0&quot;
+cam_idealdelta &quot;4.0&quot;
+cam_idealyaw &quot;0&quot;
+cam_idealpitch &quot;0&quot;
+cam_idealdist &quot;150&quot;
+cam_collision &quot;1&quot;
+c_maxpitch &quot;90&quot;
+c_minpitch &quot;0&quot;
+c_maxyaw &quot;135&quot;
+c_minyaw &quot;-135&quot;
+c_maxdistance &quot;200&quot;
+c_mindistance &quot;30&quot;
+c_orthowidth &quot;100&quot;
+c_orthoheight &quot;100&quot;
+lookspring &quot;0&quot;
+lookstrafe &quot;0&quot;
+joystick &quot;0&quot;
+m_pitch &quot;0.022&quot;
+m_filter &quot;0&quot;
+sensitivity &quot;2.22&quot;
+m_side &quot;0.8&quot;
+m_yaw &quot;0.022&quot;
+m_forward &quot;1&quot;
+m_customaccel &quot;0&quot;
+m_customaccel_scale &quot;0.04&quot;
+m_customaccel_max &quot;0&quot;
+m_customaccel_exponent &quot;1&quot;
+m_mouseaccel1 &quot;0&quot;
+m_mouseaccel2 &quot;0&quot;
+m_mousespeed &quot;1&quot;
+cl_mouselook &quot;1&quot;
+overview_health &quot;1&quot;
+overview_names &quot;1&quot;
+overview_tracks &quot;1&quot;
+overview_locked &quot;1&quot;
+overview_alpha &quot;1.0&quot;
+cl_idealpitchscale &quot;0.8&quot;
+spec_scoreboard &quot;0&quot;
+cl_spec_mode &quot;1&quot;
+voice_modenable &quot;1&quot;
+net_scale &quot;5&quot;
+net_graphpos &quot;1&quot;
+net_graphsolid &quot;1&quot;
+net_graphtext &quot;1&quot;
+net_graphmsecs &quot;400&quot;
+net_graphshowlatency &quot;1&quot;
+net_graphshowinterp &quot;1&quot;
+net_graph &quot;0&quot;
+net_graphheight &quot;64&quot;
+net_graphproportionalfont &quot;1&quot;
+hud_draw_fixed_reticle &quot;0&quot;
+cl_chatfilters &quot;31&quot;
+cc_linger_time &quot;1.0&quot;
+cc_predisplay_time &quot;0.25&quot;
+cc_subtitles &quot;0&quot;
+cc_lang &quot;&quot;
+g15_update_msec &quot;250&quot;
+mat_software_aa_strength &quot;0.000000&quot;
+mat_software_aa_quality &quot;0&quot;
+mat_software_aa_edge_threshold &quot;1.0&quot;
+mat_software_aa_blur_one_pixel_lines &quot;0.5&quot;
+mat_software_aa_tap_offset &quot;1.0&quot;
+mat_software_aa_strength_vgui &quot;1.000000&quot;
+cl_playerspraydisable &quot;0&quot;
+muzzleflash_light &quot;1&quot;
+cl_npc_speedmod_intime &quot;0.25&quot;
+cl_npc_speedmod_outtime &quot;1.5&quot;
+fov_desired &quot;75&quot;
+cc_pickup_enable &quot;1&quot;
+cl_bob_disable &quot;0&quot;
+cl_bobcycle &quot;0.45&quot;
+cl_bobup &quot;0.5&quot;
+cl_bob &quot;0.005&quot;
+cl_bob_vertical_scale &quot;0.2&quot;
+cl_bob_lateral_scale &quot;0.8&quot;
+cl_bob_angle_pitch_scale &quot;0.4&quot;
+cl_bob_angle_yaw_scale &quot;0.3&quot;
+cl_bob_angle_roll_scale &quot;0.5&quot;
+cl_gluon_burn_trail &quot;1&quot;
+cl_gluon_threading &quot;0&quot;
+crosshair &quot;1&quot;
+cl_observercrosshair &quot;1&quot;
+crosshair_color_red &quot;255&quot;
+crosshair_color_green &quot;170&quot;
+crosshair_color_blue &quot;0&quot;
+crosshair_color_alpha &quot;255&quot;
+hud_fastswitch &quot;1&quot;
+vgui_message_dialog_modal &quot;1&quot;
+commentary_firstrun &quot;0&quot;
+sv_gib_system_allow_tau_fx &quot;1&quot;
+npc_height_adjust &quot;1&quot;
+sv_pvsskipanimation &quot;1&quot;
+scene_showlook &quot;0&quot;
+scene_showmoveto &quot;0&quot;
+scene_showunlock &quot;0&quot;
+sv_tram_allow_mouse_input &quot;0&quot;
+sv_always_run &quot;0&quot;
+xbox_throttlebias &quot;100&quot;
+xbox_throttlespoof &quot;200&quot;
+xbox_autothrottle &quot;1&quot;
+suitvolume &quot;0.25&quot;
+xc_uncrouch_on_jump &quot;1&quot;
+option_duck_method &quot;1&quot;
+sk_autoaim_mode &quot;1&quot;
+sv_noclipaccelerate &quot;5&quot;
+sv_noclipspeed &quot;5&quot;
+sv_specaccelerate &quot;5&quot;
+sv_specspeed &quot;3&quot;
+sv_specnoclip &quot;1&quot;
+sv_skyname &quot;bm_sky_underground_00&quot;
+sv_backspeed &quot;0.6&quot;
+func_break_max_pieces &quot;15&quot;
+commentary &quot;0&quot;
+scene_showfaceto &quot;0&quot;
+ai_report_task_timings_on_limit &quot;0&quot;
+ai_think_limit_label &quot;0&quot;
+sv_stickysprint &quot;0&quot;
+xc_crouch_range &quot;0.85&quot;
+xc_use_crouch_limiter &quot;0&quot;
+sv_gib_system_allow_vort_fx &quot;1&quot;
+sv_houndeye_tinnitus &quot;0&quot;
+gib_ragdoll_blast_chance &quot;0.75&quot;
+gib_ragdoll_energy_chance &quot;0.075&quot;
+sv_gib_system_allow_gluon_fx &quot;1&quot;
+sv_ironsight_sticky &quot;1&quot;
+sv_gib_system_enabled &quot;1&quot;
+sv_gib_system_fade &quot;60&quot;
+sv_gib_system_max &quot;100&quot;
+sv_gib_system_scale_damage &quot;0.25&quot;
+sv_gib_system_scale_force &quot;0.3&quot;
+sv_ironsight &quot;1&quot;
+sv_crossbow_force_bolt_reload &quot;0&quot;
+bugreporter_uploadasync &quot;0&quot;
+cl_cmdrate &quot;101&quot;
+cl_updaterate &quot;101&quot;
+closecaption &quot;0&quot;
+skill &quot;2&quot;
+net_maxroutable &quot;1260&quot;
+cl_allowupload &quot;1&quot;
+name &quot;mbaragiola&quot;
+password &quot;&quot;
+sv_unlockedchapters &quot;15&quot;
+tv_nochat &quot;0&quot;
+cl_showpluginmessages &quot;0&quot;
+cl_timeout &quot;65&quot;
+cl_logofile &quot;materials/decals/spraylogo.vtf&quot;
+cl_soundfile &quot;sound/player/jingle.wav&quot;
+cl_forcepreload &quot;1&quot;
+cl_allowdownload &quot;1&quot;
+cl_downloadfilter &quot;nosounds&quot;
+con_enable &quot;1&quot;
+r_eyemove &quot;1&quot;
+r_eyeshift_x &quot;0&quot;
+r_eyeshift_y &quot;0&quot;
+r_eyeshift_z &quot;0&quot;
+r_eyesize &quot;0&quot;
+r_ambientboost &quot;1&quot;
+r_ambientmin &quot;0.3&quot;
+r_ambientfactor &quot;5&quot;
+r_drawmodelstatsoverlaymin &quot;0.1&quot;
+r_drawmodelstatsoverlaymax &quot;1.5&quot;
+mp_decals &quot;4096&quot;
+sv_logsdir &quot;logs&quot;
+sv_logfile &quot;1&quot;
+sv_logflush &quot;0&quot;
+sv_logecho &quot;1&quot;
+sv_log_onefile &quot;0&quot;
+sv_logbans &quot;0&quot;
+sv_voiceenable &quot;1&quot;
+sv_forcepreload &quot;0&quot;
+snd_legacy_surround &quot;0&quot;
+snd_pitchquality &quot;1&quot;
+volume &quot;1.0&quot;
+snd_musicvolume &quot;0.100000&quot;
+snd_mixahead &quot;0.1&quot;
+adsp_debug &quot;0&quot;
+snd_ducktovolume &quot;0.55&quot;
+snd_duckerattacktime &quot;0.5&quot;
+snd_duckerreleasetime &quot;2.5&quot;
+snd_duckerthreshold &quot;0.15&quot;
+dsp_slow_cpu &quot;0&quot;
+dsp_volume &quot;1.0&quot;
+dsp_enhance_stereo &quot;1&quot;
+voice_scale &quot;1&quot;
+voice_enable &quot;1&quot;
+voice_forcemicrecord &quot;1&quot;
+budget_bargraph_background_alpha &quot;128&quot;
+budget_peaks_window &quot;30&quot;
+budget_averages_window &quot;30&quot;
+budget_show_peaks &quot;1&quot;
+budget_show_averages &quot;0&quot;
+budget_show_history &quot;1&quot;
+budget_history_numsamplesvisible &quot;100&quot;
+budget_history_range_ms &quot;66.666666667&quot;
+budget_panel_bottom_of_history_fraction &quot;.25&quot;
+budget_bargraph_range_ms &quot;16.6666666667&quot;
+budget_background_alpha &quot;128&quot;
+budget_panel_x &quot;0&quot;
+budget_panel_y &quot;50&quot;
+budget_panel_width &quot;512&quot;
+budget_panel_height &quot;384&quot;
+texture_budget_panel_x &quot;0&quot;
+texture_budget_panel_y &quot;450&quot;
+texture_budget_panel_width &quot;512&quot;
+texture_budget_panel_height &quot;284&quot;
+texture_budget_panel_bottom_of_history_fraction &quot;.25&quot;
+texture_budget_background_alpha &quot;128&quot;
+vprof_graphwidth &quot;512&quot;
+vprof_graphheight &quot;256&quot;
+vprof_verbose &quot;1&quot;
+vprof_unaccounted_limit &quot;0.3&quot;
+vprof_warningmsec &quot;10&quot;
+mat_monitorgamma_tv_enabled &quot;0&quot;[/i]
+
+( You may [b]download[/b] the file from here: [url]https://dl.dropbox.com/u/76712664/Games/Configs/Black%20Mesa%20Source/config.cfg[/url] )
+
+
+I hope you liked it.
+
+Greetings from Argentina  :slight_smile:</description>
+    
+    <lastBuildDate>Tue, 18 Sep 2012 14:13:25 +0000</lastBuildDate>
+    <category>Help!</category>
+    <atom:link href="https://leakfree.org/t/weapons-naming-and-binding/10717.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Weapons naming and binding</title>
+        <dc:creator><![CDATA[s0iz]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello folks, not sure if this is the place to post it, so feel free to move it if you think there’s a better place for this contribution (make it a Sticky, maybe?).</p>
+<p>So, I don’t know about you but I really like binding weapons to specific keys so I don’t have to be pressing numbers or scrolling in the middle of an encounter.</p>
+<p>Problems: weapons names in BMS differ from HL1 and HL2; plus, the names in folder C:/Program Files/Steam/SteamApps/SourceMods/BMS/models/weapons/ also differ from those used in the game (crazy but true).</p>
+<p>So here is my little contribution to the community:</p>
+<p><span class="bbcode-b">Weapons names:</span></p>
+<p><span class="bbcode-b"><span class="bbcode-u">Crowbar:</span></span> <span class="bbcode-i">weapon_crowbar</span><br>
+<span class="bbcode-b"><span class="bbcode-u">Pistol (9mm):</span></span> <span class="bbcode-i">weapon_glock</span><br>
+<span class="bbcode-b"><span class="bbcode-u">SMG (9mm):</span></span> <span class="bbcode-i">weapon_mp5</span><br>
+<span class="bbcode-b"><span class="bbcode-u">Shotgun:</span></span> <span class="bbcode-i">weapon_shotgun</span><br>
+<span class="bbcode-b"><span class="bbcode-u">Hand grenade:</span></span> <span class="bbcode-i">weapon_frag</span><br>
+<span class="bbcode-b"><span class="bbcode-u">Missile launcher, RPG or Bazooka:</span></span> <span class="bbcode-i">weapon_rpg</span><br>
+<span class="bbcode-b"><span class="bbcode-u">Revolver (.357):</span></span> <span class="bbcode-i">weapon_357</span><br>
+<span class="bbcode-b"><span class="bbcode-u">Gauss, TauCannon, etc:</span></span> <span class="bbcode-i">weapon_tau</span><br>
+<span class="bbcode-b"><span class="bbcode-u">Hornet Gun, Hive Hand, etc:</span></span> <span class="bbcode-i">weapon_hivehand</span><br>
+<span class="bbcode-b"><span class="bbcode-u">Gluon Gun, Egon, etc:</span></span> <span class="bbcode-i">weapon_gluon</span><br>
+<span class="bbcode-b"><span class="bbcode-u">Slam, TripMine, etc:</span></span> <span class="bbcode-i">weapon_tripmine</span><br>
+<span class="bbcode-b"><span class="bbcode-u">Crossbow, xbow, etc:</span></span> <span class="bbcode-i">weapon_crossbow</span><br>
+<span class="bbcode-b"><span class="bbcode-u">Satchel Charge, Explosive Bag, etc:</span></span> <span class="bbcode-i">weapon_satchel</span></p>
+<p>As you see, many of them differ from HL1, HL2 and BMS/models/weapons/ directory.</p>
+<p><span class="bbcode-u">How to bind them:</span> <span class="bbcode-i">bind key “use weapon_…”</span></p>
+<p><span class="bbcode-u">Example (my ‘BMS/cfg/config.cfg’):</span></p>
+<p><span class="bbcode-i"><br>
+bind “ESCAPE” “cancelselect”<br>
+bind “PAUSE” “pause”<br>
+bind “SHIFT” “+speed”<br>
+bind “ALT” “+walk”<br>
+bind “CTRL” “+duck”<br>
+bind “F3” “askconnect_accept”<br>
+bind “F5” “jpeg”<br>
+bind “F6” “save quick”<br>
+bind “F9” “load quick”<br>
+bind “MOUSE1” “+attack”<br>
+bind “MOUSE2” “+attack2”<br>
+bind “MOUSE4” “use weapon_satchel”<br>
+bind “MOUSE5” “impulse 100”<br>
+bind “MWHEELUP” “net_graph 3; cl_showpos 1”<br>
+bind “MWHEELDOWN” “net_graph 0; cl_showpos 0”<br>
+cl_battery_dlights “1”<br>
+cl_dlight_manager_max_fps “45”<br>
+cl_dlight_manager_min_fps “30”<br>
+cl_dlight_manager_enable “1”<br>
+hud_postprocess “1”<br>
+hud_bloomscale “6”<br>
+cl_mdldetailfx_enable “1”<br>
+cl_mdldetailfx_universal_hands “1”<br>
+cl_mdldetailfx_enable_hands “1”<br>
+cl_mdldetailfx_blood_time “60”<br>
+cl_mdldetailfx_slime_time “10”<br>
+cl_post_process_chromatic_enable “1”<br>
+cl_post_process_noise_enable “1”<br>
+cl_post_process_geiger_noise “1”<br>
+cl_tram_units “1”<br>
+cl_rumblescale “1.0”<br>
+cl_debugrumble “0”<br>
+cl_team “default”<br>
+cl_class “default”<br>
+hud_takesshots “0”<br>
+cl_showhelp “0”<br>
+cam_snapto “0”<br>
+cam_ideallag “4.0”<br>
+cam_idealdelta “4.0”<br>
+cam_idealyaw “0”<br>
+cam_idealpitch “0”<br>
+cam_idealdist “150”<br>
+cam_collision “1”<br>
+c_maxpitch “90”<br>
+c_minpitch “0”<br>
+c_maxyaw “135”<br>
+c_minyaw “-135”<br>
+c_maxdistance “200”<br>
+c_mindistance “30”<br>
+c_orthowidth “100”<br>
+c_orthoheight “100”<br>
+lookspring “0”<br>
+lookstrafe “0”<br>
+joystick “0”<br>
+m_pitch “0.022”<br>
+m_filter “0”<br>
+sensitivity “2.22”<br>
+m_side “0.8”<br>
+m_yaw “0.022”<br>
+m_forward “1”<br>
+m_customaccel “0”<br>
+m_customaccel_scale “0.04”<br>
+m_customaccel_max “0”<br>
+m_customaccel_exponent “1”<br>
+m_mouseaccel1 “0”<br>
+m_mouseaccel2 “0”<br>
+m_mousespeed “1”<br>
+cl_mouselook “1”<br>
+overview_health “1”<br>
+overview_names “1”<br>
+overview_tracks “1”<br>
+overview_locked “1”<br>
+overview_alpha “1.0”<br>
+cl_idealpitchscale “0.8”<br>
+spec_scoreboard “0”<br>
+cl_spec_mode “1”<br>
+voice_modenable “1”<br>
+net_scale “5”<br>
+net_graphpos “1”<br>
+net_graphsolid “1”<br>
+net_graphtext “1”<br>
+net_graphmsecs “400”<br>
+net_graphshowlatency “1”<br>
+net_graphshowinterp “1”<br>
+net_graph “0”<br>
+net_graphheight “64”<br>
+net_graphproportionalfont “1”<br>
+hud_draw_fixed_reticle “0”<br>
+cl_chatfilters “31”<br>
+cc_linger_time “1.0”<br>
+cc_predisplay_time “0.25”<br>
+cc_subtitles “0”<br>
+cc_lang “”<br>
+g15_update_msec “250”<br>
+mat_software_aa_strength “0.000000”<br>
+mat_software_aa_quality “0”<br>
+mat_software_aa_edge_threshold “1.0”<br>
+mat_software_aa_blur_one_pixel_lines “0.5”<br>
+mat_software_aa_tap_offset “1.0”<br>
+mat_software_aa_strength_vgui “1.000000”<br>
+cl_playerspraydisable “0”<br>
+muzzleflash_light “1”<br>
+cl_npc_speedmod_intime “0.25”<br>
+cl_npc_speedmod_outtime “1.5”<br>
+fov_desired “75”<br>
+cc_pickup_enable “1”<br>
+cl_bob_disable “0”<br>
+cl_bobcycle “0.45”<br>
+cl_bobup “0.5”<br>
+cl_bob “0.005”<br>
+cl_bob_vertical_scale “0.2”<br>
+cl_bob_lateral_scale “0.8”<br>
+cl_bob_angle_pitch_scale “0.4”<br>
+cl_bob_angle_yaw_scale “0.3”<br>
+cl_bob_angle_roll_scale “0.5”<br>
+cl_gluon_burn_trail “1”<br>
+cl_gluon_threading “0”<br>
+crosshair “1”<br>
+cl_observercrosshair “1”<br>
+crosshair_color_red “255”<br>
+crosshair_color_green “170”<br>
+crosshair_color_blue “0”<br>
+crosshair_color_alpha “255”<br>
+hud_fastswitch “1”<br>
+vgui_message_dialog_modal “1”<br>
+commentary_firstrun “0”<br>
+sv_gib_system_allow_tau_fx “1”<br>
+npc_height_adjust “1”<br>
+sv_pvsskipanimation “1”<br>
+scene_showlook “0”<br>
+scene_showmoveto “0”<br>
+scene_showunlock “0”<br>
+sv_tram_allow_mouse_input “0”<br>
+sv_always_run “0”<br>
+xbox_throttlebias “100”<br>
+xbox_throttlespoof “200”<br>
+xbox_autothrottle “1”<br>
+suitvolume “0.25”<br>
+xc_uncrouch_on_jump “1”<br>
+option_duck_method “1”<br>
+sk_autoaim_mode “1”<br>
+sv_noclipaccelerate “5”<br>
+sv_noclipspeed “5”<br>
+sv_specaccelerate “5”<br>
+sv_specspeed “3”<br>
+sv_specnoclip “1”<br>
+sv_skyname “bm_sky_underground_00”<br>
+sv_backspeed “0.6”<br>
+func_break_max_pieces “15”<br>
+commentary “0”<br>
+scene_showfaceto “0”<br>
+ai_report_task_timings_on_limit “0”<br>
+ai_think_limit_label “0”<br>
+sv_stickysprint “0”<br>
+xc_crouch_range “0.85”<br>
+xc_use_crouch_limiter “0”<br>
+sv_gib_system_allow_vort_fx “1”<br>
+sv_houndeye_tinnitus “0”<br>
+gib_ragdoll_blast_chance “0.75”<br>
+gib_ragdoll_energy_chance “0.075”<br>
+sv_gib_system_allow_gluon_fx “1”<br>
+sv_ironsight_sticky “1”<br>
+sv_gib_system_enabled “1”<br>
+sv_gib_system_fade “60”<br>
+sv_gib_system_max “100”<br>
+sv_gib_system_scale_damage “0.25”<br>
+sv_gib_system_scale_force “0.3”<br>
+sv_ironsight “1”<br>
+sv_crossbow_force_bolt_reload “0”<br>
+bugreporter_uploadasync “0”<br>
+cl_cmdrate “101”<br>
+cl_updaterate “101”<br>
+closecaption “0”<br>
+skill “2”<br>
+net_maxroutable “1260”<br>
+cl_allowupload “1”<br>
+name “mbaragiola”<br>
+password “”<br>
+sv_unlockedchapters “15”<br>
+tv_nochat “0”<br>
+cl_showpluginmessages “0”<br>
+cl_timeout “65”<br>
+cl_logofile “materials/decals/spraylogo.vtf”<br>
+cl_soundfile “sound/player/jingle.wav”<br>
+cl_forcepreload “1”<br>
+cl_allowdownload “1”<br>
+cl_downloadfilter “nosounds”<br>
+con_enable “1”<br>
+r_eyemove “1”<br>
+r_eyeshift_x “0”<br>
+r_eyeshift_y “0”<br>
+r_eyeshift_z “0”<br>
+r_eyesize “0”<br>
+r_ambientboost “1”<br>
+r_ambientmin “0.3”<br>
+r_ambientfactor “5”<br>
+r_drawmodelstatsoverlaymin “0.1”<br>
+r_drawmodelstatsoverlaymax “1.5”<br>
+mp_decals “4096”<br>
+sv_logsdir “logs”<br>
+sv_logfile “1”<br>
+sv_logflush “0”<br>
+sv_logecho “1”<br>
+sv_log_onefile “0”<br>
+sv_logbans “0”<br>
+sv_voiceenable “1”<br>
+sv_forcepreload “0”<br>
+snd_legacy_surround “0”<br>
+snd_pitchquality “1”<br>
+volume “1.0”<br>
+snd_musicvolume “0.100000”<br>
+snd_mixahead “0.1”<br>
+adsp_debug “0”<br>
+snd_ducktovolume “0.55”<br>
+snd_duckerattacktime “0.5”<br>
+snd_duckerreleasetime “2.5”<br>
+snd_duckerthreshold “0.15”<br>
+dsp_slow_cpu “0”<br>
+dsp_volume “1.0”<br>
+dsp_enhance_stereo “1”<br>
+voice_scale “1”<br>
+voice_enable “1”<br>
+voice_forcemicrecord “1”<br>
+budget_bargraph_background_alpha “128”<br>
+budget_peaks_window “30”<br>
+budget_averages_window “30”<br>
+budget_show_peaks “1”<br>
+budget_show_averages “0”<br>
+budget_show_history “1”<br>
+budget_history_numsamplesvisible “100”<br>
+budget_history_range_ms “66.666666667”<br>
+budget_panel_bottom_of_history_fraction “.25”<br>
+budget_bargraph_range_ms “16.6666666667”<br>
+budget_background_alpha “128”<br>
+budget_panel_x “0”<br>
+budget_panel_y “50”<br>
+budget_panel_width “512”<br>
+budget_panel_height “384”<br>
+texture_budget_panel_x “0”<br>
+texture_budget_panel_y “450”<br>
+texture_budget_panel_width “512”<br>
+texture_budget_panel_height “284”<br>
+texture_budget_panel_bottom_of_history_fraction “.25”<br>
+texture_budget_background_alpha “128”<br>
+vprof_graphwidth “512”<br>
+vprof_graphheight “256”<br>
+vprof_verbose “1”<br>
+vprof_unaccounted_limit “0.3”<br>
+vprof_warningmsec “10”<br>
+mat_monitorgamma_tv_enabled “0”</span></p>
+<p>( You may <span class="bbcode-b">download</span> the file from here: <a href="https://dl.dropbox.com/u/76712664/Games/Configs/Black%20Mesa%20Source/config.cfg" data-bbcode="true" rel="nofollow noopener">https://dl.dropbox.com/u/76712664/Games/Configs/Black%20Mesa%20Source/config.cfg</a> )</p>
+<p>I hope you liked it.</p>
+<p>Greetings from Argentina  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/weapons-naming-and-binding/10717/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/weapons-naming-and-binding/10717/1</link>
+        <pubDate>Tue, 18 Sep 2012 14:13:25 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10717-1</guid>
+        <source url="https://leakfree.org/t/weapons-naming-and-binding/10717.rss">Weapons naming and binding</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/black-mesa-patch-0-2-1-jan-24th-2016/14625?page=2 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:48:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Black Mesa Patch - 0.2.1 - Jan 24th, 2016 - Patches - Leakfree</title>
+    <meta name="description" content="We’ve released a patch to Black Mesa main client 
+
+Fixed bouncing Bolts from the crossbow in MP
+Fixed a bug in the balanced spawn system
+Fixed Shotgun Collision model
+Fixed various spelling errors and missing .wav files &amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="146254658.html?page=2" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Black Mesa Patch - 0.2.1 - Jan 24th, 2016&#39;" href="14625.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/black-mesa-patch-0-2-1-jan-24th-2016/14625?page=2" />
+<meta name="twitter:url" content="https://leakfree.org/t/black-mesa-patch-0-2-1-jan-24th-2016/14625?page=2" />
+<meta property="og:title" content="Black Mesa Patch - 0.2.1 - Jan 24th, 2016" />
+<meta name="twitter:title" content="Black Mesa Patch - 0.2.1 - Jan 24th, 2016" />
+<meta property="og:description" content="The new Crossfire map doesn’t seem to replace the old version when a client updates their game.  Confirmed from 3 people including myself.  Edit: To give a temporary fix for this, if you experience problems joining a server that runs dm_crossfire, just go to steam\steamapps\common\Black Mesa\bms\maps , delete dm_crossfire, re-join, you will download the same crossfire version the server has.  Edit2: This doesn’t seem to happen to everyone and i somehow believe its linked to switching from the pu..." />
+<meta name="twitter:description" content="The new Crossfire map doesn’t seem to replace the old version when a client updates their game.  Confirmed from 3 people including myself.  Edit: To give a temporary fix for this, if you experience problems joining a server that runs dm_crossfire, just go to steam\steamapps\common\Black Mesa\bms\maps , delete dm_crossfire, re-join, you will download the same crossfire version the server has.  Edit2: This doesn’t seem to happen to everyone and i somehow believe its linked to switching from the pu..." />
+<meta property="article:published_time" content="2016-01-25T10:37:02+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="prev" href="14625.html">
+        <link rel="next" href="146259ba9.html?page=3">
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="14625.html">Black Mesa Patch - 0.2.1 - Jan 24th, 2016</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/6.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa Archive</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/patches/16.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Patches</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/AvoidPaypal.html'><span itemprop='name'>AvoidPaypal</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T10:37:02Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:05Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#21</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The new Crossfire map doesn’t seem to replace the old version when a client updates their game.</p>
+<p>Confirmed from 3 people including myself.</p>
+<p>Edit: To give a temporary fix for this, if you experience problems joining a server that runs dm_crossfire, just go to steam\steamapps\common\Black Mesa\bms\maps , delete dm_crossfire, re-join, you will download the same crossfire version the server has.</p>
+<p>Edit2: This doesn’t seem to happen to everyone and i somehow believe its linked to switching from the public beta version of the game to the stable one.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T12:19:48Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:29:12Z' class='post-time'>
+                August 11, 2020, 11:29am
+              </time>
+          <span itemprop='position'>#22</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Crypt">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/crypt/40/4394_2.png" class="avatar"> Crypt:</div>
+<blockquote>
+<aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<p>I would recommend 512x512 or lower if you’re doing thumbnails. Give that a try, and let me know.</p>
+</blockquote>
+</aside>
+<p>Well, I’ll be damned, that did the trick!</p>
+<p>Anyway, I’ll wait on that non-workshop VPK info. While that feature wouldn’t be a horrible loss, I’ve been abusing the hell out of it for dev stuff.</p>
+</blockquote>
+</aside>
+<p>I think a lot of issues are coming from lack of knowledge on how the workshop tool and uploading, works. I’ll make a post about it soon.</p>
+<aside class="quote no-group" data-username="KevinJRattman">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/k/53a042/40.png" class="avatar"> KevinJRattman:</div>
+<blockquote>
+<aside class="quote no-group" data-username="RageMaker">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/r/e274bd/40.png" class="avatar"> RageMaker:</div>
+<blockquote>
+<p>Is it still viable to put mods in the custom folder?</p>
+<p>Also, I’m still having problems with the workshop mods. So I subscribe, move the folders so that other one, then un sub?</p>
+</blockquote>
+</aside>
+<p>I just tried this: <span class="bbcode-b"><span class="bbcode-i">Yes, it works!</span></span> At least, on my end, that is. This should be a much better workaround than to upload every time I make edits on my (unreleased) mods…</p>
+</blockquote>
+</aside>
+<p>To get a normal mod to work, you should just have to subscribe, and thats it.</p>
+<aside class="quote no-group" data-username="haos9cr">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/h/5fc32e/40.png" class="avatar"> haos9cr:</div>
+<blockquote>
+<p>addons containing the sound still does not work after entering the console “snd_restart” sound starts, but after entering the game again there is no sound, not tested on raspakovanom modes, but if you use a replacement sound “vpk”, this error occurs.<br>
+<a href="https://localhost/mybb/attachment.php?aid=3441" data-bbcode="true" rel="nofollow noopener"><img src="https://localhost/mybb/attachment.php?thumbnail=3441" alt=""></a><a href="https://localhost/mybb/attachment.php?aid=3442" data-bbcode="true" rel="nofollow noopener"><img src="https://localhost/mybb/attachment.php?thumbnail=3442" alt=""></a><a href="https://localhost/mybb/attachment.php?aid=3443" data-bbcode="true" rel="nofollow noopener"><img src="https://localhost/mybb/attachment.php?thumbnail=3443" alt=""></a></p>
+</blockquote>
+</aside>
+<p>Looking into this still. The OAR Uncut mod uses custom audio, and it issupposedly working fine. Everything is properly .vpk’d and folder put in the right order, yes?</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T12:27:52Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:05Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#23</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The audio from OaR Uncut is working correctly.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T15:05:11Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:29:13Z' class='post-time'>
+                August 11, 2020, 11:29am
+              </time>
+          <span itemprop='position'>#24</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Dalek">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/d/e5b9ba/40.png" class="avatar"> Dalek:</div>
+<blockquote>
+<p>So then how do we load non workshop VPKs?</p>
+</blockquote>
+</aside>
+<aside class="quote no-group" data-username="Crypt">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/crypt/40/4394_2.png" class="avatar"> Crypt:</div>
+<blockquote>
+<p>So I’ve run a couple tests, does the Workshop tool just have trouble with some weird class of addon?<br>
+I was able to successfully upload a small test VPK (15MB of materials) and <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=608162951" data-bbcode="true" rel="nofollow noopener">everything seemed to go alright</a>, but for after trying two separate actual addons (materials &amp; models)  it doesn’t seem to really complete. It gives me the “<span class="bbcode-i">User Content Successfully Uploaded!</span>” message, but upload completion bar locks at 50%, and the <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=608161764" data-bbcode="true" rel="nofollow noopener">Workshop entry is borked</a>.</p>
+<p>Since no one else seems to be having issues, including Text when he uploaded OaRU recently, I’m assuming it’s some strange clientside issue I’m having that’s persisted passed reinstalls/branch switches, in which case I’ll probably just stop submitting to the Workshop as it’s not really worth the additional hassle. Holy run-on sentence.</p>
+<p>On the other hand, kickass that we’ve got some good bugfixes, I do enjoy my shotguns colliding properly and my Kleiners smooth. <img src="../../images/emoji/twitter/thumbsupc164.png?v=9" title=":thumbsup:" class="emoji" alt=":thumbsup:"></p>
+</blockquote>
+</aside>
+<aside class="quote no-group" data-username="RageMaker">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/r/e274bd/40.png" class="avatar"> RageMaker:</div>
+<blockquote>
+<p>Is it still viable to put mods in the custom folder?</p>
+<p>Also, I’m still having problems with the workshop mods. So I subscribe, move the folders so that other one, then un sub?</p>
+</blockquote>
+</aside>
+<aside class="quote no-group" data-username="KevinJRattman">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/k/53a042/40.png" class="avatar"> KevinJRattman:</div>
+<blockquote>
+<aside class="quote no-group" data-username="RageMaker">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/r/e274bd/40.png" class="avatar"> RageMaker:</div>
+<blockquote>
+<p>Is it still viable to put mods in the custom folder?</p>
+<p>Also, I’m still having problems with the workshop mods. So I subscribe, move the folders so that other one, then un sub?</p>
+</blockquote>
+</aside>
+<p>I just tried this: <span class="bbcode-b"><span class="bbcode-i">Yes, it works!</span></span> At least, on my end, that is. This should be a much better workaround than to upload every time I make edits on my (unreleased) mods…</p>
+</blockquote>
+</aside>
+<p>Quoting all you so you can see this.</p>
+<p>I checked with the programmer in charge of the workshop tool. the addons folder is now no longer supported. You’ll need to be doing development through the workshop. It’s a bit of an annoyance, but think of it this way. By testing your mods through the workshop, you’re testing them as your ‘customers’ would be. Those who play your mod aren’t going to be just downloading and overwriting some files, they’ll just subscribe to the worksop. There are things that change between a local file and the workshop addon, it’s a different environment. By developing through the workshop, you’re able to eliminate those issues completely, as you’ll be closer to the environment that your players will be in. It’s basically and better practice thing.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/JakSpoon.html'><span itemprop='name'>JakSpoon</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T15:35:38Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:06Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#25</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Any news about Closed Caption fix???</p>
+<p>Italian and Spanish still doesn’t works!!!</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T15:48:18Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:29:13Z' class='post-time'>
+                August 11, 2020, 11:29am
+              </time>
+          <span itemprop='position'>#26</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="JakSpoon">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/jakspoon/40/5873_2.jpg" class="avatar"> JakSpoon:</div>
+<blockquote>
+<p>Any news about Closed Caption fix???</p>
+<p>Italian and Spanish still doesn’t works!!!</p>
+</blockquote>
+</aside>
+<p>I have been able to make them work using the workaround I posted about a few weeks ago. Did that not work?  <a href="https://forums.blackmesasource.com/index.php/Thread/28692-WORKAROUND-How-to-enable-supported-Closed-Captions/" data-bbcode="true" rel="nofollow noopener">[WORKAROUND] How to enable supported Closed Captions.</a></p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/RageMaker.html'><span itemprop='name'>RageMaker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T16:04:04Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:06Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#27</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<p>Quoting all you so you can see this.<br>
+I checked with the programmer in charge of the workshop tool. the addons folder is now no longer supported. You’ll need to be doing development through the workshop. It’s a bit of an annoyance, but think of it this way. By testing your mods through the workshop, you’re testing them as your ‘customers’ would be. Those who play your mod aren’t going to be just downloading and overwriting some files, they’ll just subscribe to the worksop. There are things that change between a local file and the workshop addon, it’s a different environment. By developing through the workshop, you’re able to eliminate those issues completely, as you’ll be closer to the environment that your players will be in. It’s basically and better practice thing.</p>
+</blockquote>
+</aside>
+<p>Well, using the custom folder for mods is better and quicker IMO because you don’t need to do this folder crap for each individual one, as per subbing to them (though I noticed older mods I can’t find anymore when I sub to them I.E. the M4?).</p>
+<p>Please tell me you’ll end up changing this though, because as an author the less tedious it is the better</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/RageMaker.html'><span itemprop='name'>RageMaker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T17:56:03Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:07Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#28</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Ok, just started OAR and I’m getting purple textures. I know what you posted in the OP, but is this possibly an incompatibility between OAR loop and OAR uncut?</p>
+<p>EDIT: Yup, removing OAR loop fixed the problem.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/FRAG.html'><span itemprop='name'>FRAG</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T18:52:45Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:07Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#29</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hammer seems to fail to load since my Black Mesa updated, anyone else having this issue?</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T19:02:50Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:07Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#30</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="FRAG">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/cc9497/40.png" class="avatar"> FRAG:</div>
+<blockquote>
+<p>Hammer seems to fail to load since my Black Mesa updated, anyone else having this issue?</p>
+</blockquote>
+</aside>
+<p>Mine seems to be running perfectly fine. Anyone else having issues?</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T19:04:56Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:07Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#31</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Mine is also perfectly fine. Perhaps your gameconfig got borked?</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/FRAG.html'><span itemprop='name'>FRAG</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T19:09:29Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:07Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#32</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Crypt">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/crypt/40/4394_2.png" class="avatar"> Crypt:</div>
+<blockquote>
+<p>Mine is also perfectly fine. Perhaps your gameconfig got borked?</p>
+</blockquote>
+</aside>
+<p>GameConfig looks fine &amp; shows nothing out of the ordinary, got a tweet back on Twitter after asking the question and someone else is having issues too, done a validation to no effect, really don’t want to un-install and re-install <img src="../../images/emoji/twitter/confusedc164.png?v=9" title=":confused:" class="emoji" alt=":confused:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/haos9cr1.html'><span itemprop='name'>haos9cr1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T19:10:01Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:29:13Z' class='post-time'>
+                August 11, 2020, 11:29am
+              </time>
+          <span itemprop='position'>#33</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<aside class="quote no-group" data-username="haos9cr">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/h/5fc32e/40.png" class="avatar"> haos9cr:</div>
+<blockquote>
+<p>addons containing the sound still does not work after entering the console “snd_restart” sound starts, but after entering the game again there is no sound, not tested on raspakovanom modes, but if you use a replacement sound “vpk”, this error occurs.<br>
+<a href="https://localhost/mybb/attachment.php?aid=3441" data-bbcode="true" rel="nofollow noopener"><img src="https://localhost/mybb/attachment.php?thumbnail=3441" alt=""></a><a href="https://localhost/mybb/attachment.php?aid=3442" data-bbcode="true" rel="nofollow noopener"><img src="https://localhost/mybb/attachment.php?thumbnail=3442" alt=""></a><a href="https://localhost/mybb/attachment.php?aid=3443" data-bbcode="true" rel="nofollow noopener"><img src="https://localhost/mybb/attachment.php?thumbnail=3443" alt=""></a></p>
+</blockquote>
+</aside>
+<p>Looking into this still. The OAR Uncut mod uses custom audio, and it issupposedly working fine. Everything is properly .vpk’d and folder put in the right order, yes?</p>
+</blockquote>
+</aside>
+<p>When you connect the “vpk” through “gameinfo” everything works. Also recall errors occur as long as the console does not enter the command “snd_restart”, then everything becomes normal before the game did not enter again. Apparently it is not that used in the expansion sound, but the fact that the addon replaces the original audio files.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dalek.html'><span itemprop='name'>Dalek</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-26T03:06:00Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:29:16Z' class='post-time'>
+                August 11, 2020, 11:29am
+              </time>
+          <span itemprop='position'>#34</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="haos9cr">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/h/5fc32e/40.png" class="avatar"> haos9cr:</div>
+<blockquote>
+<aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<aside class="quote no-group" data-username="haos9cr">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/h/5fc32e/40.png" class="avatar"> haos9cr:</div>
+<blockquote>
+<p>addons containing the sound still does not work after entering the console “snd_restart” sound starts, but after entering the game again there is no sound, not tested on raspakovanom modes, but if you use a replacement sound “vpk”, this error occurs.<br>
+<a href="https://localhost/mybb/attachment.php?aid=3441" data-bbcode="true" rel="nofollow noopener"><img src="https://localhost/mybb/attachment.php?thumbnail=3441" alt=""></a><a href="https://localhost/mybb/attachment.php?aid=3442" data-bbcode="true" rel="nofollow noopener"><img src="https://localhost/mybb/attachment.php?thumbnail=3442" alt=""></a><a href="https://localhost/mybb/attachment.php?aid=3443" data-bbcode="true" rel="nofollow noopener"><img src="https://localhost/mybb/attachment.php?thumbnail=3443" alt=""></a></p>
+</blockquote>
+</aside>
+<p>Looking into this still. The OAR Uncut mod uses custom audio, and it issupposedly working fine. Everything is properly .vpk’d and folder put in the right order, yes?</p>
+</blockquote>
+</aside>
+<p>When you connect the “vpk” through “gameinfo” everything works. Also recall errors occur as long as the console does not enter the command “snd_restart”, then everything becomes normal before the game did not enter again. Apparently it is not that used in the expansion sound, but the fact that the addon replaces the original audio files.</p>
+</blockquote>
+</aside>
+<p>Yeah, it seems something in the update broke all custom sound replacements</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Johnwalter.html'><span itemprop='name'>Johnwalter</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-26T09:16:54Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:09Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#35</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thank you guys for this quickly responded patch issues.</p>
+<p>First thing i noticed was that the Shotgun and Crossbow world models weren’t defying gravity anymore.<br>
+(spawning in air when dropped by enemies)</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Solareclipsed.html'><span itemprop='name'>Solareclipsed</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-26T14:02:19Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:10Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#36</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Can someone tell me where this custom folder is located? I also have mods that no longer work, in what folder should I put the mod files now if I want non-uploaded mods to work?</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/KevinJRattman.html'><span itemprop='name'>KevinJRattman</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-26T14:30:06Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:29:18Z' class='post-time'>
+                August 11, 2020, 11:29am
+              </time>
+          <span itemprop='position'>#37</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Solareclipsed">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/s/9dc877/40.png" class="avatar"> Solareclipsed:</div>
+<blockquote>
+<p>Can someone tell me where this custom folder is located? I also have mods that no longer work, in what folder should I put the mod files now if I want non-uploaded mods to work?</p>
+</blockquote>
+</aside>
+<p>There is a Steam Guide detailing how to set it up (yes, you have to set it up).<br>
+<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=502670746" data-bbcode="true" rel="nofollow noopener">https://steamcommunity.com/sharedfiles/filedetails/?id=502670746</a></p>
+<p>You can actually rename the name of the folder as you desire, even to ‘addons’, effectively somewhat “reviving” the old addons folder. Just make sure to change the text accordingly in gameinfo.txt (as shown in the guide, just exchange the word “custom” with “addons”, or any folder name of your choice, preferably without spaces).</p>
+<p>Just make sure to always test if your mod works in the Workshop by subscribing it if you are ever going to upload it.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/JakSpoon.html'><span itemprop='name'>JakSpoon</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-27T15:06:18Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:29:20Z' class='post-time'>
+                August 11, 2020, 11:29am
+              </time>
+          <span itemprop='position'>#38</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<aside class="quote no-group" data-username="JakSpoon">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/jakspoon/40/5873_2.jpg" class="avatar"> JakSpoon:</div>
+<blockquote>
+<p>Any news about Closed Caption fix???</p>
+<p>Italian and Spanish still doesn’t works!!!</p>
+</blockquote>
+</aside>
+<p>I have been able to make them work using the workaround I posted about a few weeks ago. Did that not work?  <a href="https://forums.blackmesasource.com/index.php/Thread/28692-WORKAROUND-How-to-enable-supported-Closed-Captions/" data-bbcode="true" rel="nofollow noopener">[WORKAROUND] How to enable supported Closed Captions.</a></p>
+</blockquote>
+</aside>
+<p>I tried to follow the guide step by step , but does not change anything!<br>
+The error is always the same:</p>
+<p>\resource\closecaption_Italian.txt not found<br>
+\resource\closecaption_english.txt will be used</p>
+<p>after type cc_lang Italian!!</p>
+<p>I close Steam, re-start Steam and re-start the game… but Italian Closed Caption doesn’t appear, nowhere!</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/KevinJRattman.html'><span itemprop='name'>KevinJRattman</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-27T15:43:24Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:29:20Z' class='post-time'>
+                August 11, 2020, 11:29am
+              </time>
+          <span itemprop='position'>#39</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="JakSpoon">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/jakspoon/40/5873_2.jpg" class="avatar"> JakSpoon:</div>
+<blockquote>
+<aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<aside class="quote no-group" data-username="JakSpoon">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/jakspoon/40/5873_2.jpg" class="avatar"> JakSpoon:</div>
+<blockquote>
+<p>Any news about Closed Caption fix???</p>
+<p>Italian and Spanish still doesn’t works!!!</p>
+</blockquote>
+</aside>
+<p>I have been able to make them work using the workaround I posted about a few weeks ago. Did that not work?  <a href="https://forums.blackmesasource.com/index.php/Thread/28692-WORKAROUND-How-to-enable-supported-Closed-Captions/" data-bbcode="true" rel="nofollow noopener">[WORKAROUND] How to enable supported Closed Captions.</a></p>
+</blockquote>
+</aside>
+<p>I tried to follow the guide step by step , but does not change anything!The error is always the same:</p>
+<p>\resource\closecaption_Italian.txt not found<br>
+\resource\closecaption_english.txt will be used</p>
+<p>after type cc_lang Italian!!</p>
+<p>I close Steam, re-start Steam and re-start the game… but Italian Closed Caption doesn’t appear, nowhere!</p>
+</blockquote>
+</aside>
+<p>Both Italian and Spanish subtitles work perfectly fine on my game. Are you sure you are doing everything correctly? I noticed you are using capital letters, but that shouldn’t be a problem.</p>
+<p>Disclaimer: I’m not Italian. I also didn’t need to restart the Steam nor game. You can change the language in real time, in-game.</p>
+<p><img src="https://dl.dropboxusercontent.com/u/36595985/asdasdsada.jpg" alt="" width="" height=""></p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-27T16:53:05Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:29:21Z' class='post-time'>
+                August 11, 2020, 11:29am
+              </time>
+          <span itemprop='position'>#40</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="JakSpoon">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/jakspoon/40/5873_2.jpg" class="avatar"> JakSpoon:</div>
+<blockquote>
+<aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<aside class="quote no-group" data-username="JakSpoon">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/jakspoon/40/5873_2.jpg" class="avatar"> JakSpoon:</div>
+<blockquote>
+<p>Any news about Closed Caption fix???</p>
+<p>Italian and Spanish still doesn’t works!!!</p>
+</blockquote>
+</aside>
+<p>I have been able to make them work using the workaround I posted about a few weeks ago. Did that not work?  <a href="https://forums.blackmesasource.com/index.php/Thread/28692-WORKAROUND-How-to-enable-supported-Closed-Captions/" data-bbcode="true" rel="nofollow noopener">[WORKAROUND] How to enable supported Closed Captions.</a></p>
+</blockquote>
+</aside>
+<p>I tried to follow the guide step by step , but does not change anything!The error is always the same:</p>
+<p>\resource\closecaption_Italian.txt not found<br>
+\resource\closecaption_english.txt will be used</p>
+<p>after type cc_lang Italian!!</p>
+<p>I close Steam, re-start Steam and re-start the game… but Italian Closed Caption doesn’t appear, nowhere!</p>
+</blockquote>
+</aside>
+<p>That error is normal.</p>
+<aside class="quote no-group" data-username="KevinJRattman">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/k/53a042/40.png" class="avatar"> KevinJRattman:</div>
+<blockquote>
+<aside class="quote no-group" data-username="JakSpoon">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/jakspoon/40/5873_2.jpg" class="avatar"> JakSpoon:</div>
+<blockquote>
+<aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<aside class="quote no-group" data-username="JakSpoon">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/jakspoon/40/5873_2.jpg" class="avatar"> JakSpoon:</div>
+<blockquote>
+<p>Any news about Closed Caption fix???</p>
+<p>Italian and Spanish still doesn’t works!!!</p>
+</blockquote>
+</aside>
+<p>I have been able to make them work using the workaround I posted about a few weeks ago. Did that not work?  <a href="https://forums.blackmesasource.com/index.php/Thread/28692-WORKAROUND-How-to-enable-supported-Closed-Captions/" data-bbcode="true" rel="nofollow noopener">[WORKAROUND] How to enable supported Closed Captions.</a></p>
+</blockquote>
+</aside>
+<p>I tried to follow the guide step by step , but does not change anything!The error is always the same:<br>
+\resource\closecaption_Italian.txt not found<br>
+\resource\closecaption_english.txt will be used</p>
+<p>after type cc_lang Italian!!</p>
+<p>I close Steam, re-start Steam and re-start the game… but Italian Closed Caption doesn’t appear, nowhere!</p>
+</blockquote>
+</aside>
+<p>Both Italian and Spanish subtitles work perfectly fine on my game. Are you sure you are doing everything correctly? I noticed you are using capital letters, but that shouldn’t be a problem.<br>
+Disclaimer: I’m not Italian. I also didn’t need to restart the Steam nor game. You can change the language in real time, in-game.</p>
+<p><img src="https://dl.dropboxusercontent.com/u/36595985/asdasdsada.jpg" alt="" width="" height=""></p>
+</blockquote>
+</aside>
+<p>Yea, I checked all the languages before making the guide. I’m kind of stumped at what could be causing the issue.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><a rel="prev" itemprop="url" href="14625.html">← previous page</a></span>
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="146259ba9.html?page=3">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/black-mesa-patch-0-2-1-jan-24th-2016/14625?page=2 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:48:35 GMT -->
+</html>

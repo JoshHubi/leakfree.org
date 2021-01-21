@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/c-programming-thread/6438 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 14:52:56 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>C++/Programming thread - Technology and Gaming - Leakfree</title>
+    <meta name="description" content="For a project, i’m creating ConnectFour (4 in a row i think its called in the states) and i’ve kind of hit a wall, i’ve got my main menu, my grid built up using arrays, but i’m not acctually sure how to acctually get the&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="6438.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;C++/Programming thread&#39;" href="6438.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/c-programming-thread/6438" />
+<meta name="twitter:url" content="https://leakfree.org/t/c-programming-thread/6438" />
+<meta property="og:title" content="C++/Programming thread" />
+<meta name="twitter:title" content="C++/Programming thread" />
+<meta property="og:description" content="For a project, i’m creating ConnectFour (4 in a row i think its called in the states) and i’ve kind of hit a wall, i’ve got my main menu, my grid built up using arrays, but i’m not acctually sure how to acctually get the user to play the game.  For example how do i update the grid when the user takes there turn?  Also, i’d like to clear the menu away from the screen once the user has made their choice.  Code:   high score is empty because i haven’t gotten round to doing that yet, and exit is a f..." />
+<meta name="twitter:description" content="For a project, i’m creating ConnectFour (4 in a row i think its called in the states) and i’ve kind of hit a wall, i’ve got my main menu, my grid built up using arrays, but i’m not acctually sure how to acctually get the user to play the game.  For example how do i update the grid when the user takes there turn?  Also, i’d like to clear the menu away from the screen once the user has made their choice.  Code:   high score is empty because i haven’t gotten round to doing that yet, and exit is a f..." />
+<meta property="article:published_time" content="2011-01-28T16:01:00+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="next" href="64384658.html?page=2">
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="6438.html">C++/Programming thread</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/technology-and-gaming/19.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #8C6238'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Technology and Gaming</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Paddy.html'><span itemprop='name'>Paddy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6438.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-01-28T16:01:00Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T23:24:00Z' class='post-time'>
+                November 24, 2018, 11:24pm
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>For a project, i’m creating ConnectFour (4 in a row i think its called in the states) and i’ve kind of hit a wall, i’ve got my main menu, my grid built up using arrays, but i’m not acctually sure how to acctually get the user to play the game.</p>
+<p>For example how do i update the grid when the user takes there turn?</p>
+<p>Also, i’d like to clear the menu away from the screen once the user has made their choice.</p>
+<p>Code:</p>
+<aside class="quote no-group">
+<blockquote>
+<p><span class="hashtag">#include</span> “stdafx.h”<br>
+<span class="hashtag">#include</span> </p>
+<p>using namespace std;<br>
+int menu();<br>
+int grid();<br>
+int highscore();<br>
+int exit();</p>
+<p>int main()<br>
+{<br>
+menu();</p>
+<p>}</p>
+<p>int menu()<br>
+{</p>
+<pre><code>int user_option;
+
+cout&lt;&lt;"											Welcome to ConnectFour! This is the main menu! Enter the option of your choice to continue!";
+cout&lt;&lt;endl;
+cout&lt;&lt;"1. Start new game!";
+cout&lt;&lt;endl;
+cout&lt;&lt;"2. View high scores";
+cout&lt;&lt;endl;
+cout&lt;&lt;"3. Exit game and return to desktop";
+cout&lt;&lt;endl;
+cout&lt;&lt;endl;
+cout&lt;&lt;"Please enter your choice: ";
+
+cin&gt;&gt;user_option;
+
+if (user_option == 1)
+	{
+		grid();
+	}
+
+if (user_option == 2)
+{
+	highscore();
+}
+
+if (user_option == 3)
+{
+	exit();
+}
+
+return 0;
+</code></pre>
+<p>}</p>
+<p>int grid()</p>
+<pre><code>{
+int i;
+char columnarray1[7]={'"','"','"','"','"','"','"'};
+char columnarray2[7]={'"','"','"','"','"','"','"'};
+char columnarray3[7]={'"','"','"','"','"','"','"'};
+char columnarray4[7]={'"','"','"','"','"','"','"'};
+char columnarray5[7]={'"','"','"','"','"','"','"'};
+char columnarray6[7]={'"','"','"','"','"','"','"'};
+char columnarray7[7]={'"','"','"','"','"','"','"'};
+
+cout&lt;&lt;"           ConnectFour"&lt;&lt;endl;
+
+for(i=0; i&lt;7; i++)
+{
+	cout&lt;&lt;"|  "&lt;&lt;columnarray1[i]&lt;&lt;"   |  "&lt;&lt;columnarray2[i]&lt;&lt;"   |  "&lt;&lt;columnarray3[i]&lt;&lt;"   |  "&lt;&lt;columnarray4[i]&lt;&lt;"   |  "&lt;&lt;columnarray5[i]&lt;&lt;"   |  "&lt;&lt;columnarray6[i]&lt;&lt;"   |  "&lt;&lt;columnarray7[i]&lt;&lt;"   | \n -------------------------------------------------"&lt;&lt;endl;
+}
+cout&lt;&lt;"|  1   |  2   |  3   |  4   |  5   |  6   |  7   |"&lt;&lt;endl&lt;&lt;endl&lt;&lt;"Player 1 = X  ||  Player 2 = O  ||  Empty Slot = \""&lt;&lt;endl;
+
+return 0;
+</code></pre>
+<p>}</p>
+<p>int highscore()<br>
+{<br>
+return 0;<br>
+}</p>
+<p>int exit()<br>
+{<br>
+return 0;<br>
+}</p>
+</blockquote>
+</aside>
+<p>high score is empty because i haven’t gotten round to doing that yet, and exit is a function as far as i’m aware, but not sure if i’ve implamented it right,</p>
+<p>If anyone has any adive or tips on how to do any of that, it’d be great.</p>
+<p>: )</p>
+        </div>
+
+        <meta itemprop='headline' content='C++/Programming thread'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Maxey.html'><span itemprop='name'>Maxey</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6438.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-01-28T16:03:56Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T06:07:47Z' class='post-time'>
+                August 11, 2020,  6:07am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Reverse-engineer the real thing.</p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+        </div>
+
+        <meta itemprop='headline' content='C++/Programming thread'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Paddy.html'><span itemprop='name'>Paddy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6438.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-01-28T16:06:18Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T23:24:00Z' class='post-time'>
+                November 24, 2018, 11:24pm
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Haha, i know the rules to connect4, just not sure how to program it hah</p>
+        </div>
+
+        <meta itemprop='headline' content='C++/Programming thread'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bur.html'><span itemprop='name'>bur</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6438.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-01-28T16:29:53Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T23:24:01Z' class='post-time'>
+                November 24, 2018, 11:24pm
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’ve actually been programming connect four too for college, in java.</p>
+<p>You have to ask the player for an x-coordinate (the column of choice) and then insert the player’s symbol (probably X or O) into the array.<br>
+Then reprint the array.</p>
+        </div>
+
+        <meta itemprop='headline' content='C++/Programming thread'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/pfannkuchen_gesicht.html'><span itemprop='name'>pfannkuchen_gesicht</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6438.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-01-28T18:19:05Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T23:24:05Z' class='post-time'>
+                November 24, 2018, 11:24pm
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>why do you use 7 1D Arrays instead of one 7x7 Array(char grid[7][7])?</p>
+        </div>
+
+        <meta itemprop='headline' content='C++/Programming thread'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Zageron.html'><span itemprop='name'>Zageron</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6438.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-01-28T18:30:32Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T23:24:05Z' class='post-time'>
+                November 24, 2018, 11:24pm
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="pfannkuchen_gesicht">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/p/ee7513/40.png" class="avatar"> pfannkuchen_gesicht:</div>
+<blockquote>
+<p>why do you use 7 1D Arrays instead of one 7x7 Array(char grid[7][7])?</p>
+</blockquote>
+</aside>
+<p>That’s what I was going to ask. x.x</p>
+        </div>
+
+        <meta itemprop='headline' content='C++/Programming thread'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/FeisEater.html'><span itemprop='name'>FeisEater</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6438.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-01-28T18:40:41Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T23:24:05Z' class='post-time'>
+                November 24, 2018, 11:24pm
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Well I basically just copyed your code and added some features on it. It has everything a connect four game should have except it doesn’t detect wins and it doesn’t have computer AI. Do you want me to instruct you on how to progress with your coding or just paste on this thread what I made?</p>
+        </div>
+
+        <meta itemprop='headline' content='C++/Programming thread'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bur.html'><span itemprop='name'>bur</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6438.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-01-28T20:21:45Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T23:24:09Z' class='post-time'>
+                November 24, 2018, 11:24pm
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="pfannkuchen_gesicht">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/p/ee7513/40.png" class="avatar"> pfannkuchen_gesicht:</div>
+<blockquote>
+<p>why do you use 7 1D Arrays instead of one 7x7 Array(char grid[7][7])?</p>
+</blockquote>
+</aside>
+<p>yeah that’s pretty impractical</p>
+        </div>
+
+        <meta itemprop='headline' content='C++/Programming thread'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Paddy.html'><span itemprop='name'>Paddy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6438.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-01-28T20:54:43Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T23:24:10Z' class='post-time'>
+                November 24, 2018, 11:24pm
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="FeisEater">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/67e7ee/40.png" class="avatar"> FeisEater:</div>
+<blockquote>
+<p>Well I basically just copyed your code and added some features on it. It has everything a connect four game should have except it doesn’t detect wins and it doesn’t have computer AI. Do you want me to instruct you on how to progress with your coding or just paste on this thread what I made?</p>
+</blockquote>
+</aside>
+<p>Cheers man! Paste it in, i learn better through reading/doing things than just theory, if i don’t understand any of the changes could i ask you?</p>
+<p>Thanks man!</p>
+        </div>
+
+        <meta itemprop='headline' content='C++/Programming thread'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/FeisEater.html'><span itemprop='name'>FeisEater</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6438.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-01-28T21:07:01Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T23:24:10Z' class='post-time'>
+                November 24, 2018, 11:24pm
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Well here it is. I’m still a bit of a newbie in programming plus it was a bit rushed, so some parts of code might be crudly written. But it works!</p>
+<aside class="quote no-group">
+<blockquote>
+<p><span class="hashtag">#include</span> “stdafx.h”<br>
+<span class="hashtag">#include</span> </p>
+<p>using namespace std;</p>
+<p>void menu();<br>
+void refresh( bool gameover );		//Used to be grid, renamed it to more appropriate<br>
+void highscore();					//How is highscore going to work in connect four?<br>
+void exit();<br>
+void turn();						//Calculates a pebble dropping down to empty slot<br>
+int grid[7][6];						//Holds each players pebbles in 2d grid<br>
+int whichturn;						//Remembers which turn it is<br>
+void checkwin( int lastturn );		//Checks if any player won<br>
+void playerwins( int player );		//Performs actions when someone does win</p>
+<p>void main()<br>
+{<br>
+menu();</p>
+<p>}</p>
+<p>void menu()<br>
+{</p>
+<p>int user_option;</p>
+<p>cout&lt;&lt;" Welcome to ConnectFour! This is the main menu! Enter the option of your choice to continue!";<br>
+cout&lt;&lt;endl;<br>
+cout&lt;&lt;“1. Start new game!”;<br>
+cout&lt;&lt;endl;<br>
+cout&lt;&lt;“2. View high scores”;<br>
+cout&lt;&lt;endl;<br>
+cout&lt;&lt;“3. Exit game and return to desktop”;<br>
+cout&lt;&lt;endl;<br>
+cout&lt;&lt;endl;<br>
+cout&lt;&lt;"Please enter your choice: ";</p>
+<p>//This fuction shall now perform actions needed to set up a new game.<br>
+for ( int i=0; i&lt;8; i++ )<br>
+{<br>
+for ( int j=0; j&lt;7; j++)<br>
+{<br>
+grid[i][j]=0;<br>
+}<br>
+}<br>
+//All grids emptied<br>
+whichturn = 1;	//Player 1 always starts first<br>
+cin&gt;&gt;user_option;</p>
+<p>if (user_option == 1)<br>
+{<br>
+refresh(false);<br>
+}</p>
+<p>if (user_option == 2)<br>
+{<br>
+highscore();<br>
+}</p>
+<p>if (user_option == 3)<br>
+{<br>
+exit();<br>
+}<br>
+}</p>
+<p>void refresh( bool gameover )</p>
+<p>{</p>
+<p>int i;<br>
+/*char columnarray1[7]={’"’,’"’,’"’,’"’,’"’,’"’,’"’};<br>
+char columnarray2[7]={’"’,’"’,’"’,’"’,’"’,’"’,’"’};<br>
+char columnarray3[7]={’"’,’"’,’"’,’"’,’"’,’"’,’"’};<br>
+char columnarray4[7]={’"’,’"’,’"’,’"’,’"’,’"’,’"’};<br>
+char columnarray5[7]={’"’,’"’,’"’,’"’,’"’,’"’,’"’};<br>
+char columnarray6[7]={’"’,’"’,’"’,’"’,’"’,’"’,’"’};<br>
+char columnarray7[7]={’"’,’"’,’"’,’"’,’"’,’"’,’"’};<br>
+*/<br>
+cout&lt;&lt;" ConnectFour, player “&lt;&lt;whichturn&lt;&lt;” turn."&lt;&lt;endl;</p>
+<p>for(i=1; i&lt;7; i++)<br>
+{<br>
+cout&lt;&lt;"| “;<br>
+for ( int j=1; j&lt;8; j++ )<br>
+{<br>
+if ( grid[j][i] == 0 )	cout&lt;&lt;’”’;	//if grid[x][y] is zero, slot is empty<br>
+if ( grid[j][i] == 1 )	cout&lt;&lt;‘X’;	//slot is owned by player1 pebble<br>
+if ( grid[j][i] == 2 )	cout&lt;&lt;‘O’;	//slot is owned by player2 pebble<br>
+cout&lt;&lt;" | “;<br>
+//cout&lt;&lt;”| “&lt;&lt;columnarray1[i]&lt;&lt;” | “&lt;&lt;columnarray2[i]&lt;&lt;” | “&lt;&lt;columnarray3[i]&lt;&lt;” | “&lt;&lt;columnarray4[i]&lt;&lt;” | “&lt;&lt;columnarray5[i]&lt;&lt;” | “&lt;&lt;columnarray6[i]&lt;&lt;” | “&lt;&lt;columnarray7[i]&lt;&lt;” | \n -------------------------------------------------"&lt;&lt;endl;<br>
+}<br>
+cout&lt;&lt;endl;<br>
+}<br>
+if ( !gameover )	cout&lt;&lt;"| 1 | 2 | 3 | 4 | 5 | 6 | 7 |"&lt;&lt;endl&lt;&lt;endl&lt;&lt;"Player 1 = X || Player 2 = O || Empty Slot = “”&lt;&lt;endl;<br>
+if (gameover) cout&lt;&lt;endl;<br>
+if ( !gameover )	turn();		//gameover input added so you can draw the grid without prompting players to play<br>
+}</p>
+<p>void turn()<br>
+{<br>
+int slot;<br>
+cin&gt;&gt;slot;		//asks for a number from 1 to 7<br>
+if ( slot&lt;1 || slot&gt;7 )<br>
+{<br>
+cout&lt;&lt;“Invalid row. Try again!”&lt;&lt;endl;<br>
+turn();<br>
+return;	<br>
+}<br>
+for ( int i=6; i&gt;0; i-- )<br>
+{<br>
+if ( grid[slot][i] == 0 )<br>
+{<br>
+if ( whichturn == 1 )<br>
+{<br>
+grid[slot][i] = 1;<br>
+whichturn = 2;<br>
+checkwin(1);<br>
+return;<br>
+}<br>
+if ( whichturn == 2 )<br>
+{<br>
+grid[slot][i] = 2;<br>
+whichturn = 1;<br>
+checkwin(2);<br>
+return;<br>
+}<br>
+}<br>
+}<br>
+cout&lt;&lt;“This row is full. Try again!”&lt;&lt;endl;<br>
+turn();<br>
+}</p>
+<p>void checkwin( int lastturn )<br>
+{<br>
+int hit=0;</p>
+<pre><code>//Checking four vertical slots
+for ( int i=1; i&lt;8; i++ )
+{	
+	for ( int j=1; j&lt;7; j++ )
+	{
+		if ( grid[i][j]==lastturn )
+		{
+			hit++;
+			if ( hit==4 )
+			{
+				playerwins(lastturn);
+				return;
+			}
+		}
+		else hit=0;
+	}
+</code></pre>
+<p>hit=0;	<br>
+}</p>
+<pre><code>//Checking four horizontal slots
+for ( int i=1; i&lt;7; i++ )
+{	
+	for ( int j=1; j&lt;8; j++ )
+	{
+		if ( grid[j][i]==lastturn )
+		{
+			hit++;
+			if ( hit==4 )
+			{
+				playerwins(lastturn);
+				return;
+			}
+		}
+		else hit=0;
+	}
+	hit=0;
+}
+
+//Checking four horizontal slots from top-left to bottom-right
+for ( int i=3; i&gt;0; i-- )
+{	
+	for ( int j=1; j&lt;7; j++ )
+	{
+		if ( grid[j][i+(j-1)]==lastturn )
+		{
+			hit++;
+			if ( hit==4 )
+			{
+				playerwins(lastturn);
+				return;
+			}
+		}
+		else hit=0;
+		if ( i+(j-1) == 6 )	break;
+	}
+	hit=0;		
+}
+for ( int i=2; i&lt;5; i++ )
+{	
+	for ( int j=1; j&lt;7; j++ )
+	{
+		if ( grid[i+(j-1)][j]==lastturn )
+		{
+			hit++;
+			if ( hit==4 )
+			{
+				playerwins(lastturn);
+				return;
+			}
+		}
+		else hit=0;
+		if ( i+(j-1) == 7 )	break;
+	}
+	hit=0;		
+}
+
+//Checking four horizontal slots from bottom-left to top-right
+for ( int i=4; i&lt;7; i++ )
+{	
+	for ( int j=1; j&lt;7; j++ )
+	{
+		if ( grid[j][i-(j-1)]==lastturn )
+		{
+			hit++;
+			if ( hit==4 )
+			{
+				playerwins(lastturn);
+				return;
+			}
+		}
+		else hit=0;
+		if ( i-(j-1) == 1 )	break;
+	}
+	hit=0;		
+}
+for ( int i=2; i&lt;5; i++ )
+{	
+	for ( int j=6; j&gt;0; j-- )
+	{
+		if ( grid[i-(j-6)][j]==lastturn )
+		{
+			hit++;
+			if ( hit==4 )
+			{
+				playerwins(lastturn);
+				return;
+			}
+		}
+		else hit=0;
+		if ( i-(j-6) == 7 )	break;
+	}
+	hit=0;		
+}
+
+refresh(false);
+</code></pre>
+<p>}</p>
+<p>void playerwins( int player )	//someone won!<br>
+{<br>
+refresh(true);<br>
+cout&lt;&lt;“I be damned! Player “&lt;&lt;player&lt;&lt;” won!”&lt;&lt;endl;<br>
+cout&lt;&lt;“Type any key then press enter to start again.”&lt;&lt;endl;<br>
+char decision;<br>
+cin&gt;&gt;decision;<br>
+main();<br>
+}</p>
+<p>void highscore()<br>
+{<br>
+}</p>
+<p>void exit()<br>
+{<br>
+}</p>
+</blockquote>
+</aside>
+<p>I also added the a function that checks if someone “connected four” and won. I’m not sure I want to make an AI because I don’t really know the strategies of this game. Ask me if some portion of the code is confusing you.</p>
+<p>Also does anyone know how can you clear the console screen in iostream?<br>
+EDIT: fixed some bugs</p>
+        </div>
+
+        <meta itemprop='headline' content='C++/Programming thread'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Paddy.html'><span itemprop='name'>Paddy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6438.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-01-28T21:15:41Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T23:24:11Z' class='post-time'>
+                November 24, 2018, 11:24pm
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Cool mate, it’ll be a day or two before i can test that out, today is friday, so i’ll be hungover tomorow haha.</p>
+<p>The high score system was poorly worded by me, in nut shell, its gonna save the wins to a txt file, eg player 1 won 3 times, player 2 won once etc, not the best i know.</p>
+        </div>
+
+        <meta itemprop='headline' content='C++/Programming thread'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/wheybags.html'><span itemprop='name'>wheybags</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6438.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-01-28T21:23:31Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T23:24:11Z' class='post-time'>
+                November 24, 2018, 11:24pm
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I wish my programming course taught us C++ not java :&lt;<br>
+Oh well, I’ll learn it myself, and we will do it in second year.</p>
+        </div>
+
+        <meta itemprop='headline' content='C++/Programming thread'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/P_PORTAL_RTAL.html'><span itemprop='name'>P_PORTAL_RTAL</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6438.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-01-28T21:33:07Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T23:24:12Z' class='post-time'>
+                November 24, 2018, 11:24pm
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>my course learned me 1.5 years of java and 0.5 of c and 0.5 of c++ and 1 of C# and also asembly &gt;.&lt;</p>
+        </div>
+
+        <meta itemprop='headline' content='C++/Programming thread'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/SinfulEnd.html'><span itemprop='name'>SinfulEnd</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6438.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-01-28T21:40:04Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T23:24:12Z' class='post-time'>
+                November 24, 2018, 11:24pm
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>FiesEater:</p>
+<p>I have found it looks slightly neater to write the endl on the same line as the output text, but thats just personal preference I suppose. I just wasn’t sure if you were aware that you can do that.</p>
+<p>ex. Instead of:<br>
+cout&lt;&lt;" Welcome to ConnectFour! This is the main menu! Enter the option of your choice to continue!";<br>
+cout&lt;&lt;endl;</p>
+<p>Try:<br>
+cout &lt;&lt; “Welcome to ConnectFour! This is the main menu! Enter the option of your choice to continue!” &lt;&lt; endl;</p>
+        </div>
+
+        <meta itemprop='headline' content='C++/Programming thread'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/FeisEater.html'><span itemprop='name'>FeisEater</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6438.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-01-28T21:43:09Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T23:24:12Z' class='post-time'>
+                November 24, 2018, 11:24pm
+              </time>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That was actually a line of code that P-Thunder left, if you look further into the code you can see that I put multiple things on the same line of cout.</p>
+        </div>
+
+        <meta itemprop='headline' content='C++/Programming thread'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/wheybags.html'><span itemprop='name'>wheybags</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6438.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-01-28T21:52:32Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T23:24:12Z' class='post-time'>
+                November 24, 2018, 11:24pm
+              </time>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="P(PORTAL)RTAL">
+<div class="title">
+<div class="quote-controls"></div>
+ P(PORTAL)RTAL:</div>
+<blockquote>
+<p>my course learned me 1.5 years of java and 0.5 of c and 0.5 of c++ and 1 of C# and also asembly &gt;.&lt;</p>
+</blockquote>
+</aside>
+<p>Yeah, we do assembly too, but it’s kind of annoying that while the engineering students learn to program in C++, pure CS students learn fucking java.</p>
+        </div>
+
+        <meta itemprop='headline' content='C++/Programming thread'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Sethis.html'><span itemprop='name'>Sethis</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6438.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-01-28T23:13:35Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T23:24:14Z' class='post-time'>
+                November 24, 2018, 11:24pm
+              </time>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Array subscript out of range (well, more like access violation when it comes to c/cpp)<br>
+Also, stack overflow. Your code is bugged like hell.<br>
+Also, int main();<br>
+Also, make use of classes/structures (they’re pretty much the same thing in cpp)<br>
+Also, make use of function return values.<br>
+Also, do not write code that does nothing (exit(), highscore())</p>
+<aside class="quote no-group">
+<blockquote>
+<p>void turn(); //Calculates a pebble dropping down to empty slot</p>
+</blockquote>
+</aside>
+<p>Wrong. It does more than just calculating.</p>
+        </div>
+
+        <meta itemprop='headline' content='C++/Programming thread'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/sersoft.html'><span itemprop='name'>sersoft</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6438.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/e/ea587c234381f71895852131941f9c9c105b27b4.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-01-29T00:19:09Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T22:58:30Z' class='post-time'>
+                August 11, 2020, 10:58pm
+              </time>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><img src="../../uploads/default/original/2X/e/ea587c234381f71895852131941f9c9c105b27b4.jpg" alt="" data-base62-sha1="xr7iYN1CRXZQyMJzyJ30i4P9whK" width="500" height="411"></p>
+        </div>
+
+        <meta itemprop='headline' content='C++/Programming thread'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/JamesKane.html'><span itemprop='name'>JamesKane</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6438.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-01-29T03:07:00Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T06:08:10Z' class='post-time'>
+                August 11, 2020,  6:08am
+              </time>
+          <span itemprop='position'>#19</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Spent 30 mins on this…quite fun  <img src="../../images/emoji/twitter/smileyc164.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+<p><a href="https://pastebin.com/f94J8DP0" data-bbcode="true" rel="nofollow noopener">https://pastebin.com/f94J8DP0</a></p>
+<p>Added basic AI which just selects a random position.</p>
+        </div>
+
+        <meta itemprop='headline' content='C++/Programming thread'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/MtzBraves.html'><span itemprop='name'>MtzBraves</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6438.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-01-29T03:09:36Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T23:24:17Z' class='post-time'>
+                November 24, 2018, 11:24pm
+              </time>
+          <span itemprop='position'>#20</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Nevermind.</p>
+        </div>
+
+        <meta itemprop='headline' content='C++/Programming thread'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="64384658.html?page=2">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/c-programming-thread/6438 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 14:52:56 GMT -->
+</html>

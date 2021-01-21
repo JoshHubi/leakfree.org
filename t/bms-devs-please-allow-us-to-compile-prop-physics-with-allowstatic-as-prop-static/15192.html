@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:40:16 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static. - Source 1 - Leakfree</title>
+    <meta name="description" content="Long story short, see all the HL2 props? Well, they are compiled as physics, yes, but in the GUI they also show as available as static. Why? Because they have an “allowstatic” parameter embedded in them, however, ever si&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="15192.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.&#39;" href="15192.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192" />
+<meta name="twitter:url" content="https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192" />
+<meta property="og:title" content="BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static." />
+<meta name="twitter:title" content="BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static." />
+<meta property="og:description" content="Long story short, see all the HL2 props? Well, they are compiled as physics, yes, but in the GUI they also show as available as static. Why? Because they have an “allowstatic” parameter embedded in them, however, ever since the SDK 2013 that parameter remains undetected by the VBSP and so the only way to use these props in non-physics way is with prop_dynamic_override, which can very much negatively impact performance, especially on older machines.[/size]  This guy has fixed this for SDK 2013, I..." />
+<meta name="twitter:description" content="Long story short, see all the HL2 props? Well, they are compiled as physics, yes, but in the GUI they also show as available as static. Why? Because they have an “allowstatic” parameter embedded in them, however, ever since the SDK 2013 that parameter remains undetected by the VBSP and so the only way to use these props in non-physics way is with prop_dynamic_override, which can very much negatively impact performance, especially on older machines.[/size]  This guy has fixed this for SDK 2013, I..." />
+<meta property="article:published_time" content="2017-06-19T21:17:56+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="15192.html">BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/7.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>General Development</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/source-1/43.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #ED207B'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Source 1</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Snaiper.html'><span itemprop='name'>Snaiper</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15192.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-19T21:17:56Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:04:47Z' class='post-time'>
+                November 25, 2018,  5:04am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Long story short, see all the HL2 props? Well, they are compiled as physics, yes, but in the GUI they also show as available as static. Why? Because they have an “allowstatic” parameter embedded in them, however, ever since the SDK 2013 that parameter remains undetected by the VBSP and so the only way to use these props in non-physics way is with prop_dynamic_override, which can very much negatively impact performance, especially on older machines.[/size]</p>
+<p><span class="bbcode-b"><a href="https://facepunch.com/showthread.php?t=1488605" data-bbcode="true" rel="nofollow noopener">This guy has fixed this for SDK 2013</a>, I would kindly ask</span> BMS devs to try and fix it in their version of the engine.[/size]</p>
+<p>Why am I writing this? Why am I writing this right now? Well, some time ago before I took a break from my mod, I faced the same issue. My friend right now is forced to either recompile hundreds of models or consistently use prop_dynamic_override.</p>
+        </div>
+
+        <meta itemprop='headline' content='BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Johnwalter.html'><span itemprop='name'>Johnwalter</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15192.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-20T05:50:15Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:04:48Z' class='post-time'>
+                November 25, 2018,  5:04am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Maybe it will be fixed with the Xen update?<br>
+Just asking.</p>
+        </div>
+
+        <meta itemprop='headline' content='BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15192.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-20T11:42:57Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:04:50Z' class='post-time'>
+                November 25, 2018,  5:04am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>What’s wrong with the “motion disabled” flag?</p>
+        </div>
+
+        <meta itemprop='headline' content='BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/k3nny1550.html'><span itemprop='name'>k3nny1550</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15192.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-20T17:41:08Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:04:51Z' class='post-time'>
+                November 25, 2018,  5:04am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Static props are cheaper to render and you can use more of them than dynamic objects without significantly affecting performance, at least from my understanding.</p>
+        </div>
+
+        <meta itemprop='headline' content='BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Snaiper.html'><span itemprop='name'>Snaiper</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15192.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-29T13:52:14Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:05:14Z' class='post-time'>
+                November 25, 2018,  5:05am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Crypt">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/crypt/40/4394_2.png" class="avatar"> Crypt:</div>
+<blockquote>
+<p>What’s wrong with the “motion disabled” flag?</p>
+</blockquote>
+</aside>
+<ol>
+<li>Static is much cheaper than physics, which means better performance.</li>
+<li>Static does not count towards engine’s entity limit, which means that you can put in as much as compiler can take.</li>
+<li>Knowing which props are static and physics out right helps with mapping, instead of having to look at their flags individually, especially if for debugging you want to disable certain prop type.</li>
+</ol>
+        </div>
+
+        <meta itemprop='headline' content='BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15192.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-29T21:44:15Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:05:14Z' class='post-time'>
+                November 25, 2018,  5:05am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I understand the technical caveats and difference between the entities, I’ve made a map or two in my time. I’m just curious of how it’s really a hindrance considering in practice this is a really limited issue wouldn’t have a huge impact considering the props it affects.</p>
+<p>Not that it shouldn’t be fixed of course, just that I didn’t imagine it being a real obstacle in any otherwise properly optimized map. Not to the degree of having to recompile hundreds of props, anyway. Seems like the sort of edge case where Motion Disabled would do the trick. Unless your map is entirely HL2 phys props made static, in which case <span class="bbcode-b"><span class="bbcode-i">EW</span></span>   <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+        </div>
+
+        <meta itemprop='headline' content='BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Snaiper.html'><span itemprop='name'>Snaiper</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15192.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-30T09:36:34Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:05:15Z' class='post-time'>
+                November 25, 2018,  5:05am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Crypt">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/crypt/40/4394_2.png" class="avatar"> Crypt:</div>
+<blockquote>
+<p>I understand the technical caveats and difference between the entities, I’ve made a map or two in my time. I’m just curious of how it’s really a hindrance considering in practice this is a really limited issue wouldn’t have a huge impact considering the props it affects.</p>
+<p>Not that it shouldn’t be fixed of course, just that I didn’t imagine it being a real obstacle in any otherwise properly optimized map. Not to the degree of having to recompile hundreds of props, anyway. Seems like the sort of edge case where Motion Disabled would do the trick. Unless your map is entirely HL2 phys props made static, in which case <span class="bbcode-b"><span class="bbcode-i">EW</span></span>   <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+</blockquote>
+</aside>
+<p>The devs do not have to recompile the props. They just have to add a line or two into their VBSP, as I’ve originally stated. The props support this, but the VBSP does not, for some reason, this is the case in SDK 2013 as well.<br>
+Only 1/3 things I stated was about performance. So, there’s other reasons too.</p>
+        </div>
+
+        <meta itemprop='headline' content='BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/LordDz.html'><span itemprop='name'>LordDz</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15192.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/c/c79b5fdb79e53456146123041f9cc8adc897da10.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-07-04T15:17:09Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:05:20Z' class='post-time'>
+                November 25, 2018,  5:05am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>It’s not just for the hl2 props… Fixing two lines of code would solve a lot of headaches for mappers alike.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/c/c79b5fdb79e53456146123041f9cc8adc897da10.jpg" data-download-href="https://leakfree.org/uploads/default/c79b5fdb79e53456146123041f9cc8adc897da10" title="crates1.jpg"><img src="../../uploads/default/optimized/2X/c/c79b5fdb79e53456146123041f9cc8adc897da10_2_690x500.jpg" alt="crates1.jpg" data-base62-sha1="stNU69K4uI8i8dmWmQCXzhkKJCU" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/c/c79b5fdb79e53456146123041f9cc8adc897da10_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/c/c79b5fdb79e53456146123041f9cc8adc897da10_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/c/c79b5fdb79e53456146123041f9cc8adc897da10_2_1380x1000.jpeg 2x" data-small-upload="../../uploads/default/optimized/2X/c/c79b5fdb79e53456146123041f9cc8adc897da10_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">crates1.jpg</span><span class="informations">1792×569 332 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/a/a939a68370e7442c245b9d285385715b59ccfa16.jpg" data-download-href="https://leakfree.org/uploads/default/a939a68370e7442c245b9d285385715b59ccfa16" title="crates2.jpg"><img src="../../uploads/default/optimized/2X/a/a939a68370e7442c245b9d285385715b59ccfa16_2_690x500.jpg" alt="crates2.jpg" data-base62-sha1="o92cTALgnYud2uOeloC4rNhJZIO" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/a/a939a68370e7442c245b9d285385715b59ccfa16_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/a/a939a68370e7442c245b9d285385715b59ccfa16_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/a/a939a68370e7442c245b9d285385715b59ccfa16_2_1380x1000.jpeg 2x" data-small-upload="../../uploads/default/optimized/2X/a/a939a68370e7442c245b9d285385715b59ccfa16_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">crates2.jpg</span><span class="informations">1920×1080 260 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Flavrans.html'><span itemprop='name'>Flavrans</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15192.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/a/a0417012231c5b25f61b8a8d0996c842a6b0d85e.png">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-07-04T18:56:29Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:05:23Z' class='post-time'>
+                November 25, 2018,  5:05am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m not entirely sure what the OP is asking for, but I’ve looked at the VBSP source code in SDK 2013, and as far as I can tell, it’s working as intended. As long as the model has the keyvalue “allowstatic” set to “1” in the model’s prop_data, it can be used as prop_static. For example, the crate <a href="https://forums.blackmesasource.com/index.php/User/29054-LordDz/" data-bbcode="true" rel="nofollow noopener">@LordDz</a> used in his example does not have the “allowstatic” keyvalue set:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/a/a0417012231c5b25f61b8a8d0996c842a6b0d85e.png" data-download-href="https://leakfree.org/uploads/default/a0417012231c5b25f61b8a8d0996c842a6b0d85e" title="barrel01.png"><img src="../../uploads/default/optimized/2X/a/a0417012231c5b25f61b8a8d0996c842a6b0d85e_2_690x500.png" alt="barrel01.png" data-base62-sha1="mRGATpVcYypdzRYb282yj2yyv9A" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/a/a0417012231c5b25f61b8a8d0996c842a6b0d85e_2_690x500.png, https://leakfree.org/uploads/default/original/2X/a/a0417012231c5b25f61b8a8d0996c842a6b0d85e.png 1.5x, https://leakfree.org/uploads/default/original/2X/a/a0417012231c5b25f61b8a8d0996c842a6b0d85e.png 2x" data-small-upload="../../uploads/default/optimized/2X/a/a0417012231c5b25f61b8a8d0996c842a6b0d85e_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">barrel01.png</span><span class="informations">956×598 101 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Whereas, for example, this model has the “allowstatic” keyvalue set:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/3/308ca68cf367047acf00d39c7c9b04ba6ed29df5.png" data-download-href="https://leakfree.org/uploads/default/308ca68cf367047acf00d39c7c9b04ba6ed29df5" title="metalcrate01.png"><img src="../../uploads/default/optimized/2X/3/308ca68cf367047acf00d39c7c9b04ba6ed29df5_2_690x500.png" alt="metalcrate01.png" data-base62-sha1="6VugbzYDnYfVdV1wp8v8YdC9rJH" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/3/308ca68cf367047acf00d39c7c9b04ba6ed29df5_2_690x500.png, https://leakfree.org/uploads/default/original/2X/3/308ca68cf367047acf00d39c7c9b04ba6ed29df5.png 1.5x, https://leakfree.org/uploads/default/original/2X/3/308ca68cf367047acf00d39c7c9b04ba6ed29df5.png 2x" data-small-upload="../../uploads/default/optimized/2X/3/308ca68cf367047acf00d39c7c9b04ba6ed29df5_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">metalcrate01.png</span><span class="informations">956×598 98.2 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>I did some tests and confirmed that BM’s VBSP is accepting the barrel01 model as prop_static, whereas the metalcrate01 model gets deleted:</p>
+<p><code>Error! prop_static using model "models/props_blackmesa/metalcrate01.mdl", which must be used on a dynamic entity (i.e. prop_physics). Deleted.
+Error loading studio model "models/props_blackmesa/metalcrate01.mdl"!</code><br>
+However, what that mod does, which was linked to by the OP, is enabling models to be used as prop_static regardless of whether the “allowstatic” keyvalue is set or not.</p>
+        </div>
+
+        <meta itemprop='headline' content='BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Snaiper.html'><span itemprop='name'>Snaiper</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15192.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-07-13T11:15:09Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:40:50Z' class='post-time'>
+                August 11, 2020, 11:40am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Flavrans">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/flavrans/40/4375_2.jpg" class="avatar"> Flavrans:</div>
+<blockquote>
+<p>I’m not entirely sure what the OP is asking for, but I’ve looked at the VBSP source code in SDK 2013, and as far as I can tell, it’s working as intended. As long as the model has the keyvalue “allowstatic” set to “1” in the model’s prop_data, it can be used as prop_static. For example, the crate <a href="https://forums.blackmesasource.com/index.php/User/29054-LordDz/" data-bbcode="true" rel="nofollow noopener">@LordDz</a> used in his example does not have the “allowstatic” keyvalue set:</p>
+<p><a href="https://localhost/mybb/attachment.php?aid=4139" data-bbcode="true" rel="nofollow noopener"><img src="https://localhost/mybb/attachment.php?thumbnail=4139" alt=""></a></p>
+<p>Whereas, for example, this model has the “allowstatic” keyvalue set:</p>
+<p><a href="https://localhost/mybb/attachment.php?aid=4140" data-bbcode="true" rel="nofollow noopener"><img src="https://localhost/mybb/attachment.php?thumbnail=4140" alt=""></a></p>
+<p>I did some tests and confirmed that BM’s VBSP is accepting the barrel01 model as prop_static, whereas the metalcrate01 model gets deleted:</p>
+<p><code>Error! prop_static using model "models/props_blackmesa/metalcrate01.mdl", which must be used on a dynamic entity (i.e. prop_physics). Deleted.
+Error loading studio model "models/props_blackmesa/metalcrate01.mdl"!</code>However, what that mod does, which was linked to by the OP, is enabling models to be used as prop_static regardless of whether the “allowstatic” keyvalue is set or not.</p>
+</blockquote>
+</aside>
+<p>Wait, really? I swear that last time I put in a physics prop with “allowstatic” in it, it didn’t appear. I’ll test more.</p>
+        </div>
+
+        <meta itemprop='headline' content='BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:40:19 GMT -->
+</html>

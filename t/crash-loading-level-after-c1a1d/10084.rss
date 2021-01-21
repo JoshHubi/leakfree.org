@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>crash loading level after c1a1d</title>
+    <link>https://leakfree.org/t/crash-loading-level-after-c1a1d/10084</link>
+    <description>It&#39;s the area where the houndeye causes the walkway to collapse. If I try to crawl through the air vent, the game crashes loading the next level. If I jump down to the other side of the walkway and walk through that way, the game crashes loading the next level. 
+
+I&#39;ve attached a .mdmp. I loaded it up in the debugger and this is what it spit out:
+
+
+This dump file has an exception of interest stored in it.
+The stored exception information can be accessed via .ecxr.
+(1254.1740): Access violation - code c0000005 (first/second chance not available)
+eax=00000000 ebx=00000000 ecx=0018dca0 edx=00000000 esi=0000133c edi=0de8edb9
+eip=778e0c22 esp=0018ba24 ebp=0018ba34 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwGetContextThread+0x12:
+778e0c22 83c404          add     esp,4
+0:000&gt; .ecxr
+*** ERROR: Symbol file could not be found.  Defaulted to export symbols for vphysics.dll - 
+eax=02d4eb80 ebx=0018dc94 ecx=0018dca0 edx=00000000 esi=64b836d0 edi=58585858
+eip=0ff49e00 esp=0018dc3c ebp=00000000 iopl=0         nv up ei pl nz ac po nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00010212
+vphysics!CreateInterface+0xec20:
+0ff49e00 8b3e            mov     edi,dword ptr [esi]  ds:002b:64b836d0=????????
+&lt;a class=&#39;attachment&#39; href=&#39;/uploads/default/original/2X/1/1b07f8bc5c978fb02abef61e5376d88a388e050a.mdmp&#39;&gt;hl2_4104_crash_2012_9_16T0_46_32C0.mdmp&lt;/a&gt; (106 KB)</description>
+    
+    <lastBuildDate>Sun, 16 Sep 2012 01:18:34 +0000</lastBuildDate>
+    <category>In-game Issues (Mod)</category>
+    <atom:link href="https://leakfree.org/t/crash-loading-level-after-c1a1d/10084.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>crash loading level after c1a1d</title>
+        <dc:creator><![CDATA[gnoway]]></dc:creator>
+        <description><![CDATA[
+            <p>I changed to a lower resolution, turned off all the advanced graphics options and ran the game in a window vs. full screen. I was then able to get the next level loaded.</p>
+          <p><a href="https://leakfree.org/t/crash-loading-level-after-c1a1d/10084/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crash-loading-level-after-c1a1d/10084/2</link>
+        <pubDate>Sun, 16 Sep 2012 01:18:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10084-2</guid>
+        <source url="https://leakfree.org/t/crash-loading-level-after-c1a1d/10084.rss">crash loading level after c1a1d</source>
+      </item>
+      <item>
+        <title>crash loading level after c1a1d</title>
+        <dc:creator><![CDATA[gnoway]]></dc:creator>
+        <description><![CDATA[
+            <p>It’s the area where the houndeye causes the walkway to collapse. If I try to crawl through the air vent, the game crashes loading the next level. If I jump down to the other side of the walkway and walk through that way, the game crashes loading the next level.</p>
+<p>I’ve attached a .mdmp. I loaded it up in the debugger and this is what it spit out:</p>
+<p>This dump file has an exception of interest stored in it.<br>
+The stored exception information can be accessed via .ecxr.<br>
+(1254.1740): Access violation - code c0000005 (first/second chance not available)<br>
+eax=00000000 ebx=00000000 ecx=0018dca0 edx=00000000 esi=0000133c edi=0de8edb9<br>
+eip=778e0c22 esp=0018ba24 ebp=0018ba34 iopl=0         nv up ei pl zr na pe nc<br>
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246<br>
+ntdll!ZwGetContextThread+0x12:<br>
+778e0c22 83c404          add     esp,4<br>
+0:000&gt; .ecxr<br>
+*** ERROR: Symbol file could not be found.  Defaulted to export symbols for vphysics.dll -<br>
+eax=02d4eb80 ebx=0018dc94 ecx=0018dca0 edx=00000000 esi=64b836d0 edi=58585858<br>
+eip=0ff49e00 esp=0018dc3c ebp=00000000 iopl=0         nv up ei pl nz ac po nc<br>
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00010212<br>
+vphysics!CreateInterface+0xec20:<br>
+0ff49e00 8b3e            mov     edi,dword ptr [esi]  ds:002b:64b836d0=???<br>
+<a class="attachment" href="https://leakfree.org/uploads/default/original/2X/1/1b07f8bc5c978fb02abef61e5376d88a388e050a.mdmp">hl2_4104_crash_2012_9_16T0_46_32C0.mdmp</a> (106 KB)</p>
+          <p><a href="https://leakfree.org/t/crash-loading-level-after-c1a1d/10084/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crash-loading-level-after-c1a1d/10084/1</link>
+        <pubDate>Sun, 16 Sep 2012 01:09:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10084-1</guid>
+        <source url="https://leakfree.org/t/crash-loading-level-after-c1a1d/10084.rss">crash loading level after c1a1d</source>
+      </item>
+  </channel>
+</rss>

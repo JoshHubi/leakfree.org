@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>VRAD Arguments</title>
+    <link>https://leakfree.org/t/vrad-arguments/14113</link>
+    <description>I was wondering if there were any Black Mesa-specific arguments I should be using for compiling.  When I set up Hammer, it didn&#39;t have any build profiles defined, so I simply brought over the ones I had from Episode Two.  This is my VRAD setup currently (minus -final):
+
+-hdr -StaticPropLighting -StaticPropPolys -TextureShadows -game $gamedir $path\$file
+
+I&#39;ve heard that we don&#39;t bother with LDR at all.  I&#39;ve also heard that there was a particular bake, ambient occlusion, that takes a while?  Is either accurate and something I should be doing here?</description>
+    
+    <lastBuildDate>Mon, 25 May 2015 21:40:18 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/vrad-arguments/14113.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>VRAD Arguments</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<p>makes compiles take something like 6x longer</p>
+</blockquote>
+</aside>
+<p>Shit extended my 1 minute compile to 20. And that’s just one room!  D:<br>
+But damn if it’s not a nice little effect, subtle as it may be.</p>
+          <p><a href="https://leakfree.org/t/vrad-arguments/14113/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/vrad-arguments/14113/7</link>
+        <pubDate>Mon, 25 May 2015 21:40:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14113-7</guid>
+        <source url="https://leakfree.org/t/vrad-arguments/14113.rss">VRAD Arguments</source>
+      </item>
+      <item>
+        <title>VRAD Arguments</title>
+        <dc:creator><![CDATA[skyms2663]]></dc:creator>
+        <description><![CDATA[
+            <p>Very exited to see how the outdoor areas of my maps look with these new compile configs  <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+          <p><a href="https://leakfree.org/t/vrad-arguments/14113/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/vrad-arguments/14113/6</link>
+        <pubDate>Fri, 22 May 2015 23:34:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14113-6</guid>
+        <source url="https://leakfree.org/t/vrad-arguments/14113.rss">VRAD Arguments</source>
+      </item>
+      <item>
+        <title>VRAD Arguments</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Maki">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/m/ba8739/40.png" class="avatar"> Maki:</div>
+<blockquote>
+<p>Is it true that I don’t need to bother with LDR lighting?</p>
+</blockquote>
+</aside>
+<p>I’m pretty sure you could build with LDR if you <span class="bbcode-i">reeeeally</span> wanted to, but given that none of the official BM maps are compiled with LDR, it would be kind of a huge waste of time.</p>
+          <p><a href="https://leakfree.org/t/vrad-arguments/14113/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/vrad-arguments/14113/5</link>
+        <pubDate>Fri, 22 May 2015 22:28:27 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14113-5</guid>
+        <source url="https://leakfree.org/t/vrad-arguments/14113.rss">VRAD Arguments</source>
+      </item>
+      <item>
+        <title>VRAD Arguments</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>-ambientocclusion</p>
+<p>For your final, final compile. It makes compiles take something like 6x longer, but adds some really subtle nuance to the lighting. It also significantly increases the amount of calculations done on displacements, which is nice.</p>
+          <p><a href="https://leakfree.org/t/vrad-arguments/14113/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/vrad-arguments/14113/4</link>
+        <pubDate>Fri, 22 May 2015 22:05:52 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14113-4</guid>
+        <source url="https://leakfree.org/t/vrad-arguments/14113.rss">VRAD Arguments</source>
+      </item>
+      <item>
+        <title>VRAD Arguments</title>
+        <dc:creator><![CDATA[Maki]]></dc:creator>
+        <description><![CDATA[
+            <p>Maybe choptexlights is for light-emitting textures?  I don’t have many of those, if any.</p>
+<p>It seems to me like the transfers and thresh have to do with the way materials inject color into nearby walls.  For example, orange canyon walls produce a noticeable orange glow on gray concrete surfaces nearby, similar to the effect in Mirror’s Edge.  It’s quite pleasing, although it seems to have significantly brightened my level!  Playing with the transferscale would help, I’m sure.</p>
+<p>Is it true that I don’t need to bother with LDR lighting?</p>
+          <p><a href="https://leakfree.org/t/vrad-arguments/14113/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/vrad-arguments/14113/3</link>
+        <pubDate>Fri, 22 May 2015 21:58:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14113-3</guid>
+        <source url="https://leakfree.org/t/vrad-arguments/14113.rss">VRAD Arguments</source>
+      </item>
+      <item>
+        <title>VRAD Arguments</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>Well, from what I’ve found in the Black Mesa VRAD usage text:</p>
+<p>[code]===== Additional options brought to you by VRAD programmer Mike Hillard =====<br>
+-choptexlights		: Enables chopping of texture lights. Control texture light quality with lightmap density in hammer.<br>
+Dramatically increases both texture light quality and render time.</p>
+<pre><code>-extratransfers		: Enable overscaling of light transfers
+-transferscale:		: default 1.0 ; This is the scale factor of light transfers. increased values make surfaces transfer esxtra light
+					  (a scale of 2.0-4.0 suggested)	
+-satthresh:			: Default 0.4 ; This is the threshold that checks how saturated a material color is. Used with -satthreshscale:	
+-satthreshscale:	: Default 3.0 ; The amount to scale light transfers from surfaces that pass the saturation threshold 	[/code]</code></pre>
+          <p><a href="https://leakfree.org/t/vrad-arguments/14113/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/vrad-arguments/14113/2</link>
+        <pubDate>Fri, 22 May 2015 19:42:00 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14113-2</guid>
+        <source url="https://leakfree.org/t/vrad-arguments/14113.rss">VRAD Arguments</source>
+      </item>
+      <item>
+        <title>VRAD Arguments</title>
+        <dc:creator><![CDATA[Maki]]></dc:creator>
+        <description><![CDATA[
+            <p>I was wondering if there were any Black Mesa-specific arguments I should be using for compiling.  When I set up Hammer, it didn’t have any build profiles defined, so I simply brought over the ones I had from Episode Two.  This is my VRAD setup currently (minus -final):</p>
+<p>-hdr -StaticPropLighting -StaticPropPolys -TextureShadows -game $gamedir $path$file</p>
+<p>I’ve heard that we don’t bother with LDR at all.  I’ve also heard that there was a particular bake, ambient occlusion, that takes a while?  Is either accurate and something I should be doing here?</p>
+          <p><a href="https://leakfree.org/t/vrad-arguments/14113/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/vrad-arguments/14113/1</link>
+        <pubDate>Fri, 22 May 2015 17:42:47 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14113-1</guid>
+        <source url="https://leakfree.org/t/vrad-arguments/14113.rss">VRAD Arguments</source>
+      </item>
+  </channel>
+</rss>

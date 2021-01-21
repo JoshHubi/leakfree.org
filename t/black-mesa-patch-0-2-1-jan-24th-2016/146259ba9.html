@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/black-mesa-patch-0-2-1-jan-24th-2016/14625?page=3 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 10:02:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Black Mesa Patch - 0.2.1 - Jan 24th, 2016 - Patches - Leakfree</title>
+    <meta name="description" content="We’ve released a patch to Black Mesa main client 
+
+Fixed bouncing Bolts from the crossbow in MP
+Fixed a bug in the balanced spawn system
+Fixed Shotgun Collision model
+Fixed various spelling errors and missing .wav files &amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="146259ba9.html?page=3" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Black Mesa Patch - 0.2.1 - Jan 24th, 2016&#39;" href="14625.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/black-mesa-patch-0-2-1-jan-24th-2016/14625?page=3" />
+<meta name="twitter:url" content="https://leakfree.org/t/black-mesa-patch-0-2-1-jan-24th-2016/14625?page=3" />
+<meta property="og:title" content="Black Mesa Patch - 0.2.1 - Jan 24th, 2016" />
+<meta name="twitter:title" content="Black Mesa Patch - 0.2.1 - Jan 24th, 2016" />
+<meta property="og:description" content="This may or may not related but is also a sort of bug. When you pack .dat files or .txt files (these are the caption files) in VPK, the game is not loading these files for some reason. It doesn’t matter if you upload it to the Workshop or not.  By the way, it does load the VPK itself, as when you pack it with textures etc it does load them all. However the game is simply ignoring all .dat files in VPK. Maybe this has to do with the bugs? I’m not sure why it works for someone and why it doesn’t ..." />
+<meta name="twitter:description" content="This may or may not related but is also a sort of bug. When you pack .dat files or .txt files (these are the caption files) in VPK, the game is not loading these files for some reason. It doesn’t matter if you upload it to the Workshop or not.  By the way, it does load the VPK itself, as when you pack it with textures etc it does load them all. However the game is simply ignoring all .dat files in VPK. Maybe this has to do with the bugs? I’m not sure why it works for someone and why it doesn’t ..." />
+<meta property="article:published_time" content="2016-01-28T11:40:56+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="prev" href="146254658.html?page=2">
+        <link rel="next" href="14625fdb0.html?page=4">
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="14625.html">Black Mesa Patch - 0.2.1 - Jan 24th, 2016</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/6.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa Archive</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/patches/16.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Patches</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/KevinJRattman.html'><span itemprop='name'>KevinJRattman</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-28T11:40:56Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:23Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#41</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<p>Yea, I checked all the languages before making the guide. I’m kind of stumped at what could be causing the issue.</p>
+</blockquote>
+</aside>
+<p>This may or may not related but is also a sort of bug. When you pack .dat files or .txt files (these are the caption files) in VPK, the game is not loading these files for some reason. It doesn’t matter if you upload it to the Workshop or not.</p>
+<p>By the way, it does load the VPK itself, as when you pack it with textures etc it does load them all. However the game is simply ignoring all .dat files in VPK. Maybe this has to do with the bugs? I’m not sure why it works for someone and why it doesn’t though.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/JakSpoon.html'><span itemprop='name'>JakSpoon</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-28T12:03:12Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:29:24Z' class='post-time'>
+                August 11, 2020, 11:29am
+              </time>
+          <span itemprop='position'>#42</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<aside class="quote no-group" data-username="JakSpoon">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/jakspoon/40/5873_2.jpg" class="avatar"> JakSpoon:</div>
+<blockquote>
+<aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<aside class="quote no-group" data-username="JakSpoon">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/jakspoon/40/5873_2.jpg" class="avatar"> JakSpoon:</div>
+<blockquote>
+<p>[sub]Any news about Closed Caption fix???[/sub]<br>
+[sub][/sub]<br>
+[sub]Italian and Spanish still doesn’t works!!![/sub]</p>
+</blockquote>
+</aside>
+<p>[sub]I have been able to make them work using the workaround I posted about a few weeks ago. Did that not work?  <a href="https://forums.blackmesasource.com/index.php/Thread/28692-WORKAROUND-How-to-enable-supported-Closed-Captions/" data-bbcode="true" rel="nofollow noopener">[WORKAROUND] How to enable supported Closed Captions.</a>[/sub]</p>
+</blockquote>
+</aside>
+<p>[sub]I tried to follow the guide step by step , but does not change anything!The error is always the same:[/sub][sub][/sub]<br>
+[sub]\resource\closecaption_Italian.txt not found[/sub]<br>
+[sub]\resource\closecaption_english.txt will be used[/sub]<br>
+[sub][/sub]<br>
+[sub]after type cc_lang Italian!![/sub]<br>
+[sub][/sub]<br>
+[sub]I close Steam, re-start Steam and re-start the game… but Italian Closed Caption doesn’t appear, nowhere![/sub]</p>
+</blockquote>
+</aside>
+<p>[sub]That error is normal.[/sub]</p>
+<aside class="quote no-group" data-username="KevinJRattman">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/k/53a042/40.png" class="avatar"> KevinJRattman:</div>
+<blockquote>
+<aside class="quote no-group" data-username="JakSpoon">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/jakspoon/40/5873_2.jpg" class="avatar"> JakSpoon:</div>
+<blockquote>
+<aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<aside class="quote no-group" data-username="JakSpoon">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/jakspoon/40/5873_2.jpg" class="avatar"> JakSpoon:</div>
+<blockquote>
+<p>[sub]Any news about Closed Caption fix???[/sub]<br>
+[sub][/sub]<br>
+[sub]Italian and Spanish still doesn’t works!!![/sub]</p>
+</blockquote>
+</aside>
+<p>[sub]I have been able to make them work using the workaround I posted about a few weeks ago. Did that not work?  <a href="https://forums.blackmesasource.com/index.php/Thread/28692-WORKAROUND-How-to-enable-supported-Closed-Captions/" data-bbcode="true" rel="nofollow noopener">[WORKAROUND] How to enable supported Closed Captions.</a>[/sub]</p>
+</blockquote>
+</aside>
+<p>[sub]I tried to follow the guide step by step , but does not change anything!The error is always the same:[/sub][sub]\resource\closecaption_Italian.txt not found[/sub]<br>
+[sub]\resource\closecaption_english.txt will be used[/sub]<br>
+[sub][/sub]<br>
+[sub]after type cc_lang Italian!![/sub]<br>
+[sub][/sub]<br>
+[sub]I close Steam, re-start Steam and re-start the game… but Italian Closed Caption doesn’t appear, nowhere![/sub]</p>
+</blockquote>
+</aside>
+<p>[sub]Both Italian and Spanish subtitles work perfectly fine on my game. Are you sure you are doing everything correctly? I noticed you are using capital letters, but that shouldn’t be a problem.[/sub][sub]Disclaimer: I’m not Italian. I also didn’t need to restart the Steam nor game. You can change the language in real time, in-game.[/sub]<br>
+[sub][/sub]<br>
+[sub]<img src="https://dl.dropboxusercontent.com/u/36595985/asdasdsada.jpg" alt="" width="" height="">[/sub]</p>
+</blockquote>
+</aside>
+<p>[sub] Yea, I checked all the languages before making the guide. I’m kind of stumped at what could be causing the issue.[/sub]</p>
+</blockquote>
+</aside>
+<p>[sub]In fact it is really strange![/sub]<br>
+[sub][/sub]<br>
+[sub]I can only say had minor problems:[/sub]<br>
+[sub][/sub]<br>
+[sub]First of all I can not open the developer console with the tilde character, or “~”  (also by enabling it on the settings), because i have an Italian Keyboard, and for type the Tilde character i must click ALT + 126 . [/sub]<br>
+[sub]To open the console, I must necessarily click on Properties, and add “-console” to the launch options.[/sub]<br>
+[sub][/sub]<br>
+How can i oper the Developer Console with another character from my Italian Keyboard??</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-28T12:42:30Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:23Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#43</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m not sure what the italian console key is, I’m just not sure. I also don’t have any friends who are italian who could tell me.</p>
+<p>Using the -console launch options is probably your best bet.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/KevinJRattman.html'><span itemprop='name'>KevinJRattman</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-28T12:45:15Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:29:25Z' class='post-time'>
+                August 11, 2020, 11:29am
+              </time>
+          <span itemprop='position'>#44</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="JakSpoon">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/jakspoon/40/5873_2.jpg" class="avatar"> JakSpoon:</div>
+<blockquote>
+<p>[sub]In fact it is really strange![/sub]<br>
+[sub]I can only say had minor problems:[/sub]</p>
+<p>[sub]First of all I can not open the developer console with the tilde character, or “~”  (also by enabling it on the settings), because i have an Italian Keyboard, and for type the Tilde character i must click ALT + 126 . [/sub]<br>
+[sub]To open the console, I must necessarily click on Properties, and add “-console” to the launch options.[/sub]</p>
+<p>How can i oper the Developer Console with another character from my Italian Keyboard??</p>
+</blockquote>
+</aside>
+<p><a href="https://superuser.com/questions/667622/italian-keyboard-entering-the-tilde-and-backtick-characters-without-cha" data-bbcode="true" rel="nofollow noopener">https://superuser.com/questions/667622/italian-keyboard-entering-the-tilde-and-backtick-characters-without-cha</a></p>
+<p>I think this article have some useful information about that.</p>
+<p>Or, in fact, this just occured to me. There is a file called autoexec.cfg which is executed every time a game loads. You can try putting cc_lang italian command into that file and see if that helps. Usually, however, cc_lang command is saved once you use it, nullifying need of doing this. But give it a try anyway. This way, you do not need to fiddle with the console as it will be auto-executed every time. The file is located in bms\cfg folder.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/JakSpoon.html'><span itemprop='name'>JakSpoon</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-28T13:26:08Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:29:25Z' class='post-time'>
+                August 11, 2020, 11:29am
+              </time>
+          <span itemprop='position'>#45</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="KevinJRattman">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/k/53a042/40.png" class="avatar"> KevinJRattman:</div>
+<blockquote>
+<aside class="quote no-group" data-username="JakSpoon">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/jakspoon/40/5873_2.jpg" class="avatar"> JakSpoon:</div>
+<blockquote>
+<p>[sub]In fact it is really strange![/sub]<br>
+[sub]I can only say had minor problems:[/sub]</p>
+<p>[sub]First of all I can not open the developer console with the tilde character, or “~”  (also by enabling it on the settings), because i have an Italian Keyboard, and for type the Tilde character i must click ALT + 126 . [/sub]<br>
+[sub]To open the console, I must necessarily click on Properties, and add “-console” to the launch options.[/sub]</p>
+<p>How can i oper the Developer Console with another character from my Italian Keyboard??</p>
+</blockquote>
+</aside>
+<p><a href="https://superuser.com/questions/667622/italian-keyboard-entering-the-tilde-and-backtick-characters-without-cha" data-bbcode="true" rel="nofollow noopener">https://superuser.com/questions/667622/italian-keyboard-entering-the-tilde-and-backtick-characters-without-cha</a></p>
+<p>I think this article have some useful information about that.</p>
+<p>Or, in fact, this just occured to me. There is a file called autoexec.cfg which is executed every time a game loads. You can try putting cc_lang italian command into that file and see if that helps. Usually, however, cc_lang command is saved once you use it, nullifying need of doing this. But give it a try anyway. This way, you do not need to fiddle with the console as it will be auto-executed every time. The file is located in bms\cfg folder.</p>
+</blockquote>
+</aside>
+<p>Thanks really a lot!!</p>
+<p>I Read the article and i try with this trick!  <img src="../../images/emoji/twitter/winkc164.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Flavrans.html'><span itemprop='name'>Flavrans</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/5/527988db7aae9761647950940a0598f986492055.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-28T14:44:37Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:24Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#46</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="JakSpoon">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/jakspoon/40/5873_2.jpg" class="avatar"> JakSpoon:</div>
+<blockquote>
+<p>How can i oper the Developer Console with another character from my Italian Keyboard??</p>
+</blockquote>
+</aside>
+<p>It is possible to change the console key to something else in the game’s options:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/5/527988db7aae9761647950940a0598f986492055.jpg" data-download-href="https://leakfree.org/uploads/default/527988db7aae9761647950940a0598f986492055" title="2016-01-28_00003.jpg"><img src="../../uploads/default/optimized/2X/5/527988db7aae9761647950940a0598f986492055_2_690x500.jpg" alt="2016-01-28_00003.jpg" data-base62-sha1="bLBxqToacB3oHpmPaYvqVNwfvG5" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/5/527988db7aae9761647950940a0598f986492055_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/5/527988db7aae9761647950940a0598f986492055_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/5/527988db7aae9761647950940a0598f986492055_2_1380x1000.jpeg 2x" data-small-upload="../../uploads/default/optimized/2X/5/527988db7aae9761647950940a0598f986492055_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">2016-01-28_00003.jpg</span><span class="informations">1920×1080 136 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>From the main menu, click “Options”, then “Keyboard”. Scroll down the list and locate “Toggle developer console” under “Miscellaneous”. Click it and then click the “Edit key” button. Now press the key you would like to use for the console.</p>
+<p>Note that the developer console key doesn’t work when you are in the menu screen (at least it doesn’t for me), only when you are in-game.</p>
+<p>Also, it might be worth noting that the Inbound Tram Vox voice and the overhead announcements have not been translated in the Italian translation (nor in the Norwegian translation). So you will see English closed captions during the entire tram ride until you meet the guard at the lobby entrance.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/wayne_acoba.html'><span itemprop='name'>wayne_acoba</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-28T18:19:35Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:24Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#47</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for the great update. This game is just getting better and better.</p>
+<p>I don’t really know if it is a problem or if i’m just doing something wrong:<br>
+So I updated BM and subscribed for OAR Uncut in the workshop. I checked the folders, the data was there. I started a new game from the beginning of On A Rail (I did not load a saved game) and played until I reached the point where TEXT’s maps should blend into the game, but they didn’t. The chapter was unchanged from the retail version.<br>
+I only tried it once until now, but I just wanted to make sure I’m doing erverything right, since the workshop button in the menu is broken and all.<br>
+Do I have to type something into the console or move around the data in the folders? I couldn’t find such instructions. It is bascially just subsrcibing or unsubcribing to the workshop addons, isn’t it?</p>
+<p>Ok, thanks in advance for the help!</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-28T22:16:59Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:25Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#48</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="wayne_acoba">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/wayne_acoba/40/4378_2.jpg" class="avatar"> wayne_acoba:</div>
+<blockquote>
+<p>Thanks for the great update. This game is just getting better and better.</p>
+<p>I don’t really know if it is a problem or if i’m just doing something wrong:<br>
+So I updated BM and subscribed for OAR Uncut in the workshop. I checked the folders, the data was there. I started a new game from the beginning of On A Rail (I did not load a saved game) and played until I reached the point where TEXT’s maps should blend into the game, but they didn’t. The chapter was unchanged from the retail version.<br>
+I only tried it once until now, but I just wanted to make sure I’m doing erverything right, since the workshop button in the menu is broken and all.<br>
+Do I have to type something into the console or move around the data in the folders? I couldn’t find such instructions. It is bascially just subsrcibing or unsubcribing to the workshop addons, isn’t it?</p>
+<p>Ok, thanks in advance for the help!</p>
+</blockquote>
+</aside>
+<p>You should only need to click subscribe. Check your Downloads section (on steam, not black mesa) and see if you downloaded any workshop content recently.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/haos9cr1.html'><span itemprop='name'>haos9cr1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-29T14:26:47Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:28Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#49</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Black Mesa Workshop replacing sounds bug<br>
+<a href="https://www.youtube.com/watch?v=YoTi3iTU7q0" rel="nofollow noopener">youtube.com/watch?v=YoTi3iTU7q0</a></p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/KevinJRattman.html'><span itemprop='name'>KevinJRattman</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-31T11:56:20Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:32Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#50</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Do you guys have any progress on <span class="bbcode-b">“Cannot figure out which search path ~~ came from.  Absolute path is ~~” </span>bug? I tried everything to fix it (like- EVERYTHING) but just can’t seem to wear it off. And with this it’s essentially been over a month since Workshop not working as intended…</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/RedEye.html'><span itemprop='name'>RedEye</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-31T17:26:36Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:33Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#51</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="KevinJRattman">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/k/53a042/40.png" class="avatar"> KevinJRattman:</div>
+<blockquote>
+<p>Do you guys have any progress on <span class="bbcode-b">“Cannot figure out which search path ~~ came from.  Absolute path is ~~” </span>bug? I tried everything to fix it (like- EVERYTHING) but just can’t seem to wear it off. And with this it’s essentially been over a month since Workshop not working as intended…</p>
+</blockquote>
+</aside>
+<p>tis the joy of early access. It’s a great game and is continually getting better.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-31T17:56:25Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:33Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#52</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="KevinJRattman">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/k/53a042/40.png" class="avatar"> KevinJRattman:</div>
+<blockquote>
+<p>Do you guys have any progress on <span class="bbcode-b">“Cannot figure out which search path ~~ came from.  Absolute path is ~~” </span>bug? I tried everything to fix it (like- EVERYTHING) but just can’t seem to wear it off. And with this it’s essentially been over a month since Workshop not working as intended…</p>
+</blockquote>
+</aside>
+<p>Don’t have anything to report just yet. It’s known, but other things have been going on that have higher priority. Wish I had better news for you!</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/KevinJRattman.html'><span itemprop='name'>KevinJRattman</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-31T18:47:55Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:34Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#53</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<aside class="quote no-group" data-username="KevinJRattman">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/k/53a042/40.png" class="avatar"> KevinJRattman:</div>
+<blockquote>
+<p>Do you guys have any progress on <span class="bbcode-b">“Cannot figure out which search path ~~ came from.  Absolute path is ~~” </span>bug? I tried everything to fix it (like- EVERYTHING) but just can’t seem to wear it off. And with this it’s essentially been over a month since Workshop not working as intended…</p>
+</blockquote>
+</aside>
+<p>Don’t have anything to report just yet. It’s known, but other things have been going on that have higher priority. Wish I had better news for you!</p>
+</blockquote>
+</aside>
+<p>Thanks for the reply. I’m all good as long as I know that it’s a known bug and you guys will do something about it once after fixing other major bugs.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/CPU.html'><span itemprop='name'>CPU</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-31T20:24:41Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:29:33Z' class='post-time'>
+                August 11, 2020, 11:29am
+              </time>
+          <span itemprop='position'>#54</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>@<a href="https://forums.blackmesasource.com/index.php/User/45746-Fr0z3n/" data-bbcode="true">Fr0z3n</a></p>
+<p>What’s the status on the XP issue that won’t allow the game to run.</p>
+<p>"Unable to load C:\Program Files\Steam\steamapps\common\BlackMesa\bin\filesystem_stdio.dll "</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-31T20:57:07Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:29:34Z' class='post-time'>
+                August 11, 2020, 11:29am
+              </time>
+          <span itemprop='position'>#55</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="CPU">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/cpu/40/4349_2.jpg" class="avatar"> CPU:</div>
+<blockquote>
+<p>@<a href="https://forums.blackmesasource.com/index.php/User/45746-Fr0z3n/" data-bbcode="true" rel="nofollow noopener">Fr0z3n</a></p>
+<p>What’s the status on the XP issue that won’t allow the game to run.</p>
+<p>"Unable to load C:\Program Files\Steam\steamapps\common\BlackMesa\bin\filesystem_stdio.dll "</p>
+</blockquote>
+</aside>
+<p>It’s being looked at, but our bugfix list is longer than the wait for HL3 atm.</p>
+<p>We’ll get to it as soon as we can.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/JakSpoon.html'><span itemprop='name'>JakSpoon</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-02-01T19:02:06Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:29:37Z' class='post-time'>
+                August 11, 2020, 11:29am
+              </time>
+          <span itemprop='position'>#56</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Flavrans">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/flavrans/40/4375_2.jpg" class="avatar"> Flavrans:</div>
+<blockquote>
+<aside class="quote no-group" data-username="JakSpoon">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/jakspoon/40/5873_2.jpg" class="avatar"> JakSpoon:</div>
+<blockquote>
+<p>How can i oper the Developer Console with another character from my Italian Keyboard??</p>
+</blockquote>
+</aside>
+<p>It is possible to change the console key to something else in the game’s options:<br>
+<a href="https://localhost/mybb/attachment.php?aid=3463" data-bbcode="true" rel="nofollow noopener"><img src="https://localhost/mybb/attachment.php?thumbnail=3463" alt=""></a></p>
+<p>From the main menu, click “Options”, then “Keyboard”. Scroll down the list and locate “Toggle developer console” under “Miscellaneous”. Click it and then click the “Edit key” button. Now press the key you would like to use for the console.</p>
+<p>Note that the developer console key doesn’t work when you are in the menu screen (at least it doesn’t for me), only when you are in-game.</p>
+<p>Also, it might be worth noting that the Inbound Tram Vox voice and the overhead announcements have not been translated in the Italian translation (nor in the Norwegian translation). So you will see English closed captions during the entire tram ride until you meet the guard at the lobby entrance.</p>
+</blockquote>
+</aside>
+<p>Ok perfect!<br>
+Now , after restarting all, the subtitles in Italian work.!!!</p>
+<p>But I do not understand a few things:</p>
+<ul>
+<li>
+<p>First of all, when I check the Italian language, because even the menus and written phrases are written in English?</p>
+</li>
+<li>
+<p>Moreover, if I select closed captions, duties have subtitles in Italian for everything, even for the Inbound “Tram  Vox voice and the overhead announcements”; Instead i have only subtitles for dialogues, as if “Subtitles<br>
+(dialog only)” had selected.</p>
+</li>
+</ul>
+<p>[spoiler]</p>
+<p><img alt=""><br>
+<img alt=""></p>
+<p><img alt=""></p>
+<p><img src="https://imageshack.com/a/img924/5500/CChHP8.jpg" alt="">[/spoiler]<br>
+this is a normal thing?</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-02-01T20:17:08Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:29:37Z' class='post-time'>
+                August 11, 2020, 11:29am
+              </time>
+          <span itemprop='position'>#57</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="JakSpoon">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/jakspoon/40/5873_2.jpg" class="avatar"> JakSpoon:</div>
+<blockquote>
+<aside class="quote no-group" data-username="Flavrans">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/flavrans/40/4375_2.jpg" class="avatar"> Flavrans:</div>
+<blockquote>
+<aside class="quote no-group" data-username="JakSpoon">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/jakspoon/40/5873_2.jpg" class="avatar"> JakSpoon:</div>
+<blockquote>
+<p>How can i oper the Developer Console with another character from my Italian Keyboard??</p>
+</blockquote>
+</aside>
+<p>It is possible to change the console key to something else in the game’s options:<a href="https://localhost/mybb/attachment.php?aid=3463" data-bbcode="true" rel="nofollow noopener"><img src="https://localhost/mybb/attachment.php?thumbnail=3463" alt=""></a></p>
+<p>From the main menu, click “Options”, then “Keyboard”. Scroll down the list and locate “Toggle developer console” under “Miscellaneous”. Click it and then click the “Edit key” button. Now press the key you would like to use for the console.</p>
+<p>Note that the developer console key doesn’t work when you are in the menu screen (at least it doesn’t for me), only when you are in-game.</p>
+<p>Also, it might be worth noting that the Inbound Tram Vox voice and the overhead announcements have not been translated in the Italian translation (nor in the Norwegian translation). So you will see English closed captions during the entire tram ride until you meet the guard at the lobby entrance.</p>
+</blockquote>
+</aside>
+<p>Ok perfect!Now , after restarting all, the subtitles in Italian work.!!!</p>
+<p>But I do not understand a few things:</p>
+<ul>
+<li>
+<p>First of all, when I check the Italian language, because even the menus and written phrases are written in English?</p>
+</li>
+<li>
+<p>Moreover, if I select closed captions, duties have subtitles in Italian for everything, even for the Inbound “Tram  Vox voice and the overhead announcements”; Instead I find myself to have only subtitles for dialogues, as if “Subtitles (dialog only) had selected”</p>
+</li>
+</ul>
+<p>this is a normal thing?</p>
+</blockquote>
+</aside>
+<p>Yes, all that is unforunately normal. We made the mistake of assuming that the localization will happen when you change your steam settings, we were incorrect. So, right now only the subtitles and not the closed captions, or menu are being localized properly.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dalek.html'><span itemprop='name'>Dalek</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-02-01T20:33:45Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:37Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#58</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>So would putting all custom sounds in the “custom” folder like you do with other steampipe games work, or will they still not play?</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-02-01T20:34:30Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:37Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#59</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Dalek">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/d/e5b9ba/40.png" class="avatar"> Dalek:</div>
+<blockquote>
+<p>So would putting all custom sounds in the “custom” folder like you do with other steampipe games work, or will they still not play?</p>
+</blockquote>
+</aside>
+<p>To be honest, I’m not sure. I hadn’t tested that.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/JakSpoon.html'><span itemprop='name'>JakSpoon</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-02-01T20:40:14Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:29:38Z' class='post-time'>
+                August 11, 2020, 11:29am
+              </time>
+          <span itemprop='position'>#60</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<aside class="quote no-group" data-username="JakSpoon">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/jakspoon/40/5873_2.jpg" class="avatar"> JakSpoon:</div>
+<blockquote>
+<aside class="quote no-group" data-username="Flavrans">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/flavrans/40/4375_2.jpg" class="avatar"> Flavrans:</div>
+<blockquote>
+<aside class="quote no-group" data-username="JakSpoon">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/jakspoon/40/5873_2.jpg" class="avatar"> JakSpoon:</div>
+<blockquote>
+<p>How can i oper the Developer Console with another character from my Italian Keyboard??</p>
+</blockquote>
+</aside>
+<p>It is possible to change the console key to something else in the game’s options:<a href="https://localhost/mybb/attachment.php?aid=3463" data-bbcode="true" rel="nofollow noopener"><img src="https://localhost/mybb/attachment.php?thumbnail=3463" alt=""></a><br>
+From the main menu, click “Options”, then “Keyboard”. Scroll down the list and locate “Toggle developer console” under “Miscellaneous”. Click it and then click the “Edit key” button. Now press the key you would like to use for the console.</p>
+<p>Note that the developer console key doesn’t work when you are in the menu screen (at least it doesn’t for me), only when you are in-game.</p>
+<p>Also, it might be worth noting that the Inbound Tram Vox voice and the overhead announcements have not been translated in the Italian translation (nor in the Norwegian translation). So you will see English closed captions during the entire tram ride until you meet the guard at the lobby entrance.</p>
+</blockquote>
+</aside>
+<p>Ok perfect!Now , after restarting all, the subtitles in Italian work.!!!<br>
+But I do not understand a few things:</p>
+<ul>
+<li>
+<p>First of all, when I check the Italian language, because even the menus and written phrases are written in English?</p>
+</li>
+<li>
+<p>Moreover, if I select closed captions, duties have subtitles in Italian for everything, even for the Inbound “Tram  Vox voice and the overhead announcements”; Instead I find myself to have only subtitles for dialogues, as if “Subtitles (dialog only) had selected”</p>
+</li>
+</ul>
+<p>this is a normal thing?</p>
+</blockquote>
+</aside>
+<p>Yes, all that is unforunately normal. We made the mistake of assuming that the localization will happen when you change your steam settings, we were incorrect. So, right now only the subtitles and not the closed captions, or menu are being localized properly.</p>
+</blockquote>
+</aside>
+<p>Then it will be fixed in the future??</p>
+<p>I mean, it will be settled in the Italian language in all menus and subtitles?</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><a rel="prev" itemprop="url" href="146254658.html?page=2">← previous page</a></span>
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="14625fdb0.html?page=4">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/black-mesa-patch-0-2-1-jan-24th-2016/14625?page=3 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 10:02:19 GMT -->
+</html>

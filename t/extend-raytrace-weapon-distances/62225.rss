@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Extend raytrace weapon distances</title>
+    <link>https://leakfree.org/t/extend-raytrace-weapon-distances/62225</link>
+    <description>Currently, all raytrace attacks for singleplayer and multiplayer weapons terminate between 8,000 and 10,000 units.  While standing atop a scale representation of the Great Pyramid of Giza, I was unable to hit targets standing at the base of the structure. I would consider this an issue as this is not an imaginary structure, and we don&#39;t seem to be calculating bullet physics. The approximate distance from the apex directly to the base is 9788 units.  Screenshot below (other pyramids not to scale).  I recommend `MAX_TRACE_LENGTH`, which is what I would assume is used, so maybe there is some technical detail that I have overlooked.
+
+![20190316103112_1|690x388](upload://vlKVdvPXf1vjUj9bmNU9nLoYEgV.jpeg) 
+
+Below is a copy of the brush for the pyramid (giza_brush.vmf):
+&gt; versioninfo
+&gt; {
+&gt; 	&quot;editorversion&quot; &quot;400&quot;
+&gt; 	&quot;editorbuild&quot; &quot;7815&quot;
+&gt; 	&quot;mapversion&quot; &quot;1&quot;
+&gt; 	&quot;formatversion&quot; &quot;100&quot;
+&gt; 	&quot;prefab&quot; &quot;0&quot;
+&gt; }
+&gt; visgroups
+&gt; {
+&gt; }
+&gt; viewsettings
+&gt; {
+&gt; 	&quot;bSnapToGrid&quot; &quot;1&quot;
+&gt; 	&quot;bShowGrid&quot; &quot;1&quot;
+&gt; 	&quot;bShowLogicalGrid&quot; &quot;0&quot;
+&gt; 	&quot;nGridSpacing&quot; &quot;64&quot;
+&gt; 	&quot;bShow3DGrid&quot; &quot;0&quot;
+&gt; }
+&gt; world
+&gt; {
+&gt; 	&quot;id&quot; &quot;1&quot;
+&gt; 	&quot;mapversion&quot; &quot;1&quot;
+&gt; 	&quot;classname&quot; &quot;worldspawn&quot;
+&gt; 	&quot;skyname&quot; &quot;sky_day01_01&quot;
+&gt; 	&quot;underwaterparticle&quot; &quot;underwater_default&quot;
+&gt; 	&quot;maxpropscreenwidth&quot; &quot;-1&quot;
+&gt; 	&quot;detailvbsp&quot; &quot;detail.vbsp&quot;
+&gt; 	&quot;detailmaterial&quot; &quot;detail/detailsprites&quot;
+&gt; 	solid
+&gt; 	{
+&gt; 		&quot;id&quot; &quot;2&quot;
+&gt; 		side
+&gt; 		{
+&gt; 			&quot;id&quot; &quot;1&quot;
+&gt; 			&quot;plane&quot; &quot;(6048 6048 0) (-6048 6048 0) (-6048 -6048 0)&quot;
+&gt; 			&quot;material&quot; &quot;DEV/DEV_MEASUREGENERIC01&quot;
+&gt; 			&quot;uaxis&quot; &quot;[1 0 0 0] 0.25&quot;
+&gt; 			&quot;vaxis&quot; &quot;[0 -1 0 0] 0.25&quot;
+&gt; 			&quot;rotation&quot; &quot;0&quot;
+&gt; 			&quot;lightmapscale&quot; &quot;16&quot;
+&gt; 			&quot;smoothing_groups&quot; &quot;0&quot;
+&gt; 		}
+&gt; 		side
+&gt; 		{
+&gt; 			&quot;id&quot; &quot;2&quot;
+&gt; 			&quot;plane&quot; &quot;(-6048 6048 0) (0 0 7696) (-6048 -6048 0)&quot;
+&gt; 			&quot;material&quot; &quot;DEV/DEV_MEASUREGENERIC01&quot;
+&gt; 			&quot;uaxis&quot; &quot;[0 1 0 0] 0.25&quot;
+&gt; 			&quot;vaxis&quot; &quot;[0 0 -1 0] 0.25&quot;
+&gt; 			&quot;rotation&quot; &quot;0&quot;
+&gt; 			&quot;lightmapscale&quot; &quot;16&quot;
+&gt; 			&quot;smoothing_groups&quot; &quot;0&quot;
+&gt; 		}
+&gt; 		side
+&gt; 		{
+&gt; 			&quot;id&quot; &quot;3&quot;
+&gt; 			&quot;plane&quot; &quot;(0 0 7696) (6048 6048 0) (6048 -6048 0)&quot;
+&gt; 			&quot;material&quot; &quot;DEV/DEV_MEASUREGENERIC01&quot;
+&gt; 			&quot;uaxis&quot; &quot;[0 1 0 0] 0.25&quot;
+&gt; 			&quot;vaxis&quot; &quot;[0 0 -1 0] 0.25&quot;
+&gt; 			&quot;rotation&quot; &quot;0&quot;
+&gt; 			&quot;lightmapscale&quot; &quot;16&quot;
+&gt; 			&quot;smoothing_groups&quot; &quot;0&quot;
+&gt; 		}
+&gt; 		side
+&gt; 		{
+&gt; 			&quot;id&quot; &quot;4&quot;
+&gt; 			&quot;plane&quot; &quot;(6048 6048 0) (0 0 7696) (-6048 6048 0)&quot;
+&gt; 			&quot;material&quot; &quot;DEV/DEV_MEASUREGENERIC01&quot;
+&gt; 			&quot;uaxis&quot; &quot;[1 0 0 0] 0.25&quot;
+&gt; 			&quot;vaxis&quot; &quot;[0 0 -1 0] 0.25&quot;
+&gt; 			&quot;rotation&quot; &quot;0&quot;
+&gt; 			&quot;lightmapscale&quot; &quot;16&quot;
+&gt; 			&quot;smoothing_groups&quot; &quot;0&quot;
+&gt; 		}
+&gt; 		side
+&gt; 		{
+&gt; 			&quot;id&quot; &quot;5&quot;
+&gt; 			&quot;plane&quot; &quot;(0 0 7696) (6048 -6048 0) (-6048 -6048 0)&quot;
+&gt; 			&quot;material&quot; &quot;DEV/DEV_MEASUREGENERIC01&quot;
+&gt; 			&quot;uaxis&quot; &quot;[1 0 0 0] 0.25&quot;
+&gt; 			&quot;vaxis&quot; &quot;[0 0 -1 0] 0.25&quot;
+&gt; 			&quot;rotation&quot; &quot;0&quot;
+&gt; 			&quot;lightmapscale&quot; &quot;16&quot;
+&gt; 			&quot;smoothing_groups&quot; &quot;0&quot;
+&gt; 		}
+&gt; 		editor
+&gt; 		{
+&gt; 			&quot;color&quot; &quot;0 0 255&quot;
+&gt; 			&quot;visgroupshown&quot; &quot;1&quot;
+&gt; 			&quot;visgroupautoshown&quot; &quot;1&quot;
+&gt; 		}
+&gt; 	}
+&gt; }
+&gt; cameras
+&gt; {
+&gt; 	&quot;activecamera&quot; &quot;-1&quot;
+&gt; }
+&gt; cordon
+&gt; {
+&gt; 	&quot;mins&quot; &quot;(-1024 -1024 -1024)&quot;
+&gt; 	&quot;maxs&quot; &quot;(1024 1024 1024)&quot;
+&gt; 	&quot;active&quot; &quot;0&quot;
+&gt; }
+
+![letsgolittlebuddy|320x180](upload://j62hMBbqxgm72Mle8B7S1d6ioRu.jpeg)</description>
+    
+    <lastBuildDate>Fri, 05 Apr 2019 12:12:29 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/extend-raytrace-weapon-distances/62225.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Extend raytrace weapon distances</title>
+        <dc:creator><![CDATA[sea.level.rises]]></dc:creator>
+        <description><![CDATA[
+            <p>Yeah upon further inspection, most multiplayer weapons are broken, and ladder movement isn’t predicted…</p>
+<p>At least we might get Xen soon!</p>
+          <p><a href="https://leakfree.org/t/extend-raytrace-weapon-distances/62225/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/extend-raytrace-weapon-distances/62225/2</link>
+        <pubDate>Fri, 05 Apr 2019 12:12:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62225-2</guid>
+        <source url="https://leakfree.org/t/extend-raytrace-weapon-distances/62225.rss">Extend raytrace weapon distances</source>
+      </item>
+      <item>
+        <title>Extend raytrace weapon distances</title>
+        <dc:creator><![CDATA[sea.level.rises]]></dc:creator>
+        <description><![CDATA[
+            <p>Currently, all raytrace attacks for singleplayer and multiplayer weapons terminate between 8,000 and 10,000 units.  While standing atop a scale representation of the Great Pyramid of Giza, I was unable to hit targets standing at the base of the structure. I would consider this an issue as this is not an imaginary structure, and we don’t seem to be calculating bullet physics. The approximate distance from the apex directly to the base is 9788 units.  Screenshot below (other pyramids not to scale).  I recommend <code>MAX_TRACE_LENGTH</code>, which is what I would assume is used, so maybe there is some technical detail that I have overlooked.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/d/dbb8ff8ad83027db6ebd3aaf4ad25850a81fddb9.jpeg" data-download-href="https://leakfree.org/uploads/default/dbb8ff8ad83027db6ebd3aaf4ad25850a81fddb9" title="20190316103112_1"><img src="https://leakfree.org/uploads/default/optimized/2X/d/dbb8ff8ad83027db6ebd3aaf4ad25850a81fddb9_2_690x388.jpeg" alt="20190316103112_1" data-base62-sha1="vlKVdvPXf1vjUj9bmNU9nLoYEgV" width="690" height="388" srcset="https://leakfree.org/uploads/default/optimized/2X/d/dbb8ff8ad83027db6ebd3aaf4ad25850a81fddb9_2_690x388.jpeg, https://leakfree.org/uploads/default/optimized/2X/d/dbb8ff8ad83027db6ebd3aaf4ad25850a81fddb9_2_1035x582.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/d/dbb8ff8ad83027db6ebd3aaf4ad25850a81fddb9_2_1380x776.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/d/dbb8ff8ad83027db6ebd3aaf4ad25850a81fddb9_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">20190316103112_1</span><span class="informations">1920×1080 180 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Below is a copy of the brush for the pyramid (giza_brush.vmf):</p>
+<blockquote>
+<p>versioninfo<br>
+{<br>
+“editorversion” “400”<br>
+“editorbuild” “7815”<br>
+“mapversion” “1”<br>
+“formatversion” “100”<br>
+“prefab” “0”<br>
+}<br>
+visgroups<br>
+{<br>
+}<br>
+viewsettings<br>
+{<br>
+“bSnapToGrid” “1”<br>
+“bShowGrid” “1”<br>
+“bShowLogicalGrid” “0”<br>
+“nGridSpacing” “64”<br>
+“bShow3DGrid” “0”<br>
+}<br>
+world<br>
+{<br>
+“id” “1”<br>
+“mapversion” “1”<br>
+“classname” “worldspawn”<br>
+“skyname” “sky_day01_01”<br>
+“underwaterparticle” “underwater_default”<br>
+“maxpropscreenwidth” “-1”<br>
+“detailvbsp” “detail.vbsp”<br>
+“detailmaterial” “detail/detailsprites”<br>
+solid<br>
+{<br>
+“id” “2”<br>
+side<br>
+{<br>
+“id” “1”<br>
+“plane” “(6048 6048 0) (-6048 6048 0) (-6048 -6048 0)”<br>
+“material” “DEV/DEV_MEASUREGENERIC01”<br>
+“uaxis” “[1 0 0 0] 0.25”<br>
+“vaxis” “[0 -1 0 0] 0.25”<br>
+“rotation” “0”<br>
+“lightmapscale” “16”<br>
+“smoothing_groups” “0”<br>
+}<br>
+side<br>
+{<br>
+“id” “2”<br>
+“plane” “(-6048 6048 0) (0 0 7696) (-6048 -6048 0)”<br>
+“material” “DEV/DEV_MEASUREGENERIC01”<br>
+“uaxis” “[0 1 0 0] 0.25”<br>
+“vaxis” “[0 0 -1 0] 0.25”<br>
+“rotation” “0”<br>
+“lightmapscale” “16”<br>
+“smoothing_groups” “0”<br>
+}<br>
+side<br>
+{<br>
+“id” “3”<br>
+“plane” “(0 0 7696) (6048 6048 0) (6048 -6048 0)”<br>
+“material” “DEV/DEV_MEASUREGENERIC01”<br>
+“uaxis” “[0 1 0 0] 0.25”<br>
+“vaxis” “[0 0 -1 0] 0.25”<br>
+“rotation” “0”<br>
+“lightmapscale” “16”<br>
+“smoothing_groups” “0”<br>
+}<br>
+side<br>
+{<br>
+“id” “4”<br>
+“plane” “(6048 6048 0) (0 0 7696) (-6048 6048 0)”<br>
+“material” “DEV/DEV_MEASUREGENERIC01”<br>
+“uaxis” “[1 0 0 0] 0.25”<br>
+“vaxis” “[0 0 -1 0] 0.25”<br>
+“rotation” “0”<br>
+“lightmapscale” “16”<br>
+“smoothing_groups” “0”<br>
+}<br>
+side<br>
+{<br>
+“id” “5”<br>
+“plane” “(0 0 7696) (6048 -6048 0) (-6048 -6048 0)”<br>
+“material” “DEV/DEV_MEASUREGENERIC01”<br>
+“uaxis” “[1 0 0 0] 0.25”<br>
+“vaxis” “[0 0 -1 0] 0.25”<br>
+“rotation” “0”<br>
+“lightmapscale” “16”<br>
+“smoothing_groups” “0”<br>
+}<br>
+editor<br>
+{<br>
+“color” “0 0 255”<br>
+“visgroupshown” “1”<br>
+“visgroupautoshown” “1”<br>
+}<br>
+}<br>
+}<br>
+cameras<br>
+{<br>
+“activecamera” “-1”<br>
+}<br>
+cordon<br>
+{<br>
+“mins” “(-1024 -1024 -1024)”<br>
+“maxs” “(1024 1024 1024)”<br>
+“active” “0”<br>
+}</p>
+</blockquote>
+<p><img src="https://leakfree.org/uploads/default/original/2X/8/85d800a536cfabfa416779ff393b4211274e0fc4.jpeg" alt="letsgolittlebuddy" data-base62-sha1="j62hMBbqxgm72Mle8B7S1d6ioRu" width="320" height="180"></p>
+          <p><a href="https://leakfree.org/t/extend-raytrace-weapon-distances/62225/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/extend-raytrace-weapon-distances/62225/1</link>
+        <pubDate>Sat, 23 Mar 2019 15:05:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62225-1</guid>
+        <source url="https://leakfree.org/t/extend-raytrace-weapon-distances/62225.rss">Extend raytrace weapon distances</source>
+      </item>
+  </channel>
+</rss>

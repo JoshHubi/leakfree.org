@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>env_projectedtexture fixes</title>
+    <link>https://leakfree.org/t/env-projectedtexture-fixes/11390</link>
+    <description>I&#39;m trying to do this:
+
+[url]https://developer.valvesoftware.com/wiki/Env_projectedtexture/fixes[/url]
+
+I&#39;ve put in the code, following the directions to the best of my knowledge. But I&#39;m getting some rather entertaining errors:
+
+[code]1&gt;c:\program files (x86)\steam\steamapps\sourcemods\five codebase\src\game\client\c_env_projectedtexture.cpp(170) : error C2181: illegal else without matching if
+
+1&gt;c:\program files (x86)\steam\steamapps\sourcemods\five codebase\src\game\client\c_env_projectedtexture.cpp(228) : error C2601: &#39;C_EnvProjectedTexture::Simulate&#39; : local function definitions are illegal
+
+1&gt;        c:\program files (x86)\steam\steamapps\sourcemods\five codebase\src\game\client\c_env_projectedtexture.cpp(126): this line contains a &#39;{&#39; which has not yet been matched
+
+1&gt;c:\program files (x86)\steam\steamapps\sourcemods\five codebase\src\game\client\c_env_projectedtexture.cpp(234) : fatal error C1075: end of file found before the left brace &#39;{&#39; at &#39;c:\program files (x86)\steam\steamapps\sourcemods\five codebase\src\game\client\c_env_projectedtexture.cpp(126)&#39; was matched
+
+1&gt;c:\program files (x86)\steam\steamapps\sourcemods\five codebase\src\game\client\spritemodel.cpp(442) : error C3861: &#39;IsBIK&#39;: identifier not found[/code]
+
+
+Most of these seem to be in the env_projectedtexture.cpp, since I was modifying it to run the tutorial&#39;s code.
+[QUOTE= My Stupid Code, lines 104-234]
+[code]void C_EnvProjectedTexture::OnDataChanged( DataUpdateType_t updateType )
+{
+	UpdateLight( true );
+	BaseClass::OnDataChanged( updateType );
+}
+
+void C_EnvProjectedTexture::UpdateLight( bool bForceUpdate )
+{
+	if ( m_bState == false )
+	{
+		if ( m_LightHandle != CLIENTSHADOW_INVALID_HANDLE )
+		{
+			ShutDownLightHandle();
+		}
+
+		return;
+	}
+
+	Vector vForward, vRight, vUp, vPos = GetAbsOrigin();
+	FlashlightState_t state;
+
+	if ( m_hTargetEntity != NULL )
+	{
+		if ( m_bCameraSpace )
+		{
+			const QAngle &amp;angles = GetLocalAngles();
+
+			C_BasePlayer *pPlayer = C_BasePlayer::GetLocalPlayer();
+			if( pPlayer )
+			{
+				const QAngle playerAngles = pPlayer-&gt;GetAbsAngles();
+				
+				Vector vPlayerForward, vPlayerRight, vPlayerUp;
+				AngleVectors( playerAngles, &amp;vPlayerForward, &amp;vPlayerRight, &amp;vPlayerUp );
+
+            	matrix3x4_t	mRotMatrix;
+				AngleMatrix( angles, mRotMatrix );
+
+				VectorITransform( vPlayerForward, mRotMatrix, vForward );
+				VectorITransform( vPlayerRight, mRotMatrix, vRight );
+				VectorITransform( vPlayerUp, mRotMatrix, vUp );
+
+				float dist = (m_hTargetEntity-&gt;GetAbsOrigin() - GetAbsOrigin()).Length();
+				vPos = m_hTargetEntity-&gt;GetAbsOrigin() - vForward*dist;
+
+				VectorNormalize( vForward );
+				VectorNormalize( vRight );
+				VectorNormalize( vUp );
+			}
+
+		else
+			{
+				// VXP: Fixing targeting
+				Vector vecToTarget;
+				QAngle vecAngles;
+				if ( m_hTargetEntity == NULL )
+				{
+					vecAngles = GetAbsAngles();
+				}
+				else
+				{
+					vecToTarget = m_hTargetEntity-&gt;GetAbsOrigin() - GetAbsOrigin();
+					VectorAngles( vecToTarget, vecAngles );
+				}
+				AngleVectors( vecAngles, &amp;vForward, &amp;vRight, &amp;vUp );
+			}
+	else
+	{
+		AngleVectors( GetAbsAngles(), &amp;vForward, &amp;vRight, &amp;vUp );
+	}
+
+	state.m_fHorizontalFOVDegrees = m_flLightFOV;
+	state.m_fVerticalFOVDegrees = m_flLightFOV;
+
+	state.m_vecLightOrigin = vPos;
+	BasisToQuaternion( vForward, vRight, vUp, state.m_quatOrientation );
+
+	state.m_fQuadraticAtten = 0.0;
+	state.m_fLinearAtten = 100;
+	state.m_fConstantAtten = 0.0f;
+	state.m_Color[0] = m_LinearFloatLightColor.x;
+	state.m_Color[1] = m_LinearFloatLightColor.y;
+	state.m_Color[2] = m_LinearFloatLightColor.z;
+	state.m_Color[3] = 0.0f; // fixme: need to make ambient work m_flAmbient;
+	state.m_NearZ = m_flNearZ;
+	state.m_FarZ = m_flFarZ;
+	state.m_flShadowSlopeScaleDepthBias = mat_slopescaledepthbias_shadowmap.GetFloat();
+	state.m_flShadowDepthBias = mat_depthbias_shadowmap.GetFloat();
+	state.m_bEnableShadows = m_bEnableShadows;
+	state.m_pSpotlightTexture = materials-&gt;FindTexture( m_SpotlightTextureName, TEXTURE_GROUP_OTHER, false );
+	state.m_nSpotlightTextureFrame = m_nSpotlightTextureFrame;
+
+	state.m_nShadowQuality = m_nShadowQuality; // Allow entity to affect shadow quality
+
+	if( m_LightHandle == CLIENTSHADOW_INVALID_HANDLE )
+	{
+		m_LightHandle = g_pClientShadowMgr-&gt;CreateFlashlight( state );
+	}
+	else
+	{
+		if ( m_hTargetEntity != NULL || bForceUpdate == true )
+		{
+			g_pClientShadowMgr-&gt;UpdateFlashlightState( m_LightHandle, state );
+		}
+	}
+
+	if( m_bLightOnlyTarget )
+	{
+		g_pClientShadowMgr-&gt;SetFlashlightTarget( m_LightHandle, m_hTargetEntity );
+	}
+	else
+	{
+		g_pClientShadowMgr-&gt;SetFlashlightTarget( m_LightHandle, NULL );
+	}
+
+	g_pClientShadowMgr-&gt;SetFlashlightLightWorld( m_LightHandle, m_bLightWorld );
+
+	//if ( bForceUpdate == false )
+	//{
+		g_pClientShadowMgr-&gt;UpdateProjectedTexture( m_LightHandle, true );
+	//}
+}
+
+void C_EnvProjectedTexture::Simulate( void )
+{
+	UpdateLight( GetMoveParent() != NULL );
+
+	BaseClass::Simulate();
+}
+
+[/code]
+[/QUOTE]
+I&#39;m a bit of a novice at this coding thing -_-;;
+Anyone want to give this a punt, or see what I&#39;m doing wrong?</description>
+    
+    <lastBuildDate>Mon, 08 Oct 2012 14:38:46 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/env-projectedtexture-fixes/11390.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>env_projectedtexture fixes</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>Yay, the build was successful! Thanks, Keresh! I’ll have to make a test map with some projected textures and see if it works. I will report back with my findings.</p>
+          <p><a href="https://leakfree.org/t/env-projectedtexture-fixes/11390/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/env-projectedtexture-fixes/11390/5</link>
+        <pubDate>Mon, 08 Oct 2012 14:38:46 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11390-5</guid>
+        <source url="https://leakfree.org/t/env-projectedtexture-fixes/11390.rss">env_projectedtexture fixes</source>
+      </item>
+      <item>
+        <title>env_projectedtexture fixes</title>
+        <dc:creator><![CDATA[Keresh]]></dc:creator>
+        <description><![CDATA[
+            <p>Try commenting out <span class="bbcode-i">Assert( !IsAVI() &amp;&amp; !IsBIK() );</span></p>
+          <p><a href="https://leakfree.org/t/env-projectedtexture-fixes/11390/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/env-projectedtexture-fixes/11390/4</link>
+        <pubDate>Mon, 08 Oct 2012 08:06:45 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11390-4</guid>
+        <source url="https://leakfree.org/t/env-projectedtexture-fixes/11390.rss">env_projectedtexture fixes</source>
+      </item>
+      <item>
+        <title>env_projectedtexture fixes</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>YOU ARE THE MAN, K-MAN.</p>
+<p>That’s fixed everything in the projected texture project. However, the project failed because of something in a part of the project I don’t remember touching at all.</p>
+<p><code>1&gt;c:\program files (x86)\steam\steamapps\sourcemods\five codebase\src\game\client\spritemodel.cpp(442) : error C3861: 'IsBIK': identifier not found
+</code></p>
+<p>The lines referenced in spritemodel:</p>
+<p>[code]void CEngineSprite: <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"> rawFrameOfSize( int frame, int x, int y, int iWidth, int iHeight, const wrect_t *prcSubRect )<br>
+{<br>
+// FIXME: If we ever call this with AVIs, need to have it call GetTexCoordRange and make that work<br>
+Assert( !IsAVI() &amp;&amp; !IsBIK() );</p>
+<pre><code>float fLeft = 0;
+float fRight = 1;
+float fTop = 0;
+float fBottom = 1;
+
+if ( prcSubRect )
+{
+	AdjustSubRect( this, frame, &amp;fLeft, &amp;fRight, &amp;fTop, &amp;fBottom, &amp;iWidth, &amp;iHeight, prcSubRect );
+}
+
+if ( giScissorTest &amp;&amp; !Scissor( x, y, iWidth, iHeight, fLeft, fTop, fRight, fBottom ) )
+	return;
+
+SetFrame( frame );
+
+CMatRenderContextPtr pRenderContext( materials );
+IMesh* pMesh = pRenderContext-&gt;GetDynamicMesh( true, NULL, NULL, GetMaterial() );
+
+CMeshBuilder meshBuilder;
+meshBuilder.Begin( pMesh, MATERIAL_QUADS, 1 );
+
+float color[3];
+GetHUDSpriteColor( color );
+
+meshBuilder.Color3fv( color );
+meshBuilder.TexCoord2f( 0, fLeft, fTop );
+meshBuilder.Position3f( x, y, 0.0f );
+meshBuilder.AdvanceVertex();
+
+meshBuilder.Color3fv( color );
+meshBuilder.TexCoord2f( 0, fRight, fTop );
+meshBuilder.Position3f( x + iWidth, y, 0.0f );
+meshBuilder.AdvanceVertex();
+
+meshBuilder.Color3fv( color );
+meshBuilder.TexCoord2f( 0, fRight, fBottom );
+meshBuilder.Position3f( x + iWidth, y + iHeight, 0.0f );
+meshBuilder.AdvanceVertex();
+
+meshBuilder.Color3fv( color );
+meshBuilder.TexCoord2f( 0, fLeft, fBottom );
+meshBuilder.Position3f( x, y + iHeight, 0.0f );
+meshBuilder.AdvanceVertex();
+
+meshBuilder.End();
+pMesh-&gt;Draw();
+</code></pre>
+<p>}[/code]</p>
+<p>What’s weird is that I never touched this part of the code. Is this error in the vanilla 2007 source code? Should I just comment it out?</p>
+          <p><a href="https://leakfree.org/t/env-projectedtexture-fixes/11390/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/env-projectedtexture-fixes/11390/3</link>
+        <pubDate>Mon, 08 Oct 2012 01:23:06 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11390-3</guid>
+        <source url="https://leakfree.org/t/env-projectedtexture-fixes/11390.rss">env_projectedtexture fixes</source>
+      </item>
+      <item>
+        <title>env_projectedtexture fixes</title>
+        <dc:creator><![CDATA[Keresh]]></dc:creator>
+        <description><![CDATA[
+            <p>Seems like you’re missing some closing brackets. Try this and report back:</p>
+<p>[code]void C_EnvProjectedTexture::OnDataChanged( DataUpdateType_t updateType )<br>
+{<br>
+UpdateLight( true );<br>
+BaseClass::OnDataChanged( updateType );<br>
+}</p>
+<p>void C_EnvProjectedTexture::UpdateLight( bool bForceUpdate )<br>
+{<br>
+if ( m_bState == false )<br>
+{<br>
+if ( m_LightHandle != CLIENTSHADOW_INVALID_HANDLE )<br>
+{<br>
+ShutDownLightHandle();<br>
+}</p>
+<pre><code>	return;
+}
+Vector vForward, vRight, vUp, vPos = GetAbsOrigin();
+FlashlightState_t state;
+
+if ( m_hTargetEntity != NULL )
+{
+	if ( m_bCameraSpace )
+	{
+		const QAngle &amp;angles = GetLocalAngles();
+
+		C_BasePlayer *pPlayer = C_BasePlayer::GetLocalPlayer();
+		if( pPlayer )
+		{
+			const QAngle playerAngles = pPlayer-&gt;GetAbsAngles();
+			
+			Vector vPlayerForward, vPlayerRight, vPlayerUp;
+			AngleVectors( playerAngles, &amp;vPlayerForward, &amp;vPlayerRight, &amp;vPlayerUp );
+
+        	matrix3x4_t	mRotMatrix;
+			AngleMatrix( angles, mRotMatrix );
+
+			VectorITransform( vPlayerForward, mRotMatrix, vForward );
+			VectorITransform( vPlayerRight, mRotMatrix, vRight );
+			VectorITransform( vPlayerUp, mRotMatrix, vUp );
+
+			float dist = (m_hTargetEntity-&gt;GetAbsOrigin() - GetAbsOrigin()).Length();
+			vPos = m_hTargetEntity-&gt;GetAbsOrigin() - vForward*dist;
+
+			VectorNormalize( vForward );
+			VectorNormalize( vRight );
+			VectorNormalize( vUp );
+		}
+	}
+	else
+	{
+		// VXP: Fixing targeting
+		Vector vecToTarget;
+		QAngle vecAngles;
+		if ( m_hTargetEntity == NULL )
+		{
+			vecAngles = GetAbsAngles();
+		}
+		else
+		{
+			vecToTarget = m_hTargetEntity-&gt;GetAbsOrigin() - GetAbsOrigin();
+			VectorAngles( vecToTarget, vecAngles );
+		}
+		AngleVectors( vecAngles, &amp;vForward, &amp;vRight, &amp;vUp );
+	}
+}
+else
+{
+	AngleVectors( GetAbsAngles(), &amp;vForward, &amp;vRight, &amp;vUp );
+}
+
+state.m_fHorizontalFOVDegrees = m_flLightFOV;
+state.m_fVerticalFOVDegrees = m_flLightFOV;
+
+state.m_vecLightOrigin = vPos;
+BasisToQuaternion( vForward, vRight, vUp, state.m_quatOrientation );
+
+state.m_fQuadraticAtten = 0.0;
+state.m_fLinearAtten = 100;
+state.m_fConstantAtten = 0.0f;
+state.m_Color[0] = m_LinearFloatLightColor.x;
+state.m_Color[1] = m_LinearFloatLightColor.y;
+state.m_Color[2] = m_LinearFloatLightColor.z;
+state.m_Color[3] = 0.0f; // fixme: need to make ambient work m_flAmbient;
+state.m_NearZ = m_flNearZ;
+state.m_FarZ = m_flFarZ;
+state.m_flShadowSlopeScaleDepthBias = mat_slopescaledepthbias_shadowmap.GetFloat();
+state.m_flShadowDepthBias = mat_depthbias_shadowmap.GetFloat();
+state.m_bEnableShadows = m_bEnableShadows;
+state.m_pSpotlightTexture = materials-&gt;FindTexture( m_SpotlightTextureName, TEXTURE_GROUP_OTHER, false );
+state.m_nSpotlightTextureFrame = m_nSpotlightTextureFrame;
+
+state.m_nShadowQuality = m_nShadowQuality; // Allow entity to affect shadow quality
+
+if( m_LightHandle == CLIENTSHADOW_INVALID_HANDLE )
+{
+	m_LightHandle = g_pClientShadowMgr-&gt;CreateFlashlight( state );
+}
+else
+{
+	if ( m_hTargetEntity != NULL || bForceUpdate == true )
+	{
+		g_pClientShadowMgr-&gt;UpdateFlashlightState( m_LightHandle, state );
+	}
+}
+
+if( m_bLightOnlyTarget )
+{
+	g_pClientShadowMgr-&gt;SetFlashlightTarget( m_LightHandle, m_hTargetEntity );
+}
+else
+{
+	g_pClientShadowMgr-&gt;SetFlashlightTarget( m_LightHandle, NULL );
+}
+
+g_pClientShadowMgr-&gt;SetFlashlightLightWorld( m_LightHandle, m_bLightWorld );
+
+//if ( bForceUpdate == false )
+//{
+	g_pClientShadowMgr-&gt;UpdateProjectedTexture( m_LightHandle, true );
+//}
+</code></pre>
+<p>}</p>
+<p>void C_EnvProjectedTexture::Simulate( void )<br>
+{<br>
+UpdateLight( GetMoveParent() != NULL );</p>
+<pre><code>BaseClass::Simulate();
+</code></pre>
+<p>}[/code]</p>
+          <p><a href="https://leakfree.org/t/env-projectedtexture-fixes/11390/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/env-projectedtexture-fixes/11390/2</link>
+        <pubDate>Sun, 07 Oct 2012 22:56:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11390-2</guid>
+        <source url="https://leakfree.org/t/env-projectedtexture-fixes/11390.rss">env_projectedtexture fixes</source>
+      </item>
+      <item>
+        <title>env_projectedtexture fixes</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m trying to do this:</p>
+<p><a href="https://developer.valvesoftware.com/wiki/Env_projectedtexture/fixes" data-bbcode="true" rel="nofollow noopener">https://developer.valvesoftware.com/wiki/Env_projectedtexture/fixes</a></p>
+<p>I’ve put in the code, following the directions to the best of my knowledge. But I’m getting some rather entertaining errors:</p>
+<p>[code]1&gt;c:\program files (x86)\steam\steamapps\sourcemods\five codebase\src\game\client\c_env_projectedtexture.cpp(170) : error C2181: illegal else without matching if</p>
+<p>1&gt;c:\program files (x86)\steam\steamapps\sourcemods\five codebase\src\game\client\c_env_projectedtexture.cpp(228) : error C2601: ‘C_EnvProjectedTexture::Simulate’ : local function definitions are illegal</p>
+<p>1&gt;        c:\program files (x86)\steam\steamapps\sourcemods\five codebase\src\game\client\c_env_projectedtexture.cpp(126): this line contains a ‘{’ which has not yet been matched</p>
+<p>1&gt;c:\program files (x86)\steam\steamapps\sourcemods\five codebase\src\game\client\c_env_projectedtexture.cpp(234) : fatal error C1075: end of file found before the left brace ‘{’ at ‘c:\program files (x86)\steam\steamapps\sourcemods\five codebase\src\game\client\c_env_projectedtexture.cpp(126)’ was matched</p>
+<p>1&gt;c:\program files (x86)\steam\steamapps\sourcemods\five codebase\src\game\client\spritemodel.cpp(442) : error C3861: ‘IsBIK’: identifier not found[/code]</p>
+<p>Most of these seem to be in the env_projectedtexture.cpp, since I was modifying it to run the tutorial’s code.</p>
+<aside class="quote no-group" data-username="My Stupid Code">
+<div class="title">
+<div class="quote-controls"></div>
+ My Stupid Code:</div>
+<blockquote>
+<p>[code]void C_EnvProjectedTexture::OnDataChanged( DataUpdateType_t updateType )<br>
+{<br>
+UpdateLight( true );<br>
+BaseClass::OnDataChanged( updateType );<br>
+}</p>
+<p>void C_EnvProjectedTexture::UpdateLight( bool bForceUpdate )<br>
+{<br>
+if ( m_bState == false )<br>
+{<br>
+if ( m_LightHandle != CLIENTSHADOW_INVALID_HANDLE )<br>
+{<br>
+ShutDownLightHandle();<br>
+}</p>
+<pre><code>	return;
+}
+
+Vector vForward, vRight, vUp, vPos = GetAbsOrigin();
+FlashlightState_t state;
+
+if ( m_hTargetEntity != NULL )
+{
+	if ( m_bCameraSpace )
+	{
+		const QAngle &amp;angles = GetLocalAngles();
+
+		C_BasePlayer *pPlayer = C_BasePlayer::GetLocalPlayer();
+		if( pPlayer )
+		{
+			const QAngle playerAngles = pPlayer-&gt;GetAbsAngles();
+			
+			Vector vPlayerForward, vPlayerRight, vPlayerUp;
+			AngleVectors( playerAngles, &amp;vPlayerForward, &amp;vPlayerRight, &amp;vPlayerUp );
+
+        	matrix3x4_t	mRotMatrix;
+			AngleMatrix( angles, mRotMatrix );
+
+			VectorITransform( vPlayerForward, mRotMatrix, vForward );
+			VectorITransform( vPlayerRight, mRotMatrix, vRight );
+			VectorITransform( vPlayerUp, mRotMatrix, vUp );
+
+			float dist = (m_hTargetEntity-&gt;GetAbsOrigin() - GetAbsOrigin()).Length();
+			vPos = m_hTargetEntity-&gt;GetAbsOrigin() - vForward*dist;
+
+			VectorNormalize( vForward );
+			VectorNormalize( vRight );
+			VectorNormalize( vUp );
+		}
+
+	else
+		{
+			// VXP: Fixing targeting
+			Vector vecToTarget;
+			QAngle vecAngles;
+			if ( m_hTargetEntity == NULL )
+			{
+				vecAngles = GetAbsAngles();
+			}
+			else
+			{
+				vecToTarget = m_hTargetEntity-&gt;GetAbsOrigin() - GetAbsOrigin();
+				VectorAngles( vecToTarget, vecAngles );
+			}
+			AngleVectors( vecAngles, &amp;vForward, &amp;vRight, &amp;vUp );
+		}
+else
+{
+	AngleVectors( GetAbsAngles(), &amp;vForward, &amp;vRight, &amp;vUp );
+}
+
+state.m_fHorizontalFOVDegrees = m_flLightFOV;
+state.m_fVerticalFOVDegrees = m_flLightFOV;
+
+state.m_vecLightOrigin = vPos;
+BasisToQuaternion( vForward, vRight, vUp, state.m_quatOrientation );
+
+state.m_fQuadraticAtten = 0.0;
+state.m_fLinearAtten = 100;
+state.m_fConstantAtten = 0.0f;
+state.m_Color[0] = m_LinearFloatLightColor.x;
+state.m_Color[1] = m_LinearFloatLightColor.y;
+state.m_Color[2] = m_LinearFloatLightColor.z;
+state.m_Color[3] = 0.0f; // fixme: need to make ambient work m_flAmbient;
+state.m_NearZ = m_flNearZ;
+state.m_FarZ = m_flFarZ;
+state.m_flShadowSlopeScaleDepthBias = mat_slopescaledepthbias_shadowmap.GetFloat();
+state.m_flShadowDepthBias = mat_depthbias_shadowmap.GetFloat();
+state.m_bEnableShadows = m_bEnableShadows;
+state.m_pSpotlightTexture = materials-&gt;FindTexture( m_SpotlightTextureName, TEXTURE_GROUP_OTHER, false );
+state.m_nSpotlightTextureFrame = m_nSpotlightTextureFrame;
+
+state.m_nShadowQuality = m_nShadowQuality; // Allow entity to affect shadow quality
+
+if( m_LightHandle == CLIENTSHADOW_INVALID_HANDLE )
+{
+	m_LightHandle = g_pClientShadowMgr-&gt;CreateFlashlight( state );
+}
+else
+{
+	if ( m_hTargetEntity != NULL || bForceUpdate == true )
+	{
+		g_pClientShadowMgr-&gt;UpdateFlashlightState( m_LightHandle, state );
+	}
+}
+
+if( m_bLightOnlyTarget )
+{
+	g_pClientShadowMgr-&gt;SetFlashlightTarget( m_LightHandle, m_hTargetEntity );
+}
+else
+{
+	g_pClientShadowMgr-&gt;SetFlashlightTarget( m_LightHandle, NULL );
+}
+
+g_pClientShadowMgr-&gt;SetFlashlightLightWorld( m_LightHandle, m_bLightWorld );
+
+//if ( bForceUpdate == false )
+//{
+	g_pClientShadowMgr-&gt;UpdateProjectedTexture( m_LightHandle, true );
+//}
+</code></pre>
+<p>}</p>
+<p>void C_EnvProjectedTexture::Simulate( void )<br>
+{<br>
+UpdateLight( GetMoveParent() != NULL );</p>
+<pre><code>BaseClass::Simulate();
+</code></pre>
+<p>}</p>
+<p>[/code]</p>
+</blockquote>
+</aside>
+<p>I’m a bit of a novice at this coding thing -_-;;<br>
+Anyone want to give this a punt, or see what I’m doing wrong?</p>
+          <p><a href="https://leakfree.org/t/env-projectedtexture-fixes/11390/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/env-projectedtexture-fixes/11390/1</link>
+        <pubDate>Sun, 07 Oct 2012 21:06:39 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11390-1</guid>
+        <source url="https://leakfree.org/t/env-projectedtexture-fixes/11390.rss">env_projectedtexture fixes</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>[FIX] Certain Preferences Not Being Saved</title>
+    <link>https://leakfree.org/t/fix-certain-preferences-not-being-saved/10832</link>
+    <description>To my knowledge these are the only three that don&#39;t save.
+Just put the ones you want turned off/changed at the end of your autoexec.cfg file.
+
+[code]sk_allow_autoaim &quot;0&quot; //Autoaim Off
+sv_train_stop_owner_falloff &quot;0&quot; //Train Failsafe Off
+rollangle &quot;1.5&quot; //View Roll. Min is &quot;0&quot;, max is &quot;3.5&quot;. [B]Edit: See Below[/B]
+[/code]
+
+Hope that helps.
+
+[b]Edit:[/b] Upon further investigation, it appears that rollangle will reset to 3.5 even after setting it in the autoexec.cfg file. But, if you open options on game start and click apply, it will automatically set it to the value you set in the config file.
+The only method I have found [i](that works for me)[/i] is to keep it in your cfg file and force-start the game with the console enabled by using the launch option &quot;-console&quot;.
+However, this will start the game with the console open. If you don&#39;t want the console to open when you start the game, just put &quot;hideconsole&quot; anywhere in your autoexec.cfg file.
+
+[b]Edit 2:[/b] If you are having problems, Jenova19 posted a solution that worked for him by setting autoexec.cfg to read only. This method didn&#39;t work for me with viewroll but you are welcome to try it.</description>
+    
+    <lastBuildDate>Wed, 19 Sep 2012 17:17:19 +0000</lastBuildDate>
+    <category>In-game Issues (Mod)</category>
+    <atom:link href="https://leakfree.org/t/fix-certain-preferences-not-being-saved/10832.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>[FIX] Certain Preferences Not Being Saved</title>
+        <dc:creator><![CDATA[Jenova19]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Jokerine">
+<div class="title">
+<div class="quote-controls"></div>
+ Jokerine:</div>
+<blockquote>
+<p>Thank you, but that does not work either. Ah well. I appreciate the effort nonetheless  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+</blockquote>
+</aside>
+<p>Hmm, that’s really strange.</p>
+<p>I just tested the method I posted as an “EDIT:” and it definitely works (with autoexec set to Read-Only)…</p>
+<p>Have you tried it, yet?</p>
+<aside class="quote no-group" data-username="Jenova19">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/j/f6c823/40.png" class="avatar"> Jenova19:</div>
+<blockquote>
+<p>-Snip-</p>
+<p><span class="bbcode-b">EDIT (04:49 PM):</span> You could try creating an extra .cfg (with the contents posted above) inside the “…\SteamApps\sourcemods\BMS\cfg” folder and adding it to the autoexec.cfg, as well.</p>
+<pre><code class="lang-auto">exec config.cfg
+exec {CFGNAME}.cfg
+//exec threading.cfg</code></pre>
+</blockquote>
+</aside>
+<hr>
+<p><span class="bbcode-b">{CFGNAME}.cfg -&gt;</span></p>
+<pre><code class="lang-auto">sk_allow_autoaim "0"
+sv_train_stop_owner_falloff "0"
+rollangle "1.5"</code></pre>
+<p><span class="bbcode-i">(Replace {CFGNAME} with any name you need, but remember to add said name to the “autoexec.cfg”, as shown above (Quote).)</span></p>
+<hr>
+<p><span class="bbcode-b">EDIT (07:20 PM):</span> First “autoxec” then “autexec”… Typing “autoexec” can’t be that hard…  :rolleyes:</p>
+<hr>
+<p><span class="bbcode-b">EDIT (07 : 32 PM):</span> Just double checked it with different settings (e.g. ‘rollangle “2.2”’, etc.) and again I can confirm that it works (with or without saving).  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/fix-certain-preferences-not-being-saved/10832/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-certain-preferences-not-being-saved/10832/7</link>
+        <pubDate>Wed, 19 Sep 2012 17:17:19 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10832-7</guid>
+        <source url="https://leakfree.org/t/fix-certain-preferences-not-being-saved/10832.rss">[FIX] Certain Preferences Not Being Saved</source>
+      </item>
+      <item>
+        <title>[FIX] Certain Preferences Not Being Saved</title>
+        <dc:creator><![CDATA[TheOneAndOnly]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you, but that does not work either. Ah well. I appreciate the effort nonetheless  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/fix-certain-preferences-not-being-saved/10832/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-certain-preferences-not-being-saved/10832/6</link>
+        <pubDate>Wed, 19 Sep 2012 17:03:19 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10832-6</guid>
+        <source url="https://leakfree.org/t/fix-certain-preferences-not-being-saved/10832.rss">[FIX] Certain Preferences Not Being Saved</source>
+      </item>
+      <item>
+        <title>[FIX] Certain Preferences Not Being Saved</title>
+        <dc:creator><![CDATA[Jenova19]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Jokerine">
+<div class="title">
+<div class="quote-controls"></div>
+ Jokerine:</div>
+<blockquote>
+<p>Yeah, they are. I’ m not sure of what else it could be. I’ll see if I can try again later. Thanks nonetheless.</p>
+</blockquote>
+</aside>
+<p>Check if the file has been reset to default, after you’ve quit the game.</p>
+<p><span class="bbcode-b">If that’s the case, do this:</span></p>
+<p>Right-Click “autoexec.cfg” -&gt; Properties -&gt; Check the “Read-Only” checkbox -&gt; Click “Apply” -&gt; Click “OK”</p>
+<hr>
+<p><span class="bbcode-b">EDIT (04:49 PM):</span> You could try creating an extra .cfg (with the contents posted above) inside the “…\SteamApps\sourcemods\BMS\cfg” folder and adding it to the autoexec.cfg, as well.</p>
+<pre><code class="lang-auto">exec config.cfg
+exec {CFGNAME}.cfg
+//exec threading.cfg</code></pre>
+          <p><a href="https://leakfree.org/t/fix-certain-preferences-not-being-saved/10832/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-certain-preferences-not-being-saved/10832/5</link>
+        <pubDate>Wed, 19 Sep 2012 16:46:25 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10832-5</guid>
+        <source url="https://leakfree.org/t/fix-certain-preferences-not-being-saved/10832.rss">[FIX] Certain Preferences Not Being Saved</source>
+      </item>
+      <item>
+        <title>[FIX] Certain Preferences Not Being Saved</title>
+        <dc:creator><![CDATA[TheOneAndOnly]]></dc:creator>
+        <description><![CDATA[
+            <p>Yeah, they are. I’ m not sure of what else it could be. I’ll see if I can try again later. Thanks nonetheless.</p>
+          <p><a href="https://leakfree.org/t/fix-certain-preferences-not-being-saved/10832/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-certain-preferences-not-being-saved/10832/4</link>
+        <pubDate>Wed, 19 Sep 2012 16:43:31 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10832-4</guid>
+        <source url="https://leakfree.org/t/fix-certain-preferences-not-being-saved/10832.rss">[FIX] Certain Preferences Not Being Saved</source>
+      </item>
+      <item>
+        <title>[FIX] Certain Preferences Not Being Saved</title>
+        <dc:creator><![CDATA[them1ke]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Jokerine">
+<div class="title">
+<div class="quote-controls"></div>
+ Jokerine:</div>
+<blockquote>
+<p>Went ingame after putting these in my autoexec. They worked when I first started up, but then I saved, quit, started the game again, and everything was back at default again  <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+</blockquote>
+</aside>
+<p>I’m not having that problem. I don’t see why it wouldn’t set them. If you enter them in the console at the main menu it will change them as well.</p>
+<p>The variables are set to “0” and are at the bottom of your autoexec.cfg file?</p>
+          <p><a href="https://leakfree.org/t/fix-certain-preferences-not-being-saved/10832/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-certain-preferences-not-being-saved/10832/3</link>
+        <pubDate>Wed, 19 Sep 2012 16:30:00 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10832-3</guid>
+        <source url="https://leakfree.org/t/fix-certain-preferences-not-being-saved/10832.rss">[FIX] Certain Preferences Not Being Saved</source>
+      </item>
+      <item>
+        <title>[FIX] Certain Preferences Not Being Saved</title>
+        <dc:creator><![CDATA[TheOneAndOnly]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ll test this out now. Thanks!</p>
+<p>Edit: Went ingame after putting these in my autoexec. They worked when I first started up, but then I saved, quit, started the game again, and everything was back at default again  <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+          <p><a href="https://leakfree.org/t/fix-certain-preferences-not-being-saved/10832/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-certain-preferences-not-being-saved/10832/2</link>
+        <pubDate>Wed, 19 Sep 2012 16:07:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10832-2</guid>
+        <source url="https://leakfree.org/t/fix-certain-preferences-not-being-saved/10832.rss">[FIX] Certain Preferences Not Being Saved</source>
+      </item>
+      <item>
+        <title>[FIX] Certain Preferences Not Being Saved</title>
+        <dc:creator><![CDATA[them1ke]]></dc:creator>
+        <description><![CDATA[
+            <p>To my knowledge these are the only three that don’t save.<br>
+Just put the ones you want turned off/changed at the end of your autoexec.cfg file.</p>
+<p><code>sk_allow_autoaim "0" //Autoaim Off
+sv_train_stop_owner_falloff "0" //Train Failsafe Off
+rollangle "1.5" //View Roll. Min is "0", max is "3.5". [B]Edit: See Below[/B]
+</code></p>
+<p>Hope that helps.</p>
+<p><span class="bbcode-b">Edit:</span> Upon further investigation, it appears that rollangle will reset to 3.5 even after setting it in the autoexec.cfg file. But, if you open options on game start and click apply, it will automatically set it to the value you set in the config file.<br>
+The only method I have found <span class="bbcode-i">(that works for me)</span> is to keep it in your cfg file and force-start the game with the console enabled by using the launch option “-console”.<br>
+However, this will start the game with the console open. If you don’t want the console to open when you start the game, just put “hideconsole” anywhere in your autoexec.cfg file.</p>
+<p><span class="bbcode-b">Edit 2:</span> If you are having problems, Jenova19 posted a solution that worked for him by setting autoexec.cfg to read only. This method didn’t work for me with viewroll but you are welcome to try it.</p>
+          <p><a href="https://leakfree.org/t/fix-certain-preferences-not-being-saved/10832/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-certain-preferences-not-being-saved/10832/1</link>
+        <pubDate>Wed, 19 Sep 2012 16:02:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10832-1</guid>
+        <source url="https://leakfree.org/t/fix-certain-preferences-not-being-saved/10832.rss">[FIX] Certain Preferences Not Being Saved</source>
+      </item>
+  </channel>
+</rss>

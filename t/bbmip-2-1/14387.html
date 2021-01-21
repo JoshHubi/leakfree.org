@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/bbmip-2-1/14387 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:32:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>BBMIP 2.1 - Developer Logs - Leakfree</title>
+    <meta name="description" content="[sup]Been working on several things after taking a bit of a break. Most of the things were skybox models. This was one that wasn’t. [/sup] 
+Just a Shot with AO. 
+ 
+Base textures (no grunge) 
+ 
+Final hlmv shot.">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="14387.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;BBMIP 2.1&#39;" href="14387.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/bbmip-2-1/14387" />
+<meta name="twitter:url" content="https://leakfree.org/t/bbmip-2-1/14387" />
+<meta property="og:title" content="BBMIP 2.1" />
+<meta name="twitter:title" content="BBMIP 2.1" />
+<meta property="og:description" content="[sup]Been working on several things after taking a bit of a break. Most of the things were skybox models. This was one that wasn’t. [/sup]  Just a Shot with AO.     Base textures (no grunge)     Final hlmv shot." />
+<meta name="twitter:description" content="[sup]Been working on several things after taking a bit of a break. Most of the things were skybox models. This was one that wasn’t. [/sup]  Just a Shot with AO.     Base textures (no grunge)     Final hlmv shot." />
+<meta property="article:published_time" content="2015-08-30T21:41:35+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="next" href="143874658.html?page=2">
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="14387.html">BBMIP 2.1</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/6.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa Archive</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/developer-logs/15.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Developer Logs</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bkdale86.html'><span itemprop='name'>bkdale86</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14387.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-30T21:41:35Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:24:08Z' class='post-time'>
+                August 11, 2020, 11:24am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>[sup]Been working on several things after taking a bit of a break. Most of the things were skybox models. This was one that wasn’t. [/sup]<br>
+Just a Shot with AO.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/jU39ehV.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/jU39ehV.jpg" alt="" width="690" height="442"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">2618×1680</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Base textures (no grunge)<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/GfmfTls.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/GfmfTls.jpg" alt="" width="690" height="449"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">3101×2021</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Final hlmv shot.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/v0ICj1N.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/v0ICj1N.jpg" alt="" width="690" height="382"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">3061×1697</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP 2.1'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Sage_J_Fox.html'><span itemprop='name'>Sage_J_Fox</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14387.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-30T22:12:23Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:54Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Looks good. Is explosive I take it?</p>
+<p>Edit: Though, hate to be that guy, but, typically tires have all sorts of information written on their side. Manufacturer, size, recommended PSI, etc. Unsure if the texture’s large enough for those details to be put on.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP 2.1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14387.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-30T22:27:49Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:54Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>A truck!!! A truck!!! We finally get a truck!!!</p>
+<p>Would you be willing to make a cargo-container variant? Black Mesa seems to be suffering from an alarming deficit of ways to actually move cargo from outside the facility to inside…</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP 2.1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bkdale86.html'><span itemprop='name'>bkdale86</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14387.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-31T00:08:48Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:54Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Sage J. Fox">
+<div class="title">
+<div class="quote-controls"></div>
+ Sage J. Fox:</div>
+<blockquote>
+<p>Looks good. Is explosive I take it?</p>
+<p>Edit: Though, hate to be that guy, but, typically tires have all sorts of information written on their side. Manufacturer, size, recommended PSI, etc. Unsure if the texture’s large enough for those details to be put on.</p>
+</blockquote>
+</aside>
+<p>Would be blurry and then there would also be legal issues with using any names of real companies etc. Just easier to not have it.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP 2.1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Ferdam.html'><span itemprop='name'>Ferdam</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14387.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-31T01:07:55Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:54Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="bkdale86">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/b/ccd318/40.png" class="avatar"> bkdale86:</div>
+<blockquote>
+<aside class="quote no-group" data-username="Sage J. Fox">
+<div class="title">
+<div class="quote-controls"></div>
+ Sage J. Fox:</div>
+<blockquote>
+<p>Looks good. Is explosive I take it?</p>
+<p>Edit: Though, hate to be that guy, but, typically tires have all sorts of information written on their side. Manufacturer, size, recommended PSI, etc. Unsure if the texture’s large enough for those details to be put on.</p>
+</blockquote>
+</aside>
+<p>Would be blurry and then there would also be legal issues with using any names of real companies etc. Just easier to not have it.</p>
+</blockquote>
+</aside>
+<p>You could simply use some BM dev nickname (or anything similar) as manufacturer name. Would avoid the problem of using real company names and still give some additional detail.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP 2.1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/JeffMOD.html'><span itemprop='name'>JeffMOD</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14387.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-31T02:09:21Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:54Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Aw man, I love it!</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP 2.1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/MisterDigitalGuy.html'><span itemprop='name'>MisterDigitalGuy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14387.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/2/2d4250fb824bac90a3b7754017195acffb30a90e.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-31T02:44:23Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:55Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Admiral Sakai">
+<div class="title">
+<div class="quote-controls"></div>
+ Admiral Sakai:</div>
+<blockquote>
+<p>Would you be willing to make a cargo-container variant? Black Mesa seems to be suffering from an alarming deficit of ways to actually move cargo from outside the facility to inside…</p>
+</blockquote>
+</aside>
+<p>You mean like the one here?</p>
+<p>[attach=4165,none,620][/attach]</p>
+<p>Not sure why they took out those trucks- like you said, Black Mesa probably would need some way to move around all that cargo. Sure the devs had a reason for doing so, but it would still be nice to see them again (or at least something like them).<br>
+<img src="../../uploads/default/original/2X/2/2d4250fb824bac90a3b7754017195acffb30a90e.jpg" alt="36702.jpg" data-base62-sha1="6snzeqijQzRln6oWN6mc1UY1yay" width="620" height="465"></p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP 2.1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dragunov2.html'><span itemprop='name'>Dragunov2</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14387.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-31T08:06:28Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:55Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>B-E-A-UTIFUL!</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP 2.1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/cisek66.html'><span itemprop='name'>cisek66</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14387.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-31T10:35:39Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:55Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>From looks of it, the truck got jet fuel in the tank. Does this mean, that you plan to make an airport section in Surface Tension?<br>
+By the way, nice to finally see something without Black Mesa logo. For me it felt somehow wrong to see everything in BM complex made under Black Mesa logo.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP 2.1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14387.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-31T12:05:07Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:55Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="cisek66">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/c/dbc845/40.png" class="avatar"> cisek66:</div>
+<blockquote>
+<p>From looks of it, the truck got jet fuel in the tank. Does this mean, that you plan to make an airport section in Surface Tension?</p>
+</blockquote>
+</aside>
+<p>How very observant!</p>
+<p>You might also notice Brian pointed out that he’s been making a lot of skybox props recently. I wonder what that could mean…</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP 2.1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/JeffMOD.html'><span itemprop='name'>JeffMOD</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14387.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-31T12:57:47Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:55Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="MisterDigitalGuy">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/m/f05b48/40.png" class="avatar"> MisterDigitalGuy:</div>
+<blockquote>
+<aside class="quote no-group">
+<blockquote></blockquote>
+</aside>
+<p>Not sure why they took out those trucks- like you said, Black Mesa probably would need some way to move around all that cargo. Sure the devs had a reason for doing so, but it would still be nice to see them again (or at least something like them).</p>
+</blockquote>
+</aside>
+<p>That screenshot was taken back when the mod required players to own HL2 and CS:S, rather than just have the SDK base installed. It’s Counter-Strike content, which means they couldn’t legally use it without mounting it.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP 2.1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/wayne_acoba.html'><span itemprop='name'>wayne_acoba</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14387.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-31T13:24:49Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:56Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<aside class="quote no-group" data-username="cisek66">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/c/dbc845/40.png" class="avatar"> cisek66:</div>
+<blockquote>
+<p>From looks of it, the truck got jet fuel in the tank. Does this mean, that you plan to make an airport section in Surface Tension?</p>
+</blockquote>
+</aside>
+<p>How very observant!<br>
+You might also notice Brian pointed out that he’s been making a lot of skybox props recently. I wonder what that could mean…</p>
+</blockquote>
+</aside>
+<p>To referece Wasteland: “There is a flickering screen with an indirect tease of a potential official Surface Tension uncut in your near future. You shiver with anticipation!”</p>
+<p>Edit: Also, great model, bk! Looking forward to see them in ACTION…literally! moar please!</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP 2.1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bkdale86.html'><span itemprop='name'>bkdale86</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14387.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-31T14:33:33Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:56Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Admiral Sakai">
+<div class="title">
+<div class="quote-controls"></div>
+ Admiral Sakai:</div>
+<blockquote>
+<p>A truck!!! A truck!!! We finally get a truck!!!</p>
+<p>Would you be willing to make a cargo-container variant? Black Mesa seems to be suffering from an alarming deficit of ways to actually move cargo from outside the facility to inside…</p>
+</blockquote>
+</aside>
+<p>I would imagine that that whole underground network of cargo moving would take it from a central point to where ever. Also I made a bunch of ex military trucks maybe you noticed them all over the map.   <img src="../../images/emoji/twitter/winkc164.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP 2.1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dragunov2.html'><span itemprop='name'>Dragunov2</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14387.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-31T14:52:33Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:56Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<aside class="quote no-group" data-username="cisek66">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/c/dbc845/40.png" class="avatar"> cisek66:</div>
+<blockquote>
+<p>From looks of it, the truck got jet fuel in the tank. Does this mean, that you plan to make an airport section in Surface Tension?</p>
+</blockquote>
+</aside>
+<p>How very observant!<br>
+You might also notice Brian pointed out that he’s been making a lot of skybox props recently. I wonder what that could mean…</p>
+</blockquote>
+</aside>
+<p>The Uncut version had some kind of airport, but unreachable (plane which leaves and hangarbay with jets, so I guess we gonna have some access to an airport now</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP 2.1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14387.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-31T15:27:43Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:56Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="bkdale86">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/b/ccd318/40.png" class="avatar"> bkdale86:</div>
+<blockquote>
+<aside class="quote no-group" data-username="Admiral Sakai">
+<div class="title">
+<div class="quote-controls"></div>
+ Admiral Sakai:</div>
+<blockquote>
+<p>A truck!!! A truck!!! We finally get a truck!!!</p>
+<p>Would you be willing to make a cargo-container variant? Black Mesa seems to be suffering from an alarming deficit of ways to actually move cargo from outside the facility to inside…</p>
+</blockquote>
+</aside>
+<p>I would imagine that that whole underground network of cargo moving would take it from a central point to where ever. Also I made a bunch of ex military trucks maybe you noticed them all over the map.   <img src="../../images/emoji/twitter/winkc164.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+</blockquote>
+</aside>
+<p>So those military trucks were <span class="bbcode-i">not</span> all brought in when the Marines invaded…</p>
+<p>That’s actually really good to know when I finally get around to pre-disastering the High-Security Storage Facility and so forth.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP 2.1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dragunov2.html'><span itemprop='name'>Dragunov2</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14387.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-31T15:38:09Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:56Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>BM has a military base aswell</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP 2.1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Swaggless.html'><span itemprop='name'>Swaggless</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14387.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-31T16:23:26Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:24:08Z' class='post-time'>
+                August 11, 2020, 11:24am
+              </time>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="cisek66">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/c/dbc845/40.png" class="avatar"> cisek66:</div>
+<blockquote>
+<p>By the way, nice to finally see something without Black Mesa logo. For me it felt somehow wrong to see everything in BM complex made under Black Mesa logo.</p>
+</blockquote>
+</aside>
+<p>I always thought the Black Mesa branding/logo made sense on most products it was on across the game. Doesn’t always mean Black Mesa produced it, it could very well just mean they ordered custom products from manufacturers with the Black Mesa logo on it. The gas truck would be a stretch, though.</p>
+<p>Also, I gotta give huge props for using a US-equivalent of “Northern Petrol” from Half-Life 2! Great attention to detail, and a little bridge that helps the two games feel more cohesive.</p>
+<p><img src="https://combineoverwiki.net/images/1/1f/Northern_Petrol_white_red.svg" alt="" width="" height=""></p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP 2.1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bkdale86.html'><span itemprop='name'>bkdale86</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14387.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-31T19:44:45Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:57Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I look at the logo as something you do when you buy a piece of equipment. If you look at all State vehicles they have either a State seal on the door or the logo of the Dept that it belongs to like TDOT etc. Has nothing to do with who made it just that is something you do so it doesn’t “run off”.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP 2.1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/MisterDigitalGuy.html'><span itemprop='name'>MisterDigitalGuy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14387.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-31T20:01:20Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:57Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#19</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="JeffMOD">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/jeffmod/40/4333_2.png" class="avatar"> JeffMOD:</div>
+<blockquote>
+<p>That screenshot was taken back when the mod required players to own HL2 and CS:S, rather than just have the SDK base installed. It’s Counter-Strike content, which means they couldn’t legally use it without mounting it.</p>
+</blockquote>
+</aside>
+<p>Ah. I kind of figured it was for legal reasons.</p>
+<p>Still would kind of like to see a delivery truck of some sort. Not saying you HAVE to make one, just saying it might be nice to have a few around.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP 2.1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14387.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-31T20:07:31Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:57Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#20</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Well when you look at the things that have logos on them in-game, they aren’t always the things that I would expect to be “named” under that paradigm:</p>
+<p>I could see control panels and computers having logos, not necessarily worked into their design but stenciled or stickied on, because those <span class="bbcode-i">are</span> expensive, semi-portable devices and would need to be tagged. However, the only logos on them are the manufacturer’s. The security vans and electric trams do have the appropriate labeling, though, so props there.</p>
+<p>I always thought the HEV suit was partially <span class="bbcode-i">developed</span> at Black Mesa, so it makes sense for the control systems to have BM and DoE logos on them.</p>
+<p>Assuming the “mac blesa” fire extinguishers are sort of a joke, that leaves among small items the calculators and water-cooler tanks. Calculators I get, as it probably is a good idea to tag them and prevent people from stealing them, and failing that they could always be some sort of commemorative giveaway item or something weird like that. Water tanks, though, I’m not seeing. It’s <span class="bbcode-i">possible</span> Black Mesa recycles the plastic tanks and actually refills them with water on-site, though, so maybe that’s why they’re labeled…?</p>
+<p>It’s the crates and shipping containers that really baffle me. Some of them, like the “top secret” version, look like they were just labeled with the location they were going <span class="bbcode-i">to</span>, but the shipping containers are more graphically well-developed and so look more permanent, despite sort of by definition being the things that transport material from many other unrelated locations <span class="bbcode-i">to</span> the BMRF.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP 2.1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="143874658.html?page=2">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/bbmip-2-1/14387 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:32:55 GMT -->
+</html>

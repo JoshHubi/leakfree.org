@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/vrad-100-reproducible-crash-on-a-very-normal-map-update-not-100/62334 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 10:40:11 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>VRAD: 100% reproducible crash on a very normal map (update: not 100%) - In-game Issues - Leakfree</title>
+    <meta name="description" content="Hello BM team, 
+I have a test case here that I’ve already reduced as much as possible by deleting everything I could without the crash stopping. 
+It’s a little maze map: 
+ 
+There’s nothing special about the map - no espe&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="62334.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;VRAD: 100% reproducible crash on a very normal map (update: not 100%)&#39;" href="62334.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/f/f42520f1e3b49241844dbb0e35b9d63cd3bc4999.jpeg" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/f/f42520f1e3b49241844dbb0e35b9d63cd3bc4999.jpeg" />
+<meta property="og:url" content="https://leakfree.org/t/vrad-100-reproducible-crash-on-a-very-normal-map-update-not-100/62334" />
+<meta name="twitter:url" content="https://leakfree.org/t/vrad-100-reproducible-crash-on-a-very-normal-map-update-not-100/62334" />
+<meta property="og:title" content="VRAD: 100% reproducible crash on a very normal map (update: not 100%)" />
+<meta name="twitter:title" content="VRAD: 100% reproducible crash on a very normal map (update: not 100%)" />
+<meta property="og:description" content="Hello BM team,  I have a test case here that I’ve already reduced as much as possible by deleting everything I could without the crash stopping.  It’s a little maze map:     There’s nothing special about the map - no especially big brushes or anything off the grid or something like that.  It’s just that if I remove any brush or add a new brush, and make sure that’s the only difference in the textual VMF file (just a few lines for one brush are changed), vrad stops crashing reliably, and if I use..." />
+<meta name="twitter:description" content="Hello BM team,  I have a test case here that I’ve already reduced as much as possible by deleting everything I could without the crash stopping.  It’s a little maze map:     There’s nothing special about the map - no especially big brushes or anything off the grid or something like that.  It’s just that if I remove any brush or add a new brush, and make sure that’s the only difference in the textual VMF file (just a few lines for one brush are changed), vrad stops crashing reliably, and if I use..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="1 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="1 ❤" />
+<meta property="article:published_time" content="2019-06-21T13:34:04+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"QAPage","name":"VRAD: 100% reproducible crash on a very normal map (update: not 100%)","mainEntity":{"@type":"Question","name":"VRAD: 100% reproducible crash on a very normal map (update: not 100%)","text":"Hello BM team,\n\nI have a test case here that I’ve already reduced as much as possible by deleting everything I could without the crash stopping.\n\nIt’s a little maze map:\n\n<a class=\"lightbox\" href=\"https://leakfree.org/uploads/default/original/2X/f/f42520f1e3b49241844dbb0e35b9d63cd3bc4999.jpeg\" data-download-href=\"https://leakfree.org/uploads/default/f42520f1e3b49241844dbb0e35b9d63cd3bc4999\" title=\"maze\">[maze]<\/a>\n\nThere’s nothing special about the map - no especially big brushes or anything off the grid or something like that.\n\nIt’s&hellip;","upvoteCount":0,"answerCount":0,"dateCreated":"2019-06-21T13:34:03.927Z","author":{"@type":"Person","name":""}}}</script>
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="62334.html">VRAD: 100% reproducible crash on a very normal map (update: not 100%)</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/6.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa Archive</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/in-game-issues/47.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>In-game Issues</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Shrinker.html'><span itemprop='name'>Shrinker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="62334.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/f/f42520f1e3b49241844dbb0e35b9d63cd3bc4999.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2019-06-21T13:34:04Z'>
+              <time itemprop='dateModified' datetime='2019-06-21T15:42:28Z' class='post-time'>
+                June 21, 2019,  3:42pm
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hello BM team,<br>
+I have a test case here that I’ve already reduced as much as possible by deleting everything I could without the crash stopping.<br>
+It’s a little maze map:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/f/f42520f1e3b49241844dbb0e35b9d63cd3bc4999.jpg" data-download-href="https://leakfree.org/uploads/default/f42520f1e3b49241844dbb0e35b9d63cd3bc4999" title="maze"><img src="../../uploads/default/optimized/2X/f/f42520f1e3b49241844dbb0e35b9d63cd3bc4999_2_690x405.jpg" alt="maze" data-base62-sha1="yPO38FExTcEOCNvwsz7saC9PiaJ" width="690" height="405" srcset="https://leakfree.org/uploads/default/optimized/2X/f/f42520f1e3b49241844dbb0e35b9d63cd3bc4999_2_690x405.jpeg, https://leakfree.org/uploads/default/original/2X/f/f42520f1e3b49241844dbb0e35b9d63cd3bc4999.jpeg 1.5x, https://leakfree.org/uploads/default/original/2X/f/f42520f1e3b49241844dbb0e35b9d63cd3bc4999.jpeg 2x" data-small-upload="../../uploads/default/optimized/2X/f/f42520f1e3b49241844dbb0e35b9d63cd3bc4999_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">maze</span><span class="informations">969×570 220 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+There’s nothing special about the map - no especially big brushes or anything off the grid or something like that.<br>
+It’s just that if I remove any brush or add a new brush, and make sure that’s the only difference in the textual VMF file (just a few lines for one brush are changed), vrad stops crashing reliably, and if I use the version with the precise brush count I have, vrad crashes reliably. It looks like I’ve hit some kind of magic value internally with a brush count, or with derived information such as the approximate area of faces or visleafs.</p>
+<p>I’m compiling with the default release settings:<br>
+BSP Normal, VIS Normal, RAD Final</p>
+<p>I have put the archive containing the crashing and a working VMF here:<br>
+<a href="https://mega.nz/#!PjZQAQwK!z4taZwpKJaWMi0FRNuBwG9hLwMbw295f-LJ2zcyfia8" class="onebox" target="_blank" rel="nofollow noopener">https://mega.nz/#!PjZQAQwK!z4taZwpKJaWMi0FRNuBwG9hLwMbw295f-LJ2zcyfia8</a></p>
+<p>Regards,<br>
+Shrinker/Hai</p>
+        </div>
+
+        <meta itemprop='headline' content='VRAD: 100% reproducible crash on a very normal map (update: not 100%)'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/sea.level.html'><span itemprop='name'>sea.level.rises</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="62334.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/4/470f8dba66be6ce78b9b912520535bcef80338f6.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-06-21T15:02:20Z' class='post-time'>
+                June 21, 2019,  3:02pm
+              </time>
+              <meta itemprop='dateModified' content='2019-06-21T15:02:20Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><strong>I was able to compile your _crash map without error</strong> using your compile settings as described, but I may have found a bug in Hammer.</p>
+<p>The brush adjacent to the additional brush added to _nocrash is brush <span class="hashtag">#33</span> (selected in image below), but the number reported by Hammer’s “Show Selected Brush Number” reports that this is brush <span class="hashtag">#32</span> (see image below); the VMF also lists this as “id” “33”.</p>
+<p>In a possibly unrelated matter, there are two (unexposed) brush faces on the map with erroneous texture alignment (select Map -&gt; Check for Problems and look at all sides of the affected brushes).</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/4/470f8dba66be6ce78b9b912520535bcef80338f6.png" data-download-href="https://leakfree.org/uploads/default/470f8dba66be6ce78b9b912520535bcef80338f6" title="brush_33"><img src="../../uploads/default/optimized/2X/4/470f8dba66be6ce78b9b912520535bcef80338f6_2_690x388.png" alt="brush_33" data-base62-sha1="a8DdSDspzGIbjeCPqaVT1vsN6Em" width="690" height="388" srcset="https://leakfree.org/uploads/default/optimized/2X/4/470f8dba66be6ce78b9b912520535bcef80338f6_2_690x388.png, https://leakfree.org/uploads/default/original/2X/4/470f8dba66be6ce78b9b912520535bcef80338f6.png 1.5x, https://leakfree.org/uploads/default/original/2X/4/470f8dba66be6ce78b9b912520535bcef80338f6.png 2x" data-small-upload="../../uploads/default/optimized/2X/4/470f8dba66be6ce78b9b912520535bcef80338f6_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">brush_33</span><span class="informations">1033×582 657 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='VRAD: 100% reproducible crash on a very normal map (update: not 100%)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Shrinker.html'><span itemprop='name'>Shrinker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="62334.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2019-06-21T15:40:40Z'>
+              <time itemprop='dateModified' datetime='2019-06-21T22:29:57Z' class='post-time'>
+                June 21, 2019, 10:29pm
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Argh!!<br>
+Well on the one hand I am glad it doesn’t crash for you because it means the map could be compiled as it is. On the other hand I am worried because then this turns into a not so easy to reproduce crash error. <img src="../../images/emoji/twitter/expressionlessc164.png?v=9" title=":expressionless:" class="emoji" alt=":expressionless:"></p>
+<p>But the two faces with misaligned texture vectors you’ve discovered – Those shouldn’t exist! You’ve just found a bug in my level generator or one of the scripts, and that’s a thing I can investigate and fix! \o/<br>
+(unfortunately, adjusting the texture projection settings there didn’t have an influence on my crash, but still)</p>
+<p>The brush IDs themselves seem to have no effect at all. Face IDs on the other hand could be trageted by entities such as the cubemap probe.</p>
+<p>*update a few hours later: This has no impact on the vrad crash, but i’ve found and fixed the bug in my generator. Phew.</p>
+        </div>
+
+        <meta itemprop='headline' content='VRAD: 100% reproducible crash on a very normal map (update: not 100%)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/vrad-100-reproducible-crash-on-a-very-normal-map-update-not-100/62334 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 10:40:12 GMT -->
+</html>

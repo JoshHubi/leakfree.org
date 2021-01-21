@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Problems making a map for BMS</title>
+    <link>https://leakfree.org/t/problems-making-a-map-for-bms/13706</link>
+    <description>I was unable to run my map for a Modmod I thought up.  When I compile for Source, I get a menu screen with a static picture background.  
+
+My compile: ** Command: &quot;C:\Program Files (x86)\Steam\steamapps\common\sourcesdk\bin\source2007\bin\vbsp.exe&quot;
+** Parameters: -game &quot;C:\Program Files (x86)\Steam\steamapps\sourcemods\BMSMIA&quot; &quot;C:\Program Files (x86)\Steam\SteamApps\sourcemods\BMS\maps\MIA01&quot;
+
+Valve Software - vbsp.exe (May 19 2009)
+4 threads
+materialPath: C:\Program Files (x86)\Steam\steamapps\sourcemods\BMSMIA\materials
+Loading C:\Program Files (x86)\Steam\SteamApps\sourcemods\BMS\maps\MIA01.vmf
+fixing up env_cubemap materials on brush sides...
+ProcessBlock_Thread: 0...1...2...3...4...5...6...7...8...9...10 (0)
+ProcessBlock_Thread: 0...1...2...3...4...5...6...7...8...9...10 (0)
+Processing areas...done (0)
+Building Faces...done (0)
+FixTjuncs...
+PruneNodes...
+WriteBSP...
+done (0)
+writing C:\Program Files (x86)\Steam\SteamApps\sourcemods\BMS\maps\MIA01.prt...Building visibility clusters...
+done (0)
+Creating default LDR cubemaps for env_cubemap using skybox materials:
+   skybox/sky_day01_01*.vmt
+ ! Run buildcubemaps in the engine to get the correct cube maps.
+Creating default HDR cubemaps for env_cubemap using skybox materials:
+   skybox/sky_day01_01*.vmt
+ ! Run buildcubemaps in the engine to get the correct cube maps.
+Finding displacement neighbors...
+Finding lightmap sample positions...
+Displacement Alpha : 0...1...2...3...4...5...6...7...8...9...10
+Building Physics collision data...
+done (0) (3205 bytes)
+Placing detail props : 0...1...2...3...4...5...6...7...8...9...10
+Compacting texture/material tables...
+Reduced 22 texinfos to 8
+Reduced 3 texdatas to 3 (58 bytes to 58)
+Writing C:\Program Files (x86)\Steam\SteamApps\sourcemods\BMS\maps\MIA01.bsp
+0 seconds elapsed
+
+** Executing...
+** Command: &quot;C:\Program Files (x86)\Steam\steamapps\common\sourcesdk\bin\source2007\bin\vvis.exe&quot;
+** Parameters: -game &quot;C:\Program Files (x86)\Steam\steamapps\sourcemods\BMSMIA&quot; &quot;C:\Program Files (x86)\Steam\SteamApps\sourcemods\BMS\maps\MIA01&quot;
+
+Valve Software - vvis.exe (May 19 2009)
+4 threads
+reading c:\program files (x86)\steam\steamapps\sourcemods\bms\maps\MIA01.bsp
+reading c:\program files (x86)\steam\steamapps\sourcemods\bms\maps\MIA01.prt
+   2 portalclusters
+   1 numportals
+BasePortalVis:       0...1...2...3...4...5...6...7...8...9...10 (0)
+PortalFlow:          0...1...2...3...4...5...6...7...8...9...10 (0)
+Optimized: 0 visible clusters (0.00%)
+Total clusters visible: 4
+Average clusters visible: 2
+Building PAS...
+Average clusters audible: 2
+visdatasize:24  compressed from 32
+writing c:\program files (x86)\steam\steamapps\sourcemods\bms\maps\MIA01.bsp
+0 seconds elapsed
+
+** Executing...
+** Command: &quot;C:\Program Files (x86)\Steam\steamapps\common\sourcesdk\bin\source2007\bin\vrad.exe&quot;
+** Parameters:  -game &quot;C:\Program Files (x86)\Steam\steamapps\sourcemods\BMSMIA&quot; &quot;C:\Program Files (x86)\Steam\SteamApps\sourcemods\BMS\maps\MIA01&quot;
+
+Valve Software - vrad.exe SSE (May 19 2009)
+
+      Valve Radiosity Simulator     
+4 threads
+[Reading texlights from &#39;lights.rad&#39;]
+[48 texlights parsed from &#39;lights.rad&#39;]
+
+Loading c:\program files (x86)\steam\steamapps\sourcemods\bms\maps\MIA01.bsp
+Setting up ray-trace acceleration structure... Done (0.00 seconds)
+12 faces
+2801 square feet [403456.00 square inches]
+0 Displacements
+0 Square Feet [0.00 Square Inches]
+12 patches before subdivision
+564 patches after subdivision
+0 direct lights
+BuildFacelights:     0...1...2...3...4...5...6...7...8...9...10 (0)
+BuildVisLeafs:       0...1...2...3...4...5...6...7...8...9...10 (0)
+transfers 39040, max 172
+transfer lists:   0.3 megs
+GatherLight:         0...1...2...3...4...5...6...7...8...9...10 (0)
+	Bounce #1 added RGB(0, 0, 0)
+Build Patch/Sample Hash Table(s).....Done&lt;0.0001 sec&gt;
+FinalLightFace:      0...1...2...3...4...5...6...7...8...9...10 (0)
+FinalLightFace Done
+0 of 0 (0% of) surface lights went in leaf ambient cubes.
+ThreadComputeLeafAmbient: 0...1...2...3...4...5...6...7...8...9...10 (0)
+Writing leaf ambient...done
+Ready to Finish
+
+Object names       Objects/Maxobjs  Memory / Maxmem  Fullness 
+------------       ---------------  ---------------  -------- 
+models                   1/1024           48/49152    ( 0.1%) 
+brushes                  8/8192           96/98304    ( 0.1%) 
+brushsides              48/65536         384/524288   ( 0.1%) 
+planes                  54/65536        1080/1310720  ( 0.1%) 
+vertexes                30/65536         360/786432   ( 0.0%) 
+nodes                   16/65536         512/2097152  ( 0.0%) 
+texinfos                 8/12288         576/884736   ( 0.1%) 
+texdata                  3/2048           96/65536    ( 0.1%) 
+dispinfos                0/0               0/0        ( 0.0%) 
+disp_verts               0/0               0/0        ( 0.0%) 
+disp_tris                0/0               0/0        ( 0.0%) 
+disp_lmsamples           0/0               0/0        ( 0.0%) 
+faces                   12/65536         672/3670016  ( 0.0%) 
+hdr faces                0/65536           0/3670016  ( 0.0%) 
+origfaces                9/65536         504/3670016  ( 0.0%) 
+leaves                  18/65536         576/2097152  ( 0.0%) 
+leaffaces               12/65536          24/131072   ( 0.0%) 
+leafbrushes             13/65536          26/131072   ( 0.0%) 
+areas                    2/256            16/2048     ( 0.8%) 
+surfedges               88/512000        352/2048000  ( 0.0%) 
+edges                   59/256000        236/1024000  ( 0.0%) 
+LDR worldlights          0/8192            0/720896   ( 0.0%) 
+HDR worldlights          0/8192            0/720896   ( 0.0%) 
+leafwaterdata            0/32768           0/393216   ( 0.0%) 
+waterstrips              0/32768           0/327680   ( 0.0%) 
+waterverts               0/65536           0/786432   ( 0.0%) 
+waterindices             0/65536           0/131072   ( 0.0%) 
+cubemapsamples           0/1024            0/16384    ( 0.0%) 
+overlays                 0/512             0/180224   ( 0.0%) 
+LDR lightdata         [variable]       31696/0        ( 0.0%) 
+HDR lightdata         [variable]           0/0        ( 0.0%) 
+visdata               [variable]          24/16777216 ( 0.0%) 
+entdata               [variable]         366/393216   ( 0.1%) 
+LDR ambient table       18/65536          72/262144   ( 0.0%) 
+HDR ambient table       18/65536          72/262144   ( 0.0%) 
+LDR leaf ambient         2/65536          56/1835008  ( 0.0%) 
+HDR leaf ambient        18/65536         504/1835008  ( 0.0%) 
+occluders                0/0               0/0        ( 0.0%) 
+occluder polygons        0/0               0/0        ( 0.0%) 
+occluder vert ind        0/0               0/0        ( 0.0%) 
+detail props          [variable]           1/12       ( 8.3%) 
+static props          [variable]           1/12       ( 8.3%) 
+pakfile               [variable]      105651/0        ( 0.0%) 
+physics               [variable]        3205/4194304  ( 0.1%) 
+physics terrain       [variable]           2/1048576  ( 0.0%) 
+
+Level flags = 0
+
+Total triangle count: 28
+Writing c:\program files (x86)\steam\steamapps\sourcemods\bms\maps\MIA01.bsp
+0 seconds elapsed
+
+** Executing...
+** Command: Copy File
+** Parameters: &quot;C:\Program Files (x86)\Steam\SteamApps\sourcemods\BMS\maps\MIA01.bsp&quot; &quot;C:\Program Files (x86)\Steam\steamapps\sourcemods\BMS\maps\MIA01.bsp&quot;
+
+
+My Gameconfig:
+
+&quot;Configs&quot;
+{
+	&quot;Games&quot;
+	{
+		&quot;Black Mesa- MIA&quot;
+		{
+			&quot;GameDir&quot;		&quot;c:\program files (x86)\steam\steamapps\sourcemods\BMSMIA&quot;
+			&quot;hammer&quot;
+			{
+				&quot;GameData0&quot;		&quot;c:\program files (x86)\steam\steamapps\sourcemods\BMSMIA\bmsmia.fgd&quot;
+				&quot;TextureFormat&quot;		&quot;5&quot;
+				&quot;MapFormat&quot;		&quot;4&quot;
+				&quot;DefaultTextureScale&quot;		&quot;0.250000&quot;
+				&quot;DefaultLightmapScale&quot;		&quot;16&quot;
+				&quot;GameExe&quot;		&quot;c:\program files (x86)\steam\steamapps\common\half-life 2\hl2.exe&quot;
+				&quot;DefaultSolidEntity&quot;		&quot;func_detail&quot;
+				&quot;DefaultPointEntity&quot;		&quot;info_player_start&quot;
+				&quot;BSP&quot;		&quot;c:\program files (x86)\steam\steamapps\common\sourcesdk\bin\source2007\bin\vbsp.exe&quot;
+				&quot;Vis&quot;		&quot;c:\program files (x86)\steam\steamapps\common\sourcesdk\bin\source2007\bin\vvis.exe&quot;
+				&quot;Light&quot;		&quot;c:\program files (x86)\steam\steamapps\common\sourcesdk\bin\source2007\bin\vrad.exe&quot;
+				&quot;GameExeDir&quot;		&quot;c:\program files (x86)\steam\steamapps\common\half-life 2&quot;
+				&quot;MapDir&quot;		&quot;c:\program files (x86)\steam\steamapps\sourcemods\BMS\maps&quot;
+				&quot;BSPDir&quot;		&quot;c:\program files (x86)\steam\steamapps\sourcemods\BMS\maps&quot;
+				&quot;CordonTexture&quot;		&quot;tools\toolsskybox&quot;
+				&quot;MaterialExcludeCount&quot;		&quot;0&quot;
+			}
+		}
+		&quot;SDKVersion&quot;		&quot;3&quot;
+}
+
+My attempt to use the Hazard Team compiler:
+
+*****
+
+Begin compiling file:
+C:\Program Files (x86)\Steam\SteamApps\sourcemods\BMS\maps\MIA01.vmf
+
+*****
+
+===== Begin BSP =====
+
+Can&#39;t find steam app user info.
+
+
+===== Begin VIS =====
+
+Valve Software - vvis.exe (May 19 2009)
+Can&#39;t find steam app user info.
+
+
+===== Begin RAD =====
+
+Can&#39;t find steam app user info.
+
+
+*****
+
+Finished compiling file:
+C:\Program Files (x86)\Steam\SteamApps\sourcemods\BMS\maps\MIA01.vmf
+
+*****
+
+Thanks in advance!</description>
+    
+    <lastBuildDate>Fri, 13 Feb 2015 17:44:58 +0000</lastBuildDate>
+    <category>Help!</category>
+    <atom:link href="https://leakfree.org/t/problems-making-a-map-for-bms/13706.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Problems making a map for BMS</title>
+        <dc:creator><![CDATA[Matt_the_Czar]]></dc:creator>
+        <description><![CDATA[
+            <p>I was unable to run my map for a Modmod I thought up.  When I compile for Source, I get a menu screen with a static picture background.</p>
+<p>My compile: ** Command: “C:\Program Files (x86)\Steam\steamapps\common\sourcesdk\bin\source2007\bin\vbsp.exe”<br>
+** Parameters: -game “C:\Program Files (x86)\Steam\steamapps\sourcemods\BMSMIA” “C:\Program Files (x86)\Steam\SteamApps\sourcemods\BMS\maps\MIA01”</p>
+<p>Valve Software - vbsp.exe (May 19 2009)<br>
+4 threads<br>
+materialPath: C:\Program Files (x86)\Steam\steamapps\sourcemods\BMSMIA\materials<br>
+Loading C:\Program Files (x86)\Steam\SteamApps\sourcemods\BMS\maps\MIA01.vmf<br>
+fixing up env_cubemap materials on brush sides…<br>
+ProcessBlock_Thread: 0…1…2…3…4…5…6…7…8…9…10 (0)<br>
+ProcessBlock_Thread: 0…1…2…3…4…5…6…7…8…9…10 (0)<br>
+Processing areas…done (0)<br>
+Building Faces…done (0)<br>
+FixTjuncs…<br>
+PruneNodes…<br>
+WriteBSP…<br>
+done (0)<br>
+writing C:\Program Files (x86)\Steam\SteamApps\sourcemods\BMS\maps\MIA01.prt…Building visibility clusters…<br>
+done (0)<br>
+Creating default LDR cubemaps for env_cubemap using skybox materials:<br>
+skybox/sky_day01_01*.vmt<br>
+! Run buildcubemaps in the engine to get the correct cube maps.<br>
+Creating default HDR cubemaps for env_cubemap using skybox materials:<br>
+skybox/sky_day01_01*.vmt<br>
+! Run buildcubemaps in the engine to get the correct cube maps.<br>
+Finding displacement neighbors…<br>
+Finding lightmap sample positions…<br>
+Displacement Alpha : 0…1…2…3…4…5…6…7…8…9…10<br>
+Building Physics collision data…<br>
+done (0) (3205 bytes)<br>
+Placing detail props : 0…1…2…3…4…5…6…7…8…9…10<br>
+Compacting texture/material tables…<br>
+Reduced 22 texinfos to 8<br>
+Reduced 3 texdatas to 3 (58 bytes to 58)<br>
+Writing C:\Program Files (x86)\Steam\SteamApps\sourcemods\BMS\maps\MIA01.bsp<br>
+0 seconds elapsed</p>
+<p>** Executing…<br>
+** Command: “C:\Program Files (x86)\Steam\steamapps\common\sourcesdk\bin\source2007\bin\vvis.exe”<br>
+** Parameters: -game “C:\Program Files (x86)\Steam\steamapps\sourcemods\BMSMIA” “C:\Program Files (x86)\Steam\SteamApps\sourcemods\BMS\maps\MIA01”</p>
+<p>Valve Software - vvis.exe (May 19 2009)<br>
+4 threads<br>
+reading c:\program files (x86)\steam\steamapps\sourcemods\bms\maps\MIA01.bsp<br>
+reading c:\program files (x86)\steam\steamapps\sourcemods\bms\maps\MIA01.prt<br>
+2 portalclusters<br>
+1 numportals<br>
+BasePortalVis:       0…1…2…3…4…5…6…7…8…9…10 (0)<br>
+PortalFlow:          0…1…2…3…4…5…6…7…8…9…10 (0)<br>
+Optimized: 0 visible clusters (0.00%)<br>
+Total clusters visible: 4<br>
+Average clusters visible: 2<br>
+Building PAS…<br>
+Average clusters audible: 2<br>
+visdatasize:24  compressed from 32<br>
+writing c:\program files (x86)\steam\steamapps\sourcemods\bms\maps\MIA01.bsp<br>
+0 seconds elapsed</p>
+<p>** Executing…<br>
+** Command: “C:\Program Files (x86)\Steam\steamapps\common\sourcesdk\bin\source2007\bin\vrad.exe”<br>
+** Parameters:  -game “C:\Program Files (x86)\Steam\steamapps\sourcemods\BMSMIA” “C:\Program Files (x86)\Steam\SteamApps\sourcemods\BMS\maps\MIA01”</p>
+<p>Valve Software - vrad.exe SSE (May 19 2009)</p>
+<pre><code>  Valve Radiosity Simulator     
+</code></pre>
+<p>4 threads<br>
+[Reading texlights from ‘lights.rad’]<br>
+[48 texlights parsed from ‘lights.rad’]</p>
+<p>Loading c:\program files (x86)\steam\steamapps\sourcemods\bms\maps\MIA01.bsp<br>
+Setting up ray-trace acceleration structure… Done (0.00 seconds)<br>
+12 faces<br>
+2801 square feet [403456.00 square inches]<br>
+0 Displacements<br>
+0 Square Feet [0.00 Square Inches]<br>
+12 patches before subdivision<br>
+564 patches after subdivision<br>
+0 direct lights<br>
+BuildFacelights:     0…1…2…3…4…5…6…7…8…9…10 (0)<br>
+BuildVisLeafs:       0…1…2…3…4…5…6…7…8…9…10 (0)<br>
+transfers 39040, max 172<br>
+transfer lists:   0.3 megs<br>
+GatherLight:         0…1…2…3…4…5…6…7…8…9…10 (0)<br>
+Bounce <span class="hashtag">#1</span> added RGB(0, 0, 0)<br>
+Build Patch/Sample Hash Table(s)…Done&lt;0.0001 sec&gt;<br>
+FinalLightFace:      0…1…2…3…4…5…6…7…8…9…10 (0)<br>
+FinalLightFace Done<br>
+0 of 0 (0% of) surface lights went in leaf ambient cubes.<br>
+ThreadComputeLeafAmbient: 0…1…2…3…4…5…6…7…8…9…10 (0)<br>
+Writing leaf ambient…done<br>
+Ready to Finish</p>
+<p>Object names       Objects/Maxobjs  Memory / Maxmem  Fullness</p>
+<hr>
+<p>models                   1/1024           48/49152    ( 0.1%)<br>
+brushes                  8/8192           96/98304    ( 0.1%)<br>
+brushsides              48/65536         384/524288   ( 0.1%)<br>
+planes                  54/65536        1080/1310720  ( 0.1%)<br>
+vertexes                30/65536         360/786432   ( 0.0%)<br>
+nodes                   16/65536         512/2097152  ( 0.0%)<br>
+texinfos                 8/12288         576/884736   ( 0.1%)<br>
+texdata                  3/2048           96/65536    ( 0.1%)<br>
+dispinfos                0/0               0/0        ( 0.0%)<br>
+disp_verts               0/0               0/0        ( 0.0%)<br>
+disp_tris                0/0               0/0        ( 0.0%)<br>
+disp_lmsamples           0/0               0/0        ( 0.0%)<br>
+faces                   12/65536         672/3670016  ( 0.0%)<br>
+hdr faces                0/65536           0/3670016  ( 0.0%)<br>
+origfaces                9/65536         504/3670016  ( 0.0%)<br>
+leaves                  18/65536         576/2097152  ( 0.0%)<br>
+leaffaces               12/65536          24/131072   ( 0.0%)<br>
+leafbrushes             13/65536          26/131072   ( 0.0%)<br>
+areas                    2/256            16/2048     ( 0.8%)<br>
+surfedges               88/512000        352/2048000  ( 0.0%)<br>
+edges                   59/256000        236/1024000  ( 0.0%)<br>
+LDR worldlights          0/8192            0/720896   ( 0.0%)<br>
+HDR worldlights          0/8192            0/720896   ( 0.0%)<br>
+leafwaterdata            0/32768           0/393216   ( 0.0%)<br>
+waterstrips              0/32768           0/327680   ( 0.0%)<br>
+waterverts               0/65536           0/786432   ( 0.0%)<br>
+waterindices             0/65536           0/131072   ( 0.0%)<br>
+cubemapsamples           0/1024            0/16384    ( 0.0%)<br>
+overlays                 0/512             0/180224   ( 0.0%)<br>
+LDR lightdata         [variable]       31696/0        ( 0.0%)<br>
+HDR lightdata         [variable]           0/0        ( 0.0%)<br>
+visdata               [variable]          24/16777216 ( 0.0%)<br>
+entdata               [variable]         366/393216   ( 0.1%)<br>
+LDR ambient table       18/65536          72/262144   ( 0.0%)<br>
+HDR ambient table       18/65536          72/262144   ( 0.0%)<br>
+LDR leaf ambient         2/65536          56/1835008  ( 0.0%)<br>
+HDR leaf ambient        18/65536         504/1835008  ( 0.0%)<br>
+occluders                0/0               0/0        ( 0.0%)<br>
+occluder polygons        0/0               0/0        ( 0.0%)<br>
+occluder vert ind        0/0               0/0        ( 0.0%)<br>
+detail props          [variable]           1/12       ( 8.3%)<br>
+static props          [variable]           1/12       ( 8.3%)<br>
+pakfile               [variable]      105651/0        ( 0.0%)<br>
+physics               [variable]        3205/4194304  ( 0.1%)<br>
+physics terrain       [variable]           2/1048576  ( 0.0%)</p>
+<p>Level flags = 0</p>
+<p>Total triangle count: 28<br>
+Writing c:\program files (x86)\steam\steamapps\sourcemods\bms\maps\MIA01.bsp<br>
+0 seconds elapsed</p>
+<p>** Executing…<br>
+** Command: Copy File<br>
+** Parameters: “C:\Program Files (x86)\Steam\SteamApps\sourcemods\BMS\maps\MIA01.bsp” “C:\Program Files (x86)\Steam\steamapps\sourcemods\BMS\maps\MIA01.bsp”</p>
+<p>My Gameconfig:</p>
+<p>“Configs”<br>
+{<br>
+“Games”<br>
+{<br>
+“Black Mesa- MIA”<br>
+{<br>
+“GameDir”		“c:\program files (x86)\steam\steamapps\sourcemods\BMSMIA”<br>
+“hammer”<br>
+{<br>
+“GameData0”		“c:\program files (x86)\steam\steamapps\sourcemods\BMSMIA\bmsmia.fgd”<br>
+“TextureFormat”		“5”<br>
+“MapFormat”		“4”<br>
+“DefaultTextureScale”		“0.250000”<br>
+“DefaultLightmapScale”		“16”<br>
+“GameExe”		“c:\program files (x86)\steam\steamapps\common\half-life 2\hl2.exe”<br>
+“DefaultSolidEntity”		“func_detail”<br>
+“DefaultPointEntity”		“info_player_start”<br>
+“BSP”		“c:\program files (x86)\steam\steamapps\common\sourcesdk\bin\source2007\bin\vbsp.exe”<br>
+“Vis”		“c:\program files (x86)\steam\steamapps\common\sourcesdk\bin\source2007\bin\vvis.exe”<br>
+“Light”		“c:\program files (x86)\steam\steamapps\common\sourcesdk\bin\source2007\bin\vrad.exe”<br>
+“GameExeDir”		“c:\program files (x86)\steam\steamapps\common\half-life 2”<br>
+“MapDir”		“c:\program files (x86)\steam\steamapps\sourcemods\BMS\maps”<br>
+“BSPDir”		“c:\program files (x86)\steam\steamapps\sourcemods\BMS\maps”<br>
+“CordonTexture”		“tools\toolsskybox”<br>
+“MaterialExcludeCount”		“0”<br>
+}<br>
+}<br>
+“SDKVersion”		“3”<br>
+}</p>
+<p>My attempt to use the Hazard Team compiler:</p>
+<hr>
+<p>Begin compiling file:<br>
+C:\Program Files (x86)\Steam\SteamApps\sourcemods\BMS\maps\MIA01.vmf</p>
+<hr>
+<p>===== Begin BSP =====</p>
+<p>Can’t find steam app user info.</p>
+<p>===== Begin VIS =====</p>
+<p>Valve Software - vvis.exe (May 19 2009)<br>
+Can’t find steam app user info.</p>
+<p>===== Begin RAD =====</p>
+<p>Can’t find steam app user info.</p>
+<hr>
+<p>Finished compiling file:<br>
+C:\Program Files (x86)\Steam\SteamApps\sourcemods\BMS\maps\MIA01.vmf</p>
+<hr>
+<p>Thanks in advance!</p>
+          <p><a href="https://leakfree.org/t/problems-making-a-map-for-bms/13706/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problems-making-a-map-for-bms/13706/1</link>
+        <pubDate>Fri, 13 Feb 2015 17:44:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13706-1</guid>
+        <source url="https://leakfree.org/t/problems-making-a-map-for-bms/13706.rss">Problems making a map for BMS</source>
+      </item>
+  </channel>
+</rss>

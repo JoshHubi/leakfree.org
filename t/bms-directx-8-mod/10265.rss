@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>BMS DirectX 8 Mod</title>
+    <link>https://leakfree.org/t/bms-directx-8-mod/10265</link>
+    <description>I asked Raminator about Direct X 8 support for BMS (Because I think we&#39;ve all experienced lag on BMS) , and this is his response: 
+&quot;If DirectX8 was better than DirectX9, would would they have made DirectX9? 
+
+The simple fact of the matter is that the vast majority of Steam users are running DirectX9 (or 10 or 11) capable hardware. It doesn&#39;t make sense for us to spend a huge amount of time reworking core technology in the game to support the tiny fraction of people who are running outdated hardware that won&#39;t be around for much longer anyway.&quot;
+
+So I guess it&#39;s up to the community to make a mod for BMS (Modception I know) to fix DirectX 8 issues on BMS. Because the actual mod team think it&#39;s a waste of time.</description>
+    
+    <lastBuildDate>Thu, 20 Sep 2012 11:05:13 +0000</lastBuildDate>
+    <category>In-game Issues (Mod)</category>
+    <atom:link href="https://leakfree.org/t/bms-directx-8-mod/10265.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <p><span class="bbcode-b">SPBHM</span>, could you please try testing the PoC FIX for test chamber FPS dropdown I’ve posted here: <a href="https://forums.blackmesasource.com/showthread.php?t=14361" data-bbcode="true" rel="nofollow noopener">https://forums.blackmesasource.com/showthread.php?t=14361</a> .<br>
+I’m curious if it would work for anybody having old GPU. Thanks in advance.</p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/47">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/47</link>
+        <pubDate>Thu, 20 Sep 2012 11:05:13 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-47</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="SPBHM">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/s/ee7513/40.png" class="avatar"> SPBHM:</div>
+<blockquote>
+<p>…</p>
+<p>dynamic lights<br>
+GPU usage 37%<br>
+<a href="https://i50.tinypic.com/2e2nkn5.jpg" data-bbcode="true" rel="nofollow noopener">https://i50.tinypic.com/2e2nkn5.jpg</a></p>
+<p>and here an interesting test with many different GPUs, from what I understand they made the test on the area of the first screenshot<br>
+<a href="https://gamegpu.ru/action-/-fps-/-tps/black-mesa-test-gpu.html" data-bbcode="true" rel="nofollow noopener">https://gamegpu.ru/action-/-fps-/-tps/black-mesa-test-gpu.html</a></p>
+<p>so what I’m wondering really is, if with the same CPU I used a faster graphics card, would the framerate in the second area (with low GPU usage) improve significantly?</p>
+</blockquote>
+</aside>
+<p>[COLOR=‘Silver’][offtop]Коллега из России детектед :-).[/offtop][/SIZE]<br>
+I bet there won’t be significant framerate improvement - it seems that dlight calculations are mostly CPU-bound so they either should be optimized by splitting up the work over multiple cores of multicore CPU (it is not the same as “milticore rendering” feature people tend to treat as a panacea for their FPS dropdows problems) which might or might not be possible with current and/or 2009 version of the Source engine (I’m not the biggest expert in the inside details of the Source engine so don’t know for sure; on the other hand I’ve pretty experienced with the internals of the DarkPlaces engine which is and open-source idTech1 engine modification which nowdays is pretty on par featurewise with Source or idTech4). And knowing that there are not THAT BAD problems with dlights usage in the HL2, EP1 and EP2 - I tend to think that something is wrong with the way BM use dlights. If latter is the case - it could be fixed/optimized in future BM patches.</p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/46">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/46</link>
+        <pubDate>Thu, 20 Sep 2012 02:41:12 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-46</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[SPBHM]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="SPBHM">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/s/ee7513/40.png" class="avatar"> SPBHM:</div>
+<blockquote>
+<p>another thing, at the scene I posted the screen with the zombie on fire  (<a href="https://i50.tinypic.com/dcznr6.jpg" data-bbcode="true" rel="nofollow noopener">https://i50.tinypic.com/dcznr6.jpg</a>) when the framerate drops to the 20s I noticed that the reported “GPU usage” by “MSI afterburner” went down significantly, would this mean that the CPU performance here is the main factor with the problem with dynamic light rendering?</p>
+</blockquote>
+</aside>
+<p>quoting myself with some evidence,<br>
+I don’t know if this is the right area/topic, but since the discussion about performance is going on…</p>
+<p>here is the fill rate limited area<br>
+GPU usage at 99%<br>
+<a href="https://i49.tinypic.com/ev5fgp.jpg" data-bbcode="true" rel="nofollow noopener">https://i49.tinypic.com/ev5fgp.jpg</a></p>
+<p>dynamic lights<br>
+GPU usage 37%<br>
+<a href="https://i50.tinypic.com/2e2nkn5.jpg" data-bbcode="true" rel="nofollow noopener">https://i50.tinypic.com/2e2nkn5.jpg</a></p>
+<p>and here an interesting test with many different GPUs, from what I understand they made the test on the area of the first screenshot<br>
+<a href="https://gamegpu.ru/action-/-fps-/-tps/black-mesa-test-gpu.html" data-bbcode="true" rel="nofollow noopener">https://gamegpu.ru/action-/-fps-/-tps/black-mesa-test-gpu.html</a></p>
+<p>so what I’m wondering really is, if with the same CPU I used a faster graphics card, would the framerate in the second area (with low GPU usage) improve significantly?</p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/45">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/45</link>
+        <pubDate>Wed, 19 Sep 2012 10:18:39 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-45</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[Flarekitsu]]></dc:creator>
+        <description><![CDATA[
+            <p>You’re not the only one. I had the same thing.</p>
+<p>It’s not that we can’t use DX9. Far from it. It just we have things set to DX8 so we don’t get epic freezes mid-game or crashes when trying to fight a bloody Apache.</p>
+<p>It would be A+ to have DX8 support for the Steam release.</p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/44">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/44</link>
+        <pubDate>Tue, 18 Sep 2012 14:56:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-44</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[Jenova19]]></dc:creator>
+        <description><![CDATA[
+            <p>Sometimes it seems like the game freezes for a split second, whenever Xen portals are opened in the level.</p>
+<p>If more are opened within a short period of time, the said freeze or stutter occurs for every single portal - making it impossible to react quick enough here and there.</p>
+<p>As I said, it’s just a split-second, but still - a tiny moment of stutter could cost your life, easily (especially on higher difficulties).</p>
+<p>Is there a particular reason for this?</p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/43">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/43</link>
+        <pubDate>Tue, 18 Sep 2012 12:05:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-43</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[SPBHM]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="lexa2">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/34f0e0/40.png" class="avatar"> lexa2:</div>
+<blockquote>
+<p>The place is generally correct, but the height value reported by getpos seems to be a bit off. Here is more correct one to use:</p>
+<pre><code class="lang-auto">setpos -701.474915 -1567.974365 -290; setang -0.292490 27.619244 0.000000</code></pre>
+<p>Yes, there’s nothing wrong with that place at a first glance but if you would try to unlock FPS limiter (set fps_max to something like 300) and then try looking at different direction there you’d find that when looking towards the direction setang sets you FPS drops down 1.5x-3x times compared to what it is when looking at other directions. This is due to technically invisible water on the floor located right behind the wall you’re looking at. Try executing mat_fillrate 1 in console and you’d get an idea. Disabling reflection rendering for water workarounds this FPS drop. It seems not to be a big problem with a GPU like 550 Ti when running whithout AA <span class="mention">@1400x900</span>, but as soon as you increase output resolution or enable 4xAA FPS starts to approach ~30 range which is uncomfortably low IMO.</p>
+<p>It is a fillrate shortage due to overdraw caused by smoke cloud particle system. If you try to use any higher resolution like 1680x1050 there - FPS would be in the “uncomfortable zone” even without zooming.</p>
+<p>Like in  (B) here there are obvious problems with dynamic lighting calculation. I have no ideas what’s wrong with it in BM and why there are no similar problems with setting zombies on fire in HL2 (Ravenholm) or in HL2:EP1.</p>
+<p>And these are not the worstest cases - in case you happen to be shot by the sentry guns in bm_c1a3b near this spot:</p>
+<pre><code class="lang-auto">] getpos
+setpos -1377.831665 -726.231445 -17.525650;setang 12.491111 -90.911560 0.000000</code></pre>
+<p>FPS could drop down to as low as ~20 making pretty hard to react properly on heavy fire and to run away or to snipe the turret.</p>
+<p>Yeah, I also have this PoV on the problem: the game is Ok to play with GTX 550 Ti and any 3.0-3.5GHz dual-core CPU. But it is does not run perfectly well though. And it also means that people with ~100 USD nowdays GPUs like GTX 540 or GTX 640 would suffer from these drops hardly. And you could guess yourself how would cards like Intel HD 2000/3000/4000 perform in problematic places :-D. Still IMO it’s better (and more people would benefit from it) if devs would consider spending some time optimizing dlights and fillrate issues related to particle systems rather than spend way more time re-implementing shaders fallbacks for dxlevel 80/81 renderpaths (which - if it would be done - won’t necessary mean better performance when using legacy pipeline).</p>
+</blockquote>
+</aside>
+<p>I see, thanks<br>
+the updated position and explanation made a lot of sense, yes there is clearly a problem, looking at that angle I will get around 45fps elsewhere is over 120,</p>
+<p>and at the spot of the sentry guns as soon as they start firing… 20fps and dynamic light rendering goes crazy…</p>
+<p>and I see your point, lower end hardware must be having a hard time with the game, I tried lowering details (with same res) to the minimum possible whiting the game and it didn’t really improve much the performance in these places…<br>
+and focusing in DX8 is probably not the way to go…</p>
+<p>another thing, at the scene I posted the screen with the zombie on fire  (<a href="https://i50.tinypic.com/dcznr6.jpg" data-bbcode="true" rel="nofollow noopener">https://i50.tinypic.com/dcznr6.jpg</a>) when the framerate drops to the 20s I noticed that the reported “GPU usage” by “MSI afterburner” went down significantly, would this mean that the CPU performance here is the main factor with the problem with dynamic light rendering?</p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/42">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/42</link>
+        <pubDate>Tue, 18 Sep 2012 12:04:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-42</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="SPBHM">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/s/ee7513/40.png" class="avatar"> SPBHM:</div>
+<blockquote>
+<p>about the places you mentioned for testing, are you sure about C?<br>
+I had to use noclip to go into that position, but there is nothing interesting going on</p>
+</blockquote>
+</aside>
+<p>The place is generally correct, but the height value reported by getpos seems to be a bit off. Here is more correct one to use:</p>
+<pre><code class="lang-auto">setpos -701.474915 -1567.974365 -290; setang -0.292490 27.619244 0.000000</code></pre>
+<p>Yes, there’s nothing wrong with that place at a first glance but if you would try to unlock FPS limiter (set fps_max to something like 300) and then try looking at different direction there you’d find that when looking towards the direction setang sets you FPS drops down 1.5x-3x times compared to what it is when looking at other directions. This is due to technically invisible water on the floor located right behind the wall you’re looking at. Try executing mat_fillrate 1 in console and you’d get an idea. Disabling reflection rendering for water workarounds this FPS drop. It seems not to be a big problem with a GPU like 550 Ti when running whithout AA <span class="mention">@1400x900</span>, but as soon as you increase output resolution or enable 4xAA FPS starts to approach ~30 range which is uncomfortably low IMO.</p>
+<aside class="quote no-group" data-username="SPBHM">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/s/ee7513/40.png" class="avatar"> SPBHM:</div>
+<blockquote>
+<p>in A there is clearly a performance problem, but without the zoom in is more acceptable,<br>
+<a href="https://i45.tinypic.com/14cxxk6.jpg" data-bbcode="true" rel="nofollow noopener">https://i45.tinypic.com/14cxxk6.jpg</a><br>
+<a href="https://i48.tinypic.com/250nuvt.jpg" data-bbcode="true" rel="nofollow noopener">https://i48.tinypic.com/250nuvt.jpg</a></p>
+</blockquote>
+</aside>
+<p>It is a fillrate shortage due to overdraw caused by smoke cloud particle system. If you try to use any higher resolution like 1680x1050 there - FPS would be in the “uncomfortable zone” even without zooming.</p>
+<aside class="quote no-group" data-username="SPBHM">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/s/ee7513/40.png" class="avatar"> SPBHM:</div>
+<blockquote>
+<p>B <a href="https://i45.tinypic.com/2cy30i9.jpg" data-bbcode="true" rel="nofollow noopener">https://i45.tinypic.com/2cy30i9.jpg</a></p>
+<p>now during my normal playtrough the worst place that grabed my attetion was certainlly this</p>
+<p>entering the room,<br>
+and while the “live” zombie is burning, when it dies and in the rest of the chapter it gets a lot better.<br>
+<a href="https://i49.tinypic.com/9k6tyb.jpg" data-bbcode="true" rel="nofollow noopener">https://i49.tinypic.com/9k6tyb.jpg</a><br>
+<a href="https://i50.tinypic.com/dcznr6.jpg" data-bbcode="true" rel="nofollow noopener">https://i50.tinypic.com/dcznr6.jpg</a></p>
+</blockquote>
+</aside>
+<p>Like in  (B) here there are obvious problems with dynamic lighting calculation. I have no ideas what’s wrong with it in BM and why there are no similar problems with setting zombies on fire in HL2 (Ravenholm) or in HL2:EP1.</p>
+<p>And these are not the worstest cases - in case you happen to be shot by the sentry guns in bm_c1a3b near this spot:</p>
+<pre><code class="lang-auto">] getpos
+setpos -1377.831665 -726.231445 -17.525650;setang 12.491111 -90.911560 0.000000</code></pre>
+<p>FPS could drop down to as low as ~20 making pretty hard to react properly on heavy fire and to run away or to snipe the turret.</p>
+<aside class="quote no-group" data-username="SPBHM">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/s/ee7513/40.png" class="avatar"> SPBHM:</div>
+<blockquote>
+<p>but as I said these were extreme cases, most of the time it was over 60 with some places at 40-60 which was still more acceptable than under 30s</p>
+</blockquote>
+</aside>
+<p>Yeah, I also have this PoV on the problem: the game is Ok to play with GTX 550 Ti and any 3.0-3.5GHz dual-core CPU. But it does not run perfectly well though. And it also means that people with ~100 USD nowdays GPUs like GTX 540 or GTX 640 would suffer from these drops hardly. And you could guess yourself how would cards like Intel HD 2000/3000/4000 perform in problematic places :-D. Still IMO it’d be better (and more people would benefit from it) if devs would consider spending some time optimizing dlights and fillrate issues related to particle systems rather than spend way more time re-implementing shaders fallbacks for dxlevel 80/81 renderpaths (which - if it would be done - won’t necessary mean better performance when using legacy pipeline).</p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/41">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/41</link>
+        <pubDate>Tue, 18 Sep 2012 11:13:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-41</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[SPBHM]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="lexa2">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/34f0e0/40.png" class="avatar"> lexa2:</div>
+<blockquote>
+<p>IMO there are some pretty much obvious places to test for performance issues:<br>
+a) Middle of the test chamber right after the cascade resonance. There’a  black smoke cloud there which seems to be extremely fillrate hungry. map bm_c1a1a, zoom into the cloud, watch the FPS/budget panel.<br>
+b) bm_c1a1b, first encounters with zombies where you could set them on fire. Light the flare, set the zombie on fire and while it’s corpse is burning - observe the FPS/budget panel.<br>
+c)</p>
+<pre><code class="lang-auto">map bm_c1a3a
+sv_cheats 1
+god
+notarget
+setpos -823.756348 -1593.614258 -255.968750;
+setang 0.681325 16.047066 0.000000</code></pre>
+<p>Check FPS counter and budget panel.</p>
+<p>Sure, resolution matters a lot for fillrate-constrained cases. At 1280x1024 (or at 1400x900 - they are pretty close to each other) I’ve got way less fillrate-related FPS dropdowns compared to what I’ve got <span class="mention">@1680x1050</span> or <span class="mention">@1920x1200</span>.</p>
+<p>In general I prefer to have vsync on if possible as long as there’s a way to force triple-buffered render queue mode for the game (D3Doverrider allows to do it with HL2 and thus BM) and limit target FPS to be slightly less than 60 (could be done using “Frame target” setting in the nVIDIA Inspector or simply using fps_max cvar). Limiting FPS warrants that there wouldn’t be extra frame input lag (in case of 2-frames deep render queue), forcing triple-buffered render queue warrants that the game engine won’t stall on presentation-&gt;swap_buffers call as soon as I turn vsync on having fps limiter to be set slightly below 60.</p>
+<p>TBH GTX 550 Ti I have in one of my home workstations is approx in speed parity to the GTS 250 WRT features used by HL2 engine. Typical use of this PC is a software developing duties - i.e. I have two 1920x1200 displays attached to it so I have a plenty of screen space available to place my Eclipse stuff around, thus I wouldn’t mind be able to play BM in 1080p on this PC :-). But I really don’t want to spend extra 200 or 300 bucks right now on a new gfx card for this PC especially when I have another PC semi-dedicated for gaming with 1920x1200 120Hz display and a GTX 560 Ti card in it.</p>
+<p>Yes. Multicore CPUs with slower IPCs would suffer in BM. On the other hand Turbo Boost/Turbo Core would come for a rescue as long as OS scheduler don’t do a crack tossing main game thread from core to core. And having SMT technologies turned off with quad(+) core CPUs also might be helpful here: you wouldn’t welcome if OS scheduler would place execution of some other thread on the “core” that shares most of its resources with the one you happen run main game thread on.</p>
+</blockquote>
+</aside>
+<p>for those like me with AMD graphics card I think the best option for framerate limit is dxtory (but yes, in source engine games you can set in game), but I haven’t really played around much with it, I just tested the default vsync</p>
+<p>I’m using windows XP with a dual core SMT capable CPU, so looking at the task manager it basically have one core (core 0) at high 90% usage most of the time and the other threads with low usage,</p>
+<p>about the places you mentioned for testing, are you sure about C?<br>
+I had to use noclip to go into that position, but there is nothing interesting going on<br>
+<a href="https://i49.tinypic.com/1zprtro.jpg" data-bbcode="true" rel="nofollow noopener">https://i49.tinypic.com/1zprtro.jpg</a></p>
+<p>in A there is clearly a performance problem, but without the zoom in is more acceptable,<br>
+<a href="https://i45.tinypic.com/14cxxk6.jpg" data-bbcode="true" rel="nofollow noopener">https://i45.tinypic.com/14cxxk6.jpg</a><br>
+<a href="https://i48.tinypic.com/250nuvt.jpg" data-bbcode="true" rel="nofollow noopener">https://i48.tinypic.com/250nuvt.jpg</a></p>
+<p>B<br>
+<a href="https://i45.tinypic.com/2cy30i9.jpg" data-bbcode="true" rel="nofollow noopener">https://i45.tinypic.com/2cy30i9.jpg</a></p>
+<p>now during my normal playtrough the worst place that grabed my attetion was certainlly this</p>
+<p>entering the room,<br>
+and while the “live” zombie is burning, when it dies and in the rest of the chapter it gets a lot better.<br>
+<a href="https://i49.tinypic.com/9k6tyb.jpg" data-bbcode="true" rel="nofollow noopener">https://i49.tinypic.com/9k6tyb.jpg</a><br>
+<a href="https://i50.tinypic.com/dcznr6.jpg" data-bbcode="true" rel="nofollow noopener">https://i50.tinypic.com/dcznr6.jpg</a></p>
+<p>but as I said these were extreme cases, most of the time it was over 60 with some places at 40-60 which was still more acceptable than under 30s</p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/40">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/40</link>
+        <pubDate>Tue, 18 Sep 2012 10:33:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-40</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[tommy255]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="-HollywooD-">
+<div class="title">
+<div class="quote-controls"></div>
+ -HollywooD-:</div>
+<blockquote>
+<p>I spent $50 on my 5850 and it’s runs BM fine with everything on the highest. The time you waste trying to get this to work could be time spent doing a quarter of a days work for that $50.</p>
+<p>I don’t mean to sound too harsh but why should the team spend time and resources that could be spent on Xen because a very small minority have painfully outdated hardware that would be reasonably cheap to replace?</p>
+</blockquote>
+</aside>
+<p>Even people who have a laptop  <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/39">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/39</link>
+        <pubDate>Tue, 18 Sep 2012 06:52:16 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-39</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="SPBHM">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/s/ee7513/40.png" class="avatar"> SPBHM:</div>
+<blockquote>
+<p>it would be interesting to establish a “benchmark”, I mean choosing a place on the game for people to test and compare performance (maybe a fixed test, demo, timedemo)</p>
+</blockquote>
+</aside>
+<p>IMO there are some pretty much obvious places to test for performance issues:<br>
+a) Middle of the test chamber right after the cascade resonance. There’a  black smoke cloud there which seems to be extremely fillrate hungry. map bm_c1a1a, zoom into the cloud, watch the FPS/budget panel.<br>
+b) bm_c1a1b, first encounters with zombies where you could set them on fire. Light the flare, set the zombie on fire and while it’s corpse is burning - observe the FPS/budget panel.<br>
+c)</p>
+<pre><code class="lang-auto">map bm_c1a3a
+sv_cheats 1
+god
+notarget
+setpos -823.756348 -1593.614258 -255.968750;
+setang 0.681325 16.047066 0.000000</code></pre>
+<p>Check FPS counter and budget panel.</p>
+<aside class="quote no-group" data-username="SPBHM">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/s/ee7513/40.png" class="avatar"> SPBHM:</div>
+<blockquote>
+<p>…maybe it’s because of my resolution (1280x1024)</p>
+</blockquote>
+</aside>
+<p>Sure, resolution matters a lot for fillrate-constrained cases. At 1280x1024 (or at 1400x900 - they are pretty close to each other) I’ve got way less fillrate-related FPS dropdowns compared to what I’ve got <span class="mention">@1680x1050</span> or <span class="mention">@1920x1200</span>.</p>
+<aside class="quote no-group" data-username="SPBHM">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/s/ee7513/40.png" class="avatar"> SPBHM:</div>
+<blockquote>
+<p>…also I always play with vsync off</p>
+</blockquote>
+</aside>
+<p>In general I prefer to have vsync on if possible as long as there’s a way to force triple-buffered render queue mode for the game (D3Doverrider allows to do it with HL2 and thus BM) and limit target FPS to be slightly less than 60 (could be done using “Frame target” setting in the nVIDIA Inspector or simply using fps_max cvar). Limiting FPS warrants that there wouldn’t be extra frame input lag (in case of 2-frames deep render queue), forcing triple-buffered render queue warrants that the game engine won’t stall on presentation-&gt;swap_buffers call as soon as I turn vsync on having fps limiter to be set slightly below 60.</p>
+<aside class="quote no-group" data-username="SPBHM">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/s/ee7513/40.png" class="avatar"> SPBHM:</div>
+<blockquote>
+<p>so I have a card comparable to a GTS 250/9800GTX+/GTS 450 and I’m pretty happy with the game, again it’s probably the resolution and lack of vsync helping, but I suppose if you are happy with a card of this level you are probably not playing in 1080p anyway.</p>
+</blockquote>
+</aside>
+<p>TBH GTX 550 Ti I have in one of my home workstations is approx in speed parity to the GTS 250 WRT features used by HL2 engine. Typical use of this PC is a software developing duties - i.e. I have two 1920x1200 displays attached to it so I have a plenty of screen space available to place my Eclipse stuff around, thus I wouldn’t mind be able to play BM in 1080p on this PC :-). But I really don’t want to spend extra 200 or 300 bucks right now on a new gfx card for this PC especially when I have another PC semi-dedicated for gaming with 1920x1200 120Hz display and a GTX 560 Ti card in it.</p>
+<aside class="quote no-group" data-username="SPBHM">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/s/ee7513/40.png" class="avatar"> SPBHM:</div>
+<blockquote>
+<p>…now what about CPU performance? the game seems to use a single core, so high IPC is preferable (so something like a AMD FX will suffer in this game?)</p>
+</blockquote>
+</aside>
+<p>Yes. Multicore CPUs with slower IPCs would suffer in BM. On the other hand Turbo Boost/Turbo Core would come for a rescue as long as OS scheduler don’t do a crack tossing main game thread from core to core. And having SMT technologies turned off with quad(+) core CPUs also might be helpful here: you wouldn’t welcome if OS scheduler would place execution of some other thread on the “core” that shares most of its resources with the one you happen run main game thread on.</p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/38">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/38</link>
+        <pubDate>Tue, 18 Sep 2012 06:47:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-38</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[SPBHM]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="lexa2">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/34f0e0/40.png" class="avatar"> lexa2:</div>
+<blockquote>
+<p>~57 without vsync means that you’d get stuttering and drop to 30 FPS with the vsync on. And, yet again, what’s AA level you use at 1920x1080? And what is your videocard? Cause I get ~35-45 FPS with vsync turned off <span class="mention">@1920x1200</span> + NoAA + Aniso 8x when zoom in to the particle system smoke cloud at the test chamber with GTX 560 Ti. With 550 Ti it gets even worse - 20-30 FPS at best <span class="mention">@1400x900</span>. Now think about people who have GPUs like GTX 260, GTS 250/GTX9800/8800 or GTS 440/450/540: they would have even worse frame rates (i.e. from 10-20 ranges). At the same time they have no such FPS problems with EP2, EP1 or Portal II. That’s why I think it’s BMS fault. Yet again: people simply want to play the game without lags. Drops to 30-40 FPS are extremely noticable when rest of the game runs at rock solid 60 FPS (with vsync) or even faster (without vsync). And anything below 30 FPS is a show-stopper for first person shooter.</p>
+<p>Then, if the FPS dropdown problems were occurring only at places where there are no fights (like test chamber example I posted below) - it would be OK. But they also occur when you set some zombie on fire (dlighting-related stutters), when you fight a lot of marines on the surface (yet again dlighting-related), when you fight sentry autoturrets (dlighting), at some places that seem “random” at the first glance like a place where you meet bullsquid for the first time (a lot of high-detailed prop_static and other models coupled with expensive water surfaces doubling/tripling the work engine have to do for geometry processing) and so on. Yeas, I play the game as is and still think that it’s awesome and really fun but I really would welcome if it would be made lags-free. For now I use the following bings that helps to pass the problematic areas with the FPS drops:</p>
+<p><code>
+bind "u" "incrementvar r_dynamic 0 1 1;incrementvar r_dynamiclighting 0 1 1;"
+bind "j" "incrementvar r_WaterDrawReflection 0 1 1;"
+bind "m" "incrementvar r_drawparticles 0 1 1;"</code></p>
+<p>It allows me to turn off and on problematic in-game effects by pressing a single (well, there are three of them, but usually it’s required to only use one of them to get FPS back to 60FPS with vsync) button.</p>
+</blockquote>
+</aside>
+<p>it would be interesting to establish a “benchmark”, I mean choosing a place on the game for people to test and compare performance (maybe a fixed test, demo, timedemo)<br>
+because I have a older card and I’m not seeing any dramatic performance issues,<br>
+maybe it’s because of my resolution (1280x1024), or something else, but with my 5750 with msaa4x and the rest on max most of the time I have an OK (over 60 most of the time) framerate, with a few spots during the game which were bad (less than 30), but overall not something that would be enough to make me disable effects (simply because I experienced the constant low framerate in just maybe 4-5 occasions, and not in essential moments for the gameplay),<br>
+also I always play with vsync off, if I turn it on I notice right away some input latency, and while I can see tearing, it’s not to bad for me,</p>
+<p>so I have a card comparable to a GTS 250/9800GTX+/GTS 450 and I’m pretty happy with the game, again it’s probably the resolution and lack of vsync helping, but I suppose if you are happy with a card of this level you are probably not playing in 1080p anyway.</p>
+<p>now what about CPU performance? the game seems to use a single core, so high IPC is preferable (so something like a AMD FX will suffer in this game?)</p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/37">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/37</link>
+        <pubDate>Tue, 18 Sep 2012 06:07:10 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-37</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Executor">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/e/54ee81/40.png" class="avatar"> Executor:</div>
+<blockquote>
+<p>… I have adaptive vsync globally enabled, so dropping to 30 when it dips below 60 doesn’t happen. …</p>
+</blockquote>
+</aside>
+<p>Yeah, it helps, but you get a tearing at that moment. That’s generally OK but is not perfect.</p>
+<aside class="quote no-group" data-username="Executor">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/e/54ee81/40.png" class="avatar"> Executor:</div>
+<blockquote>
+<p>Maybe it’s because I grew up playing Jedi Knight on a PC that was below the minimum specs (100MHz Cyrix Cx5x86, 8MB of RAM, 540MB hard drive, and no 3D acceleration) and got 15 FPS if I was lucky at 640x480, but framerates below 60 really don’t bother me at all.</p>
+</blockquote>
+</aside>
+<p>Well, many of us here on these forums grew up at those times. Back in 1994 I’ve been playing Wolf 3D and then Doom on the AMD clone of 386DX40 and it surely wasn’t a “60FPS experience” ;-). Then again, as soon as you get used to something good - it’s hard to merely accept something that is worse. Especially for a person who had spend a lot of time when he was young playing Quake World in a competitive tournaments. Any experienced Quake World, Quake 3/Live or original CS player would tell you that even FPS drop from stable 60 or 75 down to something like 50 or 60 is extremely noticeable and annoying. Yes, it’s a matter of a personal preference, but still - there are a lot of people out there who could feel the change in input lag related to even slight FPS drops and would find it annoying.</p>
+<aside class="quote no-group" data-username="Leijonasisu">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/9e8a1a/40.png" class="avatar"> Leijonasisu:</div>
+<blockquote>
+<p>…I don’t even notice games that have frame rates that drop below 60. Apparently we can’t see anything more than 30…</p>
+</blockquote>
+</aside>
+<p>That’s not entirely true. With a sideband vision (i.e. when you don’t look directly at the light source) average person could spot luminance blinking even at about 60Hz rate. If you happen to have older CRT monitor accessible try setting it to work in 60Hz vsync mode, open up some bright white picture and try looking on it from about 1.5-2m distance with a sideband vision. You would clearly be able to spot rapid blinking of displayed picture.</p>
+<aside class="quote no-group" data-username="Leijonasisu">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/9e8a1a/40.png" class="avatar"> Leijonasisu:</div>
+<blockquote>
+<p>Keeping V-Sync on … not always force you down to a really low frame rate, like previously stated. That, is only when you enable triple-buffering.</p>
+</blockquote>
+</aside>
+<p>This theme is more complicated than what is usually though about. Double-buffered rendering with vsync - always drop to 30 FPS as soon as you can’t manage to hit 60+ rate, drop down to 20 or 15 FPS when you can’t achive 30+ or 20+ rate and so on. Triple buffering could be implemented in several different ways. What is readily and easily available in D3D9 API is a render-queue implementation of the triple buffering approach. It would help to mitigate hard FPS drop to 30 but would at the same time introduce extra input lag. This is what tools like D3Doverrider do enable when you use them over double-buffered D3D game. More proper triple buffering approach is harder to implement using D3D API and isn’t widely used really. I could elaborate in details on the technical details of such implementation from programmer PoV but IMO it’s offtopic here really :-).</p>
+<p>All in all, if we go back to BMS - it seems to be using double-buffered approach. So if you want to be tearing-free with it and also want to avoid 60-30-60 FPS stutters - the only way to head is to use D3Doverrider to force triple-buffered render queue. If you don’t mind slight amount of tearing then adaptive vsync is a better thing to use. In both cases it’s quite important to limit max framerate to something slightly higher than 60 FPS to mitigate extra input lag for triple-buffered render queue approach and to avoid getting jumps from “noticable input lag” to “no input lag” with an adaptive vsync approach.</p>
+<p>Then again, input lag is a matter of a personal preference. Some people do not notice vsync-related input lag at all while other (me included) could clearly feel the difference between 1-frame lag vs. 2-frames lag vs. 3-frames lag for vsync + different render queue depths.</p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/36">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/36</link>
+        <pubDate>Mon, 17 Sep 2012 21:59:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-36</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[Leijonasisu]]></dc:creator>
+        <description><![CDATA[
+            <p>I don’t even notice games that have frame rates that drop below 60. Apparently we can’t see anything more than 30. Though games are noticeably smoother at 60, opposed to 30.</p>
+<p>Keeping V-Sync on, even when you can’t get 60 frames due to lackluster hardware. Will usually stop you from getting screen tearing, and not always force you down to a really low frame rate, like previously stated. That, is only when you enable triple-buffering. If both are enabled and your hardware can’t maintain 60fps you will get a performance drop. If just V-Sync or ‘Wait for V-Sync’ is enabled and triple-buffering isn’t, then not being able to attain 60fps whilst having V-Sync on, won’t result in a performance loss. And will usually prevent screen tearing. So it’s best to keep it on, rather than have your refresh rate go over 60 in small/low draw distance areas, which would create tearing.</p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/35">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/35</link>
+        <pubDate>Mon, 17 Sep 2012 20:30:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-35</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[Executor]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="lexa2">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/34f0e0/40.png" class="avatar"> lexa2:</div>
+<blockquote>
+<p>~57 without vsync means that you’d get stuttering and drop to 30 FPS with the vsync on. And, yet again, what’s AA level you use at 1920x1080? And what is your videocard? Cause I get ~35-45 FPS with vsync turned off <span class="mention">@1920x1200</span> + NoAA + Aniso 8x when zoom in to the particle system smoke cloud at the test chamber with GTX 560 Ti. With 550 Ti it gets even worse - 20-30 FPS at best <span class="mention">@1400x900</span>. Now think about people who have GPUs like GTX 260, GTS 250/GTX9800/8800 or GTS 440/450/540: they would have even worse frame rates (i.e. from 10-20 ranges). At the same time they have no such FPS problems with EP2, EP1 or Portal II. That’s why I think it’s BMS fault. Yet again: people simply want to play the game without lags. Drops to 30-40 FPS are extremely noticable when rest of the game runs at rock solid 60 FPS (with vsync) or even faster (without vsync). And anything below 30 FPS is a show-stopper for first person shooter.</p>
+<p>Then, if the FPS dropdown problems were occurring only at places where there are no fights (like test chamber example I posted below) - it would be OK. But they also occur when you set some zombie on fire (dlighting-related stutters), when you fight a lot of marines on the surface (yet again dlighting-related), when you fight sentry autoturrets (dlighting), at some places that seem “random” at the first glance like a place where you meet bullsquid for the first time (a lot of high-detailed prop_static and other models coupled with expensive water surfaces doubling/tripling the work engine have to do for geometry processing) and so on. Yeas, I play the game as is and still think that it’s awesome and really fun but I really would welcome if it would be made lags-free. For now I use the following bings that helps to pass the problematic areas with the FPS drops:</p>
+<p><code>
+bind "u" "incrementvar r_dynamic 0 1 1;incrementvar r_dynamiclighting 0 1 1;"
+bind "j" "incrementvar r_WaterDrawReflection 0 1 1;"
+bind "m" "incrementvar r_drawparticles 0 1 1;"</code></p>
+<p>It allows me to turn off and on problematic in-game effects by pressing a single (well, there are three of them, but usually it’s required to only use one of them to get FPS back to 60FPS with vsync) button.</p>
+</blockquote>
+</aside>
+<p>8xAA, 16xAF, GTX 560 Ti.  Like I said, I have everything maxed out in the in-game options, as well as ambient occlusion enabled through the Nvidia Control Panel.  I have adaptive vsync globally enabled, so dropping to 30 when it dips below 60 doesn’t happen.</p>
+<p>Maybe it’s because I grew up playing Jedi Knight on a PC that was below the minimum specs (100MHz Cyrix Cx5x86, 8MB of RAM, 540MB hard drive, and no 3D acceleration) and got 15 FPS if I was lucky at 640x480, but framerates below 60 really don’t bother me at all.</p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/34">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/34</link>
+        <pubDate>Mon, 17 Sep 2012 20:25:36 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-34</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[Leijonasisu]]></dc:creator>
+        <description><![CDATA[
+            <p>This really is one of the dumbest things I’ve seen asked so far. If you’re running hardware that is so outdated that you want to use Direct X8 then you’d be running hardware that can only play the game on Low-Normal at 800x600. Which I don’t think most of us consider ‘gaming’.</p>
+<p>It’s sort of a paradox request.</p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/33">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/33</link>
+        <pubDate>Mon, 17 Sep 2012 20:22:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-33</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="flying sheep">
+<div class="title">
+<div class="quote-controls"></div>
+ flying sheep:</div>
+<blockquote>
+<p>weell, that’s not how it works.</p>
+<p>graphics cards tailored for newer rendering pipelines (programmable shaders) actually run programs made with the older fixed-function pipeline <span class="bbcode-i">slower</span>. usually that doesn’t have an effect, because you typically have both programmable shaders and fixed-function code, and if something has only the old method, it’s old enough that your graphics card can run it thrice in parallel, but if you force your graphics card into a non-native mode, for a new game, you lose performance.</p>
+<p>if there are effects to be disabled, it hasn’t necessarily anything to do with “direct x versions”.</p>
+<p>TL;DR: don’t assume you know much about graphics programming &amp; performance if you didn’t actually learn in-depth knowledge about it.</p>
+</blockquote>
+</aside>
+<p>Being a programmer who had worked with 3D rendering a lot I could tell you that things are not that simple. Benchmarks we’ve been doing internally in the company I had been employed to several years ago showed that special blocks to accelerate fixed function pipeline (HW T&amp;L specifically) had been removed from nowdays GPUs not that long ago, around the release of 4xx series for nVIDIA GPUs. What we were doing is basically replicating fixed function pipeline with a simple fragment/vertex OpenGL shaders and comparing the performance we get with a fixed-function pipeline vs. GLSL-replicated approach. Fixed function performed somewhat faster on all cards up to 4xx series where the performance for fixed pipeline dropped down and became the same. We could elaborate on this topic more in PMs as it’s really an offtop for this thread.</p>
+<p>TL;DR: don’t assume the level of other people knowledge and don’t assume your kung-fu is better unless you have spend a lot of time discussing topic in question with them and have the proving numbers on hands.</p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/32">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/32</link>
+        <pubDate>Mon, 17 Sep 2012 19:02:53 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-32</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[flying_sheep]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="lexa2">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/34f0e0/40.png" class="avatar"> lexa2:</div>
+<blockquote>
+<p>That’s simply not true. Older api version allowed less things to be implemented and thus using them would mean “less fancy things and effects”.</p>
+</blockquote>
+</aside>
+<p>weell, that’s not how it works.</p>
+<p>graphics cards tailored for newer rendering pipelines (programmable shaders) actually run programs made with the older fixed-function pipeline <span class="bbcode-i">slower</span>. usually that doesn’t have an effect, because you typically have both programmable shaders and fixed-function code, and if something has only the old method, it’s old enough that your graphics card can run it thrice in parallel, but if you force your graphics card into a non-native mode, for a new game, you lose performance.</p>
+<p>if there are effects to be disabled, it hasn’t necessarily anything to do with “direct x versions”.</p>
+<p>TL;DR: don’t assume you know much about graphics programming &amp; performance if you didn’t actually learn in-depth knowledge about it.</p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/31">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/31</link>
+        <pubDate>Mon, 17 Sep 2012 18:48:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-31</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[Jenova19]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ll try that right away.</p>
+<p>Thank you so much for the effort! <img src="https://leakfree.org/images/emoji/twitter/heart.png?v=9" title=":heart:" class="emoji" alt=":heart:"><img src="https://leakfree.org/images/emoji/twitter/heart.png?v=9" title=":heart:" class="emoji" alt=":heart:"><img src="https://leakfree.org/images/emoji/twitter/heart.png?v=9" title=":heart:" class="emoji" alt=":heart:"></p>
+<p>Thanks for explaining it, as well.  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p><span class="bbcode-b">EDIT (06:29 PM):</span> Just tried it and it works! No more pink &amp; black checkerboards!</p>
+<p>The overall higher visual quality amazed me, to be quite honest…</p>
+<p>Thanks again!</p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/30">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/30</link>
+        <pubDate>Mon, 17 Sep 2012 18:22:26 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-30</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Jenova19">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/j/f6c823/40.png" class="avatar"> Jenova19:</div>
+<blockquote>
+<p>I previously added “-dxlevel 8” to the launch options (which was absolutely wrong, I guess “+mat_dxlevel 81” would’ve been right?)</p>
+</blockquote>
+</aside>
+<p>No, both ways are valid, but changing renderpath using command line is a preffered one - it make the game not only to change the renderpath but also resets all the renderer-related settings to a safe defaults for that renderpath. Note that the game should be started with the “-dxlevel XX” command line parameter only once per a renderpath switch. Don’t keep this command line parameter there in case you had successfully switched the game into using another renderpath - it would break the game making it refuse to save renderer-related settings like resolution, texture detail levels and so on.</p>
+<aside class="quote no-group">
+<blockquote>
+<p>Sorry to post this here, but I’m running out of ideas (would adding “-mat_dxlevel 81” to the launch options help? Since +variable and -variable usually stands for ON and OFF in the source engine.)…</p>
+</blockquote>
+</aside>
+<p>Add “-dxlevel 90” (older videocards on XP and up) or “-dxlevel 95” (fresher videocards on XP and up) or “-dxlevel 98” (DX10-capable videocard on Vista and up) to the BMS startup command line parameters. Start up the game once, confirm that it had switched into using DX9.x renderpath (check what it prints in advanced gfx settings dialog box at the “Software DirectX version” box), quit the game and remove -dxlevel XX from the command line.</p>
+<p>As for “+smthing” vs. “-smthng” on the command line: it is not “on”/“off” selectors, it’s naming convention of the source engine. Words preceeded by “-” are a command line parameters. There’s a list of these source engine recognizes you could look at here: <a href="https://developer.valvesoftware.com/wiki/Command_Line_Options" data-bbcode="true" rel="nofollow noopener">https://developer.valvesoftware.com/wiki/Command_Line_Options</a></p>
+<p>Things preceeded with “+” on the commandline instructs the engine to change the value of the specified cvar to the specified value. It’s the same as if you would add " " into the autoexec.cfg of your BMS installation.</p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/29">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/29</link>
+        <pubDate>Mon, 17 Sep 2012 18:08:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-29</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Executor">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/e/54ee81/40.png" class="avatar"> Executor:</div>
+<blockquote>
+<p>Personally, I think some people are just too damn picky about framerate.  At 1920x1080 with all ingame video settings maxed + ambient occlusion, mine drops to ~40 when repeating your example (with AO off, it only drops to ~57), but I barely notice that it’s slowed down.  It looks and feels fine to me, and I certainly have no problem with an occasional minor slowdown if it means not making the game look like dogshit.</p>
+</blockquote>
+</aside>
+<p>~57 without vsync means that you’d get stuttering and drop to 30 FPS with the vsync on. And, yet again, what’s AA level you use at 1920x1080? And what is your videocard? Cause I get ~35-45 FPS with vsync turned off <span class="mention">@1920x1200</span> + NoAA + Aniso 8x when zoom in to the particle system smoke cloud at the test chamber with GTX 560 Ti. With 550 Ti it gets even worse - 20-30 FPS at best <span class="mention">@1400x900</span>. Now think about people who have GPUs like GTX 260, GTS 250/GTX9800/8800 or GTS 440/450/540: they would have even worse frame rates (i.e. from 10-20 ranges). At the same time they have no such FPS problems with EP2, EP1 or Portal II. That’s why I think it’s BMS fault. Yet again: people simply want to play the game without lags. Drops to 30-40 FPS are extremely noticable when rest of the game runs at rock solid 60 FPS (with vsync) or even faster (without vsync). And anything below 30 FPS is a show-stopper for first person shooter.</p>
+<p>Then, if the FPS dropdown problems were occurring only at places where there are no fights (like test chamber example I posted below) - it would be OK. But they also occur when you set some zombie on fire (dlighting-related stutters), when you fight a lot of marines on the surface (yet again dlighting-related), when you fight sentry autoturrets (dlighting), at some places that seem “random” at the first glance like a place where you meet bullsquid for the first time (a lot of high-detailed prop_static and other models coupled with expensive water surfaces doubling/tripling the work engine have to do for geometry processing) and so on. Yeas, I play the game as is and still think that it’s awesome and really fun but I really would welcome if it would be made lags-free. For now I use the following bings that helps to pass the problematic areas with the FPS drops:</p>
+<p><code>
+bind "u" "incrementvar r_dynamic 0 1 1;incrementvar r_dynamiclighting 0 1 1;"
+bind "j" "incrementvar r_WaterDrawReflection 0 1 1;"
+bind "m" "incrementvar r_drawparticles 0 1 1;"</code></p>
+<p>It allows me to turn off and on problematic in-game effects by pressing a single (well, there are three of them, but usually it’s required to only use one of them to get FPS back to 60FPS with vsync) button.</p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/28">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/28</link>
+        <pubDate>Mon, 17 Sep 2012 17:57:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-28</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[Jenova19]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Tree Dude">
+<div class="title">
+<div class="quote-controls"></div>
+ Tree Dude:</div>
+<blockquote>
+<p>]-Snip- Looks like there are some missing effects when running in DX81. I attached a screenshot. My guess is there is some kind of overlay that wont render in DX81 so you get the purple and black checkerboard.</p>
+</blockquote>
+</aside>
+<p>Call me stupid, but that’s the exact same issue I’m trying to solve here…</p>
+<p>After I tried to force the white line you were having trouble with yesterday, until we resolved it, I had the same pink &amp; black checkerboard problem.</p>
+<p>I previously added “-dxlevel 8” to the launch options (which was absolutely wrong, I guess “+mat_dxlevel 81” would’ve been right?), then tried to “deactivate” it by removing it from said options and added “+mat_dxlevel 98”, but still - the game would either crash on load (or new game), show the Vertex Error or load just fine with the checkerboards all over the place.</p>
+<p>The in-game menu seems to have a problem, as well.</p>
+<p>It’s 100% transparent for a while, then it goes back to 100% opacity / solidity after a few seconds.</p>
+<p>The clothing of scientists is also a bit weird looking (I’ll try to make a screenshot of it in just a few moments) - it looks like there are blood decals all over their nice clean and white coats…</p>
+<p>If the clothing looks like that, the game starts (with the checkerboards), if their clothing looks just fine - it crashes.</p>
+<p>Sorry to post this here, but I’m running out of ideas (would adding “-mat_dxlevel 81” to the launch options help? Since +variable and -variable usually stands for ON and OFF in the source engine.)…</p>
+<p>Thanks in advance.</p>
+<hr>
+<p><span class="bbcode-b">EDIT (11:13):</span> Well, so much about that screenshot…</p>
+<p>For some odd reason, I can’t seem to reproduce the bug I mentioned earlier anymore.</p>
+<p>Neither can I force the game to load the first level (that with the tram station) into the main menu background.</p>
+<p>Sad day is sad, but I hope you can imagine what it’d look like.  <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/27">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/27</link>
+        <pubDate>Mon, 17 Sep 2012 09:05:41 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-27</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[SPBHM]]></dc:creator>
+        <description><![CDATA[
+            <p>using DX8 does improve performance for some ultra slow GPUs,<br>
+I remember testing TF2 with DX8 on a geforce 6100 and Intel GMA 3100 and in both there was a huge FPS boost by using DX8… but to be honest you can buy a cheap $30 card on ebay far better than those things and enough to play the game in DX9 decently,<br>
+also if in their minimum requirements they ask for DX9 hardware, than it’s fair to assume that the game will possibly not work with DX8 hardware (or in DX8 mode).</p>
+<p>I’m playing the game on my old 5750, it plays quite well, max details, msaa 4x, af 16x, vsync off as I always do (lower input latency), and most of the game is really smooth, only in some spots there seem to be a problem, I noticed a drop to ± 40fps on that small room behind the initial reception room (when you go back and it’s on fire…), and the worst part was residual processing where there is a spot which the framerate goes down to less than 30, but in most places it works really well, although when I turn on the flash lights or shoot a gun for the first time sometimes it stutters a little bit,</p>
+<p>the point of Black Mesa was recreate HL1 with more modern tech, so I think ignoring DX8 is fair enough,</p>
+<p>I was kind of joking about DX6 earlier, although I really did test HL2 in DX6 mode, and up until 2009 I think it still had support for it.</p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/26">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/26</link>
+        <pubDate>Mon, 17 Sep 2012 08:11:27 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-26</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[Executor]]></dc:creator>
+        <description><![CDATA[
+            <p>Personally, I think some people are just too damn picky about framerate.  At 1920x1080 with all ingame video settings maxed + ambient occlusion, mine drops to ~40 when repeating your example (with AO off, it only drops to ~57), but I barely notice that it’s slowed down.  It looks and feels fine to me, and I certainly have no problem with an occasional minor slowdown if it means not making the game look like dogshit.</p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/25">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/25</link>
+        <pubDate>Mon, 17 Sep 2012 06:54:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-25</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="-HollywooD-">
+<div class="title">
+<div class="quote-controls"></div>
+ -HollywooD-:</div>
+<blockquote>
+<p>I spent $50 on my 5850 and it’s runs BM fine with everything on the highest. The time you waste trying to get this to work could be time spent doing a quarter of a days work for that $50.</p>
+<p>I don’t mean to sound too harsh but why should the team spend time and resources that could be spent on Xen because a very small minority have painfully outdated hardware that would be reasonably cheap to replace?</p>
+</blockquote>
+</aside>
+<p>First of all, you either play some different BMS than every one else plays or simply lie when state that “BM runs fine with everything on the highest”. 1920x1200 + 16x MSAA + 16x ANISO would drop the FPS below 60 at some places even with today’s high end GPUs like GTX 680. For example start up the game, open the console and type in “map bm_c1a1a” and try zooming in into the smoke cloud located at the center of the test chamber. Monitor the FPS (FRAPS, DXtory, in-game cl_showfps 1/2 counter). Still sure you have the game performing fine with everything maxed?</p>
+<p>I’ve got GTX 550 Ti at home in one workstation, GTX 560 Ti in another. My brother have got GTX 670 in his gaming rig. All these cards cost much higher than 50 USD you mention but still are not able to provide “rock solid 60 FPS with vsync on” in BMS even with AA completely turned off. So I could totally understand people with lower end nowdays GPUs (GTX 440/450/540/550/640/650) struggling to make the game run without lags. People simply assume that earlier versions of API could result in better performance and that’s generally is true due to less complicated effects are usually used with earlier versions of API.</p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/24">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/24</link>
+        <pubDate>Mon, 17 Sep 2012 06:11:39 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-24</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+      <item>
+        <title>BMS DirectX 8 Mod</title>
+        <dc:creator><![CDATA[HollywooD]]></dc:creator>
+        <description><![CDATA[
+            <p>I spent $50 on my 5850 and it’s runs BM fine with everything on the highest. The time you waste trying to get this to work could be time spent doing a quarter of a days work for that $50.</p>
+<p>I don’t mean to sound too harsh but why should the team spend time and resources that could be spent on Xen because a very small minority have painfully outdated hardware that would be reasonably cheap to replace?</p>
+          <p><a href="https://leakfree.org/t/bms-directx-8-mod/10265/23">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-directx-8-mod/10265/23</link>
+        <pubDate>Mon, 17 Sep 2012 05:19:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10265-23</guid>
+        <source url="https://leakfree.org/t/bms-directx-8-mod/10265.rss">BMS DirectX 8 Mod</source>
+      </item>
+  </channel>
+</rss>

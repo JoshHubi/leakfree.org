@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>CSS fixed position: only horizontal</title>
+    <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125</link>
+    <description>Any HTML/CSS pros here?
+
+I have an element with position: fixed, so it stays in the same place when you scroll. However, it also stays in the same place (relative to browser) when you scroll horizontally, and I want it to stay in the same place, relative to the parent element.
+
+I can&#39;t seem to find how to do this without using javascript. Any help?
+
+edit: title should have been only vertical :retard:</description>
+    
+    <lastBuildDate>Thu, 10 Feb 2011 17:02:29 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[bur]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks, but I got it working about a month ago.</p>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/33">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/33</link>
+        <pubDate>Thu, 10 Feb 2011 17:02:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-33</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[mobbe]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Burbinator">
+<div class="title">
+<div class="quote-controls"></div>
+ Burbinator:</div>
+<blockquote>
+<p>Any HTML/CSS pros here?</p>
+<p>I have an element with position: fixed, so it stays in the same place when you scroll. However, it also stays in the same place (relative to browser) when you scroll horizontally, and I want it to stay in the same place, relative to the parent element.<br>
+l :retard:</p>
+</blockquote>
+</aside>
+<p>I had a situation that look like similar to yours, I solved with a little javascript.<br>
+In example below, the text inside span moves to the right and is always visible when I use horizontal scrollbar, appears fixed but it doesn’t.<br>
+You can copy the code as is and try.<br>
+The same can be applied to vertical movements using .scrollTop instead of scrollLeft.</p>
+<pre><code class="lang-auto"> &lt;html&gt;&lt;head&gt;                           
+&lt;style type="text/css"&gt;                 
+.divgen {                   
+  background-color: #d9d9b0;            
+  overflow-x:auto; overflow-y: hidden;  
+  width:500px;}                         
+.divelenco {                  
+  height:100px;                         
+  width:2300px;                         
+  overflow-x:hidden; overflow-y: auto;} 
+.spansoggetto {                  
+  position:relative;}                   
+&lt;/style&gt;    
+&lt;/head&gt;                            </code></pre>
+<pre><code class="lang-auto">&lt;body&gt;
+&lt;div class="divgen" onscroll="OnScrollDiv(this)"&gt;                                                  
+&lt;div id="divelenco" class="divelenco"&gt;                                                             
+&lt;table width="2300px" cellpadding="3" cellspacing="3"&gt;                                             
+&lt;tr&gt;&lt;td colspan="5" align="left"&gt;&lt;span id="sogg1" class="spansoggetto"&gt;TitleXXXX 1&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color:#fafac1"&gt;                                                              
+&lt;td width="20%"&gt;variouos data1&lt;/td&gt;                                                                
+&lt;td width="20%"&gt;variouos data2&lt;/td&gt;                                                                
+&lt;td width="20%"&gt;variouos data3&lt;/td&gt;                                                                
+&lt;td width="20%"&gt;variouos data4&lt;/td&gt;                                                                
+&lt;td width="20%"&gt;variouos data5&lt;/td&gt;                                                                
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td colspan="5" align="left"&gt;&lt;span id="sogg2" class="spansoggetto"&gt;TitleXXXX 2&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color:#fafac1"&gt;                                                              
+&lt;td width="20%"&gt;variouos data1&lt;/td&gt;                                                                
+&lt;td width="20%"&gt;variouos data2&lt;/td&gt;                                                                
+&lt;td width="20%"&gt;variouos data3&lt;/td&gt;                                                                
+&lt;td width="20%"&gt;variouos data4&lt;/td&gt;                                                                
+&lt;td width="20%"&gt;variouos data5&lt;/td&gt;                                                                
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td colspan="5" align="left"&gt;&lt;span id="sogg3" class="spansoggetto"&gt;TitleXXXX 3&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color:#fafac1"&gt;                                                               
+&lt;td width="20%"&gt;variouos data1&lt;/td&gt;                                                                 
+&lt;td width="20%"&gt;variouos data2&lt;/td&gt;                                                                 
+&lt;td width="20%"&gt;variouos data3&lt;/td&gt;                                                                 
+&lt;td width="20%"&gt;variouos data4&lt;/td&gt;                                                                 
+&lt;td width="20%"&gt;variouos data5&lt;/td&gt;                                                                 
+&lt;/tr&gt;                                                                                              
+&lt;/table&gt;                                                                                            
+&lt;/div&gt;                                                                                              
+&lt;/div&gt;                                                                                              
+&lt;input type="hidden" name="maxsog" id="maxsog" value="3"&gt;                                           
+
+&lt;script language=javascript&gt;                                                           
+ function OnScrollDiv(divobj) {                                                        
+   x = document.getElementById("maxsog").value;    //number of subjects on the page         
+   for (i=1;i&lt;=x;i++) {                                                                
+     document.getElementById("sogg" + i).style.left = divobj.scrollLeft;               
+   }                                                                                   
+ }                                                                                     
+&lt;/script&gt;                                                                              
+&lt;/body&gt;                                                                                
+&lt;/html&gt;                                                                                                              </code></pre>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/32">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/32</link>
+        <pubDate>Thu, 10 Feb 2011 15:29:48 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-32</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[bur]]></dc:creator>
+        <description><![CDATA[
+            <p>Yeah, I’m going to be getting Javascript along with the webdesign classes I’ll have after my exams. The messing around I’ve been doing should help with that greatly  <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/31">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/31</link>
+        <pubDate>Sat, 08 Jan 2011 16:04:00 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-31</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[FireTime]]></dc:creator>
+        <description><![CDATA[
+            <p><img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:">  jquery is fun to mess around with. Try staying away from plugins at first (hell try to stay away from jquery lean basic JS for a script or two) This way you can get a good foundation using he language so once you start using plugins you can tweak them to your liking. The jquery documentation and the w3c/w3 schools contain just about everything you could ever want in the way of JavaScript.</p>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/30">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/30</link>
+        <pubDate>Sat, 08 Jan 2011 03:04:47 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-30</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[bur]]></dc:creator>
+        <description><![CDATA[
+            <p>Okay, first when I tried that script it still didn’t work, even though it gave back numbers other than 0. I then changed position to relative for the elements in my container, and presto, it worked!</p>
+<p>I guess that means it would have worked without that script too, with just document.body.scrollLeft, but that script is definitely better either way.</p>
+<p>Maybe I can do some tinkering and get it to work without position: fixed at all, that would probably be much better.<br>
+Edit: scratch that, I didn’t really think it through  :rolleyes:</p>
+<p>Thanks! You’re a real life saver :3<br>
+I’m learning more javascript/jquery from you than I could on my own  <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+<p>Edit: apparently, it works even when I only change <span class="hashtag">#navtext</span>’s position to relative (in addition to the javascript changes). Or when I remove navtext and change either one of the contained divs to relative. Apparently at least three of them need to be relative, or something. IE is so weird.</p>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/29">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/29</link>
+        <pubDate>Sat, 08 Jan 2011 02:50:27 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-29</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[FireTime]]></dc:creator>
+        <description><![CDATA[
+            <p>well here is an all in one fix</p>
+<p><a href="https://www.howtocreate.co.uk/tutorials/javascript/browserwindow" data-bbcode="true" rel="nofollow noopener">https://www.howtocreate.co.uk/tutorials/javascript/browserwindow</a></p>
+<p>Also the checking is good so the performance loss for competent browsers should be minimal.</p>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/28">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/28</link>
+        <pubDate>Sat, 08 Jan 2011 02:14:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-28</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[bur]]></dc:creator>
+        <description><![CDATA[
+            <p>Yeah I tried that (well, without the if statement just to test in IE), but it still doesn’t work in IE. On the upside, when I alert it it returns 0 instead of undefined.<br>
+It does recognize document.body though, and I haven’t found any other alternatives for scrollLeft on google yet.</p>
+<p>But thanks : D</p>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/27">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/27</link>
+        <pubDate>Sat, 08 Jan 2011 02:07:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-27</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[FireTime]]></dc:creator>
+        <description><![CDATA[
+            <p>if browser = MSIE {document.body.scrollLeft} else {window.pageXoffset}</p>
+<p>edit: some real code</p>
+<pre><code class="lang-auto">jQuery.fn.Xpos = function(f) { 
+		if($.browser.msie){
+			return document.body.scrollLeft ;
+		}else{
+			return window.pageXoffset ;
+}</code></pre>
+<p>EDIT EDIT: See if document.body.scrollLeft works in the other browsers, if it does just use that, else you have to keep the browser check.</p>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/26">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/26</link>
+        <pubDate>Sat, 08 Jan 2011 01:54:54 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-26</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[bur]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m starting to annoy myself by asking, but IE has decided to stop doing the JQuery thing, while I changed nothing of significance to it. I also did undo several hundred times with no results.</p>
+<p>Relevant code:</p>
+<pre><code class="lang-auto">html {
+height: 100%;
+}
+
+body {
+margin: 0;
+width: 100%; height: 100%;
+}
+
+#bg {
+position: relative;
+margin: 0 auto;
+width: 1200px; min-height: 100%;
+}
+
+#navwrapper {
+position: fixed; bottom: -147px; left: 0;
+width: 100%; height: 164px;
+overflow: hidden;
+}
+
+#nav {
+position: relative;
+margin: auto;
+width: 1200px;
+}
+
+#navtext {
+position: absolute;  top: 0px; left: 126px;
+width: 170px; height: 164px;
+}
+
+#word {
+position: absolute; top: 17px; left: 37px;
+width: 60px; height: 55px;
+}
+
+#word a {
+position: absolute; left: 0;
+width: 100%; height: 100%;
+}
+
+(there are three more divs like word, only with different values for top, left, width and height)
+
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "https://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;link href="opmaak.css" rel="stylesheet" type="text/css"&gt;
+&lt;script src="jquery-1.4.4.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;div id="bg"&gt;
+		&lt;div id="navwrapper"&gt;&lt;div id="nav"&gt;
+		&lt;div id="navtext"&gt;Menu
+			&lt;div id="word"&gt;&lt;a href="word.html"&gt;&lt;/a&gt;&lt;/div&gt;
+			&lt;div id="sound"&gt;&lt;a href="#"&gt;&lt;/a&gt;&lt;/div&gt;
+			&lt;div id="image"&gt;&lt;a href="#"&gt;&lt;/a&gt;&lt;/div&gt;
+			&lt;div id="fun"&gt;&lt;a href="#"&gt;&lt;/a&gt;&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;/div&gt;&lt;/div&gt;
+	&lt;/div&gt;
+&lt;script&gt;
+	$(window).scroll(function () { $("#navwrapper").scrollLeft(window.pageXOffset); });
+	$("#navtext").hover(
+		function () { $("#navwrapper").css({bottom: 0}); $(this).css({color: 'grey', 'border-color': 'grey'}) }, 
+		function () { $("#navwrapper").css({bottom: -147}); $(this).css({color: 'black', 'border-color': 'black'}) }
+	);
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Removing navtext and .hover() has no effect.</p>
+<p>I’m at a complete loss as to how to proceed. I googled a bit, found nothing relevant, but that may be because I suck.</p>
+<p>Any help is appreciated, if not, I understand :3</p>
+<p>also, changing all the divs (excluding div a) contained in navwrapper to position: relative doesn’t help</p>
+<p>edit: just in case anyone is reading this, the problem seems to be window.pageXoffset, even though it worked before  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/25">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/25</link>
+        <pubDate>Fri, 07 Jan 2011 05:28:52 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-25</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[bur]]></dc:creator>
+        <description><![CDATA[
+            <p>the moronic part is that I actually already knew about that :retard: glad it works now though</p>
+<p>one more little detail (lol): everything under the navwrapper is now ‘inaccessible’, so to speak, to the cursor. For example, text under it can’t be selected.</p>
+<p>I might do some searching to fix that tomorrow, but if anyone can think of something off the top of their head, it would be greatly appreciated.</p>
+<p>Also, I’d like to thank everyone again, lol.</p>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/24">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/24</link>
+        <pubDate>Wed, 05 Jan 2011 00:23:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-24</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[FireTime]]></dc:creator>
+        <description><![CDATA[
+            <p>yep the fabled    <span class="bbcode-i">margin: 0px auto 0;</span></p>
+<p>some time I miss the  tag</p>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/23">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/23</link>
+        <pubDate>Tue, 04 Jan 2011 23:40:07 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-23</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[bur]]></dc:creator>
+        <description><![CDATA[
+            <p>Okay one more little detail:</p>
+<p>When the window is resized without a horizontal scrollbar present, the div doesn’t get scrolled.<br>
+So far I’ve tried:</p>
+<pre><code class="lang-auto">$(window).resize(function () { $("#navwrapper").scrollLeft(window.offsetWidth); });
+
+and
+
+$(window).resize(function () { $("#nav").style.left += window.offsetWidth; });</code></pre>
+<p>But no luck. Gonna keep trying though  <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+<p>Edit: Also document.body. instead window.<br>
+Edit edit: it seems the .resize event isn’t being detected or something.<br>
+Edit edit edit: haha, I’m such a moron. I simply had to center nav inside navwrapper by making nav relatively positioned and giving it an automatic margin.</p>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/22">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/22</link>
+        <pubDate>Tue, 04 Jan 2011 21:52:41 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-22</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[bur]]></dc:creator>
+        <description><![CDATA[
+            <p>Okay, first of all, thanks Hyperbyte! That was the very best solution until FireTime came along :3 I give you 20 more cookies.</p>
+<p>Despite exams coming up, I spent an inordinate amount of time on this (I’m so going to fail everything  <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"> ), since there was a little bug with it that just wouldn’t do for me.</p>
+<p>Fortunately FireTime was nice enough to give me his Steam and help me out personally (and the post above). You’re a real life saver, I really mean it  <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+<p>Thanks again everyone!</p>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/21">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/21</link>
+        <pubDate>Tue, 04 Jan 2011 05:29:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-21</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[FireTime]]></dc:creator>
+        <description><![CDATA[
+            <p><a href="https://pastebin.com/jpYwQWtG" data-bbcode="true" rel="nofollow noopener">FULL CODE with comments and a break down of jquery command</a></p>
+<p>BASIC CODE↓  [/SIZE]</p>
+<p>[code]</p>
+
+  
+    
+      #footwrap {
+        background-color:#003366;
+        position:fixed;
+        width:100%;
+        height:100px;
+        bottom:0px;
+        left:0;
+        overflow:hidden;
+      }
+      #foot{
+        width:1000px;
+        background-color:#ff0000;
+      }
+    
+    
+  
+  
+    <div>Resize window so horisontal scroll bar appears, Then try scrolling</div>
+    <p>___________________________________________________________________________________________________________________________</p>
+    <div>
+<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut dui nec massa gravida elementum. Aliquam tempor vehicula augue, tempus consectetur dui sollicitudin nec. Pellentes</div>
+</div>
+<pre><code>&lt;script&gt;
+  $(window).scroll(function () { 
+    $("#footwrap").scrollLeft(window.pageXOffset);
+  });
+&lt;/script&gt;
+</code></pre>
+  
+[/code]
+<p>Both codes are copy paste ready and will run from a HTML file on your desktop.</p>
+<p>EDIT: server is up as well <a href="https://firetime.dyndns.org/scroll.html" data-bbcode="true" rel="nofollow noopener">https://firetime.dyndns.org/scroll.html</a></p>
+<p>Also if you want to hide the footer when at the top of the page thats just another quick check to see if the window.pageYOffset == 0</p>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/20</link>
+        <pubDate>Tue, 04 Jan 2011 01:21:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-20</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[Hyperbyte]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Burbinator">
+<div class="title">
+<div class="quote-controls"></div>
+ Burbinator:</div>
+<blockquote>
+<p>I can’t figure out right away how to implement the plugins required in that link</p>
+</blockquote>
+</aside>
+<p>Implementing the plugins is a matter of linking to the javascripts from your html file.</p>
+<p>For Mootools:[code]</p>
+
+<p>[/code]For the ScrollSpy plugin it becomes a little bit more difficult, but not by much. You’ll have to download the .js file to a directory relative to the one the html file is in (or simply in the same directory) and then link to that as well, the same way as shown above.  Only the name of the script file in place of the URL.  Something like:[code]</p>
+
+<p>[/code]Good luck on your exams; make us proud… <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/19</link>
+        <pubDate>Mon, 03 Jan 2011 18:16:54 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-19</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[bur]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Hyperbyte">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/h/dc4da7/40.png" class="avatar"> Hyperbyte:</div>
+<blockquote>
+<p>I think I’m finally starting to actually get it, after reading the thread again properly. Blame it on the new year’s eve related headache I have today.  Not what you think though, I worked all days and most of the night - haven’t slept much.</p>
+<p>I did a quick Google search for you again, it seems that there is someone who <a href="https://www.rickyh.co.uk/css-position-x-and-position-y/" data-bbcode="true" rel="nofollow noopener">ran into the exact same problem</a>, but luckily for you, he <a href="https://demo.rickyh.co.uk/css-position-x-and-position-y/" data-bbcode="true" rel="nofollow noopener">managed to overcome it</a>. <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>Do I finally get my cookie now? <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+</blockquote>
+</aside>
+<p>Hehe, not a problem.</p>
+<p>Damn, I must suck at google searches. I wish I wasn’t such a novice at javascript though, I can’t figure out right away how to implement the plugins required in that link, and I’ve got exams coming up so I can’t spend a lot of time on it at the moment  <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+<p>I’m giving you 10 cookies in advance for finding that link though!</p>
+<p>Also still waiting for a reply from FireTime to my PM, since his solution <span class="bbcode-i">would</span> be quite a bit simpler provided that it works.</p>
+<p>Thanks a bunch  <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/18</link>
+        <pubDate>Mon, 03 Jan 2011 17:02:51 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-18</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[Hyperbyte]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Burbinator">
+<div class="title">
+<div class="quote-controls"></div>
+ Burbinator:</div>
+<blockquote>
+<p>Again, that doesn’t work because with a fixed position, it uses a percentage of the browser window, and not of the entire page.</p>
+</blockquote>
+</aside>
+<p>I think I’m finally starting to actually get it, after reading the thread again properly. Blame it on the new year’s eve related headache I have today.  Not what you think though, I worked all days and most of the night - haven’t slept much.</p>
+<p>I did a quick Google search for you again, it seems that there is someone who <a href="https://www.rickyh.co.uk/css-position-x-and-position-y/" data-bbcode="true" rel="nofollow noopener">ran into the exact same problem</a>, but luckily for you, he <a href="https://demo.rickyh.co.uk/css-position-x-and-position-y/" data-bbcode="true" rel="nofollow noopener">managed to overcome it</a>. <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>Do I finally get my cookie now? <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/17</link>
+        <pubDate>Mon, 03 Jan 2011 16:12:07 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-17</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[bur]]></dc:creator>
+        <description><![CDATA[
+            <p>Again, that doesn’t work because with a fixed position, it uses a percentage of the browser window, and not of the entire page. I tried it to confirm, and I got the results I expected. Unless I’m not quite getting what you mean of course.</p>
+<p>And no problem, I just thought it was amusing. No offence meant  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>Thanks anyway though.</p>
+<p>I’ll post my exact (relevant) code to be sure though (but I should stress again that any percentage within a fixed element is a percentage of the window and not the page):<br>
+HTML:</p>
+<pre><code class="lang-auto">&lt;link href="opmaak.css" rel="stylesheet" type="text/css"&gt;
+&lt;body&gt;
+	&lt;div id="bg"&gt;&lt;div id="nav"&gt;&lt;div id="word"&gt;&lt;a href="word.html"&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/body&gt;</code></pre>
+<p>CSS before:</p>
+<pre><code class="lang-auto">body {
+margin: 0;
+width: 100%;
+height: 100%;
+}
+
+#bg {
+position: relative;
+margin: 0 auto;
+width: 1200px;
+min-height: 100%;
+}
+
+#nav {
+position: absolute;
+top: 193px;
+}
+
+#word {
+position: absolute;
+left: 170px;
+}
+
+#word a {
+position: absolute;
+width: 60px;
+height: 55px;
+background-image: url('images/word.jpg');
+}</code></pre>
+<p>CSS after (<span class="hashtag">#nav</span> only):</p>
+<pre><code class="lang-auto">#nav {
+position: fixed;
+bottom: 0px; left: 50%;
+width: 250px; height: 150px;
+margin-left: -125px;
+}</code></pre>
+<p>(there are four elements in total inside nav, with roughly the same code as <span class="hashtag">#word</span>, and the element is a bit wider than I had estimated  <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"> )</p>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/16</link>
+        <pubDate>Mon, 03 Jan 2011 15:34:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-16</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[Hyperbyte]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Burbinator">
+<div class="title">
+<div class="quote-controls"></div>
+ Burbinator:</div>
+<blockquote>
+<p>my nav menu is only about 100px wide</p>
+</blockquote>
+</aside>
+<p>Right.  You should be able to remedy this by setting a left of 50% of the page (so the element starts in the middle of the page) and then setting a margin-left of 50% of the element width (so half of the element appears left of the middle of the page, putting it in the horizontal middle.</p>
+<p>The code then becomes:[code]</p>
+
+
+
+html, body {
+  height: 100%;
+  margin: 0px;
+}
+#navbar {
+  position: fixed;
+  width: 100px; height: 20px;
+  left: 50%; bottom: 0px;
+  margin-left: -50px;
+  background-color: red;
+}
+
+
+
+<div></div>
+
+[/code]
+<p>My apologies for not getting the ‘fixed position’ earlier.  I thought you meant ‘absolute position’ by that (since that’s also a fixed position, just relative to the page rather than the browser window).  Like I said, I hadn’t heard about the ‘fixed’ value for ‘position’ before today. <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/15</link>
+        <pubDate>Mon, 03 Jan 2011 13:39:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-15</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[bur]]></dc:creator>
+        <description><![CDATA[
+            <p>I mentioned the fixed position repeatedly though  <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"><br>
+Unfortunately, my nav menu is only about 100px wide, so I don’t think that’ll work either, but I’ll try it out anyway as soon as I have time.<br>
+If it doesn’t work I’ll mess around with javascript and see if I can get it to work, starting with FireTime’s suggestion as that seems to be the simplest way I’ve seen so far.</p>
+<p>For now I’ve simply placed it at the top of the content part of the page.</p>
+<p>Thanks guys!</p>
+<p>Edit: nope, css solution still doesn’t work, since with a fixed element, 100% width means 100% of the browser, and not of the page, as I discovered earlier.<br>
+I’ll have to try JS if I want to get this to work.</p>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/14</link>
+        <pubDate>Mon, 03 Jan 2011 11:37:51 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-14</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[Hyperbyte]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="GConstantine">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/g/a9a28c/40.png" class="avatar"> GConstantine:</div>
+<blockquote>
+<p>This (without any errors and some tweaking) will do exactly what you want.</p>
+</blockquote>
+</aside>
+<p>See, I learn something new everyday. <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:">  I had no idea that would work.  In fact, I didn’t even know position ‘fixed’ existed.  I like it!</p>
+<p>I wasn’t able to reproduce what Burbinator wants with your code, but the following code did get me there:</p>
+<p>[code]</p>
+
+
+
+html, body {
+  height: 100%;
+  margin: 0px;
+}
+#navbar {
+  position: fixed;
+  width: 100%; height: 20px;
+  left: 0px; bottom: 0px;
+  background-color: red;
+}
+
+
+
+<div></div>
+
+[/code]Very nice and clean solution, GConstantine. :-)
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/13</link>
+        <pubDate>Mon, 03 Jan 2011 10:08:27 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-13</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[GConstantine]]></dc:creator>
+        <description><![CDATA[
+            <p><span class="hashtag">#NavBox</span><br>
+{<br>
+position:fixed;<br>
+bottom: -1px;<br>
+margin-left:50%<br>
+}</p>
+<p>This (without any errors and some tweaking) will do exactly what you want. It will stick the </p><div> to the bottom of the browser window, always keeping it at the bottom (visibly, of course). It will always be on top of any other content (due to fixed. If you have other fixed elements then increment the NavBox Z-index.). The Margin will keep the <div> at exactly 50% distance from the left of the browser window. Since the margin is obviously relative to the browser window’s width (being 50% of it) you can be sure it will always be in the middle.
+<p>This should have the effect of the FaceBook chat bar thing on the bottom of facebook pages. It is always at the bottom of the window and always on top of content, independent of you much you scroll vertically.</p>
+<p>EDIT: You could also keep the width to 100% and be done with the margin. Just remember to use padding so you don’t end up with a left-to-right status bar; unless it’s what you want.</p>
+<p>If this doesn’t do, then be kind enough to post simple HTML with the css in page so we can take a look.</p>
+</div>
+</div>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/12</link>
+        <pubDate>Mon, 03 Jan 2011 08:09:52 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-12</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[FireTime]]></dc:creator>
+        <description><![CDATA[
+            <p>jQuery way, place the footer in a container with width  100%, height whatever, overflow hidden, and fixed to the bottom of the screen. Then using the .scroll() window event bind window.pageXOffset to the .scrollLeft() value of the footer div.</p>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/11</link>
+        <pubDate>Mon, 03 Jan 2011 04:38:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-11</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[Hyperbyte]]></dc:creator>
+        <description><![CDATA[
+            <p>What you want is to constantly re-position the element at the bottom of the current browser view (not necessarily the bottom of the page), each time the page is scrolled.  Correct?</p>
+<p>I’m quite sure CSS alone isn’t going to help you with this one.  CSS positions elements relative/fixed/absolute on the page, not on the browser window.  Also, because CSS in itself positions things on a page <span class="bbcode-i">once</span>, it won’t re-adjust the position of an element later on (when you scroll, for example).</p>
+<p>The best way to do this would indeed be the javascript way.  I could write some code here, or an explanation, but Google seems to have the subject covered quite well:  <a href="https://www.google.nl/search?q=javascript+bottom+bar" data-bbcode="true" rel="nofollow noopener">https://www.google.nl/search?q=javascript+bottom+bar</a></p>
+<p>I know it’s a bit cheap of me to give a Google search link, but you will find your answers there - probably even copy-paste-ready scripts.  Post back if you need more help. <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/10</link>
+        <pubDate>Mon, 03 Jan 2011 02:18:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-10</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+      <item>
+        <title>CSS fixed position: only horizontal</title>
+        <dc:creator><![CDATA[bur]]></dc:creator>
+        <description><![CDATA[
+            <p>The element I’m talking about is a small navigation menu.</p>
+<p>I want it at the bottom of the page (due to the nature of the design). However, if the page is longer than the height of the browser window (i.e. when there’s a vertical scroll bar), the navigation menu will not be visible until you scroll down, and I want it visible at all times. That’s where a fixed position comes in.</p>
+<p>The page is also rather wide (which is part of the design), so on smaller screens there will probably be a horizontal scrollbar. When using a fixed position, the menu will stay in the same place relative to the browser when you scroll horizontally (i.e. it moves on the page).</p>
+<p>In other words, I don’t want it fixed on the bottom of the page, but on the bottom of the <span class="bbcode-i">window</span>. Vertically. Horizontally I want it fixed on the page.</p>
+<p>I don’t know how to put it any clearer than that  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>I didn’t realize that about javascript, I’ll try it out. Thanks.</p>
+          <p><a href="https://leakfree.org/t/css-fixed-position-only-horizontal/6125/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/css-fixed-position-only-horizontal/6125/9</link>
+        <pubDate>Sun, 02 Jan 2011 21:11:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6125-9</guid>
+        <source url="https://leakfree.org/t/css-fixed-position-only-horizontal/6125.rss">CSS fixed position: only horizontal</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>*PERFORMANCE* Poor use of &quot;nodraw&quot; texture by devs.</title>
+    <link>https://leakfree.org/t/performance-poor-use-of-nodraw-texture-by-devs/15094</link>
+    <description>I was curious as to how you guys made the singleplayer maps, so I loaded some up in Hammer and I had to bring this to your attention.
+
+It&#39;s mostly the first couple of chapters that are problematic.
+
+The attached picture was taken in Hammer in the second level of &quot;Unforeseen Consequences&quot;.
+
+[attach=5262,none,553][/attach]
+(Yes, I have the latest most advanced editing programs. You can&#39;t keep up with me, son. Just look at that next-level beauty)
+![BlackMesa_PoorNodraw.PNG|553x342](upload://iCdKneS2O3qE6CyvikbEE8QnTgV.png)</description>
+    
+    <lastBuildDate>Sun, 12 Feb 2017 16:48:29 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/performance-poor-use-of-nodraw-texture-by-devs/15094.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>*PERFORMANCE* Poor use of &quot;nodraw&quot; texture by devs.</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>You have misunderstood; this is how VBSP has always behaved as JeffMOD says. You can check for yourself by loading up any of those BSPs and seeing if you can see the faces that you see in Hammer. You can’t. All world to void and world to world faces are automatically culled. If I remember correctly, world to detail and detail to detail faces are not automatically culled, however, which is where the nodraw becomes important between faces. But apart from that - yeah, if you’re religiously nodrawing everything, you’re just wasting your time, really.</p>
+<p>And regardless, although nodrawing faces is certainly an aspect of optimisation not to be neglected, with modern rigs and with our game being more demanding in general, it no longer makes the difference that it used to.  Even if the faces you highlighted WERE being rendered, nodrawing them and stopping them from rendering would probably cause almost unnoticeable impact on the framerate anyway.</p>
+          <p><a href="https://leakfree.org/t/performance-poor-use-of-nodraw-texture-by-devs/15094/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/performance-poor-use-of-nodraw-texture-by-devs/15094/6</link>
+        <pubDate>Sun, 12 Feb 2017 16:48:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15094-6</guid>
+        <source url="https://leakfree.org/t/performance-poor-use-of-nodraw-texture-by-devs/15094.rss">*PERFORMANCE* Poor use of &quot;nodraw&quot; texture by devs.</source>
+      </item>
+      <item>
+        <title>*PERFORMANCE* Poor use of &quot;nodraw&quot; texture by devs.</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p>It’s always been like that - even as far back as Goldsource.</p>
+<p>As long as the map doesn’t leak, at least.</p>
+<p>Some devs like to use the “cull nodraw” option in Hammer to see inside the map through nodraw brushes, others just use it in case they leave some geometry technically visible when it shouldn’t be.</p>
+          <p><a href="https://leakfree.org/t/performance-poor-use-of-nodraw-texture-by-devs/15094/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/performance-poor-use-of-nodraw-texture-by-devs/15094/5</link>
+        <pubDate>Sun, 12 Feb 2017 15:26:01 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15094-5</guid>
+        <source url="https://leakfree.org/t/performance-poor-use-of-nodraw-texture-by-devs/15094.rss">*PERFORMANCE* Poor use of &quot;nodraw&quot; texture by devs.</source>
+      </item>
+      <item>
+        <title>*PERFORMANCE* Poor use of &quot;nodraw&quot; texture by devs.</title>
+        <dc:creator><![CDATA[Fuckface]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<p>Crypt is indeed correct. World faces that completely touch each other, and world faces that touch the void, are automatically deleted by VBSP. No need for nodraw in either of those situations.</p>
+</blockquote>
+</aside>
+<p>Hammer removes them for you when you compile?<br>
+Is it part of your modified Source engine (Because, as I understand it, you use a modified version to make this game) or have I just completely misunderstood this all this time?</p>
+          <p><a href="https://leakfree.org/t/performance-poor-use-of-nodraw-texture-by-devs/15094/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/performance-poor-use-of-nodraw-texture-by-devs/15094/4</link>
+        <pubDate>Sun, 12 Feb 2017 13:11:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15094-4</guid>
+        <source url="https://leakfree.org/t/performance-poor-use-of-nodraw-texture-by-devs/15094.rss">*PERFORMANCE* Poor use of &quot;nodraw&quot; texture by devs.</source>
+      </item>
+      <item>
+        <title>*PERFORMANCE* Poor use of &quot;nodraw&quot; texture by devs.</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>Crypt is indeed correct. World faces that completely touch each other, and world faces that touch the void, are automatically deleted by VBSP. No need for nodraw in either of those situations.</p>
+          <p><a href="https://leakfree.org/t/performance-poor-use-of-nodraw-texture-by-devs/15094/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/performance-poor-use-of-nodraw-texture-by-devs/15094/3</link>
+        <pubDate>Sun, 12 Feb 2017 03:14:30 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15094-3</guid>
+        <source url="https://leakfree.org/t/performance-poor-use-of-nodraw-texture-by-devs/15094.rss">*PERFORMANCE* Poor use of &quot;nodraw&quot; texture by devs.</source>
+      </item>
+      <item>
+        <title>*PERFORMANCE* Poor use of &quot;nodraw&quot; texture by devs.</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>Faces that touch the void or are completely covered by world brush faces are automatically removed during compile. This affects performance about as much as logic_relay affects RAD’s compile time.</p>
+          <p><a href="https://leakfree.org/t/performance-poor-use-of-nodraw-texture-by-devs/15094/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/performance-poor-use-of-nodraw-texture-by-devs/15094/2</link>
+        <pubDate>Sun, 12 Feb 2017 02:39:40 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15094-2</guid>
+        <source url="https://leakfree.org/t/performance-poor-use-of-nodraw-texture-by-devs/15094.rss">*PERFORMANCE* Poor use of &quot;nodraw&quot; texture by devs.</source>
+      </item>
+      <item>
+        <title>*PERFORMANCE* Poor use of &quot;nodraw&quot; texture by devs.</title>
+        <dc:creator><![CDATA[Fuckface]]></dc:creator>
+        <description><![CDATA[
+            <p>I was curious as to how you guys made the singleplayer maps, so I loaded some up in Hammer and I had to bring this to your attention.</p>
+<p>It’s mostly the first couple of chapters that are problematic.</p>
+<p>The attached picture was taken in Hammer in the second level of “Unforeseen Consequences”.</p>
+<p>[attach=5262,none,553][/attach]<br>
+(Yes, I have the latest most advanced editing programs. You can’t keep up with me, son. Just look at that next-level beauty)<br>
+<img src="https://leakfree.org/uploads/default/original/2X/8/82793409f23ca1895547d8bf7a28646e3cf8ed7d.png" alt="BlackMesa_PoorNodraw.PNG" data-base62-sha1="iCdKneS2O3qE6CyvikbEE8QnTgV" width="553" height="342"></p>
+          <p><a href="https://leakfree.org/t/performance-poor-use-of-nodraw-texture-by-devs/15094/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/performance-poor-use-of-nodraw-texture-by-devs/15094/1</link>
+        <pubDate>Sat, 11 Feb 2017 23:56:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15094-1</guid>
+        <source url="https://leakfree.org/t/performance-poor-use-of-nodraw-texture-by-devs/15094.rss">*PERFORMANCE* Poor use of &quot;nodraw&quot; texture by devs.</source>
+      </item>
+  </channel>
+</rss>

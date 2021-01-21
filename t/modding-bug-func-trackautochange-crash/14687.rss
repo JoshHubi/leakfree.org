@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>[MODDING BUG] func_trackautochange crash</title>
+    <link>https://leakfree.org/t/modding-bug-func-trackautochange-crash/14687</link>
+    <description>Not really sure if this is the right place for this... Anyways.
+
+I started experimenting with BM&#39;s first OaR map (bm_c2a2a) to get a feel for how mapping in non-L4D Source games works, and to that end, added a loop around the tracks similar to .RK&#39;s Loop Mod.
+At some point, while working on the level, I set the branch path to default to the path I added, which formed a closed loop around the level. The &quot;main&quot; path (that would take the player to the bridge to the next level) became the alternate path. This was for the sake of ease while testing, so I wouldn&#39;t have to manually fire the path_track to use the alternate path every single time.
+
+With the loop set as the primary path, Black Mesa would crash the moment that the func_trackautochange elevator at the beginning of the level reached the bottom floor - I was eventually able to track (pun fully intended) the source of the issue back to me having turned the tram path into a closed loop. Reverting it to how it was before (wherein the primary path is the one that takes the player to bm_c2a2b) fixed the crash.
+
+This isn&#39;t something that causes problems in the regular game, of course, and I wouldn&#39;t know whether or not this is a limitation of how the entity is set up, but I thought it might be worth reporting anyways...</description>
+    
+    <lastBuildDate>Sat, 05 Mar 2016 22:12:21 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/modding-bug-func-trackautochange-crash/14687.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>[MODDING BUG] func_trackautochange crash</title>
+        <dc:creator><![CDATA[KyuuGryphon]]></dc:creator>
+        <description><![CDATA[
+            <p>Bumping this back up because reasons - I have another map that I’ve started working on, with a similar loop as what I added to c2a2a. I tried setting up the track so that the default path is the loop, and the alternate path is how to continue forward - like with c2a2a, when the elevator to this section arrives at the bottom of the shaft, the game crashes.</p>
+<p>So whatever the issue is, it definitely seems to be related to a series of path_track’s that either have no endpoint or link back to themselves somehow.</p>
+          <p><a href="https://leakfree.org/t/modding-bug-func-trackautochange-crash/14687/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/modding-bug-func-trackautochange-crash/14687/5</link>
+        <pubDate>Sat, 05 Mar 2016 22:12:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14687-5</guid>
+        <source url="https://leakfree.org/t/modding-bug-func-trackautochange-crash/14687.rss">[MODDING BUG] func_trackautochange crash</source>
+      </item>
+      <item>
+        <title>[MODDING BUG] func_trackautochange crash</title>
+        <dc:creator><![CDATA[RK1]]></dc:creator>
+        <description><![CDATA[
+            <p>Concerning the brushsides limits, the thing that I did the most was simply geometry. And when I say geometry, I actually mean under the hood. When working with the A map at least, I noticed that a lot of the structures contained within were made out of more brushes than they needed to be.</p>
+<p>With the A map in particular though, the electrical box in that sealed off room is a shitload of brushes. And the downed pipe near the electrical pool puzzle also utilizes a lot of brushes. I made the former into a prop and un-downed the latter.</p>
+<p>It’s a huge pain to deal with and even now I haven’t fully escaped it myself. Unfortunately it’s a hardcoded limit so the only thing you can do is have less brushes.</p>
+<p>I am under the impression that Source 2007 SDK was a lot nicer when counting brushsides, because I noticed I started having difficulties again when I switched to the more recent SDK that ships with BM. That might be worth looking into, I think. Not sure what effect it has on compiling, but it’s probably not a problem. Probably.</p>
+          <p><a href="https://leakfree.org/t/modding-bug-func-trackautochange-crash/14687/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/modding-bug-func-trackautochange-crash/14687/4</link>
+        <pubDate>Sun, 21 Feb 2016 00:44:07 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14687-4</guid>
+        <source url="https://leakfree.org/t/modding-bug-func-trackautochange-crash/14687.rss">[MODDING BUG] func_trackautochange crash</source>
+      </item>
+      <item>
+        <title>[MODDING BUG] func_trackautochange crash</title>
+        <dc:creator><![CDATA[KyuuGryphon]]></dc:creator>
+        <description><![CDATA[
+            <p>I haven’t looked at Text’s A1 map, so I dunno what he did to circumvent the issue, but I managed to fix it by just having a trigger enable the alternate path near the beginning of the level. I’m not sure why <span class="bbcode-i">that</span> works, while having the loop built into the track <span class="bbcode-i">doesn’t</span>, but… well, it <span class="bbcode-i">does</span> work, so I’m not complaining.   <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+<p>Getting kind of off-topic here, but - On that note, reading the post you linked to, I see that we’ve ended up running into the same problem with Source’s brushface limits. If you don’t mind my asking, how’d you get around that? When Hammer started squawking at me about the brush limit, I ended up getting around it by removing the elevator at the end of the map (which actually works out better for what I’m thinking of doing for the rest of the chapter) and turning all the “sidewalks” alongside the rails into props, which is… less than ideal, as <a href="https://i.imgur.com/Zuw8tJs.jpg" data-bbcode="true" rel="nofollow noopener">the lighting gets screwed up</a> and the texture alignment ends up being all wrong.</p>
+<p>For what it’s worth, when I took to Google to see what the brushface issue was about, I found <a href="https://developer.valvesoftware.com/wiki/MAX_MAP_BRUSHSIDES" data-bbcode="true" rel="nofollow noopener">this article</a> on the Valve Dev Wiki, which clarifies that the compiler’s brush limit includes the bounding boxes for any non-cubic or angled brush… which, in On A Rail’s case, means every corner, the sidewalks, the bevelled ceiling, the detailing on the walls… and so on.  :fffuuu:</p>
+          <p><a href="https://leakfree.org/t/modding-bug-func-trackautochange-crash/14687/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/modding-bug-func-trackautochange-crash/14687/3</link>
+        <pubDate>Sat, 20 Feb 2016 20:18:16 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14687-3</guid>
+        <source url="https://leakfree.org/t/modding-bug-func-trackautochange-crash/14687.rss">[MODDING BUG] func_trackautochange crash</source>
+      </item>
+      <item>
+        <title>[MODDING BUG] func_trackautochange crash</title>
+        <dc:creator><![CDATA[RK1]]></dc:creator>
+        <description><![CDATA[
+            <p>It’s funny you should bring this up, because I encountered the <span class="bbcode-i">exact same thing</span> while making Loop Mod. It’s been a while since I looked at this particular entity but I’m sure that the simple setup (that you could see on Uncut’s A1 map) worked there, but for some reason doesn’t work in the A map. It have to do with dropping the tram on this new path (via the elevator). I don’t know.</p>
+<p>For reference:<br>
+<a href="https://forums.blackmesasource.com/index.php/Thread/16159-OaR-Loop-Mod/?postID=539603#post539603" data-bbcode="true" rel="nofollow noopener">OaR - Loop Mod</a></p>
+          <p><a href="https://leakfree.org/t/modding-bug-func-trackautochange-crash/14687/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/modding-bug-func-trackautochange-crash/14687/2</link>
+        <pubDate>Sat, 20 Feb 2016 10:26:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14687-2</guid>
+        <source url="https://leakfree.org/t/modding-bug-func-trackautochange-crash/14687.rss">[MODDING BUG] func_trackautochange crash</source>
+      </item>
+      <item>
+        <title>[MODDING BUG] func_trackautochange crash</title>
+        <dc:creator><![CDATA[KyuuGryphon]]></dc:creator>
+        <description><![CDATA[
+            <p>Not really sure if this is the right place for this… Anyways.</p>
+<p>I started experimenting with BM’s first OaR map (bm_c2a2a) to get a feel for how mapping in non-L4D Source games works, and to that end, added a loop around the tracks similar to .RK’s Loop Mod.<br>
+At some point, while working on the level, I set the branch path to default to the path I added, which formed a closed loop around the level. The “main” path (that would take the player to the bridge to the next level) became the alternate path. This was for the sake of ease while testing, so I wouldn’t have to manually fire the path_track to use the alternate path every single time.</p>
+<p>With the loop set as the primary path, Black Mesa would crash the moment that the func_trackautochange elevator at the beginning of the level reached the bottom floor - I was eventually able to track (pun fully intended) the source of the issue back to me having turned the tram path into a closed loop. Reverting it to how it was before (wherein the primary path is the one that takes the player to bm_c2a2b) fixed the crash.</p>
+<p>This isn’t something that causes problems in the regular game, of course, and I wouldn’t know whether or not this is a limitation of how the entity is set up, but I thought it might be worth reporting anyways…</p>
+          <p><a href="https://leakfree.org/t/modding-bug-func-trackautochange-crash/14687/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/modding-bug-func-trackautochange-crash/14687/1</link>
+        <pubDate>Thu, 18 Feb 2016 06:46:45 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14687-1</guid>
+        <source url="https://leakfree.org/t/modding-bug-func-trackautochange-crash/14687.rss">[MODDING BUG] func_trackautochange crash</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/opengl-vs-directx/5003 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 15:16:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>OpenGL vs DirectX - Technology and Gaming - Leakfree</title>
+    <meta name="description" content="Just starting this to jumpstart a discussion regarding graphics APIs 
+As most of you know, I’m a Mac user (or Macfag, for the lesser evolved creatures roaming these boards), and Macs use nothing but OpenGL, this is mainl&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="5003.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;OpenGL vs DirectX&#39;" href="5003.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/opengl-vs-directx/5003" />
+<meta name="twitter:url" content="https://leakfree.org/t/opengl-vs-directx/5003" />
+<meta property="og:title" content="OpenGL vs DirectX" />
+<meta name="twitter:title" content="OpenGL vs DirectX" />
+<meta property="og:description" content="Just starting this to jumpstart a discussion regarding graphics APIs  As most of you know, I’m a Mac user (or Macfag, for the lesser evolved creatures roaming these boards), and Macs use nothing but OpenGL, this is mainly (solely?) because DirectX is (one of the few of) Microsoft’s main strong points.  Khronos (the developer currently working on OpenGL) dropped the ball on a lot of occasions in the past by making promises, but breaking them soon after, because of this, they stepped on a lot of b..." />
+<meta name="twitter:description" content="Just starting this to jumpstart a discussion regarding graphics APIs  As most of you know, I’m a Mac user (or Macfag, for the lesser evolved creatures roaming these boards), and Macs use nothing but OpenGL, this is mainly (solely?) because DirectX is (one of the few of) Microsoft’s main strong points.  Khronos (the developer currently working on OpenGL) dropped the ball on a lot of occasions in the past by making promises, but breaking them soon after, because of this, they stepped on a lot of b..." />
+<meta property="article:published_time" content="2010-08-05T08:01:40+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="next" href="50034658.html?page=2">
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="5003.html">OpenGL vs DirectX</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/technology-and-gaming/19.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #8C6238'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Technology and Gaming</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Bolteh.html'><span itemprop='name'>Bolteh</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5003.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-08-05T08:01:40Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T04:53:54Z' class='post-time'>
+                August 11, 2020,  4:53am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Just starting this to jumpstart a discussion regarding graphics APIs</p>
+<p>As most of you know, I’m a Mac user (or Macfag, for the lesser evolved creatures roaming these boards), and Macs use nothing but OpenGL, this is mainly (solely?) because DirectX is (one of the few of) Microsoft’s main strong points.</p>
+<p>Khronos (the developer currently working on OpenGL) dropped the ball on a lot of occasions in the past by making promises, but breaking them soon after, because of this, they stepped on a lot of big-shot toes: they pushed away CAD, pushed chased away 3D rendering, they pushed away games… They kept on pushing up until the point where OpenGL just wasn’t offered anymore for over 80% of the games or 3D applications. Because of this, OpenGL started lagging behind, getting outdated and losing support from both ATI and nVidia.</p>
+<p>But now it feels as if OpenGL is making a return. Khronos has just announced OpenGL 4.1, and essentially, it’s on par with nearly everything DirectX has to offer, so in that aspect, there’s no more difference between both APIs. But OpenGL is still inferior, mainly because of the lack of support by ATI and nVidia, because without support of those two, there would be no optimized drivers, and without optimized drivers, OpenGL will always be the ginger kid of the family.</p>
+<p>But back in April, Valve released Steam for Mac, along with a fair chunk of their Source games. Due to Mac’s OpenGL fetish, Valve adapted the Source engine to work with OpenGL. The result is that the Source engine is working just fine, but with a 20-30% difference in performance compared to the Windows version of Source (and thus DirectX). Valve claimed that they are actively working with Apple, ATI and nVidia to bring the performance of both platforms on par. And yesterday, the first signs of improvement have hit the developers in the Apple Developer Program. Apple released new graphics drivers provided by ATI and nVidia. The first results are quite spectacular in my book.</p>
+<p>First, this is a screenshot of GL View from before the update, notice the right column with pretty damn shitty performance (on a Radeon HD 4850, 512MB ):</p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<p>This is a screenshot of the same test in GL view, same settings, but with the new graphics drivers (performance was doubled or even tripled):</p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<p>If the performance boost shown in that test makes it to the performance of games, there’s a fair chance that OpenGL may even outdo DirectX in its current form.</p>
+<p>Do note, however, that there is nu 4.1 support in OSX for OpenGL, so it only goes up to 3.1 (that test only goes up to 3.0, for some reason).</p>
+<p>So, are the days of DirectX’s gaming superiority over?</p>
+        </div>
+
+        <meta itemprop='headline' content='OpenGL vs DirectX'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Sethis.html'><span itemprop='name'>Sethis</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5003.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-08-05T10:10:03Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T22:08:37Z' class='post-time'>
+                November 24, 2018, 10:08pm
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Nope, they’re not. Although I have to admit that nowadays both dx and ogl have 'bout the same performance and feature level, there are still some disadvantages to using ogl, for example extensions, terrible api, lack of D3DLOCK_NOOVERWRITE (google it, but don’t expect to understand it if you’re not developer ;]) And of course it’s much easier to use dx in production, 'cause it’s widely used in industry for about… hmmmm… 15 years or so?</p>
+        </div>
+
+        <meta itemprop='headline' content='OpenGL vs DirectX'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Jeannotvb.html'><span itemprop='name'>Jeannotvb</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5003.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-08-05T10:18:40Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T22:08:37Z' class='post-time'>
+                November 24, 2018, 10:08pm
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Bolteh">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/b/ecae2f/40.png" class="avatar"> Bolteh:</div>
+<blockquote>
+<p><em>wall of text</em></p>
+</blockquote>
+</aside>
+<p>Doesn’t matter which one is better, it matters whichone is owned by Microsoft.</p>
+<p>Sad but true. :[</p>
+        </div>
+
+        <meta itemprop='headline' content='OpenGL vs DirectX'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/popsUlfr.html'><span itemprop='name'>popsUlfr</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5003.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-08-05T10:20:59Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T04:53:55Z' class='post-time'>
+                August 11, 2020,  4:53am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Here are two interesting reads:<br>
+<a href="https://blog.wolfire.com/2010/01/Why-you-should-use-OpenGL-and-not-DirectX" data-bbcode="true" rel="nofollow noopener">Why you should use OpenGL and not DirectX</a><br>
+<a href="https://blog.wolfire.com/2010/01/DirectX-vs-OpenGL-revisited" data-bbcode="true" rel="nofollow noopener">DirectX vs. OpenGL revisited</a><br>
+naturally it’s biased (if not without good points) towards OpenGL. But the best are the comments and discussions, so I strongly recommend reading them too.</p>
+<p>We are speaking of two APIs here capable of communicating with the graphics hardware. Which one you are going to use really depends on the platform your software will get deployed to. I entertain the thought that a game graphics engine should not be tied to a particular API, but capable of higher level abstraction of the underlying hardware (that way you can implement any API you like in a modular way) the <a href="https://irrlicht.sourceforge.net/" data-bbcode="true" rel="nofollow noopener">Irrlicht Open-Source Engine</a> is programmed that way.<br>
+Considering the different shenanigans (PS3 uses its own API, XBOX with DirectX)you have on the different platforms this is by far the best approach to the problem.<br>
+Microsoft has been very busy getting DirectX on the right track (and bribing the right persons into staying loyal to them), I personally hope open standards get adopted by more developers and the new OGL release might hrlp a bit.</p>
+        </div>
+
+        <meta itemprop='headline' content='OpenGL vs DirectX'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Half-dude.html'><span itemprop='name'>Half-dude</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5003.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-08-05T10:40:38Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T22:08:38Z' class='post-time'>
+                November 24, 2018, 10:08pm
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Bolteh">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/b/ecae2f/40.png" class="avatar"> Bolteh:</div>
+<blockquote>
+<p>As most of you know, I’m a Mac user (or Macfag, for the lesser evolved creatures roaming these boards)</p>
+</blockquote>
+</aside>
+<p>WOW! I find more new reasons to hate your guts every day!  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+        </div>
+
+        <meta itemprop='headline' content='OpenGL vs DirectX'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Maxey.html'><span itemprop='name'>Maxey</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5003.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-08-05T10:53:45Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T22:08:39Z' class='post-time'>
+                November 24, 2018, 10:08pm
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I have fond memories of OpenGL from when Quake 3 randomly refused to run because some driver file suddenly went missing for no reason and I had to browse through hundreds of magazine demo cd’s to find the one with the latest version of the OpenGL drivers because I didn’t have internet at the time.</p>
+        </div>
+
+        <meta itemprop='headline' content='OpenGL vs DirectX'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Sethis.html'><span itemprop='name'>Sethis</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5003.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-08-05T10:55:25Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T22:08:39Z' class='post-time'>
+                November 24, 2018, 10:08pm
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="popsUlfr">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/p/ce7236/40.png" class="avatar"> popsUlfr:</div>
+<blockquote>
+<p>Microsoft has been very busy getting DirectX on the right track (and bribing the right persons into staying loyal to them)</p>
+</blockquote>
+</aside>
+<p>Elaborate?</p>
+<aside class="quote no-group" data-username="popsUlfr">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/p/ce7236/40.png" class="avatar"> popsUlfr:</div>
+<blockquote>
+<p>I personally hope open standards get adopted by more developers and the new OGL release might hrlp a bit.</p>
+</blockquote>
+</aside>
+<p>Well, give me d3d-like api and I might switch. And what is the deal with immediate mode? Why couldn’t they just remove it? It’s not like its used anywhere outside of tutorials.</p>
+        </div>
+
+        <meta itemprop='headline' content='OpenGL vs DirectX'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/pfannkuchen_gesicht.html'><span itemprop='name'>pfannkuchen_gesicht</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5003.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-08-05T11:17:10Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T22:08:40Z' class='post-time'>
+                November 24, 2018, 10:08pm
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>IMO OGL is better and has better performance and is afaik closer to the hardware and doesn’t need a new GFX card for small new features.</p>
+        </div>
+
+        <meta itemprop='headline' content='OpenGL vs DirectX'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Maxey.html'><span itemprop='name'>Maxey</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5003.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-08-05T11:22:46Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T22:08:40Z' class='post-time'>
+                November 24, 2018, 10:08pm
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Developers need to give us the option to choose which renderer to use, like in the UT games.</p>
+        </div>
+
+        <meta itemprop='headline' content='OpenGL vs DirectX'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/popsUlfr.html'><span itemprop='name'>popsUlfr</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5003.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-08-05T11:26:04Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T22:08:40Z' class='post-time'>
+                November 24, 2018, 10:08pm
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Sethis">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/s/278dde/40.png" class="avatar"> Sethis:</div>
+<blockquote>
+<p>Elaborate?</p>
+</blockquote>
+</aside>
+<p>Well, in the nineties OpenGL was pretty much established as standard graphics library when Direct3D was still in its diapers. The period leading the new millennium was crucial to the establishing of the API trend.<br>
+In the end OpenGL was out maneuvered by DirectX, how many games today come with the OpenGL option? How many are using DirectX Rendering path?<br>
+Now how many games are being offered on PS3, WII, XBOX, PC, etc… at the same time but not on MAC or Linux? (somehow they had either to separate their engine from DirectX or it was already programmed as modular engine to begin with. Either way they could make a version for those other platforms but did not, Microsoft anything to do with it? /rhetorical question).<br>
+I hope you see where I’m getting at.</p>
+        </div>
+
+        <meta itemprop='headline' content='OpenGL vs DirectX'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Maxey.html'><span itemprop='name'>Maxey</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5003.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-08-05T11:28:36Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T22:08:41Z' class='post-time'>
+                November 24, 2018, 10:08pm
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Afaik, the PS3 API is based on OpenGL.</p>
+        </div>
+
+        <meta itemprop='headline' content='OpenGL vs DirectX'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/FireTime.html'><span itemprop='name'>FireTime</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5003.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-08-05T11:39:30Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T04:53:57Z' class='post-time'>
+                August 11, 2020,  4:53am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>totally agree boleth. For a long time openGL has been in a continual state of failure.(not entirely there fault) But with the new standards (have you seen that crazy fucked up <a href="https://www.blogcdn.com/www.engadget.com/media/2010/03/11mar10opengl2498ht6423.jpg" data-bbcode="true" rel="nofollow noopener">Venn diagram</a> of the 40 versions of OpenGL) it seems that they are now going ape shit over there. They now have a version for everything. Web, desktop, mobile phones, rendering, embedded devices. I know it’s very dated now but there is <a href="https://www.bluesnews.com/archives/carmack122396.html" data-bbcode="true" rel="nofollow noopener">John Carmacks</a> (good read if at least for history) talk on why he chose OpenGL over direct X. It’s a good read and sheds some light onto some of the misinformation over openGL.</p>
+<p><span class="mention">@Maxed</span> the Ps3 uses a modified version OpenGL|ES (embed systems). The modifications include calls specific to the nvidia card that gives developers control over shaders.</p>
+        </div>
+
+        <meta itemprop='headline' content='OpenGL vs DirectX'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/popsUlfr.html'><span itemprop='name'>popsUlfr</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5003.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-08-05T11:39:49Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T22:08:42Z' class='post-time'>
+                November 24, 2018, 10:08pm
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Maxey">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/maxey/40/4358_2.jpg" class="avatar"> Maxey:</div>
+<blockquote>
+<p>Developers need to give us the option to choose which renderer to use, like in the UT games.</p>
+</blockquote>
+</aside>
+<p>Or like in Half-Life for that matter. Even Half-Life 2 was supposed to get the opengl option (why was it left out in the end?). Anyway Microsoft did some serious pushing, and the OpenGL team was not really consequent in what it tried to achieve so I can’t really blame it either…</p>
+<aside class="quote no-group" data-username="Maxey">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/maxey/40/4358_2.jpg" class="avatar"> Maxey:</div>
+<blockquote>
+<p>Afaik, the PS3 API is based on OpenGL.</p>
+</blockquote>
+</aside>
+<p>I’ve not much expertise on that particular subject but I’ve seen reports of it being able to use OpenGL ES but the so called “libgcm” api or something being better suited for heavy fancy graphics games.</p>
+        </div>
+
+        <meta itemprop='headline' content='OpenGL vs DirectX'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Sethis.html'><span itemprop='name'>Sethis</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5003.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-08-05T11:51:33Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T22:08:42Z' class='post-time'>
+                November 24, 2018, 10:08pm
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="popsUlfr">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/p/ce7236/40.png" class="avatar"> popsUlfr:</div>
+<blockquote>
+<p>Now how many games are being offered on PS3, WII, XBOX, PC, etc… at the same time but not on MAC or Linux?</p>
+</blockquote>
+</aside>
+<p>It wasn’t because m$ had anything to do with it, Mac wasn’t gaming platform (it becomes one tho), and tell me, how many people you know that use linux for gaming? Porting games just for those few wouldn’t pay off, and that’s the main reason.<br>
+As for ogl being established library…<br>
+Fallout - dx compatible card required<br>
+Diablo - dx compatible card required<br>
+Legacy of Kain - dx compatible card required<br>
+Wanna argue with that? ;]</p>
+        </div>
+
+        <meta itemprop='headline' content='OpenGL vs DirectX'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Bolteh.html'><span itemprop='name'>Bolteh</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5003.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-08-05T11:57:43Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T22:08:43Z' class='post-time'>
+                November 24, 2018, 10:08pm
+              </time>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Well, Diablo does run OpenGL :&lt;</p>
+        </div>
+
+        <meta itemprop='headline' content='OpenGL vs DirectX'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Sethis.html'><span itemprop='name'>Sethis</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5003.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-08-05T12:10:52Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T22:08:43Z' class='post-time'>
+                November 24, 2018, 10:08pm
+              </time>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That wasn’t my point, my point was it’s written down on the box. It doesn’t say ‘ogl compatible card required’<br>
+To be honest I don’t quite understand all this ogl vs dx argument, developers will use whichever one is more profitable performance/resources/income wise, and its still easier and cheaper to develop windows exclusive games (put consoles and mac aside for a second)</p>
+        </div>
+
+        <meta itemprop='headline' content='OpenGL vs DirectX'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/popsUlfr.html'><span itemprop='name'>popsUlfr</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5003.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-08-05T12:13:13Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T22:08:43Z' class='post-time'>
+                November 24, 2018, 10:08pm
+              </time>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Sethis">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/s/278dde/40.png" class="avatar"> Sethis:</div>
+<blockquote>
+<p>It wasn’t because m$ had anything to do with it, Mac wasn’t gaming platform (it becomes one tho), and tell me, how many people you know that use linux for gaming? Porting games just for those few wouldn’t pay off, and that’s the main reason.<br>
+As for ogl being established library…<br>
+Fallout - dx compatible card required<br>
+Diablo - dx compatible card required<br>
+Legacy of Kain - dx compatible card required<br>
+Wanna argue with that? ;]</p>
+</blockquote>
+</aside>
+<p>Fallout - 1997<br>
+Diablo - 1997<br>
+Legacy of Kain - 1995<br>
+Win95 era.</p>
+<p>First version of DirectX ever shipped on Windows: 1995<br>
+Until then OpenGL had the upper hand and surprise just as Windows releases its first rendering api games only swear on this instead of the established API? Call me paranoid but no way Microsoft had nothing to do with it.<br>
+And I can take the point about MAC and Linux not having most of the userbase but my point was that since they obviously had to strip off their API to implement another one to make it run on PS3 for instance then why couldn’t they simply take that stripped version and put in there some normal OpenGl API?<br>
+Why couldn’t they give the user the choice (on WIndows for instance) between different rendering APIs? Then again isn’t it a bonus to have the greatest userbase possible? (and some linuxers may be more charitable than one might think at first hand)</p>
+<aside class="quote no-group" data-username="Sethis">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/s/278dde/40.png" class="avatar"> Sethis:</div>
+<blockquote>
+<p>That wasn’t my point, my point was it’s written down on the box. It doesn’t say ‘ogl compatible card required’<br>
+To be honest I don’t quite understand all this ogl vs dx argument, developers will use whichever one is more profitable performance/resources/income wise, and its still easier and cheaper to develop windows exclusive games (put consoles and mac aside for a second)</p>
+</blockquote>
+</aside>
+<p>ogl compatibility is a given anyway. So no point in mentioning it  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"><br>
+Is it really that much more profitable to develop on Windows? What about all the royalties and such when you want to go commercial? (still, this might not be such a big issue if the developer gets a big slice off Microsoft’s cake for some agreement naturally)<br>
+Hell, if a game was Linux exclusive you could just download a distro and install it on it circumventing the costs of an OS. Nowadays those have become just as complicated as Windows’ install routine.</p>
+        </div>
+
+        <meta itemprop='headline' content='OpenGL vs DirectX'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Chrillen.html'><span itemprop='name'>Chrillen</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5003.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-08-05T12:17:55Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T22:08:43Z' class='post-time'>
+                November 24, 2018, 10:08pm
+              </time>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The only memory I have of ever using OpenGL was in Half-Life 1, where it was the graphics renderer (or whatever) option that looked the best.</p>
+        </div>
+
+        <meta itemprop='headline' content='OpenGL vs DirectX'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Sethis.html'><span itemprop='name'>Sethis</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5003.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-08-05T12:22:42Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T22:08:43Z' class='post-time'>
+                November 24, 2018, 10:08pm
+              </time>
+          <span itemprop='position'>#19</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="popsUlfr">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/p/ce7236/40.png" class="avatar"> popsUlfr:</div>
+<blockquote>
+<p>Why couldn’t they give the user the choice (on WIndows for instance) between different rendering APIs?</p>
+</blockquote>
+</aside>
+<p>Because it takes lots of time to develop renderer, be it ogl or dx based, and differences in dx and ogl api’s are so huge nowadays that porting would take longer than making two renderers from scratch. Especially if you want consistent graphic.</p>
+<aside class="quote no-group">
+<blockquote>
+<p>What about all the royalties and such when you want to go commercial?</p>
+</blockquote>
+</aside>
+<p>What royalties? DX is free for commercial usage, so all you need is legal copy of windows (unless you developed your game on linux).</p>
+        </div>
+
+        <meta itemprop='headline' content='OpenGL vs DirectX'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/popsUlfr.html'><span itemprop='name'>popsUlfr</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5003.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-08-05T16:38:21Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T22:08:51Z' class='post-time'>
+                November 24, 2018, 10:08pm
+              </time>
+          <span itemprop='position'>#20</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Sethis">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/s/278dde/40.png" class="avatar"> Sethis:</div>
+<blockquote>
+<p>Because it takes lots of time to develop renderer, be it ogl or dx based, and differences in dx and ogl api’s are so huge nowadays that porting would take longer than making two renderers from scratch. Especially if you want consistent graphic.</p>
+</blockquote>
+</aside>
+<p>Still, that didn’t hinder developers to release on all platforms.</p>
+<aside class="quote no-group" data-username="Sethis">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/s/278dde/40.png" class="avatar"> Sethis:</div>
+<blockquote>
+<p>What royalties? DX is free for commercial usage, so all you need is legal copy of windows (unless you developed your game on linux).</p>
+</blockquote>
+</aside>
+<p>OK, I may have spat that one out too fast. But I imagine “some cooperation” is needed for big game studios to release their game with DirectX support, or the Microsoft way is taken willingly into account.<br>
+(then you might say cooperation with the khronos group would also most likely cost them the friendly advice and I would agree with you).<br>
+In the end it comes down to what you personally feel comfortable with, like you stated in your first reply.<br>
+The artist makes the game not the engine, though it will dictate who will get to play the game  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+<p>Now for another question: Have you worked on a project that has gone commercial? Independent? Or something just for fun?<br>
+Just my curiosity  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='OpenGL vs DirectX'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="50034658.html?page=2">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/opengl-vs-directx/5003 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 15:16:26 GMT -->
+</html>

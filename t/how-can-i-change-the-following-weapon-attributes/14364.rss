@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>How can I change the following weapon attributes?</title>
+    <link>https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364</link>
+    <description>I would really appreciate it if I got some help with doing these changes. I&#39;ve tried by myself but so far I&#39;ve been unsuccesful.
+
+a) In the .dmx-files there are references to something called &quot;WeaponParamsDef&quot;, does anyone know where this file can be found or if it exists?
+
+b) How do I change how much ammo the shotgun uses up when using the secondary fire?
+
+c) How do I change a weapons fire mode, for example, full auto to semi-auto?
+
+d) How do I change which animations a weapon uses?
+
+Any help I can get I would be really greatful for.</description>
+    
+    <lastBuildDate>Thu, 13 Aug 2015 23:58:39 +0000</lastBuildDate>
+    <category>The Cafeteria</category>
+    <atom:link href="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>How can I change the following weapon attributes?</title>
+        <dc:creator><![CDATA[Gunsrequiem]]></dc:creator>
+        <description><![CDATA[
+            <p>I currently program in primarily C++ and C# (with JavaScript splashed in when C# is kicking my ass regarding a specific portion of functionality), and model utilizing Blender (cause it’s free and stuff), and although I have lately been spoiled by Unity’s UI and Mono Developer, from what I understand it seems like you’d need to dabble a little in both worlds to achieve what you’re attempting to do. First and foremost, you would need access to the actual script, as TextFAMGUY1 mentioned, to do things like adjust how much ammo is consumed during each fire. Changing the animation would do just that–change the animation. You could replace the shotgun model with a dancing banana, but that right click is still going to consume 2 ammo. As for customizing the animations, you would need to import the model assets into a 3D software tool like Blender (free) or 3DS Max (not so much) and recreate the animations; or create your own models and animations from scratch–then these animations could be called later via the script.</p>
+<p>If you were able to completely de-compile the script, most of the things you are suggesting could be done with a bit of patience and creativity. However, unless you know most of the ins and outs of the programming language you’re using (in this case, C++), as well as the (hopefully) consistent methodology employed by the team, you might end up creating a mess of the rest of the game–calling variables and the sort without fully understanding what you’re doing (or, shudder, copy+pasting code willy-nilly) could mangle other portions of code, cause program flow issues, and generally create a bug-laden experience.</p>
+<p>That said, there are some fantastic resources out there if you have the patience to teach yourself C++ (Old Faithful) or another, similar language. I’ve found Unity to be very accommodating in terms of the easy-to-use modeling and object-oriented interface and the option to use C#, JavaScript or Boo (P.S. My personal suggestion is to go with C# if you plan on doing this for a while). Just keep in mind that a UI like Unity will, eventually, make you lazy–calling and manipulating objects through the UI is great, but you’re not getting the scripting practice. Also, don’t get too bogged down with learning one language–programming is a bit like art, and it’s more a mindset than an actual rote implementation of variables and functions. In fact, we could know the exact same language, but my script might differ significantly from  yours–yet the compiled scripts perform the same function. It’s just that yours might be 4 lines, tightly-written and majestic, while mine is a great galumphing beast of wasted space.</p>
+<p>Anyhow, just my $.02.</p>
+          <p><a href="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/18</link>
+        <pubDate>Thu, 13 Aug 2015 23:58:39 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14364-18</guid>
+        <source url="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364.rss">How can I change the following weapon attributes?</source>
+      </item>
+      <item>
+        <title>How can I change the following weapon attributes?</title>
+        <dc:creator><![CDATA[Solareclipsed]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<aside class="quote no-group" data-username="Solareclipsed">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/s/9dc877/40.png" class="avatar"> Solareclipsed:</div>
+<blockquote>
+<p>I understand then. One final thing though, where do I modify what animations a weapon would be using, and in what order and so on?</p>
+<p>There seems to be things you can edit in the .mdl-files, but when I try to open it it’s unreadable, what kind of editor do I need for that?</p>
+</blockquote>
+</aside>
+<p>I…don’t know what this question is asking.<br>
+You have to decompile a .mdl into a .smd using a decompiler. You then have to import the .smd into supported modelling software or convert it into a format which your program can read. What happens beyond that point is a process only understood by mythical beings known as animators or modellers. I have no idea what the heck the “order” of an animation could possibly be referring to, though.</p>
+<p>It would help to read up on Source - what you want to do is fairly ambitious and there’s plenty of documentation around to help you learn how to get there, or if it’s possible at all.</p>
+</blockquote>
+</aside>
+<p>Alright, I can let my previous questions be for now, but I have also found two other things I wanted to ask about, if it’s okay to ask here instead of creating a new thread.</p>
+<p>Where are the weapon sound files located? I have not been able to extract any sound files from the .vpk-files.</p>
+<p>In the resource folder, there are many files containing various text related information, but altering text inside them does not seem to have any effect in-game ,even after I recompress them into .vpk-files and put them in the addons folder. What do I have to do to make this work?</p>
+<p>Thanks again for all the replies, I appreciate it a lot.</p>
+          <p><a href="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/17</link>
+        <pubDate>Thu, 13 Aug 2015 22:44:01 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14364-17</guid>
+        <source url="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364.rss">How can I change the following weapon attributes?</source>
+      </item>
+      <item>
+        <title>How can I change the following weapon attributes?</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>You cannot play online with modified .dmx files. That’s the whole purpose of a .dmx file. They’re an added layer of security for MP to prevent people from hacking values easily.</p>
+          <p><a href="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/16</link>
+        <pubDate>Wed, 12 Aug 2015 08:21:40 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14364-16</guid>
+        <source url="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364.rss">How can I change the following weapon attributes?</source>
+      </item>
+      <item>
+        <title>How can I change the following weapon attributes?</title>
+        <dc:creator><![CDATA[fury]]></dc:creator>
+        <description><![CDATA[
+            <p>where can i find these dmx files and can i play online with modified dmx files?</p>
+          <p><a href="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/15</link>
+        <pubDate>Wed, 12 Aug 2015 04:44:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14364-15</guid>
+        <source url="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364.rss">How can I change the following weapon attributes?</source>
+      </item>
+      <item>
+        <title>How can I change the following weapon attributes?</title>
+        <dc:creator><![CDATA[Sage_J_Fox]]></dc:creator>
+        <description><![CDATA[
+            <p>Not to derail, but that’s the fov line in the dmx file. Looks something like this:</p>
+<p>“fov_viewmodel” “float” “50”</p>
+          <p><a href="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/14</link>
+        <pubDate>Tue, 11 Aug 2015 23:31:12 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14364-14</guid>
+        <source url="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364.rss">How can I change the following weapon attributes?</source>
+      </item>
+      <item>
+        <title>How can I change the following weapon attributes?</title>
+        <dc:creator><![CDATA[sourcegamer101]]></dc:creator>
+        <description><![CDATA[
+            <p>I wish I could edit the viewmodel fov for them so the guns are less cramped up in my face but i dont see a value unfortunately  <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+          <p><a href="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/13</link>
+        <pubDate>Tue, 11 Aug 2015 23:25:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14364-13</guid>
+        <source url="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364.rss">How can I change the following weapon attributes?</source>
+      </item>
+      <item>
+        <title>How can I change the following weapon attributes?</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Solareclipsed">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/s/9dc877/40.png" class="avatar"> Solareclipsed:</div>
+<blockquote>
+<p>I understand then. One final thing though, where do I modify what animations a weapon would be using, and in what order and so on?</p>
+<p>There seems to be things you can edit in the .mdl-files, but when I try to open it it’s unreadable, what kind of editor do I need for that?</p>
+</blockquote>
+</aside>
+<p>I…don’t know what this question is asking.</p>
+<p>You have to decompile a .mdl into a .smd using a decompiler. You then have to import the .smd into supported modelling software or convert it into a format which your program can read. What happens beyond that point is a process only understood by mythical beings known as animators or modellers. I have no idea what the heck the “order” of an animation could possibly be referring to, though.</p>
+<p>It would help to read up on Source - what you want to do is fairly ambitious and there’s plenty of documentation around to help you learn how to get there, or if it’s possible at all.</p>
+          <p><a href="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/12</link>
+        <pubDate>Tue, 11 Aug 2015 23:12:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14364-12</guid>
+        <source url="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364.rss">How can I change the following weapon attributes?</source>
+      </item>
+      <item>
+        <title>How can I change the following weapon attributes?</title>
+        <dc:creator><![CDATA[Solareclipsed]]></dc:creator>
+        <description><![CDATA[
+            <p>I understand then. One final thing though, where do I modify what animations a weapon would be using, and in what order and so on?</p>
+<p>There seems to be things you can edit in the .mdl-files, but when I try to open it it’s unreadable, what kind of editor do I need for that?</p>
+          <p><a href="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/11</link>
+        <pubDate>Tue, 11 Aug 2015 22:15:07 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14364-11</guid>
+        <source url="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364.rss">How can I change the following weapon attributes?</source>
+      </item>
+      <item>
+        <title>How can I change the following weapon attributes?</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>Altering weapon functionality is not possible without altering the game code, it’s as simple as that. What you can do with the .dmx and weapon values is the limit to what you are able to customise without touching the game code. That’s just the way it is set up.</p>
+          <p><a href="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/10</link>
+        <pubDate>Tue, 11 Aug 2015 08:22:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14364-10</guid>
+        <source url="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364.rss">How can I change the following weapon attributes?</source>
+      </item>
+      <item>
+        <title>How can I change the following weapon attributes?</title>
+        <dc:creator><![CDATA[Solareclipsed]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<p>The game code won’t be of much use to you anyway unless you are a programmer and know how to code in C++.</p>
+<p>I know our lead programmer would like to put out our code at some point in the future but there are a number of hurdles to cross first and I don’t believe we have tried yet. It may never happen, but if it does, it will not be for a long time.</p>
+</blockquote>
+</aside>
+<p>Rather than altering the shotguns secondary fire-mode, is it possible to somehow tell the game to use the primary fire-mode instead, thus binding primary fire to both fire-modes? Otherwise, is it possible to make it do anything else than what it is currently doing? Thanks in advance for the replies.</p>
+          <p><a href="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/9</link>
+        <pubDate>Mon, 10 Aug 2015 23:26:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14364-9</guid>
+        <source url="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364.rss">How can I change the following weapon attributes?</source>
+      </item>
+      <item>
+        <title>How can I change the following weapon attributes?</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>The game code won’t be of much use to you anyway unless you are a programmer and know how to code in C++.</p>
+<p>I know our lead programmer would like to put out our code at some point in the future but there are a number of hurdles to cross first and I don’t believe we have tried yet. It may never happen, but if it does, it will not be for a long time.</p>
+          <p><a href="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/8</link>
+        <pubDate>Mon, 10 Aug 2015 15:13:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14364-8</guid>
+        <source url="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364.rss">How can I change the following weapon attributes?</source>
+      </item>
+      <item>
+        <title>How can I change the following weapon attributes?</title>
+        <dc:creator><![CDATA[Solareclipsed]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Sage J. Fox">
+<div class="title">
+<div class="quote-controls"></div>
+ Sage J. Fox:</div>
+<blockquote>
+<p>You could make its secondary fire fire faster, but it’ll still use two shots. The activity names are built into the models themselves, so you’ll be replacing “models/weapons/v_shotgun.mdl” (and its four other model files there). Like I said for C, if the replacement model has faster animations for its firing(either just a couple frames or a higher fps) it could easily reach full auto pace.</p>
+</blockquote>
+</aside>
+<p>Is it possible to instead of changing a fire-mode, making it so that the primary fire-mode is used for both? To connect the use of secondary fire to the primary attack?</p>
+<aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<p>You won’t be able to do things like completely overhaul the way weapons work. The .dmx’s are just for basic values.</p>
+<p>You can’t edit the basic weapon functionality without going into the game code. As our game code is not publicly available (yet), you will not be able to do these. None of them.</p>
+</blockquote>
+</aside>
+<p>When will this code be avaliable? When will we be able to change these things freely?</p>
+<aside class="quote no-group" data-username="fury">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/f/3bc359/40.png" class="avatar"> fury:</div>
+<blockquote>
+<p>removing doubleblast from HL is a sin… since sven-coop changed most of it’s weapons in version 4.0, I don’t play it anymore. It’s just not Half-Life anymore… and that semi-automatic shotgun is just unbalanced like hell.</p>
+</blockquote>
+</aside>
+<p>I expected some people to react like this but no one is forcing you to play this kind of mod?</p>
+          <p><a href="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/7</link>
+        <pubDate>Mon, 10 Aug 2015 13:46:52 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14364-7</guid>
+        <source url="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364.rss">How can I change the following weapon attributes?</source>
+      </item>
+      <item>
+        <title>How can I change the following weapon attributes?</title>
+        <dc:creator><![CDATA[fury]]></dc:creator>
+        <description><![CDATA[
+            <p>removing doubleblast from HL is a sin… since sven-coop changed most of it’s weapons in version 4.0, I don’t play it anymore. It’s just not Half-Life anymore… and that semi-automatic shotgun is just unbalanced like hell.</p>
+          <p><a href="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/6</link>
+        <pubDate>Mon, 10 Aug 2015 10:44:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14364-6</guid>
+        <source url="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364.rss">How can I change the following weapon attributes?</source>
+      </item>
+      <item>
+        <title>How can I change the following weapon attributes?</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>You won’t be able to do things like completely overhaul the way weapons work. The .dmx’s are just for basic values.</p>
+<p>You can’t edit the basic weapon functionality without going into the game code. As our game code is not publicly available (yet), you will not be able to do these. None of them.</p>
+          <p><a href="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/5</link>
+        <pubDate>Mon, 10 Aug 2015 10:23:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14364-5</guid>
+        <source url="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364.rss">How can I change the following weapon attributes?</source>
+      </item>
+      <item>
+        <title>How can I change the following weapon attributes?</title>
+        <dc:creator><![CDATA[Sage_J_Fox]]></dc:creator>
+        <description><![CDATA[
+            <p>You could make its secondary fire fire faster, but it’ll still use two shots. The activity names are built into the models themselves, so you’ll be replacing “models/weapons/v_shotgun.mdl” (and its four other model files there). Like I said for C, if the replacement model has faster animations for its firing(either just a couple frames or a higher fps) it could easily reach full auto pace.</p>
+          <p><a href="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/4</link>
+        <pubDate>Mon, 10 Aug 2015 03:04:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14364-4</guid>
+        <source url="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364.rss">How can I change the following weapon attributes?</source>
+      </item>
+      <item>
+        <title>How can I change the following weapon attributes?</title>
+        <dc:creator><![CDATA[Solareclipsed]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for your reply, I was only intending to use this in single-player or sp-maps, so multiplayer compability doesn’t have to be considered.</p>
+<p>b) This was one of the most important changes I wanted to make. I wanted to replace the shotguns ridiculously unrealistic secondary fire-mode. Preferably I wanted to make it semi-automatic instead, otherwise make it a copy of the primary fire-mode and work from there. In worst case, remove it all together. Do you think any of these are possible?</p>
+<p>c) I know most of the weapons are basically full-automatic already, I was wondering if this could be changed somewhere. It must be defined in some file somewhere.</p>
+<p>d) Can you tell me where to find those files? Not the actual animations, but the files telling the games what animation to use. What file should I extract to find them?</p>
+<p>Thanks in advance.</p>
+          <p><a href="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/3</link>
+        <pubDate>Sun, 09 Aug 2015 21:54:50 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14364-3</guid>
+        <source url="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364.rss">How can I change the following weapon attributes?</source>
+      </item>
+      <item>
+        <title>How can I change the following weapon attributes?</title>
+        <dc:creator><![CDATA[Sage_J_Fox]]></dc:creator>
+        <description><![CDATA[
+            <p>A.) Likely just some basic setup line, doubt changing it would do anything good.</p>
+<p>B.) Can’t to my knowledge, at least not with the dmx file. <span class="bbcode-i">Maybe</span> there’s a console command, but I doubt it.</p>
+<p>C.)  I think all (non throwing) weapons are technically full auto, where as you hold down the attack button and they keep shooting. To get them up to a full auto speed, you would need to replace the model with one that has sped up fire animations. For obvious reasons this wouldn’t work for multiplayer unless it’s installed on the server.</p>
+<p>D.) Depending on what you mean, either:<br>
+View (first person) model: you would need to replace the weapon’s model, the different activity names (ACT_VM_IDLE, etc.) are the guide to the game for what sequences to use. You can use multiple different sequences on the same activity, and the game will randomly pick one based on the weight (the number after the activity name, higher weights are more likely to happen).<br>
+World (third person) model: In the weapon’s dmx file, edit the value of “anim_prefix” “string” “[WEAPON NAME HERE]”.</p>
+          <p><a href="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/2</link>
+        <pubDate>Sun, 09 Aug 2015 21:01:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14364-2</guid>
+        <source url="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364.rss">How can I change the following weapon attributes?</source>
+      </item>
+      <item>
+        <title>How can I change the following weapon attributes?</title>
+        <dc:creator><![CDATA[Solareclipsed]]></dc:creator>
+        <description><![CDATA[
+            <p>I would really appreciate it if I got some help with doing these changes. I’ve tried by myself but so far I’ve been unsuccesful.</p>
+<p>a) In the .dmx-files there are references to something called “WeaponParamsDef”, does anyone know where this file can be found or if it exists?</p>
+<p>b) How do I change how much ammo the shotgun uses up when using the secondary fire?</p>
+<p>c) How do I change a weapons fire mode, for example, full auto to semi-auto?</p>
+<p>d) How do I change which animations a weapon uses?</p>
+<p>Any help I can get I would be really greatful for.</p>
+          <p><a href="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364/1</link>
+        <pubDate>Sun, 09 Aug 2015 16:33:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14364-1</guid>
+        <source url="https://leakfree.org/t/how-can-i-change-the-following-weapon-attributes/14364.rss">How can I change the following weapon attributes?</source>
+      </item>
+  </channel>
+</rss>

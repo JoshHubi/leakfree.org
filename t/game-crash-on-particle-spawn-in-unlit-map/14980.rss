@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Game Crash on Particle Spawn in Unlit map</title>
+    <link>https://leakfree.org/t/game-crash-on-particle-spawn-in-unlit-map/14980</link>
+    <description>Whenever a particle effect is spawned in a map with no lighting built, the game will crash - but only if the game is launched from Hammer or otherwise skips loading of background maps.
+
+I was working in Hammer today on a scripted scene that includes a ragdoll, and I noticed that every time the ragdoll hit the ground, the game would crash. I thought this was probably due to the blood particles in some way, so I did further testing with a gun before the sequence was triggered - and the game crashed again when I fired.
+
+After some further testing, I&#39;ve managed to get the symptoms down to the following conditions for reproduction:
+
+- Particles are being spawned in the map through code (or info_particle_system).
+- The map has no lighting built.
+- No maps with lighting have been loaded by the game before loading the map with no lighting built.
+
+The computer I&#39;ve encountered the bug on (so far) is running Windows 8.1 64-bit. I&#39;ve had no issues with Black Mesa on this machine before, and I&#39;m running the latest build, updated today.
+
+This is [i]technically[/i] not a game-breaking bug, but it&#39;s going to slow down map development if everyone has to build (even fast) lighting every time they want to test things just in the event a particle effect will spawn.</description>
+    
+    <lastBuildDate>Thu, 03 Nov 2016 20:31:22 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/game-crash-on-particle-spawn-in-unlit-map/14980.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Game Crash on Particle Spawn in Unlit map</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p>Whenever a particle effect is spawned in a map with no lighting built, the game will crash - but only if the game is launched from Hammer or otherwise skips loading of background maps.</p>
+<p>I was working in Hammer today on a scripted scene that includes a ragdoll, and I noticed that every time the ragdoll hit the ground, the game would crash. I thought this was probably due to the blood particles in some way, so I did further testing with a gun before the sequence was triggered - and the game crashed again when I fired.</p>
+<p>After some further testing, I’ve managed to get the symptoms down to the following conditions for reproduction:</p>
+<ul>
+<li>Particles are being spawned in the map through code (or info_particle_system).</li>
+<li>The map has no lighting built.</li>
+<li>No maps with lighting have been loaded by the game before loading the map with no lighting built.</li>
+</ul>
+<p>The computer I’ve encountered the bug on (so far) is running Windows 8.1 64-bit. I’ve had no issues with Black Mesa on this machine before, and I’m running the latest build, updated today.</p>
+<p>This is <span class="bbcode-i">technically</span> not a game-breaking bug, but it’s going to slow down map development if everyone has to build (even fast) lighting every time they want to test things just in the event a particle effect will spawn.</p>
+          <p><a href="https://leakfree.org/t/game-crash-on-particle-spawn-in-unlit-map/14980/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/game-crash-on-particle-spawn-in-unlit-map/14980/1</link>
+        <pubDate>Thu, 03 Nov 2016 20:31:22 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14980-1</guid>
+        <source url="https://leakfree.org/t/game-crash-on-particle-spawn-in-unlit-map/14980.rss">Game Crash on Particle Spawn in Unlit map</source>
+      </item>
+  </channel>
+</rss>

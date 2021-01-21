@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</title>
+    <link>https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298</link>
+    <description>I&#39;ve got an odd issue with one of my maps I&#39;m working on. I&#39;m running into an issue with trying to compile the loop mod version of bm_c2a2a with the new tools.  Specifically, the map will compile with no errors under the 2007 SDK, but the EXACT SAME .vmf will fail under SDK 2013 with a max brushsides error. What&#39;s really baffling about this is that the limit seems to be [i]significantly[/i] lower in the 2013 sdk, to the point where I&#39;ve cut large portions of the map, and yet I&#39;m [i]still[/i] getting a max brushsides error.
+
+Anyone have any idea what might be going on? Corrupt geometry? Something else? Any help would be appreciated.</description>
+    
+    <lastBuildDate>Sat, 02 Dec 2017 06:50:26 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</title>
+        <dc:creator><![CDATA[jadebenn]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username=".RK">
+<div class="title">
+<div class="quote-controls"></div>
+ .RK:</div>
+<blockquote>
+<p>I know that vent. I also converted that to a model when I did stuff during development. What the hell?</p>
+<p>If you did removed that track, I would suppose that change will get reflected in the switchboard (if it’s even still there in your version; it looks like it is but it’s a bit hard to see from that angle).</p>
+</blockquote>
+</aside>
+<p>I mean, It’s possible I may be mis-remembering. I’ll double check when I get to my home computer in a bit, but I’m fairly certain I checked in the vmf you’d given me to see if I could just use the pre-existing model, only to find there was none.</p>
+<p>And yeah, I’m waiting to update the switchboard until I get everything finalized. Whatever layout I settle on is what it will show.</p>
+          <p><a href="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/18</link>
+        <pubDate>Sat, 02 Dec 2017 06:50:26 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15298-18</guid>
+        <source url="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298.rss">Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</source>
+      </item>
+      <item>
+        <title>Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</title>
+        <dc:creator><![CDATA[RK1]]></dc:creator>
+        <description><![CDATA[
+            <p>I know that vent. I also converted that to a model when I did stuff during development. What the hell?</p>
+<p>If you did removed that track, I would suppose that change will get reflected in the switchboard (if it’s even still there in your version; it looks like it is but it’s a bit hard to see from that angle).</p>
+          <p><a href="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/17</link>
+        <pubDate>Sat, 02 Dec 2017 06:31:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15298-17</guid>
+        <source url="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298.rss">Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</source>
+      </item>
+      <item>
+        <title>Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</title>
+        <dc:creator><![CDATA[jadebenn]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username=".RK">
+<div class="title">
+<div class="quote-controls"></div>
+ .RK:</div>
+<blockquote>
+<aside class="quote no-group" data-username="jadebenn">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/j/aeb1de/40.png" class="avatar"> jadebenn:</div>
+<blockquote>
+<p>-snip-</p>
+</blockquote>
+</aside>
+<p>Huh. Interesting that you decided to detach that downed pipe near the bridge (I think). I can remember my reason for reattaching it was because there were a ton of brushes there in the case of the downed pipe. I still cite it as the only significant change that I made to dev areas (actually, I figure this might be why you did it as a reversion to how it is originally downed).</p>
+<p>I’ll be interested to see what this ends up looking like in the end~</p>
+</blockquote>
+</aside>
+<p>Any changes you made to the dev maps that I undid were almost certainly not done so intentionally. The only exception I can think of is cutting that fork in the track you added near where the wire is now. I <span class="bbcode-i">really</span> didn’t want to get rid of that one, but the brush limit gave me no choice.</p>
+<p>Any other changes only happened because when I started working on porting the map, I took the existing loop version of c2a2a and deleted all of the areas from the decompiled mod version c2a2a, and then took what was left and stuck it to the source vmf of the retail version of the level. Any changes you made to the dev level that I didn’t specifically try and preserve were lost during this process. The reason I did that in the first place was because I theorized you were running up against the brush limits because the decompiler had inefficiently recreated the level, and that using the official source vmf might fix that. Unfortunately, I was wrong, and it didn’t help with that, but it does mean that I don’t have to worry about differences between the mod and retail version of the map anymore.</p>
+<p>As for the pipe, I believe I know what brushwork you’re speaking of. I actually did take care of that, though I’m not really happy with how it’s turned out. If you look closely in the picture I uploaded, you’ll notice there’s a weird texture where the pipe would meet the wall. That’s because I converted all of that detail brushwork to a single model, which has caused some… issues with textures. When I get around to fixing that, I’m going to convert the detailing into as many models as needed; not one. I also went ahead and replaced the drawbridge and electrical equipment with the model substitutes you’d created to further reduce the brushside count. In this process, I found something I think you may have overlooked: the giant vent near the top of the drawbridge room is made of quite a few complex detail brushes. Converting that to a model didn’t result in any significant or noticeable decrease in lighting quality, and gave me around a hundred more brushsides to use.</p>
+<p>Right now, I believe I’ve carved out a budget of about… 200 brushsides, give or take. I think that might allow me to add a single, non-complex room to the map further down the line. If a technique with displacements I’m experimenting with works out, I might be able to bump that up even further (and maybe even restore a few cut areas). For now though, my primary focus is getting the look and feel of the elevator hall and track control room to a place I’m happy with, along with playtesting and making gameplay tweaks where I think they’re necessary.</p>
+          <p><a href="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/16</link>
+        <pubDate>Sat, 02 Dec 2017 02:20:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15298-16</guid>
+        <source url="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298.rss">Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</source>
+      </item>
+      <item>
+        <title>Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</title>
+        <dc:creator><![CDATA[RK1]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="jadebenn">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/j/aeb1de/40.png" class="avatar"> jadebenn:</div>
+<blockquote>
+<aside class="quote no-group" data-username=".RK">
+<div class="title">
+<div class="quote-controls"></div>
+ .RK:</div>
+<blockquote>
+<p>Ah, yes, this problem. This was definitely something I struggled with when I tried porting c2a2a into 2013. I mentioned in the loop mod development thread that I had this issue but I forget if I’ve brought it up in other places because I come here so rarely nowadays.</p>
+<p>But now I’m curious: Did you manage to get c2a2a to compile in 2013? I ask because I didn’t the last time I tried and what’s on the workshop now is compiled under 2007 (I’d be over the moon if it worked in 2013).</p>
+</blockquote>
+</aside>
+<p>-snip-</p>
+</blockquote>
+</aside>
+<p>Huh. Interesting that you decided to detach that downed pipe near the bridge (I think). I can remember my reason for reattaching it was because there were a ton of brushes there in the case of the downed pipe. I still cite it as the only significant change that I made to dev areas (actually, I figure this might be why you did it as a reversion to how it is originally downed).</p>
+<p>I’ll be interested to see what this ends up looking like in the end~</p>
+          <p><a href="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/15</link>
+        <pubDate>Sat, 02 Dec 2017 00:35:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15298-15</guid>
+        <source url="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298.rss">Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</source>
+      </item>
+      <item>
+        <title>Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</title>
+        <dc:creator><![CDATA[jadebenn]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username=".RK">
+<div class="title">
+<div class="quote-controls"></div>
+ .RK:</div>
+<blockquote>
+<p>Ah, yes, this problem. This was definitely something I struggled with when I tried porting c2a2a into 2013. I mentioned in the loop mod development thread that I had this issue but I forget if I’ve brought it up in other places because I come here so rarely nowadays.</p>
+<p>But now I’m curious: Did you manage to get c2a2a to compile in 2013? I ask because I didn’t the last time I tried and what’s on the workshop now is compiled under 2007 (I’d be over the moon if it worked in 2013).</p>
+</blockquote>
+</aside>
+<p>I have a <span class="bbcode-i">version</span> that compiles in 2013, but that came at the cost of cutting quite a lot of detailing. I started to see where I could optimize the map, and I converted quite a few brush-hogs to models, but that wasn’t enough to restore the detailing I cut. So, I decided to try and re-detail what I could.</p>
+<p>Then things… got a little out of hand. I started making more substantial changes. I aligned the loop to the 16 scale hammer grid, re-added the electrical wire from Half-Life’s c2a2a, blocked off the shortcut hatch to the bridge, and then I began to re-detail the security room and elevator hall.</p>
+<p>I actually have some WIP screenshots from a lighting test earlier today.</p>
+<div class="spoiler">
+<p>The elevator hall:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/pSss24C.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/pSss24C.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>The initial loop junction:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/RdGTCwN.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/RdGTCwN.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>The slightly reworked (and incomplete) track control:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/x7XJ1Tz.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/x7XJ1Tz.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>The wire strikes back:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/PwxPJ8N.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/PwxPJ8N.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>The removal of the shortcut hatch:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/BXdsG57.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/BXdsG57.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+</div>
+<p>So yeah, it runs in the Black Mesa Source engine, but not without modifications to bring it below the limits.</p>
+          <p><a href="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/14</link>
+        <pubDate>Fri, 01 Dec 2017 05:30:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15298-14</guid>
+        <source url="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298.rss">Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</source>
+      </item>
+      <item>
+        <title>Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</title>
+        <dc:creator><![CDATA[RK1]]></dc:creator>
+        <description><![CDATA[
+            <p>Ah, yes, this problem. This was definitely something I struggled with when I tried porting c2a2a into 2013. I mentioned in the loop mod development thread that I had this issue but I forget if I’ve brought it up in other places because I come here so rarely nowadays.</p>
+<p>But now I’m curious: Did you manage to get c2a2a to compile in 2013? I ask because I didn’t the last time I tried and what’s on the workshop now is compiled under 2007 (I’d be over the moon if it worked in 2013).</p>
+          <p><a href="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/13</link>
+        <pubDate>Fri, 01 Dec 2017 03:29:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15298-13</guid>
+        <source url="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298.rss">Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</source>
+      </item>
+      <item>
+        <title>Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</title>
+        <dc:creator><![CDATA[jadebenn]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="ESToomere">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/estoomere/40/4948_2.png" class="avatar"> ESToomere:</div>
+<blockquote>
+<aside class="quote no-group" data-username="jadebenn">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/j/aeb1de/40.png" class="avatar"> jadebenn:</div>
+<blockquote>
+<p>Tried compiling a different map (bm_c2a1a). Found something interesting.</p>
+<p>See, bm_c2a1a has 4,286 phantom brushsides. My version of bm_c2a2a has 5,532. That’s a difference of 1,246 brush sides. So the number isn’t constant per map. It varies, for seemingly no reason.</p>
+</blockquote>
+</aside>
+<p>From what I’ve read, the .vmf’s that come with the game aren’t actually up to date. Also, if you used a decompiler then it can’t automagically recreate toolbrushes that are removed at compile.</p>
+</blockquote>
+</aside>
+<p>Right, but I wasn’t comparing the bsp I compiled to the bsp that comes with the retail version (although that IS a good idea), I was comparing it to a bsp of the same map compiled with the other vbsp tool. Therefore, since both maps came from the same vmf, the only way the brushsides could be changing is because the two versions of vbsp are doing something differently, and I intend to find out what that is.</p>
+<p>I am beginning to think it’s likely something to do with brush entities.</p>
+          <p><a href="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/12</link>
+        <pubDate>Thu, 30 Nov 2017 23:16:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15298-12</guid>
+        <source url="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298.rss">Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</source>
+      </item>
+      <item>
+        <title>Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</title>
+        <dc:creator><![CDATA[ESToomere]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="jadebenn">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/j/aeb1de/40.png" class="avatar"> jadebenn:</div>
+<blockquote>
+<p>Tried compiling a different map (bm_c2a1a). Found something interesting.</p>
+<p>See, bm_c2a1a has 4,286 phantom brushsides. My version of bm_c2a2a has 5,532. That’s a difference of 1,246 brush sides. So the number isn’t constant per map. It varies, for seemingly no reason.</p>
+</blockquote>
+</aside>
+<p>From what I’ve read, the .vmf’s that come with the game aren’t actually up to date. Also, if you used a decompiler then it can’t automagically recreate toolbrushes that are removed at compile.</p>
+          <p><a href="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/11</link>
+        <pubDate>Thu, 30 Nov 2017 21:40:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15298-11</guid>
+        <source url="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298.rss">Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</source>
+      </item>
+      <item>
+        <title>Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</title>
+        <dc:creator><![CDATA[jadebenn]]></dc:creator>
+        <description><![CDATA[
+            <p>Tried compiling a different map (bm_c2a1a). Found something interesting.</p>
+<p>See, bm_c2a1a has 4,286 phantom brushsides. My version of bm_c2a2a has 5,532. That’s a difference of 1,246 brush sides. So the number isn’t constant per map. It varies, for seemingly no reason.</p>
+          <p><a href="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/10</link>
+        <pubDate>Thu, 30 Nov 2017 03:29:06 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15298-10</guid>
+        <source url="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298.rss">Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</source>
+      </item>
+      <item>
+        <title>Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</title>
+        <dc:creator><![CDATA[jadebenn]]></dc:creator>
+        <description><![CDATA[
+            <p>So, an update for you all. I still haven’t figured out the exact cause of the issue, but I’ve made some progress in narrowing it down. Whatever’s happening, it’s definitely happening in VBSP. The phantom brushsides appear immediately after compiling the vmf with the Black Mesa retail VBSP, and immediately disappear when compiling with the SDK 2007 VBSP (for the mod version).</p>
+<p>The good news is that I have eliminated several theories as to why this might be happening:</p>
+<ul>
+<li>Both compilers count skip brushes towards the limit, despite the fact that VBSP ignores them during compilation (I actually have to hide skips to be able to compile on the Black Mesa Source branch, that’s how close I am to the brushside limit).</li>
+<li>Both compilers count player clips, brush entities, and trigger brushes towards the limit (annoying, since trigger brushes aren’t really brush entities as I know them).</li>
+<li>Both compilers chop the level the same amount of times (still not exactly sure what a ‘chop’ is in the context of VBSP, but I know they both arrive at the same number thanks to -verbose).</li>
+<li>Both hammer editors show the vmf as having the same amount of objects (so I know it’s not on hammer’s end).<br>
+I’ll continue to keep you guys updated as I work on this. The next thing I’m going to try is compiling a different vmf in both engines, to see if the phantom brushsides appear there as well. That way I can figure out if  this issue is something unique to this level, or if it’s a widespread problem.</li>
+</ul>
+          <p><a href="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/9</link>
+        <pubDate>Wed, 29 Nov 2017 20:54:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15298-9</guid>
+        <source url="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298.rss">Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</source>
+      </item>
+      <item>
+        <title>Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</title>
+        <dc:creator><![CDATA[ESToomere]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="jadebenn">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/j/aeb1de/40.png" class="avatar"> jadebenn:</div>
+<blockquote>
+<aside class="quote no-group" data-username="ESToomere">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/estoomere/40/4948_2.png" class="avatar"> ESToomere:</div>
+<blockquote>
+<aside class="quote no-group" data-username="{I-M}Taz">
+<div class="title">
+<div class="quote-controls"></div>
+ {I-M}Taz:</div>
+<blockquote>
+<p>Why are you using sdk2013 to do the compile when BMS retail has its own Hammer and compile tools in the Bin folder ???</p>
+</blockquote>
+</aside>
+<p>This. Retail BM Source engine has doubled many limits that 2013 or even 2015 Source branches have.</p>
+</blockquote>
+</aside>
+<p>Sorry for the confusion. When I say 2013, I mean the Black Mesa beanch of the engine.</p>
+</blockquote>
+</aside>
+<p>Yeah, see, I meant DOTA2.</p>
+          <p><a href="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/8</link>
+        <pubDate>Wed, 15 Nov 2017 13:39:33 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15298-8</guid>
+        <source url="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298.rss">Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</source>
+      </item>
+      <item>
+        <title>Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</title>
+        <dc:creator><![CDATA[jadebenn]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="ESToomere">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/estoomere/40/4948_2.png" class="avatar"> ESToomere:</div>
+<blockquote>
+<aside class="quote no-group" data-username="{I-M}Taz">
+<div class="title">
+<div class="quote-controls"></div>
+ {I-M}Taz:</div>
+<blockquote>
+<p>Why are you using sdk2013 to do the compile when BMS retail has its own Hammer and compile tools in the Bin folder ???</p>
+</blockquote>
+</aside>
+<p>This. Retail BM Source engine has doubled many limits that 2013 or even 2015 Source branches have.</p>
+</blockquote>
+</aside>
+<p>Sorry for the confusion. When I say 2013, I mean the Black Mesa beanch of the engine.</p>
+          <p><a href="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/7</link>
+        <pubDate>Tue, 14 Nov 2017 14:05:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15298-7</guid>
+        <source url="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298.rss">Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</source>
+      </item>
+      <item>
+        <title>Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <p>You should join the source modding discord.<br>
+Plenty of experienced mappers there.<br>
+<a href="https://discord.gg/JBXf8KE" data-bbcode="true" rel="nofollow noopener">https://discord.gg/JBXf8KE</a></p>
+          <p><a href="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/6</link>
+        <pubDate>Tue, 14 Nov 2017 13:10:22 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15298-6</guid>
+        <source url="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298.rss">Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</source>
+      </item>
+      <item>
+        <title>Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</title>
+        <dc:creator><![CDATA[ESToomere]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="{I-M}Taz">
+<div class="title">
+<div class="quote-controls"></div>
+ {I-M}Taz:</div>
+<blockquote>
+<p>Why are you using sdk2013 to do the compile when BMS retail has its own Hammer and compile tools in the Bin folder ???</p>
+</blockquote>
+</aside>
+<p>This. Retail BM Source engine has doubled many limits that 2013 or even 2015 Source branches have.</p>
+          <p><a href="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/5</link>
+        <pubDate>Tue, 14 Nov 2017 13:02:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15298-5</guid>
+        <source url="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298.rss">Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</source>
+      </item>
+      <item>
+        <title>Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</title>
+        <dc:creator><![CDATA[_I-M_Taz]]></dc:creator>
+        <description><![CDATA[
+            <p>Why are you using sdk2013 to do the compile when BMS retail has its own Hammer and compile tools in the Bin folder ???</p>
+          <p><a href="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/4</link>
+        <pubDate>Tue, 14 Nov 2017 10:32:05 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15298-4</guid>
+        <source url="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298.rss">Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</source>
+      </item>
+      <item>
+        <title>Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</title>
+        <dc:creator><![CDATA[jadebenn]]></dc:creator>
+        <description><![CDATA[
+            <p>Another update. I figured out how to get the heavily cut version of the map to compile in the 2013 SDK. It turns out that hammer still counts brushes in deactivated visgroups towards the total (for some unknown reason), and when I deleted the contents of the hidden brush groups, the map would compile. So now here’s the compilation results of the <span class="bbcode-i">identical map </span>in both 2007 and 2013.</p>
+<p>2007 SDK:</p>
+<p>[code]Ready to Finish</p>
+<p>Object names       Objects/Maxobjs  Memory / Maxmem  Fullness</p>
+<hr>
+<p>models                 137/1024         6576/49152    (13.4%)<br>
+brushes               6220/8192        74640/98304    (75.9%)<br>
+brushsides           59958/65536      479664/524288   (91.5%) VERY FULL!<br>
+planes               46414/65536      928280/1310720  (70.8%)<br>
+vertexes             26928/65536      323136/786432   (41.1%)<br>
+nodes                 7185/65536      229920/2097152  (11.0%)<br>
+texinfos              8879/12288      639288/884736   (72.3%)<br>
+texdata                479/2048        15328/65536    (23.4%)<br>
+dispinfos               32/0            5632/0        ( 0.0%)<br>
+disp_verts            2720/0           54400/0        ( 0.0%)<br>
+disp_tris             4480/0            8960/0        ( 0.0%)<br>
+disp_lmsamples       27004/0           27004/0        ( 0.0%)<br>
+faces                15032/65536      841792/3670016  (22.9%)<br>
+hdr faces            15032/65536      841792/3670016  (22.9%)<br>
+origfaces            11323/65536      634088/3670016  (17.3%)<br>
+leaves                7323/65536      234336/2097152  (11.2%)<br>
+leaffaces            20493/65536       40986/131072   (31.3%)<br>
+leafbrushes          12080/65536       24160/131072   (18.4%)<br>
+areas                   26/256           208/2048     (10.2%)<br>
+surfedges           115202/512000     460808/2048000  (22.5%)<br>
+edges                73414/256000     293656/1024000  (28.7%)<br>
+LDR worldlights        466/8192        41008/720896   ( 5.7%)<br>
+HDR worldlights        466/8192        41008/720896   ( 5.7%)<br>
+leafwaterdata            6/32768          72/393216   ( 0.0%)<br>
+waterstrips           1854/32768       18540/327680   ( 5.7%)<br>
+waterverts               0/65536           0/786432   ( 0.0%)<br>
+waterindices         34929/65536       69858/131072   (53.3%)<br>
+cubemapsamples         122/1024         1952/16384    (11.9%)<br>
+overlays               161/512         56672/180224   (31.4%)<br>
+LDR lightdata         [variable]    11561692/0        ( 0.0%)<br>
+HDR lightdata         [variable]    11561692/0        ( 0.0%)<br>
+visdata               [variable]       91737/16777216 ( 0.5%)<br>
+entdata               [variable]      533660/393216   (135.7%) VERY FULL!<br>
+LDR ambient table     7323/65536       29292/262144   (11.2%)<br>
+HDR ambient table     7323/65536       29292/262144   (11.2%)<br>
+LDR leaf ambient     33632/65536      941696/1835008  (51.3%)<br>
+HDR leaf ambient     33556/65536      939568/1835008  (51.2%)<br>
+occluders                0/0               0/0        ( 0.0%)<br>
+occluder polygons        0/0               0/0        ( 0.0%)<br>
+occluder vert ind        0/0               0/0        ( 0.0%)<br>
+detail props          [variable]           1/12       ( 8.3%)<br>
+static props          [variable]           1/147164   ( 0.0%)<br>
+pakfile               [variable]    13140781/0        ( 0.0%)<br>
+physics               [variable]     2071405/4194304  (49.4%)<br>
+physics terrain       [variable]        9344/1048576  ( 0.9%)</p>
+<p>Level flags = 0</p>
+<p>Total triangle count: 40910<br>
+Writing d:\program files (x86)\steam\steamapps\common\black mesa\bms\mapsrc\loopmod\maps\bm_c2a2a_d7_t2.bsp<br>
+58 seconds elapsed[/code]2013 SDK:</p>
+<p>[code]Ready to Finish</p>
+<p>Object names       Objects/Maxobjs  Memory / Maxmem  Fullness</p>
+<hr>
+<p>models                 137/1024         6576/49152    (13.4%)<br>
+brushes               6220/8192        74640/98304    (75.9%)<br>
+brushsides           65490/65536      523920/524288   (99.9%) VERY FULL!<br>
+planes               58082/65536     1161640/1310720  (88.6%) VERY FULL!<br>
+vertexes             27169/65536      326028/786432   (41.5%)<br>
+nodes                 7411/65536      237152/2097152  (11.3%)<br>
+texinfos              8893/12288      640296/884736   (72.4%)<br>
+texdata                479/2048        15328/65536    (23.4%)<br>
+dispinfos               32/0            5632/0        ( 0.0%)<br>
+disp_verts            2720/0           54400/0        ( 0.0%)<br>
+disp_tris             4480/0            8960/0        ( 0.0%)<br>
+disp_multiblend       2720/0          217600/0        ( 0.0%)<br>
+disp_lmsamples       27032/0           27032/0        ( 0.0%)<br>
+faces                15096/65536      845376/3670016  (23.0%)<br>
+hdr faces            15096/65536      845376/3670016  (23.0%)<br>
+origfaces            11344/65536      635264/3670016  (17.3%)<br>
+leaves                7549/65536      241568/2097152  (11.5%)<br>
+leaffaces            20723/65536       41446/131072   (31.6%)<br>
+leafbrushes          12191/65536       24382/131072   (18.6%)<br>
+areas                   26/256           208/2048     (10.2%)<br>
+surfedges           115639/512000     462556/2048000  (22.6%)<br>
+edges                73715/256000     294860/1024000  (28.8%)<br>
+LDR worldlights          0/8192            0/819200   ( 0.0%)<br>
+HDR worldlights        466/8192        46600/819200   ( 5.7%)<br>
+leafwaterdata            6/32768          72/393216   ( 0.0%)<br>
+waterstrips           1882/32768       18820/327680   ( 5.7%)<br>
+waterverts               0/65536           0/786432   ( 0.0%)<br>
+waterindices         35175/65536       70350/131072   (53.7%)<br>
+cubemapsamples         122/1024         1952/16384    (11.9%)<br>
+overlays               161/512         56672/180224   (31.4%)<br>
+LDR lightdata         [variable]           0/0        ( 0.0%)<br>
+HDR lightdata         [variable]    13090183/0        ( 0.0%)<br>
+visdata               [variable]       93043/16777216 ( 0.6%)<br>
+entdata               [variable]      533660/393216   (135.7%) VERY FULL!<br>
+LDR ambient table     7549/65536       30196/262144   (11.5%)<br>
+HDR ambient table     7549/65536       30196/262144   (11.5%)<br>
+LDR leaf ambient      7549/65536      211372/1835008  (11.5%)<br>
+HDR leaf ambient     32501/65536      910028/1835008  (49.6%)<br>
+occluders                0/0               0/0        ( 0.0%)<br>
+occluder polygons        0/0               0/0        ( 0.0%)<br>
+occluder vert ind        0/0               0/0        ( 0.0%)<br>
+detail props          [variable]           1/12       ( 8.3%)<br>
+static props          [variable]           1/169786   ( 0.0%)<br>
+pakfile               [variable]    19195719/0        ( 0.0%)<br>
+physics               [variable]     2604765/4194304  (62.1%)<br>
+physics terrain       [variable]           0/1048576  ( 0.0%)</p>
+<p>Level flags = 6</p>
+<p>Total triangle count: 41140<br>
+Writing d:\program files (x86)\steam\steamapps\common\black mesa\bms\mapsrc\loopmod\maps\bm_c2a2a_d7_t2.bsp<br>
+12 minutes, 29 seconds elapsed[/code]There’s a discrepancy of <span class="bbcode-b"><span class="bbcode-i">5532</span> brush sides between the two compilers!</span></p>
+<p>I think I may have actually stumbled across a compiler glitch. I’ll try and investigate further when I have the time. Until then, if anyone has any idea what might be causing this, please tell me.</p>
+          <p><a href="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/3</link>
+        <pubDate>Tue, 14 Nov 2017 03:33:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15298-3</guid>
+        <source url="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298.rss">Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</source>
+      </item>
+      <item>
+        <title>Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</title>
+        <dc:creator><![CDATA[jadebenn]]></dc:creator>
+        <description><![CDATA[
+            <p>The deeper I dig into this issue, the weirder it gets. The uncut version of the map compiles fine in sdk 2007, but the heavily cut version throws a max brushsides error in both 2013 AND 2007. That’s right, the version with huge pieces torn out of it hits the brush limit, yet the version not cut at all DOESN’T (at least, not in SDK 2007).</p>
+          <p><a href="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/2</link>
+        <pubDate>Tue, 14 Nov 2017 02:43:13 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15298-2</guid>
+        <source url="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298.rss">Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</source>
+      </item>
+      <item>
+        <title>Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</title>
+        <dc:creator><![CDATA[jadebenn]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve got an odd issue with one of my maps I’m working on. I’m running into an issue with trying to compile the loop mod version of bm_c2a2a with the new tools.  Specifically, the map will compile with no errors under the 2007 SDK, but the EXACT SAME .vmf will fail under SDK 2013 with a max brushsides error. What’s really baffling about this is that the limit seems to be <span class="bbcode-i">significantly</span> lower in the 2013 sdk, to the point where I’ve cut large portions of the map, and yet I’m <span class="bbcode-i">still</span> getting a max brushsides error.</p>
+<p>Anyone have any idea what might be going on? Corrupt geometry? Something else? Any help would be appreciated.</p>
+          <p><a href="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298/1</link>
+        <pubDate>Tue, 14 Nov 2017 01:49:00 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15298-1</guid>
+        <source url="https://leakfree.org/t/map-compiles-under-sdk-2007-but-wont-compile-under-sdk-2013/15298.rss">Map compiles under SDK 2007, but won&#39;t compile under SDK 2013</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 10:10:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>[Tutorial] Player and NPC controlled 50 cal. - Source 1 - Leakfree</title>
+    <meta name="description" content="There is no real mapping forum, so I figure I’ll just put this here. I saw a few people wondering how to set up the 50 cal. gun. Here is how you make a player controlled and an NPC controlled 50 cal. 
+Player Controlled 5&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="11368.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;[Tutorial] Player and NPC controlled 50 cal.&#39;" href="11368.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368" />
+<meta name="twitter:url" content="https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368" />
+<meta property="og:title" content="[Tutorial] Player and NPC controlled 50 cal." />
+<meta name="twitter:title" content="[Tutorial] Player and NPC controlled 50 cal." />
+<meta property="og:description" content="There is no real mapping forum, so I figure I’ll just put this here. I saw a few people wondering how to set up the 50 cal. gun. Here is how you make a player controlled and an NPC controlled 50 cal.  Player Controlled 50 Cal. Machinegun    Create a prop_dynamic.  Name : 50cal_model  Model: models/props_marines/50cal.mdl  Tag Flags: Start with Collision Disabled    Create a platform or prop (like a ammo crate), which is about 32 units high and put the 50 cal on top of it. At this height, the pla..." />
+<meta name="twitter:description" content="There is no real mapping forum, so I figure I’ll just put this here. I saw a few people wondering how to set up the 50 cal. gun. Here is how you make a player controlled and an NPC controlled 50 cal.  Player Controlled 50 Cal. Machinegun    Create a prop_dynamic.  Name : 50cal_model  Model: models/props_marines/50cal.mdl  Tag Flags: Start with Collision Disabled    Create a platform or prop (like a ammo crate), which is about 32 units high and put the 50 cal on top of it. At this height, the pla..." />
+<meta property="article:published_time" content="2012-10-06T21:06:30+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="11368.html">[Tutorial] Player and NPC controlled 50 cal.</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/7.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>General Development</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/source-1/43.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #ED207B'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Source 1</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Hezus.html'><span itemprop='name'>Hezus</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11368.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-10-06T21:06:30Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T09:43:48Z' class='post-time'>
+                August 11, 2020,  9:43am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>There is no real mapping forum, so I figure I’ll just put this here. I saw a few people wondering how to set up the 50 cal. gun. Here is how you make a player controlled and an NPC controlled 50 cal.</p>
+<p><span class="bbcode-b">Player Controlled 50 Cal. Machinegun</span></p>
+<ol>
+<li>
+<p>Create a prop_dynamic.<br>
+Name : 50cal_model<br>
+Model: models/props_marines/50cal.mdl<br>
+Tag Flags: Start with Collision Disabled</p>
+</li>
+<li>
+<p>Create a platform or prop (like a ammo crate), which is about 32 units high and put the 50 cal on top of it. At this height, the player and enemy grunts can use it standing.</p>
+</li>
+<li>
+<p>Create a brush with the “triggertool” texture. This is the field in which the player has to stand to control the turret, so make it big enough for the player to stand in and put it behind the gun handles. Make it into trigger_multiple.</p>
+</li>
+</ol>
+<p>Name: 50cal_control<br>
+Tag Flags: Clients (should be on by default)</p>
+<ol start="4">
+<li>Create a new brush with the “toolsinvisible” or “nodraw” texture and make it: h: 16, w: 16, l:64 and put it inside the 50 cal model. Make sure it covers the entire length of the gun. Make this into a func_50cal. Now align the origin of the brush to the middle of the model (right above the tripod, there where the turret can turn)</li>
+</ol>
+<p>Name: 50cal_gun<br>
+Parent 50cal_model (the model will copy the movements of the func_tank this way)<br>
+Contol Volume: 50cal_control<br>
+Tag Flags: Controllable, Non-Solid</p>
+<p>Make sure the brush has the same angles as the model!</p>
+<ol start="5">
+<li>
+<p>Then connect the animations of the 50cal model to the yaw and pitch movement of the func_50cal by entering these values:<br>
+Gun Base Attachment: aimrotation<br>
+Gun Barrel Attachment: muzzle<br>
+Gun Yaw Pose Param: aim_yaw<br>
+Gun Pitch Pose Param: aim_pitch</p>
+</li>
+<li>
+<p>Now you’ll need to set the fire properties. You can experiment with different settings, but here is how I’ve set up mine:</p>
+</li>
+</ol>
+<p>Rate of Fire: 10<br>
+Damage per bullet: 15<br>
+Bullet Accuracy: Medium Cone</p>
+<ol start="7">
+<li>More experimenting can be done with the movement of the turret, by setting the Yaw and Pitch. Yaw controls all horizontal movement and Pitchs is for all vertical movement. Range will determine how far you can turn the gun and rate controls the speed of the turn.</li>
+</ol>
+<p>My settings of choice:<br>
+Yaw rate: 45<br>
+Yaw rang: 120<br>
+Yaw tolerance: 15<br>
+Pitch rate: 45<br>
+Pitch range: 15<br>
+Pitch tolerance: 5</p>
+<ol start="8">
+<li>And you’re done! Go ingame and see if the turret behaves like you want it to. You might want to tweak some fire and movement properties to make it perfect for your setting. In Hammer it should look something like this now:</li>
+</ol>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<p><span class="bbcode-b">NPC Controlled 50 Cal. Machinegun</span><br>
+To make NPCs use the 50 cal. you’ll need to make a few additions and changes. First, create a 50cal by using the tutorial above. If you make a second 50cal like I do, make sure you use unique names for this second gun. For this my tutorial I’m using a prefix: npc_50cal_gun. Note that you don’t need to do this for the Attachment and Pose parameters of the func_50cal. If you’re not making a second 50cal, leave out the npc_ prefix.</p>
+<ol>
+<li>
+<p>Create a human_grunt and put him right behind the gun in firing position.<br>
+Name: npc_50cal_grunt<br>
+Tag Flags: Long Visibility/Shoot</p>
+</li>
+<li>
+<p>Between the Grunt’s boots, place an info_target.<br>
+Name: npc_50cal_manpoint</p>
+</li>
+</ol>
+<p>This is where the grunt will stand when he shoots the 50cal. Make sure it has the same view angle as the gun itself.</p>
+<ol start="3">
+<li>
+<p>In the func_50cal add the following:<br>
+Firing Persistence: 2<br>
+Firing Persitance2: 1<br>
+Damage per bullet vs player: 10<br>
+NPC Man Point: npc_50cal_manpoint<br>
+Player Lock time: 1<br>
+Tag Flags: Only Direct, Controllable, NPC Controllable, Non-Solid</p>
+</li>
+<li>
+<p>In the trigger_multiple (the control field):<br>
+Tag Flags: Clients, NPCs</p>
+</li>
+<li>
+<p>Now create a trigger_auto. Set the following Output:<br>
+OnMapSpawn &gt; npc_50cal_grunt &gt; FindNPCToManTank &gt; npc_50cal_grunt</p>
+</li>
+</ol>
+<p>This will cause the grunt to take control of the 50cal at the start of the map. You can also set this up with a different trigger if you want him to start using the turret at a given time.</p>
+<p>If you start the map now, the grunt will start using the turret after he sees you. There is only one draw-back. If you rush towards him and stand behind him, he’ll hold on to the turret, not able to fight you anymore. We want him to let go off the turret and fight the player with his mp5, once the player gets too close. Here is how that’s done:</p>
+<ol start="6">
+<li>Create a brush with the toolstrigger texture and make it a trigger_once. Put it in front of the gun, so the player will touch it when he gets close. You can also create brushes along the side of the grunt’s position in case the player flanks him.</li>
+</ol>
+<p>Create the following Output:<br>
+OnTrigger &gt; npc_50cal_gun &gt; ForceNPCOff</p>
+<ol start="7">
+<li>All done! Compile and give it a try. Hammer should look something like this:<br>
+<span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span>
+</li>
+</ol>
+<p>Hope these tutorials were helpful. You can download the example VMF here:<br>
+<a href="https://deved-portal.com/hezus/up/tutorials/50cal_tutorial.zip" data-bbcode="true" rel="nofollow noopener">50 Cal Tutorial</a></p>
+        </div>
+
+        <meta itemprop='headline' content='[Tutorial] Player and NPC controlled 50 cal.'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Bloodshot.html'><span itemprop='name'>Bloodshot</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11368.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-10-06T21:08:06Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:42:41Z' class='post-time'>
+                November 25, 2018,  2:42am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Cool, I vote we make an actual BMS mapping forum to post this kind of stuff</p>
+        </div>
+
+        <meta itemprop='headline' content='[Tutorial] Player and NPC controlled 50 cal.'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Hezus.html'><span itemprop='name'>Hezus</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11368.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-10-06T21:09:28Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:42:41Z' class='post-time'>
+                November 25, 2018,  2:42am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Bloodshot">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/b/839c29/40.png" class="avatar"> Bloodshot:</div>
+<blockquote>
+<p>Cool, I vote we make an actual BMS mapping forum to post this kind of stuff</p>
+</blockquote>
+</aside>
+<p>Seconded! Lets go annoy some admins about it  <img src="../../images/emoji/twitter/winkc164.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+        </div>
+
+        <meta itemprop='headline' content='[Tutorial] Player and NPC controlled 50 cal.'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/brokenfridgehinge.html'><span itemprop='name'>brokenfridgehinge</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11368.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-11-04T13:40:36Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:52:25Z' class='post-time'>
+                November 25, 2018,  2:52am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>It took a few weeks of persistent requesting, but we finally have our mapping subforum!  <img src="../../images/emoji/twitter/smileyc164.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+        </div>
+
+        <meta itemprop='headline' content='[Tutorial] Player and NPC controlled 50 cal.'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Hezus.html'><span itemprop='name'>Hezus</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11368.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-11-04T17:04:40Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:52:26Z' class='post-time'>
+                November 25, 2018,  2:52am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="brokenfridgehinge">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/b/87869e/40.png" class="avatar"> brokenfridgehinge:</div>
+<blockquote>
+<p>It took a few weeks of persistent requesting, but we finally have our mapping subforum!  <img src="../../images/emoji/twitter/smileyc164.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+</blockquote>
+</aside>
+<p>For 40 days our people wandered through the desert… now we have our own place we can call home.  <img src="../../images/emoji/twitter/winkc164.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+        </div>
+
+        <meta itemprop='headline' content='[Tutorial] Player and NPC controlled 50 cal.'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Mr-7.html'><span itemprop='name'>Mr.who</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11368.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-02-04T15:50:49Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:51Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Does this work in multi-player? I can’t seem to get it working as of yet.</p>
+        </div>
+
+        <meta itemprop='headline' content='[Tutorial] Player and NPC controlled 50 cal.'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Mr-7.html'><span itemprop='name'>Mr.who</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11368.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-02-05T23:41:31Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:58Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I tried to open to open the latest crossfire to see how the turrets work in that map.  Couldn’t seem to open the map. Hameer kept timing out. Is that a func_50cal or a different setup?</p>
+        </div>
+
+        <meta itemprop='headline' content='[Tutorial] Player and NPC controlled 50 cal.'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Mr-7.html'><span itemprop='name'>Mr.who</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11368.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-02-21T17:53:42Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:46:54Z' class='post-time'>
+                November 25, 2018,  4:46am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>From what I can tell (After a lot of testing) the only turret that works in MP is the func_tow_mp and .50 Cal. I’m not sure if a brush based gun can be used… All I tried was models with these.</p>
+        </div>
+
+        <meta itemprop='headline' content='[Tutorial] Player and NPC controlled 50 cal.'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dmx6.html'><span itemprop='name'>Dmx6</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11368.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-04-04T15:55:22Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:48:31Z' class='post-time'>
+                November 25, 2018,  4:48am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The vmf is down. Could you upload it again?</p>
+        </div>
+
+        <meta itemprop='headline' content='[Tutorial] Player and NPC controlled 50 cal.'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 10:10:05 GMT -->
+</html>

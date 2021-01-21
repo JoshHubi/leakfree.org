@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/indirect-object-access-in-java/9385 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 10:45:03 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Indirect object access in JAVA - Help and Support - Leakfree</title>
+    <meta name="description" content="I am trying to understand how to indirectly access objects. 
+Using the following simple Customer Class.  For example, here are two of 50 Customer objects.  They are Bill and Bob. 
+public class Customer { 
+private int Cus&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="9385.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Indirect object access in JAVA&#39;" href="9385.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/indirect-object-access-in-java/9385" />
+<meta name="twitter:url" content="https://leakfree.org/t/indirect-object-access-in-java/9385" />
+<meta property="og:title" content="Indirect object access in JAVA" />
+<meta name="twitter:title" content="Indirect object access in JAVA" />
+<meta property="og:description" content="I am trying to understand how to indirectly access objects.  Using the following simple Customer Class.  For example, here are two of 50 Customer objects.  They are Bill and Bob.  public class Customer {  private int CustNum;  private String name;  private String homePhone;  Customer Bill = new Customer(100, “Bill West”,“1234567890”);  Customer Bob = new Customer(101, “Bob East”,“1234567891”);  I then wish to perform tasks on a certain object.  i.e.   I want to work on object “Bob”  String custO..." />
+<meta name="twitter:description" content="I am trying to understand how to indirectly access objects.  Using the following simple Customer Class.  For example, here are two of 50 Customer objects.  They are Bill and Bob.  public class Customer {  private int CustNum;  private String name;  private String homePhone;  Customer Bill = new Customer(100, “Bill West”,“1234567890”);  Customer Bob = new Customer(101, “Bob East”,“1234567891”);  I then wish to perform tasks on a certain object.  i.e.   I want to work on object “Bob”  String custO..." />
+<meta property="article:published_time" content="2012-09-11T19:46:28+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="9385.html">Indirect object access in JAVA</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/technology-and-gaming/19.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #8C6238'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Technology and Gaming</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/technology-and-gaming/help-and-support/39.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #808281'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Help and Support</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/cknew1.html'><span itemprop='name'>cknew1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9385.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-11T19:46:28Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:13:00Z' class='post-time'>
+                November 25, 2018,  2:13am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I am trying to understand how to indirectly access objects.</p>
+<p>Using the following simple Customer Class.  For example, here are two of 50 Customer objects.  They are Bill and Bob.</p>
+<p>public class Customer {<br>
+private int CustNum;<br>
+private String name;<br>
+private String homePhone;</p>
+<p>Customer Bill = new Customer(100, “Bill West”,“1234567890”);<br>
+Customer Bob = new Customer(101, “Bob East”,“1234567891”);</p>
+<p>I then wish to perform tasks on a certain object.<br>
+i.e.   I want to work on object “Bob”</p>
+<p>String custObj= “Bob”;</p>
+<p>int dummynum = &amp;custObj.CustNum;</p>
+<p>I would like dummynum to contain the value 101.</p>
+<p>You could even extend this to</p>
+<p>String custObj= “Bob”;<br>
+String custField= “CustNum”;</p>
+<p>int dummynum = &amp;custObj.&amp;custField;</p>
+<p>The thought is to create dynamic flexible methods.</p>
+        </div>
+
+        <meta itemprop='headline' content='Indirect object access in JAVA'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/wheybags.html'><span itemprop='name'>wheybags</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9385.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-11T20:53:24Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:13:04Z' class='post-time'>
+                November 25, 2018,  2:13am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Pretty sure you cant do this.<br>
+You could put them all in a map though.<br>
+EDIT: Also, stackoverflow for this kinda shit man, seriously  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Indirect object access in JAVA'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/dky.tehkingd.html'><span itemprop='name'>dky.tehkingd.u</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9385.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-11T22:43:40Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T09:19:01Z' class='post-time'>
+                August 11, 2020,  9:19am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>You can create another Customer, use it to point to a specific Customer, then invoke a method on your container Customer, which now “contains” the Customer object instance.</p>
+<pre><code class="lang-auto">private Customer bob = new Customer(stuff, stuff, stuff);
+private Customer john = new Customer(stuff, stuff, stuff);
+
+private Customer myCustomer;
+
+// Let's do Bob first
+myCustomer = bob;
+myCustomer.doStuff();                   // Equivalent to "bob.doStuff();"
+
+int myInt = myCustomer.getCustNum();    /* Equivalent to "int myInt = bob.getCustNum();"
+                                         * Notice how I am not trying to access the custNum variable directly.
+                                         * Instead, I am calling a "getter" int method defined in the Customer
+                                         * class that returns the private variable custNum.
+                                         * Most of the time this is considered to be good coding practice.
+                                         */
+
+// Now let's do John
+myCustomer = john;
+myCustomer.doStuff();                   // Equivalent to "john.doStuff();"</code></pre>
+<p>EDIT: By the way, try not to capitalize your instance names… it’s bad practice and can be confusing. See the <a href="https://www.oracle.com/technetwork/java/codeconv-138413.html" data-bbcode="true" rel="nofollow noopener">standard Java coding conventions</a> for more.  <img src="../../images/emoji/twitter/winkc164.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Indirect object access in JAVA'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/cknew1.html'><span itemprop='name'>cknew1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9385.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-11T23:16:57Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:13:11Z' class='post-time'>
+                November 25, 2018,  2:13am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Sorry, I took them from the actual problem, but will review the conventions.<br>
+I will also look at your suggestion.</p>
+        </div>
+
+        <meta itemprop='headline' content='Indirect object access in JAVA'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/dky.tehkingd.html'><span itemprop='name'>dky.tehkingd.u</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9385.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-12T01:33:34Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:13:18Z' class='post-time'>
+                November 25, 2018,  2:13am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I updated/clarified some of my code comments in case you’re interested.</p>
+<p>And since you’re handling a large number of Customer objects, I suggest handling them using an array instead of repeatedly making new objects.</p>
+        </div>
+
+        <meta itemprop='headline' content='Indirect object access in JAVA'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/indirect-object-access-in-java/9385 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 10:45:03 GMT -->
+</html>

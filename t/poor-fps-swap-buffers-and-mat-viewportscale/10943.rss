@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>poor FPS, Swap_Buffers and mat_viewportscale</title>
+    <link>https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943</link>
+    <description>I&#39;m getting much lower FPS than I would expect at higher resolutions (1920x1200).
+
+showbudget was showing that most of the time was spent in [b]Swap_Buffers[/b]:
+![bm_c1a3b0001.jpg|690x500](upload://AeYUaWyhucm2ILAYzMR3BStPg9.jpeg)
+
+however, i noticed that the [b]Swap_Buffers[/b] was significantly reduced, if i set [code]
+mat_viewportscale 0.99999
+[/code]:
+![bm_c1a3b0000.jpg|690x500](upload://y6Mmgc3G67c2r8JJxnoZ4WMokG.jpeg)
+
+obviously the number of pixels being drawn isn&#39;t significantly different. can anyone explain what&#39;s going on here?
+
+it would seem to indicate something weird in the fragment shaders. is there something in there that&#39;s disabled by having a non-1 viewport scale?
+
+here&#39;s my sysinfo:
+[code]
+Processor Information:
+    Vendor:  GenuineIntel
+    Speed: 2671 Mhz
+    4 logical processors
+    4 physical processors
+    HyperThreading:  Unsupported
+    FCMOV:  Supported
+    SSE2:  Supported
+    SSE3:  Supported
+    SSSE3:  Supported
+    SSE4a:  Unsupported
+    SSE41:  Unsupported
+    SSE42:  Unsupported
+
+Operating System Version:
+    Windows 7 (64 bit)
+    NTFS:  Supported
+    Crypto Provider Codes:  Supported 323 0x0 0x0 0x0
+    
+Video Card:
+    Driver:  NVIDIA GeForce GT 520 
+
+    DirectX Driver Name:  nvd3dum.dll
+    Driver Version:  9.18.13.623
+    DirectX Driver Version:  9.18.13.623
+    Driver Date: 30 Aug 2012
+    Desktop Color Depth: 32 bits per pixel
+    Monitor Refresh Rate: 59 Hz
+    DirectX Card: NVIDIA GeForce GT 520 
+    VendorID:  0x10de
+    DeviceID:  0x1040
+    Number of Monitors:  2
+    Number of Logical Video Cards:  2
+    No SLI or Crossfire Detected
+    Primary Display Resolution:  1920 x 1200
+    Desktop Resolution: 3840 x 1200
+    Primary Display Size: 26.65&quot; x 16.65&quot;  (31.42&quot; diag)
+                                            67.7cm x 42.3cm  (79.8cm diag)
+    Primary Bus: PCI Express 16x
+    Primary VRAM: 1023 MB
+    Supported MSAA Modes:  2x 4x 8x 
+    
+Sound card:
+    Audio device: Speakers (Realtek High Definiti
+    
+Memory:
+    RAM:  8191 Mb
+    
+Miscellaneous:
+    UI Language:  English
+    Microphone:  Not set
+    Media Type:  DVD
+    Total Hard Disk Space Available:  5246124 Mb
+    Largest Free Hard Disk Block:  1400325 Mb
+    OS Install Date: Dec 31 1969
+    Game Controller: None detected
+[/code]</description>
+    
+    <lastBuildDate>Mon, 24 Sep 2012 16:31:01 +0000</lastBuildDate>
+    <category>In-game Issues (Mod)</category>
+    <atom:link href="https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>poor FPS, Swap_Buffers and mat_viewportscale</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <p>Good to hear you resolved this one. You’re welcome.<br>
+Please, add “[SOLVED]” to the thread title if you have such possibility. If not - friendly moderators, could you please help this thread with being marked as solved? Thanks in advance.</p>
+          <p><a href="https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943/8</link>
+        <pubDate>Mon, 24 Sep 2012 16:31:01 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10943-8</guid>
+        <source url="https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943.rss">poor FPS, Swap_Buffers and mat_viewportscale</source>
+      </item>
+      <item>
+        <title>poor FPS, Swap_Buffers and mat_viewportscale</title>
+        <dc:creator><![CDATA[spongman]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="lexa2">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/34f0e0/40.png" class="avatar"> lexa2:</div>
+<blockquote>
+<p>Hmm, differences look like there’s a some kind of an ambient occlusion kicking in…</p>
+</blockquote>
+</aside>
+<p>that was it!</p>
+<p>i force-disabled ambient occlusion in the nvidia driver and now there’s no difference between mat_viewportscale 0.99999 &amp; 1.</p>
+<p>you the man <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943/7</link>
+        <pubDate>Sun, 23 Sep 2012 05:20:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10943-7</guid>
+        <source url="https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943.rss">poor FPS, Swap_Buffers and mat_viewportscale</source>
+      </item>
+      <item>
+        <title>poor FPS, Swap_Buffers and mat_viewportscale</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="spongman">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/s/958977/40.png" class="avatar"> spongman:</div>
+<blockquote>
+<p>…<br>
+anyway, i loaded the two screenshots above into photoshop, re-scaled them to account for the viewscale change, and took the difference<br>
+<a href="https://localhost/mybb/attachment.php?aid=1466" data-bbcode="true" rel="nofollow noopener">diff.jpg</a><br>
+it does look like there’s some slight difference in the shadows (although i didn’t change any setting other than the viewscale).</p>
+</blockquote>
+</aside>
+<p>Hmm, differences look like there’s a some kind of an ambient occlusion kicking in (you could easily see that the lighting differs at the places that are expected to be affected by radiosity simulation done in the AO simulating pixel shader).</p>
+<p>This theory is pretty much in line with the FPS drop you’re facing as it is a known fact that driver-forced AO for nVIDIA cards only works in case you have offscreen backbuffer the same size as your screen resolution is (check investigations done by DSfix author on this topic if you’re interested in the gory details from the programmers PoV).</p>
+<p>Check your nVIDIA driver setting. Make sure you have AO disabled. You could also try installing nVIDIA Inspector and using it to force AO disabled for hl2.exe profile.</p>
+          <p><a href="https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943/6</link>
+        <pubDate>Sat, 22 Sep 2012 04:20:45 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10943-6</guid>
+        <source url="https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943.rss">poor FPS, Swap_Buffers and mat_viewportscale</source>
+      </item>
+      <item>
+        <title>poor FPS, Swap_Buffers and mat_viewportscale</title>
+        <dc:creator><![CDATA[spongman]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="lexa2">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/34f0e0/40.png" class="avatar"> lexa2:</div>
+<blockquote>
+<p>You had restarted the game after changing the resolution and gfx settings, hadn’t you?</p>
+</blockquote>
+</aside>
+<p>yeah, i did have the kinds off issues you described with settings not sticking initially, but i did restart after setting them, just to make sure. i also tried different combinations of .vcs/.dll presence, to no avail.</p>
+<aside class="quote no-group" data-username="lexa2">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/34f0e0/40.png" class="avatar"> lexa2:</div>
+<blockquote>
+<p>Yes, linear FPS scale with the vieportscale changes is something that is expected to get in as long as FPS is fillrate-capped. Having sudden drop when it is set to 1 is a really strange thing. The only possible reason I could think of in case it’s not a fullscreen post-processing shaders kicking-in and behaving wrong (which seems not to be the case as you tried to de-facto turn them off by removing shader dll and things hadn’t get better) are:</p>
+<p>a) Driver-related problem. There are a lot of things nVIDIA drivers do “behind the scenes” and some execution paths could only kick in if the size of the offscreen render buffer matches the resolution of current d3d swapchain. I’ve seen some signs of similar behavior with OpenGL when been implementing a small app to test Adaptive/Standard vsync behavior in the dual display environment for nVIDIA cards. It might be that driver does something strange/wrong and causes FPS drop you observe. There are no obvious ways to check it except for trying downgrading or upgrading driver version in hopes that the problem would disappear. Also it’s worth checking if you get the same drop in windowed mode.</p>
+</blockquote>
+</aside>
+<p>I was running an older nvidia driver when i first saw this problem. i forget which version, but i upgraded to the latest in the hopes of finding a fix  <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+<aside class="quote no-group" data-username="lexa2">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/34f0e0/40.png" class="avatar"> lexa2:</div>
+<blockquote>
+<p>b) Problem inducted by some third-party software messing up with the game’s render context. MSI Afterburner, Steam Community in-game, recording tools like xsplit, FRAPS or DXtory - all they could possibly cause problems like this. But I have to admit I had never hit anything like the problem you describe caused by any of the tools listed above.</p>
+</blockquote>
+</aside>
+<p>i don’t have any of those installed, and i don’t have anything installed that i think would mess with it. regardless, i’m not sure what would be sensitive to the viewscale value…</p>
+<p>anyway, i loaded the two screenshots above into photoshop, re-scaled them to account for the viewscale change, and took the difference<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/7/795aed9680d10518f9188f3e1b8606cae54aff77.jpeg" data-download-href="https://leakfree.org/uploads/default/795aed9680d10518f9188f3e1b8606cae54aff77" title="diff.jpg"><img src="https://leakfree.org/uploads/default/original/2X/7/795aed9680d10518f9188f3e1b8606cae54aff77.jpeg" alt="diff.jpg" data-base62-sha1="hjyAmfgNmNARzuTTPjkENtUgDxZ" width="690" height="500" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/7/795aed9680d10518f9188f3e1b8606cae54aff77_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">diff.jpg</span><span class="informations">1650×1031 77.3 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+it does look like there’s some slight difference in the shadows (although i didn’t change any setting other than the viewscale).</p>
+          <p><a href="https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943/5</link>
+        <pubDate>Fri, 21 Sep 2012 23:26:36 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10943-5</guid>
+        <source url="https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943.rss">poor FPS, Swap_Buffers and mat_viewportscale</source>
+      </item>
+      <item>
+        <title>poor FPS, Swap_Buffers and mat_viewportscale</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="spongman">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/s/958977/40.png" class="avatar"> spongman:</div>
+<blockquote>
+<p>first up, i’m running win7 x64, up-to-date everything, dx11 hardware.</p>
+</blockquote>
+</aside>
+<p>Yep, I’ve seen details on your hardware in the first post of the thread thus I had also been surprised but the stuff that’s going on.</p>
+<aside class="quote no-group" data-username="spongman">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/s/958977/40.png" class="avatar"> spongman:</div>
+<blockquote>
+<p>[*]apparently, the game is detecting dxlevel ‘95’. i tried adding ‘-dxlevel 98’ to the startup parameters. after starting bms, the screen resolution and video settings were reset, so i changed them back to 1920x1200, disabled/low, etc… after that the rendering was really weird. the letters of the main menu had black boxes around them, as if alpha-blending was broken. the red background of the ‘showbudget’ display was all messed up, almost as if the vertex buffer was being overwritten by some other data:<br>
+<a href="https://localhost/mybb/attachment.php?aid=1464" data-bbcode="true" rel="nofollow noopener">bm_c1a3b0003.jpg</a><br>
+[/LIST]</p>
+</blockquote>
+</aside>
+<p>You had restarted the game after changing the resolution and gfx settings, hadn’t you? I’ve seen similar problems on my rig while been messing with different resolutions, switching fullscreen/windowed, e.t.c. After changing two or three different settings pressing “Apply” after each I end up with messed up rendering that been looking similar to what could be seen on your screenshot. Quiting the game and starting it up again fixed the problem.</p>
+<aside class="quote no-group" data-username="spongman">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/s/958977/40.png" class="avatar"> spongman:</div>
+<blockquote>
+<p>the weird thing is that the difference in the number of pixels drawn between mat_viewportscale 1 and mat_viewportscale 0.99999 is tiny (around .1%) but the fps difference is huge.</p>
+<p>the fps seems to vary almost linearly for other values of mat_viewportscale, but at ‘1’ it hits a cliff. there’s some inneficiency that’s triggered when it’s set to 1.</p>
+</blockquote>
+</aside>
+<p>Yes, linear FPS scale with the vieportscale changes is something that is expected to get in as long as FPS is fillrate-capped. Having sudden drop when it is set to 1 is a really strange thing. The only possible reason I could think of in case it’s not a fullscreen post-processing shaders kicking-in and behaving wrong (which seems not to be the case as you tried to de-facto turn them off by removing shader dll and things hadn’t get better) are:</p>
+<p>a) Driver-related problem. There are a lot of things nVIDIA drivers do “behind the scenes” and some execution paths could only kick in if the size of the offscreen render buffer matches the resolution of current d3d swapchain. I’ve seen some signs of similar behavior with OpenGL when been implementing a small app to test Adaptive/Standard vsync behavior in the dual display environment for nVIDIA cards. It might be that driver does something strange/wrong and causes FPS drop you observe. There are no obvious ways to check it except for trying downgrading or upgrading driver version in hopes that the problem would disappear. Also it’s worth checking if you get the same drop in windowed mode.</p>
+<p>b) Problem inducted by some third-party software messing up with the game’s render context. MSI Afterburner, Steam Community in-game, recording tools like xsplit, FRAPS or DXtory - all they could possibly cause problems like this. But I have to admit I had never hit anything like the problem you describe caused by any of the tools listed above.</p>
+          <p><a href="https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943/4</link>
+        <pubDate>Fri, 21 Sep 2012 17:24:23 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10943-4</guid>
+        <source url="https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943.rss">poor FPS, Swap_Buffers and mat_viewportscale</source>
+      </item>
+      <item>
+        <title>poor FPS, Swap_Buffers and mat_viewportscale</title>
+        <dc:creator><![CDATA[spongman]]></dc:creator>
+        <description><![CDATA[
+            <p>ok, super weird stuff going on.</p>
+<p>first up, i’m running win7 x64, up-to-date everything, dx11 hardware.</p>
+<ul>
+<li>I have all the perf/video settings set to disabled/low</li>
+<li>I tried removing the .vcs files, no fix</li>
+<li>I tried removing game_shader_dx9.dll, no fix</li>
+<li>I tried mat_fillrate 1. i couldn’t see any difference between the two mat_viewportscale values, except the fps, of course.</li>
+<li>I tried the overdraw thing, it showed overdraw around the lights. again, no visible difference between the two mat_viewportscale values.</li>
+<li>apparently, the game is detecting dxlevel ‘95’. i tried adding ‘-dxlevel 98’ to the startup parameters. after starting bms, the screen resolution and video settings were reset, so i changed them back to 1920x1200, disabled/low, etc… after that the rendering was really weird. the letters of the main menu had black boxes around them, as if alpha-blending was broken. the red background of the ‘showbudget’ display was all messed up, almost as if the vertex buffer was being overwritten by some other data:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/1/13e8258c049e298f3e1f06ac0fdb809a143cf590.jpeg" data-download-href="https://leakfree.org/uploads/default/13e8258c049e298f3e1f06ac0fdb809a143cf590" title="bm_c1a3b0003.jpg"><img src="https://leakfree.org/uploads/default/original/2X/1/13e8258c049e298f3e1f06ac0fdb809a143cf590.jpeg" alt="bm_c1a3b0003.jpg" data-base62-sha1="2Q6rwh76tc7Iwtvy1SCjWtBcu7m" width="690" height="500" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/1/13e8258c049e298f3e1f06ac0fdb809a143cf590_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">bm_c1a3b0003.jpg</span><span class="informations">1186×741 92.8 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div>
+</li>
+</ul>
+<p>the weird thing is that the difference in the number of pixels drawn between mat_viewportscale 1 and mat_viewportscale 0.99999 is tiny (around .1%) but the fps difference is huge.</p>
+<p>the fps seems to vary almost linearly for other values of mat_viewportscale, but at ‘1’ it hits a cliff. there’s some inneficiency that’s triggered when it’s set to 1.</p>
+          <p><a href="https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943/3</link>
+        <pubDate>Fri, 21 Sep 2012 16:45:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10943-3</guid>
+        <source url="https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943.rss">poor FPS, Swap_Buffers and mat_viewportscale</source>
+      </item>
+      <item>
+        <title>poor FPS, Swap_Buffers and mat_viewportscale</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <p>Pretty strange bug really. You’re right that you most likely hitting fillrate shortage due to some pixel shader eating up all of it. It might be a problem with of the fullscreen post-processing shaders. What could you do is to turn off HUD and chromatic postprocessing in the game settings menu and try using one of the methods to disable noise postprocessing shader described here:</p>
+<p><a href="https://forums.blackmesasource.com/showthread.php?p=502093#post502093" data-bbcode="true" rel="nofollow noopener">https://forums.blackmesasource.com/showthread.php?p=502093#post502093</a></p>
+<p>What else would be interesting is try changing dxlevel used from what you use to other among 90, 95 and 98. Then, checking what’s displayed with mat_fillrate 1 might give and insight on what is wrong here.</p>
+<p>What else? Hmm, maybe check for overdraw-related problems, there was a cvar for that. Use “find overdraw” in console, it’d be easy to determine which one is correct to use.</p>
+          <p><a href="https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943/2</link>
+        <pubDate>Fri, 21 Sep 2012 04:15:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10943-2</guid>
+        <source url="https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943.rss">poor FPS, Swap_Buffers and mat_viewportscale</source>
+      </item>
+      <item>
+        <title>poor FPS, Swap_Buffers and mat_viewportscale</title>
+        <dc:creator><![CDATA[spongman]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m getting much lower FPS than I would expect at higher resolutions (1920x1200).</p>
+<p>showbudget was showing that most of the time was spent in <span class="bbcode-b">Swap_Buffers</span>:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/0/0418c57a4d3fcefc83038ec43d41a59585349acd.jpeg" data-download-href="https://leakfree.org/uploads/default/0418c57a4d3fcefc83038ec43d41a59585349acd" title="bm_c1a3b0001.jpg"><img src="https://leakfree.org/uploads/default/original/2X/0/0418c57a4d3fcefc83038ec43d41a59585349acd.jpeg" alt="bm_c1a3b0001.jpg" data-base62-sha1="AeYUaWyhucm2ILAYzMR3BStPg9" width="690" height="500" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/0/0418c57a4d3fcefc83038ec43d41a59585349acd_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">bm_c1a3b0001.jpg</span><span class="informations">1119×699 89.3 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>however, i noticed that the <span class="bbcode-b">Swap_Buffers</span> was significantly reduced, if i set <code>
+mat_viewportscale 0.99999
+</code>:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/0/03db10fedaeda10da2f5068295eb6a7454129342.jpeg" data-download-href="https://leakfree.org/uploads/default/03db10fedaeda10da2f5068295eb6a7454129342" title="bm_c1a3b0000.jpg"><img src="https://leakfree.org/uploads/default/original/2X/0/03db10fedaeda10da2f5068295eb6a7454129342.jpeg" alt="bm_c1a3b0000.jpg" data-base62-sha1="y6Mmgc3G67c2r8JJxnoZ4WMokG" width="690" height="500" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/0/03db10fedaeda10da2f5068295eb6a7454129342_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">bm_c1a3b0000.jpg</span><span class="informations">1117×698 89.4 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>obviously the number of pixels being drawn isn’t significantly different. can anyone explain what’s going on here?</p>
+<p>it would seem to indicate something weird in the fragment shaders. is there something in there that’s disabled by having a non-1 viewport scale?</p>
+<p>here’s my sysinfo:</p>
+<pre><code class="lang-auto">Processor Information:
+    Vendor:  GenuineIntel
+    Speed: 2671 Mhz
+    4 logical processors
+    4 physical processors
+    HyperThreading:  Unsupported
+    FCMOV:  Supported
+    SSE2:  Supported
+    SSE3:  Supported
+    SSSE3:  Supported
+    SSE4a:  Unsupported
+    SSE41:  Unsupported
+    SSE42:  Unsupported
+
+Operating System Version:
+    Windows 7 (64 bit)
+    NTFS:  Supported
+    Crypto Provider Codes:  Supported 323 0x0 0x0 0x0
+    
+Video Card:
+    Driver:  NVIDIA GeForce GT 520 
+
+    DirectX Driver Name:  nvd3dum.dll
+    Driver Version:  9.18.13.623
+    DirectX Driver Version:  9.18.13.623
+    Driver Date: 30 Aug 2012
+    Desktop Color Depth: 32 bits per pixel
+    Monitor Refresh Rate: 59 Hz
+    DirectX Card: NVIDIA GeForce GT 520 
+    VendorID:  0x10de
+    DeviceID:  0x1040
+    Number of Monitors:  2
+    Number of Logical Video Cards:  2
+    No SLI or Crossfire Detected
+    Primary Display Resolution:  1920 x 1200
+    Desktop Resolution: 3840 x 1200
+    Primary Display Size: 26.65" x 16.65"  (31.42" diag)
+                                            67.7cm x 42.3cm  (79.8cm diag)
+    Primary Bus: PCI Express 16x
+    Primary VRAM: 1023 MB
+    Supported MSAA Modes:  2x 4x 8x 
+    
+Sound card:
+    Audio device: Speakers (Realtek High Definiti
+    
+Memory:
+    RAM:  8191 Mb
+    
+Miscellaneous:
+    UI Language:  English
+    Microphone:  Not set
+    Media Type:  DVD
+    Total Hard Disk Space Available:  5246124 Mb
+    Largest Free Hard Disk Block:  1400325 Mb
+    OS Install Date: Dec 31 1969
+    Game Controller: None detected</code></pre>
+          <p><a href="https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943/1</link>
+        <pubDate>Thu, 20 Sep 2012 22:05:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10943-1</guid>
+        <source url="https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943.rss">poor FPS, Swap_Buffers and mat_viewportscale</source>
+      </item>
+  </channel>
+</rss>

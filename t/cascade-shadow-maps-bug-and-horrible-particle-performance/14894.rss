@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Cascade shadow maps bug, and horrible particle performance</title>
+    <link>https://leakfree.org/t/cascade-shadow-maps-bug-and-horrible-particle-performance/14894</link>
+    <description>Let&#39;s get right to it.
+
+1: cascaded shadow maps aren&#39;t blending in perfectly with the world:
+[img]https://i.imgur.com/OWcRv8k.jpg[/img]
+
+I remember Valve also having this issue and then talking about how they fixed it in a map workshop blog post in CS:GO ([url]https://blog.counter-strike.net/workshop/maps.php#cascade_shadow[/url]). This is what Valve had to say about it:
+[quote=&quot;Valve&quot;]
+[img]https://media.steampowered.com/apps/csgo/blog/images/workshop/lighting/05.png[/img]One last thing we wanted to upgrade was how our cascade shadow maps interact with pre-computed lighting in our levels; Cascade shadow maps (CSMs) are our dynamic, high quality real-time shadows which can be seen in outdoor areas of Nuke and other maps.
+
+To tackle this problem we separated all direct and indirect precomputed lighting data and use these two data sets to accurately blend our cascade shadow maps into the scene. This allows indirect and ambient lighting to alter the shadow color and strength in a much more natural way:
+BEFORE Note the grey area between the CSM and the precomputed shadows. The CSMs don’t know what color the ambient indirect light is and cannot blend accurately.
+AFTER With indirect lighting data available, the grey is gone and the CSMs now blend perfectly with the blue ambient lighting.
+[/quote]
+
+[quote=&quot;Valve&quot;]
+
+[/quote]
+[img]https://wiki.blackmesasource.com/images//6/6a/Shot13.jpg[/img]
+In here it&#39;s not that big of a problem, but sometimes a lot of explosions tend to happen on-screen while in a fight, and I have died a couple of times because of the fps dropping to like 15, making aiming a pretty much impossible task.</description>
+    
+    <lastBuildDate>Sat, 06 Aug 2016 11:13:15 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/cascade-shadow-maps-bug-and-horrible-particle-performance/14894.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Cascade shadow maps bug, and horrible particle performance</title>
+        <dc:creator><![CDATA[Vel0city]]></dc:creator>
+        <description><![CDATA[
+            <p>Let’s get right to it.</p>
+<p>1: cascaded shadow maps aren’t blending in perfectly with the world:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/OWcRv8k.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/OWcRv8k.jpg" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1200</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>I remember Valve also having this issue and then talking about how they fixed it in a map workshop blog post in CS:GO (<a href="https://blog.counter-strike.net/workshop/maps.php#cascade_shadow" data-bbcode="true" rel="nofollow noopener">https://blog.counter-strike.net/workshop/maps.php#cascade_shadow</a>). This is what Valve had to say about it:</p>
+<aside class="quote no-group" data-username="Valve">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/v/41988e/40.png" class="avatar"> Valve:</div>
+<blockquote>
+<p><img src="https://media.steampowered.com/apps/csgo/blog/images/workshop/lighting/05.png" alt="" width="690" height="213">One last thing we wanted to upgrade was how our cascade shadow maps interact with pre-computed lighting in our levels; Cascade shadow maps (CSMs) are our dynamic, high quality real-time shadows which can be seen in outdoor areas of Nuke and other maps.</p>
+<p>To tackle this problem we separated all direct and indirect precomputed lighting data and use these two data sets to accurately blend our cascade shadow maps into the scene. This allows indirect and ambient lighting to alter the shadow color and strength in a much more natural way:<br>
+BEFORE Note the grey area between the CSM and the precomputed shadows. The CSMs don’t know what color the ambient indirect light is and cannot blend accurately.<br>
+AFTER With indirect lighting data available, the grey is gone and the CSMs now blend perfectly with the blue ambient lighting.</p>
+</blockquote>
+</aside>
+<aside class="quote no-group" data-username="Valve">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/v/41988e/40.png" class="avatar"> Valve:</div>
+<blockquote></blockquote>
+</aside>
+<p><img src="https://wiki.blackmesasource.com/images//6/6a/Shot13.jpg" alt="" width="" height=""><br>
+In here it’s not that big of a problem, but sometimes a lot of explosions tend to happen on-screen while in a fight, and I have died a couple of times because of the fps dropping to like 15, making aiming a pretty much impossible task.</p>
+          <p><a href="https://leakfree.org/t/cascade-shadow-maps-bug-and-horrible-particle-performance/14894/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cascade-shadow-maps-bug-and-horrible-particle-performance/14894/1</link>
+        <pubDate>Sat, 06 Aug 2016 11:13:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14894-1</guid>
+        <source url="https://leakfree.org/t/cascade-shadow-maps-bug-and-horrible-particle-performance/14894.rss">Cascade shadow maps bug, and horrible particle performance</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>[Tutorial] TOW missle system</title>
+    <link>https://leakfree.org/t/tutorial-tow-missle-system/11639</link>
+    <description>Setting up the TOW is very simular to the way the [url=&#39;https://forums.blackmesasource.com/showthread.php?t=14981&#39;]50. cal[/url] works. The difference is that the TOW&#39;s ammo is fed manually by the player. 
+
+1. Create a prop_dynamic
+Name: tow_launcher_model
+Model: models/props_marines/tow_missile_system.mdl
+
+2. Create a brush behind the TOW model in which the player can stand and turn it into func_multiple. 
+Name: tow_control
+Tag Flags: Clients
+
+3. Create a brush ( l:64, w:16, h:8 ) with the toolsinvisible texture and make it cover the length of the barrel. Turn it into a func_tow. Make sure the origin of this brush is moved to the middle of the TOW model, right at the pivot where it can rotate and move up and down. Turn the angle in the direction of the brush according to the direction of the model.
+
+Name: tow_launcher
+Parent: tow_launcher_model
+Control Volume: tow_control
+
+These settings control the movement range (Yaw=horizontal, pitch=vertical):
+Yaw rate: 45
+Yaw  range: 120
+Pitch rate: 45
+Pitch range: 15
+
+These settings connect the model animations to the func_tow:
+Gun Base Attachment: animation
+Gun Barrel Attachment: muzzle
+Gun Yaw Post Param: aim_yaw
+Gun pitch Pose Param: aim_pitch
+
+Tag Flags: Active, Only Direct, Controllable, Non-Solid.
+
+4. Now place a few item_tow_missle entities around. These are the missles to feed into the launcher. You should be left with something simular to this:
+
+[img]https://www.deved-portal.com/hezus/up/tutorials/tow_1.png[/img]
+
+Compile and witness the destruction!
+
+5. If you want the TOW to have more ammo, you can set up a missle spawner. Create an npc_maker.
+Name: tow_spawner
+Numb. of NPCs: 50
+Class name of spawned NPC: item_tow_missile (type, don&#39;t select from menu)
+
+Now go into the func_tow&#39;s output and enter:
+OnFire &gt; tow_spawner &gt; Spawn (Delay: 3)
+
+6. You can also set up the TOW to be NPC controlled, although only the player can reload the weapon, so enemy grunts can only fire one shot, which makes them pretty useless. In theory you could set up a friendly NPC to control the launcher, so the player can reload the weapon while he fires, although it seems Barney doesn&#39;t want to control the TOW in the current version of BM. You might be able to come up with some clever solution like a model replacement of a grunt with ai_relations or something. If you really want to set up a NPC controlled TOW, refer the the example RMF below.
+
+[url=&#39;https://www.deved-portal.com/hezus/up/tutorials/tow_tutorial.zip&#39;]Example RMF[/url]</description>
+    
+    <lastBuildDate>Thu, 08 Nov 2012 12:15:34 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/tutorial-tow-missle-system/11639.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>[Tutorial] TOW missle system</title>
+        <dc:creator><![CDATA[Chickenprotector]]></dc:creator>
+        <description><![CDATA[
+            <p>Found a convar “sk_debug_gargantua_death” it’ll die to explosives then, and just turn into gibs (no explosions, etc), but beyond that, I can’t do anything more. Gotta agree with you Hezus, I do hope they add that in later on.</p>
+          <p><a href="https://leakfree.org/t/tutorial-tow-missle-system/11639/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-tow-missle-system/11639/7</link>
+        <pubDate>Thu, 08 Nov 2012 12:15:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11639-7</guid>
+        <source url="https://leakfree.org/t/tutorial-tow-missle-system/11639.rss">[Tutorial] TOW missle system</source>
+      </item>
+      <item>
+        <title>[Tutorial] TOW missle system</title>
+        <dc:creator><![CDATA[Hezus]]></dc:creator>
+        <description><![CDATA[
+            <p>Little update on the garg question:</p>
+<p>I’ve been experimenting but apparently the garg is only set up to work in scripted sequences. The entity supports no parents so you can’t manualy add sequences or explosions to him. Plus, it has only very specific death animations, which would look odd in a normal fight. Even if you came up with a creative way for it to take damage, it would still look dodgy when he dies.</p>
+<p>With a little luck the Dev’s update the Garg with proper animations and health system for the Xen update.</p>
+          <p><a href="https://leakfree.org/t/tutorial-tow-missle-system/11639/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-tow-missle-system/11639/6</link>
+        <pubDate>Thu, 08 Nov 2012 11:20:25 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11639-6</guid>
+        <source url="https://leakfree.org/t/tutorial-tow-missle-system/11639.rss">[Tutorial] TOW missle system</source>
+      </item>
+      <item>
+        <title>[Tutorial] TOW missle system</title>
+        <dc:creator><![CDATA[Hezus]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Chickenprotector">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/chickenprotector/40/5653_2.png" class="avatar"> Chickenprotector:</div>
+<blockquote>
+<p>… actually the devs rigged it to only be killed by scripted sequences, doesn’t matter how much ammunition you throw at it, it won’t die.</p>
+</blockquote>
+</aside>
+<p>Hmm… that surely complicates things. I do have some ideas for a work-around, though. I’ll fiddle around a bit and see if I can get it to work.</p>
+          <p><a href="https://leakfree.org/t/tutorial-tow-missle-system/11639/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-tow-missle-system/11639/5</link>
+        <pubDate>Tue, 06 Nov 2012 09:54:51 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11639-5</guid>
+        <source url="https://leakfree.org/t/tutorial-tow-missle-system/11639.rss">[Tutorial] TOW missle system</source>
+      </item>
+      <item>
+        <title>[Tutorial] TOW missle system</title>
+        <dc:creator><![CDATA[Chickenprotector]]></dc:creator>
+        <description><![CDATA[
+            <p>… actually the devs rigged it to only be killed by scripted sequences, doesn’t matter how much ammunition you throw at it, it won’t die.</p>
+          <p><a href="https://leakfree.org/t/tutorial-tow-missle-system/11639/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-tow-missle-system/11639/4</link>
+        <pubDate>Mon, 05 Nov 2012 23:37:50 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11639-4</guid>
+        <source url="https://leakfree.org/t/tutorial-tow-missle-system/11639.rss">[Tutorial] TOW missle system</source>
+      </item>
+      <item>
+        <title>[Tutorial] TOW missle system</title>
+        <dc:creator><![CDATA[Hezus]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="TehBoxNoob">
+<div class="title">
+<div class="quote-controls"></div>
+ TehBoxNoob:</div>
+<blockquote>
+<p>Damn you’re fast with things like this.<br>
+Are you also gonna make a tutorial to kill a Garg?</p>
+</blockquote>
+</aside>
+<p>Sometimes when I have to figure something out for my own project, I also write a tutorial in the process, so I can share that knowledge with other people. Thusfar I have not used a garg, so there is no tutorial about that, yet.</p>
+<p>If it works the same as in HL1, killing a garg is handled code-wise mostly. It’s probably precoded to only take damage from explosives. But I’ll have to look into that first to make sure.</p>
+          <p><a href="https://leakfree.org/t/tutorial-tow-missle-system/11639/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-tow-missle-system/11639/3</link>
+        <pubDate>Mon, 05 Nov 2012 22:10:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11639-3</guid>
+        <source url="https://leakfree.org/t/tutorial-tow-missle-system/11639.rss">[Tutorial] TOW missle system</source>
+      </item>
+      <item>
+        <title>[Tutorial] TOW missle system</title>
+        <dc:creator><![CDATA[D3lta]]></dc:creator>
+        <description><![CDATA[
+            <p>Damn you’re fast with things like this.<br>
+Are you also gonna make a tutorial to kill a Garg?</p>
+          <p><a href="https://leakfree.org/t/tutorial-tow-missle-system/11639/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-tow-missle-system/11639/2</link>
+        <pubDate>Mon, 05 Nov 2012 19:15:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11639-2</guid>
+        <source url="https://leakfree.org/t/tutorial-tow-missle-system/11639.rss">[Tutorial] TOW missle system</source>
+      </item>
+      <item>
+        <title>[Tutorial] TOW missle system</title>
+        <dc:creator><![CDATA[Hezus]]></dc:creator>
+        <description><![CDATA[
+            <p>Setting up the TOW is very simular to the way the <a href="https://forums.blackmesasource.com/showthread.php?t=14981" data-bbcode="true" rel="nofollow noopener">50. cal</a> works. The difference is that the TOW’s ammo is fed manually by the player.</p>
+<ol>
+<li>
+<p>Create a prop_dynamic<br>
+Name: tow_launcher_model<br>
+Model: models/props_marines/tow_missile_system.mdl</p>
+</li>
+<li>
+<p>Create a brush behind the TOW model in which the player can stand and turn it into func_multiple.<br>
+Name: tow_control<br>
+Tag Flags: Clients</p>
+</li>
+<li>
+<p>Create a brush ( l:64, w:16, h:8 ) with the toolsinvisible texture and make it cover the length of the barrel. Turn it into a func_tow. Make sure the origin of this brush is moved to the middle of the TOW model, right at the pivot where it can rotate and move up and down. Turn the angle in the direction of the brush according to the direction of the model.</p>
+</li>
+</ol>
+<p>Name: tow_launcher<br>
+Parent: tow_launcher_model<br>
+Control Volume: tow_control</p>
+<p>These settings control the movement range (Yaw=horizontal, pitch=vertical):<br>
+Yaw rate: 45<br>
+Yaw  range: 120<br>
+Pitch rate: 45<br>
+Pitch range: 15</p>
+<p>These settings connect the model animations to the func_tow:<br>
+Gun Base Attachment: animation<br>
+Gun Barrel Attachment: muzzle<br>
+Gun Yaw Post Param: aim_yaw<br>
+Gun pitch Pose Param: aim_pitch</p>
+<p>Tag Flags: Active, Only Direct, Controllable, Non-Solid.</p>
+<ol start="4">
+<li>Now place a few item_tow_missle entities around. These are the missles to feed into the launcher. You should be left with something simular to this:</li>
+</ol>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<p>Compile and witness the destruction!</p>
+<ol start="5">
+<li>If you want the TOW to have more ammo, you can set up a missle spawner. Create an npc_maker.<br>
+Name: tow_spawner<br>
+Numb. of NPCs: 50<br>
+Class name of spawned NPC: item_tow_missile (type, don’t select from menu)</li>
+</ol>
+<p>Now go into the func_tow’s output and enter:<br>
+OnFire &gt; tow_spawner &gt; Spawn (Delay: 3)</p>
+<ol start="6">
+<li>You can also set up the TOW to be NPC controlled, although only the player can reload the weapon, so enemy grunts can only fire one shot, which makes them pretty useless. In theory you could set up a friendly NPC to control the launcher, so the player can reload the weapon while he fires, although it seems Barney doesn’t want to control the TOW in the current version of BM. You might be able to come up with some clever solution like a model replacement of a grunt with ai_relations or something. If you really want to set up a NPC controlled TOW, refer the the example RMF below.</li>
+</ol>
+<p><a href="https://www.deved-portal.com/hezus/up/tutorials/tow_tutorial.zip" data-bbcode="true" rel="nofollow noopener">Example RMF</a></p>
+          <p><a href="https://leakfree.org/t/tutorial-tow-missle-system/11639/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-tow-missle-system/11639/1</link>
+        <pubDate>Mon, 05 Nov 2012 10:46:46 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11639-1</guid>
+        <source url="https://leakfree.org/t/tutorial-tow-missle-system/11639.rss">[Tutorial] TOW missle system</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>How do the lights in Black Mesa work?</title>
+    <link>https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398</link>
+    <description>Yeah, I decompiled the BM maps and looked at the light entities, but why do they set the 50% and 0% distance variables to a certain number? 
+
+Also, they have odd combinations of values for the constant, quadratic, and linear variables. I was wondering how they would go about choosing appropriate values for those variables for the best lighting?
+
+Thanks.</description>
+    
+    <lastBuildDate>Fri, 27 Sep 2013 20:56:58 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>How do the lights in Black Mesa work?</title>
+        <dc:creator><![CDATA[Peter_Brev]]></dc:creator>
+        <description><![CDATA[
+            <p>My personal advice is to set up your light_spot entity in your world and play around with the color, brightness, C:L:Q values and Fall off distances.</p>
+          <p><a href="https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398/9</link>
+        <pubDate>Fri, 27 Sep 2013 20:56:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12398-9</guid>
+        <source url="https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398.rss">How do the lights in Black Mesa work?</source>
+      </item>
+      <item>
+        <title>How do the lights in Black Mesa work?</title>
+        <dc:creator><![CDATA[Mabilis]]></dc:creator>
+        <description><![CDATA[
+            <p><a href="https://developer.valvesoftware.com/wiki/Intermediate_Lighting" data-bbcode="true" rel="nofollow noopener">https://developer.valvesoftware.com/wiki/Intermediate_Lighting</a><br>
+<a href="https://developer.valvesoftware.com/wiki/Advanced_Lighting" data-bbcode="true" rel="nofollow noopener">https://developer.valvesoftware.com/wiki/Advanced_Lighting</a><br>
+<a href="https://developer.valvesoftware.com/wiki/Constant-Linear-Quadratic_Falloff" data-bbcode="true" rel="nofollow noopener">https://developer.valvesoftware.com/wiki/Constant-Linear-Quadratic_Falloff</a><br>
+<a href="https://developer.valvesoftware.com/wiki/Lighting" data-bbcode="true" rel="nofollow noopener">https://developer.valvesoftware.com/wiki/Lighting</a></p>
+<p>It’s all in the developer wiki.</p>
+          <p><a href="https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398/8</link>
+        <pubDate>Tue, 24 Sep 2013 22:07:30 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12398-8</guid>
+        <source url="https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398.rss">How do the lights in Black Mesa work?</source>
+      </item>
+      <item>
+        <title>How do the lights in Black Mesa work?</title>
+        <dc:creator><![CDATA[Moran]]></dc:creator>
+        <description><![CDATA[
+            <p>I see.</p>
+<p>Also, the BMS team who did the blocklight textures on the grate somehow got them to work correctly. When I try to do it in my game, the walls start to have holes in them. It’s weird.</p>
+<p>Map I’m referencing is BM_c1a4a.</p>
+          <p><a href="https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398/7</link>
+        <pubDate>Mon, 22 Jul 2013 21:22:51 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12398-7</guid>
+        <source url="https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398.rss">How do the lights in Black Mesa work?</source>
+      </item>
+      <item>
+        <title>How do the lights in Black Mesa work?</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Moran">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/m/cc9497/40.png" class="avatar"> Moran:</div>
+<blockquote>
+<p>Also, I notice that the lights in Black Mesa are exceptionally bright and uhm… “realistic,” IMHO. Trying to take some of these lights to other Source games makes them look terrible.</p>
+<p>How is that so? Is it the settings in the game?</p>
+</blockquote>
+</aside>
+<p>Most probably the lightmap scales they use and the nature of their textures/environmental lighting. Some types of light look horrible if put in the wrong environmental light with a bad lightmap scale, but look amazing in the right environmental light.</p>
+<p>Lighting isn’t just about the individual lights and their settings. It’s a culmination of the textures, colour schemes, mood, area design, etc etc. Taking a light from one area and putting it into another, totally different area, will often look really bad for this reason. I highly, highly doubt there’s anything special about Black Mesa or its version of the Source engine that makes it calculate lighting differently. They’ve just really refined their usage of lighting techniques to a fine art.</p>
+          <p><a href="https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398/6</link>
+        <pubDate>Mon, 22 Jul 2013 17:33:36 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12398-6</guid>
+        <source url="https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398.rss">How do the lights in Black Mesa work?</source>
+      </item>
+      <item>
+        <title>How do the lights in Black Mesa work?</title>
+        <dc:creator><![CDATA[Moran]]></dc:creator>
+        <description><![CDATA[
+            <p>Also, I notice that the lights in Black Mesa are exceptionally bright and uhm… “realistic,” IMHO. Trying to take some of these lights to other Source games makes them look terrible.</p>
+<p>How is that so? Is it the settings in the game?</p>
+          <p><a href="https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398/5</link>
+        <pubDate>Mon, 22 Jul 2013 16:30:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12398-5</guid>
+        <source url="https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398.rss">How do the lights in Black Mesa work?</source>
+      </item>
+      <item>
+        <title>How do the lights in Black Mesa work?</title>
+        <dc:creator><![CDATA[Moran]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<p>It’s normally trial and error, would be my guess. It really depends on what the mapper wants to do with the light. I do think that Black Mesa’s lights are fantastic though, it’s clear they’ve refined their lighting and the methods they used for them an awful lot. As a mapper working on my own BM Projects myself, I’ve hardly ever deviated from emulating their style of lighting, because it’s just so good.</p>
+<p>For example, to make a lightpost which illuminates a large area, it is a lot better to have a medium brightness light with a high constant ratio and a set 50% and 0% falloff distance, than the alternative. What most mappers do is they normally just make the light from something like a lightpost into a really bright light to make it illuminate a large area. The problem with this - particularly with the default 100% quadratic ratio, is that it’s very very bright where the light originates from, and drops off very quickly - which can look unnatural depending on the light.</p>
+<p>Playing around with the c:l:q ratio and the 50%/0% falloff gives you great control over how the light falls off and can go a long way to making lighting looking more natural when you need it to. Though 100% quadratic looks alright, more customized ratios can look a lot better depending on what the mapper’s looking for.</p>
+<p>Hope this has helped!</p>
+</blockquote>
+</aside>
+<p>It has, it has.</p>
+<p>However, how do you go about illuminating this large area with regards to linear and quadratic factors? When do you find it appropriate to make those two values bigger than the constant value or one another, etc.?</p>
+          <p><a href="https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398/4</link>
+        <pubDate>Thu, 18 Jul 2013 17:13:46 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12398-4</guid>
+        <source url="https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398.rss">How do the lights in Black Mesa work?</source>
+      </item>
+      <item>
+        <title>How do the lights in Black Mesa work?</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>It’s normally trial and error, would be my guess. It really depends on what the mapper wants to do with the light. I do think that Black Mesa’s lights are fantastic though, it’s clear they’ve refined their lighting and the methods they used for them an awful lot. As a mapper working on my own BM Projects myself, I’ve hardly ever deviated from emulating their style of lighting, because it’s just so good.</p>
+<p>For example, to make a lightpost which illuminates a large area, it is a lot better to have a medium brightness light with a high constant ratio and a set 50% and 0% falloff distance, than the alternative. What most mappers do is they normally just make the light from something like a lightpost into a really bright light to make it illuminate a large area. The problem with this - particularly with the default 100% quadratic ratio, is that it’s very very bright where the light originates from, and drops off very quickly - which can look unnatural depending on the light.</p>
+<p>Playing around with the c:l:q ratio and the 50%/0% falloff gives you great control over how the light falls off and can go a long way to making lighting looking more natural when you need it to. Though 100% quadratic looks alright, more customized ratios can look a lot better depending on what the mapper’s looking for.</p>
+<p>Hope this has helped!</p>
+          <p><a href="https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398/3</link>
+        <pubDate>Thu, 18 Jul 2013 16:46:38 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12398-3</guid>
+        <source url="https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398.rss">How do the lights in Black Mesa work?</source>
+      </item>
+      <item>
+        <title>How do the lights in Black Mesa work?</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>Experimentation, I’d imagine.<br>
+Also, BSP decompilation isn’t perfect.</p>
+          <p><a href="https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398/2</link>
+        <pubDate>Thu, 18 Jul 2013 16:46:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12398-2</guid>
+        <source url="https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398.rss">How do the lights in Black Mesa work?</source>
+      </item>
+      <item>
+        <title>How do the lights in Black Mesa work?</title>
+        <dc:creator><![CDATA[Moran]]></dc:creator>
+        <description><![CDATA[
+            <p>Yeah, I decompiled the BM maps and looked at the light entities, but why do they set the 50% and 0% distance variables to a certain number?</p>
+<p>Also, they have odd combinations of values for the constant, quadratic, and linear variables. I was wondering how they would go about choosing appropriate values for those variables for the best lighting?</p>
+<p>Thanks.</p>
+          <p><a href="https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398/1</link>
+        <pubDate>Thu, 18 Jul 2013 16:20:45 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12398-1</guid>
+        <source url="https://leakfree.org/t/how-do-the-lights-in-black-mesa-work/12398.rss">How do the lights in Black Mesa work?</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Music and Map Transitions</title>
+    <link>https://leakfree.org/t/music-and-map-transitions/12535</link>
+    <description>One thing that&#39;s always annoyed me (especially in the HL2 games) is how the music stops at loading screens. The worst part is that, often, when the next map loads, you are often continuing the same action that the music scored in the last map, yet now you&#39;re music-less.
+
+I know even Valve&#39;s more current games like Portal 2 have this issue (even though, they are gracious enough to let the music fade out instead of it just suddenly stopping), and I noticed how Black Mesa skirted the issue by timing the tracks and designing the maps so that the song is guaranteed to be finished by the time the next map transition hits (if the game is played as intended). Joel also split the Inbound theme into 3 parts for the same reason.
+
+I&#39;ve heard that the reason this happens is because the sounds are linked to the maps, so when a new map loads, the sound isn&#39;t in that new map, thus it stops. I&#39;m not sure if this really is the issue, but I just wanted to bring it up.
+
+Valve &quot;recently&quot; updated the Steam version of Half-Life (Goldsrc version) to now play music through the map transitions. Is this possible in the Source engine? And if so, if somebody could point me in the right direction to fixing it, that&#39;d be tremendous. Even if it involves writing a CD with the music on it, or something like that.
+
+TL;DR: I hate it when music stops at level transitions. Why does this happen, and how can I fix it?
+
+Thanks!
+Swaggless</description>
+    
+    <lastBuildDate>Sat, 28 Sep 2013 19:35:18 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/music-and-map-transitions/12535.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Music and Map Transitions</title>
+        <dc:creator><![CDATA[Peter_Brev]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Hawk-kun">
+<div class="title">
+<div class="quote-controls"></div>
+ Hawk-kun:</div>
+<blockquote>
+<p>couldn’t they put a music trigger at the start of the next map?</p>
+<p>my problem is that the tracks are too SHORT…</p>
+</blockquote>
+</aside>
+<p>It would just replay the music from the beginning.</p>
+<p>The best way to do it, is to create a looping music that plays right after the level changes.</p>
+          <p><a href="https://leakfree.org/t/music-and-map-transitions/12535/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-and-map-transitions/12535/15</link>
+        <pubDate>Sat, 28 Sep 2013 19:35:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12535-15</guid>
+        <source url="https://leakfree.org/t/music-and-map-transitions/12535.rss">Music and Map Transitions</source>
+      </item>
+      <item>
+        <title>Music and Map Transitions</title>
+        <dc:creator><![CDATA[Vinylshadow]]></dc:creator>
+        <description><![CDATA[
+            <p>couldn’t they put a music trigger at the start of the next map?</p>
+<p>my problem is that the tracks are too SHORT…</p>
+          <p><a href="https://leakfree.org/t/music-and-map-transitions/12535/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-and-map-transitions/12535/14</link>
+        <pubDate>Sat, 28 Sep 2013 19:14:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12535-14</guid>
+        <source url="https://leakfree.org/t/music-and-map-transitions/12535.rss">Music and Map Transitions</source>
+      </item>
+      <item>
+        <title>Music and Map Transitions</title>
+        <dc:creator><![CDATA[Swaggless]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Cheerios4606">
+<div class="title">
+<div class="quote-controls"></div>
+ Cheerios4606:</div>
+<blockquote>
+<p>I believe the problem has to do with it being the same ‘trigger’ for both reloading of map and loading of next map.</p>
+<p>If it is loading of the next map it isnt a problem, but if you do a reload of a map because you died, you now may face hearing the middle to ending of a song as well as an overlapping restart of the song.</p>
+</blockquote>
+</aside>
+<p>Yes, I can see how this’d be a problem. In the HL2 games (last I checked), when you die during a song, if you reload to a time after the song trigger, but before the song ends (or the map changes) the song will just not play on your reload.</p>
+<p>I never minded this too much, because it’s like a reward for completing the section the first time. What I don’t like, however, if the “punishment” for finishing the map quickly (having the song stop abruptly)</p>
+<p>As for the songs overlapping, in my reading on FMOD, there is a “is sound playing” type command, so I could theoretically have it check if the song is playing already, and have it not play the song again, That that be the case. I may also be able to rig up a way for the song to stop playing when the player dies. That should clear up the issue of reloading the same map, and loading the next map being the same trigger!</p>
+<p>I don’t really know for sure at this point. I’m still trying to figure out where to start!  <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"><br>
+I’m gonna keep on poking around for info, of course, but does anyone know where the  code<br>
+that handles music queues is located, or if I’ll have to decompile the maps and edit the triggers in there?</p>
+          <p><a href="https://leakfree.org/t/music-and-map-transitions/12535/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-and-map-transitions/12535/13</link>
+        <pubDate>Wed, 11 Sep 2013 02:42:12 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12535-13</guid>
+        <source url="https://leakfree.org/t/music-and-map-transitions/12535.rss">Music and Map Transitions</source>
+      </item>
+      <item>
+        <title>Music and Map Transitions</title>
+        <dc:creator><![CDATA[Cheerios]]></dc:creator>
+        <description><![CDATA[
+            <p>I believe the problem has to do with it being the same ‘trigger’ for both reloading of map and loading of next map.</p>
+<p>If it is loading of the next map it isnt a problem, but if you do a reload of a map because you died, you now may face hearing the middle to ending of a song as well as an overlapping restart of the song.</p>
+          <p><a href="https://leakfree.org/t/music-and-map-transitions/12535/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-and-map-transitions/12535/12</link>
+        <pubDate>Tue, 10 Sep 2013 18:48:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12535-12</guid>
+        <source url="https://leakfree.org/t/music-and-map-transitions/12535.rss">Music and Map Transitions</source>
+      </item>
+      <item>
+        <title>Music and Map Transitions</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username=".RK">
+<div class="title">
+<div class="quote-controls"></div>
+ .RK:</div>
+<blockquote>
+<p>episode 3</p>
+</blockquote>
+</aside>
+<p>:[</p>
+<p>But seriously, though, I like the idea of having the music fade out post-battle. It wouldn’t even be hard, just put a trigger at a certain point after the battle was supposed to have taken place.</p>
+          <p><a href="https://leakfree.org/t/music-and-map-transitions/12535/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-and-map-transitions/12535/11</link>
+        <pubDate>Tue, 10 Sep 2013 06:41:48 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12535-11</guid>
+        <source url="https://leakfree.org/t/music-and-map-transitions/12535.rss">Music and Map Transitions</source>
+      </item>
+      <item>
+        <title>Music and Map Transitions</title>
+        <dc:creator><![CDATA[RK1]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Dr. Maxwell">
+<div class="title">
+<div class="quote-controls"></div>
+ Dr. Maxwell:</div>
+<blockquote>
+<p>-snip-</p>
+</blockquote>
+</aside>
+<p>True, the music could be too long. But Vortal Combat is too long for where it plays too (episode 2, fighting off antlions with griggs and sheckley). This could be solved like they did there; have the music fade out after making it through the battle.</p>
+          <p><a href="https://leakfree.org/t/music-and-map-transitions/12535/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-and-map-transitions/12535/10</link>
+        <pubDate>Tue, 10 Sep 2013 00:47:52 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12535-10</guid>
+        <source url="https://leakfree.org/t/music-and-map-transitions/12535.rss">Music and Map Transitions</source>
+      </item>
+      <item>
+        <title>Music and Map Transitions</title>
+        <dc:creator><![CDATA[Swaggless]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Crypt19">
+<div class="title">
+<div class="quote-controls"></div>
+ Crypt19:</div>
+<blockquote>
+<p>I’m pretty sure that page is implementing it into <span class="bbcode-i">Source</span>, so you should be set no matter what.</p>
+</blockquote>
+</aside>
+<p>Yes, on further inspection, it is. I only skimmed the page before, but I got to read it all of the way through today. I do know how to do <span class="bbcode-i">some</span> programming, but these are unfamiliar, and vast waters. :fffuuu:</p>
+<p>From what I can gather, all of the music and sounds in Source are played through it’s proprietary(?) sound system, “Miles”. “FMOD” is a separate program that runs at the same time as the game, and the game can send out commands to FMOD telling it what to do. I don’t want to re-do and port Half-Life 2s entire audio system, because the sound effects and voices are fine. I just want to move the <span class="bbcode-i">soundtrack</span> to FMOD, which I assume requires me to remove the soundtrack queues from Miles, and have it call FMOD instead. I probably need to grab the MP3s out of the old GCFs and store those separately in an accessible location. I doubt that FMOD knows how to read files from GCFs or VPKs.</p>
+<p>Again, any insight or pointers are welcome, and if anyone knows a useful website or page, that’d be awesome! I’ll be doing plenty of digging on my own as well, of course.  <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+          <p><a href="https://leakfree.org/t/music-and-map-transitions/12535/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-and-map-transitions/12535/9</link>
+        <pubDate>Sat, 07 Sep 2013 20:03:48 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12535-9</guid>
+        <source url="https://leakfree.org/t/music-and-map-transitions/12535.rss">Music and Map Transitions</source>
+      </item>
+      <item>
+        <title>Music and Map Transitions</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m pretty sure that page is implementing it into <span class="bbcode-i">Source</span>, so you should be set no matter what.</p>
+<aside class="quote no-group" data-username="Dr. Maxwell">
+<div class="title">
+<div class="quote-controls"></div>
+ Dr. Maxwell:</div>
+<blockquote>
+<p>The thing that annoys me is that the Forget About Freeman final battle is poorly designed,</p>
+</blockquote>
+</aside>
+<p>Hardly, because…</p>
+<aside class="quote no-group">
+<blockquote>
+<p>Hell, on my playthroughs, I find that the best course of action is to simply run past the battle, causing nearly all of the Forget About Freeman track to play in the elevator to Lambda Core, which it is hilariously ill-suited for.</p>
+</blockquote>
+</aside>
+<p>…the track was designed for that <span class="bbcode-i">battle.</span> You’re problem is with you running past the battle rather than playing it like the game intends. That’s like complaining that enemies can’t attack you when bunnyhopping.</p>
+          <p><a href="https://leakfree.org/t/music-and-map-transitions/12535/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-and-map-transitions/12535/8</link>
+        <pubDate>Sat, 07 Sep 2013 19:01:39 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12535-8</guid>
+        <source url="https://leakfree.org/t/music-and-map-transitions/12535.rss">Music and Map Transitions</source>
+      </item>
+      <item>
+        <title>Music and Map Transitions</title>
+        <dc:creator><![CDATA[Swaggless]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Dr. Maxwell">
+<div class="title">
+<div class="quote-controls"></div>
+ Dr. Maxwell:</div>
+<blockquote>
+<p>The thing that annoys me is that the Forget About Freeman final battle is poorly designed, so the awesome Forget About Freeman track is much, much too long for it.  Hell, on my playthroughs, I find that the best course of action is to simply run past the battle, causing nearly all of the Forget About Freeman track to play in the elevator to Lambda Core, which it is hilariously ill-suited for.</p>
+</blockquote>
+</aside>
+<aside class="quote no-group" data-username="Dr. Maxwell">
+<div class="title">
+<div class="quote-controls"></div>
+ Dr. Maxwell:</div>
+<blockquote>
+<p>“Don’t run past any battles.”</p>
+<p>Immersion.  You’re supposed to be Freeman.  If my Freeman sees a way to get through a scuffle more safely by promptly running to the nearest exit instead of engaging, he’s damn well going to do it.</p>
+</blockquote>
+</aside>
+<p>I do the same thing… except I kind of like the music in the elevator… I kind of feel like that music represents the chaos on the surface… Chaos I am leaving behind… Besides, having the doors open to that pool of toxic goo kind of makes it feel like the pressure’s still on… I dunno. It still works for me.</p>
+<aside class="quote no-group" data-username="Crypt19">
+<div class="title">
+<div class="quote-controls"></div>
+ Crypt19:</div>
+<blockquote>
+<p>FMOD is a thing. Maybe when the mod goes open someone’ll get that fixed up.</p>
+</blockquote>
+</aside>
+<p>Now, what is FMOD? Because, Black Mesa was designed with the idea of not letting the tracks reach the end of a map… Half-Life 2 was not. I’m more looking to fix HL2 (+episodes) rather than BM. HL2s code is open, isn’t it? Could FMOD (depending on what it is…) be applied or referenced to help make this possible for HL2?</p>
+<p><span class="bbcode-b"><span class="bbcode-u">EDIT:</span></span> Ahh. <a href="https://developer.valvesoftware.com/wiki/Implementing_FMOD" data-bbcode="true" rel="nofollow noopener">I see now.</a> I’ll have to look at this later. I did see that it mentions music playing while a map is loading.</p>
+<p>Then again, this is referring to making mods…  but I’m trying to mod HL2, not make a standalone mod… Furthur reading is required!  <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+<p>If anyone has any tips or anything, or can point me to another good page with info, I’d appreciate it! Thanks!</p>
+          <p><a href="https://leakfree.org/t/music-and-map-transitions/12535/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-and-map-transitions/12535/7</link>
+        <pubDate>Sat, 07 Sep 2013 03:29:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12535-7</guid>
+        <source url="https://leakfree.org/t/music-and-map-transitions/12535.rss">Music and Map Transitions</source>
+      </item>
+      <item>
+        <title>Music and Map Transitions</title>
+        <dc:creator><![CDATA[Dr_Maxwell]]></dc:creator>
+        <description><![CDATA[
+            <p>“Don’t run past any battles.”</p>
+<p>Immersion.  You’re supposed to be Freeman.  If my Freeman sees a way to get through a scuffle more safely by promptly running to the nearest exit instead of engaging, he’s damn well going to do it.</p>
+          <p><a href="https://leakfree.org/t/music-and-map-transitions/12535/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-and-map-transitions/12535/6</link>
+        <pubDate>Sat, 07 Sep 2013 03:12:06 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12535-6</guid>
+        <source url="https://leakfree.org/t/music-and-map-transitions/12535.rss">Music and Map Transitions</source>
+      </item>
+      <item>
+        <title>Music and Map Transitions</title>
+        <dc:creator><![CDATA[Medkit]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Dr. Maxwell">
+<div class="title">
+<div class="quote-controls"></div>
+ Dr. Maxwell:</div>
+<blockquote>
+<p>The thing that annoys me is that the Forget About Freeman final battle is poorly designed, so the awesome Forget About Freeman track is much, much too long for it.  Hell, on my playthroughs, I find that the best course of action is to simply run past the battle, causing nearly all of the Forget About Freeman track to play in the elevator to Lambda Core, which it is hilariously ill-suited for.</p>
+</blockquote>
+</aside>
+<p>Play on hard; don’t run past any battles and problem is solved.</p>
+          <p><a href="https://leakfree.org/t/music-and-map-transitions/12535/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-and-map-transitions/12535/5</link>
+        <pubDate>Sat, 07 Sep 2013 01:00:24 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12535-5</guid>
+        <source url="https://leakfree.org/t/music-and-map-transitions/12535.rss">Music and Map Transitions</source>
+      </item>
+      <item>
+        <title>Music and Map Transitions</title>
+        <dc:creator><![CDATA[Dr_Maxwell]]></dc:creator>
+        <description><![CDATA[
+            <p>The thing that annoys me is that the Forget About Freeman final battle is poorly designed, so the awesome Forget About Freeman track is much, much too long for it.  Hell, on my playthroughs, I find that the best course of action is to simply run past the battle, causing nearly all of the Forget About Freeman track to play in the elevator to Lambda Core, which it is hilariously ill-suited for.</p>
+          <p><a href="https://leakfree.org/t/music-and-map-transitions/12535/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-and-map-transitions/12535/4</link>
+        <pubDate>Fri, 06 Sep 2013 23:08:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12535-4</guid>
+        <source url="https://leakfree.org/t/music-and-map-transitions/12535.rss">Music and Map Transitions</source>
+      </item>
+      <item>
+        <title>Music and Map Transitions</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>FMOD is a thing. Maybe when the mod goes open someone’ll get that fixed up.</p>
+          <p><a href="https://leakfree.org/t/music-and-map-transitions/12535/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-and-map-transitions/12535/3</link>
+        <pubDate>Fri, 06 Sep 2013 21:25:10 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12535-3</guid>
+        <source url="https://leakfree.org/t/music-and-map-transitions/12535.rss">Music and Map Transitions</source>
+      </item>
+      <item>
+        <title>Music and Map Transitions</title>
+        <dc:creator><![CDATA[Medkit]]></dc:creator>
+        <description><![CDATA[
+            <p>The sudden stop of music, with the end of the map is no doubt an annoying thing, but I don’t think there is a way to fix that. There are only a very few features the team couldn’t realize they way they were in Half-Life. This is one of those.</p>
+          <p><a href="https://leakfree.org/t/music-and-map-transitions/12535/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-and-map-transitions/12535/2</link>
+        <pubDate>Fri, 06 Sep 2013 21:11:02 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12535-2</guid>
+        <source url="https://leakfree.org/t/music-and-map-transitions/12535.rss">Music and Map Transitions</source>
+      </item>
+      <item>
+        <title>Music and Map Transitions</title>
+        <dc:creator><![CDATA[Swaggless]]></dc:creator>
+        <description><![CDATA[
+            <p>One thing that’s always annoyed me (especially in the HL2 games) is how the music stops at loading screens. The worst part is that, often, when the next map loads, you are often continuing the same action that the music scored in the last map, yet now you’re music-less.</p>
+<p>I know even Valve’s more current games like Portal 2 have this issue (even though, they are gracious enough to let the music fade out instead of it just suddenly stopping), and I noticed how Black Mesa skirted the issue by timing the tracks and designing the maps so that the song is guaranteed to be finished by the time the next map transition hits (if the game is played as intended). Joel also split the Inbound theme into 3 parts for the same reason.</p>
+<p>I’ve heard that the reason this happens is because the sounds are linked to the maps, so when a new map loads, the sound isn’t in that new map, thus it stops. I’m not sure if this really is the issue, but I just wanted to bring it up.</p>
+<p>Valve “recently” updated the Steam version of Half-Life (Goldsrc version) to now play music through the map transitions. Is this possible in the Source engine? And if so, if somebody could point me in the right direction to fixing it, that’d be tremendous. Even if it involves writing a CD with the music on it, or something like that.</p>
+<p>TL;DR: I hate it when music stops at level transitions. Why does this happen, and how can I fix it?</p>
+<p>Thanks!<br>
+Swaggless</p>
+          <p><a href="https://leakfree.org/t/music-and-map-transitions/12535/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-and-map-transitions/12535/1</link>
+        <pubDate>Fri, 06 Sep 2013 21:05:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12535-1</guid>
+        <source url="https://leakfree.org/t/music-and-map-transitions/12535.rss">Music and Map Transitions</source>
+      </item>
+  </channel>
+</rss>

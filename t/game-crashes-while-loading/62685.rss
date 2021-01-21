@@ -1,0 +1,1017 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Game crashes while loading</title>
+    <link>https://leakfree.org/t/game-crashes-while-loading/62685</link>
+    <description>I was able to play the game just fine up until the Office Complex chapter (specifically the parts in the freezer). When I saved there and wanted to play the game again the next day, the game now gets past the Crowbar Collective logo but crashes with a popping noise while loading with the Office Complex chapter background.
+
+My specs are:
+OS: Ubuntu 18.04 bionic
+Kernel: x86_64 Linux 5.0.0-37-generic
+CPU: AMD Ryzen 7 1700 Eight-Core @ 16x 3GHz
+GPU: Radeon RX 580 Series
+OpenGL version string (glxinfo): 4.5 (Compatibility Profile) Mesa 19.0.8
+
+I was unable to follow the instructions to obtain a crash dump, but based on the format of other crash reports, I was able to locate this information in my `/tmp/dumps` folder:
+
+    Uptime( 68.767784 )
+    SourceMod:0,DS:0,Crash:1
+
+    Map: background04
+    Game: /mnt/data/Steam/steamapps/common/Black Mesa/bms
+    Build: 100001
+    Misc: skill:1 rate 80000 update 64 cmd 64 latency 0 msec
+    Net: loopback
+    cmdline:&quot;/mnt/data/Steam/steamapps/common/Black Mesa/bms_linux&quot; &quot;-game&quot; &quot;bms&quot; &quot;+developer&quot; &quot;0&quot; &quot;-steam&quot; &quot;-windowed&quot; &quot;-width&quot; &quot;1600&quot; &quot;-height&quot; &quot;900&quot;
+    driver: Driver Name:  X.Org (Radeon RX 580 Series (POLARIS10, DRM 3.27.0, 5.0.0-37-generic, LLVM 8.0.0)) 4.5 (Compatibility Profile) Mesa 19.0.8 - 1920x1080
+    Driver Version: 0.0.0.0
+    VendorId / DeviceId:  0x1 / 0x1
+    SubSystem / Rev:  0x0 / 0x0
+    DXLevel:  gamemode [95]
+    Vid:  1600 x 900
+    video: picmip: 0 forceansio: 1 trilinear: 0 antialias: 2 vsync: 0 rootlod: 0 reducefillrate: 0
+    shadowrendertotexture: 1 r_flashlightdepthtexture 1 waterforceexpensive: 1 waterforcereflectentities: 1 mat_motion_blur_enabled: 0 mat_queue_mode 0
+    OS: Ubuntu 5.0.0-37.40~18.04.1-generic 5.0.21
+    memallocfail? = 0
+    Active: active
+    SpawnCount 1 MapLoad Count 1
+    Error count 0, end demo 0, abort count 0
+    Launching &quot;&quot;/mnt/data/Steam/steamapps/common/Black Mesa/bms_linux&quot; &quot;-game&quot; &quot;bms&quot; &quot;+developer&quot; &quot;0&quot; &quot;-steam&quot; &quot;-windowed&quot; &quot;-width&quot; &quot;1600&quot; &quot;-height&quot; &quot;900&quot;&quot;
+
+    ConVars (non-default)
+
+    var value default
+    sk_npc_chest &#39;1.25&#39; &#39;1&#39;
+    sk_npc_arm &#39;0.8&#39; &#39;1&#39;
+    sk_npc_leg &#39;0.8&#39; &#39;1&#39;
+    ai_reaction_delay_idle &#39;0.9&#39; &#39;0.3&#39;
+    ai_reaction_delay_alert &#39;0.7&#39; &#39;0.1&#39;
+    npc_marines_melee_dmg &#39;20&#39; &#39;0&#39;
+    npc_marines_movement_speed &#39;1.25&#39; &#39;1.0&#39;
+    sk_zombie_dmg_one_slash &#39;20&#39; &#39;15&#39;
+    sk_zombie_dmg_both_slash &#39;40&#39; &#39;30&#39;
+    sk_npc_ricochet &#39;0.8&#39; &#39;&#39;
+    sk_gargantua_flame_dmg &#39;2&#39; &#39;9&#39;
+    sk_gargantua_flame_dmg_falloff_perc_dist &#39;64&#39; &#39;9&#39;
+    sk_gargantua_flame_dmg_falloff_perc &#39;0.1&#39; &#39;0&#39;
+    sk_mine_damage &#39;50&#39; &#39;0&#39;
+    sk_mine_bounds_xy &#39;24&#39; &#39;1&#39;
+    sk_mine_bounds_z &#39;64&#39; &#39;1&#39;
+    sk_mine_damage_radius &#39;128&#39; &#39;0&#39;
+    bm_50cal_scale &#39;1.25&#39; &#39;1.5&#39;
+    sk_detenator_bolt_airspeed &#39;2000&#39; &#39;5000&#39;
+    sk_detenator_bolt_plr_xplode_dmg &#39;50&#39; &#39;10&#39;
+    sk_detenator_bolt_plr_xplode_radius &#39;128&#39; &#39;30&#39;
+    sk_detenator_energy_track_acceleration &#39;650&#39; &#39;3500&#39;
+    sk_detenator_energy_plr_dmg &#39;3&#39; &#39;10&#39;
+    sk_detenator_energy_plr_dmg_radius &#39;128&#39; &#39;50&#39;
+    sk_detenator_energy_plr_commit_radius &#39;400&#39; &#39;0&#39;
+    sk_detenator_hornet_drunk_frequency &#39;0.2&#39; &#39;0.05&#39;
+    sk_detenator_hornet_npc_dmg &#39;12&#39; &#39;4&#39;
+    sk_grenade_mortar_dmg &#39;15&#39; &#39;60&#39;
+    sk_grenade_mortar_range &#39;400&#39; &#39;60&#39;
+    sk_grenade_mortar_shakeduration &#39;1.5&#39; &#39;60&#39;
+    sk_grenade_mortar_shakeradius &#39;640&#39; &#39;60&#39;
+    sk_detenator_rpg_track_max_distance &#39;8192&#39; &#39;4048&#39;
+    sk_detenator_rpg_track_acceleration &#39;1000&#39; &#39;400&#39;
+    sk_detenator_rpg_track_drag &#39;1&#39; &#39;0.8&#39;
+    sk_detenator_rpg_max_speed &#39;1500&#39; &#39;2000&#39;
+    sk_detenator_rpg_plr_dmg &#39;175&#39; &#39;100&#39;
+    sk_detenator_rpg_plr_dmg_radius &#39;300&#39; &#39;250&#39;
+    sk_detenator_satchel_plr_dmg &#39;150&#39; &#39;100&#39;
+    sk_detenator_satchel_plr_dmg_radius &#39;300&#39; &#39;250&#39;
+    sk_detenator_tripmine_plr_dmg &#39;150&#39; &#39;100&#39;
+    sk_detenator_tripmine_plr_dmg_radius &#39;300&#39; &#39;250&#39;
+    sk_detenator_tripmine_npc_dmg &#39;150&#39; &#39;30&#39;
+    sk_detenator_tripmine_npc_dmg_radius &#39;300&#39; &#39;75&#39;
+    sk_item_battery_value &#39;15&#39; &#39;25&#39;
+    sk_controller_health &#39;100&#39; &#39;0&#39;
+    sk_controller_max_linear_speed &#39;300&#39; &#39;0&#39;
+    sk_controller_max_linear_accel_f &#39;350&#39; &#39;0&#39;
+    sk_controller_max_linear_accel_r &#39;350&#39; &#39;0&#39;
+    sk_controller_max_linear_accel_u &#39;600&#39; &#39;0&#39;
+    sk_controller_throw_next_attack &#39;8&#39; &#39;0&#39;
+    sk_controller_lift_duration &#39;2.5&#39; &#39;0&#39;
+    sk_controller_min_small_eballs &#39;6&#39; &#39;0&#39;
+    sk_controller_max_small_eballs &#39;8&#39; &#39;0&#39;
+    sk_controller_max_large_eballs &#39;2&#39; &#39;0&#39;
+    sk_alien_grunt_health &#39;120&#39; &#39;0&#39;
+    sk_alien_grunt_hornet_min_range &#39;60&#39; &#39;0&#39;
+    sk_alien_grunt_hornet_max_range &#39;4096&#39; &#39;0&#39;
+    sk_alien_grunt_melee_range &#39;128&#39; &#39;0&#39;
+    sk_alien_grunt_melee_jump_range &#39;166&#39; &#39;0&#39;
+    sk_alien_grunt_melee_dmg &#39;30&#39; &#39;0&#39;
+    sk_alien_grunt_front_dmg_scale &#39;0.8&#39; &#39;0&#39;
+    sk_alien_grunt_turn_speed &#39;30&#39; &#39;0&#39;
+    sk_alien_grunt_burst_shot_count_min &#39;5&#39; &#39;0&#39;
+    sk_alien_grunt_burst_shot_count_max &#39;8&#39; &#39;0&#39;
+    sk_alien_grunt_shot_rest_interval_max &#39;2&#39; &#39;0&#39;
+    sk_alien_slave_health &#39;70&#39; &#39;0&#39;
+    sk_alien_slave_357_damage_scale &#39;1&#39; &#39;0&#39;
+    sk_alien_slave_dmg_zap &#39;30&#39; &#39;0&#39;
+    sk_alien_slave_dmg_claw &#39;20&#39; &#39;0&#39;
+    sk_alien_slave_zap_cone &#39;0.86602540378443864676372317075294&#39; &#39;0&#39;
+    sk_alien_slave_claw_range &#39;75&#39; &#39;0&#39;
+    sk_alien_slave_dispel_range &#39;192&#39; &#39;0&#39;
+    sk_alien_slave_dispel_dmg &#39;25&#39; &#39;0&#39;
+    sk_alien_slave_dispel_force &#39;450&#39; &#39;0&#39;
+    sk_alien_slave_dispel_forcez &#39;256&#39; &#39;0&#39;
+    sk_alien_slave_dispel_time &#39;10&#39; &#39;0&#39;
+    sk_alien_slave_bullet_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_alien_slave_357_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_alien_slave_buckshot_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_alien_slave_charge_time &#39;1.5&#39; &#39;1.0&#39;
+    sk_apache_health &#39;400&#39; &#39;200&#39;
+    sk_apache_fire_cone &#39;100&#39; &#39;20&#39;
+    sk_apache_resttime &#39;3&#39; &#39;2&#39;
+    sk_apache_chargetime &#39;3&#39; &#39;2&#39;
+    sk_apache_burst_count_max &#39;30&#39; &#39;40&#39;
+    sk_apache_burst_count_min &#39;20&#39; &#39;30&#39;
+    sk_apache_burst_hit_max &#39;4&#39; &#39;5&#39;
+    sk_apache_rocket_barrage_count &#39;6&#39; &#39;8&#39;
+    sk_apache_rpg_speed &#39;200&#39; &#39;250&#39;
+    sk_apache_50cal_dmg &#39;4&#39; &#39;7&#39;
+    sk_headcrab_health &#39;15&#39; &#39;25&#39;
+    sk_headcrab_melee_dmg &#39;10&#39; &#39;25&#39;
+    sk_barnacle_health &#39;35&#39; &#39;0&#39;
+    sk_barnacle_bullet_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_barnacle_357_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_barnacle_buckshot_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_barnacle_blunt_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_xen_barrel_hp &#39;15&#39; &#39;44&#39;
+    sk_bullsquid_health &#39;80&#39; &#39;0&#39;
+    sk_bullsquid_whip_dmg &#39;50&#39; &#39;0&#39;
+    sk_bullsquid_whip_range &#39;135&#39; &#39;0&#39;
+    sk_bullsquid_whip_force &#39;450&#39; &#39;0&#39;
+    sk_bullsquid_bite_dmg &#39;25&#39; &#39;0&#39;
+    sk_bullsquid_bite_range &#39;76&#39; &#39;0&#39;
+    sk_bullsquid_spit_amount &#39;9&#39; &#39;0&#39;
+    sk_bullsquid_spit_range &#39;2048&#39; &#39;0&#39;
+    sk_bullsquid_spit_speed &#39;792&#39; &#39;0&#39;
+    sk_bullsquid_bullet_dmg_scale &#39;0.35&#39; &#39;0&#39;
+    sk_bullsquid_357_dmg_scale &#39;0.75&#39; &#39;0&#39;
+    sk_bullsquid_buckshot_dmg_scale &#39;0.5&#39; &#39;0&#39;
+    sk_bullsquid_turn_rate &#39;15&#39; &#39;0&#39;
+    sk_gargantua_melee_dmg &#39;30&#39; &#39;0&#39;
+    sk_houndeye_health &#39;50&#39; &#39;0&#39;
+    sk_houndeye_blast_dmg &#39;20&#39; &#39;0&#39;
+    sk_houndeye_blast_force &#39;450&#39; &#39;0&#39;
+    sk_houndeye_punch_angle &#39;10&#39; &#39;0&#39;
+    sk_houndeye_blast_radius &#39;156&#39; &#39;0&#39;
+    sk_houndeye_bullet_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_houndeye_357_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_houndeye_buckshot_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_houndeye_blunt_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_human_assassin_pistol_damage &#39;1&#39; &#39;3&#39;
+    sk_human_assassin_pistol_burstinterval &#39;0.2&#39; &#39;0.15&#39;
+    sk_human_assassin_pistol_burstcount &#39;8&#39; &#39;2&#39;
+    sk_human_assassin_pistol_restinterval &#39;2&#39; &#39;1&#39;
+    sk_human_assassin_melee_damage &#39;10&#39; &#39;25&#39;
+    sk_human_assassin_health &#39;50&#39; &#39;100&#39;
+    sk_human_assassin_flip_hratio &#39;256&#39; &#39;128&#39;
+    sk_human_assassin_jump_distance &#39;400&#39; &#39;756&#39;
+    sk_human_assassin_decloak_shoot &#39;0.5&#39; &#39;0.2&#39;
+    sk_human_commander_health &#39;70&#39; &#39;0&#39;
+    sk_human_grenadier_health &#39;60&#39; &#39;0&#39;
+    sk_human_grunt_health &#39;60&#39; &#39;0&#39;
+    sk_human_medic_health &#39;50&#39; &#39;0&#39;
+    sk_human_medic_health_amount &#39;30&#39; &#39;0&#39;
+    sk_human_medic_heal_recharge_time &#39;12&#39; &#39;0&#39;
+    sk_human_medic_min_target_health &#39;85&#39; &#39;0&#39;
+    sk_human_medic_heal_distance &#39;64&#39; &#39;0&#39;
+    sk_human_scientist_health &#39;35&#39; &#39;0&#39;
+    sk_human_scientist_heal_amount &#39;30&#39; &#39;0&#39;
+    sk_human_scientist_heal_recharge_time &#39;60&#39; &#39;0&#39;
+    sk_human_scientist_min_target_health &#39;25&#39; &#39;0&#39;
+    sk_human_scientist_heal_distance &#39;64&#39; &#39;0&#39;
+    sk_human_security_health &#39;40&#39; &#39;0&#39;
+    sk_human_security_burst_interval_min &#39;1&#39; &#39;0&#39;
+    sk_human_security_burst_interval_max &#39;1&#39; &#39;0&#39;
+    sk_human_security_burst_shot_count_min &#39;1&#39; &#39;0&#39;
+    sk_human_security_burst_shot_count_max &#39;1&#39; &#39;0&#39;
+    sk_human_security_shot_rest_interval_min &#39;0.2&#39; &#39;0&#39;
+    sk_human_security_shot_rest_interval_max &#39;0.8&#39; &#39;0&#39;
+    sk_ichthyosaur_health &#39;295&#39; &#39;0&#39;
+    sk_ichthyosaur_melee_dmg &#39;30&#39; &#39;0&#39;
+    sk_ichthyosaur_max_linear_speed &#39;600&#39; &#39;0&#39;
+    sk_ichthyosaur_max_linear_accel_f &#39;512&#39; &#39;0&#39;
+    sk_ichthyosaur_max_linear_accel_r &#39;256&#39; &#39;0&#39;
+    sk_ichthyosaur_max_linear_accel_u &#39;256&#39; &#39;0&#39;
+    sk_osprey_health &#39;300&#39; &#39;0&#39;
+    sk_sentry_ceiling_health &#39;50&#39; &#39;0&#39;
+    sk_sentry_ceiling_motorspeed &#39;35&#39; &#39;0&#39;
+    sk_sentry_ground_health &#39;40&#39; &#39;0&#39;
+    sk_sentry_ground_motorspeed &#39;35&#39; &#39;0&#39;
+    sk_abrams_maingun_muzzle_damage &#39;60&#39; &#39;0&#39;
+    sk_abrams_maingun_muzzle_radius &#39;486&#39; &#39;0&#39;
+    sk_abrams_maingun_reload_time &#39;0.75&#39; &#39;0&#39;
+    sk_abrams_maingun_reset_time &#39;2&#39; &#39;0&#39;
+    sk_abrams_maingun_turn_speed_combat &#39;20&#39; &#39;0&#39;
+    sk_abrams_maingun_turn_speed_idle &#39;10&#39; &#39;0&#39;
+    sk_abrams_miniturret_turn_speed &#39;2&#39; &#39;0&#39;
+    sk_abrams_miniturret_burst_shots &#39;30&#39; &#39;0&#39;
+    sk_abrams_miniturret_burst_interval &#39;0.01&#39; &#39;0&#39;
+    sk_abrams_miniturret_rest_interval &#39;5&#39; &#39;0&#39;
+    sk_abrams_miniturret_damage &#39;4&#39; &#39;&#39;
+    sk_abrams_health_stages &#39;99&#39; &#39;0&#39;
+    sk_abrams_body_ground_speed &#39;128&#39; &#39;0&#39;
+    sk_abrams_body_turn_speed &#39;10&#39; &#39;0&#39;
+    sk_abrams_shell_speed &#39;2000&#39; &#39;1200&#39;
+    sk_lav_health &#39;300&#39; &#39;0&#39;
+    sk_lav_cal_radius &#39;128&#39; &#39;0&#39;
+    sk_lav_cal_base_damage &#39;10&#39; &#39;0&#39;
+    sk_lav_cal_radius_damage &#39;25&#39; &#39;0&#39;
+    sk_lav_cal_fire_rate &#39;0.25&#39; &#39;0&#39;
+    sk_lav_aim_speed &#39;25&#39; &#39;0&#39;
+    sk_lav_ground_speed &#39;128&#39; &#39;0&#39;
+    sk_lav_turn_speed &#39;90&#39; &#39;0&#39;
+    sk_zombie_grunt_health &#39;60&#39; &#39;0&#39;
+    sk_zombie_grunt_melee_range &#39;65&#39; &#39;0&#39;
+    sk_zombie_grunt_bullet_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_zombie_grunt_357_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_zombie_grunt_buckshot_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_zombie_grunt_blunt_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_zombie_hev_health &#39;120&#39; &#39;0&#39;
+    sk_zombie_hev_melee_range &#39;65&#39; &#39;0&#39;
+    sk_zombie_hev_bullet_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_zombie_hev_357_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_zombie_hev_buckshot_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_zombie_hev_blunt_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_zombie_scientist_health &#39;50&#39; &#39;0&#39;
+    sk_zombie_scientist_melee_range &#39;65&#39; &#39;0&#39;
+    sk_zombie_scientist_bullet_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_zombie_scientist_357_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_zombie_scientist_buckshot_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_zombie_scientist_blunt_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_zombie_security_health &#39;60&#39; &#39;0&#39;
+    sk_zombie_security_melee_range &#39;65&#39; &#39;0&#39;
+    sk_zombie_security_bullet_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_zombie_security_357_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_zombie_security_buckshot_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_zombie_security_blunt_dmg_scale &#39;1&#39; &#39;0&#39;
+    sk_prop_surgerybot_force &#39;400&#39; &#39;500&#39;
+    sk_prop_plr_damage &#39;55&#39; &#39;10&#39;
+    ai_readiness_decay &#39;10&#39; &#39;120&#39;
+    hl2_episodic &#39;1&#39; &#39;0&#39;
+    sk_ammo_grenade_rpg_max &#39;6&#39; &#39;3&#39;
+    sk_plr_dmg_sniper_round &#39;20&#39; &#39;0&#39;
+    sk_npc_dmg_sniper_round &#39;20&#39; &#39;0&#39;
+    sk_max_sniper_round &#39;30&#39; &#39;0&#39;
+    sk_plr_dmg_50cal &#39;6&#39; &#39;0&#39;
+    sk_npc_dmg_50cal &#39;6&#39; &#39;0&#39;
+    sk_dmg_sentry &#39;4&#39; &#39;0&#39;
+    sk_max_sentry &#39;50&#39; &#39;0&#39;
+    sv_jump_height &#39;34&#39; &#39;45&#39;
+    sv_jump_height_crouch &#39;34&#39; &#39;45&#39;
+    sv_long_jump_horizontal_speed &#39;460&#39; &#39;100&#39;
+    sk_dmg_take_scale1 &#39;0.4&#39; &#39;0.50&#39;
+    sk_dmg_take_scale3 &#39;1.75&#39; &#39;1.50&#39;
+    sk_weapon_gluon_plr_dmg_tick &#39;0.1&#39; &#39;0.2&#39;
+    sk_weapon_tau_overcharge_damage &#39;25&#39; &#39;75&#39;
+    sk_weapon_tau_charge_max_velocity &#39;650&#39; &#39;500&#39;
+    sv_gravity &#39;600&#39; &#39;800&#39;
+    sv_skyname &#39;bm_sky_underground_00&#39; &#39;sky_urb01&#39;
+    think_limit &#39;0&#39; &#39;10&#39;
+    default_fov &#39;90&#39; &#39;75&#39;
+    cl_charactertype &#39;mp_scientist_hev&#39; &#39;0&#39;
+    cl_predict &#39;0&#39; &#39;1.0&#39;
+    r_flashlightdepthres &#39;512&#39; &#39;1024&#39;
+    cl_csm_enabled &#39;0&#39; &#39;1&#39;
+    cl_csm_qualitymode &#39;2&#39; &#39;3&#39;
+    cl_chatfilter_version &#39;1&#39; &#39;0&#39;
+    cc_lang &#39;english&#39; &#39;&#39;
+    sensitivity &#39;6&#39; &#39;3&#39;
+    nr_dev_gb_debug_type &#39;3&#39; &#39;4&#39;
+    nr_dev_gb_quality &#39;0&#39; &#39;3&#39;
+    nr_dev_lb_quality &#39;0&#39; &#39;1&#39;
+    nr_lights_quality &#39;2&#39; &#39;4&#39;
+    nr_shadow_quality &#39;3&#39; &#39;4&#39;
+    nr_shadow_res &#39;2&#39; &#39;0&#39;
+    nr_shadow_max_dynamic_passes_per_frame &#39;20&#39; &#39;25&#39;
+    gb_flashlight_Range &#39;2000&#39; &#39;2500&#39;
+    gb_flashlight_Col &#39;220 230 255&#39; &#39;255 255 255&#39;
+    gb_flashlight_Intensity &#39;2.5&#39; &#39;5&#39;
+    gb_flashlight_phi &#39;54&#39; &#39;60&#39;
+    gb_flashlight_angular &#39;1.2&#39; &#39;1&#39;
+    r_farz &#39;30000&#39; &#39;-1&#39;
+    mat_software_aa_strength &#39;0&#39; &#39;-1.0&#39;
+    mat_software_aa_strength_vgui &#39;1&#39; &#39;-1.0&#39;
+    fog_start &#39;1&#39; &#39;-1&#39;
+    fog_end &#39;1&#39; &#39;-1&#39;
+    fog_startskybox &#39;1&#39; &#39;-1&#39;
+    fog_endskybox &#39;1&#39; &#39;-1&#39;
+    volume &#39;0.28&#39; &#39;1.0&#39;
+    snd_musicvolume &#39;0.12&#39; &#39;1.0&#39;
+    name &#39;Lignum&#39; &#39;unnamed&#39;
+    cl_connectmethod &#39;listenserver&#39; &#39;&#39;
+    cl_logofile &#39;materials/vgui/logos/spray.vtf&#39; &#39;materials/decals/spraylogo.vtf&#39;
+    sv_unlockedchapters &#39;4&#39; &#39;1&#39;
+    dev_loadtime_map_elapsed &#39;18.072504&#39; &#39;0.0&#39;
+    mat_colorcorrection &#39;1&#39; &#39;0&#39;
+    con_enable &#39;1&#39; &#39;0&#39;
+    hostname &#39;Black Mesa&#39; &#39;&#39;
+    host_map &#39;background04&#39; &#39;&#39;
+    r_shadows_gamecontrol &#39;1&#39; &#39;0&#39;
+    datacachesize &#39;256&#39; &#39;64&#39;
+    mat_supportflashlight &#39;1&#39; &#39;-1&#39;
+    mat_parallaxmap &#39;0&#39; &#39;1&#39;
+    mat_monitorgamma &#39;1.69&#39; &#39;2.2&#39;
+    mat_antialias &#39;2&#39; &#39;0&#39;
+    r_shadowrendertotexture &#39;1&#39; &#39;0&#39;
+    r_waterforceexpensive &#39;1&#39; &#39;0&#39;
+    r_waterforcereflectentities &#39;1&#39; &#39;0&#39;
+    joy_xcontroller_found &#39;0&#39; &#39;1&#39;
+    gl_can_query_fast &#39;1&#39; &#39;0&#39;
+
+    Console History (reversed)
+
+    165(68.765235):  Redownloading all lightmaps
+    164(68.763417):  Requesting texture value from var &quot;$basetexture&quot; which is not a texture value (material: particle/smokestack)
+    163(68.454305):  Advanced Joystick settings initialized
+    162(68.454281):  JOY_AXIS_V:  unmapped
+    161(68.454256):  JOY_AXIS_U:  mapped to Side (absolute)
+    160(68.454229):  JOY_AXIS_R:  mapped to Forward (absolute)
+    159(68.454201):  JOY_AXIS_Z:  unmapped
+    158(68.454168):  JOY_AXIS_Y:  mapped to Look (absolute)
+    157(68.454094):  JOY_AXIS_X:  mapped to Turn (absolute)
+    156(68.419568):  CNewPostProcess::LevelInitPostEntity
+    155(68.419516):  CNewRenderer::LevelInitPostEntity
+    154(68.267047):  Error: Material &quot;__fxaa&quot; uses unknown shader &quot;fxaa&quot;
+    153(60.012469):  Init SinglePlayer Params
+    152(60.011946):  Init SinglePlayer Params
+    151(59.976649):  NewPostProcess: InitializeCusRT Called 
+    150(59.976608):  CNewPostProcess::InitEVerything
+    149(59.976572):  CNewPostProcess::LevelInitPreEntity
+    148(59.975844):  
+     ************ *************************************** ************* 
+    147(59.975830):  Shadows Quality Settings: 3 2 2 
+    146(59.975810):  Shadows Active: 1 - 666 
+    145(59.975790):  Light Quality Settings Secondary: 0 - 3 0 0 :: 43 50 2 
+    144(59.975775):  Light Quality Settings: 2 - 3 0 0 :: 43 50 2 
+    143(59.975760):  Light Active: 1 - 847 
+    142(59.975745):  
+
+     ************ ************ Quality Settings ************* ************* 
+
+    141(59.975730):  ShadowMapStatic: NULL 
+    140(59.975710):  ShadowMap: NULL 
+    139(59.975693):  Rim RT: NULL 
+    138(59.975679):  Spec RT: NULL 
+    137(59.975666):  Diff RT: RGBA16161616F 
+    136(59.975650):  Warp RT: NULL 
+    135(59.975629):  Normal RT: IMAGE_FORMAT_G16R16F 
+    134(59.975613):  Depth RT: IMAGE_FORMAT_R16F 
+    133(59.975599):  Depth: IMAGE_FORMAT_D24S8 
+    132(59.975579):  
+     ************ ************ FORMATS ALLOCATED ************* ************* 
+
+    131(59.975559):  DiffRGB16 : OK 
+    130(59.975545):  DiffRGB10 : OK 
+    129(59.975531):  DiffRGB8 : OK 
+    128(59.975517):  warpRGBA : OK 
+    127(59.975501):  warpRGB : OK 
+    126(59.975478):  Normal 64: OK 
+    125(59.975461):  Normal 32: OK 
+    124(59.975447):  DepthRT 32: OK 
+    123(59.975432):  DepthRT 16: OK 
+    122(59.975418):  Depth High: OK 
+    121(59.975403):  Depth Low: OK 
+    120(59.975387):  Depth High: OK 
+    119(59.975368):  Depth Low: OK 
+    118(59.975327):  
+
+     ************ Checking HardWare Support For Texture Formats ************* 
+    117(59.973570):  NewRenderer: InitCustomRenderTargets Called116(59.973257):  CNewRenderer::LevelInitPreEntity
+    115(59.913888):  Requesting texture value from var &quot;$basetexture&quot; which is not a texture value (material: dev/lumcompare)
+    114(59.902721):  Requesting texture value from var &quot;$basetexture&quot; which is not a texture value (material: dev/no_pixel_write)
+    113(59.898877):  Requesting texture value from var &quot;$basetexture&quot; which is not a texture value (material: dev/bloomadd)
+    112(59.776056):  
+     ##### CTexture::LoadTextureBitsFromFile couldn&#39;t find materials/_rt_csmshadowdepth.vtf
+    111(59.775910):  Requesting texture value from var &quot;$basetexture&quot; which is not a texture value (material: debug/debugshadowbuffer)
+    110(59.736881):  
+     ##### CTexture::LoadTextureBitsFromFile couldn&#39;t find materials/_rt_scope.vtf
+    109(59.687841):  Requesting texture value from var &quot;$texture2&quot; which is not a texture value (material: dev/hud_scanlines)
+    108(59.687819):  Requesting texture value from var &quot;$texture1&quot; which is not a texture value (material: dev/hud_scanlines)
+    107(59.687750):  Requesting texture value from var &quot;$basetexture&quot; which is not a texture value (material: dev/hud_scanlines)
+    106(59.521191):  Attempted to precache unknown particle system &quot;gluon_enttrail&quot;!
+    105(59.521114):  Attempted to precache unknown particle system &quot;gluon_enttrail&quot;!
+    104(57.773889):  unrecognized conditional test GPU&lt;2?$DEPTHBLEND in particle/spray1/spray1
+    103(57.773817):  unrecognized conditional test GPU&lt;2?$BLENDFRAMES in particle/spray1/spray1
+    102(57.708233):  	You are subscribed to 0 addons.
+    101(57.708162):  CBlackMesaWorkshopBase::OnQuerySusbcribedAddons
+    100(56.458188):  Init SinglePlayer Params
+    99(56.457645):  Init SinglePlayer Params
+    98(54.468331):  Error: Material &quot;models/humans/female/pupil_l&quot; uses unknown shader &quot;Eyeball&quot;
+    97(54.467451):  Error: Material &quot;models/humans/female/pupil_r&quot; uses unknown shader &quot;Eyeball&quot;
+    96(54.306426):  Unknown command &quot;sk_alien_grunt_melee_shot_rest_interval_max&quot;
+    95(54.306261):  Unknown command &quot;sk_alien_grunt_melee_shot_rest_interval_min&quot;
+    94(54.306096):  Unknown command &quot;sk_alien_grunt_melee_burst_shot_count_max&quot;
+    93(54.305931):  Unknown command &quot;sk_alien_grunt_melee_burst_shot_count_min&quot;
+    92(54.305766):  Unknown command &quot;sk_alien_grunt_melee_burst_interval_max&quot;
+    91(54.305603):  Unknown command &quot;sk_alien_grunt_melee_burst_interval_min&quot;
+    90(54.305438):  Unknown command &quot;sk_alien_grunt_melee_turn_speed&quot;
+    89(54.305273):  Unknown command &quot;sk_alien_grunt_melee_front_dmg_scale&quot;
+    88(54.305108):  Unknown command &quot;sk_alien_grunt_melee_melee_dmg&quot;
+    87(54.304943):  Unknown command &quot;sk_alien_grunt_melee_melee_jump_range&quot;
+    86(54.304778):  Unknown command &quot;sk_alien_grunt_melee_melee_range&quot;
+    85(54.304598):  Unknown command &quot;sk_alien_grunt_melee_hornet_max_range&quot;
+    84(54.304432):  Unknown command &quot;sk_alien_grunt_melee_hornet_min_range&quot;
+    83(54.304253):  Unknown command &quot;sk_alien_grunt_melee_health&quot;
+    82(54.302538):  Unknown command &quot;sk_headcrab_max_jump_dist&quot;
+    81(54.302368):  Unknown command &quot;sk_headcrab_min_jump_dist&quot;
+    80(54.296639):  Unknown command &quot;sk_plr_crossbow_speed&quot;
+    79(51.667302):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+    78(51.667273):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+    77(51.667240):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+    76(51.667157):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+    75(51.403648):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+    74(51.403620):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+    73(51.403587):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+    72(51.403495):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+    71(51.209730):  NewPostProcess: InitializeCusRT Called 
+    70(51.209650):  NewRenderer: InitCustomRenderTargets Called69(51.204201):  NewPostProcess: ShutdownCustomRenderTargets Called OUTSIDE of SCENE ??? 
+    68(51.204168):  NewPostProcess: ShutdownCustomRenderTargets Called 
+    67(51.204127):  NewRenderer: ShutdownCustomRenderTargets Called OUTSIDE of SCENE ??? 
+    66(51.204045):  NewRenderer: ShutdownCustomRenderTargets Called 
+    65(50.554909):  --- Missing Vgui material vgui/servers/icon_replay_column
+    64(50.554012):  --- Missing Vgui material vgui/servers/icon_replay
+    63(50.368276):  &#39;userconfig.cfg&#39; not present; not executing.
+    62(50.345766):  CNewPostProcess::PostInit
+    61(50.345664):  CNewRenderer::PostInit
+    60(50.000462):  Not playing a local game.
+    59(49.966320):  CampaignManager:  Campaign file &quot;campaigns/campaign_bm_sp.txt&quot; is malformed, failed to parse.
+    58(49.926788):  Init MultiPlayer Params
+    57(49.926536):  Init MultiPlayer Params
+    56(49.925239):  		Parsing effect shotgun-secondary-attack.
+    55(49.925224):  		Parsing effect shotgun-primary-attack-thirdperson.
+    54(49.925199):  		Parsing effect shotgun-primary-attack.
+    53(49.924976):  	Parsing ejection information for weapon_shotgun.
+    52(49.924955):  		Parsing effect mp5-primary-attack-thirdperson.
+    51(49.924926):  		Parsing effect mp5-primary-attack.
+    50(49.924750):  	Parsing ejection information for weapon_mp5.
+    49(49.924731):  		Parsing effect glock-primary-attack-thirdperson.
+    48(49.924702):  		Parsing effect glock-primary-attack.
+    47(49.924510):  	Parsing ejection information for weapon_glock.
+    46(49.924236):  Initializing brass ejection system.
+    45(49.923638):  CNewPostProcess::Init
+    44(49.923587):  CNewRenderer::Init
+    43(49.913224):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+    42(49.913188):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+    41(49.913148):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+    40(49.913062):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+    39(49.834082):  Hud element &#39;CHudBootUpSequence&#39; doesn&#39;t have an entry &#39;CHudBootUpSequence&#39; in scripts/HudLayout.res
+    38(49.833972):  Hud element &#39;CHudHitMarker&#39; doesn&#39;t have an entry &#39;CHudHitMarker&#39; in scripts/HudLayout.res
+    37(49.682129):  Failed to load Resource/UI/NavProgress.res
+    36(48.719184):  Steam config directory: /mnt/data/Steam/steamapps/common/Black Mesa/platform/config
+    35(48.663601):  CampaignManager:  Campaign file &quot;campaigns/campaign_bm_sp.txt&quot; is malformed, failed to parse.
+    34(48.653272):  For FCVAR_REPLICATED, ConVar must be defined in client and game .dlls (anim_3wayblend)
+    33(48.650040):  Parent cvar in client.dll not allowed (r_eyegloss)
+    32(47.738798):  NewPostProcess: InitializeCusRT Called 
+    31(47.738720):  NewRenderer: InitCustomRenderTargets Called30(47.724834):  maxplayers set to 1
+    29(47.722684):  CampaignManager:  Campaign file &quot;campaigns/campaign_bm_sp.txt&quot; is malformed, failed to parse.
+    28(47.150802):  Init MultiPlayer Params
+    27(47.117345):  Init MultiPlayer Params
+    26(47.068109):  CSoundEmitterSystem::AddSoundsFromFile:  No such file scripts/npc_sounds_zombiehev.txt
+    25(47.067800):  CSoundEmitterSystem::AddSoundsFromFile:  No such file scripts/npc_sounds_xen_boid.txt
+    24(47.067508):  CSoundEmitterSystem::AddSoundsFromFile:  No such file scripts/game_sounds_xen_music.txt
+    23(47.067226):  CSoundEmitterSystem::AddSoundsFromFile:  No such file scripts/game_sounds_xen2.txt
+    22(47.066919):  CSoundEmitterSystem::AddSoundsFromFile:  No such file scripts/misc_sounds_dead_hev.txt
+    21(47.035626):  CSoundEmitterSystem::AddSoundsFromFile:  No such file scripts/npc_sounds_nihilanth.txt
+    20(47.029712):  CSoundEmitterSystem::AddSoundsFromFile:  No such file scripts/npc_sounds_gonarch.txt
+    19(47.021766):  CSoundEmitterSystem::AddSoundsFromFile:  No such file scripts/game_sounds_scenes_ENDGAME.txt
+    18(46.927740):  Parent cvar in client.dll not allowed (sv_jump_double_enabled)
+    17(46.927704):  Parent cvar in client.dll not allowed (dev_I_believe_I_can_FLY)
+    16(46.926593):  Parent cvar in client.dll not allowed (bm_multiplayer_persistent_scores)
+    15(46.925302):  Parent cvar in client.dll not allowed (nr_dev_shoot_lights_enabled)
+    14(46.921508):  Parent cvar in client.dll not allowed (props_break_max_pieces)
+    13(46.907789):  Parent cvar in server.dll not allowed (bot_mimic)
+    12(46.905666):  Parent cvar in server.dll not allowed (nb_blind)
+    11(46.904890):  Parent cvar in server.dll not allowed (sk_Fumer_flame_dmg_falloff_perc_dist)
+    10(46.904868):  Parent cvar in server.dll not allowed (sk_Fumer_flame_dmg_falloff_perc_dist)
+    9(46.893130):  Parent cvar in server.dll not allowed (sk_alien_slave_angry_points_friendly_injured_min)
+    8(46.893110):  Parent cvar in server.dll not allowed (sk_alien_slave_angry_points_friendly_injured_max)
+    7(46.888964):  Parent cvar in server.dll not allowed (sk_gonarch_spit_height)
+    6(46.887652):  Parent cvar in server.dll not allowed (sk_gonarch_flinch_cooldown)
+    5(46.887333):  Parent cvar in server.dll not allowed (sk_gonarch_special_mode_spit_cooldown)
+    4(46.887316):  Parent cvar in server.dll not allowed (sk_gonarch_special_mode_spit_cooldown)
+    3(46.885539):  Parent cvar in server.dll not allowed (dev_gnwt_PhysAttack_InChase_1k)
+    2(46.879700):  For FCVAR_REPLICATED, ConVar must be defined in client and game .dlls (sk_xen_tree_attack_rad)
+    1(46.878371):  Parent cvar in server.dll not allowed (sk_xort_dispel_evil_forced_num_enemy_threshold)
+
+I have tried switching the game from fullscreen to windowed mode via the `-windowed` launch option. In addition, I have tried verifying my game data via Steam. Both attempts did not work. Other Source games (CS:GO) seem to work fine.
+
+I would be happy to provide more information if needed. Thank you in advance.
+
+NOTE: I have also tried the public beta branch, which does not even start at all.</description>
+    
+    <lastBuildDate>Thu, 05 Dec 2019 14:29:08 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/game-crashes-while-loading/62685.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Game crashes while loading</title>
+        <dc:creator><![CDATA[Lignum]]></dc:creator>
+        <description><![CDATA[
+            <p>I was able to play the game just fine up until the Office Complex chapter (specifically the parts in the freezer). When I saved there and wanted to play the game again the next day, the game now gets past the Crowbar Collective logo but crashes with a popping noise while loading with the Office Complex chapter background.</p>
+<p>My specs are:<br>
+OS: Ubuntu 18.04 bionic<br>
+Kernel: x86_64 Linux 5.0.0-37-generic<br>
+CPU: AMD Ryzen 7 1700 Eight-Core @ 16x 3GHz<br>
+GPU: Radeon RX 580 Series<br>
+OpenGL version string (glxinfo): 4.5 (Compatibility Profile) Mesa 19.0.8</p>
+<p>I was unable to follow the instructions to obtain a crash dump, but based on the format of other crash reports, I was able to locate this information in my <code>/tmp/dumps</code> folder:</p>
+<pre><code>Uptime( 68.767784 )
+SourceMod:0,DS:0,Crash:1
+
+Map: background04
+Game: /mnt/data/Steam/steamapps/common/Black Mesa/bms
+Build: 100001
+Misc: skill:1 rate 80000 update 64 cmd 64 latency 0 msec
+Net: loopback
+cmdline:"/mnt/data/Steam/steamapps/common/Black Mesa/bms_linux" "-game" "bms" "+developer" "0" "-steam" "-windowed" "-width" "1600" "-height" "900"
+driver: Driver Name:  X.Org (Radeon RX 580 Series (POLARIS10, DRM 3.27.0, 5.0.0-37-generic, LLVM 8.0.0)) 4.5 (Compatibility Profile) Mesa 19.0.8 - 1920x1080
+Driver Version: 0.0.0.0
+VendorId / DeviceId:  0x1 / 0x1
+SubSystem / Rev:  0x0 / 0x0
+DXLevel:  gamemode [95]
+Vid:  1600 x 900
+video: picmip: 0 forceansio: 1 trilinear: 0 antialias: 2 vsync: 0 rootlod: 0 reducefillrate: 0
+shadowrendertotexture: 1 r_flashlightdepthtexture 1 waterforceexpensive: 1 waterforcereflectentities: 1 mat_motion_blur_enabled: 0 mat_queue_mode 0
+OS: Ubuntu 5.0.0-37.40~18.04.1-generic 5.0.21
+memallocfail? = 0
+Active: active
+SpawnCount 1 MapLoad Count 1
+Error count 0, end demo 0, abort count 0
+Launching ""/mnt/data/Steam/steamapps/common/Black Mesa/bms_linux" "-game" "bms" "+developer" "0" "-steam" "-windowed" "-width" "1600" "-height" "900""
+
+ConVars (non-default)
+
+var value default
+sk_npc_chest '1.25' '1'
+sk_npc_arm '0.8' '1'
+sk_npc_leg '0.8' '1'
+ai_reaction_delay_idle '0.9' '0.3'
+ai_reaction_delay_alert '0.7' '0.1'
+npc_marines_melee_dmg '20' '0'
+npc_marines_movement_speed '1.25' '1.0'
+sk_zombie_dmg_one_slash '20' '15'
+sk_zombie_dmg_both_slash '40' '30'
+sk_npc_ricochet '0.8' ''
+sk_gargantua_flame_dmg '2' '9'
+sk_gargantua_flame_dmg_falloff_perc_dist '64' '9'
+sk_gargantua_flame_dmg_falloff_perc '0.1' '0'
+sk_mine_damage '50' '0'
+sk_mine_bounds_xy '24' '1'
+sk_mine_bounds_z '64' '1'
+sk_mine_damage_radius '128' '0'
+bm_50cal_scale '1.25' '1.5'
+sk_detenator_bolt_airspeed '2000' '5000'
+sk_detenator_bolt_plr_xplode_dmg '50' '10'
+sk_detenator_bolt_plr_xplode_radius '128' '30'
+sk_detenator_energy_track_acceleration '650' '3500'
+sk_detenator_energy_plr_dmg '3' '10'
+sk_detenator_energy_plr_dmg_radius '128' '50'
+sk_detenator_energy_plr_commit_radius '400' '0'
+sk_detenator_hornet_drunk_frequency '0.2' '0.05'
+sk_detenator_hornet_npc_dmg '12' '4'
+sk_grenade_mortar_dmg '15' '60'
+sk_grenade_mortar_range '400' '60'
+sk_grenade_mortar_shakeduration '1.5' '60'
+sk_grenade_mortar_shakeradius '640' '60'
+sk_detenator_rpg_track_max_distance '8192' '4048'
+sk_detenator_rpg_track_acceleration '1000' '400'
+sk_detenator_rpg_track_drag '1' '0.8'
+sk_detenator_rpg_max_speed '1500' '2000'
+sk_detenator_rpg_plr_dmg '175' '100'
+sk_detenator_rpg_plr_dmg_radius '300' '250'
+sk_detenator_satchel_plr_dmg '150' '100'
+sk_detenator_satchel_plr_dmg_radius '300' '250'
+sk_detenator_tripmine_plr_dmg '150' '100'
+sk_detenator_tripmine_plr_dmg_radius '300' '250'
+sk_detenator_tripmine_npc_dmg '150' '30'
+sk_detenator_tripmine_npc_dmg_radius '300' '75'
+sk_item_battery_value '15' '25'
+sk_controller_health '100' '0'
+sk_controller_max_linear_speed '300' '0'
+sk_controller_max_linear_accel_f '350' '0'
+sk_controller_max_linear_accel_r '350' '0'
+sk_controller_max_linear_accel_u '600' '0'
+sk_controller_throw_next_attack '8' '0'
+sk_controller_lift_duration '2.5' '0'
+sk_controller_min_small_eballs '6' '0'
+sk_controller_max_small_eballs '8' '0'
+sk_controller_max_large_eballs '2' '0'
+sk_alien_grunt_health '120' '0'
+sk_alien_grunt_hornet_min_range '60' '0'
+sk_alien_grunt_hornet_max_range '4096' '0'
+sk_alien_grunt_melee_range '128' '0'
+sk_alien_grunt_melee_jump_range '166' '0'
+sk_alien_grunt_melee_dmg '30' '0'
+sk_alien_grunt_front_dmg_scale '0.8' '0'
+sk_alien_grunt_turn_speed '30' '0'
+sk_alien_grunt_burst_shot_count_min '5' '0'
+sk_alien_grunt_burst_shot_count_max '8' '0'
+sk_alien_grunt_shot_rest_interval_max '2' '0'
+sk_alien_slave_health '70' '0'
+sk_alien_slave_357_damage_scale '1' '0'
+sk_alien_slave_dmg_zap '30' '0'
+sk_alien_slave_dmg_claw '20' '0'
+sk_alien_slave_zap_cone '0.86602540378443864676372317075294' '0'
+sk_alien_slave_claw_range '75' '0'
+sk_alien_slave_dispel_range '192' '0'
+sk_alien_slave_dispel_dmg '25' '0'
+sk_alien_slave_dispel_force '450' '0'
+sk_alien_slave_dispel_forcez '256' '0'
+sk_alien_slave_dispel_time '10' '0'
+sk_alien_slave_bullet_dmg_scale '1' '0'
+sk_alien_slave_357_dmg_scale '1' '0'
+sk_alien_slave_buckshot_dmg_scale '1' '0'
+sk_alien_slave_charge_time '1.5' '1.0'
+sk_apache_health '400' '200'
+sk_apache_fire_cone '100' '20'
+sk_apache_resttime '3' '2'
+sk_apache_chargetime '3' '2'
+sk_apache_burst_count_max '30' '40'
+sk_apache_burst_count_min '20' '30'
+sk_apache_burst_hit_max '4' '5'
+sk_apache_rocket_barrage_count '6' '8'
+sk_apache_rpg_speed '200' '250'
+sk_apache_50cal_dmg '4' '7'
+sk_headcrab_health '15' '25'
+sk_headcrab_melee_dmg '10' '25'
+sk_barnacle_health '35' '0'
+sk_barnacle_bullet_dmg_scale '1' '0'
+sk_barnacle_357_dmg_scale '1' '0'
+sk_barnacle_buckshot_dmg_scale '1' '0'
+sk_barnacle_blunt_dmg_scale '1' '0'
+sk_xen_barrel_hp '15' '44'
+sk_bullsquid_health '80' '0'
+sk_bullsquid_whip_dmg '50' '0'
+sk_bullsquid_whip_range '135' '0'
+sk_bullsquid_whip_force '450' '0'
+sk_bullsquid_bite_dmg '25' '0'
+sk_bullsquid_bite_range '76' '0'
+sk_bullsquid_spit_amount '9' '0'
+sk_bullsquid_spit_range '2048' '0'
+sk_bullsquid_spit_speed '792' '0'
+sk_bullsquid_bullet_dmg_scale '0.35' '0'
+sk_bullsquid_357_dmg_scale '0.75' '0'
+sk_bullsquid_buckshot_dmg_scale '0.5' '0'
+sk_bullsquid_turn_rate '15' '0'
+sk_gargantua_melee_dmg '30' '0'
+sk_houndeye_health '50' '0'
+sk_houndeye_blast_dmg '20' '0'
+sk_houndeye_blast_force '450' '0'
+sk_houndeye_punch_angle '10' '0'
+sk_houndeye_blast_radius '156' '0'
+sk_houndeye_bullet_dmg_scale '1' '0'
+sk_houndeye_357_dmg_scale '1' '0'
+sk_houndeye_buckshot_dmg_scale '1' '0'
+sk_houndeye_blunt_dmg_scale '1' '0'
+sk_human_assassin_pistol_damage '1' '3'
+sk_human_assassin_pistol_burstinterval '0.2' '0.15'
+sk_human_assassin_pistol_burstcount '8' '2'
+sk_human_assassin_pistol_restinterval '2' '1'
+sk_human_assassin_melee_damage '10' '25'
+sk_human_assassin_health '50' '100'
+sk_human_assassin_flip_hratio '256' '128'
+sk_human_assassin_jump_distance '400' '756'
+sk_human_assassin_decloak_shoot '0.5' '0.2'
+sk_human_commander_health '70' '0'
+sk_human_grenadier_health '60' '0'
+sk_human_grunt_health '60' '0'
+sk_human_medic_health '50' '0'
+sk_human_medic_health_amount '30' '0'
+sk_human_medic_heal_recharge_time '12' '0'
+sk_human_medic_min_target_health '85' '0'
+sk_human_medic_heal_distance '64' '0'
+sk_human_scientist_health '35' '0'
+sk_human_scientist_heal_amount '30' '0'
+sk_human_scientist_heal_recharge_time '60' '0'
+sk_human_scientist_min_target_health '25' '0'
+sk_human_scientist_heal_distance '64' '0'
+sk_human_security_health '40' '0'
+sk_human_security_burst_interval_min '1' '0'
+sk_human_security_burst_interval_max '1' '0'
+sk_human_security_burst_shot_count_min '1' '0'
+sk_human_security_burst_shot_count_max '1' '0'
+sk_human_security_shot_rest_interval_min '0.2' '0'
+sk_human_security_shot_rest_interval_max '0.8' '0'
+sk_ichthyosaur_health '295' '0'
+sk_ichthyosaur_melee_dmg '30' '0'
+sk_ichthyosaur_max_linear_speed '600' '0'
+sk_ichthyosaur_max_linear_accel_f '512' '0'
+sk_ichthyosaur_max_linear_accel_r '256' '0'
+sk_ichthyosaur_max_linear_accel_u '256' '0'
+sk_osprey_health '300' '0'
+sk_sentry_ceiling_health '50' '0'
+sk_sentry_ceiling_motorspeed '35' '0'
+sk_sentry_ground_health '40' '0'
+sk_sentry_ground_motorspeed '35' '0'
+sk_abrams_maingun_muzzle_damage '60' '0'
+sk_abrams_maingun_muzzle_radius '486' '0'
+sk_abrams_maingun_reload_time '0.75' '0'
+sk_abrams_maingun_reset_time '2' '0'
+sk_abrams_maingun_turn_speed_combat '20' '0'
+sk_abrams_maingun_turn_speed_idle '10' '0'
+sk_abrams_miniturret_turn_speed '2' '0'
+sk_abrams_miniturret_burst_shots '30' '0'
+sk_abrams_miniturret_burst_interval '0.01' '0'
+sk_abrams_miniturret_rest_interval '5' '0'
+sk_abrams_miniturret_damage '4' ''
+sk_abrams_health_stages '99' '0'
+sk_abrams_body_ground_speed '128' '0'
+sk_abrams_body_turn_speed '10' '0'
+sk_abrams_shell_speed '2000' '1200'
+sk_lav_health '300' '0'
+sk_lav_cal_radius '128' '0'
+sk_lav_cal_base_damage '10' '0'
+sk_lav_cal_radius_damage '25' '0'
+sk_lav_cal_fire_rate '0.25' '0'
+sk_lav_aim_speed '25' '0'
+sk_lav_ground_speed '128' '0'
+sk_lav_turn_speed '90' '0'
+sk_zombie_grunt_health '60' '0'
+sk_zombie_grunt_melee_range '65' '0'
+sk_zombie_grunt_bullet_dmg_scale '1' '0'
+sk_zombie_grunt_357_dmg_scale '1' '0'
+sk_zombie_grunt_buckshot_dmg_scale '1' '0'
+sk_zombie_grunt_blunt_dmg_scale '1' '0'
+sk_zombie_hev_health '120' '0'
+sk_zombie_hev_melee_range '65' '0'
+sk_zombie_hev_bullet_dmg_scale '1' '0'
+sk_zombie_hev_357_dmg_scale '1' '0'
+sk_zombie_hev_buckshot_dmg_scale '1' '0'
+sk_zombie_hev_blunt_dmg_scale '1' '0'
+sk_zombie_scientist_health '50' '0'
+sk_zombie_scientist_melee_range '65' '0'
+sk_zombie_scientist_bullet_dmg_scale '1' '0'
+sk_zombie_scientist_357_dmg_scale '1' '0'
+sk_zombie_scientist_buckshot_dmg_scale '1' '0'
+sk_zombie_scientist_blunt_dmg_scale '1' '0'
+sk_zombie_security_health '60' '0'
+sk_zombie_security_melee_range '65' '0'
+sk_zombie_security_bullet_dmg_scale '1' '0'
+sk_zombie_security_357_dmg_scale '1' '0'
+sk_zombie_security_buckshot_dmg_scale '1' '0'
+sk_zombie_security_blunt_dmg_scale '1' '0'
+sk_prop_surgerybot_force '400' '500'
+sk_prop_plr_damage '55' '10'
+ai_readiness_decay '10' '120'
+hl2_episodic '1' '0'
+sk_ammo_grenade_rpg_max '6' '3'
+sk_plr_dmg_sniper_round '20' '0'
+sk_npc_dmg_sniper_round '20' '0'
+sk_max_sniper_round '30' '0'
+sk_plr_dmg_50cal '6' '0'
+sk_npc_dmg_50cal '6' '0'
+sk_dmg_sentry '4' '0'
+sk_max_sentry '50' '0'
+sv_jump_height '34' '45'
+sv_jump_height_crouch '34' '45'
+sv_long_jump_horizontal_speed '460' '100'
+sk_dmg_take_scale1 '0.4' '0.50'
+sk_dmg_take_scale3 '1.75' '1.50'
+sk_weapon_gluon_plr_dmg_tick '0.1' '0.2'
+sk_weapon_tau_overcharge_damage '25' '75'
+sk_weapon_tau_charge_max_velocity '650' '500'
+sv_gravity '600' '800'
+sv_skyname 'bm_sky_underground_00' 'sky_urb01'
+think_limit '0' '10'
+default_fov '90' '75'
+cl_charactertype 'mp_scientist_hev' '0'
+cl_predict '0' '1.0'
+r_flashlightdepthres '512' '1024'
+cl_csm_enabled '0' '1'
+cl_csm_qualitymode '2' '3'
+cl_chatfilter_version '1' '0'
+cc_lang 'english' ''
+sensitivity '6' '3'
+nr_dev_gb_debug_type '3' '4'
+nr_dev_gb_quality '0' '3'
+nr_dev_lb_quality '0' '1'
+nr_lights_quality '2' '4'
+nr_shadow_quality '3' '4'
+nr_shadow_res '2' '0'
+nr_shadow_max_dynamic_passes_per_frame '20' '25'
+gb_flashlight_Range '2000' '2500'
+gb_flashlight_Col '220 230 255' '255 255 255'
+gb_flashlight_Intensity '2.5' '5'
+gb_flashlight_phi '54' '60'
+gb_flashlight_angular '1.2' '1'
+r_farz '30000' '-1'
+mat_software_aa_strength '0' '-1.0'
+mat_software_aa_strength_vgui '1' '-1.0'
+fog_start '1' '-1'
+fog_end '1' '-1'
+fog_startskybox '1' '-1'
+fog_endskybox '1' '-1'
+volume '0.28' '1.0'
+snd_musicvolume '0.12' '1.0'
+name 'Lignum' 'unnamed'
+cl_connectmethod 'listenserver' ''
+cl_logofile 'materials/vgui/logos/spray.vtf' 'materials/decals/spraylogo.vtf'
+sv_unlockedchapters '4' '1'
+dev_loadtime_map_elapsed '18.072504' '0.0'
+mat_colorcorrection '1' '0'
+con_enable '1' '0'
+hostname 'Black Mesa' ''
+host_map 'background04' ''
+r_shadows_gamecontrol '1' '0'
+datacachesize '256' '64'
+mat_supportflashlight '1' '-1'
+mat_parallaxmap '0' '1'
+mat_monitorgamma '1.69' '2.2'
+mat_antialias '2' '0'
+r_shadowrendertotexture '1' '0'
+r_waterforceexpensive '1' '0'
+r_waterforcereflectentities '1' '0'
+joy_xcontroller_found '0' '1'
+gl_can_query_fast '1' '0'
+
+Console History (reversed)
+
+165(68.765235):  Redownloading all lightmaps
+164(68.763417):  Requesting texture value from var "$basetexture" which is not a texture value (material: particle/smokestack)
+163(68.454305):  Advanced Joystick settings initialized
+162(68.454281):  JOY_AXIS_V:  unmapped
+161(68.454256):  JOY_AXIS_U:  mapped to Side (absolute)
+160(68.454229):  JOY_AXIS_R:  mapped to Forward (absolute)
+159(68.454201):  JOY_AXIS_Z:  unmapped
+158(68.454168):  JOY_AXIS_Y:  mapped to Look (absolute)
+157(68.454094):  JOY_AXIS_X:  mapped to Turn (absolute)
+156(68.419568):  CNewPostProcess::LevelInitPostEntity
+155(68.419516):  CNewRenderer::LevelInitPostEntity
+154(68.267047):  Error: Material "__fxaa" uses unknown shader "fxaa"
+153(60.012469):  Init SinglePlayer Params
+152(60.011946):  Init SinglePlayer Params
+151(59.976649):  NewPostProcess: InitializeCusRT Called 
+150(59.976608):  CNewPostProcess::InitEVerything
+149(59.976572):  CNewPostProcess::LevelInitPreEntity
+148(59.975844):  
+ ************ *************************************** ************* 
+147(59.975830):  Shadows Quality Settings: 3 2 2 
+146(59.975810):  Shadows Active: 1 - 666 
+145(59.975790):  Light Quality Settings Secondary: 0 - 3 0 0 :: 43 50 2 
+144(59.975775):  Light Quality Settings: 2 - 3 0 0 :: 43 50 2 
+143(59.975760):  Light Active: 1 - 847 
+142(59.975745):  
+
+ ************ ************ Quality Settings ************* ************* 
+
+141(59.975730):  ShadowMapStatic: NULL 
+140(59.975710):  ShadowMap: NULL 
+139(59.975693):  Rim RT: NULL 
+138(59.975679):  Spec RT: NULL 
+137(59.975666):  Diff RT: RGBA16161616F 
+136(59.975650):  Warp RT: NULL 
+135(59.975629):  Normal RT: IMAGE_FORMAT_G16R16F 
+134(59.975613):  Depth RT: IMAGE_FORMAT_R16F 
+133(59.975599):  Depth: IMAGE_FORMAT_D24S8 
+132(59.975579):  
+ ************ ************ FORMATS ALLOCATED ************* ************* 
+
+131(59.975559):  DiffRGB16 : OK 
+130(59.975545):  DiffRGB10 : OK 
+129(59.975531):  DiffRGB8 : OK 
+128(59.975517):  warpRGBA : OK 
+127(59.975501):  warpRGB : OK 
+126(59.975478):  Normal 64: OK 
+125(59.975461):  Normal 32: OK 
+124(59.975447):  DepthRT 32: OK 
+123(59.975432):  DepthRT 16: OK 
+122(59.975418):  Depth High: OK 
+121(59.975403):  Depth Low: OK 
+120(59.975387):  Depth High: OK 
+119(59.975368):  Depth Low: OK 
+118(59.975327):  
+
+ ************ Checking HardWare Support For Texture Formats ************* 
+117(59.973570):  NewRenderer: InitCustomRenderTargets Called116(59.973257):  CNewRenderer::LevelInitPreEntity
+115(59.913888):  Requesting texture value from var "$basetexture" which is not a texture value (material: dev/lumcompare)
+114(59.902721):  Requesting texture value from var "$basetexture" which is not a texture value (material: dev/no_pixel_write)
+113(59.898877):  Requesting texture value from var "$basetexture" which is not a texture value (material: dev/bloomadd)
+112(59.776056):  
+ ##### CTexture::LoadTextureBitsFromFile couldn't find materials/_rt_csmshadowdepth.vtf
+111(59.775910):  Requesting texture value from var "$basetexture" which is not a texture value (material: debug/debugshadowbuffer)
+110(59.736881):  
+ ##### CTexture::LoadTextureBitsFromFile couldn't find materials/_rt_scope.vtf
+109(59.687841):  Requesting texture value from var "$texture2" which is not a texture value (material: dev/hud_scanlines)
+108(59.687819):  Requesting texture value from var "$texture1" which is not a texture value (material: dev/hud_scanlines)
+107(59.687750):  Requesting texture value from var "$basetexture" which is not a texture value (material: dev/hud_scanlines)
+106(59.521191):  Attempted to precache unknown particle system "gluon_enttrail"!
+105(59.521114):  Attempted to precache unknown particle system "gluon_enttrail"!
+104(57.773889):  unrecognized conditional test GPU&lt;2?$DEPTHBLEND in particle/spray1/spray1
+103(57.773817):  unrecognized conditional test GPU&lt;2?$BLENDFRAMES in particle/spray1/spray1
+102(57.708233):  	You are subscribed to 0 addons.
+101(57.708162):  CBlackMesaWorkshopBase::OnQuerySusbcribedAddons
+100(56.458188):  Init SinglePlayer Params
+99(56.457645):  Init SinglePlayer Params
+98(54.468331):  Error: Material "models/humans/female/pupil_l" uses unknown shader "Eyeball"
+97(54.467451):  Error: Material "models/humans/female/pupil_r" uses unknown shader "Eyeball"
+96(54.306426):  Unknown command "sk_alien_grunt_melee_shot_rest_interval_max"
+95(54.306261):  Unknown command "sk_alien_grunt_melee_shot_rest_interval_min"
+94(54.306096):  Unknown command "sk_alien_grunt_melee_burst_shot_count_max"
+93(54.305931):  Unknown command "sk_alien_grunt_melee_burst_shot_count_min"
+92(54.305766):  Unknown command "sk_alien_grunt_melee_burst_interval_max"
+91(54.305603):  Unknown command "sk_alien_grunt_melee_burst_interval_min"
+90(54.305438):  Unknown command "sk_alien_grunt_melee_turn_speed"
+89(54.305273):  Unknown command "sk_alien_grunt_melee_front_dmg_scale"
+88(54.305108):  Unknown command "sk_alien_grunt_melee_melee_dmg"
+87(54.304943):  Unknown command "sk_alien_grunt_melee_melee_jump_range"
+86(54.304778):  Unknown command "sk_alien_grunt_melee_melee_range"
+85(54.304598):  Unknown command "sk_alien_grunt_melee_hornet_max_range"
+84(54.304432):  Unknown command "sk_alien_grunt_melee_hornet_min_range"
+83(54.304253):  Unknown command "sk_alien_grunt_melee_health"
+82(54.302538):  Unknown command "sk_headcrab_max_jump_dist"
+81(54.302368):  Unknown command "sk_headcrab_min_jump_dist"
+80(54.296639):  Unknown command "sk_plr_crossbow_speed"
+79(51.667302):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+78(51.667273):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+77(51.667240):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+76(51.667157):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+75(51.403648):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+74(51.403620):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+73(51.403587):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+72(51.403495):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+71(51.209730):  NewPostProcess: InitializeCusRT Called 
+70(51.209650):  NewRenderer: InitCustomRenderTargets Called69(51.204201):  NewPostProcess: ShutdownCustomRenderTargets Called OUTSIDE of SCENE ??? 
+68(51.204168):  NewPostProcess: ShutdownCustomRenderTargets Called 
+67(51.204127):  NewRenderer: ShutdownCustomRenderTargets Called OUTSIDE of SCENE ??? 
+66(51.204045):  NewRenderer: ShutdownCustomRenderTargets Called 
+65(50.554909):  --- Missing Vgui material vgui/servers/icon_replay_column
+64(50.554012):  --- Missing Vgui material vgui/servers/icon_replay
+63(50.368276):  'userconfig.cfg' not present; not executing.
+62(50.345766):  CNewPostProcess::PostInit
+61(50.345664):  CNewRenderer::PostInit
+60(50.000462):  Not playing a local game.
+59(49.966320):  CampaignManager:  Campaign file "campaigns/campaign_bm_sp.txt" is malformed, failed to parse.
+58(49.926788):  Init MultiPlayer Params
+57(49.926536):  Init MultiPlayer Params
+56(49.925239):  		Parsing effect shotgun-secondary-attack.
+55(49.925224):  		Parsing effect shotgun-primary-attack-thirdperson.
+54(49.925199):  		Parsing effect shotgun-primary-attack.
+53(49.924976):  	Parsing ejection information for weapon_shotgun.
+52(49.924955):  		Parsing effect mp5-primary-attack-thirdperson.
+51(49.924926):  		Parsing effect mp5-primary-attack.
+50(49.924750):  	Parsing ejection information for weapon_mp5.
+49(49.924731):  		Parsing effect glock-primary-attack-thirdperson.
+48(49.924702):  		Parsing effect glock-primary-attack.
+47(49.924510):  	Parsing ejection information for weapon_glock.
+46(49.924236):  Initializing brass ejection system.
+45(49.923638):  CNewPostProcess::Init
+44(49.923587):  CNewRenderer::Init
+43(49.913224):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+42(49.913188):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+41(49.913148):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+40(49.913062):  ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+39(49.834082):  Hud element 'CHudBootUpSequence' doesn't have an entry 'CHudBootUpSequence' in scripts/HudLayout.res
+38(49.833972):  Hud element 'CHudHitMarker' doesn't have an entry 'CHudHitMarker' in scripts/HudLayout.res
+37(49.682129):  Failed to load Resource/UI/NavProgress.res
+36(48.719184):  Steam config directory: /mnt/data/Steam/steamapps/common/Black Mesa/platform/config
+35(48.663601):  CampaignManager:  Campaign file "campaigns/campaign_bm_sp.txt" is malformed, failed to parse.
+34(48.653272):  For FCVAR_REPLICATED, ConVar must be defined in client and game .dlls (anim_3wayblend)
+33(48.650040):  Parent cvar in client.dll not allowed (r_eyegloss)
+32(47.738798):  NewPostProcess: InitializeCusRT Called 
+31(47.738720):  NewRenderer: InitCustomRenderTargets Called30(47.724834):  maxplayers set to 1
+29(47.722684):  CampaignManager:  Campaign file "campaigns/campaign_bm_sp.txt" is malformed, failed to parse.
+28(47.150802):  Init MultiPlayer Params
+27(47.117345):  Init MultiPlayer Params
+26(47.068109):  CSoundEmitterSystem::AddSoundsFromFile:  No such file scripts/npc_sounds_zombiehev.txt
+25(47.067800):  CSoundEmitterSystem::AddSoundsFromFile:  No such file scripts/npc_sounds_xen_boid.txt
+24(47.067508):  CSoundEmitterSystem::AddSoundsFromFile:  No such file scripts/game_sounds_xen_music.txt
+23(47.067226):  CSoundEmitterSystem::AddSoundsFromFile:  No such file scripts/game_sounds_xen2.txt
+22(47.066919):  CSoundEmitterSystem::AddSoundsFromFile:  No such file scripts/misc_sounds_dead_hev.txt
+21(47.035626):  CSoundEmitterSystem::AddSoundsFromFile:  No such file scripts/npc_sounds_nihilanth.txt
+20(47.029712):  CSoundEmitterSystem::AddSoundsFromFile:  No such file scripts/npc_sounds_gonarch.txt
+19(47.021766):  CSoundEmitterSystem::AddSoundsFromFile:  No such file scripts/game_sounds_scenes_ENDGAME.txt
+18(46.927740):  Parent cvar in client.dll not allowed (sv_jump_double_enabled)
+17(46.927704):  Parent cvar in client.dll not allowed (dev_I_believe_I_can_FLY)
+16(46.926593):  Parent cvar in client.dll not allowed (bm_multiplayer_persistent_scores)
+15(46.925302):  Parent cvar in client.dll not allowed (nr_dev_shoot_lights_enabled)
+14(46.921508):  Parent cvar in client.dll not allowed (props_break_max_pieces)
+13(46.907789):  Parent cvar in server.dll not allowed (bot_mimic)
+12(46.905666):  Parent cvar in server.dll not allowed (nb_blind)
+11(46.904890):  Parent cvar in server.dll not allowed (sk_Fumer_flame_dmg_falloff_perc_dist)
+10(46.904868):  Parent cvar in server.dll not allowed (sk_Fumer_flame_dmg_falloff_perc_dist)
+9(46.893130):  Parent cvar in server.dll not allowed (sk_alien_slave_angry_points_friendly_injured_min)
+8(46.893110):  Parent cvar in server.dll not allowed (sk_alien_slave_angry_points_friendly_injured_max)
+7(46.888964):  Parent cvar in server.dll not allowed (sk_gonarch_spit_height)
+6(46.887652):  Parent cvar in server.dll not allowed (sk_gonarch_flinch_cooldown)
+5(46.887333):  Parent cvar in server.dll not allowed (sk_gonarch_special_mode_spit_cooldown)
+4(46.887316):  Parent cvar in server.dll not allowed (sk_gonarch_special_mode_spit_cooldown)
+3(46.885539):  Parent cvar in server.dll not allowed (dev_gnwt_PhysAttack_InChase_1k)
+2(46.879700):  For FCVAR_REPLICATED, ConVar must be defined in client and game .dlls (sk_xen_tree_attack_rad)
+1(46.878371):  Parent cvar in server.dll not allowed (sk_xort_dispel_evil_forced_num_enemy_threshold)
+</code></pre>
+<p>I have tried switching the game from fullscreen to windowed mode via the <code>-windowed</code> launch option. In addition, I have tried verifying my game data via Steam. Both attempts did not work. Other Source games (CS:GO) seem to work fine.</p>
+<p>I would be happy to provide more information if needed. Thank you in advance.</p>
+<p>NOTE: I have also tried the public beta branch, which does not even start at all.</p>
+          <p><a href="https://leakfree.org/t/game-crashes-while-loading/62685/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/game-crashes-while-loading/62685/1</link>
+        <pubDate>Thu, 05 Dec 2019 14:26:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62685-1</guid>
+        <source url="https://leakfree.org/t/game-crashes-while-loading/62685.rss">Game crashes while loading</source>
+      </item>
+  </channel>
+</rss>

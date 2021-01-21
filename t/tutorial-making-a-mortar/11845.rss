@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>[Tutorial] Making a mortar.</title>
+    <link>https://leakfree.org/t/tutorial-making-a-mortar/11845</link>
+    <description>Making a mortar is pretty simple.
+
+1.Make a large map.
+2.Place an entity named [b]&quot;env_mortar_controller&quot;[/b] and name it mortar_controller.This will be the controller.
+3.Place an entity named [b]&quot;env_mortar_launcher&quot;[/b] somewhere outside the map and edit the properties to your like (and name it to mortar_launcher)
+4.Place an entity named [b]&quot;point_camera&quot;[/b] above the map and edit the options to the following:
+[i][b]Pitch Yaw Roll - 90 90 0[/b]
+[b]Screen _rt_ Camera Ratio - _rt_Camera[/b]
+[b]Name:mortar_camera[/b]
+[b]FOV - 60[/b]
+[b]Screen Aspect Ratio - No[/b]
+[b]Fog Enable - No[/b]
+[b]Fog Color - 0 0 0[/b]
+[b]Fog start - 2048[/b]
+[b]Fog End - 4096[/b]
+[b]Fog Max Density [0..1] - 1[/b][/i]
+(basicilly the options you get when placing it, but theres only a changed FOV  :stuck_out_tongue: )
+5.Place an entity named [b]info_camera_link[/b] and place in the Entity Whose Material Uses field _rt_camera your mortar name (in this case mortar_controller)
+In camera name use mortar_camera.
+6.Go to [b]env_mortar_controller[/b] and fill in the Mortar Launcher field mortar_launcher.
+
+Example .VMF can be downloaded [url=&#39;https://www.dropbox.com/s/uwofwtq4l1okg6f/mortar.vmf&#39;]here[/url]
+
+Feel free to ask questions, since this is my first tutorial and its probably not really good to follow.
+
+Have fun  :slight_smile: .
+
+[b]Fun extras[/b]
+[i]Killing a garg using a mortar[/i]
+1.Place a npc_gargantua in your map and name it &quot;garg&quot;
+2.Go to outputs and add the following:
+My output named -  OnDamaged
+Targets entities named -  &quot;[u]the name of the gargantua[/u]&quot;
+Via this input -  GargantuaExplode
+Add another output, and fill in the following:
+My output named - &quot;OnWishToDie&quot;
+Targets entities named - &quot;test_garg&quot;
+Via this input - &quot;GargantuaExplode&quot;
+
+Example .VMF can be downloaded [url=&#39;https://www.dropbox.com/s/u5syxv1dohg79jx/mortar_w_garg.vmf&#39;]here[/url]
+
+[i]Using a Xen Launch pad as trampoline for the grenade[/i]
+1.Place an env_xen_pushpad
+2.Place an info_target and name it &quot;pushpad&quot;
+3.Go to the env_xen_pushpad and enter in the Jump target name the name of the info_target you placed.
+4.Edit the height offset to your prefer.</description>
+    
+    <lastBuildDate>Thu, 13 Dec 2012 12:27:57 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/tutorial-making-a-mortar/11845.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>[Tutorial] Making a mortar.</title>
+        <dc:creator><![CDATA[Hezus]]></dc:creator>
+        <description><![CDATA[
+            <p>Good tutorial. I expected that airstrike controller to be far more complex, but it’s rather simple actually  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/tutorial-making-a-mortar/11845/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-making-a-mortar/11845/2</link>
+        <pubDate>Thu, 13 Dec 2012 12:27:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11845-2</guid>
+        <source url="https://leakfree.org/t/tutorial-making-a-mortar/11845.rss">[Tutorial] Making a mortar.</source>
+      </item>
+      <item>
+        <title>[Tutorial] Making a mortar.</title>
+        <dc:creator><![CDATA[D3lta]]></dc:creator>
+        <description><![CDATA[
+            <p>Making a mortar is pretty simple.</p>
+<p>1.Make a large map.<br>
+2.Place an entity named <span class="bbcode-b">“env_mortar_controller”</span> and name it mortar_controller.This will be the controller.<br>
+3.Place an entity named <span class="bbcode-b">“env_mortar_launcher”</span> somewhere outside the map and edit the properties to your like (and name it to mortar_launcher)<br>
+4.Place an entity named <span class="bbcode-b">“point_camera”</span> above the map and edit the options to the following:<br>
+<span class="bbcode-i"><span class="bbcode-b">Pitch Yaw Roll - 90 90 0</span><br>
+<span class="bbcode-b">Screen <em>rt</em> Camera Ratio - _rt_Camera</span><br>
+<span class="bbcode-b">Name:mortar_camera</span><br>
+<span class="bbcode-b">FOV - 60</span><br>
+<span class="bbcode-b">Screen Aspect Ratio - No</span><br>
+<span class="bbcode-b">Fog Enable - No</span><br>
+<span class="bbcode-b">Fog Color - 0 0 0</span><br>
+<span class="bbcode-b">Fog start - 2048</span><br>
+<span class="bbcode-b">Fog End - 4096</span><br>
+<span class="bbcode-b">Fog Max Density [0…1] - 1</span></span><br>
+(basicilly the options you get when placing it, but theres only a changed FOV  <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"> )<br>
+5.Place an entity named <span class="bbcode-b">info_camera_link</span> and place in the Entity Whose Material Uses field _rt_camera your mortar name (in this case mortar_controller)<br>
+In camera name use mortar_camera.<br>
+6.Go to <span class="bbcode-b">env_mortar_controller</span> and fill in the Mortar Launcher field mortar_launcher.</p>
+<p>Example .VMF can be downloaded <a href="https://www.dropbox.com/s/uwofwtq4l1okg6f/mortar.vmf" data-bbcode="true" rel="nofollow noopener">here</a></p>
+<p>Feel free to ask questions, since this is my first tutorial and its probably not really good to follow.</p>
+<p>Have fun  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"> .</p>
+<p><span class="bbcode-b">Fun extras</span><br>
+<span class="bbcode-i">Killing a garg using a mortar</span><br>
+1.Place a npc_gargantua in your map and name it “garg”<br>
+2.Go to outputs and add the following:<br>
+My output named -  OnDamaged<br>
+Targets entities named -  “<span class="bbcode-u">the name of the gargantua</span>”<br>
+Via this input -  GargantuaExplode<br>
+Add another output, and fill in the following:<br>
+My output named - “OnWishToDie”<br>
+Targets entities named - “test_garg”<br>
+Via this input - “GargantuaExplode”</p>
+<p>Example .VMF can be downloaded <a href="https://www.dropbox.com/s/u5syxv1dohg79jx/mortar_w_garg.vmf" data-bbcode="true" rel="nofollow noopener">here</a></p>
+<p><span class="bbcode-i">Using a Xen Launch pad as trampoline for the grenade</span><br>
+1.Place an env_xen_pushpad<br>
+2.Place an info_target and name it “pushpad”<br>
+3.Go to the env_xen_pushpad and enter in the Jump target name the name of the info_target you placed.<br>
+4.Edit the height offset to your prefer.</p>
+          <p><a href="https://leakfree.org/t/tutorial-making-a-mortar/11845/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-making-a-mortar/11845/1</link>
+        <pubDate>Wed, 12 Dec 2012 21:25:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11845-1</guid>
+        <source url="https://leakfree.org/t/tutorial-making-a-mortar/11845.rss">[Tutorial] Making a mortar.</source>
+      </item>
+  </channel>
+</rss>

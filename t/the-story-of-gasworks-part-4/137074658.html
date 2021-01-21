@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/the-story-of-gasworks-part-4/13707?page=2 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:48:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>The Story of Gasworks, Part 4 - Developer Logs - Leakfree</title>
+    <meta name="description" content="[/size]HOME STRETCH[/size] 
+Apologies for the delay in getting this one out. Work on Black Mesa has been extremely busy recently, for reasons which should excite you. BM, coupled with a busy full time job, some personal/&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="137074658.html?page=2" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;The Story of Gasworks, Part 4&#39;" href="13707.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/the-story-of-gasworks-part-4/13707?page=2" />
+<meta name="twitter:url" content="https://leakfree.org/t/the-story-of-gasworks-part-4/13707?page=2" />
+<meta property="og:title" content="The Story of Gasworks, Part 4" />
+<meta name="twitter:title" content="The Story of Gasworks, Part 4" />
+<meta property="og:description" content="Given this series of threads, I think the time has come to update your wiki.  https://wiki.blackmesasource.com/Gasworks" />
+<meta name="twitter:description" content="Given this series of threads, I think the time has come to update your wiki.  https://wiki.blackmesasource.com/Gasworks" />
+<meta property="article:published_time" content="2015-03-02T02:31:38+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="prev" href="13707.html">
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="13707.html">The Story of Gasworks, Part 4</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/6.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa Archive</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/developer-logs/15.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Developer Logs</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bobtheengineer314159.html'><span itemprop='name'>bobtheengineer314159</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-03-02T02:31:38Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:15:59Z' class='post-time'>
+                August 11, 2020, 11:15am
+              </time>
+          <span itemprop='position'>#21</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Given this series of threads, I think the time has come to update your wiki.</p>
+<p><a href="https://wiki.blackmesasource.com/Gasworks" data-bbcode="true" rel="nofollow noopener">https://wiki.blackmesasource.com/Gasworks</a></p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Ammat_the_Ankh.html'><span itemprop='name'>Ammat_the_Ankh</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-03-02T04:28:00Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:16:00Z' class='post-time'>
+                August 11, 2020, 11:16am
+              </time>
+          <span itemprop='position'>#22</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Überman">
+<div class="title">
+<div class="quote-controls"></div>
+ Überman:</div>
+<blockquote>
+<p>Given this series of threads, I think the time has come to update your wiki.</p>
+<p><a href="https://wiki.blackmesasource.com/Gasworks" data-bbcode="true" rel="nofollow noopener">https://wiki.blackmesasource.com/Gasworks</a></p>
+</blockquote>
+</aside>
+<p>There’s a lot of things on the Wiki out of date. But I imagine a lot of the staff have more important things to do than update every article whenever something new comes out.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-03-06T12:29:36Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:16:08Z' class='post-time'>
+                August 11, 2020, 11:16am
+              </time>
+          <span itemprop='position'>#23</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="ThunderDash">
+<div class="title">
+<div class="quote-controls"></div>
+ ThunderDash:</div>
+<blockquote>
+<p>I can fully understand why just re-texturing a blockout would be a bad idea (unless you’re aiming for a map to look like Minecraft or something). What I’m wondering - and I attribute this to me taking things far too literally again - is what you’d do instead, then.</p>
+<p>Would you <span class="bbcode-i">start </span>from the blockout, and add detailed architecture and such while you’re texturing/detailing the map, or would you shunt all of the blockout work into a visgroup or some such so it can be turned off, then rebuild the geometry in more detail around it?</p>
+<p>Admittedly, I do think (as an amateur, at least) the latter option would be a ridiculous amount of work (you’re basically building the map, then building it again) to do, but having said that… Between comparing your Gasworks screenshots to the senior mapper’s blockout of it (from Part 2), and the context of the quote above (I’m reading it as “don’t re-texture blockouts, you’ll end up with no real detail”), I can’t help but wonder about it.</p>
+<p>Thanks.   <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+</blockquote>
+</aside>
+<p>I wrote a long-ass reply to this the other day but it got lost somehow when Hubi made the forum updates. What a nuisance.</p>
+<p>To try and recall what I wrote - actually making the blockout is very far from the brunt of the work. The majority of the work in the layout stage is figuring out what changes you want to make to the layout to refine it, and how you want the architecture to be defined. The actual technical work? That’s the easy bit. You can spend a month working on figuring out what refinements need to be done to a layout and figuring out how you eventually want the map to be designed, and it would only take you a day to tear it down and build it again beyond that point. It’s the figuring out what to do that’s the hard part, doing it is actually relatively easy.</p>
+<p>What this means is that rebuilding a blockout once you’ve locked in the layout is very far from a ridiculous amount of work. It’s pretty quick if you know what you’re doing.</p>
+<p>You may have been reading into my notes about detailing and textured blocks perhaps a little too deeply though. Let me explain it better. Detail isn’t something you just slap on some textured blocks. Texturing the blocks and putting architecture onto them isn’t enough. The detail IS the blocks and what you do with them. The idea is, from the blockout, you want to be building the architecture (preferably with dev textures) with a clear vision of how you want the area to look, and you keep working at it until you have a clear design. For instance, you’ll notice across the early versions of Gasworks the architecture was constantly changing because I didn’t have a clear picture of what I wanted; I was skipping that step. But since JP’s adaptation which I built on, 95% of the basic geometry and the architecture was kept the same. That IS the basic detail. The fine detail is what you slap onto that.</p>
+<p>Hope that makes sense, it’s a complex topic because detail is inherent to the design. Unless your blockout itself is already perfect in that sense, it’s definitely worth the effort to redo it with architectural design in mind once you’ve solidified what you want to do the layout. That’s effectively what was done here with Gasworks (though not intentionally) - it was rebuilt when I’d solidified and understood what I wanted to do with it - JP just helped me get there. A lot of work, yes. But worth it. The map feels and looks right. You can just as easily throw random details and textures everywhere - that’s what a lot of CS:GO workshop maps that I see do. And they look detailed, but if you really drill down into them, they fall apart real quick. We’re going for a level above that.</p>
+<aside class="quote no-group" data-username="fury">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/3bc359/40.png" class="avatar"> fury:</div>
+<blockquote>
+<p>Hey I have a suggestion about the map. Can you please change the shape of the topside ladder huts? In HL1 they were concrete bunkers with small ramps on the sides. These ramps were really usefull for cool trickjumps. (gaussjump vertically and bunnyjump against the ramp to boost you up in the air… really epic stuff  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"> )) )</p>
+</blockquote>
+</aside>
+<p>At this stage I’m not making any further changes to Gasworks, it’s locked in. I’ll make adjustments to the map based on community feedback, when it’s eventually out there. If people really miss doing those trick jumps, sure, I can change it - but I do really like the current shape. Will see what people think. You’ll be pleased to know though that there are loads of the old trick jumps and such still doable on the map, and A LOT of new ones. Trick jumps and tactical depth are everywhere, on all our maps - but Gasworks and Stalkyard really shine in that department, I think.</p>
+<aside class="quote no-group" data-username="Überman">
+<div class="title">
+<div class="quote-controls"></div>
+ Überman:</div>
+<blockquote>
+<p>Given this series of threads, I think the time has come to update your wiki.</p>
+<p><a href="https://wiki.blackmesasource.com/Gasworks" data-bbcode="true">https://wiki.blackmesasource.com/Gasworks</a></p>
+</blockquote>
+</aside>
+<p>I’ll do it if I find the time/motivation. But, if not, feel free to be my guest  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:">  All the information is in these threads!</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/KyuuGryphon.html'><span itemprop='name'>KyuuGryphon</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-03-12T19:11:19Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:24:31Z' class='post-time'>
+                November 25, 2018,  4:24am
+              </time>
+          <span itemprop='position'>#24</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<aside class="quote no-group" data-username="ThunderDash">
+<div class="title">
+<div class="quote-controls"></div>
+ ThunderDash:</div>
+<blockquote>
+<p>I can fully understand why just re-texturing a blockout would be a bad idea (unless you’re aiming for a map to look like Minecraft or something). What I’m wondering - and I attribute this to me taking things far too literally again - is what you’d do instead, then.</p>
+<p>Would you <span class="bbcode-i">start </span>from the blockout, and add detailed architecture and such while you’re texturing/detailing the map, or would you shunt all of the blockout work into a visgroup or some such so it can be turned off, then rebuild the geometry in more detail around it?</p>
+<p>Admittedly, I do think (as an amateur, at least) the latter option would be a ridiculous amount of work (you’re basically building the map, then building it again) to do, but having said that… Between comparing your Gasworks screenshots to the senior mapper’s blockout of it (from Part 2), and the context of the quote above (I’m reading it as “don’t re-texture blockouts, you’ll end up with no real detail”), I can’t help but wonder about it.</p>
+<p>Thanks.   <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+</blockquote>
+</aside>
+<p>I wrote a long-ass reply to this the other day but it got lost somehow when Hubi made the forum updates. What a nuisance.<br>
+To try and recall what I wrote - actually making the blockout is very far from the brunt of the work. The majority of the work in the layout stage is figuring out what changes you want to make to the layout to refine it, and how you want the architecture to be defined. The actual technical work? That’s the easy bit. You can spend a month working on figuring out what refinements need to be done to a layout and figuring out how you eventually want the map to be designed, and it would only take you a day to tear it down and build it again beyond that point. It’s the figuring out what to do that’s the hard part, doing it is actually relatively easy.</p>
+<p>What this means is that rebuilding a blockout once you’ve locked in the layout is very far from a ridiculous amount of work. It’s pretty quick if you know what you’re doing.</p>
+<p>You may have been reading into my notes about detailing and textured blocks perhaps a little too deeply though. Let me explain it better. Detail isn’t something you just slap on some textured blocks. Texturing the blocks and putting architecture onto them isn’t enough. The detail IS the blocks and what you do with them. The idea is, from the blockout, you want to be building the architecture (preferably with dev textures) with a clear vision of how you want the area to look, and you keep working at it until you have a clear design. For instance, you’ll notice across the early versions of Gasworks the architecture was constantly changing because I didn’t have a clear picture of what I wanted; I was skipping that step. But since JP’s adaptation which I built on, 95% of the basic geometry and the architecture was kept the same. That IS the basic detail. The fine detail is what you slap onto that.</p>
+<p>Hope that makes sense, it’s a complex topic because detail is inherent to the design. Unless your blockout itself is already perfect in that sense, it’s definitely worth the effort to redo it with architectural design in mind once you’ve solidified what you want to do the layout. That’s effectively what was done here with Gasworks (though not intentionally) - it was rebuilt when I’d solidified and understood what I wanted to do with it - JP just helped me get there. A lot of work, yes. But worth it. The map feels and looks right. You can just as easily throw random details and textures everywhere - that’s what a lot of CS:GO workshop maps that I see do. And they look detailed, but if you really drill down into them, they fall apart real quick. We’re going for a level above that.</p>
+</blockquote>
+</aside>
+<p>Ahhh, okay. I think I get it now, but just to make sure:</p>
+<ol>
+<li>Basic blockout phase. This is where the core layout is done, with very simple geometry, dev textures, and simple lighting.</li>
+<li>Rebuild the map layout with proper detailing around/over the blockout, still using dev textures and simple lighting (E.G. putting the blockout into a visgroup or some such so you can reference it and disable it when you need to)?</li>
+<li>Add proper textures/lighting/fine detailing to the map until everything feels right and works properly?</li>
+</ol>
+<p>Again, I know I have a problem with reading things far too literally, so my apologies if I’m completely misunderstanding you here.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><a rel="prev" itemprop="url" href="13707.html">← previous page</a></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/the-story-of-gasworks-part-4/13707?page=2 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:48:19 GMT -->
+</html>

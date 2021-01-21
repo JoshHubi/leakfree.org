@@ -1,0 +1,729 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Thief 2 and System Shock 2 get brand new patch</title>
+    <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149</link>
+    <description>[url]https://www.ttlg.com/forums/showthread.php?t=140085[/url]
+[quote]
+This is an unofficial patch for Thief II: The Metal Age (T2) which updates the game from v1.18 to
+v1.19, providing improved support for modern hardware and correcting many known bugs. T2 can be
+purchased digitally from GOG ([url]https://www.gog.com[/url]) and Steam (store.steampowered.com). If you prefer a
+boxed copy, it can usually be found on Mastertronic and Amazon (or similar).
+
+...
+
+A small sample of changes and fixes
+-----------------------------------
+
+Renderer:
+- Added windowed mode
+- Added single display mode option - no resolution change between menus and game
+- Added ingame support for all common resolutions, including widescreen
+- Added support for 32-bit color
+- Textures can now be automatically promoted to 32-bit, improving quality and effectively eliminating the palette limit
+- Added UI framerate cap option to avoid GPU fan spinning up in UI
+- Added DDS/PNG image support
+- Added full 24/32-bit TGA/BMP image support
+- Increased the maximum number of frames allowed in animated textures from 20 to 99, and increased the allowable filename length for animated textures (before the underscore) to support more than 7
+- Animated texture rate can now be specified via a material file for that texture
+- Fixed a bug where Transparency property didn&#39;t (correctly) apply on objects that contain transparent polys
+
+General:
+- Replaced video player lib with an FFMpeg based one to play cutscenes. LGVid.ax or other codecs are no longer required
+- Option to use OpenAL (if available) instead of DirectSound. Includes support for audio effects in Windows 7 without an EAX-enabled driver (e.g. ALchemy)
+- Added &quot;head_bob&quot; config var to control amount of head bob
+- Added mousewheel support to options menu
+- Fixed player ground contact tracking when walking off an object (caused footstep sounds to get &quot;stuck&quot; on previous material)
+- Fixed sound cap per schema type bug and upped max sound channels to 48
+- Changed screenshot output format to BMP and also added support for PNG screenshots
+- Changed mouselook sensitivity to be resolution independent
+- Added check to avoid trying to open files with reserved system name like com ports
+- AIs now breathe from their head instead of their stomachs. They will no longer drown when up to their waist in water.
+- Lowered player crouch height by a tiny fraction so he&#39;s less likely to get stuck on 4 unit tall spaces
+- Added better support for binding actions to the mouse wheel (can bind wheel up and wheel down as separate actions, with modifier key support)
+- Fixed star rendering
+- Added &quot;log_player_pos&quot; command that dumps current player pos to log file (when enabled)
+- Added the ability to detach from ladders by crouching
+- Improved mantling a bit and added optional new mantling algorithm with lower failure rate
+- Fixed a bug which limited number of sound channels to 16 even if more were selected
+- Fixed a bug that sometimes caused doors to float away into infinity
+- Fixed (or at least greatly improved) a bug with edge triggered OBBs sometimes failing to detect collision (in particular for slow moving objects)
+- Fixed framerate dependent speed issue for camvators/moving terrain (with collision type: none)
+- Added &quot;fixed_star_size&quot; option for resolution independent star size
+- Fixed some bugs when attaching to a ladder from water.
+- AIs who are facing very close to a wall will no longer turn to face south when the game begins
+- Health bar drawing adjusted in widescreen
+- Added option to fix arm rendering
+- Added AA to rendering of loadout screen items
+- Fixed pickpocket count bug that would always show 1 more maximum pickpocket than there actually was.
+- Added &quot;Blocks frobs&quot; property, allowing objects to block frobs of objects behind them (e.g. to stop frobbing items through safe doors)
+- Added option to left-align map notes text
+- Made navigation of map/objectives screen a little bit more in-game friendly (screen can also be closed with space, arrow key navigation and return to switch map/obj)
+
+DromEd:
+- Lightmaps are now properly displayed in the editor 3D view
+- Added support for HW rendering in editor viewports
+- Increased the maximum number of visible on-screen terrain polies from 1024 to 20480
+- Increased the maximum number of visible on-screen objects from 128 to 1280
+- Added some safety checks to object scaling operations to prevent objects with 1.#INF scale
+- Fixed a crash when computing pathfinding with an improperly linked moving terrain object in the mission. An ignorable assert is thrown and the object is skipped gracefully instead of crashing.
+- Prevented a crash if you apply a model of one creature type to an object assigned a different creature type
+- Fixed &quot;Attempt to mark from invalid room id 0&quot; assertion to actually show the room id that is invalid, instead of always showing 0.
+- Integrated csgmerge tool into editor exe
+- Added support for 32-bit lightmaps
+- Fixed the bug where cloning a multibrush with particles would duplicate every object in the mission
+- Fixed a bug where the game would crash when deleting a large multibrush
+- Added fallback check to find Motiondb.bin in resource paths
+- Fixed resource lock errors when loading TGA images (for object textures and distance art)
+- Fixed solo view editor issues when going back to edit mode from game mode
+- Added ability to change the brush colors in DromEd via values in DromEd.cfg.
+- Added light-based transparency property
+- Added ability to enable/disable eye zoom in Thief 2
+- Vast improvements to editor dialogs, including crash fixes and improved functionality
+- Increased brush limit from 7068 to 16384
+- Increased rooms limit from 1024 to 4096
+- Increased ambient sound limit from 256 to 1024
+- Increased cell limit from 28672 to 32760
+- Increased the maximum number of sides in a cylinder from 10 to 26.
+- Increased automap location limit from 64 to 256 locations per page
+- The texture rotation control can now interpret negative values
+- Fixed a crash while generating reports
+- Added a warning dialog when attempting to save one filetype (mis/gam/cow) as another
+- Added new Windows-style texture palette (which also supports more than 256 textures)
+- Added support for all editor window sizes
+- Added Pendulum (/sinusoidal) curve type to tweqs
+- Added DetailAttachement link type
+- Added Distance Alpha property
+- Added Bitmap Color property for custom modulation color on bitmap objects
+- Added &quot;Face camera (axial)&quot; setting to Bitmap Worldspace
+- Added color param, additive blending and spotlight cone falloff support to coronas
+- Added &quot;Editor Comments&quot; property
+- Added &quot;show_vhots&quot; command for debug visuals of vhot placement and numbering on objects
+- Manually deleting links in the link view dialog no longer deletes attached object for ParticleAttachement/DetailAttachement links
+- Added the ability to place graphical decals on book pages
+- Corpses with Contains links no longer count as pickpockets
+- The Auto-Multibrush property no longer crashes DromEd if the .vbr file was not found.
+- The stimulus on existing receptrons can now be changed
+- The intensity for sources is no longer reset when changing the propagator
+- The receptrons list now correctly shows the max intensity value for existing receptrons
+- Meshes can now be scaled with the Scale property
+- Scaled objects now cast properly scaled shadows
+- Objects can now obscure coronas
+- Bitmap Worldspace objects can now be locally lit
+- Precipitation will now collide with OBB objects as well as terrain
+- The brush_to_room command can now be given a negative number, to be interpreted as an absolute size instead of a percentage (e.g. brush_to_room -0.1 would create a room brush 0.1 units larger than the selected brush.)
+- It is no longer necessary to explicitly add the Hidden property to a secret object for the secret to be properly counted
+- Added numeric keypad input support
+- DromEd will no longer stop working after 03:14:07 on Tuesday, 19 January 2038
+- Added &quot;scroll here&quot; option to the right-click menu for solo views, similar to the &quot;teleport camera&quot; option for non-solo views
+- Fixed some issues with calculating which room cells are in (which might have caused problems with precipitation and fogging)
+- Increased the time range of Tweqs to 0-65535
+- The same property can no longer be added to an object multiple times
+- Fixed a crash when adding the Texture Anim Data property to a concrete object
+
+- See the included modders_notes.txt for more details on editor changes
+[/quote]
+And this is an explanation by somebody about what this could possibly be about:
+[quote]
+What happened is, one of the LGS guys sold their dreamcast devkit and it had a copy of the dromed/dark engine source code on it. Unfortunately it was part of a network drive so a lot of information is (was?) missing.
+
+Some time last year, or maybe 2 years ago (I don&#39;t recall) a DC collector came across it, and passively announced his devkit had these games on it. LGS guys, ever vigilant they are, caught wind of this and their board exploded. They immediately got in contact with the collector, and the communities most talented modders, coders, hackers, and ex-LGS employees secretly got together and supposedly but never confirming it, got to work on fixing up the games.
+
+What you&#39;re seeing here, is possibly maybe could be a result from that gathering.
+[/quote]
+This is really awesome. I&#39;m currently playing through the original Thief so this will be pretty cool once I get around to playing Thief 2. I&#39;ve been meaning to play SS2 as well.</description>
+    
+    <lastBuildDate>Mon, 08 Oct 2012 14:20:44 +0000</lastBuildDate>
+    <category>Technology and Gaming</category>
+    <atom:link href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[Mented]]></dc:creator>
+        <description><![CDATA[
+            <p>Always wanted a copy of SS2, prices on the internet for old copies are more than new games this gen, ridiculous.</p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/25">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/25</link>
+        <pubDate>Mon, 08 Oct 2012 14:20:44 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-25</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[BahamutBBob]]></dc:creator>
+        <description><![CDATA[
+            <p>I need to get my hands on a copy of SS2 again.</p>
+<p>I had it working on Win7 64 a while back, but changing my keybinds broke the gameplay (couldn’t “use” anything!) and I gave up trying to fix it.  This patch should help.  Once I “obtain” another copy, that is.</p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/24">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/24</link>
+        <pubDate>Mon, 08 Oct 2012 04:08:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-24</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[jambo]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve been playing it as well and it’s amazing on Win 7 64-bit. Plays perfectly at 2560x1600 along with the SHTUP and Rebirth mods.</p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/23">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/23</link>
+        <pubDate>Wed, 03 Oct 2012 23:58:16 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-23</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[gibbelin]]></dc:creator>
+        <description><![CDATA[
+            <p>So I can confirm that, texture updates aside, this makes the System Shock 2 process a lot smoother and cleaner. No more jarring shifts in resolution, codec shenanigans, or anything like that. Drop the shock folder on your desktop, install the new patch, and enjoy.</p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/22">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/22</link>
+        <pubDate>Wed, 03 Oct 2012 18:42:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-22</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[Kairouseki]]></dc:creator>
+        <description><![CDATA[
+            <p>Pirate Bay.</p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/21">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/21</link>
+        <pubDate>Tue, 02 Oct 2012 03:17:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-21</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[Pyroclase]]></dc:creator>
+        <description><![CDATA[
+            <p>So where do I get System Shock 2 if I want to play it?</p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/20</link>
+        <pubDate>Mon, 01 Oct 2012 18:55:48 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-20</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[xalener]]></dc:creator>
+        <description><![CDATA[
+            <p>system shock 3 confirmed</p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/19</link>
+        <pubDate>Mon, 01 Oct 2012 16:07:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-19</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[gibbelin]]></dc:creator>
+        <description><![CDATA[
+            <p>They can’t release it because they don’t own the entire rights, unfortunately.</p>
+<p>They have first dibs on the trademark and apparently some of the copyrighted material, and Star Insurance owns the rest. The real question is why do they bother enforcing a game for which they don’t own more than a small percentage of the rights? Also weird is the fact that they let pretty much anyone distribute the first game and never say a peep about it.</p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/18</link>
+        <pubDate>Sat, 29 Sep 2012 22:52:33 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-18</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[The_Scientist]]></dc:creator>
+        <description><![CDATA[
+            <p>As far as I can see, Amazon, Ebay or car boot sales would be the only locations to buy SS2.<br>
+Quite why EA doesn’t make it available for digital d/l is a mystery.</p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/17</link>
+        <pubDate>Sat, 29 Sep 2012 21:15:52 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-17</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[gibbelin]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="k3nny1550">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/k3nny1550/40/4952_2.png" class="avatar"> k3nny1550:</div>
+<blockquote>
+<p>Should I play the original System Shock before playing SS2? Or are the games reasonably self-contained?</p>
+</blockquote>
+</aside>
+<p>It wouldn’t hurt to play SS1 first, since it’ll fill in a lot of backstory and it’s a great game in its own right. But it’s VERY different from SS2. The first game is part adventure game, part shooter, with some crazy modular upgrades and survival elements tossed in. The second game is a straight-up survival horror RPG. If you’ve played Ultima Underworld, SS1 is a lot like that, but with a crazy complex interface and no friendly NPCs. There’s nothing out there like it any more, so it takes a big mental adjustment to play it. SS2 seems really modern by comparison.</p>
+<aside class="quote no-group" data-username="A scientist">
+<div class="title">
+<div class="quote-controls"></div>
+ A scientist:</div>
+<blockquote>
+<p>According to Classic Game Network, SS2 is now abandonware.<br>
+I’ve seen it on their site as an ISO download.<br>
+In fact I downloaded it from there years ago, so I have to assume it’s legit.</p>
+</blockquote>
+</aside>
+<p>I’m all for downloading this game because its chronic out-of-printness is a travesty, but just slapping “abandonware” onto something don’t necessarily make it fuckin’ so – to paraphrase that dude from Reservoir Dogs.</p>
+<p>Abandonware is essentially just the community’s way of saying “the rights holders probably aren’t going to shut our asses down.” EA has sent C&amp;D and takedown notices to places hosting SS2 in the recent past, so they definitely aren’t cool with it being openly hosted.</p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/16</link>
+        <pubDate>Sat, 29 Sep 2012 19:52:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-16</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>Should I play the original System Shock before playing SS2? Or are the games reasonably self-contained?</p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/15</link>
+        <pubDate>Sat, 29 Sep 2012 19:15:44 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-15</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[The_Scientist]]></dc:creator>
+        <description><![CDATA[
+            <p>According to Classic Game Network, SS2 is now abandonware.<br>
+I’ve seen it on their site as an ISO download.<br>
+In fact I downloaded it from there years ago, so I have to assume it’s legit.</p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/14</link>
+        <pubDate>Sat, 29 Sep 2012 18:53:53 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-14</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[Dadster]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Pyro">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/p/71e660/40.png" class="avatar"> Pyro:</div>
+<blockquote>
+<p>I’ve been wanting to play System Shock 2, so will this help with that?</p>
+</blockquote>
+</aside>
+<p>ABSOLUTELY ! ! !</p>
+<p>I recently re-installed SS2 and have been playing it on and off. Yesterday, I found out about this new patch, and immediately downloaded and installed it. Last night I was playing SS2 in true 32-bit mode along with numerous other glorious visual and audio enhancements provided within this new patch. Bloom, coronas, SMAA, increased resolution options, multi-monitor support, etc., etc. As well, there are a number of menu and key-binding improvements. Not to mention the dramatic oh-my-god improvements to the present limited capabilities of the game editors and tools. We should see an avalanche of mods soon coming forth addressing long-time issues with visuals and lighting. Nothing on the scale of what BM has accomplished, but it will allow SS2 and Thief 1 &amp; 2 to leap and bound their way forward graphically to compliment their already great gameplay.</p>
+<p>What a stupendous month… two of my favorite games, Half-Life and SS2 get monumental makeovers. Ya gotta love the gaming times were in. Now, if only Half-Life 3 was in our immediate future!<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/4/44afe89e4b9dbf8b799c6cd067935c087d4bcaa6.jpeg" data-download-href="https://leakfree.org/uploads/default/44afe89e4b9dbf8b799c6cd067935c087d4bcaa6" title="ss2_dump022.jpg"><img src="https://leakfree.org/uploads/default/original/2X/4/44afe89e4b9dbf8b799c6cd067935c087d4bcaa6.jpeg" alt="ss2_dump022.jpg" data-base62-sha1="9NDlJAaikL2dY0s4Px0I4XlmPzw" width="690" height="500" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/4/44afe89e4b9dbf8b799c6cd067935c087d4bcaa6_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">ss2_dump022.jpg</span><span class="informations">1462×913 77.1 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/e/e6681afcaddeb63ffea2fa80c7385c01bc90fd29.jpeg" data-download-href="https://leakfree.org/uploads/default/e6681afcaddeb63ffea2fa80c7385c01bc90fd29" title="ss2_eyefinity_medsci_hdr_3240_1920.jpg"><img src="https://leakfree.org/uploads/default/original/2X/e/e6681afcaddeb63ffea2fa80c7385c01bc90fd29.jpeg" alt="ss2_eyefinity_medsci_hdr_3240_1920.jpg" data-base62-sha1="wSgRvuTgKJcpqvApYR57a38bWuR" width="690" height="500" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/e/e6681afcaddeb63ffea2fa80c7385c01bc90fd29_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">ss2_eyefinity_medsci_hdr_3240_1920.jpg</span><span class="informations">1429×847 80.7 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/13</link>
+        <pubDate>Fri, 28 Sep 2012 07:56:53 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-13</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[Kairouseki]]></dc:creator>
+        <description><![CDATA[
+            <p>Apparently there’s a way to get the Thief 2 patch working with the original. I tried moving everything into the directory and doing other things that it said to do but I don’t see any differences when I start it up.</p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/12</link>
+        <pubDate>Thu, 27 Sep 2012 23:58:05 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-12</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[Bloodshot]]></dc:creator>
+        <description><![CDATA[
+            <p>Could this possibly mean we could eventually get things like RT shadows and other improvements (possibly if someone put the work in to bring it up on par with the dark mod)</p>
+<p>And maybe even fully integrated and proper multiplayer support? I could never get Thief 2 multiplayer to work but I always wanted to play it so bad  <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/11</link>
+        <pubDate>Thu, 27 Sep 2012 23:38:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-11</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[vand3537]]></dc:creator>
+        <description><![CDATA[
+            <p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/10</link>
+        <pubDate>Thu, 27 Sep 2012 05:15:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-10</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[xalener]]></dc:creator>
+        <description><![CDATA[
+            <p>Feels, Neo. Endless Feels.</p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/9</link>
+        <pubDate>Wed, 26 Sep 2012 15:39:47 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-9</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[gibbelin]]></dc:creator>
+        <description><![CDATA[
+            <p>This goes way beyond just a patch. Someone has been covertly working with the source code leak to basically make the engine way better. This means future high-res textures, better lighting, all kinds of stuff.</p>
+<p>The Dark Engine has been saved.</p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/8</link>
+        <pubDate>Wed, 26 Sep 2012 15:06:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-8</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[Pyroclase]]></dc:creator>
+        <description><![CDATA[
+            <p>Damnit.</p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/7</link>
+        <pubDate>Wed, 26 Sep 2012 15:00:27 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-7</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[xalener]]></dc:creator>
+        <description><![CDATA[
+            <p>MY FEELS</p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/6</link>
+        <pubDate>Wed, 26 Sep 2012 14:41:13 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-6</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[Kairouseki]]></dc:creator>
+        <description><![CDATA[
+            <p>It’s split between EA and an insurance company so that’s pretty much keeping it from being rereleased.</p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/5</link>
+        <pubDate>Wed, 26 Sep 2012 03:52:47 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-5</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>I think the System Shock licence is still with EA, so it’s unlikely we’ll see a digital release.</p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/4</link>
+        <pubDate>Wed, 26 Sep 2012 03:51:33 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-4</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[Pyroclase]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve been wanting to play System Shock 2, so will this help with that?</p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/3</link>
+        <pubDate>Wed, 26 Sep 2012 03:21:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-3</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[Bloodshot]]></dc:creator>
+        <description><![CDATA[
+            <p>Holy shit.</p>
+<p>That is fucking sick. I love the Thief community.</p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/2</link>
+        <pubDate>Wed, 26 Sep 2012 03:13:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-2</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+      <item>
+        <title>Thief 2 and System Shock 2 get brand new patch</title>
+        <dc:creator><![CDATA[Kairouseki]]></dc:creator>
+        <description><![CDATA[
+            <p><a href="https://www.ttlg.com/forums/showthread.php?t=140085" data-bbcode="true" rel="nofollow noopener">https://www.ttlg.com/forums/showthread.php?t=140085</a></p>
+<aside class="quote no-group">
+<blockquote>
+<p>This is an unofficial patch for Thief II: The Metal Age (T2) which updates the game from v1.18 to<br>
+v1.19, providing improved support for modern hardware and correcting many known bugs. T2 can be<br>
+purchased digitally from GOG (<a href="https://www.gog.com" data-bbcode="true" rel="nofollow noopener">https://www.gog.com</a>) and Steam (<a href="http://store.steampowered.com" rel="nofollow noopener">store.steampowered.com</a>). If you prefer a<br>
+boxed copy, it can usually be found on Mastertronic and Amazon (or similar).</p>
+<p>…</p>
+<h2>A small sample of changes and fixes</h2>
+<p>Renderer:</p>
+<ul>
+<li>Added windowed mode</li>
+<li>Added single display mode option - no resolution change between menus and game</li>
+<li>Added ingame support for all common resolutions, including widescreen</li>
+<li>Added support for 32-bit color</li>
+<li>Textures can now be automatically promoted to 32-bit, improving quality and effectively eliminating the palette limit</li>
+<li>Added UI framerate cap option to avoid GPU fan spinning up in UI</li>
+<li>Added DDS/PNG image support</li>
+<li>Added full 24/32-bit TGA/BMP image support</li>
+<li>Increased the maximum number of frames allowed in animated textures from 20 to 99, and increased the allowable filename length for animated textures (before the underscore) to support more than 7</li>
+<li>Animated texture rate can now be specified via a material file for that texture</li>
+<li>Fixed a bug where Transparency property didn’t (correctly) apply on objects that contain transparent polys</li>
+</ul>
+<p>General:</p>
+<ul>
+<li>Replaced video player lib with an FFMpeg based one to play cutscenes. LGVid.ax or other codecs are no longer required</li>
+<li>Option to use OpenAL (if available) instead of DirectSound. Includes support for audio effects in Windows 7 without an EAX-enabled driver (e.g. ALchemy)</li>
+<li>Added “head_bob” config var to control amount of head bob</li>
+<li>Added mousewheel support to options menu</li>
+<li>Fixed player ground contact tracking when walking off an object (caused footstep sounds to get “stuck” on previous material)</li>
+<li>Fixed sound cap per schema type bug and upped max sound channels to 48</li>
+<li>Changed screenshot output format to BMP and also added support for PNG screenshots</li>
+<li>Changed mouselook sensitivity to be resolution independent</li>
+<li>Added check to avoid trying to open files with reserved system name like com ports</li>
+<li>AIs now breathe from their head instead of their stomachs. They will no longer drown when up to their waist in water.</li>
+<li>Lowered player crouch height by a tiny fraction so he’s less likely to get stuck on 4 unit tall spaces</li>
+<li>Added better support for binding actions to the mouse wheel (can bind wheel up and wheel down as separate actions, with modifier key support)</li>
+<li>Fixed star rendering</li>
+<li>Added “log_player_pos” command that dumps current player pos to log file (when enabled)</li>
+<li>Added the ability to detach from ladders by crouching</li>
+<li>Improved mantling a bit and added optional new mantling algorithm with lower failure rate</li>
+<li>Fixed a bug which limited number of sound channels to 16 even if more were selected</li>
+<li>Fixed a bug that sometimes caused doors to float away into infinity</li>
+<li>Fixed (or at least greatly improved) a bug with edge triggered OBBs sometimes failing to detect collision (in particular for slow moving objects)</li>
+<li>Fixed framerate dependent speed issue for camvators/moving terrain (with collision type: none)</li>
+<li>Added “fixed_star_size” option for resolution independent star size</li>
+<li>Fixed some bugs when attaching to a ladder from water.</li>
+<li>AIs who are facing very close to a wall will no longer turn to face south when the game begins</li>
+<li>Health bar drawing adjusted in widescreen</li>
+<li>Added option to fix arm rendering</li>
+<li>Added AA to rendering of loadout screen items</li>
+<li>Fixed pickpocket count bug that would always show 1 more maximum pickpocket than there actually was.</li>
+<li>Added “Blocks frobs” property, allowing objects to block frobs of objects behind them (e.g. to stop frobbing items through safe doors)</li>
+<li>Added option to left-align map notes text</li>
+<li>Made navigation of map/objectives screen a little bit more in-game friendly (screen can also be closed with space, arrow key navigation and return to switch map/obj)</li>
+</ul>
+<p>DromEd:</p>
+<ul>
+<li>
+<p>Lightmaps are now properly displayed in the editor 3D view</p>
+</li>
+<li>
+<p>Added support for HW rendering in editor viewports</p>
+</li>
+<li>
+<p>Increased the maximum number of visible on-screen terrain polies from 1024 to 20480</p>
+</li>
+<li>
+<p>Increased the maximum number of visible on-screen objects from 128 to 1280</p>
+</li>
+<li>
+<p>Added some safety checks to object scaling operations to prevent objects with 1.<span class="hashtag">#INF</span> scale</p>
+</li>
+<li>
+<p>Fixed a crash when computing pathfinding with an improperly linked moving terrain object in the mission. An ignorable assert is thrown and the object is skipped gracefully instead of crashing.</p>
+</li>
+<li>
+<p>Prevented a crash if you apply a model of one creature type to an object assigned a different creature type</p>
+</li>
+<li>
+<p>Fixed “Attempt to mark from invalid room id 0” assertion to actually show the room id that is invalid, instead of always showing 0.</p>
+</li>
+<li>
+<p>Integrated csgmerge tool into editor exe</p>
+</li>
+<li>
+<p>Added support for 32-bit lightmaps</p>
+</li>
+<li>
+<p>Fixed the bug where cloning a multibrush with particles would duplicate every object in the mission</p>
+</li>
+<li>
+<p>Fixed a bug where the game would crash when deleting a large multibrush</p>
+</li>
+<li>
+<p>Added fallback check to find Motiondb.bin in resource paths</p>
+</li>
+<li>
+<p>Fixed resource lock errors when loading TGA images (for object textures and distance art)</p>
+</li>
+<li>
+<p>Fixed solo view editor issues when going back to edit mode from game mode</p>
+</li>
+<li>
+<p>Added ability to change the brush colors in DromEd via values in DromEd.cfg.</p>
+</li>
+<li>
+<p>Added light-based transparency property</p>
+</li>
+<li>
+<p>Added ability to enable/disable eye zoom in Thief 2</p>
+</li>
+<li>
+<p>Vast improvements to editor dialogs, including crash fixes and improved functionality</p>
+</li>
+<li>
+<p>Increased brush limit from 7068 to 16384</p>
+</li>
+<li>
+<p>Increased rooms limit from 1024 to 4096</p>
+</li>
+<li>
+<p>Increased ambient sound limit from 256 to 1024</p>
+</li>
+<li>
+<p>Increased cell limit from 28672 to 32760</p>
+</li>
+<li>
+<p>Increased the maximum number of sides in a cylinder from 10 to 26.</p>
+</li>
+<li>
+<p>Increased automap location limit from 64 to 256 locations per page</p>
+</li>
+<li>
+<p>The texture rotation control can now interpret negative values</p>
+</li>
+<li>
+<p>Fixed a crash while generating reports</p>
+</li>
+<li>
+<p>Added a warning dialog when attempting to save one filetype (mis/gam/cow) as another</p>
+</li>
+<li>
+<p>Added new Windows-style texture palette (which also supports more than 256 textures)</p>
+</li>
+<li>
+<p>Added support for all editor window sizes</p>
+</li>
+<li>
+<p>Added Pendulum (/sinusoidal) curve type to tweqs</p>
+</li>
+<li>
+<p>Added DetailAttachement link type</p>
+</li>
+<li>
+<p>Added Distance Alpha property</p>
+</li>
+<li>
+<p>Added Bitmap Color property for custom modulation color on bitmap objects</p>
+</li>
+<li>
+<p>Added “Face camera (axial)” setting to Bitmap Worldspace</p>
+</li>
+<li>
+<p>Added color param, additive blending and spotlight cone falloff support to coronas</p>
+</li>
+<li>
+<p>Added “Editor Comments” property</p>
+</li>
+<li>
+<p>Added “show_vhots” command for debug visuals of vhot placement and numbering on objects</p>
+</li>
+<li>
+<p>Manually deleting links in the link view dialog no longer deletes attached object for ParticleAttachement/DetailAttachement links</p>
+</li>
+<li>
+<p>Added the ability to place graphical decals on book pages</p>
+</li>
+<li>
+<p>Corpses with Contains links no longer count as pickpockets</p>
+</li>
+<li>
+<p>The Auto-Multibrush property no longer crashes DromEd if the .vbr file was not found.</p>
+</li>
+<li>
+<p>The stimulus on existing receptrons can now be changed</p>
+</li>
+<li>
+<p>The intensity for sources is no longer reset when changing the propagator</p>
+</li>
+<li>
+<p>The receptrons list now correctly shows the max intensity value for existing receptrons</p>
+</li>
+<li>
+<p>Meshes can now be scaled with the Scale property</p>
+</li>
+<li>
+<p>Scaled objects now cast properly scaled shadows</p>
+</li>
+<li>
+<p>Objects can now obscure coronas</p>
+</li>
+<li>
+<p>Bitmap Worldspace objects can now be locally lit</p>
+</li>
+<li>
+<p>Precipitation will now collide with OBB objects as well as terrain</p>
+</li>
+<li>
+<p>The brush_to_room command can now be given a negative number, to be interpreted as an absolute size instead of a percentage (e.g. brush_to_room -0.1 would create a room brush 0.1 units larger than the selected brush.)</p>
+</li>
+<li>
+<p>It is no longer necessary to explicitly add the Hidden property to a secret object for the secret to be properly counted</p>
+</li>
+<li>
+<p>Added numeric keypad input support</p>
+</li>
+<li>
+<p>DromEd will no longer stop working after 03:14:07 on Tuesday, 19 January 2038</p>
+</li>
+<li>
+<p>Added “scroll here” option to the right-click menu for solo views, similar to the “teleport camera” option for non-solo views</p>
+</li>
+<li>
+<p>Fixed some issues with calculating which room cells are in (which might have caused problems with precipitation and fogging)</p>
+</li>
+<li>
+<p>Increased the time range of Tweqs to 0-65535</p>
+</li>
+<li>
+<p>The same property can no longer be added to an object multiple times</p>
+</li>
+<li>
+<p>Fixed a crash when adding the Texture Anim Data property to a concrete object</p>
+</li>
+<li>
+<p>See the included modders_notes.txt for more details on editor changes</p>
+</li>
+</ul>
+</blockquote>
+</aside>
+<p>And this is an explanation by somebody about what this could possibly be about:</p>
+<aside class="quote no-group">
+<blockquote>
+<p>What happened is, one of the LGS guys sold their dreamcast devkit and it had a copy of the dromed/dark engine source code on it. Unfortunately it was part of a network drive so a lot of information is (was?) missing.</p>
+<p>Some time last year, or maybe 2 years ago (I don’t recall) a DC collector came across it, and passively announced his devkit had these games on it. LGS guys, ever vigilant they are, caught wind of this and their board exploded. They immediately got in contact with the collector, and the communities most talented modders, coders, hackers, and ex-LGS employees secretly got together and supposedly but never confirming it, got to work on fixing up the games.</p>
+<p>What you’re seeing here, is possibly maybe could be a result from that gathering.</p>
+</blockquote>
+</aside>
+<p>This is really awesome. I’m currently playing through the original Thief so this will be pretty cool once I get around to playing Thief 2. I’ve been meaning to play SS2 as well.</p>
+          <p><a href="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149/1</link>
+        <pubDate>Wed, 26 Sep 2012 03:10:46 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11149-1</guid>
+        <source url="https://leakfree.org/t/thief-2-and-system-shock-2-get-brand-new-patch/11149.rss">Thief 2 and System Shock 2 get brand new patch</source>
+      </item>
+  </channel>
+</rss>

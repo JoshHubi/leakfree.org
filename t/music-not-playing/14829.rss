@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Music not playing.</title>
+    <link>https://leakfree.org/t/music-not-playing/14829</link>
+    <description>Hi all,
+
+Every time I start the game none of the music tracks play. I&#39;ve checked the console and I get this type of error message:
+[quote]
+Attempting to play MP3 with no vaudio [ ui\gamestartup_1.ogg ]
+
+Failed to create decoder for MP3 [ ui\gamestartup_1.ogg ]
+[/quote]
+I&#39;ve tried deleting and reinstalling, turning off Steam Cloud, verifying game cache files, deleting all mods, and deleting remotecahce.vdf. But nothing seems to be working.
+
+Any help would be greatly appreciated!</description>
+    
+    <lastBuildDate>Mon, 09 Dec 2019 16:51:07 +0000</lastBuildDate>
+    <category>Help!</category>
+    <atom:link href="https://leakfree.org/t/music-not-playing/14829.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Music not playing.</title>
+        <dc:creator><![CDATA[CatzEyes93]]></dc:creator>
+        <description><![CDATA[
+            <p>I found this old nugget on the “wayback machine”… it looks very familiar and COULD help you. Good luck!</p>
+<hr>
+<p><strong>HOW TO  <em>DELETE</em>  FILES STORED IN STEAM CLOUD SERVERS</strong></p>
+<p><strong>Context</strong> :<br>
+I’ve read many times on this forum topics with concerns about the fact that it’s impossible to manage files stored in Steam Cloud servers. This can be very annoying if you want to know exactly what files are in the Cloud or to solve sync problems such as savegame overwriting. Since no good solution was available, I’ve decided to look at the issue and try to understand how Steam Cloud works.</p>
+<p><strong>Presentation of Steam Cloud</strong> :<br>
+Steam Cloud is used to backup config files and savegames online in order to access them from every computer. It’s a feature that can be enabled/disabled through two different dialogs:</p>
+<ul>
+<li>Steam &gt; Settings &gt; Downloads + Cloud &gt; Enable Steam Cloud synchronization for games which support it (will affect all the games)</li>
+<li>Right-click on a game &gt; Properties &gt; Updates &gt; Enable Steam Cloud synchronization for GameName (will only affect the selected game)</li>
+</ul>
+<p><strong>How it works</strong> :<br>
+The first thing you should know is that there are most of the time three versions of your save files:</p>
+<ul>
+<li>the original version stored in the game folder or in AppData ( <strong>S1</strong> )</li>
+<li>the cloud version stored in Steam\userdata\SteamID\AppID ( <strong>S2</strong> )</li>
+<li>the cloud version stored in Steam servers ( <strong>S3</strong> )<br>
+When you start a game for the first time, S1 is created. When you close it, S1 is copied to S2 which is then synced to S3.<br>
+When you start a game from another computer, if Steam has S3 on its servers but doesn’t find S2 on your computer, it will copy S3 to S2.  <strong>Steam Cloud automatically downloads the missing files each time you start Steam.</strong><br>
+You understand that the most important save location for us is S2. If we play a bit with it, we should be able to reach our goal. So what’s in S2?<br>
+Note: some games don’t have S1 and write directly to S2, while others don’t use the S2 remote folder to store the save files. In this case, the remotecache.vdf file in S2 points directly to the files located in S1 (thanks TheOdds for the detail).</li>
+</ul>
+<p><strong>Userdata contents</strong> :<br>
+In  <strong>Steam\userdata</strong>  you should have 1 (or more) folder corresponding to your account ID ( <strong>SteamID</strong> ). Open it and you’ll find a folder for each game using Steam Cloud you have installed. The folder name is the  <strong>AppID</strong>  of the game (found in the URL when you visit its store page, it’s a number like 220 for Half-Life 2). In the game folder you’ll found:</p>
+<ul>
+<li>a  <strong>remote</strong>  folder: it contains all the files that are being synced up with Steam servers</li>
+<li>a  <strong>remotecache.vdf</strong>  file: the file describe the properties (such as file size or modification date) of the files contained in the remote folder</li>
+</ul>
+<p>In this tutorial there are 2 main steps:<br>
+I. Bringing up the Cloud Sync Conflict dialog<br>
+II. Deleting the Cloud files<br>
+<strong>Note that you have to repeat these steps for EVERY game you want to delete Steam Cloud files!</strong></p>
+<p>But first I would like you to delete your  <strong>AppID</strong>  folder and restart Steam: you’ll see that it will automatically recreate the  <strong>AppID</strong>  folder and download the missing files from Steam Cloud. This verification is important for you to make sure that the whole operation has been successful.</p>
+<p>After this long but necessary introduction, let the magic begin!</p>
+<p><strong>I. Bringing up the Cloud Sync Conflict dialog</strong></p>
+<p>The first part is probably the most difficult. In order to get rid of the files stored in Steam servers, we’ll need the help of the Cloud Sync Conflict dialog. It appears when the Cloud files differ from the local files stored on your computer. There are several ways to get it, I’ll give you two:</p>
+<ol>
+<li>Exit Steam and make sure that Steam Cloud is enabled.</li>
+<li>Alter the content of all files in  <strong>Steam\userdata\SteamID\AppID\remote</strong> . The objective is that every file becomes different from the ones stored in the Cloud. You can’t simply delete the files otherwise Steam will download them from the Cloud. You can corrupt them by deleting all their content. 0 bytes files will indeed do the trick. To do this (thanks Kevin92 for the tip):</li>
+</ol>
+<ul>
+<li>Hold Shift and right-click on your  <strong>remote</strong>  folder.</li>
+<li>Click on “Open command window here”.</li>
+<li>Enter  <em>powershell</em> .</li>
+<li>Enter  <em>clc C:\Steam\userdata\SteamID\AppID\remote*</em>  (clc + absolute path of your remote folder + * to affect all the files).</li>
+<li>Done: all your files are now 0 bytes!<br>
+<strong>Warning: be sure of the path your enter to not delete accidentally system or user files! There are not any confirmation when you press Enter!</strong>
+</li>
+</ul>
+<ol start="3">
+<li>Delete  <strong>remotecache.vdf</strong>  in  <strong>Steam\userdata\SteamID\AppID</strong> .</li>
+<li>Start Steam and “<a href="https://archive.is/o/O4OZe/https://steamcommunity.com/linkfilter/https://img864.imageshack.us/img864/148/syncconflict.png">Sync conflict</a>” should appear in your game status.</li>
+</ol>
+<p>A simpler way but not as efficient:</p>
+<ol>
+<li>Start Steam.</li>
+<li>Disable Steam Cloud.</li>
+<li>Delete all files in  <strong>Steam\userdata\SteamID\AppID</strong> .</li>
+<li>Start the game to create fresh (and thus different) new files.</li>
+<li>Exit the game and Steam.</li>
+<li>Delete  <strong>remotecache.vdf</strong>  in  <strong>Steam\userdata\SteamID\AppID</strong> .</li>
+<li>Start Steam.</li>
+<li>Enable Steam Cloud and “Sync conflict” should appear in your game status.<br>
+Note that this method may not affect all the files (and you need to modify all of them if you want to delete all of them later).</li>
+</ol>
+<p>Once you have “Sync conflict”, start your game and the <a href="https://archive.is/o/O4OZe/https://steamcommunity.com/linkfilter/https://img341.imageshack.us/img341/5083/cloudsyncconflict.png">Cloud Sync Conflict dialog</a> should appear.</p>
+<p><strong>II. Deleting the Cloud files</strong></p>
+<p>Ok now it’s piece of cake. Once the dialog is opened, don’t click on any option.</p>
+<ol>
+<li>Go to  <strong>Steam\userdata\SteamID\AppID</strong>  and delete ALL the files in it,  <strong>remote</strong>  folder and  <strong>remotecache.vdf</strong> .</li>
+<li>Go back to the Cloud Sync Conflict dialog and click on “Upload to the Steam Cloud”. Steam will sync your  <strong>AppID</strong>  folder with nothing in it… meaning that all the files on the Cloud will be deleted! You don’t believe me? Wait for it, the demonstration is right after <img src="data:image/gif;base64,R0lGODlhEAAQANUqAKzQRKnNQS02EThDFbHWRBYbCKnMQafLQKzQQqDBPabJQHGIK1psIrPZRarOQXqTL46sNq7TQ6TGPxMXB5a1OTQ+FCkyEKHDPlVmIAcJA0dWGyYuD5y9PAYHAqLEPq3RQk5eHgUGAhwiCykxEIilNGNxOZy7QUJHNJSwQLTaRf///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAACoALAAAAAAQABAAAAZnQJVQVUKljilUaTg8mZDQlOnUBESjAKrqeY2aiKkDpdFFFlMFkaJr2TiMktCEc710Momyfs/nG/tJJUgBDx9HBgwaCEdLXB4CAgMVIwMkBFJCJ1YpAQsgGBARR1lNXFdTTEJnSEpMQQA7" alt="" title="Smilie">
+</li>
+<li>Then the game should start automatically.  <em>But… it will create new files that will be synced when I’ll leave the game!!</em>  Indeed it will, except if you…</li>
+<li>Alt-tab the game and disable Steam Cloud.</li>
+<li>Return to the game and exit it (or kill it through process manager). No files will be synced up!</li>
+<li>Exit Steam.</li>
+<li>Delete the  <strong>AppID</strong>  folder.</li>
+</ol>
+<p>Note: if you haven’t modified all the files in step I, only the modified ones will be deleted. The others will remain in Steam Cloud.</p>
+<p><strong>How to make sure it worked?</strong></p>
+<p>Remember at the beginning when I told you to delete your  <strong>AppID</strong>  folder to see that Steam Cloud automatically download the missing files each time you start Steam? Normally, if there is no file left in Steam Cloud, it won’t download anything on your computer. So here is how to check it:</p>
+<ol>
+<li>Enable Steam Cloud.</li>
+<li>Exit Steam.</li>
+<li>Delete the  <strong>AppID</strong>  folder (if you didn’t do it in step II).</li>
+<li>Start Steam. Steam will now check S3 (Cloud files) and compare them with S2 (local files). Nothing in S3? Nothing copied to S2!</li>
+<li>Check your  <strong>Steam\userdata\SteamID</strong>  folder. No new  <strong>AppID</strong>  folder has been created!<br>
+You can eventually check on another computer and see that no files are downloaded anymore from Steam Cloud.</li>
+</ol>
+<p>Congratulations, you have successfully deleted your files from Steam Cloud <img src="data:image/gif;base64,R0lGODlhEAAQANU7AAECAazQRA8SBgkLBBccCaHDPggJA6DBPQYHAgQFApa1OWyDKRogCgsOBK3RQiUsDpSzORwiC2F2JbPYRLPZRUtbHaTGPwsNBA0QBSEoDabJQCkyEAIDASYuDxgdCXSNLR0jC2Z7JxYbCAUGAqvPQbHXRBQZCKrOQRwhCwcJAxMXBxkfCgwPBREVBhIVBx4lDJy9PIKdMklYHBATBigwD6fLQGNxOZy7QUJHNJSwQLTaRf///wAAAAAAAAAAAAAAACH5BAEAADsALAAAAAAQABAAAAaBwJ1wZ8vpjrqcbTjE3ZBQ3Q3XDESjAerueY3eiLqagtJFFnWiiKa76ZyMlpEKdi0gUoeyfl+WgF4oBB4rDAwZNDIOSTohLBcJHACSCAMtMUk2OiQPBi4DCQACogQKOktPJQszAwYNGCYVBVJCOFZHBx8LEBNHWU1cV1NMQmdISkxBADs=" alt="" title="Big Grin"></p>
+          <p><a href="https://leakfree.org/t/music-not-playing/14829/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-not-playing/14829/11</link>
+        <pubDate>Mon, 09 Dec 2019 16:51:07 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14829-11</guid>
+        <source url="https://leakfree.org/t/music-not-playing/14829.rss">Music not playing.</source>
+      </item>
+      <item>
+        <title>Music not playing.</title>
+        <dc:creator><![CDATA[CatzEyes93]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Rancho_Unicorno" data-post="8" data-topic="14829">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/r/f17d59/40.png" class="avatar"> Rancho_Unicorno:</div>
+<blockquote>
+<p>deleting your stored Steam Cloud data</p>
+</blockquote>
+</aside>
+<p>I forget what I had to do this for, but it worked for me. Here is a different link for you.<br>
+<a href="https://steamcommunity.com/discussions/forum/1/360672047212137212/" class="onebox" target="_blank">https://steamcommunity.com/discussions/forum/1/360672047212137212/</a></p>
+          <p><a href="https://leakfree.org/t/music-not-playing/14829/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-not-playing/14829/10</link>
+        <pubDate>Mon, 09 Dec 2019 16:46:53 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14829-10</guid>
+        <source url="https://leakfree.org/t/music-not-playing/14829.rss">Music not playing.</source>
+      </item>
+      <item>
+        <title>Music not playing.</title>
+        <dc:creator><![CDATA[isocap]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="/u/rancho_unicorno">@Rancho_Unicorno</a> that link goes nowhere for me… Care to link the instructions? I just started playing the game and I’m getting this error constantly. No music plays after the first bit of the game finishes. It’s been pretty sporadic.</p>
+<p>Here’s my error at On A Rail for instance: <div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/5/50dff8e12e1cd1ea4b66768afcd5cc049cf65c7f.png" data-download-href="https://leakfree.org/uploads/default/50dff8e12e1cd1ea4b66768afcd5cc049cf65c7f" title="bms_52g13DWuvJ"><img src="https://leakfree.org/uploads/default/optimized/2X/5/50dff8e12e1cd1ea4b66768afcd5cc049cf65c7f_2_608x500.png" alt="bms_52g13DWuvJ" data-base62-sha1="bxs3sC9Z2xoW6l3oL6dFySpks3B" width="608" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/5/50dff8e12e1cd1ea4b66768afcd5cc049cf65c7f_2_608x500.png, https://leakfree.org/uploads/default/optimized/2X/5/50dff8e12e1cd1ea4b66768afcd5cc049cf65c7f_2_912x750.png 1.5x, https://leakfree.org/uploads/default/optimized/2X/5/50dff8e12e1cd1ea4b66768afcd5cc049cf65c7f_2_1216x1000.png 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/5/50dff8e12e1cd1ea4b66768afcd5cc049cf65c7f_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">bms_52g13DWuvJ</span><span class="informations">1280×1052 867 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+          <p><a href="https://leakfree.org/t/music-not-playing/14829/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-not-playing/14829/9</link>
+        <pubDate>Mon, 09 Dec 2019 01:30:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14829-9</guid>
+        <source url="https://leakfree.org/t/music-not-playing/14829.rss">Music not playing.</source>
+      </item>
+      <item>
+        <title>Music not playing.</title>
+        <dc:creator><![CDATA[Rancho_Unicorno]]></dc:creator>
+        <description><![CDATA[
+            <p>Alright so, after trying every fix I could find I think I might have found a solution.</p>
+<p><span class="bbcode-i">(Although I’m not sure if it was due to this, specifically. It could quite possibly have been some other fix. I recommend trying everything else suggested before this.)</span></p>
+<p>I’m posting it here in case anyone else with this same issue wants to give it a try, however note that this involves deleting your stored Steam Cloud data:</p>
+<aside class="quote no-group">
+<blockquote>
+<p><a href="https://forums.steampowered.com/forums/showthread.php?t=2470784" data-bbcode="true" rel="nofollow noopener">https://forums.steampowered.com/forums/showthread.php?t=2470784</a></p>
+</blockquote>
+</aside>
+<p>The instructions are little complicated and involves precise, nerdy wizardry, but after I was able to reset my Steam Cloud data for Black Mesa back to 0 MBs, the original Black Mesa soundtrack was apparently restored.</p>
+<p>Give a shot and good luck!</p>
+          <p><a href="https://leakfree.org/t/music-not-playing/14829/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-not-playing/14829/8</link>
+        <pubDate>Wed, 22 Jun 2016 01:59:05 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14829-8</guid>
+        <source url="https://leakfree.org/t/music-not-playing/14829.rss">Music not playing.</source>
+      </item>
+      <item>
+        <title>Music not playing.</title>
+        <dc:creator><![CDATA[Rancho_Unicorno]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="RedEye">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/redeye/40/4899_2.png" class="avatar"> RedEye:</div>
+<blockquote>
+<aside class="quote no-group" data-username="LordDz">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/d2c977/40.png" class="avatar"> LordDz:</div>
+<blockquote>
+<p>Are you using custom music?</p>
+</blockquote>
+</aside>
+<p>Yes, I think he was using custom music. See this thread <a href="https://steamcommunity.com/app/362890/discussions/0/358415206078592864/" data-bbcode="true" rel="nofollow noopener">https://steamcommunity.com/app/362890/discussions/0/358415206078592864/</a><br>
+Trouble shooting something like this has to be done in a certain order. You may have done all the steps, but if they were not done in the correct order you will continue to have no music.</p>
+<p>Do all of this in the following order. Skipping a step or doing them out of order nullifys the process.</p>
+<ol>
+<li>
+<p><span class="bbcode-b">Restart your computer.</span></p>
+</li>
+<li>
+<p><span class="bbcode-b">Exit Steam.</span></p>
+</li>
+<li>
+<p>Next, unsubscribe from any mods in the workshop.<br>
+Then completely remove them using this method:</p>
+</li>
+</ol>
+<ul>
+<li>Unsubscribe from all Black Mesa mods</li>
+<li>Go to ***\SteamApps\workshop\content\362890 (where *** is the location to where your steam games may be)</li>
+<li>Delete all folders within this folder</li>
+</ul>
+<ol start="4">
+<li>
+<p>Delete all sound.cache files in your /bms/sound directory. (CPU’s recommendation)</p>
+</li>
+<li>
+<p><span class="bbcode-b">Start Steam.</span></p>
+</li>
+<li>
+<p><span class="bbcode-b">Verify the integrity of your Game Cache. </span>Right click Black Mesa, Click Properties, then click “Verify Integrity of Game files.” Let it do its thing, and download anything missing/corrupted.</p>
+</li>
+</ol>
+</blockquote>
+</aside>
+<p>This did not work.</p>
+          <p><a href="https://leakfree.org/t/music-not-playing/14829/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-not-playing/14829/7</link>
+        <pubDate>Tue, 21 Jun 2016 19:44:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14829-7</guid>
+        <source url="https://leakfree.org/t/music-not-playing/14829.rss">Music not playing.</source>
+      </item>
+      <item>
+        <title>Music not playing.</title>
+        <dc:creator><![CDATA[RedEye]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="LordDz">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/d2c977/40.png" class="avatar"> LordDz:</div>
+<blockquote>
+<p>Are you using custom music?</p>
+</blockquote>
+</aside>
+<p>Yes, I think he was using custom music. See this thread <a href="https://steamcommunity.com/app/362890/discussions/0/358415206078592864/" data-bbcode="true" rel="nofollow noopener">https://steamcommunity.com/app/362890/discussions/0/358415206078592864/</a></p>
+<p>Trouble shooting something like this has to be done in a certain order. You may have done all the steps, but if they were not done in the correct order you will continue to have no music.</p>
+<p>Do all of this in the following order. Skipping a step or doing them out of order nullifys the process.</p>
+<ol>
+<li>
+<p><span class="bbcode-b">Restart your computer.</span></p>
+</li>
+<li>
+<p><span class="bbcode-b">Exit Steam.</span></p>
+</li>
+<li>
+<p>Next, unsubscribe from any mods in the workshop.<br>
+Then completely remove them using this method:</p>
+</li>
+</ol>
+<ul>
+<li>Unsubscribe from all Black Mesa mods</li>
+<li>Go to ***\SteamApps\workshop\content\362890 (where *** is the location to where your steam games may be)</li>
+<li>Delete all folders within this folder</li>
+</ul>
+<ol start="4">
+<li>
+<p>Delete all sound.cache files in your /bms/sound directory. (CPU’s recommendation)</p>
+</li>
+<li>
+<p><span class="bbcode-b">Start Steam.</span></p>
+</li>
+<li>
+<p><span class="bbcode-b">Verify the integrity of your Game Cache. </span>Right click Black Mesa, Click Properties, then click “Verify Integrity of Game files.” Let it do its thing, and download anything missing/corrupted.</p>
+</li>
+</ol>
+          <p><a href="https://leakfree.org/t/music-not-playing/14829/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-not-playing/14829/6</link>
+        <pubDate>Tue, 21 Jun 2016 19:04:51 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14829-6</guid>
+        <source url="https://leakfree.org/t/music-not-playing/14829.rss">Music not playing.</source>
+      </item>
+      <item>
+        <title>Music not playing.</title>
+        <dc:creator><![CDATA[Rancho_Unicorno]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="LordDz">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/d2c977/40.png" class="avatar"> LordDz:</div>
+<blockquote>
+<p>Are you using custom music?</p>
+</blockquote>
+</aside>
+<p>No.</p>
+          <p><a href="https://leakfree.org/t/music-not-playing/14829/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-not-playing/14829/5</link>
+        <pubDate>Fri, 17 Jun 2016 06:30:49 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14829-5</guid>
+        <source url="https://leakfree.org/t/music-not-playing/14829.rss">Music not playing.</source>
+      </item>
+      <item>
+        <title>Music not playing.</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <p>Are you using custom music?</p>
+          <p><a href="https://leakfree.org/t/music-not-playing/14829/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-not-playing/14829/4</link>
+        <pubDate>Fri, 17 Jun 2016 06:28:44 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14829-4</guid>
+        <source url="https://leakfree.org/t/music-not-playing/14829.rss">Music not playing.</source>
+      </item>
+      <item>
+        <title>Music not playing.</title>
+        <dc:creator><![CDATA[Rancho_Unicorno]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="CPU">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/cpu/40/4349_2.png" class="avatar"> CPU:</div>
+<blockquote>
+<p>Delete all <span class="bbcode-b">sound.cache </span>files in your /bms/sound directory. Start Black Mesa and type snd_restart in the console.</p>
+</blockquote>
+</aside>
+<p>That didn’t work unfortunately.</p>
+          <p><a href="https://leakfree.org/t/music-not-playing/14829/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-not-playing/14829/3</link>
+        <pubDate>Fri, 17 Jun 2016 01:51:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14829-3</guid>
+        <source url="https://leakfree.org/t/music-not-playing/14829.rss">Music not playing.</source>
+      </item>
+      <item>
+        <title>Music not playing.</title>
+        <dc:creator><![CDATA[CPU]]></dc:creator>
+        <description><![CDATA[
+            <p>Delete all <span class="bbcode-b">sound.cache </span>files in your /bms/sound directory. Start Black Mesa and type snd_restart in the console.</p>
+          <p><a href="https://leakfree.org/t/music-not-playing/14829/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-not-playing/14829/2</link>
+        <pubDate>Fri, 17 Jun 2016 01:45:30 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14829-2</guid>
+        <source url="https://leakfree.org/t/music-not-playing/14829.rss">Music not playing.</source>
+      </item>
+      <item>
+        <title>Music not playing.</title>
+        <dc:creator><![CDATA[Rancho_Unicorno]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi all,</p>
+<p>Every time I start the game none of the music tracks play. I’ve checked the console and I get this type of error message:</p>
+<aside class="quote no-group">
+<blockquote>
+<p>Attempting to play MP3 with no vaudio [ ui\gamestartup_1.ogg ]</p>
+<p>Failed to create decoder for MP3 [ ui\gamestartup_1.ogg ]</p>
+</blockquote>
+</aside>
+<p>I’ve tried deleting and reinstalling, turning off Steam Cloud, verifying game cache files, deleting all mods, and deleting remotecahce.vdf. But nothing seems to be working.</p>
+<p>Any help would be greatly appreciated!</p>
+          <p><a href="https://leakfree.org/t/music-not-playing/14829/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/music-not-playing/14829/1</link>
+        <pubDate>Fri, 17 Jun 2016 01:34:45 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14829-1</guid>
+        <source url="https://leakfree.org/t/music-not-playing/14829.rss">Music not playing.</source>
+      </item>
+  </channel>
+</rss>

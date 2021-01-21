@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Fixed: Frame-rate abnormally low, Stuttering</title>
+    <link>https://leakfree.org/t/fixed-frame-rate-abnormally-low-stuttering/10509</link>
+    <description>Hey,
+
+Before I get started let me say that this mod, is probably the best thing to happen to the half life series since HL2. If Valve does not pick you guys up on this, then they are missing out on some serious talent.
+
+Basic Specs:
+Windows 7 64Bit
+Intel Core 2 Quad Q9600 @ 3.2Ghz
+6GB DDR2 RAM @ 900Mhz
+Nvidia Geforce GT 560Ti @1Ghz
+Seagate 7200.12 1TB
+
+Okay, so after fighting the servers and installing Black Mesa I noticed that in the initial tram ride, the framerate was quite choppy and stutterish. I convinced myself that the game might just be caching (Being run the first time and all) and that it would resolve itself. After playing about 30-40 Minutes worth, it was getting worse. Especially around smoke and water effects. I tried raising and lowering the settings but unless I lowered the resolution, there was no change in framerate. My machine has been able to up until this point run every source game completely maxed out at 60FPS without problem, so this was of concern to me.
+
+I opened up +Showbudget under console and found out that the SwapBuffer was using 10X what any other background task was using (Looked exactly like this [url]https://img337.imageshack.us/img337/9851/cstropical0006zr7.jpg[/url]). I quickly did some research on it and came back with some semi helpful info that confirmed that it may be effects that were causing this ([url]https://developer.valvesoftware.com/wiki/Showbudget[/url] - scroll down to the part mentioning Swap Buffers).
+
+I already knew that disabling the Bumpmap and Specular did nothing so I set about finding another solution. 
+
+After considerable research it turns out that it was a two part solution for me. I have two monitors running into the Nvidia Geforce 560Ti, firstly I had to unplug the secondary monitor and re-affirm that the one I was using for the game was set to primary both under the Nvidia Control Panel and the Windows Display manager.
+
+Secondly I added these start-up commands to the launch options field for Black Mesa under steam &quot;-novid -refresh 60 -heapsize 1572864 -dxlevel 90&quot;
+
+Breakdown:
+
+-novid = Disables Starting Video (Im not sure if Black Mesa has one haha I do it by default with most of my games
+
+-Refresh 60 = Sets the games refresh timer to 60FPS (Yours will be dependent on your monitors refresh rate)
+
+-Heapsize 1572864 = Allocates an amount of memory to the game before it starts (Yours might be higher or lower depending on how much RAM you have)
+
+-dxlevel 90 = Forces the game to run in DirectX 9. (Another thing I do out of habit thanks to CS:S being a massive pain in the ass back in the day) It also may help resolve particle, shadow and effect&#39;s errors.
+
+After Applying both these changes, my game now runs at a silky smooth 60FPS again with the only annoyance being that it keeps resetting the graphical settings if I exit the game (Not a big annoyance, takes 5 Seconds to re-apply).
+
+Anway, I hope this helps some others out there to enjoy the game to the fullest, because it sure as hell made mine a lot easier to enjoy haha.
+
+See Ya&#39;s! Happy Gaming!</description>
+    
+    <lastBuildDate>Sat, 03 Nov 2012 19:17:52 +0000</lastBuildDate>
+    <category>Help!</category>
+    <atom:link href="https://leakfree.org/t/fixed-frame-rate-abnormally-low-stuttering/10509.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Fixed: Frame-rate abnormally low, Stuttering</title>
+        <dc:creator><![CDATA[cerpin_taxt09]]></dc:creator>
+        <description><![CDATA[
+            <p>I understand. How do I know if the Launch Options that I put in are working? My framerate is still ridiculously low on BMS.</p>
+          <p><a href="https://leakfree.org/t/fixed-frame-rate-abnormally-low-stuttering/10509/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fixed-frame-rate-abnormally-low-stuttering/10509/4</link>
+        <pubDate>Sat, 03 Nov 2012 19:17:52 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10509-4</guid>
+        <source url="https://leakfree.org/t/fixed-frame-rate-abnormally-low-stuttering/10509.rss">Fixed: Frame-rate abnormally low, Stuttering</source>
+      </item>
+      <item>
+        <title>Fixed: Frame-rate abnormally low, Stuttering</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes. ‘Advanced users’ is basically code for “people who can read.”</p>
+          <p><a href="https://leakfree.org/t/fixed-frame-rate-abnormally-low-stuttering/10509/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fixed-frame-rate-abnormally-low-stuttering/10509/3</link>
+        <pubDate>Sat, 03 Nov 2012 00:40:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10509-3</guid>
+        <source url="https://leakfree.org/t/fixed-frame-rate-abnormally-low-stuttering/10509.rss">Fixed: Frame-rate abnormally low, Stuttering</source>
+      </item>
+      <item>
+        <title>Fixed: Frame-rate abnormally low, Stuttering</title>
+        <dc:creator><![CDATA[cerpin_taxt09]]></dc:creator>
+        <description><![CDATA[
+            <p>When I select “Launch Options” for Black Mesa, it says that these settings are for “advanced users only.” Do I just input the Launch Options into the text box that’s under that message?</p>
+          <p><a href="https://leakfree.org/t/fixed-frame-rate-abnormally-low-stuttering/10509/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fixed-frame-rate-abnormally-low-stuttering/10509/2</link>
+        <pubDate>Fri, 02 Nov 2012 17:04:01 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10509-2</guid>
+        <source url="https://leakfree.org/t/fixed-frame-rate-abnormally-low-stuttering/10509.rss">Fixed: Frame-rate abnormally low, Stuttering</source>
+      </item>
+      <item>
+        <title>Fixed: Frame-rate abnormally low, Stuttering</title>
+        <dc:creator><![CDATA[THEfog]]></dc:creator>
+        <description><![CDATA[
+            <p>Hey,</p>
+<p>Before I get started let me say that this mod, is probably the best thing to happen to the half life series since HL2. If Valve does not pick you guys up on this, then they are missing out on some serious talent.</p>
+<p>Basic Specs:<br>
+Windows 7 64Bit<br>
+Intel Core 2 Quad Q9600 @ 3.2Ghz<br>
+6GB DDR2 RAM @ 900Mhz<br>
+Nvidia Geforce GT 560Ti <span class="mention">@1Ghz</span><br>
+Seagate 7200.12 1TB</p>
+<p>Okay, so after fighting the servers and installing Black Mesa I noticed that in the initial tram ride, the framerate was quite choppy and stutterish. I convinced myself that the game might just be caching (Being run the first time and all) and that it would resolve itself. After playing about 30-40 Minutes worth, it was getting worse. Especially around smoke and water effects. I tried raising and lowering the settings but unless I lowered the resolution, there was no change in framerate. My machine has been able to up until this point run every source game completely maxed out at 60FPS without problem, so this was of concern to me.</p>
+<p>I opened up +Showbudget under console and found out that the SwapBuffer was using 10X what any other background task was using (Looked exactly like this <a href="https://img337.imageshack.us/img337/9851/cstropical0006zr7.jpg" data-bbcode="true" rel="nofollow noopener">https://img337.imageshack.us/img337/9851/cstropical0006zr7.jpg</a>). I quickly did some research on it and came back with some semi helpful info that confirmed that it may be effects that were causing this (<a href="https://developer.valvesoftware.com/wiki/Showbudget" data-bbcode="true" rel="nofollow noopener">https://developer.valvesoftware.com/wiki/Showbudget</a> - scroll down to the part mentioning Swap Buffers).</p>
+<p>I already knew that disabling the Bumpmap and Specular did nothing so I set about finding another solution.</p>
+<p>After considerable research it turns out that it was a two part solution for me. I have two monitors running into the Nvidia Geforce 560Ti, firstly I had to unplug the secondary monitor and re-affirm that the one I was using for the game was set to primary both under the Nvidia Control Panel and the Windows Display manager.</p>
+<p>Secondly I added these start-up commands to the launch options field for Black Mesa under steam “-novid -refresh 60 -heapsize 1572864 -dxlevel 90”</p>
+<p>Breakdown:</p>
+<p>-novid = Disables Starting Video (Im not sure if Black Mesa has one haha I do it by default with most of my games</p>
+<p>-Refresh 60 = Sets the games refresh timer to 60FPS (Yours will be dependent on your monitors refresh rate)</p>
+<p>-Heapsize 1572864 = Allocates an amount of memory to the game before it starts (Yours might be higher or lower depending on how much RAM you have)</p>
+<p>-dxlevel 90 = Forces the game to run in DirectX 9. (Another thing I do out of habit thanks to CS:S being a massive pain in the ass back in the day) It also may help resolve particle, shadow and effect’s errors.</p>
+<p>After Applying both these changes, my game now runs at a silky smooth 60FPS again with the only annoyance being that it keeps resetting the graphical settings if I exit the game (Not a big annoyance, takes 5 Seconds to re-apply).</p>
+<p>Anway, I hope this helps some others out there to enjoy the game to the fullest, because it sure as hell made mine a lot easier to enjoy haha.</p>
+<p>See Ya’s! Happy Gaming!</p>
+          <p><a href="https://leakfree.org/t/fixed-frame-rate-abnormally-low-stuttering/10509/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fixed-frame-rate-abnormally-low-stuttering/10509/1</link>
+        <pubDate>Mon, 17 Sep 2012 07:56:38 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10509-1</guid>
+        <source url="https://leakfree.org/t/fixed-frame-rate-abnormally-low-stuttering/10509.rss">Fixed: Frame-rate abnormally low, Stuttering</source>
+      </item>
+  </channel>
+</rss>

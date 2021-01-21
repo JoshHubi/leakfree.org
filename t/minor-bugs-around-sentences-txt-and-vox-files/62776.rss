@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Minor bugs around sentences.txt and vox files</title>
+    <link>https://leakfree.org/t/minor-bugs-around-sentences-txt-and-vox-files/62776</link>
+    <description>No biggie, just typos in vox file names and some missing .wavs. In case there is a reference to a missing sound in a preset sentence, only a subtitle appears for it but nothing played.
+
+    sound\vox\
+    File			Note			What to do
+    ------------------------------------------------------------------------
+    noe.wav			says &quot;on&quot;		DELETE
+    helecopter.wav		typo in file name	RENAME -&gt; helicopter.wav 
+    perpulsion.wav		typo in file name	RENAME -&gt; propulsion.wav 
+    sheild.wav		typo in file name	RENAME -&gt; shield.wav 
+    sqaud.wav		typo in file name	RENAME -&gt; squad.wav 
+    thirtteen.wav		typo in file name	RENAME -&gt; thirteen.wav 
+    lab.wav			missing, but needed	CREATE
+    bizwarn.wav		missing, but needed	CREATE
+
+
+Also, corrected closecaption lengths for HECU vox section in sentences.txt. Then no need to include \&lt;len:10&gt; tags for these lines in closecaption_\&lt;language&gt; files.
+
+    //===============================================================//
+    // 	OVERHEAD ANNOUNCEMENTS - POST HECU TAKEOVER	//
+    //===============================================================//
+
+    // WGH
+    C1A3_0 buzwarn buzwarn(e95) attention.(e75) all(e75) science(e75) personnel(e75) report(e75) topside(e65) four(e75) immediate(e75) questioning {Len 12.1 closecaption C1A3_0}
+    C1A3_1 buzwarn(p95) buzwarn(p95 e95) all(e85) personnel(e85) evacuate(e85) high(e75) security(e70) materials(e60) storage(e70) facility {Len 10.8 closecaption C1A3_1}
+    C1A3_2 buzwarn(p130) buzwarn(p130 e95) emergency(e75) uranium(e75) containment(e75) team,(e35) to(e95) sector(e70) d(e110) {Len 8.4 closecaption C1A3_2}
+    C1A3_3 deeoo(e80) turret(e85) maintenance(e60) team,(e85) report(e75) to(e70) central(e70) command(e70) and(e70) communications(e70) center {Len 11.7 closecaption C1A3_3}
+    C1A3_4 buzwarn(p98) buzwarn(p98 e95) military(e70) personnel(e85),(e75) prosecute(e75) kilo01(e85) india(e85) lima(e70) with(e75) extreme(e75) force {Len 11.6 closecaption C1A3_4}
+    C1A3_5 buzwarn buzwarn buzwarn(e95) attention.  this(e65) announcement(e65) system(e75) now(e75) under(e75) military(e75) command {Len 12.4 closecaption C1A3_5}
+    C1A3_6 buzwarn buzwarn(e95) search(e80) and(e80) destroy(e80) force(e75) bravo, reports(e70) secondary(e75) objective(e70) terminated {Len 12.0 closecaption C1A3_6}
+    C1A3_7 dadeda(p98 e95) bravo(e85) force(e85) reports(e85) hotel(e85) sierra(e85) mike(e85) facility(e85) is(e85) secured {Len 12.5 closecaption C1A3_7}
+    C1A3_8 buzwarn buzwarn(t15 e95) attention.(e75) all(e65) military(e75) personnel(e75),(e75) atomic(e75) biological(e85) chemical(e85) alert {Len 11.4 closecaption C1A3_8}
+    C1A3_9 buzwarn buzwarn(t15 e95) attention.(e37) all(e65) military(e75) personnel(e75),(e75) extreme(e85) atomic(e75) biological(e95) chemical(e95) alert {Len 13.2 closecaption C1A3_9}
+    C1A3_10 buzwarn(p95) buzwarn(p95) buzwarn(p95 e95) attention.  black(e70) mesa(e70) announcement(e70) system(e70) now(e70) under(e70) military(e70) command {Len 13.5 closecaption C1A3_10}
+
+    // ON A RAIL
+    C2A2B_0 buzwarn(p110 e85) buzwarn(p110 e85) attention(e65) all(e75) personnel(e75). launch(e75) control(e75) train(e75) activated(e85), clear(e75) area(e75) immediately {Len 12.6 closecaption C2A2B_0}
+    C2A2B_1 dadeda(e85) attention(e90), satellite(e75) rocket(e75) silo(e75) reports(e85) status(e85) green(e55) four(e90) launch {Len 11.4 closecaption C2A2B_1}
+    C2A2C_launch_0 buzwarn(p95) buzwarn(p95) buzwarn(p95 e95) satellite(e70) launch(e70) system(e70) activated. {Len 7.4 closecaption C2A2C_launch_0}
+    C2A2C_launch_1 twenty(e75) seconds(e70) remaining {Len 3.2 closecaption C2A2C_launch_1}
+    C2A2C_launch_2 fifteen seconds {Len 2.4 closecaption C2A2C_launch_2}
+    C2A2C_launch_3 ten nine eight seven six five four three two one zero launch(e65) is(e70) go {Len 14.0 closecaption C2A2C_launch_3}
+
+    // POWER UP
+    C1A4_1 deeoo (e95) repair crew report to(e70) track control, sector e(e100) {Len 10.4 closecaption C1A4_1}
+    C1A4_2 deeoo (e95) maintenance team blue(p100 t0 s0 e100), check heat exchange coolant level(e100) {Len 11.0 closecaption C1A4_2}
+    C1A4_3 deeoo (e95) maintenance team green, check voltage(e100) on cable seven two nine(e100) {Len 13.8 closecaption C1A4_3}
+    C1A4_4 (p130) buzwarn buzwarn (p98 e95) medical team to materials storage facility, team bravo reports men down {Len 15.5 closecaption C1A4_4}
+    C1A4_5 (p130) buzwarn buzwarn (p98 e95) alpha force move out, science personnel resistance extreme {Len 12.2 closecaption C1A4_5}
+    C1A4_6 (p130) buzwarn buzwarn (p98 e95) attention. all black mesa security personnel wanted four immediate questioning {Len 15.0 closecaption C1A4_6}
+    C1A4_7 (p130) buzwarn buzwarn (p98 e95) attention. gordon freeman report to military personnel four immediate security check {Len 15.9 closecaption C1A4_7}
+    C1A4_8 buzwarn buzwarn (p102) warning, hostile biological forms detected in track control area e {Len 14.8 closecaption C1A4_8}
+
+    //todo
+    //C1A4_ROCKET_DISABLED buzwarn buzwarn. attention, experimental rocket test fire disengaged. {Len 7.38 closecaption C1A4_ROCKET_DISABLED}
+    //C1A4_FUEL_POW_OFF fuel and power must be engaged to activate rocket test fire {Len 6.49 closecaption C1A4_FUEL_POW_OFF}
+    //C1A4_FUEL_OFF fuel must be engaged to activate rocket test fire. {Len 6.49 closecaption C1A4_FUEL_OFF}
+    //C1A4_POW_OFF power must be engaged to activate rocket test fire. {Len 6.49 closecaption C1A4_POW_OFF}
+
+    // BLAST PIT
+    //C2A1_0 buzwarn buzwarn. warning. track power failure. check lower level power plant. {Len 8.00 closecaption C2A1_0}
+    C2A1_1 deeoo (e95) maintenance team yellow, please(s0 e100) service relay three hundred ninety four(e100) {Len 14.5 closecaption C2A1_1}
+    C2A1_2 (p130) dadeda (p98 e95) attention. gordon freeman report to military personnel four immediate security check {Len 15.8 closecaption C2A1_2}
+    C2A1_3 (p130) buzwarn buzwarn (p98 e95) delta team reports launch control secured {Len 8.8 closecaption C2A1_3}
+    C2A1_4 bizwarn bizwarn bizwarn danger, turret defense systems activated, silo e {Len 12.4 closecaption C2A1_4}
+    C2A1_5 deeoo sector e track control please report status {Len 10.1 closecaption C2A1_5}
+    C2A1_6 (p130) buzwarn buzwarn (p98 e95) echo force reports perimeter breach, sector e {Len 9.8 closecaption C2A1_6}
+    C2A1_7 (p130) buzwarn buzwarn (p98 e95) attention, search and destroy force go to code three. eliminate all biological forms {Len 17.6 closecaption C2A1_7}
+    C2A1_8 bizwarn bizwarn danger, unauthorized detonation detected in experimental propulsion lab {Len 13.1 closecaption C2A1_8}
+
+    //todo
+    //POWER_OFF buzwarn main power is not on {Len 3.51 closecaption POWER_OFF}
+    //POWER_ON deeoo main power is on {Len 2.93 closecaption POWER_OFF}</description>
+    
+    <lastBuildDate>Sun, 05 Jan 2020 00:09:36 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/minor-bugs-around-sentences-txt-and-vox-files/62776.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Minor bugs around sentences.txt and vox files</title>
+        <dc:creator><![CDATA[TSL16b]]></dc:creator>
+        <description><![CDATA[
+            <p>No biggie, just typos in vox file names and some missing .wavs. In case there is a reference to a missing sound in a preset sentence, only a subtitle appears for it but nothing played.</p>
+<pre><code>sound\vox\
+File			Note			What to do
+------------------------------------------------------------------------
+noe.wav			says "on"		DELETE
+helecopter.wav		typo in file name	RENAME -&gt; helicopter.wav 
+perpulsion.wav		typo in file name	RENAME -&gt; propulsion.wav 
+sheild.wav		typo in file name	RENAME -&gt; shield.wav 
+sqaud.wav		typo in file name	RENAME -&gt; squad.wav 
+thirtteen.wav		typo in file name	RENAME -&gt; thirteen.wav 
+lab.wav			missing, but needed	CREATE
+bizwarn.wav		missing, but needed	CREATE
+</code></pre>
+<p>Also, corrected closecaption lengths for HECU vox section in sentences.txt. Then no need to include &lt;len:10&gt; tags for these lines in closecaption_&lt;language&gt; files.</p>
+<pre><code>//===============================================================//
+// 	OVERHEAD ANNOUNCEMENTS - POST HECU TAKEOVER	//
+//===============================================================//
+
+// WGH
+C1A3_0 buzwarn buzwarn(e95) attention.(e75) all(e75) science(e75) personnel(e75) report(e75) topside(e65) four(e75) immediate(e75) questioning {Len 12.1 closecaption C1A3_0}
+C1A3_1 buzwarn(p95) buzwarn(p95 e95) all(e85) personnel(e85) evacuate(e85) high(e75) security(e70) materials(e60) storage(e70) facility {Len 10.8 closecaption C1A3_1}
+C1A3_2 buzwarn(p130) buzwarn(p130 e95) emergency(e75) uranium(e75) containment(e75) team,(e35) to(e95) sector(e70) d(e110) {Len 8.4 closecaption C1A3_2}
+C1A3_3 deeoo(e80) turret(e85) maintenance(e60) team,(e85) report(e75) to(e70) central(e70) command(e70) and(e70) communications(e70) center {Len 11.7 closecaption C1A3_3}
+C1A3_4 buzwarn(p98) buzwarn(p98 e95) military(e70) personnel(e85),(e75) prosecute(e75) kilo01(e85) india(e85) lima(e70) with(e75) extreme(e75) force {Len 11.6 closecaption C1A3_4}
+C1A3_5 buzwarn buzwarn buzwarn(e95) attention.  this(e65) announcement(e65) system(e75) now(e75) under(e75) military(e75) command {Len 12.4 closecaption C1A3_5}
+C1A3_6 buzwarn buzwarn(e95) search(e80) and(e80) destroy(e80) force(e75) bravo, reports(e70) secondary(e75) objective(e70) terminated {Len 12.0 closecaption C1A3_6}
+C1A3_7 dadeda(p98 e95) bravo(e85) force(e85) reports(e85) hotel(e85) sierra(e85) mike(e85) facility(e85) is(e85) secured {Len 12.5 closecaption C1A3_7}
+C1A3_8 buzwarn buzwarn(t15 e95) attention.(e75) all(e65) military(e75) personnel(e75),(e75) atomic(e75) biological(e85) chemical(e85) alert {Len 11.4 closecaption C1A3_8}
+C1A3_9 buzwarn buzwarn(t15 e95) attention.(e37) all(e65) military(e75) personnel(e75),(e75) extreme(e85) atomic(e75) biological(e95) chemical(e95) alert {Len 13.2 closecaption C1A3_9}
+C1A3_10 buzwarn(p95) buzwarn(p95) buzwarn(p95 e95) attention.  black(e70) mesa(e70) announcement(e70) system(e70) now(e70) under(e70) military(e70) command {Len 13.5 closecaption C1A3_10}
+
+// ON A RAIL
+C2A2B_0 buzwarn(p110 e85) buzwarn(p110 e85) attention(e65) all(e75) personnel(e75). launch(e75) control(e75) train(e75) activated(e85), clear(e75) area(e75) immediately {Len 12.6 closecaption C2A2B_0}
+C2A2B_1 dadeda(e85) attention(e90), satellite(e75) rocket(e75) silo(e75) reports(e85) status(e85) green(e55) four(e90) launch {Len 11.4 closecaption C2A2B_1}
+C2A2C_launch_0 buzwarn(p95) buzwarn(p95) buzwarn(p95 e95) satellite(e70) launch(e70) system(e70) activated. {Len 7.4 closecaption C2A2C_launch_0}
+C2A2C_launch_1 twenty(e75) seconds(e70) remaining {Len 3.2 closecaption C2A2C_launch_1}
+C2A2C_launch_2 fifteen seconds {Len 2.4 closecaption C2A2C_launch_2}
+C2A2C_launch_3 ten nine eight seven six five four three two one zero launch(e65) is(e70) go {Len 14.0 closecaption C2A2C_launch_3}
+
+// POWER UP
+C1A4_1 deeoo (e95) repair crew report to(e70) track control, sector e(e100) {Len 10.4 closecaption C1A4_1}
+C1A4_2 deeoo (e95) maintenance team blue(p100 t0 s0 e100), check heat exchange coolant level(e100) {Len 11.0 closecaption C1A4_2}
+C1A4_3 deeoo (e95) maintenance team green, check voltage(e100) on cable seven two nine(e100) {Len 13.8 closecaption C1A4_3}
+C1A4_4 (p130) buzwarn buzwarn (p98 e95) medical team to materials storage facility, team bravo reports men down {Len 15.5 closecaption C1A4_4}
+C1A4_5 (p130) buzwarn buzwarn (p98 e95) alpha force move out, science personnel resistance extreme {Len 12.2 closecaption C1A4_5}
+C1A4_6 (p130) buzwarn buzwarn (p98 e95) attention. all black mesa security personnel wanted four immediate questioning {Len 15.0 closecaption C1A4_6}
+C1A4_7 (p130) buzwarn buzwarn (p98 e95) attention. gordon freeman report to military personnel four immediate security check {Len 15.9 closecaption C1A4_7}
+C1A4_8 buzwarn buzwarn (p102) warning, hostile biological forms detected in track control area e {Len 14.8 closecaption C1A4_8}
+
+//todo
+//C1A4_ROCKET_DISABLED buzwarn buzwarn. attention, experimental rocket test fire disengaged. {Len 7.38 closecaption C1A4_ROCKET_DISABLED}
+//C1A4_FUEL_POW_OFF fuel and power must be engaged to activate rocket test fire {Len 6.49 closecaption C1A4_FUEL_POW_OFF}
+//C1A4_FUEL_OFF fuel must be engaged to activate rocket test fire. {Len 6.49 closecaption C1A4_FUEL_OFF}
+//C1A4_POW_OFF power must be engaged to activate rocket test fire. {Len 6.49 closecaption C1A4_POW_OFF}
+
+// BLAST PIT
+//C2A1_0 buzwarn buzwarn. warning. track power failure. check lower level power plant. {Len 8.00 closecaption C2A1_0}
+C2A1_1 deeoo (e95) maintenance team yellow, please(s0 e100) service relay three hundred ninety four(e100) {Len 14.5 closecaption C2A1_1}
+C2A1_2 (p130) dadeda (p98 e95) attention. gordon freeman report to military personnel four immediate security check {Len 15.8 closecaption C2A1_2}
+C2A1_3 (p130) buzwarn buzwarn (p98 e95) delta team reports launch control secured {Len 8.8 closecaption C2A1_3}
+C2A1_4 bizwarn bizwarn bizwarn danger, turret defense systems activated, silo e {Len 12.4 closecaption C2A1_4}
+C2A1_5 deeoo sector e track control please report status {Len 10.1 closecaption C2A1_5}
+C2A1_6 (p130) buzwarn buzwarn (p98 e95) echo force reports perimeter breach, sector e {Len 9.8 closecaption C2A1_6}
+C2A1_7 (p130) buzwarn buzwarn (p98 e95) attention, search and destroy force go to code three. eliminate all biological forms {Len 17.6 closecaption C2A1_7}
+C2A1_8 bizwarn bizwarn danger, unauthorized detonation detected in experimental propulsion lab {Len 13.1 closecaption C2A1_8}
+
+//todo
+//POWER_OFF buzwarn main power is not on {Len 3.51 closecaption POWER_OFF}
+//POWER_ON deeoo main power is on {Len 2.93 closecaption POWER_OFF}</code></pre>
+          <p><a href="https://leakfree.org/t/minor-bugs-around-sentences-txt-and-vox-files/62776/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/minor-bugs-around-sentences-txt-and-vox-files/62776/1</link>
+        <pubDate>Sun, 05 Jan 2020 00:09:36 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62776-1</guid>
+        <source url="https://leakfree.org/t/minor-bugs-around-sentences-txt-and-vox-files/62776.rss">Minor bugs around sentences.txt and vox files</source>
+      </item>
+  </channel>
+</rss>

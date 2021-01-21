@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/the-story-of-gasworks-part-4/13707 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:33:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>The Story of Gasworks, Part 4 - Developer Logs - Leakfree</title>
+    <meta name="description" content="[/size]HOME STRETCH[/size] 
+Apologies for the delay in getting this one out. Work on Black Mesa has been extremely busy recently, for reasons which should excite you. BM, coupled with a busy full time job, some personal/&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="13707.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;The Story of Gasworks, Part 4&#39;" href="13707.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/the-story-of-gasworks-part-4/13707" />
+<meta name="twitter:url" content="https://leakfree.org/t/the-story-of-gasworks-part-4/13707" />
+<meta property="og:title" content="The Story of Gasworks, Part 4" />
+<meta name="twitter:title" content="The Story of Gasworks, Part 4" />
+<meta property="og:description" content="[/size]HOME STRETCH[/size]  Apologies for the delay in getting this one out. Work on Black Mesa has been extremely busy recently, for reasons which should excite you. BM, coupled with a busy full time job, some personal/family issues, and just life in general has made free time to do stuff like this community blog frighteningly scarce!  At any rate, the next blog for Gasworks will in all likelihood be the final one. As a treat for you guys, the next one, which I’m hoping to get out relatively so..." />
+<meta name="twitter:description" content="[/size]HOME STRETCH[/size]  Apologies for the delay in getting this one out. Work on Black Mesa has been extremely busy recently, for reasons which should excite you. BM, coupled with a busy full time job, some personal/family issues, and just life in general has made free time to do stuff like this community blog frighteningly scarce!  At any rate, the next blog for Gasworks will in all likelihood be the final one. As a treat for you guys, the next one, which I’m hoping to get out relatively so..." />
+<meta property="article:published_time" content="2015-02-16T14:53:21+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="next" href="137074658.html?page=2">
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="13707.html">The Story of Gasworks, Part 4</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/6.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa Archive</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/developer-logs/15.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Developer Logs</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-02-16T14:53:21Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:14:42Z' class='post-time'>
+                August 11, 2020, 11:14am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><span class="bbcode-b">[/size]</span><span class="bbcode-b">HOME STRETCH[/size]</span></p>
+<p>Apologies for the delay in getting this one out. Work on Black Mesa has been extremely busy recently, for reasons which should excite you. BM, coupled with a busy full time job, some personal/family issues, and just life in general has made free time to do stuff like this community blog frighteningly scarce!</p>
+<p>At any rate, the next blog for Gasworks will in all likelihood be the final one. As a treat for you guys, the next one, which I’m hoping to get out relatively soon, will have some “retail ready” shots in it, showcasing how the map will likely look at release. I still wouldn’t consider it “official media” as they’ll just be shots which I take and upload. This iteration’s story is a lot shorter than the other ones as it had less input from me. This will hopefully outline the process of final iteration and solidification of our bases, for the MP maps.</p>
+<p><span class="bbcode-u"><span class="bbcode-b">FIGHTING BURNOUT[/size]</span></span></p>
+<p><span class="bbcode-b">LINGERING ISSUES</span>[/size]<br>
+Moving on from Iteration 3, the map and its art had been progressing quite nicely, up to this point. I had a good vision and direction going, it would just need a lot of refinement to bring it up to our quality standard for DM, and to make it BM quality. There were, however, still some issues lying beneath the surface. The first was that my style of detailing was quite cluttered, and was making parts of the map a bit cramped and hard to read. I was still, to an extent, putting detail in unimportant places, which was making the map visually distracting in places where it shouldn’t be. I had a lot of pipes sticking out and creating awkward navigation, and a bunch of other things. I also hadn’t really done any “fine” detailing yet, which is where you really drill down into the world and give it a story and make it seem rich and alive. Overall, the map was still a bit on the bland side. The base was going to need some reworking and I still needed to consolidate the art style and pallet further to come up with something more cohesive and visually appealing.</p>
+<p><span class="bbcode-b">DON’T BURN OUT!</span>[/size]<br>
+At this point, I was 8 months into my position on the team, and my work on BM had been almost entirely comprised of Gasworks and organising our multiplayer testing sessions, feedback, and gameplay design. I was burning out a bit, so I took some time off Gasworks to work on another MP map for a while, and recharge my batteries and inspiration. For a little while, I passed Gasworks onto JP, our multiplayer lead, who at this point has rubbed his dirty fingers all over every MP map. I kid! He’s an amazing and experienced mapper. He has taught me a lot of important design principles and is one of the key reasons our MP maps are so wonderfully detailed without being cluttered or distracting - a key consideration when designing high quality MP maps.</p>
+<p><span class="bbcode-b">THE JP PRINCIPLE</span>[/size]<br>
+After a few weeks off, working on <em><strong>BD</strong></em>****, I wanted my map back, and was ready to work on it some more. It returned to me in a shockingly different state! It had been transformed far beyond what I’d initially imagined, but in the opposite direction! A LOT had been deleted and stripped back, and the map was far barer and less visually noisy than before. Us MP designers, at this point, like to think of it as the “JP Principle,” which has affected all of our maps (including his own, Stalkyard!). Bring a map up to 50 - 70% completion, and then watch JP delete it all back to 40%. He is our resident deleter, but I mean that in the nicest way possible.</p>
+<p>I’m joking in part, but this has actually been a pretty important aspect of our MP design which has helped bolster the quality a lot. Pretty much all the maps have undergone a process where the mapper has realised the vision and has started to build on it, but in a somewhat flawed way, and the map has then been stripped back to that vision’s barest essence, ready for reseeding, with a more robust and solid version of that direction. And it’s actually worked really well, despite being taxing in some regards (particularly emotionally, I’m a wreck!). All of our MP maps have received this treatment, for the better.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/GdR7WH6.jpg" title=""><img src="https://i.imgur.com/GdR7WH6.jpg" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>[b]<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/D78pbJ4.jpg" title=""><img src="https://i.imgur.com/D78pbJ4.jpg" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/LHmfADZ.jpg" title=""><img src="https://i.imgur.com/LHmfADZ.jpg" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>[/b][/size]<span class="bbcode-u"><span class="bbcode-b">THE AFTERMATH - ON THE RIGHT TRACK[/size]</span></span>[b]</p>
+<p>DEALING WITH FEEDBACK[/b][/size]<br>
+I was initially pretty taken aback by this - it felt like a lot of my work had been done away with and that it was more wasted time, in the face of the map already having been redone twice. However, as a designer who wishes to improve and constantly better his work, I have learned that the initial emotional reaction to feedback or changes made to your work MUST be suppressed. So many times now I’ve learned to silence the voice which immediately says “HE DID WHAT!?” “WHY DOES HE THINK THAT!?” “WHY CHANGE THAT!?” etc, in favour of just letting it slide and thinking about it. It’s important, as the defensive, immediate reaction is really a very human response. If I could give one important bit of advice to level designers it would be to NEVER deflect criticism from its initial reading. Always take time to think it over, beyond the initial, often emotional reactionary response. It’s important. I’ve found myself warm to a lot of ideas and changes after a few days despite vehemently opposing them initially, or after some argument with the team members who put them forward.</p>
+<p>This might seem like a long and wasteful process, but, at least across an online team who are very taxed for time, is simply the way of iteration on a team aiming for very high quality. It’s painful and tough, but ultimately makes the product a lot stronger, and it sure does mean we put a lot of love into it!</p>
+<p><span class="bbcode-b">BACK TO BASICS</span>[/size]<br>
+JP was very gameplay oriented in what he’d done with the map. He’d stripped a lot of it back down to basics and ripped away a lot of my complex brushwork, detailing, lighting and such. It wasn’t being stripped back to square one, more like square three or four out of ten. He’d also tidied up a lot of my brushwork and architecture, making the map much neater and cleaner constructed in the editor. Beyond this point, I learned my lesson from this - and since then my details, brushwork, texturing and changes have generally been very neat and well constructed, without cluttering. He’d kept most of my foundation, but tidied a lot of it up where it was a bit sloppy. Pretty shocking difference, eh? Try and think of it from the point of view of the creator.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/YRMyb85.jpg" title=""><img src="https://i.imgur.com/YRMyb85.jpg" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/ITfjRtu.jpg" title=""><img src="https://i.imgur.com/ITfjRtu.jpg" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+[b]<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/YsLUc9O.jpg" title=""><img src="https://i.imgur.com/YsLUc9O.jpg" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>VISUAL REDIRECTION[/b][/size]<br>
+Visually, this version threw me into something of a bit of disarray. It might seem like an overall step backward, from the previous version, to the untrained eye. As you can see, the map had become very visually no-frills. The lighting was super basic and utilitarian (also unfinished by a long stretch), some might say the map had become very bland. That isn’t levied as a criticism - that was the intention, really, and in some ways was how I should have done the map the whole time. Get the map to a polished, simple base and THEN put together the art - rather than what I had done before which had really been mixing those two stages. This was now the finished base. I would then be doing the art over the next few months. It was challenging, but the end result was worth it.</p>
+<p><span class="bbcode-u"><span class="bbcode-b">CONCLUSION</span></span>[/size]</p>
+<p>There isn’t much more to say about this version other than it finally cleared the map of the “ghosts” and mistakes of the previous versions, and finally set me up for success. The rest of the work on the map (which would admittedly take a very long time) was the art pass and small iterations on the layout. Boy does this version transform once the new lighting, colour pallet, and fine details are in, and I can’t wait to show it off in the next post!</p>
+<p>The art pass involved me adapting my previous ideas and visual styles, from Iteration 3, onto this base. And it turned out really well. I will outline this entire arting process extensively in the next post. Until next time, friends!</p>
+<p>As a final thing, here’s a nice timeline of Gasworks’s currently revealed iterations. Left earliest, to right, latest. I love it - shows me how far it’s come! The final shot is the one we released a few months ago (that shot is from a version which was still not release ready, but was close-ish.)</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/Mfuvghm.jpg" title=""><img src="https://i.imgur.com/Mfuvghm.jpg" alt="" width="690" height="77"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">9600×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/k3nny1550.html'><span itemprop='name'>k3nny1550</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-02-16T17:56:04Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:23:06Z' class='post-time'>
+                November 25, 2018,  4:23am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That last screenshot though! Nice particles, particularly well lit with the skybox choice as well. Poetry in a screenshot, bravo!<br>
+Iteration is always tough, and it’s something I really need to go back and do with my oft-delayed mod project too. Can’t wait to see Gasworks at full retail build, it looks like it’ll be a helluva map.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Nintyuk.html'><span itemprop='name'>Nintyuk</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-02-16T18:27:36Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:23:06Z' class='post-time'>
+                November 25, 2018,  4:23am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Keep it up, I’m ready for part 5 whenever it’s done.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Demolitionist1.html'><span itemprop='name'>Demolitionist1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-02-16T19:34:07Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:23:06Z' class='post-time'>
+                November 25, 2018,  4:23am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Does this mean that Black Mesa: Source is one step closer to full release?</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/CPU.html'><span itemprop='name'>CPU</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-02-16T19:40:40Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:23:06Z' class='post-time'>
+                November 25, 2018,  4:23am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>What do you mean when you say <span class="bbcode-i">“I was still, to an extent, putting detail in unimportant places, which was making the map visually distracting”</span> ? I don’t understand what you mean when you say that detail can be distracting.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/k3nny1550.html'><span itemprop='name'>k3nny1550</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-02-16T21:01:43Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:23:07Z' class='post-time'>
+                November 25, 2018,  4:23am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I think what he means by that is the detail of the map making it difficult for players to “read” terrain and spot other players quickly enough to shoot them accurately during high speed deathmatch games. Or props getting in the way of free movement through a level. That sort of thing.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-02-16T21:06:43Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:23:07Z' class='post-time'>
+                November 25, 2018,  4:23am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Detail attracts the eye.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Ammat_the_Ankh.html'><span itemprop='name'>Ammat_the_Ankh</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-02-17T06:37:33Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:23:07Z' class='post-time'>
+                November 25, 2018,  4:23am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for this. I’m hoping to get into mapping in Source, and the writeups you do give me a good idea of what to focus on.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dotard.html'><span itemprop='name'>Dotard</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-02-17T12:47:35Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:23:07Z' class='post-time'>
+                November 25, 2018,  4:23am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m speechless, for real. I suppose you mappers consider things done when the map plays just as nice as it looks and it looks great I must add.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Johnwalter.html'><span itemprop='name'>Johnwalter</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-02-17T14:54:22Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:23:07Z' class='post-time'>
+                November 25, 2018,  4:23am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I can’t wait for this marvelous map!!</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-02-18T15:06:32Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:14:43Z' class='post-time'>
+                August 11, 2020, 11:14am
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="CPU">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/cpu/40/4349_2.jpg" class="avatar"> CPU:</div>
+<blockquote>
+<p>What do you mean when you say <span class="bbcode-i">“I was still, to an extent, putting detail in unimportant places, which was making the map visually distracting”</span> ? I don’t understand what you mean when you say that detail can be distracting.</p>
+</blockquote>
+</aside>
+<p>I explained this partially in earlier posts.</p>
+<p>When you think of detail, there are several factors to consider. Detail draws the eye because you have to visually discern it. It is much easier for your mind to skip over a blank wall with nothing on it than it is to skip past complex shapes made by pipes, lights, decals, powerboxes, etc. Detail costs processing power and uses up map limit resources to render. Thus - it stands to reason - if detail draws the eye and is in limited supply on a map, it should only be put in important places where you want the player to be looking. Putting detail on unimportant surfaces and areas where you do not want to draw the players eye, is thus bad design, as it wastes resources and draws the eye to places we don’t care about. You want the player to be completely focussing on the places where he’ll be shooting other players. We’re talking strictly MP design here. SP design is an entirely different beast, where that kind of stuff is okay.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/41n4jMZ.jpg" title=""><img src="https://i.imgur.com/41n4jMZ.jpg" alt="" width="690" height="194"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">3840×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Here’s an example from 2 different versions of Gasworks - the left is old, the right is newer. They’re taken from different angles, but the red arrow points to the same wall in both shots. This showcases a subtle difference. The first important thing to bear in mind when looking at this is that, in both shots, that highlighted wall is totally unimportant. It serves NO PURPOSE other than to keep the level sealed. No gameplay happens there.</p>
+<p>In the earlier version, I’d added these cool little indents from RP into that wall, and some lights, to break up the lighting and solid wall a bit. There were windows at the top, and lights above those.  It’s detail, that was my reasoning. Makes it less monotonous. However, notice how the indents and windows attracts your attention, as does the additional lighting? It becomes less obvious where your immediate focus should be on the shot. The image on the right, your mind can visually filter out the solid black wall extremely easily. But on the left, it’s a bit harder. It’s not a huge difference, but these things add up throughout an entire map. Not every surface and wall needs copious details - only the important areas. Now imagine if I’d gone further and had pipes, and other things. It’s not necessary all the time, sometimes a blank wall can be way more effective than one loaded with stuff.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Swaggless.html'><span itemprop='name'>Swaggless</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-02-18T16:28:56Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:23:09Z' class='post-time'>
+                November 25, 2018,  4:23am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>VERY interesting, Text. I  sorta like the “back to basics” approach JP has. I know that when I work on something, often it reaches a point where I’m confused on what I need to be working on due to clutter. Stipping back at certain points to re-approach with more cearity is really really neat. Thanks for sharing these, I’ll keep this one in particular in-mind.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/underskyzx.html'><span itemprop='name'>underskyzx</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-02-23T08:33:29Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:23:29Z' class='post-time'>
+                November 25, 2018,  4:23am
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Valve couldn’t do better!</p>
+<p>Seriously BM is better than all Half Lifes episodes,etc made by Valve</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-02-23T20:55:44Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:23:30Z' class='post-time'>
+                November 25, 2018,  4:23am
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>To be fair, they’ve also had years more experience with the engine. Remember the early media?  ^^<br>
+Not to discredit anyone, though! Looks freakin’ incredible.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Morloc.html'><span itemprop='name'>Morloc</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-02-24T09:05:31Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:23:32Z' class='post-time'>
+                November 25, 2018,  4:23am
+              </time>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>To be honest the displacements in the skybox look Meh!</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Artic_Xiongmao.html'><span itemprop='name'>Artic_Xiongmao</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-02-24T20:27:58Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:23:33Z' class='post-time'>
+                November 25, 2018,  4:23am
+              </time>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I assumed that wasn’t the promised amazing skybox…? Maybe I’m wrong, but he’d said he had a great idea for it. What we can see here is not particularly interesting. Nothing wrong, of course. Just not what he described.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-02-24T20:32:23Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:23:33Z' class='post-time'>
+                November 25, 2018,  4:23am
+              </time>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Artic Xiongmao">
+<div class="title">
+<div class="quote-controls"></div>
+ Artic Xiongmao:</div>
+<blockquote>
+<p>I assumed that wasn’t the promised amazing skybox…? Maybe I’m wrong, but he’d said he had a great idea for it. What we can see here is not particularly interesting. Nothing wrong, of course. Just not what he described.</p>
+</blockquote>
+</aside>
+<p>He’s having a cheeky laugh. You’ll see why in the next part.</p>
+<p>He’s a bastard, he is.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Artic_Xiongmao.html'><span itemprop='name'>Artic_Xiongmao</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-02-25T12:37:40Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:23:37Z' class='post-time'>
+                November 25, 2018,  4:23am
+              </time>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Oooh, sorry! I didn’t notice he was a developer. Okay, he was making a joke. I assume he was involved in the new skybox, or well, at least obviously knows about it? Now I’m really looking forward to it  <img src="../../images/emoji/twitter/winkc164.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/fury.html'><span itemprop='name'>fury</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-02-28T19:32:01Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:23:48Z' class='post-time'>
+                November 25, 2018,  4:23am
+              </time>
+          <span itemprop='position'>#19</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hey I have a suggestion about the map. Can you please change the shape of the topside ladder huts? In HL1 they were concrete bunkers with small ramps on the sides. These ramps were really usefull for cool trickjumps. (gaussjump vertically and bunnyjump against the ramp to boost you up in the air… really epic stuff  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"> )) )</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/KyuuGryphon.html'><span itemprop='name'>KyuuGryphon</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13707.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-03-01T09:12:38Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:23:55Z' class='post-time'>
+                November 25, 2018,  4:23am
+              </time>
+          <span itemprop='position'>#20</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Let me start off by saying that I absolutely love these posts. You say you have trouble writing concisely, but in my opinion, that’s not a problem at all - Getting to read this kind of in-depth analysis of level design in general is fascinating to me. On that note (though I’m not sure if this is the “right” thread for it, my apologies if it’s not), one of your earlier journals raised a question in my mind.</p>
+<aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<p>Orange mapping is designed to make it so that you are only ever adjusting the layout and perfecting that, starting from the 1:1 base. I guess you could consider it a “scientific” approach to level design. The textures and lighting COMPLEMENT the layout, and must be considered separately and in their own great detail. The layout has to work, first. Additionally, as Chris (our lead mapper) always stresses - just texturing a blockout is often a really bad idea. Because then you just have textured blocks. Nothing cohesive, architectural, structural, or thought out. You just end up slapping detail onto textured blocks, rather than having a vision and artistic direction. Look again at the screenshots I posted above. Everything is really just textured blocks. No actual detail or design. If you start with this, you end with this.</p>
+</blockquote>
+</aside>
+<p>I can fully understand why just re-texturing a blockout would be a bad idea (unless you’re aiming for a map to look like Minecraft or something). What I’m wondering - and I attribute this to me taking things far too literally again - is what you’d do instead, then.</p>
+<p>Would you <span class="bbcode-i">start </span>from the blockout, and add detailed architecture and such while you’re texturing/detailing the map, or would you shunt all of the blockout work into a visgroup or some such so it can be turned off, then rebuild the geometry in more detail around it?</p>
+<p>Admittedly, I do think (as an amateur, at least) the latter option would be a ridiculous amount of work (you’re basically building the map, then building it again) to do, but having said that… Between comparing your Gasworks screenshots to the senior mapper’s blockout of it (from Part 2), and the context of the quote above (I’m reading it as “don’t re-texture blockouts, you’ll end up with no real detail”), I can’t help but wonder about it.</p>
+<p>Thanks.   <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks, Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="137074658.html?page=2">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/the-story-of-gasworks-part-4/13707 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:33:07 GMT -->
+</html>

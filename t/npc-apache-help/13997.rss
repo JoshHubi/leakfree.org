@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>npc_apache help</title>
+    <link>https://leakfree.org/t/npc-apache-help/13997</link>
+    <description>I&#39;m testing the npc_apache in hammer, but when I try to see them in action, they don&#39;t do anything. I can&#39;t get them to attack me, or anyone else, whether on a path_track or not. Why? Do I have to trip certain flags?</description>
+    
+    <lastBuildDate>Thu, 11 Jun 2015 15:13:48 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/npc-apache-help/13997.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[Maki]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes, the Hunter-Chopper and Combine Gunships both have a failsafe for if they can’t get to the crash point.  When their hitpoints are depleted, they automatically go into their death spiral and begin heading toward an info_target_helicopter_crash if one exists.  Now, sometimes, they’ll explode on their own when they reach the crash point, but this isn’t a guaranteed event (it might, like the Apache, be based on hitting collision or something).  So, as a failsafe, you can surround the crash point in a trigger_once for NPCs which calls SelfDestruct when triggered.  As a second failsafe to that, you can also have SelfDestruct ready to go on a logic_timer or logic_relay that occurs OnShotDown, just in case you need to blow it up based on time because it got stuck on the way there.</p>
+<p>There seem to be multiple differences with the Apache.  It seems to default to either infinite or extremely high health.  It will never go into the death spiral on its own.  It requires a crash point.  And it doesn’t obey SelfDestruct.  Also, like I said, that fuselage gib is <span class="bbcode-i">enormous</span>.  In the context of the cliffs in Surface Tension, there’s really not a problem with that, but anywhere else, that thing has a risk of blocking critical paths and generally getting in the way.  And since there’s obviously no Gravity Gun, that’s kind of a problem when it happens!  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>It also has misleading flags and outputs in the FGD which aren’t used in the boss battle at all, like Enable Boss Stage Outputs and the mBossStage stuff.  Suggesting that, for whatever reason, the Apache’s been through quite a lot of programming and reprogramming.</p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/27">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/27</link>
+        <pubDate>Thu, 11 Jun 2015 15:13:48 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-27</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[Fitne_Por]]></dc:creator>
+        <description><![CDATA[
+            <p>The apache’s rockets still target the player, even if the SetRocketTarget command is used on a different enemy.</p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/26">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/26</link>
+        <pubDate>Wed, 10 Jun 2015 22:23:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-26</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[Vortexyz]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m not really a part of this conversation, but I thought all that information was very interesting – thank you Maki for taking the time to post all those technical details, and while we’re at it , let me say I really liked your Bravado map!     One of the few peccadilloes I have with Black Mesa is that Apache death animation.  In the original Half Life, and with the aerial enemies in Half Life 2, I think some of the most satisfying moments were watching them go down differently and randomly depending on all the variables.   It gives those fights great replay value and seems a lot more realistic than the current death animation in which the Apache sort of…“belly-dances” while it makes a suicidal beeline for the rockface.   Based on what you mentioned about the huge gib of the Apache “corpse” and the problems of it getting stuck or potentially obstructing the player if it goes down randomly, I’m assuming that’s why the devs had to hard code the death scenes as such, correct?  You said though that the Hunter-Chopper from HL2 had a failsafe SelfDestruct which caused it to explode eliminating this problem…I wonder why that is not present in the Apache?   It seems like that would be the perfect solution (then again, I know nothing of the inner workings of the game and what other technical challenges might be present).    Anyway, not trying to be unduly critical.  The Apache showdown in Surface Tension is still badass on the whole…and it will be even more fun to fight when that glitch of the rockets ricocheting off it is fixed <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/25">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/25</link>
+        <pubDate>Wed, 10 Jun 2015 20:08:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-25</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[Maki]]></dc:creator>
+        <description><![CDATA[
+            <p>I had issues with the rotor sound not playing when I used a point_template.</p>
+<p>For most other things, I use point_templates.  I used to use npc_template_makers a lot, but point_template really streamlines things much better.  My only reason to use npc_template_makers now is if if I need to replenish enemies from varied spawn locations (using the info_npc_spawn_destination feature).</p>
+<p>Also, they come in handy when using the env_xen_portal_template, which is the Black Mesa entity which spawns enemies with all the green teleporting effects automatically!</p>
+<p>I almost never use plain npc_makers (or, likewise, the env_xen_portal).  Mostly because I like to imbue my NPCs with a little personality and scripting, and having each one be a distinct setup is helpful for that.</p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/24">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/24</link>
+        <pubDate>Sat, 30 May 2015 00:50:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-24</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>Is there a good reason why npc_template_maker is preferred over point_template?</p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/23">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/23</link>
+        <pubDate>Sat, 30 May 2015 00:01:00 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-23</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[Maki]]></dc:creator>
+        <description><![CDATA[
+            <p>The Apache really is no worse than the Hunter-Chopper in Half-Life 2 when it comes to setup.  The difficulty is really in deciphering <span class="bbcode-i">how</span> it’s set up, particularly since at the time of this writing, the boss battle in Surface Tension bm_c2a5c doesn’t decompile correctly.</p>
+<p>My level, Bravado, makes heavy use of the Apache.  I put my original .vmf inside the .vpk file so others can understand how it works.  But here are some observations.  Some of this is based on the Hunter-Chopper, others based on using <span class="bbcode-i">developer 2</span> in Surface Tension (specifically the map bm_c2a5c) or looking at the decompiled .vmf in Notepad++.</p>
+<ul>
+<li>First off, the npc_apache is missing a number of spawnflags.  Among them is the ability to use it as a Template NPC, which is how it works in bm_c2a5c.  In Hammer, you can turn off SmartEdit and manually enter 7424.  Hammer may set that number as 0, but it’s been saved, don’t worry.  7424 will create four “???” Flags.  Other than Template NPC, I couldn’t tell you what they do, but they are important.</li>
+</ul>
+<p>[list][<em>]The reason you want to set it as a Template NPC is because something about this method allows the rotor sound to work.  If you use a point_template, the Apache will spawn, but under some circumstances, the rotor sound may not play (and EnableRotorSound doesn’t fix it).  It seems like many Apaches in Black Mesa are already present at the start of the level.<br>
+[/</em>:m][<em>]As with other Flying NPCs, the Apache follows path_tracks.  So, you’ll want at least one path_track, if not a connected chain of them.  Path_tracks should also have a non-zero Path Radius (allows for some wiggle room in what counts as “passing” the path_track).  64 is a good start.  Orientation Type should be set to No Change.  I am not certain if info_node_airs are necessary.  They aren’t for a Hunter-Chopper, but I wound up using them with the Apache because they seemed to help (could be placebo effect).  You’ll want to position these at each path_track and along the connections at roughly 512 units between each one.[/</em>:m]<br>
+[*]So, on your npc_template_maker, there are a number of things you should consider doing OnSpawnNPC:</p>
+<ul>
+<li>
+<span class="bbcode-b">SetHealth</span>.  It appears that you need to manually set the amount of health on the Apache, or else it’s essentially invulnerable.  Each rocket does about 100 damage to it, so in my case, I SetHealth to 550.  In bm_c2a5c, it’s set as 350 and, based on reaching some path point, gets set to 200 more.</li>
+<li>
+<span class="bbcode-b">DisableMinigun</span>.  This is the Apache’s machine gun, its base weapon.  You can send <span class="bbcode-b">EnableMinigun</span> when you want it to start firing.</li>
+<li>
+<span class="bbcode-b">DisableRockets</span>.  This prevents the Apache from doing its double-rocket attack.  In bm_c2a5c, <span class="bbcode-b">EnableRockets</span> occurs OnDamaged, with a 2 second delay (so the player doesn’t immediately get a rocket to the face when it’s switched on!).  This also causes the Apache to play a warning noise.</li>
+<li>
+<span class="bbcode-b">DisableRocketBarrage</span>.  This prevents the Apache from doing its crazy multi-rocket assault thing.  I never enabled this in my level.  In bm_c2a5c, <span class="bbcode-b">EnableRocketBarrage</span> occurs when it reaches some path_track (likely a distant one).</li>
+<li>
+<span class="bbcode-b">SetRocketTarget</span> (parameter: <span class="bbcode-b">!player</span>).  This should happen .1 seconds after DisableRockets, and certainly before EnableRockets.  Makes the player the target of the rockets.<br>
+[/<em>:m][</em>]To make the Apache move around, there are two main ways of doing this:</li>
+<li>
+<span class="bbcode-b">FlyToSpecificTrackViaPath </span>(parameter: a path_track).  If you want the Apache to automatically move along a chain of path_tracks, give it the name of the path_track at the end.  It will trace backwards from that and follow the previous path_tracks to get here.</li>
+<li>
+<span class="bbcode-b">SetTrack</span> (parameter: a path_track).  This tells the Apache to move to this path_track.  If there’s only one path_track, it will basically hover there. <span class="bbcode-i"> (Note: I haven’t tried the following, but I’m assuming this based on the Hunter-Chopper): </span>If there’s more than one path_track connected to this, the Apache will move between them based on its AI, which can be influenced by the <span class="bbcode-b">ChooseNearestPoint </span>and <span class="bbcode-b">ChooseFarthestPoint</span> commands - in this way, you can make it move with the player, but along a pre-defined path.<br>
+[/<em>:m][</em>]To get the Apache to focus on the player:</li>
+<li>Set up an ai_relationship with the Subject as the Apache, Target as !player, Disposition as Hate, and Priority to some positive number.  You can have this Start Active, or use ApplyRelationship when you want the Apache to start attacking.</li>
+<li>Create an aiscripted_schedule with the Target NPC as the Apache, Set Enemy to Goal Entity as the Schedule to Run, and the Goal Entity to !player.  Also set Interruptability to Death. When you want the Apache to focus on the player, send this entity a StartSchedule input.  This will make the Apache focus doggedly on attacking the player.  It actually does a good job of leading the player too, even when the player can’t be seen.<br>
+[/<em>:m][</em>]You can trigger the Apache to do smoke effects by using ForceIncrementDamageEffectLevel (parameter: 1).  I did this OnHalfHealth.  This also causes the Apache to play an alarm sound, signaling that it’s near death.  I think there may be two levels of effects you can do (i.e. you can do this command again to get even more effects).[/<em>:m]<br>
+[</em>]The Apache’s death is a tricky thing.  If you’ve made it this far, you’ll probably notice that the Apache doesn’t die.  It will sit there, smoking away, and keep attacking you no matter how many rockets you throw at it.  There are two parts necessary for the Apache to die:</li>
+<li>First, you need to use the Apache’s OnWishToDie input to send it the command SelfDestruct.  This puts it into a death spiral and starts it flying toward an info_target_helicoptercrash.  (This is something that diverges from how the Hunter-Chopper works.  For one, the Hunter-Chopper doesn’t need a crash point, but the Apache requires it.  Secondly, sending a second SelfDestruct command to the Hunter-Chopper causes it to immediately blow up.  That’s a failsafe that’s missing on the Apache, unfortunately, which leads to my second point).</li>
+<li>Once the Apache reaches the info_target_helicoptercrash, it will explode.  You can use the OnCrashed output of the info_target_helicoptercrash to do this when this happens.  You <span class="bbcode-i">must</span> have an info_target_helicoptercrash in a reachable location.  Otherwise, the Apache won’t stop exploding (which goes back to what I said before - the Hunter-Chopper had failsafes for this kind of thing).</li>
+</ul>
+<p>[list][<em>]Okay, so “reachable location.”  You can’t just put the info_target_helicoptercrash just anywhere.  It has to be near some collision for the Apache to slam into (func_clip_vphysics can be used for invisible collision).  Preferably, this should be on the ground.  As I’ve learned, walls are problematic.  The Apache’s fuselage gib is so enormous, it will likely get caught in the wall.  You’ll see in my map that I did a hacky workaround for this, where I use a trigger_once around the info_target_helicoptercrash to Kill the Apache and then spawn my own gibs in a predictable manner.  Why did I do this instead of putting it on the ground?  Because I didn’t build the arena with this in mind, so there’s a whole lot of potential obstructions to reaching the ground.<br>
+[/</em>:m][/list:u][/*:m][/list:u]</p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/22">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/22</link>
+        <pubDate>Fri, 29 May 2015 23:56:49 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-22</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Fitne Por">
+<div class="title">
+<div class="quote-controls"></div>
+ Fitne Por:</div>
+<blockquote>
+<p>In all seriousness, why does the apache require such an extensive setup? Shouldn’t it be able to pick its own targets?</p>
+<p>There should be some documentation for bms entities.</p>
+</blockquote>
+</aside>
+<p>Likely so that a level designer can fine-tune the apache’s behavior to the level at hand. AI is a finicky thing.</p>
+<p>And yeah, documentation would be nice.</p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/21">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/21</link>
+        <pubDate>Fri, 29 May 2015 23:46:19 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-21</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[Fitne_Por]]></dc:creator>
+        <description><![CDATA[
+            <p>In all seriousness, why does the apache require such an extensive setup? Shouldn’t it be able to pick its own targets?</p>
+<p>There should be some documentation for bms entities.</p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/20</link>
+        <pubDate>Fri, 29 May 2015 22:15:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-20</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[Maki]]></dc:creator>
+        <description><![CDATA[
+            <p>How odd.  They respond to the input, but not a separate ai_relationship?</p>
+<p>Well, you can’t make an Apache a Template NPC either so its programming must be… unique.  <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:">   Turns out, I don’t need the Bullseyes because it does what I want it to do without them, but it is quite interesting.</p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/19</link>
+        <pubDate>Sat, 16 May 2015 18:26:41 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-19</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[Peter_Brev]]></dc:creator>
+        <description><![CDATA[
+            <p>Because for some reason, to get the npc_apache or any other npc entities to target a bullseye, you will need to set the SetRelationship output.</p>
+<p>Let’s say you were using a logic_relay:<br>
+OnTrigger<br>
+&lt;Apache’s name&gt;<br>
+SetRelationship<br>
+&lt;Bullseye’s name&gt; HT_9999</p>
+<p>Check this out: <a href="https://developer.valvesoftware.com/wiki/List_of_default_AI_relationships" data-bbcode="true" rel="nofollow noopener">https://developer.valvesoftware.com/wiki/List_of_default_AI_relationships</a></p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/18</link>
+        <pubDate>Sat, 16 May 2015 07:28:23 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-18</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[Maki]]></dc:creator>
+        <description><![CDATA[
+            <p>Interestingly, I haven’t been successful in getting the Apache to target an npc_bullseye.  The same relationship/schedule setup, substituting !player for the bullseye name, works fine.</p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/17</link>
+        <pubDate>Sat, 16 May 2015 03:04:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-17</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[Fitne_Por]]></dc:creator>
+        <description><![CDATA[
+            <p>Also, I need a way to make the apache missiles not hit me, even when they’re attacking someone else.</p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/16</link>
+        <pubDate>Sat, 16 May 2015 00:45:38 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-16</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[Maki]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="dky.tehkingd.u">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/dky.tehkingd.u/40/4377_2.png" class="avatar"> dky.tehkingd.u:</div>
+<blockquote>
+<p>I’m not sure what issues you guys are having. I got it to work in about 5 minutes.</p>
+</blockquote>
+</aside>
+<p>To be fair, I didn’t try it myself.  I thought the question was about it not shooting at another Apache (but nevertheless apparently “hating” the other Apache enough to look at it).  What you describe would clearly work if the !player was the intended target.</p>
+<p>And maybe it would work if it was another Apache too.  <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/15</link>
+        <pubDate>Thu, 14 May 2015 16:29:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-15</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[Peter_Brev]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Crypt">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/crypt/40/4394_2.png" class="avatar"> Crypt:</div>
+<blockquote>
+<p>Well you botched it somehow, I followed the exact instructions and it’s working fine.</p>
+<p>EDIT:<br>
+I’d recommend getting it working yourself first (give a man a fish, etc.), but here, <a href="https://www.dropbox.com/s/yqgjelu41p5sc82/apache_ent.vmf?dl=0" data-bbcode="true" rel="nofollow noopener">here’s a prefab.</a></p>
+</blockquote>
+</aside>
+<p>Figured out the problem.</p>
+<p>A keyvalue was forgotten.</p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/14</link>
+        <pubDate>Thu, 14 May 2015 15:16:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-14</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>Well you botched it somehow, I followed the exact instructions and it’s working fine.</p>
+<p>EDIT:<br>
+I’d recommend getting it working yourself first (give a man a fish, etc.), but here, <a href="https://www.dropbox.com/s/yqgjelu41p5sc82/apache_ent.vmf?dl=0" data-bbcode="true" rel="nofollow noopener">here’s a prefab.</a><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/3/330e91fb2d82c02b7871fbcf9f3221216134f5d4.jpeg" data-download-href="https://leakfree.org/uploads/default/330e91fb2d82c02b7871fbcf9f3221216134f5d4" title="apacheee0002.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/3/330e91fb2d82c02b7871fbcf9f3221216134f5d4_2_690x500.jpeg" alt="apacheee0002.jpg" data-base62-sha1="7hFzbNAIGEPDYdkZSuAYWHZ2gjq" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/3/330e91fb2d82c02b7871fbcf9f3221216134f5d4_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/3/330e91fb2d82c02b7871fbcf9f3221216134f5d4_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/3/330e91fb2d82c02b7871fbcf9f3221216134f5d4_2_1380x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/3/330e91fb2d82c02b7871fbcf9f3221216134f5d4_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">apacheee0002.jpg</span><span class="informations">1600×900 494 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/13</link>
+        <pubDate>Thu, 14 May 2015 13:21:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-13</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[Peter_Brev]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="dky.tehkingd.u">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/dky.tehkingd.u/40/4377_2.png" class="avatar"> dky.tehkingd.u:</div>
+<blockquote>
+<p>I’m not sure what issues you guys are having. I got it to work in about 5 minutes.</p>
+<ol>
+<li>Place a bunch of info_node_air.</li>
+<li>Create an ai_relationship that sets npc_apache to hate !player, and make sure it starts active.</li>
+<li>Create an aiscripted_schedule that targets npc_apache with a goal entity of !player, such that the schedule sets the goal entity to ENEMY, sets the AI state to COMBAT, and with an interruptability of death.</li>
+<li>Fire the aiscripted_schedule with a “startschedule” input to get the apache to attack.<br>
+Test/example VMF here: <a href="https://dl.dropboxusercontent.com/u/14565853/maps/apachetest.vmf" data-bbcode="true" rel="nofollow noopener">https://dl.dropboxusercontent.com/u/14565853/maps/apachetest.vmf</a>
+</li>
+</ol>
+</blockquote>
+</aside>
+<p>That exactly what I did and it did not work here.</p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/12</link>
+        <pubDate>Thu, 14 May 2015 12:06:13 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-12</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m not sure what issues you guys are having. I got it to work in about 5 minutes.</p>
+<ol>
+<li>Place a bunch of info_node_air.</li>
+<li>Create an ai_relationship that sets npc_apache to hate !player, and make sure it starts active.</li>
+<li>Create an aiscripted_schedule that targets npc_apache with a goal entity of !player, such that the schedule sets the goal entity to ENEMY, sets the AI state to COMBAT, and with an interruptability of death.</li>
+<li>Fire the aiscripted_schedule with a “startschedule” input to get the apache to attack.<br>
+Test/example VMF here: <a href="https://dl.dropboxusercontent.com/u/14565853/maps/apachetest.vmf" data-bbcode="true" rel="nofollow noopener">https://dl.dropboxusercontent.com/u/14565853/maps/apachetest.vmf</a>
+</li>
+</ol>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/11</link>
+        <pubDate>Thu, 14 May 2015 09:55:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-11</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[Peter_Brev]]></dc:creator>
+        <description><![CDATA[
+            <p>I just tried myself but it seems there are some things I am missing.</p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/10</link>
+        <pubDate>Thu, 14 May 2015 09:29:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-10</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[Fitne_Por]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="JeffMOD">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/jeffmod/40/4333_2.png" class="avatar"> JeffMOD:</div>
+<blockquote>
+<p>IIRC bm_c2a5a is the Apache fight on the dam, if that helps you.<br>
+Look forward to someone figuring out how to get it to work and letting the rest of us know!  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+</blockquote>
+</aside>
+<p>Unfortunately, the decompile of those maps failed.</p>
+<p>Ugh. Hope someone knows how to get the choppers properly working…</p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/9</link>
+        <pubDate>Wed, 13 May 2015 20:51:23 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-9</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p>IIRC bm_c2a5a is the Apache fight on the dam, if that helps you.<br>
+Look forward to someone figuring out how to get it to work and letting the rest of us know!  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/8</link>
+        <pubDate>Wed, 13 May 2015 17:18:02 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-8</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[Fitne_Por]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m just going to play the game to the apache fight to intercept the mapname, then decompile and see how the Crowbars did it…</p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/7</link>
+        <pubDate>Wed, 13 May 2015 03:13:48 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-7</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[Maki]]></dc:creator>
+        <description><![CDATA[
+            <p>Setting the Search Radius to 0 is how it’s done in normal Half-Life 2, so I don’t know why BM would be different.  Perhaps there is something about the Apache’s targeting that assumes that the target is a player or human-like thing, or that the target has something which another Apache lacks.</p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/6</link>
+        <pubDate>Wed, 13 May 2015 01:26:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-6</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[Fitne_Por]]></dc:creator>
+        <description><![CDATA[
+            <p>Oh yeah, I tried to get two apaches to shoot each other with an ai_relationship set to hate each other, first by using their targetnames I assigned them, then using classnames, but they didn’t shoot each other. I set the priority to 1, and radius to 0. The reason I chose 0 is because I thought that would mean everywhere. Correct me if I’m wrong, but how do I set the radius to everywhere? Just enter a value bigger than the map?</p>
+<p>P.S. Asking an osprey to startpatrol on a track crashes the game and maybe the computer screen, and it doesn’t turn.</p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/5</link>
+        <pubDate>Tue, 12 May 2015 17:40:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-5</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>I believe that by default the Apache does not hate and want to kill the player/anything else. Use ai_relationship to make it hate whatever you want it to kill, and you can also use aiscripted_schedule to tell it to attack that thing. !player is the player’s name, otherwise use the entities’ target/classname.</p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/4</link>
+        <pubDate>Tue, 12 May 2015 17:20:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-4</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+      <item>
+        <title>npc_apache help</title>
+        <dc:creator><![CDATA[Fitne_Por]]></dc:creator>
+        <description><![CDATA[
+            <p>Maybe if I wasn’t clear, I’m using the hammer editor shipped with Black Mesa in its bin, and I made a simple map with an apache helicopter in it. When I start up the map immediately after compilation, the apache would just ignore me and other npcs as it flies around, though I can blow it up with heavy weapons. I sometimes map for hl2/gmod, and I’m familiar with the combine npcs, but is there any extra set-up I have to do to get the apache to a fighting state, compared to the combine heli/gunship? Any extra entities I need to add?</p>
+<p>Also, my map really is that simple; it’s just the spawn point, an apache, some path_tracks for it to fly on, lights to see, and a bunch of houndeyes to see if the helicopter would blast them.</p>
+          <p><a href="https://leakfree.org/t/npc-apache-help/13997/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npc-apache-help/13997/3</link>
+        <pubDate>Tue, 12 May 2015 17:15:51 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13997-3</guid>
+        <source url="https://leakfree.org/t/npc-apache-help/13997.rss">npc_apache help</source>
+      </item>
+  </channel>
+</rss>

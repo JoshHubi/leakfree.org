@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Convex Collision Meshes In Blender</title>
+    <link>https://leakfree.org/t/convex-collision-meshes-in-blender/15379</link>
+    <description>So I&#39;m making a modified version of a prop (a mirrored &quot;table_l&quot; desk) in Blender using Crowbar decompilations, and am having some problems with the collision model. I am for whatever reason not able to split it into convex parts properly, and the recompilation just produces a &quot;shrink-wrap&quot; collision which needless to say is effectively unusable for this highly concave prop. The [url=&#39;Wattpad&#39;s mobile interface is pure garbage.&#39;]ancient SDW tutorial[/url] describes a way to export multiple groups in one model file using a &#39;set smooth&#39; tool, but this seems to have been removed from the new versions of Blender and all I can seem to do is export the collision mesh as multiple [i]files[/i] which the compiler will not accept.
+
+How to proceed?</description>
+    
+    <lastBuildDate>Mon, 11 Jun 2018 21:48:41 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/convex-collision-meshes-in-blender/15379.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Convex Collision Meshes In Blender</title>
+        <dc:creator><![CDATA[Flavrans]]></dc:creator>
+        <description><![CDATA[
+            <p>One possible source of error could be that you selected the wrong faces in the seam between adjoining pieces when separating the collision mesh pieces, causing the face normals in that part of the mesh to point inwards instead of outwards, with respect to the selected piece of the collision mesh. If you enable display of face normals you can check each piece of the collision mesh and verify that all the normals are pointing outwards. If any of the normals are pointing inwards, you can flip them using the Shading-&gt;Normals -&gt; Flip Direction button in the Tool Shelf (after selecting the affected faces.)</p>
+<p>[attach=5790,none,1352][/attach]<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/d/dae8d055eb3edf06d057ea28dc3a2ac37670e332.png" data-download-href="https://leakfree.org/uploads/default/dae8d055eb3edf06d057ea28dc3a2ac37670e332" title="Face selection and face normals.png"><img src="https://leakfree.org/uploads/default/optimized/2X/d/dae8d055eb3edf06d057ea28dc3a2ac37670e332_2_690x500.png" alt="Face selection and face normals.png" data-base62-sha1="veyTazAs6clWUSs7A9dXrW7ZhCO" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/d/dae8d055eb3edf06d057ea28dc3a2ac37670e332_2_690x500.png, https://leakfree.org/uploads/default/optimized/2X/d/dae8d055eb3edf06d057ea28dc3a2ac37670e332_2_1035x750.png 1.5x, https://leakfree.org/uploads/default/original/2X/d/dae8d055eb3edf06d057ea28dc3a2ac37670e332.png 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/d/dae8d055eb3edf06d057ea28dc3a2ac37670e332_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">Face selection and face normals.png</span><span class="informations">1352×901 179 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+          <p><a href="https://leakfree.org/t/convex-collision-meshes-in-blender/15379/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/convex-collision-meshes-in-blender/15379/6</link>
+        <pubDate>Mon, 11 Jun 2018 21:48:41 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15379-6</guid>
+        <source url="https://leakfree.org/t/convex-collision-meshes-in-blender/15379.rss">Convex Collision Meshes In Blender</source>
+      </item>
+      <item>
+        <title>Convex Collision Meshes In Blender</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Got it to work by scaling the entire model up by a factor of <span class="bbcode-i">ten </span> instead of five and also changing the units in the export settings from feet to inches. I could probably do more tests to see which issue was actually responsible for the problem, but I’m just happy to see the back of this thing.</p>
+          <p><a href="https://leakfree.org/t/convex-collision-meshes-in-blender/15379/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/convex-collision-meshes-in-blender/15379/5</link>
+        <pubDate>Sun, 10 Jun 2018 19:51:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15379-5</guid>
+        <source url="https://leakfree.org/t/convex-collision-meshes-in-blender/15379.rss">Convex Collision Meshes In Blender</source>
+      </item>
+      <item>
+        <title>Convex Collision Meshes In Blender</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Went through both of the above and got the same result as before. Notably, despite having scaled the model upward by a factor of 5 I am still getting “WARNING: Model has 2-dimensional geometry (less than 0.500 inches thick on any axis)!!!” errors, which makes me suspect that something else is going on with the model itself. Not sure what that would <span class="bbcode-i">be</span>, but I’ll keep looking.</p>
+<p>EDIT: Recompiled with just the two largest mesh elements and it went fine, so I’m gonna add in convex sections one at a time and see which ones are causing the problem.</p>
+          <p><a href="https://leakfree.org/t/convex-collision-meshes-in-blender/15379/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/convex-collision-meshes-in-blender/15379/4</link>
+        <pubDate>Sun, 10 Jun 2018 16:19:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15379-4</guid>
+        <source url="https://leakfree.org/t/convex-collision-meshes-in-blender/15379.rss">Convex Collision Meshes In Blender</source>
+      </item>
+      <item>
+        <title>Convex Collision Meshes In Blender</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p>The Smooth tool is under the Edit heading in the Tools tab:</p>
+<p>[attach=5789,none,170][/attach]</p>
+<p>I’d also recommend making a copy of your collision mesh pieces and putting them in a separate layer before merging them, just in case something goes wrong or you need to adjust it later, which happens often, especially if you have a particularly complex (or small) model - and make sure that any given part of the collision pieces isn’t .5 units thick or less, because otherwise the compile tools will just ignore the $concave command and shrinkwrap it anyway.<br>
+<img src="https://leakfree.org/uploads/default/original/2X/8/857a330c3445d108872038cd689965869464bd5b.png" alt="Capture.PNG" data-base62-sha1="j2NjvgZlGEVwe49vSuyFnBqGHbl" width="170" height="373"></p>
+          <p><a href="https://leakfree.org/t/convex-collision-meshes-in-blender/15379/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/convex-collision-meshes-in-blender/15379/3</link>
+        <pubDate>Sun, 10 Jun 2018 15:04:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15379-3</guid>
+        <source url="https://leakfree.org/t/convex-collision-meshes-in-blender/15379.rss">Convex Collision Meshes In Blender</source>
+      </item>
+      <item>
+        <title>Convex Collision Meshes In Blender</title>
+        <dc:creator><![CDATA[Flavrans]]></dc:creator>
+        <description><![CDATA[
+            <p>If you have split the collision mesh into separate objects (and applied smooth shading to each of the objects individually), you must group them together before exporting. Simply select all the mesh objects (in Object Mode) and press Ctrl+G to group them together and name the group something like “table_r_static_phys”. You should now be able to export the group as “table_r_static_phys.smd”.</p>
+          <p><a href="https://leakfree.org/t/convex-collision-meshes-in-blender/15379/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/convex-collision-meshes-in-blender/15379/2</link>
+        <pubDate>Sun, 10 Jun 2018 00:18:10 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15379-2</guid>
+        <source url="https://leakfree.org/t/convex-collision-meshes-in-blender/15379.rss">Convex Collision Meshes In Blender</source>
+      </item>
+      <item>
+        <title>Convex Collision Meshes In Blender</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>So I’m making a modified version of a prop (a mirrored “table_l” desk) in Blender using Crowbar decompilations, and am having some problems with the collision model. I am for whatever reason not able to split it into convex parts properly, and the recompilation just produces a “shrink-wrap” collision which needless to say is effectively unusable for this highly concave prop. The ancient SDW tutorial describes a way to export multiple groups in one model file using a ‘set smooth’ tool, but this seems to have been removed from the new versions of Blender and all I can seem to do is export the collision mesh as multiple <span class="bbcode-i">files</span> which the compiler will not accept.</p>
+<p>How to proceed?</p>
+          <p><a href="https://leakfree.org/t/convex-collision-meshes-in-blender/15379/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/convex-collision-meshes-in-blender/15379/1</link>
+        <pubDate>Thu, 07 Jun 2018 20:16:33 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15379-1</guid>
+        <source url="https://leakfree.org/t/convex-collision-meshes-in-blender/15379.rss">Convex Collision Meshes In Blender</source>
+      </item>
+  </channel>
+</rss>

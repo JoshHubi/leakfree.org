@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>JAVA Create object with variable name</title>
+    <link>https://leakfree.org/t/java-create-object-with-variable-name/1864</link>
+    <description>Ok, this seems to be an age old question, evidently. Is it possible to create / reference an object in Java using a variable name?
+
+For example:
+[code]
+
+String objName = &quot;object1&quot;;
+carObject objName = new carObject;
+objName = &quot;object2&quot;;
+carObject objName = new carObject;
+object1.speedUp();
+object2.speedUp();
+ 
+[/code]
+
+Now, that won&#39;t work for obvious reasons. But is there any way I could accomplish the effect I&#39;m going for here?</description>
+    
+    <lastBuildDate>Tue, 24 Nov 2009 00:48:12 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/java-create-object-with-variable-name/1864.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>JAVA Create object with variable name</title>
+        <dc:creator><![CDATA[Level]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Dillxn">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/d/9f8e36/40.png" class="avatar"> Dillxn:</div>
+<blockquote>
+<p>Yeah I was required to run the loop to make them all new objects, I found.</p>
+</blockquote>
+</aside>
+<p>Yep, that’ll happen, because you could initialize them each to use different constructors or variables or something if you wanted.</p>
+          <p><a href="https://leakfree.org/t/java-create-object-with-variable-name/1864/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-create-object-with-variable-name/1864/14</link>
+        <pubDate>Tue, 24 Nov 2009 00:48:12 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1864-14</guid>
+        <source url="https://leakfree.org/t/java-create-object-with-variable-name/1864.rss">JAVA Create object with variable name</source>
+      </item>
+      <item>
+        <title>JAVA Create object with variable name</title>
+        <dc:creator><![CDATA[Guf]]></dc:creator>
+        <description><![CDATA[
+            <p>To answer your question more specifically, you can do what you ask (to create an object reference more dynamically) using reflection, but to make use of it you still need to store it somewhere.<br>
+To use “dynamically named storage” in a completely general sense, I’d recommend (assuming this is all in the context of your console app) using a HashTable to assign names to objects.<br>
+Putting all that together you’d get the ability to create a new object from an arbitrary type and store it under an arbitrary name.</p>
+          <p><a href="https://leakfree.org/t/java-create-object-with-variable-name/1864/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-create-object-with-variable-name/1864/13</link>
+        <pubDate>Mon, 23 Nov 2009 01:28:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1864-13</guid>
+        <source url="https://leakfree.org/t/java-create-object-with-variable-name/1864.rss">JAVA Create object with variable name</source>
+      </item>
+      <item>
+        <title>JAVA Create object with variable name</title>
+        <dc:creator><![CDATA[Dillxn]]></dc:creator>
+        <description><![CDATA[
+            <p>Yeah I was required to run the loop to make them all new objects, I found.</p>
+          <p><a href="https://leakfree.org/t/java-create-object-with-variable-name/1864/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-create-object-with-variable-name/1864/12</link>
+        <pubDate>Fri, 20 Nov 2009 03:52:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1864-12</guid>
+        <source url="https://leakfree.org/t/java-create-object-with-variable-name/1864.rss">JAVA Create object with variable name</source>
+      </item>
+      <item>
+        <title>JAVA Create object with variable name</title>
+        <dc:creator><![CDATA[Level]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="pfannkuchen_gesicht">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/p/ee7513/40.png" class="avatar"> pfannkuchen_gesicht:</div>
+<blockquote>
+<p>what about arrays?</p>
+<pre><code class="lang-auto">	for(x=0;x&lt;inNum;x++){
+		carObject obj[x] = new carObj;
+	}
+</code></pre>
+</blockquote>
+</aside>
+<p>I was just thinking that right after I read the above post.</p>
+          <p><a href="https://leakfree.org/t/java-create-object-with-variable-name/1864/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-create-object-with-variable-name/1864/11</link>
+        <pubDate>Thu, 19 Nov 2009 22:37:40 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1864-11</guid>
+        <source url="https://leakfree.org/t/java-create-object-with-variable-name/1864.rss">JAVA Create object with variable name</source>
+      </item>
+      <item>
+        <title>JAVA Create object with variable name</title>
+        <dc:creator><![CDATA[Dillxn]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes! I got the extra credit! Thank you guys so much!</p>
+          <p><a href="https://leakfree.org/t/java-create-object-with-variable-name/1864/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-create-object-with-variable-name/1864/10</link>
+        <pubDate>Thu, 19 Nov 2009 20:58:05 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1864-10</guid>
+        <source url="https://leakfree.org/t/java-create-object-with-variable-name/1864.rss">JAVA Create object with variable name</source>
+      </item>
+      <item>
+        <title>JAVA Create object with variable name</title>
+        <dc:creator><![CDATA[popsUlfr]]></dc:creator>
+        <description><![CDATA[
+            <p>Yep, that’s what I would have suggested aswell.</p>
+<p>First you would need to declare it:</p>
+<pre><code class="lang-auto">carObject[] obj = new carObject[maxlength]; </code></pre>
+<p>“maxlength” should be the max number entered as argument when parsing.</p>
+<p>The for loop:</p>
+<pre><code class="lang-auto">for(int x=0;x&lt;inNum;x++){
+        obj[x] = new carObject();
+    } </code></pre>
+<p>EDIT fixed “i” instead of “x”</p>
+          <p><a href="https://leakfree.org/t/java-create-object-with-variable-name/1864/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-create-object-with-variable-name/1864/9</link>
+        <pubDate>Thu, 19 Nov 2009 20:19:36 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1864-9</guid>
+        <source url="https://leakfree.org/t/java-create-object-with-variable-name/1864.rss">JAVA Create object with variable name</source>
+      </item>
+      <item>
+        <title>JAVA Create object with variable name</title>
+        <dc:creator><![CDATA[Dillxn]]></dc:creator>
+        <description><![CDATA[
+            <p>By George, I think you’ve got it!<br>
+I’ll see if this counts. I can’t believe this simple solution evaded me!<br>
+Thanks!<br>
+-Dillon</p>
+          <p><a href="https://leakfree.org/t/java-create-object-with-variable-name/1864/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-create-object-with-variable-name/1864/8</link>
+        <pubDate>Thu, 19 Nov 2009 20:16:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1864-8</guid>
+        <source url="https://leakfree.org/t/java-create-object-with-variable-name/1864.rss">JAVA Create object with variable name</source>
+      </item>
+      <item>
+        <title>JAVA Create object with variable name</title>
+        <dc:creator><![CDATA[pfannkuchen_gesicht]]></dc:creator>
+        <description><![CDATA[
+            <p>what about arrays?</p>
+<pre><code class="lang-auto">	for(x=0;x&lt;inNum;x++){
+		carObject obj[x] = new carObj;
+	}
+</code></pre>
+          <p><a href="https://leakfree.org/t/java-create-object-with-variable-name/1864/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-create-object-with-variable-name/1864/7</link>
+        <pubDate>Thu, 19 Nov 2009 20:08:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1864-7</guid>
+        <source url="https://leakfree.org/t/java-create-object-with-variable-name/1864.rss">JAVA Create object with variable name</source>
+      </item>
+      <item>
+        <title>JAVA Create object with variable name</title>
+        <dc:creator><![CDATA[Dillxn]]></dc:creator>
+        <description><![CDATA[
+            <p>Lol. Ok I’ll give an example.<br>
+Say a user inputs a number, and I want the program to create that amount of objects with a new name for each object.<br>
+i.e.</p>
+<pre><code class="lang-auto">public static void main(String[] args) throws IOException {
+	String output;
+	int x = 0;
+	inNum = consoleReader.nextLine();
+	for(x=0;x&lt;inNum;x++){
+		carObject ("obj"+x) = new carObj;
+	}
+	inNum = consoleReader.nextLine();
+	("obj"+inNum).speedUp();
+}</code></pre>
+<p>The string value of (“obj”+x) or (“obj”+inNum) would be parsed as the name of the object; I’m not trying to run the “speedUp” method on the string itself, just the object that’s named the value of that string.</p>
+<p>So, if the first number they inputted was 2, then 3 objects would be created:</p>
+<p><code>obj0
+obj1
+obj2</code></p>
+<p>If they inputted 2 as the second number, then it would be the same thing as</p>
+<pre><code class="lang-auto">obj2.speedUp();</code></pre>
+<p>Does that make things a bit clearer? I so suck at explaining things. Sorry D;</p>
+          <p><a href="https://leakfree.org/t/java-create-object-with-variable-name/1864/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-create-object-with-variable-name/1864/6</link>
+        <pubDate>Thu, 19 Nov 2009 20:01:27 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1864-6</guid>
+        <source url="https://leakfree.org/t/java-create-object-with-variable-name/1864.rss">JAVA Create object with variable name</source>
+      </item>
+      <item>
+        <title>JAVA Create object with variable name</title>
+        <dc:creator><![CDATA[popsUlfr]]></dc:creator>
+        <description><![CDATA[
+            <p>^ Changing the name of the Object? Would only be possible to do by handing it to another variable:</p>
+<p>Say you want “object1” to be <span class="bbcode-i">renamed</span> to “object2”:</p>
+<pre><code class="lang-auto">carObject object1 = new carObject();
+carObject object2 = object1; </code></pre>
+<p>Though this not a rename, you will end up with two references to the same object.</p>
+<p>I don’t see the point in that, sorry  <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+<p>EDIT: It doesn’t make much sense as you can name it all you like when you’re actually typing code. So, my more sensical advice would be to highlight the name of your variable, press <span class="bbcode-i">delete</span> and finaly type in what you want it to look like  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>Expanding even more on that: once you create an object, you can not alter the name of the reference to it. It will eventually be recycled once the app detects it’s of no use anymore.<br>
+It would be a real nightmare if it were possible considering other objects may point into the void.</p>
+          <p><a href="https://leakfree.org/t/java-create-object-with-variable-name/1864/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-create-object-with-variable-name/1864/5</link>
+        <pubDate>Thu, 19 Nov 2009 19:39:13 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1864-5</guid>
+        <source url="https://leakfree.org/t/java-create-object-with-variable-name/1864.rss">JAVA Create object with variable name</source>
+      </item>
+      <item>
+        <title>JAVA Create object with variable name</title>
+        <dc:creator><![CDATA[Dillxn]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="popsUlfr">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/p/ce7236/40.png" class="avatar"> popsUlfr:</div>
+<blockquote>
+<p>You are creating a new String object and then you want to force another type onto it! As long as the new type is NOT one that extends on the previous class this operation won’t be allowed.</p>
+</blockquote>
+</aside>
+<p>Right. I’m trying to take the text of the string and make it be the name of the new object, not making the string become the new object.</p>
+<p>Sorry if this doesn’t make sense, guys. But thanks for the help thus far! I’m not really applying this to anything yet, but my teacher wanted to know and I get extra credit if I can show him how.</p>
+          <p><a href="https://leakfree.org/t/java-create-object-with-variable-name/1864/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-create-object-with-variable-name/1864/4</link>
+        <pubDate>Thu, 19 Nov 2009 19:22:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1864-4</guid>
+        <source url="https://leakfree.org/t/java-create-object-with-variable-name/1864.rss">JAVA Create object with variable name</source>
+      </item>
+      <item>
+        <title>JAVA Create object with variable name</title>
+        <dc:creator><![CDATA[popsUlfr]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m not exactly sure what you want to achieve. The normal Syntax to create a new Object is as following:</p>
+<pre><code class="lang-auto">class temp = new class(); </code></pre>
+<p>A class defining a constructor may need parameters to be handed over.<br>
+“temp” is now your reference to the newly created Object. You can access the class’ methods by the normal “temp.doSomething()” syntax.</p>
+<p>You are creating a new String object and then you want to force another type onto it! As long as the new type is NOT one that extends on the previous class this operation won’t be allowed.</p>
+<aside class="quote no-group" data-username="Level">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/85e7bf/40.png" class="avatar"> Level:</div>
+<blockquote>
+<p>I suppose you could make a method that you pass the variable to:</p>
+<pre><code class="lang-auto">carObject object1 = new carObject;  
+carObject object2 = new carObject; 
+speeder(object1);
+speeder(object2);</code></pre>
+<pre><code class="lang-auto">void speeder(carObject objectName) {
+objectName.speedUp();
+}</code></pre>
+</blockquote>
+</aside>
+<p>There’s no point in defining an additional method to execute one you could as easely access as it is:</p>
+<pre><code class="lang-auto">carObject object1 = new carObject();
+carObject object2 = new carObject(); 
+object1.speedUp();
+object2.speedUp(); </code></pre>
+          <p><a href="https://leakfree.org/t/java-create-object-with-variable-name/1864/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-create-object-with-variable-name/1864/3</link>
+        <pubDate>Thu, 19 Nov 2009 18:50:24 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1864-3</guid>
+        <source url="https://leakfree.org/t/java-create-object-with-variable-name/1864.rss">JAVA Create object with variable name</source>
+      </item>
+      <item>
+        <title>JAVA Create object with variable name</title>
+        <dc:creator><![CDATA[Level]]></dc:creator>
+        <description><![CDATA[
+            <p>I suppose you could make a method that you pass the variable to:</p>
+<pre><code class="lang-auto">carObject object1 = new carObject;  
+carObject object2 = new carObject; 
+speeder(object1);
+speeder(object2);</code></pre>
+<pre><code class="lang-auto">void speeder(carObject objectName) {
+objectName.speedUp();
+}</code></pre>
+<p>The way you want to do it doesn’t work. If you gave us the situation you wanted to use it in it’d probably make a lot more sense.</p>
+          <p><a href="https://leakfree.org/t/java-create-object-with-variable-name/1864/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-create-object-with-variable-name/1864/2</link>
+        <pubDate>Thu, 19 Nov 2009 18:11:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1864-2</guid>
+        <source url="https://leakfree.org/t/java-create-object-with-variable-name/1864.rss">JAVA Create object with variable name</source>
+      </item>
+      <item>
+        <title>JAVA Create object with variable name</title>
+        <dc:creator><![CDATA[Dillxn]]></dc:creator>
+        <description><![CDATA[
+            <p>Ok, this seems to be an age old question, evidently. Is it possible to create / reference an object in Java using a variable name?</p>
+<p>For example:</p>
+<pre><code class="lang-auto">
+String objName = "object1";
+carObject objName = new carObject;
+objName = "object2";
+carObject objName = new carObject;
+object1.speedUp();
+object2.speedUp();
+ </code></pre>
+<p>Now, that won’t work for obvious reasons. But is there any way I could accomplish the effect I’m going for here?</p>
+          <p><a href="https://leakfree.org/t/java-create-object-with-variable-name/1864/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-create-object-with-variable-name/1864/1</link>
+        <pubDate>Thu, 19 Nov 2009 15:20:49 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1864-1</guid>
+        <source url="https://leakfree.org/t/java-create-object-with-variable-name/1864.rss">JAVA Create object with variable name</source>
+      </item>
+  </channel>
+</rss>

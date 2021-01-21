@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/add-a-proper-walk-button-to-black-mesa/10175 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:55:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Add a Proper Walk Button to Black Mesa - Black Mesa - Leakfree</title>
+    <meta name="description" content="In this thread in the Bug Reporting section, a handful of users were lamenting the lack of a working “Walk” button in Black Mesa.  Myself and a few others had a crack at the problem, and found that you can simulate a hol&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="10175.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Add a Proper Walk Button to Black Mesa&#39;" href="10175.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/add-a-proper-walk-button-to-black-mesa/10175" />
+<meta name="twitter:url" content="https://leakfree.org/t/add-a-proper-walk-button-to-black-mesa/10175" />
+<meta property="og:title" content="Add a Proper Walk Button to Black Mesa" />
+<meta name="twitter:title" content="Add a Proper Walk Button to Black Mesa" />
+<meta property="og:description" content="In this thread in the Bug Reporting section, a handful of users were lamenting the lack of a working “Walk” button in Black Mesa.  Myself and a few others had a crack at the problem, and found that you can simulate a hold-and-release walk button with the following script snippets:  alias +walk &quot;sv_maxspeed 65&quot; alias -walk &quot;sv_maxspeed 320&quot; bind &quot;ALT&quot; &quot;+walk&quot;  Open up your dev console (with the “~” key; you may have to enable the developer console in the “Advanced” section of the Keyboard setting..." />
+<meta name="twitter:description" content="In this thread in the Bug Reporting section, a handful of users were lamenting the lack of a working “Walk” button in Black Mesa.  Myself and a few others had a crack at the problem, and found that you can simulate a hold-and-release walk button with the following script snippets:  alias +walk &quot;sv_maxspeed 65&quot; alias -walk &quot;sv_maxspeed 320&quot; bind &quot;ALT&quot; &quot;+walk&quot;  Open up your dev console (with the “~” key; you may have to enable the developer console in the “Advanced” section of the Keyboard setting..." />
+<meta property="article:published_time" content="2012-09-16T07:19:18+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="10175.html">Add a Proper Walk Button to Black Mesa</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/7.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>General Development</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/black-mesa/44.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/geekofalltrades.html'><span itemprop='name'>geekofalltrades</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10175.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-16T07:19:18Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T09:24:02Z' class='post-time'>
+                August 11, 2020,  9:24am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>In <a href="https://forums.blackmesasource.com/showthread.php?t=13354" data-bbcode="true" rel="nofollow noopener">this thread</a> in the Bug Reporting section, a handful of users were lamenting the lack of a working “Walk” button in Black Mesa.  Myself and a few others had a crack at the problem, and found that you can simulate a hold-and-release walk button with the following script snippets:</p>
+<p><code>alias +walk "sv_maxspeed 65"
+alias -walk "sv_maxspeed 320"
+bind "ALT" "+walk"</code></p>
+<p>Open up your dev console (with the “~” key; you may have to enable the developer console in the “Advanced” section of the Keyboard settings menu) and enter these three lines.  Now, when you hold down “Alt”, you will move at walking speed.  You may want to play with the numeric values to find speeds you like; another user reported that their preferred values were 80 for walking and 300 for running.</p>
+<p>Happy strolling!</p>
+        </div>
+
+        <meta itemprop='headline' content='Add a Proper Walk Button to Black Mesa'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Mangled.html'><span itemprop='name'>Mangled</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10175.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-16T17:56:18Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:23:05Z' class='post-time'>
+                November 25, 2018,  2:23am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I believe the walk button is intended for people who have the ‘Always Run’ option enabled. Nethertheless proper walking would be nice!</p>
+        </div>
+
+        <meta itemprop='headline' content='Add a Proper Walk Button to Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Randombine.html'><span itemprop='name'>Randombine</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10175.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-17T14:14:38Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:25:37Z' class='post-time'>
+                November 25, 2018,  2:25am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Why would you ever want to walk?</p>
+        </div>
+
+        <meta itemprop='headline' content='Add a Proper Walk Button to Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/xalener.html'><span itemprop='name'>xalener</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10175.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-17T14:17:52Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:25:38Z' class='post-time'>
+                November 25, 2018,  2:25am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>presentable recordings.</p>
+        </div>
+
+        <meta itemprop='headline' content='Add a Proper Walk Button to Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/wonrz.html'><span itemprop='name'>wonrz</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10175.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-17T18:35:18Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:26:22Z' class='post-time'>
+                November 25, 2018,  2:26am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Randombine">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/r/c2a13f/40.png" class="avatar"> Randombine:</div>
+<blockquote>
+<p>Why would you ever want to walk?</p>
+</blockquote>
+</aside>
+<p>Constant jogging kills the suspense. Also annoying when there’s loose crap laying around and you keep bumping and sliding around in it.<br>
+Additional precision, good for jumping puzzles.</p>
+<p>Anyways, good job, I only managed to make a toggle walk, I didn’t know you could make a + alias. Thanks.</p>
+        </div>
+
+        <meta itemprop='headline' content='Add a Proper Walk Button to Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dias.html'><span itemprop='name'>Dias</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10175.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-18T02:14:15Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:27:29Z' class='post-time'>
+                November 25, 2018,  2:27am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Randombine">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/r/c2a13f/40.png" class="avatar"> Randombine:</div>
+<blockquote>
+<p>Why would you ever want to walk?</p>
+</blockquote>
+</aside>
+<p>So you don’t have to crouch to sneak past the Tentacle Pit, or sneak up on enemies in general.</p>
+        </div>
+
+        <meta itemprop='headline' content='Add a Proper Walk Button to Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/dessertmonkeyjk.html'><span itemprop='name'>dessertmonkeyjk</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10175.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-18T02:20:02Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:27:30Z' class='post-time'>
+                November 25, 2018,  2:27am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I though Shift switches from Run to Walk when you turn the Always Run option turned on. Then again, the walking speed and running speed feel nearly identical after zipping around for a few minutes.</p>
+        </div>
+
+        <meta itemprop='headline' content='Add a Proper Walk Button to Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/geekofalltrades.html'><span itemprop='name'>geekofalltrades</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10175.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-18T18:34:31Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:28:53Z' class='post-time'>
+                November 25, 2018,  2:28am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Randombine">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/r/c2a13f/40.png" class="avatar"> Randombine:</div>
+<blockquote>
+<p>Why would you ever want to walk?</p>
+</blockquote>
+</aside>
+<p>I didn’t, but others did, and I enjoy cracking code-related problems.</p>
+        </div>
+
+        <meta itemprop='headline' content='Add a Proper Walk Button to Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/lordbal.html'><span itemprop='name'>lordbal</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10175.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-18T19:55:41Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T09:28:57Z' class='post-time'>
+                August 11, 2020,  9:28am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="geekofalltrades">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/g/c2a13f/40.png" class="avatar"> geekofalltrades:</div>
+<blockquote>
+<p>In <a href="https://forums.blackmesasource.com/showthread.php?t=13354" data-bbcode="true" rel="nofollow noopener">this thread</a> in the Bug Reporting section, a handful of users were lamenting the lack of a working “Walk” button in Black Mesa.  Myself and a few others had a crack at the problem, and found that you can simulate a hold-and-release walk button with the following script snippets:</p>
+<p><code>alias +walk "sv_maxspeed 65"
+alias -walk "sv_maxspeed 320"
+bind "ALT" "+walk"</code></p>
+<p>Open up your dev console (with the “~” key; you may have to enable the developer console in the “Advanced” section of the Keyboard settings menu) and enter these three lines.  Now, when you hold down “Alt”, you will move at walking speed.  You may want to play with the numeric values to find speeds you like; another user reported that their preferred values were 80 for walking and 300 for running.</p>
+<p>Happy strolling!</p>
+</blockquote>
+</aside>
+<p>Thanks a lot geekofalltrades! The lack of a proper walk button really bummed me out. This is working nicely.</p>
+<p>You can put the 3 lines in your config.cfg if you want it to auto execute every time.</p>
+        </div>
+
+        <meta itemprop='headline' content='Add a Proper Walk Button to Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Randombine.html'><span itemprop='name'>Randombine</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10175.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-19T15:54:24Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:30:20Z' class='post-time'>
+                November 25, 2018,  2:30am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’ve never used a walk button in any game. I haven’t used it once unless it was by accident.</p>
+        </div>
+
+        <meta itemprop='headline' content='Add a Proper Walk Button to Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Jenova19.html'><span itemprop='name'>Jenova19</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10175.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-21T04:37:20Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:32:41Z' class='post-time'>
+                November 25, 2018,  2:32am
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Randombine">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/r/c2a13f/40.png" class="avatar"> Randombine:</div>
+<blockquote>
+<p>Why would you ever want to walk?</p>
+</blockquote>
+</aside>
+<p>Role-Playing (wrong game, I know)… <img src="../../images/emoji/twitter/blushc164.png?v=9" title=":blush:" class="emoji" alt=":blush:"></p>
+<p><span class="bbcode-b">EDIT (09-22-2012, 09 : 36 PM):</span> It’s a bit late for that, but thanks for this amazing script. Just tested it myself and it is very much the thing I’ve been missing all this time. Thanks for the effort!</p>
+        </div>
+
+        <meta itemprop='headline' content='Add a Proper Walk Button to Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Cybertrance.html'><span itemprop='name'>Cybertrance</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10175.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-22T16:43:15Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:34:25Z' class='post-time'>
+                November 25, 2018,  2:34am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Jenova19">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/j/f6c823/40.png" class="avatar"> Jenova19:</div>
+<blockquote>
+<p>Role-Playing (wrong game, I know)… <img src="../../images/emoji/twitter/blushc164.png?v=9" title=":blush:" class="emoji" alt=":blush:"></p>
+</blockquote>
+</aside>
+<p>But it sure as hell improves immersion. Especially in Anomalous Materials…</p>
+        </div>
+
+        <meta itemprop='headline' content='Add a Proper Walk Button to Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/amf66.html'><span itemprop='name'>amf66</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10175.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-22T21:32:57Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:34:46Z' class='post-time'>
+                November 25, 2018,  2:34am
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for this script. I have been one of the (few?) people who were missing being able to walk.</p>
+        </div>
+
+        <meta itemprop='headline' content='Add a Proper Walk Button to Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Comrade_Tiki.html'><span itemprop='name'>Comrade_Tiki</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10175.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-30T01:38:23Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:39:07Z' class='post-time'>
+                November 25, 2018,  2:39am
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><span class="bbcode-i"><em>ahem</em></span> If you have Always Run enabled, then using the Sprint key returns you to walking.</p>
+<p>Just thought I’d mention that, since it helped me out a lot.</p>
+        </div>
+
+        <meta itemprop='headline' content='Add a Proper Walk Button to Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Aperture_Science.html'><span itemprop='name'>Aperture_Science</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10175.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-30T10:46:10Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:39:15Z' class='post-time'>
+                November 25, 2018,  2:39am
+              </time>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>so is this like ‘realism walk’ tweak?</p>
+        </div>
+
+        <meta itemprop='headline' content='Add a Proper Walk Button to Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/ArcHammer.html'><span itemprop='name'>ArcHammer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10175.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-12-01T07:18:48Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:41:16Z' class='post-time'>
+                November 25, 2018,  4:41am
+              </time>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Can’t you just hold down the SHIFT key if you have auto-run enabled to walk? Or is that not slow enough? (I haven’t tried it)</p>
+        </div>
+
+        <meta itemprop='headline' content='Add a Proper Walk Button to Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10175.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-12-01T13:24:17Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:41:17Z' class='post-time'>
+                November 25, 2018,  4:41am
+              </time>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>We have a walk button added in the next update. Don’t bump unbelievably old threads, please.</p>
+        </div>
+
+        <meta itemprop='headline' content='Add a Proper Walk Button to Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/add-a-proper-walk-button-to-black-mesa/10175 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:55:55 GMT -->
+</html>

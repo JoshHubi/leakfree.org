@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>[Tutorial] - Advanced hint brushes</title>
+    <link>https://leakfree.org/t/tutorial-advanced-hint-brushes/12262</link>
+    <description>Hello everyone,
+
+So over the (short) course for mapping with Loop Mod, I came across some interesting situations when it came to visibility. In short, there came a point where I was playing my level and I decided to run some tests. To my horror, the entire level was rendering all the time, and as one could imagine, that slows the game way down. That&#39;s not good. Obviously this means a problem with the visleafs.
+
+For those of you who don&#39;t know, visleafs are boxes created when the map is compiled. These boxes determine all of the areas within a level. The entire world is put into one visleaf or another. Enter VVIS, which tests the visibility of all visleafs to determine what should be rendered by the engine when the player is in a given location.
+
+The way it does this is that it attempting to draw a line between one leaf and another. If the active leaf is able to draw a line between itself and another leaf, the entire contents of that other leaf are rendered. This is a concept called the Potential Visible Set, or PVS.
+
+So you can imagine that when I say the whole level was rendering, it was because the leaf I was in could see leaves throughout the entire map. Obviously I want to do something about this, and I must do so with the use of hint brushes (which cut visleafs).
+
+And in doing so I learned a few things of which I will share.
+
+There are three questions that should be considering when placing hint (and skip brushes) inside a map. They are:
+1. Is it cheap in terms of geometry?
+2. Does it reduce the PVS?
+3. Does it create a simple visleaf layout?
+
+In this tutorial, I will detail how I came about realizing all three of these areas using a real situation that I came across.
+
+So let&#39;s say we have a situation like this.
+
+![](upload://67q3O75wzG5CLbeC8ty7uA5kgmQ.png)
+
+Our world is in black. Visleafs are in red.
+
+So as we can see, vbsp didn&#39;t really cut this for optimal performance. For one, leaf 1 can see 2 and 3, meaning that this entire area is rendered, even if we are standing at the top of the map. Let&#39;s start with some simple leaf&#39;ing; I&#39;m going to cut so that we can&#39;t see the opposite tunnel.
+
+![](upload://ztrQbkmfsmSUzp0aWMjCC9vCHMS.png)
+
+So this is a bit better. The contents of leaf 1 cannot see leaf 6. Leaf 3 can&#39;t see leaf 7. And vice versa. We&#39;ve already cut down on the visibility.
+
+But consider the following. If you happen to be mapping to a high-cost level and you need all the brushsides you can get (there is a limit to the amount of faces you can have in a single level), this setup is not the way to go. We&#39;ve just spent 24 brushsides trying to optimize one area. That&#39;s pretty significant.
+
+Is there any way we can simplify this area? The answer is yes. Notice that some hint brushes share a plane with each other. We can use this to our advantage, using one brush for two tunnels. If we apply that thinking...
+
+![](upload://aJuQfSmsVNoa3a3PTfsqsRRAUb7.png)
+
+We have just cut our brushsides by half. That&#39;s a[i] very[/i] nice improvement. And it does the exact same job as our previous iteration. But can it be better? Of course! Notice that the top and bottom are parallel to each other.
+
+![](upload://r1ldMCv6eJGqwGhOb2pdOxQxCvT.png)
+
+We are doing the exact same thing using just one brush. Still doing great!
+
+Now there is a distinctive problem with this setup though. For as simple and cheap this setup is, it doesn&#39;t really reduce PVS as much as it optimally would. Leaf 1, for example can still see these leaves; 2, 3, 4, 5, and 7. And traveling just south into leaf 2 results in all leaves being drawn at once.
+
+Therefore, the next thing we need to do is reduce visibility.
+
+As most mappers will probably know, using a diagonal hint brush on a corner does a great job of reducing visibility. One hall cannot see the other, and all of that. We have some &#39;corner&#39;s here, so it might be worthwhile to treat them as such. 
+
+The only drawback to this world setup is that it will force me to use an additional hint brush. It is impossible to make any concave shapes, so that limits the options. With that in mind, we can try something like this:
+
+![](upload://gwSxlD4GSllqugmZLhzFx5ipGV1.png)
+
+So let&#39;s test this setup: what can leaf 1 see? Well, maybe a better approach would be to determine what it [i]can&#39;t[/i] see. So for starters it can&#39;t see leaf 4, so that isn&#39;t drawn. It also can&#39;t see leaves 8, 9, 0 and A. This is a very significant improvement, because there is much less being drawn that, from the beginning, did not need to be drawn.
+
+The only issue at the moment is that leaf 6 can see everything. We need to somehow cut that in half. Let&#39;s see if this works?
+
+![](upload://txdCTkiaW5WysSw6ud8AJTSSCJ2.png)
+
+Okay, so this works. We have a little more wiggle room for what is visible and what it not. But we&#39;ve just spent and entire 6 brushsides on it. There has to be a better way. What if we extended those diagonals? Can that be done with just two brushes?
+
+![](upload://l4AfZQeEAEfRQ4uCpnJ5rdQrJX7.png)
+
+Yes we can. Leaf 6 cannot see leaves 1, 3, 0, and A. PVS is small now. We have greatly reduced the amount of level that is being drawn at any given time. That&#39;s[i] fantastic[/i], and hopefully the game should be faster.
+
+So now one problem remains. There&#39;s now quite a few visleaves in this setup. We need to reduce this somehow, and we have to do it without increasing our brush count and increasing our PVS.
+
+The first thing we should ask is at what point would a tunnel be able to see the tunnel diagonally from it? The answer is to draw a line. We can do something like this, for example.
+
+![](upload://zTzUDq8JkvjfIIHxcOpSwtIqPPc.png)
+
+Still treating the setup as having corners, this fulfills the PVS directive as leaf 2 cannot see leaves 4, 5, or 6. The same also holds true for what leaf 6 can see. We can perform a similar relationship for 1 and 5.
+
+![](upload://uJcp16Btnsyj5NYUg9sWqMGGJdC.png)
+
+We finally arrive at a visleaf setup that follows all directives. The PVS is very limited in this setup, the leafs that result are simple and few, and we&#39;ve done all this using as few brushes as possible. We cannot possibly improve this in terms of function.
+
+But can we make it prettier?
+
+![](upload://vJLoXjNdMbxClPdTl35XxloDLB6.png)
+
+A mapper can dream...</description>
+    
+    <lastBuildDate>Mon, 15 Apr 2013 21:32:37 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/tutorial-advanced-hint-brushes/12262.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>[Tutorial] - Advanced hint brushes</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>You should see the hint brush setup I have going in the Sprint-Jump room in the Hazard Course… pretty insane stuff.</p>
+<p>“But why do you need hint brushes for a totally straight corridor?” One might ask.</p>
+<p>Well it’s because of the vertical sections of the whole room. As mappers, it’s important for us to remember that Visleafs are three-dimensional volumes, and as such, it is also important to take into account optimization for vertical spaces as well as the horizontal ones that would normally be encountered with more common situations such as hallways.</p>
+<p>Just thought I’d chip in.  <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+          <p><a href="https://leakfree.org/t/tutorial-advanced-hint-brushes/12262/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-advanced-hint-brushes/12262/2</link>
+        <pubDate>Mon, 15 Apr 2013 21:32:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12262-2</guid>
+        <source url="https://leakfree.org/t/tutorial-advanced-hint-brushes/12262.rss">[Tutorial] - Advanced hint brushes</source>
+      </item>
+      <item>
+        <title>[Tutorial] - Advanced hint brushes</title>
+        <dc:creator><![CDATA[RK1]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello everyone,</p>
+<p>So over the (short) course for mapping with Loop Mod, I came across some interesting situations when it came to visibility. In short, there came a point where I was playing my level and I decided to run some tests. To my horror, the entire level was rendering all the time, and as one could imagine, that slows the game way down. That’s not good. Obviously this means a problem with the visleafs.</p>
+<p>For those of you who don’t know, visleafs are boxes created when the map is compiled. These boxes determine all of the areas within a level. The entire world is put into one visleaf or another. Enter VVIS, which tests the visibility of all visleafs to determine what should be rendered by the engine when the player is in a given location.</p>
+<p>The way it does this is that it attempting to draw a line between one leaf and another. If the active leaf is able to draw a line between itself and another leaf, the entire contents of that other leaf are rendered. This is a concept called the Potential Visible Set, or PVS.</p>
+<p>So you can imagine that when I say the whole level was rendering, it was because the leaf I was in could see leaves throughout the entire map. Obviously I want to do something about this, and I must do so with the use of hint brushes (which cut visleafs).</p>
+<p>And in doing so I learned a few things of which I will share.</p>
+<p>There are three questions that should be considering when placing hint (and skip brushes) inside a map. They are:</p>
+<ol>
+<li>Is it cheap in terms of geometry?</li>
+<li>Does it reduce the PVS?</li>
+<li>Does it create a simple visleaf layout?</li>
+</ol>
+<p>In this tutorial, I will detail how I came about realizing all three of these areas using a real situation that I came across.</p>
+<p>So let’s say we have a situation like this.</p>
+<p><img src="https://leakfree.org/uploads/default/original/3X/2/a/2ae3c6a2eadc895ec786bff99a6fd2f7bc92a0f8.png" alt="" data-base62-sha1="67q3O75wzG5CLbeC8ty7uA5kgmQ" width="300" height="300"></p>
+<p>Our world is in black. Visleafs are in red.</p>
+<p>So as we can see, vbsp didn’t really cut this for optimal performance. For one, leaf 1 can see 2 and 3, meaning that this entire area is rendered, even if we are standing at the top of the map. Let’s start with some simple leaf’ing; I’m going to cut so that we can’t see the opposite tunnel.</p>
+<p><img src="https://leakfree.org/uploads/default/original/3X/f/8/f8a04b58351194cf02e8c84fae2ea4a3c07a60a2.png" alt="" data-base62-sha1="ztrQbkmfsmSUzp0aWMjCC9vCHMS" width="300" height="300"></p>
+<p>So this is a bit better. The contents of leaf 1 cannot see leaf 6. Leaf 3 can’t see leaf 7. And vice versa. We’ve already cut down on the visibility.</p>
+<p>But consider the following. If you happen to be mapping to a high-cost level and you need all the brushsides you can get (there is a limit to the amount of faces you can have in a single level), this setup is not the way to go. We’ve just spent 24 brushsides trying to optimize one area. That’s pretty significant.</p>
+<p>Is there any way we can simplify this area? The answer is yes. Notice that some hint brushes share a plane with each other. We can use this to our advantage, using one brush for two tunnels. If we apply that thinking…</p>
+<p><img src="https://leakfree.org/uploads/default/original/3X/4/b/4b3a5bc81571eecbbd6ede005553499b766cfb21.png" alt="" data-base62-sha1="aJuQfSmsVNoa3a3PTfsqsRRAUb7" width="300" height="300"></p>
+<p>We have just cut our brushsides by half. That’s a<span class="bbcode-i"> very</span> nice improvement. And it does the exact same job as our previous iteration. But can it be better? Of course! Notice that the top and bottom are parallel to each other.</p>
+<p><img src="https://leakfree.org/uploads/default/original/3X/b/d/bd618a7851e15d68ff287374902fc053a4148e69.png" alt="" data-base62-sha1="r1ldMCv6eJGqwGhOb2pdOxQxCvT" width="300" height="300"></p>
+<p>We are doing the exact same thing using just one brush. Still doing great!</p>
+<p>Now there is a distinctive problem with this setup though. For as simple and cheap this setup is, it doesn’t really reduce PVS as much as it optimally would. Leaf 1, for example can still see these leaves; 2, 3, 4, 5, and 7. And traveling just south into leaf 2 results in all leaves being drawn at once.</p>
+<p>Therefore, the next thing we need to do is reduce visibility.</p>
+<p>As most mappers will probably know, using a diagonal hint brush on a corner does a great job of reducing visibility. One hall cannot see the other, and all of that. We have some 'corner’s here, so it might be worthwhile to treat them as such.</p>
+<p>The only drawback to this world setup is that it will force me to use an additional hint brush. It is impossible to make any concave shapes, so that limits the options. With that in mind, we can try something like this:</p>
+<p><img src="https://leakfree.org/uploads/default/original/3X/7/3/73da439f4bc9932447e0b7d9f8b6db4bddb2ebef.png" alt="" data-base62-sha1="gwSxlD4GSllqugmZLhzFx5ipGV1" width="300" height="300"></p>
+<p>So let’s test this setup: what can leaf 1 see? Well, maybe a better approach would be to determine what it <span class="bbcode-i">can’t</span> see. So for starters it can’t see leaf 4, so that isn’t drawn. It also can’t see leaves 8, 9, 0 and A. This is a very significant improvement, because there is much less being drawn that, from the beginning, did not need to be drawn.</p>
+<p>The only issue at the moment is that leaf 6 can see everything. We need to somehow cut that in half. Let’s see if this works?</p>
+<p><img src="https://leakfree.org/uploads/default/original/3X/c/f/cf005e8104b0e38a4ee5b34111a08bbf7a9c3d90.png" alt="" data-base62-sha1="txdCTkiaW5WysSw6ud8AJTSSCJ2" width="300" height="300"></p>
+<p>Okay, so this works. We have a little more wiggle room for what is visible and what it not. But we’ve just spent and entire 6 brushsides on it. There has to be a better way. What if we extended those diagonals? Can that be done with just two brushes?</p>
+<p><img src="https://leakfree.org/uploads/default/original/3X/9/3/93b2546ec93b414f52b3997a094d004e3c2f3f0d.png" alt="" data-base62-sha1="l4AfZQeEAEfRQ4uCpnJ5rdQrJX7" width="300" height="300"></p>
+<p>Yes we can. Leaf 6 cannot see leaves 1, 3, 0, and A. PVS is small now. We have greatly reduced the amount of level that is being drawn at any given time. That’s<span class="bbcode-i"> fantastic</span>, and hopefully the game should be faster.</p>
+<p>So now one problem remains. There’s now quite a few visleaves in this setup. We need to reduce this somehow, and we have to do it without increasing our brush count and increasing our PVS.</p>
+<p>The first thing we should ask is at what point would a tunnel be able to see the tunnel diagonally from it? The answer is to draw a line. We can do something like this, for example.</p>
+<p><img src="https://leakfree.org/uploads/default/original/3X/f/b/fb947514acedb0d86bbe04fabe0d8e5766141482.png" alt="" data-base62-sha1="zTzUDq8JkvjfIIHxcOpSwtIqPPc" width="300" height="300"></p>
+<p>Still treating the setup as having corners, this fulfills the PVS directive as leaf 2 cannot see leaves 4, 5, or 6. The same also holds true for what leaf 6 can see. We can perform a similar relationship for 1 and 5.</p>
+<p><img src="https://leakfree.org/uploads/default/original/3X/d/7/d75d3b3d742d16cb5fc953f734474d42e70963d0.png" alt="" data-base62-sha1="uJcp16Btnsyj5NYUg9sWqMGGJdC" width="300" height="300"></p>
+<p>We finally arrive at a visleaf setup that follows all directives. The PVS is very limited in this setup, the leafs that result are simple and few, and we’ve done all this using as few brushes as possible. We cannot possibly improve this in terms of function.</p>
+<p>But can we make it prettier?</p>
+<p><img src="https://leakfree.org/uploads/default/original/3X/d/e/de6fbdb53ee295c9d4060c754931726ba8c91720.png" alt="" data-base62-sha1="vJLoXjNdMbxClPdTl35XxloDLB6" width="300" height="300"></p>
+<p>A mapper can dream…</p>
+          <p><a href="https://leakfree.org/t/tutorial-advanced-hint-brushes/12262/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-advanced-hint-brushes/12262/1</link>
+        <pubDate>Mon, 15 Apr 2013 19:09:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12262-1</guid>
+        <source url="https://leakfree.org/t/tutorial-advanced-hint-brushes/12262.rss">[Tutorial] - Advanced hint brushes</source>
+      </item>
+  </channel>
+</rss>

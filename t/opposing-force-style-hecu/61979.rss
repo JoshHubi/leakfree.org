@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Opposing Force Style HECU</title>
+    <link>https://leakfree.org/t/opposing-force-style-hecu/61979</link>
+    <description>Hello there,
+
+I am currently working on some HECU models in the style of Opposing Force, mostly for use in SFM but I&#39;d like to bring them over into Black Mesa. But I have a question regarding how the bodygroups/skingroups work for this game and how to setup the .qc in a way that tells the game to use a variety of bodygroups and skingroups instead of the same ones over and over. If perhaps there are other qc lines required instead of just the $bodygroup ones. Gmod has a method using lua but I&#39;m not sure how Black Mesa handles it. I apologize if this isn&#39;t the right place to ask this.
+
+Can anybody shed some light on this?</description>
+    
+    <lastBuildDate>Sat, 08 Dec 2018 18:55:28 +0000</lastBuildDate>
+    <category>Black Mesa</category>
+    <atom:link href="https://leakfree.org/t/opposing-force-style-hecu/61979.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Opposing Force Style HECU</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p>If I remember correctly from my time doing edits for the Hazard Course addon, you’d need to do 0,1,2,3,4,5 to get all of them having a chance to spawn on the same entry.</p>
+          <p><a href="https://leakfree.org/t/opposing-force-style-hecu/61979/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/opposing-force-style-hecu/61979/4</link>
+        <pubDate>Sat, 08 Dec 2018 18:55:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-61979-4</guid>
+        <source url="https://leakfree.org/t/opposing-force-style-hecu/61979.rss">Opposing Force Style HECU</source>
+      </item>
+      <item>
+        <title>Opposing Force Style HECU</title>
+        <dc:creator><![CDATA[Yukon]]></dc:creator>
+        <description><![CDATA[
+            <p>This is exactly what I was looking for, thank you.</p>
+<p>This looks very similar to the Gmod lua code I saw in regards to the float values and it seems fairly straightforward, though like you said the flex data wouldn’t be used unless I use the Black Mesa styled heads, which I might for consistency sake.</p>
+<p>When it comes to the bodygroups though, if say I have 5 bodygroup variations for the packs, would I be placing the values as 0,1,2,3,4,5 or just 0,5?</p>
+<p>I’ll play around with this file to see what’s possible.</p>
+<p>Thank you again.</p>
+          <p><a href="https://leakfree.org/t/opposing-force-style-hecu/61979/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/opposing-force-style-hecu/61979/3</link>
+        <pubDate>Sat, 08 Dec 2018 16:49:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-61979-3</guid>
+        <source url="https://leakfree.org/t/opposing-force-style-hecu/61979.rss">Opposing Force Style HECU</source>
+      </item>
+      <item>
+        <title>Opposing Force Style HECU</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p>Black Mesa loads NPC variants (as well as variation for ragdolls!) using <code>scripts/character_manifest.txt</code><br>
+I’m not sure if the game will allow you to cleanly override that file at this point in time, especially with workshop mods, but it might work if you use a <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=502670746" rel="nofollow noopener">custom/ folder</a>.</p>
+<p>The manifest works two ways - one, it can override an NPCs appearance by targetname, or two, it can select the appearance based on the NPC type - either way the formatting is the same;</p>
+<p>At the top of the block, you have the preset name - this is either the targetname of the specific NPC you want to define a look for, or a classname, in which case it’ll be added to a list of random appearances that the NPC type might take on when it spawns.<br>
+After that, you have a section for the flex data - this is what Black Mesa uses to give its base heads some variation, though your models might not be set up with that in mind. You can select any face flex (including ones for facial animation, so be careful!) and give it a float value between 0 and 1.<br>
+Then we have the bodygroup data - this is probably what you’ll find to be the most powerful, since you’re making custom models. You can select any bodygroup on the model, by name, and give it a specific body to use, or a list.<br>
+After that, there’s a line to define what model the NPC will actually be using - this means you don’t need to override <code>models/humans/marine.mdl</code> if you don’t want to, but can just add new variants instead. The base game uses this to swap between pristine and injured scientists and guards, as well as provide extra skin variants for the base male head, but as long as you’re feeding it a valid NPC model it should work fine with anything.<br>
+Finally, there’s a line that tells you what skins to use - again, this can be a single entry, or a list.</p>
+<p>I know this has been a huge block of text, and I didn’t actually give you any code - I just wanted to provide a base understanding so you know what everything means/can do before I give you the actual syntax example, as seen below:</p>
+<pre><code>npc_human_grunt
+{
+	flex_data
+	{
+		brow_h 1.0
+		neck_size 0.75
+	}
+	bodygroup_data
+	{
+		head 2
+		gloves 0,1
+		holster 1
+		packs_chest 0,1
+		packs_hips 0,1
+		packs_thigh 0,1
+	}
+	model "models/humans/marine.mdl"
+	skin 0,2
+}
+</code></pre>
+<p>If memory serves, you can also give a list of float values between face flexors as well, though I’m not seeing any precedent for that in the original file so it’s probably safer to just use different definitions for those.</p>
+          <p><a href="https://leakfree.org/t/opposing-force-style-hecu/61979/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/opposing-force-style-hecu/61979/2</link>
+        <pubDate>Sat, 08 Dec 2018 15:19:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-61979-2</guid>
+        <source url="https://leakfree.org/t/opposing-force-style-hecu/61979.rss">Opposing Force Style HECU</source>
+      </item>
+      <item>
+        <title>Opposing Force Style HECU</title>
+        <dc:creator><![CDATA[Yukon]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello there,</p>
+<p>I am currently working on some HECU models in the style of Opposing Force, mostly for use in SFM but I’d like to bring them over into Black Mesa. But I have a question regarding how the bodygroups/skingroups work for this game and how to setup the .qc in a way that tells the game to use a variety of bodygroups and skingroups instead of the same ones over and over. If perhaps there are other qc lines required instead of just the $bodygroup ones. Gmod has a method using lua but I’m not sure how Black Mesa handles it. I apologize if this isn’t the right place to ask this.</p>
+<p>Can anybody shed some light on this?</p>
+          <p><a href="https://leakfree.org/t/opposing-force-style-hecu/61979/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/opposing-force-style-hecu/61979/1</link>
+        <pubDate>Fri, 07 Dec 2018 18:37:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-61979-1</guid>
+        <source url="https://leakfree.org/t/opposing-force-style-hecu/61979.rss">Opposing Force Style HECU</source>
+      </item>
+  </channel>
+</rss>

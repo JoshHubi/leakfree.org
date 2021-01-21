@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Hammer Skybox Error</title>
+    <link>https://leakfree.org/t/hammer-skybox-error/2742</link>
+    <description>I am having an issue with skybox brushes in Hammer, after I have compiled hte map, I am able to see through the skybox brush and see any brushes behind it.
+
+[img]https://dl.dropbox.com/u/3199335/halp/dmcdm50000.jpg[/img]
+It&#39;s probably most evident in that screenshot. There are skybox brushes occluding what I am aiming at in that screenshot.
+
+Here is the compile log, hopefully it will help.
+[code]** Executing...
+** Command: &quot;d:\games\steam\steamapps\&lt;-Snip-&gt;\sourcesdk\bin\orangebox\bin\vbsp.exe&quot;
+** Parameters: -game &quot;d:\games\steam\steamapps\&lt;-Snip-&gt;\team fortress 2\tf&quot; &quot;C:\Users\Frogg\Desktop\Random Stuff\Maps\SP DMCS\DMC_DM5\dmcdm5(new)&quot;
+
+Valve Software - vbsp.exe (May 19 2009)
+2 threads
+materialPath: d:\games\steam\steamapps\&lt;-Snip-&gt;\team fortress 2\tf\materials
+Loading C:\Users\Frogg\Desktop\Random Stuff\Maps\SP DMCS\DMC_DM5\dmcdm5(new).vmf
+fixing up env_cubemap materials on brush sides...
+ProcessBlock_Thread: 0...1...2...3...4...5...6.Brush 138093: WARNING, microbrush
+..7...8...9...10 (1)
+ProcessBlock_Thread: 0...1...2...3...4...5...6.Brush 138093: WARNING, microbrush
+..7...8...9...10 (1)
+Processing areas...done (0)
+Building Faces...done (0)
+Chop Details...done (0)
+Find Visible Detail Sides...
+Merged 744 detail faces...done (0)
+Merging details...done (0)
+FixTjuncs...
+PruneNodes...
+WriteBSP...
+done (1)
+writing C:\Users\Frogg\Desktop\Random Stuff\Maps\SP DMCS\DMC_DM5\dmcdm5(new).prt...Building visibility clusters...
+done (0)
+Creating default LDR cubemaps for env_cubemap using skybox materials:
+   skybox/sky_day03_06*.vmt
+ ! Run buildcubemaps in the engine to get the correct cube maps.
+Creating default HDR cubemaps for env_cubemap using skybox materials:
+   skybox/sky_day03_06*.vmt
+ ! Run buildcubemaps in the engine to get the correct cube maps.
+Finding displacement neighbors...
+Finding lightmap sample positions...
+Displacement Alpha : 0...1...2...3...4...5...6...7...8...9...10
+Building Physics collision data...
+done (1) (572858 bytes)
+Placing detail props : 0...1...2...3...4...5...6...7...8...9...10
+Compacting texture/material tables...
+Reduced 1898 texinfos to 1676
+Reduced 30 texdatas to 25 (638 bytes to 455)
+Writing C:\Users\Frogg\Desktop\Random Stuff\Maps\SP DMCS\DMC_DM5\dmcdm5(new).bsp
+5 seconds elapsed
+
+** Executing...
+** Command: &quot;d:\games\steam\steamapps\&lt;-Snip-&gt;\sourcesdk\bin\orangebox\bin\vvis.exe&quot;
+** Parameters: -game &quot;d:\games\steam\steamapps\&lt;-Snip-&gt;\team fortress 2\tf&quot; &quot;C:\Users\Frogg\Desktop\Random Stuff\Maps\SP DMCS\DMC_DM5\dmcdm5(new)&quot;
+
+Valve Software - vvis.exe (May 19 2009)
+2 threads
+reading c:\users\frogg\desktop\random stuff\maps\sp dmcs\dmc_dm5\dmcdm5(new).bsp
+reading c:\users\frogg\desktop\random stuff\maps\sp dmcs\dmc_dm5\dmcdm5(new).prt
+ 657 portalclusters
+1780 numportals
+BasePortalVis:       0...1...2...3...4...5...6...7...8...9...10 (0)
+PortalFlow:          0...1...2...3...4...5...6...7...8...9...10 (15)
+Optimized: 1222 visible clusters (0.00%)
+Total clusters visible: 83632
+Average clusters visible: 127
+Building PAS...
+Average clusters audible: 495
+visdatasize:88654  compressed from 115632
+writing c:\users\frogg\desktop\random stuff\maps\sp dmcs\dmc_dm5\dmcdm5(new).bsp
+15 seconds elapsed
+
+** Executing...
+** Command: &quot;d:\games\steam\steamapps\&lt;-Snip-&gt;\sourcesdk\bin\orangebox\bin\vrad.exe&quot;
+** Parameters: -both -game &quot;d:\games\steam\steamapps\&lt;-Snip-&gt;\team fortress 2\tf&quot; &quot;C:\Users\Frogg\Desktop\Random Stuff\Maps\SP DMCS\DMC_DM5\dmcdm5(new)&quot;
+
+Valve Software - vrad.exe SSE (May 19 2009)
+
+      Valve Radiosity Simulator     
+2 threads
+[Reading texlights from &#39;lights.rad&#39;]
+[34 texlights parsed from &#39;lights.rad&#39;]
+
+Loading c:\users\frogg\desktop\random stuff\maps\sp dmcs\dmc_dm5\dmcdm5(new).bsp
+Setting up ray-trace acceleration structure... Done (3.64 seconds)
+3915 faces
+1 degenerate faces
+117940 square feet [16983446.00 square inches]
+0 Displacements
+0 Square Feet [0.00 Square Inches]
+3914 patches before subdivision
+22638 patches after subdivision
+0 direct lights
+BuildFacelights:     0...1...2...3...4...5...6...7...8...9...10 (1)
+BuildVisLeafs:       0...1...2...3...4...5...6...7...8...9...10 (18)
+transfers 2567958, max 494
+transfer lists:  19.6 megs
+GatherLight:         0...1...2...3...4...5...6...7...8...9...10 (1)
+	Bounce #1 added RGB(0, 0, 0)
+Build Patch/Sample Hash Table(s).....Done&lt;0.0271 sec&gt;
+FinalLightFace:      0...1...2...3...4...5...6...7...8...9...10 (15)
+FinalLightFace Done
+0 of 0 (0% of) surface lights went in leaf ambient cubes.
+ThreadComputeLeafAmbient: 0...1...2...3...4...5...6...7...8...9...10 (23)
+Writing leaf ambient...done
+Ready to Finish
+
+Object names       Objects/Maxobjs  Memory / Maxmem  Fullness 
+------------       ---------------  ---------------  -------- 
+models                   7/1024          336/49152    ( 0.7%) 
+brushes               1545/8192        18540/98304    (18.9%) 
+brushsides           11800/65536       94400/524288   (18.0%) 
+planes                5128/65536      102560/1310720  ( 7.8%) 
+vertexes              7646/65536       91752/786432   (11.7%) 
+nodes                 1615/65536       51680/2097152  ( 2.5%) 
+texinfos              1676/12288      120672/884736   (13.6%) 
+texdata                 25/2048          800/65536    ( 1.2%) 
+dispinfos                0/0               0/0        ( 0.0%) 
+disp_verts               0/0               0/0        ( 0.0%) 
+disp_tris                0/0               0/0        ( 0.0%) 
+disp_lmsamples           0/0               0/0        ( 0.0%) 
+faces                 3915/65536      219240/3670016  ( 6.0%) 
+hdr faces                0/65536           0/3670016  ( 0.0%) 
+origfaces             2964/65536      165984/3670016  ( 4.5%) 
+leaves                1623/65536       51936/2097152  ( 2.5%) 
+leaffaces             5087/65536       10174/131072   ( 7.8%) 
+leafbrushes           3559/65536        7118/131072   ( 5.4%) 
+areas                    2/256            16/2048     ( 0.8%) 
+surfedges            31217/512000     124868/2048000  ( 6.1%) 
+edges                19876/256000      79504/1024000  ( 7.8%) 
+LDR worldlights          0/8192            0/720896   ( 0.0%) 
+HDR worldlights          0/8192            0/720896   ( 0.0%) 
+leafwaterdata            0/32768           0/393216   ( 0.0%) 
+waterstrips            424/32768        4240/327680   ( 1.3%) 
+waterverts               0/65536           0/786432   ( 0.0%) 
+waterindices          8022/65536       16044/131072   (12.2%) 
+cubemapsamples           0/1024            0/16384    ( 0.0%) 
+overlays                 0/512             0/180224   ( 0.0%) 
+LDR lightdata         [variable]     1137552/0        ( 0.0%) 
+HDR lightdata         [variable]           0/0        ( 0.0%) 
+visdata               [variable]       88654/16777216 ( 0.5%) 
+entdata               [variable]        3837/393216   ( 1.0%) 
+LDR ambient table     1623/65536        6492/262144   ( 2.5%) 
+HDR ambient table     1623/65536        6492/262144   ( 2.5%) 
+LDR leaf ambient       697/65536       19516/1835008  ( 1.1%) 
+HDR leaf ambient      1623/65536       45444/1835008  ( 2.5%) 
+occluders                0/0               0/0        ( 0.0%) 
+occluder polygons        0/0               0/0        ( 0.0%) 
+occluder vert ind        0/0               0/0        ( 0.0%) 
+detail props          [variable]           1/12       ( 8.3%) 
+static props          [variable]           1/12       ( 8.3%) 
+pakfile               [variable]      174637/0        ( 0.0%) 
+physics               [variable]      572858/4194304  (13.7%) 
+physics terrain       [variable]           2/1048576  ( 0.0%) 
+
+Level flags = 0
+
+Total triangle count: 11356
+Writing c:\users\frogg\desktop\random stuff\maps\sp dmcs\dmc_dm5\dmcdm5(new).bsp
+1 minute, 1 second elapsed
+Valve Software - vrad.exe SSE (May 19 2009)
+
+      Valve Radiosity Simulator     
+2 threads
+[Reading texlights from &#39;lights.rad&#39;]
+[34 texlights parsed from &#39;lights.rad&#39;]
+
+Loading c:\users\frogg\desktop\random stuff\maps\sp dmcs\dmc_dm5\dmcdm5(new).bsp
+Setting up ray-trace acceleration structure... Done (3.65 seconds)
+3915 faces
+1 degenerate faces
+117940 square feet [16983446.00 square inches]
+0 Displacements
+0 Square Feet [0.00 Square Inches]
+3914 patches before subdivision
+22638 patches after subdivision
+0 direct lights
+BuildFacelights:     0...1...2...3...4...5...6...7...8...9...10 (1)
+BuildVisLeafs:       0...1...2...3...4...5...6...7...8...9...10 (18)
+transfers 2567958, max 494
+transfer lists:  19.6 megs
+GatherLight:         0...1...2...3...4...5...6...7...8...9...10 (1)
+	Bounce #1 added RGB(0, 0, 0)
+Build Patch/Sample Hash Table(s).....Done&lt;0.0333 sec&gt;
+FinalLightFace:      0...1...2...3...4...5...6...7...8...9...10 (16)
+FinalLightFace Done
+0 of 0 (0% of) surface lights went in leaf ambient cubes.
+ThreadComputeLeafAmbient: 0...1...2...3...4...5...6...7...8...9...10 (22)
+Writing leaf ambient...done
+Ready to Finish
+
+Object names       Objects/Maxobjs  Memory / Maxmem  Fullness 
+------------       ---------------  ---------------  -------- 
+models                   7/1024          336/49152    ( 0.7%) 
+brushes               1545/8192        18540/98304    (18.9%) 
+brushsides           11800/65536       94400/524288   (18.0%) 
+planes                5128/65536      102560/1310720  ( 7.8%) 
+vertexes              7646/65536       91752/786432   (11.7%) 
+nodes                 1615/65536       51680/2097152  ( 2.5%) 
+texinfos              1676/12288      120672/884736   (13.6%) 
+texdata                 25/2048          800/65536    ( 1.2%) 
+dispinfos                0/0               0/0        ( 0.0%) 
+disp_verts               0/0               0/0        ( 0.0%) 
+disp_tris                0/0               0/0        ( 0.0%) 
+disp_lmsamples           0/0               0/0        ( 0.0%) 
+faces                 3915/65536      219240/3670016  ( 6.0%) 
+hdr faces             3915/65536      219240/3670016  ( 6.0%) 
+origfaces             2964/65536      165984/3670016  ( 4.5%) 
+leaves                1623/65536       51936/2097152  ( 2.5%) 
+leaffaces             5087/65536       10174/131072   ( 7.8%) 
+leafbrushes           3559/65536        7118/131072   ( 5.4%) 
+areas                    2/256            16/2048     ( 0.8%) 
+surfedges            31217/512000     124868/2048000  ( 6.1%) 
+edges                19876/256000      79504/1024000  ( 7.8%) 
+LDR worldlights          0/8192            0/720896   ( 0.0%) 
+HDR worldlights          0/8192            0/720896   ( 0.0%) 
+leafwaterdata            0/32768           0/393216   ( 0.0%) 
+waterstrips            424/32768        4240/327680   ( 1.3%) 
+waterverts               0/65536           0/786432   ( 0.0%) 
+waterindices          8022/65536       16044/131072   (12.2%) 
+cubemapsamples           0/1024            0/16384    ( 0.0%) 
+overlays                 0/512             0/180224   ( 0.0%) 
+LDR lightdata         [variable]     1137552/0        ( 0.0%) 
+HDR lightdata         [variable]     1137552/0        ( 0.0%) 
+visdata               [variable]       88654/16777216 ( 0.5%) 
+entdata               [variable]        3837/393216   ( 1.0%) 
+LDR ambient table     1623/65536        6492/262144   ( 2.5%) 
+HDR ambient table     1623/65536        6492/262144   ( 2.5%) 
+LDR leaf ambient       697/65536       19516/1835008  ( 1.1%) 
+HDR leaf ambient       697/65536       19516/1835008  ( 1.1%) 
+occluders                0/0               0/0        ( 0.0%) 
+occluder polygons        0/0               0/0        ( 0.0%) 
+occluder vert ind        0/0               0/0        ( 0.0%) 
+detail props          [variable]           1/12       ( 8.3%) 
+static props          [variable]           1/12       ( 8.3%) 
+pakfile               [variable]      174637/0        ( 0.0%) 
+physics               [variable]      572858/4194304  (13.7%) 
+physics terrain       [variable]           2/1048576  ( 0.0%) 
+
+Level flags = 0
+
+Total triangle count: 11356
+Writing c:\users\frogg\desktop\random stuff\maps\sp dmcs\dmc_dm5\dmcdm5(new).bsp
+1 minute, 2 seconds elapsed
+
+** Executing...
+** Command: Copy File
+** Parameters: &quot;C:\Users\Frogg\Desktop\Random Stuff\Maps\SP DMCS\DMC_DM5\dmcdm5(new).bsp&quot; &quot;d:\games\steam\steamapps\&lt;-Snip-&gt;\team fortress 2\tf\maps\dmcdm5(new).bsp&quot;[/code]
+
+[COLOR=&#39;Black&#39;]inb4mat_fullbrightololol[/SIZE]</description>
+    
+    <lastBuildDate>Sat, 30 Jan 2010 01:43:56 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/hammer-skybox-error/2742.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Hammer Skybox Error</title>
+        <dc:creator><![CDATA[Spycrabz]]></dc:creator>
+        <description><![CDATA[
+            <p>I have my grid size set on 4 constantly <img src="https://leakfree.org/images/emoji/twitter/confused.png?v=9" title=":confused:" class="emoji" alt=":confused:"></p>
+          <p><a href="https://leakfree.org/t/hammer-skybox-error/2742/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hammer-skybox-error/2742/11</link>
+        <pubDate>Sat, 30 Jan 2010 01:43:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-2742-11</guid>
+        <source url="https://leakfree.org/t/hammer-skybox-error/2742.rss">Hammer Skybox Error</source>
+      </item>
+      <item>
+        <title>Hammer Skybox Error</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Angdraug">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/a/77aa72/40.png" class="avatar"> Angdraug:</div>
+<blockquote>
+<p>Nonsense. I regularly use grid sizes over 16. It’s just way simpler to use 128 or 256 grid to lay out those nasty nodraw brushes under displacements.</p>
+<p>And while I don’t create everything in grid 1, it has its uses. It’s nice to know you can get those small details in place. It’s especially nice with func_breakable_surf windows. It just looks ghastly when someone uses brush thickness of 4 or more for those.</p>
+</blockquote>
+</aside>
+<p>:fffuuu: Oops, I meant UNDER 16. Damn typo…</p>
+<p><em>post edited</em></p>
+<p>And you’re right, grid size 1 has its uses. I just don’t like to use it out of habit since I’ve had some pretty bad experiences with it…  <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+          <p><a href="https://leakfree.org/t/hammer-skybox-error/2742/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hammer-skybox-error/2742/10</link>
+        <pubDate>Sat, 30 Jan 2010 00:36:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-2742-10</guid>
+        <source url="https://leakfree.org/t/hammer-skybox-error/2742.rss">Hammer Skybox Error</source>
+      </item>
+      <item>
+        <title>Hammer Skybox Error</title>
+        <dc:creator><![CDATA[Angdraug]]></dc:creator>
+        <description><![CDATA[
+            <p>Nonsense. I regularly use grid sizes over 16. It’s just way simpler to use 128 or 256 grid to lay out those nasty nodraw brushes under displacements.</p>
+<p>And while I don’t create everything in grid 1, it has its uses. It’s nice to know you can get those small details in place. It’s especially nice with func_breakable_surf windows. It just looks ghastly when someone uses brush thickness of 4 or more for those.</p>
+          <p><a href="https://leakfree.org/t/hammer-skybox-error/2742/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hammer-skybox-error/2742/9</link>
+        <pubDate>Tue, 26 Jan 2010 15:37:39 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-2742-9</guid>
+        <source url="https://leakfree.org/t/hammer-skybox-error/2742.rss">Hammer Skybox Error</source>
+      </item>
+      <item>
+        <title>Hammer Skybox Error</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Door">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/d/b4bc9f/40.png" class="avatar"> Door:</div>
+<blockquote>
+<p>I will also stop using microbrushes, I really am a nooby mapper, whoops.</p>
+</blockquote>
+</aside>
+<p>Wow? Haha, okay as a rule of thumb, you shouldn’t really use any grid size under 16 for world brushwork.</p>
+<p>4 should be for details, 2 for REALLY small details, and is the absolute MINIMUM. There are very few reasons for you to be mapping with grid size 1, and grid size 1 tends to create crappy geometry if overused (I learned that the hard way  <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:">  )</p>
+          <p><a href="https://leakfree.org/t/hammer-skybox-error/2742/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hammer-skybox-error/2742/8</link>
+        <pubDate>Mon, 25 Jan 2010 23:47:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-2742-8</guid>
+        <source url="https://leakfree.org/t/hammer-skybox-error/2742.rss">Hammer Skybox Error</source>
+      </item>
+      <item>
+        <title>Hammer Skybox Error</title>
+        <dc:creator><![CDATA[Door]]></dc:creator>
+        <description><![CDATA[
+            <p>Don’t worry, all done now; I’ll just continue to try workarounds :retard:</p>
+<p>EDIT:<br>
+I will also stop using microbrushes, I really am a nooby mapper, whoops.</p>
+          <p><a href="https://leakfree.org/t/hammer-skybox-error/2742/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hammer-skybox-error/2742/7</link>
+        <pubDate>Sat, 23 Jan 2010 20:23:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-2742-7</guid>
+        <source url="https://leakfree.org/t/hammer-skybox-error/2742.rss">Hammer Skybox Error</source>
+      </item>
+      <item>
+        <title>Hammer Skybox Error</title>
+        <dc:creator><![CDATA[Brother_Shrike]]></dc:creator>
+        <description><![CDATA[
+            <p>Oh, so that’s what you were saying in chat. Sorry I didn’t understand…  <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+          <p><a href="https://leakfree.org/t/hammer-skybox-error/2742/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hammer-skybox-error/2742/6</link>
+        <pubDate>Sat, 23 Jan 2010 20:12:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-2742-6</guid>
+        <source url="https://leakfree.org/t/hammer-skybox-error/2742.rss">Hammer Skybox Error</source>
+      </item>
+      <item>
+        <title>Hammer Skybox Error</title>
+        <dc:creator><![CDATA[Spycrabz]]></dc:creator>
+        <description><![CDATA[
+            <p>You’re welcome, if you still want to occlude that area you’ll just have to block it off with a brush or prop.</p>
+          <p><a href="https://leakfree.org/t/hammer-skybox-error/2742/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hammer-skybox-error/2742/5</link>
+        <pubDate>Sat, 23 Jan 2010 20:11:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-2742-5</guid>
+        <source url="https://leakfree.org/t/hammer-skybox-error/2742.rss">Hammer Skybox Error</source>
+      </item>
+      <item>
+        <title>Hammer Skybox Error</title>
+        <dc:creator><![CDATA[Door]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Spycrabz">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/s/ccd318/40.png" class="avatar"> Spycrabz:</div>
+<blockquote>
+<p>There shouldn’t be any brushes behind a skybox in the first place, it should seal the whole map.</p>
+<p>Just the way the skybox works, it’s meant to seem infinite, so if you block an area with one, you’re still going to see behind it, it’s kinda hard to explain.</p>
+</blockquote>
+</aside>
+<p>Thanks, I will try it now.<br>
+Sorry for my noobyness :3</p>
+          <p><a href="https://leakfree.org/t/hammer-skybox-error/2742/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hammer-skybox-error/2742/4</link>
+        <pubDate>Sat, 23 Jan 2010 20:06:02 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-2742-4</guid>
+        <source url="https://leakfree.org/t/hammer-skybox-error/2742.rss">Hammer Skybox Error</source>
+      </item>
+      <item>
+        <title>Hammer Skybox Error</title>
+        <dc:creator><![CDATA[Zerego]]></dc:creator>
+        <description><![CDATA[
+            <p>^<br>
+This.</p>
+          <p><a href="https://leakfree.org/t/hammer-skybox-error/2742/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hammer-skybox-error/2742/3</link>
+        <pubDate>Sat, 23 Jan 2010 20:02:25 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-2742-3</guid>
+        <source url="https://leakfree.org/t/hammer-skybox-error/2742.rss">Hammer Skybox Error</source>
+      </item>
+      <item>
+        <title>Hammer Skybox Error</title>
+        <dc:creator><![CDATA[Spycrabz]]></dc:creator>
+        <description><![CDATA[
+            <p>There shouldn’t be any brushes behind a skybox in the first place, it should seal the whole map.</p>
+<p>Just the way the skybox works, it’s meant to seem infinite, so if you block an area with one, you’re still going to see behind it, it’s kinda hard to explain.</p>
+          <p><a href="https://leakfree.org/t/hammer-skybox-error/2742/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hammer-skybox-error/2742/2</link>
+        <pubDate>Sat, 23 Jan 2010 19:57:10 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-2742-2</guid>
+        <source url="https://leakfree.org/t/hammer-skybox-error/2742.rss">Hammer Skybox Error</source>
+      </item>
+      <item>
+        <title>Hammer Skybox Error</title>
+        <dc:creator><![CDATA[Door]]></dc:creator>
+        <description><![CDATA[
+            <p>I am having an issue with skybox brushes in Hammer, after I have compiled hte map, I am able to see through the skybox brush and see any brushes behind it.</p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span><br>
+It’s probably most evident in that screenshot. There are skybox brushes occluding what I am aiming at in that screenshot.</p>
+<p>Here is the compile log, hopefully it will help.</p>
+<p>[code]** Executing…<br>
+** Command: “d:\games\steam\steamapps&lt;-Snip-&gt;\sourcesdk\bin\orangebox\bin\vbsp.exe”<br>
+** Parameters: -game “d:\games\steam\steamapps&lt;-Snip-&gt;\team fortress 2\tf” “C:\Users\Frogg\Desktop\Random Stuff\Maps\SP DMCS\DMC_DM5\dmcdm5(new)”</p>
+<p>Valve Software - vbsp.exe (May 19 2009)<br>
+2 threads<br>
+materialPath: d:\games\steam\steamapps&lt;-Snip-&gt;\team fortress 2\tf\materials<br>
+Loading C:\Users\Frogg\Desktop\Random Stuff\Maps\SP DMCS\DMC_DM5\dmcdm5(new).vmf<br>
+fixing up env_cubemap materials on brush sides…<br>
+ProcessBlock_Thread: 0…1…2…3…4…5…6.Brush 138093: WARNING, microbrush<br>
+…7…8…9…10 (1)<br>
+ProcessBlock_Thread: 0…1…2…3…4…5…6.Brush 138093: WARNING, microbrush<br>
+…7…8…9…10 (1)<br>
+Processing areas…done (0)<br>
+Building Faces…done (0)<br>
+Chop Details…done (0)<br>
+Find Visible Detail Sides…<br>
+Merged 744 detail faces…done (0)<br>
+Merging details…done (0)<br>
+FixTjuncs…<br>
+PruneNodes…<br>
+WriteBSP…<br>
+done (1)<br>
+writing C:\Users\Frogg\Desktop\Random Stuff\Maps\SP DMCS\DMC_DM5\dmcdm5(new).prt…Building visibility clusters…<br>
+done (0)<br>
+Creating default LDR cubemaps for env_cubemap using skybox materials:<br>
+skybox/sky_day03_06*.vmt<br>
+! Run buildcubemaps in the engine to get the correct cube maps.<br>
+Creating default HDR cubemaps for env_cubemap using skybox materials:<br>
+skybox/sky_day03_06*.vmt<br>
+! Run buildcubemaps in the engine to get the correct cube maps.<br>
+Finding displacement neighbors…<br>
+Finding lightmap sample positions…<br>
+Displacement Alpha : 0…1…2…3…4…5…6…7…8…9…10<br>
+Building Physics collision data…<br>
+done (1) (572858 bytes)<br>
+Placing detail props : 0…1…2…3…4…5…6…7…8…9…10<br>
+Compacting texture/material tables…<br>
+Reduced 1898 texinfos to 1676<br>
+Reduced 30 texdatas to 25 (638 bytes to 455)<br>
+Writing C:\Users\Frogg\Desktop\Random Stuff\Maps\SP DMCS\DMC_DM5\dmcdm5(new).bsp<br>
+5 seconds elapsed</p>
+<p>** Executing…<br>
+** Command: “d:\games\steam\steamapps&lt;-Snip-&gt;\sourcesdk\bin\orangebox\bin\vvis.exe”<br>
+** Parameters: -game “d:\games\steam\steamapps&lt;-Snip-&gt;\team fortress 2\tf” “C:\Users\Frogg\Desktop\Random Stuff\Maps\SP DMCS\DMC_DM5\dmcdm5(new)”</p>
+<p>Valve Software - vvis.exe (May 19 2009)<br>
+2 threads<br>
+reading c:\users\frogg\desktop\random stuff\maps\sp dmcs\dmc_dm5\dmcdm5(new).bsp<br>
+reading c:\users\frogg\desktop\random stuff\maps\sp dmcs\dmc_dm5\dmcdm5(new).prt<br>
+657 portalclusters<br>
+1780 numportals<br>
+BasePortalVis:       0…1…2…3…4…5…6…7…8…9…10 (0)<br>
+PortalFlow:          0…1…2…3…4…5…6…7…8…9…10 (15)<br>
+Optimized: 1222 visible clusters (0.00%)<br>
+Total clusters visible: 83632<br>
+Average clusters visible: 127<br>
+Building PAS…<br>
+Average clusters audible: 495<br>
+visdatasize:88654  compressed from 115632<br>
+writing c:\users\frogg\desktop\random stuff\maps\sp dmcs\dmc_dm5\dmcdm5(new).bsp<br>
+15 seconds elapsed</p>
+<p>** Executing…<br>
+** Command: “d:\games\steam\steamapps&lt;-Snip-&gt;\sourcesdk\bin\orangebox\bin\vrad.exe”<br>
+** Parameters: -both -game “d:\games\steam\steamapps&lt;-Snip-&gt;\team fortress 2\tf” “C:\Users\Frogg\Desktop\Random Stuff\Maps\SP DMCS\DMC_DM5\dmcdm5(new)”</p>
+<p>Valve Software - vrad.exe SSE (May 19 2009)</p>
+<pre><code>  Valve Radiosity Simulator     
+</code></pre>
+<p>2 threads<br>
+[Reading texlights from ‘lights.rad’]<br>
+[34 texlights parsed from ‘lights.rad’]</p>
+<p>Loading c:\users\frogg\desktop\random stuff\maps\sp dmcs\dmc_dm5\dmcdm5(new).bsp<br>
+Setting up ray-trace acceleration structure… Done (3.64 seconds)<br>
+3915 faces<br>
+1 degenerate faces<br>
+117940 square feet [16983446.00 square inches]<br>
+0 Displacements<br>
+0 Square Feet [0.00 Square Inches]<br>
+3914 patches before subdivision<br>
+22638 patches after subdivision<br>
+0 direct lights<br>
+BuildFacelights:     0…1…2…3…4…5…6…7…8…9…10 (1)<br>
+BuildVisLeafs:       0…1…2…3…4…5…6…7…8…9…10 (18)<br>
+transfers 2567958, max 494<br>
+transfer lists:  19.6 megs<br>
+GatherLight:         0…1…2…3…4…5…6…7…8…9…10 (1)<br>
+Bounce <span class="hashtag">#1</span> added RGB(0, 0, 0)<br>
+Build Patch/Sample Hash Table(s)…Done&lt;0.0271 sec&gt;<br>
+FinalLightFace:      0…1…2…3…4…5…6…7…8…9…10 (15)<br>
+FinalLightFace Done<br>
+0 of 0 (0% of) surface lights went in leaf ambient cubes.<br>
+ThreadComputeLeafAmbient: 0…1…2…3…4…5…6…7…8…9…10 (23)<br>
+Writing leaf ambient…done<br>
+Ready to Finish</p>
+<p>Object names       Objects/Maxobjs  Memory / Maxmem  Fullness</p>
+<hr>
+<p>models                   7/1024          336/49152    ( 0.7%)<br>
+brushes               1545/8192        18540/98304    (18.9%)<br>
+brushsides           11800/65536       94400/524288   (18.0%)<br>
+planes                5128/65536      102560/1310720  ( 7.8%)<br>
+vertexes              7646/65536       91752/786432   (11.7%)<br>
+nodes                 1615/65536       51680/2097152  ( 2.5%)<br>
+texinfos              1676/12288      120672/884736   (13.6%)<br>
+texdata                 25/2048          800/65536    ( 1.2%)<br>
+dispinfos                0/0               0/0        ( 0.0%)<br>
+disp_verts               0/0               0/0        ( 0.0%)<br>
+disp_tris                0/0               0/0        ( 0.0%)<br>
+disp_lmsamples           0/0               0/0        ( 0.0%)<br>
+faces                 3915/65536      219240/3670016  ( 6.0%)<br>
+hdr faces                0/65536           0/3670016  ( 0.0%)<br>
+origfaces             2964/65536      165984/3670016  ( 4.5%)<br>
+leaves                1623/65536       51936/2097152  ( 2.5%)<br>
+leaffaces             5087/65536       10174/131072   ( 7.8%)<br>
+leafbrushes           3559/65536        7118/131072   ( 5.4%)<br>
+areas                    2/256            16/2048     ( 0.8%)<br>
+surfedges            31217/512000     124868/2048000  ( 6.1%)<br>
+edges                19876/256000      79504/1024000  ( 7.8%)<br>
+LDR worldlights          0/8192            0/720896   ( 0.0%)<br>
+HDR worldlights          0/8192            0/720896   ( 0.0%)<br>
+leafwaterdata            0/32768           0/393216   ( 0.0%)<br>
+waterstrips            424/32768        4240/327680   ( 1.3%)<br>
+waterverts               0/65536           0/786432   ( 0.0%)<br>
+waterindices          8022/65536       16044/131072   (12.2%)<br>
+cubemapsamples           0/1024            0/16384    ( 0.0%)<br>
+overlays                 0/512             0/180224   ( 0.0%)<br>
+LDR lightdata         [variable]     1137552/0        ( 0.0%)<br>
+HDR lightdata         [variable]           0/0        ( 0.0%)<br>
+visdata               [variable]       88654/16777216 ( 0.5%)<br>
+entdata               [variable]        3837/393216   ( 1.0%)<br>
+LDR ambient table     1623/65536        6492/262144   ( 2.5%)<br>
+HDR ambient table     1623/65536        6492/262144   ( 2.5%)<br>
+LDR leaf ambient       697/65536       19516/1835008  ( 1.1%)<br>
+HDR leaf ambient      1623/65536       45444/1835008  ( 2.5%)<br>
+occluders                0/0               0/0        ( 0.0%)<br>
+occluder polygons        0/0               0/0        ( 0.0%)<br>
+occluder vert ind        0/0               0/0        ( 0.0%)<br>
+detail props          [variable]           1/12       ( 8.3%)<br>
+static props          [variable]           1/12       ( 8.3%)<br>
+pakfile               [variable]      174637/0        ( 0.0%)<br>
+physics               [variable]      572858/4194304  (13.7%)<br>
+physics terrain       [variable]           2/1048576  ( 0.0%)</p>
+<p>Level flags = 0</p>
+<p>Total triangle count: 11356<br>
+Writing c:\users\frogg\desktop\random stuff\maps\sp dmcs\dmc_dm5\dmcdm5(new).bsp<br>
+1 minute, 1 second elapsed<br>
+Valve Software - vrad.exe SSE (May 19 2009)</p>
+<pre><code>  Valve Radiosity Simulator     
+</code></pre>
+<p>2 threads<br>
+[Reading texlights from ‘lights.rad’]<br>
+[34 texlights parsed from ‘lights.rad’]</p>
+<p>Loading c:\users\frogg\desktop\random stuff\maps\sp dmcs\dmc_dm5\dmcdm5(new).bsp<br>
+Setting up ray-trace acceleration structure… Done (3.65 seconds)<br>
+3915 faces<br>
+1 degenerate faces<br>
+117940 square feet [16983446.00 square inches]<br>
+0 Displacements<br>
+0 Square Feet [0.00 Square Inches]<br>
+3914 patches before subdivision<br>
+22638 patches after subdivision<br>
+0 direct lights<br>
+BuildFacelights:     0…1…2…3…4…5…6…7…8…9…10 (1)<br>
+BuildVisLeafs:       0…1…2…3…4…5…6…7…8…9…10 (18)<br>
+transfers 2567958, max 494<br>
+transfer lists:  19.6 megs<br>
+GatherLight:         0…1…2…3…4…5…6…7…8…9…10 (1)<br>
+Bounce <span class="hashtag">#1</span> added RGB(0, 0, 0)<br>
+Build Patch/Sample Hash Table(s)…Done&lt;0.0333 sec&gt;<br>
+FinalLightFace:      0…1…2…3…4…5…6…7…8…9…10 (16)<br>
+FinalLightFace Done<br>
+0 of 0 (0% of) surface lights went in leaf ambient cubes.<br>
+ThreadComputeLeafAmbient: 0…1…2…3…4…5…6…7…8…9…10 (22)<br>
+Writing leaf ambient…done<br>
+Ready to Finish</p>
+<p>Object names       Objects/Maxobjs  Memory / Maxmem  Fullness</p>
+<hr>
+<p>models                   7/1024          336/49152    ( 0.7%)<br>
+brushes               1545/8192        18540/98304    (18.9%)<br>
+brushsides           11800/65536       94400/524288   (18.0%)<br>
+planes                5128/65536      102560/1310720  ( 7.8%)<br>
+vertexes              7646/65536       91752/786432   (11.7%)<br>
+nodes                 1615/65536       51680/2097152  ( 2.5%)<br>
+texinfos              1676/12288      120672/884736   (13.6%)<br>
+texdata                 25/2048          800/65536    ( 1.2%)<br>
+dispinfos                0/0               0/0        ( 0.0%)<br>
+disp_verts               0/0               0/0        ( 0.0%)<br>
+disp_tris                0/0               0/0        ( 0.0%)<br>
+disp_lmsamples           0/0               0/0        ( 0.0%)<br>
+faces                 3915/65536      219240/3670016  ( 6.0%)<br>
+hdr faces             3915/65536      219240/3670016  ( 6.0%)<br>
+origfaces             2964/65536      165984/3670016  ( 4.5%)<br>
+leaves                1623/65536       51936/2097152  ( 2.5%)<br>
+leaffaces             5087/65536       10174/131072   ( 7.8%)<br>
+leafbrushes           3559/65536        7118/131072   ( 5.4%)<br>
+areas                    2/256            16/2048     ( 0.8%)<br>
+surfedges            31217/512000     124868/2048000  ( 6.1%)<br>
+edges                19876/256000      79504/1024000  ( 7.8%)<br>
+LDR worldlights          0/8192            0/720896   ( 0.0%)<br>
+HDR worldlights          0/8192            0/720896   ( 0.0%)<br>
+leafwaterdata            0/32768           0/393216   ( 0.0%)<br>
+waterstrips            424/32768        4240/327680   ( 1.3%)<br>
+waterverts               0/65536           0/786432   ( 0.0%)<br>
+waterindices          8022/65536       16044/131072   (12.2%)<br>
+cubemapsamples           0/1024            0/16384    ( 0.0%)<br>
+overlays                 0/512             0/180224   ( 0.0%)<br>
+LDR lightdata         [variable]     1137552/0        ( 0.0%)<br>
+HDR lightdata         [variable]     1137552/0        ( 0.0%)<br>
+visdata               [variable]       88654/16777216 ( 0.5%)<br>
+entdata               [variable]        3837/393216   ( 1.0%)<br>
+LDR ambient table     1623/65536        6492/262144   ( 2.5%)<br>
+HDR ambient table     1623/65536        6492/262144   ( 2.5%)<br>
+LDR leaf ambient       697/65536       19516/1835008  ( 1.1%)<br>
+HDR leaf ambient       697/65536       19516/1835008  ( 1.1%)<br>
+occluders                0/0               0/0        ( 0.0%)<br>
+occluder polygons        0/0               0/0        ( 0.0%)<br>
+occluder vert ind        0/0               0/0        ( 0.0%)<br>
+detail props          [variable]           1/12       ( 8.3%)<br>
+static props          [variable]           1/12       ( 8.3%)<br>
+pakfile               [variable]      174637/0        ( 0.0%)<br>
+physics               [variable]      572858/4194304  (13.7%)<br>
+physics terrain       [variable]           2/1048576  ( 0.0%)</p>
+<p>Level flags = 0</p>
+<p>Total triangle count: 11356<br>
+Writing c:\users\frogg\desktop\random stuff\maps\sp dmcs\dmc_dm5\dmcdm5(new).bsp<br>
+1 minute, 2 seconds elapsed</p>
+<p>** Executing…<br>
+** Command: Copy File<br>
+** Parameters: “C:\Users\Frogg\Desktop\Random Stuff\Maps\SP DMCS\DMC_DM5\dmcdm5(new).bsp” “d:\games\steam\steamapps&lt;-Snip-&gt;\team fortress 2\tf\maps\dmcdm5(new).bsp”[/code]</p>
+<p>[COLOR=‘Black’]inb4mat_fullbrightololol[/SIZE]</p>
+          <p><a href="https://leakfree.org/t/hammer-skybox-error/2742/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hammer-skybox-error/2742/1</link>
+        <pubDate>Sat, 23 Jan 2010 19:52:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-2742-1</guid>
+        <source url="https://leakfree.org/t/hammer-skybox-error/2742.rss">Hammer Skybox Error</source>
+      </item>
+  </channel>
+</rss>

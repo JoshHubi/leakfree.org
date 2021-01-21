@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Cannot decompile 2: the Ichthyoquel</title>
+    <link>https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256</link>
+    <description>Creating a new thread instead of necroing another. Click [url=&#39;https://forums.blackmesasource.com/index.php/Thread/29227-Cannot-decompile-Black-Mesa-animations/&#39;]here[/url] for the first thread.
+I am attempting to modify the Ichthyosaur&#39;s model, but after recompiling I am left with this:
+
+[img]https://puu.sh/xlrLC/5b73dd1b0c.png[/img]
+
+I have (more than sorta) determined that this is caused by the animations breaking upon being decompiled. I&#39;ve searched high and low for an answer, and I have found that this is a relatively unknown issue, but nobody has yet figured out an answer (apart from remaking the animations themselves).
+
+Just as before, the model was modified in Blender, and Crowbar was used to decompile and recompile the model in question.
+
+As far as I know, this only applies to npc models that have existed since the mod version, and therefore may be caused by the models being manufactured with an old toolset/workflow unique to Black Mesa during it development as a mod.
+
+It should be noted that this effect still applies even before modifying the .smd in Blender [read: decompiling and recompiling the model only], which seems to support the theory above.
+
+[s]Any[/s][b]ACTUAL[/b] help would be appreciated.</description>
+    
+    <lastBuildDate>Sat, 02 Sep 2017 15:22:35 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Cannot decompile 2: the Ichthyoquel</title>
+        <dc:creator><![CDATA[Flavrans]]></dc:creator>
+        <description><![CDATA[
+            <p>First, I’m by no means an expert, but from what I can tell, Crowbar doesn’t handle delta animations very well. If you look in the .QC file, you’ll find these $animation definitions:</p>
+<p>[code]$Animation “a_swimright” “ichthyosaur_anims\a_swimright.smd” {<br>
+fps 30<br>
+// This subtract line guesses the animation name and frame index. There is no way to determine which $animation and which frame was used. Change as needed.<br>
+subtract “icky_delta.smd” 0<br>
+}</p>
+<p>$Animation “a_swimleft” “ichthyosaur_anims\a_swimleft.smd” {<br>
+fps 30<br>
+// This subtract line guesses the animation name and frame index. There is no way to determine which $animation and which frame was used. Change as needed.<br>
+subtract “icky_delta.smd” 0<br>
+}</p>
+<p>$Animation “a_swimup” “ichthyosaur_anims\a_swimup.smd” {<br>
+fps 30<br>
+// This subtract line guesses the animation name and frame index. There is no way to determine which $animation and which frame was used. Change as needed.<br>
+subtract “icky_delta.smd” 0<br>
+}</p>
+<p>$Animation “a_swimdown” “ichthyosaur_anims\a_swimdown.smd” {<br>
+fps 30<br>
+// This subtract line guesses the animation name and frame index. There is no way to determine which $animation and which frame was used. Change as needed.<br>
+subtract “icky_delta.smd” 0<br>
+}[/code]<br>
+What happens here is that the “subtract” lines will subtract the animation in the icky_delta.smd, which contains a reference pose, from the “a_swimright”, “a_swimleft”, “a_swimup” and “a_swimdown” animations, thus creating deltas for these animations. However, the “a_swimright.smd”, “a_swimleft.smd”, “a_swimup.smd” and “a_swimdown.smd” files already contain the delta animations, which means the reference pose is being subtracted twice from the original animations!</p>
+<p>Further down, the $sequence definitions that reference these animations also contain subtract commands:</p>
+<p>[code]$Sequence “side_to_side” {<br>
+“a_swimright”<br>
+“a_swimleft”<br>
+autoplay<br>
+blend “sidetoside” -90 90<br>
+blendwidth 2<br>
+delta<br>
+fadein 0.2<br>
+fadeout 0.2<br>
+hidden<br>
+fps 30<br>
+// This subtract line guesses the animation name and frame index. There is no way to determine which $animation and which frame was used. Change as needed.<br>
+subtract “icky_delta.smd” 0<br>
+}</p>
+<p>$Sequence “up_and_down” {<br>
+“a_swimup”<br>
+“a_swimdown”<br>
+autoplay<br>
+blend “upanddown” -90 90<br>
+blendwidth 2<br>
+delta<br>
+fadein 0.2<br>
+fadeout 0.2<br>
+hidden<br>
+fps 30<br>
+// This subtract line guesses the animation name and frame index. There is no way to determine which $animation and which frame was used. Change as needed.<br>
+subtract “icky_delta.smd” 0<br>
+}[/code]I’m not sure if the “subtract” commands here have any effect. The <a href="https://developer.valvesoftware.com/wiki/%24sequence" data-bbcode="true" rel="nofollow noopener">$sequence page</a> on the VDC wiki doesn’t mention the “subtract” command as being a valid command in a $sequence definition block. In any case, it doesn’t make any sense to include them here since they have already been included in the respective $animation definition blocks.</p>
+<p>Crowbar has however correctly inserted the “delta” command in these blocks which states that the referenced animations contain animations that have been subtracted (delta animations), and that these sequences are meant to be played on top of whatever sequence(s) that are currently being played.</p>
+<p><span class="bbcode-b">TLDR;[/size]</span><br>
+[/size]<br>
+<span class="bbcode-b">The solution[/size]</span> is to delete (or comment out) all the “subtract” lines from the .QC file.</p>
+<p>I’ve confirmed that this solves the problem, at least for viewing in HLMV. I haven’t tested if it works correctly in-game.</p>
+<p>Another solution would be to numerically add the animation data in “icky_delta.smd” file to the animation data in “a_swimright.smd”, “a_swimleft.smd”, “a_swimup.smd” and “a_swimdown.smd” files, and keep the “subtract” commands in their respective $animation definition blocks. But I think you would have to write a script or a program to do that.</p>
+<p>A third solution would of course be to recreate the “a_swimright”, “a_swimleft”, “a_swimup” and “a_swimdown” animations from scratch, using “icky_delta.smd” as the starting point for the animations.<br>
+<a class="attachment" href="https://leakfree.org/uploads/default/original/2X/3/3398b6c25c952cebd7dfbd6c4b571d59f81cb046.txt">ichthyosaur.qc.txt</a> (9.22 KB)</p>
+          <p><a href="https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256/7</link>
+        <pubDate>Sat, 02 Sep 2017 15:22:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15256-7</guid>
+        <source url="https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256.rss">Cannot decompile 2: the Ichthyoquel</source>
+      </item>
+      <item>
+        <title>Cannot decompile 2: the Ichthyoquel</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <p>F_SchoManno, I suggest you checkout the discord for Source Modding Community, they should be able to help you.<br>
+<a href="https://discordapp.com/invite/wpFf2f6" data-bbcode="true" rel="nofollow noopener">https://discordapp.com/invite/wpFf2f6</a></p>
+<p>Post in the source_modding channel.</p>
+          <p><a href="https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256/6</link>
+        <pubDate>Sat, 02 Sep 2017 06:14:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15256-6</guid>
+        <source url="https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256.rss">Cannot decompile 2: the Ichthyoquel</source>
+      </item>
+      <item>
+        <title>Cannot decompile 2: the Ichthyoquel</title>
+        <dc:creator><![CDATA[F_SchoManno]]></dc:creator>
+        <description><![CDATA[
+            <p><span class="bbcode-s">Third</span> Fourth bump’s the charm!</p>
+          <p><a href="https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256/5</link>
+        <pubDate>Fri, 01 Sep 2017 16:00:47 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15256-5</guid>
+        <source url="https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256.rss">Cannot decompile 2: the Ichthyoquel</source>
+      </item>
+      <item>
+        <title>Cannot decompile 2: the Ichthyoquel</title>
+        <dc:creator><![CDATA[F_SchoManno]]></dc:creator>
+        <description><![CDATA[
+            <p>Third bump’s the charm!</p>
+          <p><a href="https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256/4</link>
+        <pubDate>Thu, 31 Aug 2017 06:03:23 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15256-4</guid>
+        <source url="https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256.rss">Cannot decompile 2: the Ichthyoquel</source>
+      </item>
+      <item>
+        <title>Cannot decompile 2: the Ichthyoquel</title>
+        <dc:creator><![CDATA[F_SchoManno]]></dc:creator>
+        <description><![CDATA[
+            <p>Another bump, as a solution has yet to be reached.</p>
+          <p><a href="https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256/3</link>
+        <pubDate>Wed, 30 Aug 2017 12:23:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15256-3</guid>
+        <source url="https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256.rss">Cannot decompile 2: the Ichthyoquel</source>
+      </item>
+      <item>
+        <title>Cannot decompile 2: the Ichthyoquel</title>
+        <dc:creator><![CDATA[F_SchoManno]]></dc:creator>
+        <description><![CDATA[
+            <p>Bump, as this is still a problem.</p>
+          <p><a href="https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256/2</link>
+        <pubDate>Wed, 30 Aug 2017 01:23:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15256-2</guid>
+        <source url="https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256.rss">Cannot decompile 2: the Ichthyoquel</source>
+      </item>
+      <item>
+        <title>Cannot decompile 2: the Ichthyoquel</title>
+        <dc:creator><![CDATA[F_SchoManno]]></dc:creator>
+        <description><![CDATA[
+            <p>Creating a new thread instead of necroing another. Click <a href="https://forums.blackmesasource.com/index.php/Thread/29227-Cannot-decompile-Black-Mesa-animations/" data-bbcode="true" rel="nofollow noopener">here</a> for the first thread.<br>
+I am attempting to modify the Ichthyosaur’s model, but after recompiling I am left with this:</p>
+<p><img src="https://puu.sh/xlrLC/5b73dd1b0c.png" alt="" width="" height=""></p>
+<p>I have (more than sorta) determined that this is caused by the animations breaking upon being decompiled. I’ve searched high and low for an answer, and I have found that this is a relatively unknown issue, but nobody has yet figured out an answer (apart from remaking the animations themselves).</p>
+<p>Just as before, the model was modified in Blender, and Crowbar was used to decompile and recompile the model in question.</p>
+<p>As far as I know, this only applies to npc models that have existed since the mod version, and therefore may be caused by the models being manufactured with an old toolset/workflow unique to Black Mesa during it development as a mod.</p>
+<p>It should be noted that this effect still applies even before modifying the .smd in Blender [read: decompiling and recompiling the model only], which seems to support the theory above.</p>
+<p><span class="bbcode-s">Any</span><span class="bbcode-b">ACTUAL</span> help would be appreciated.</p>
+          <p><a href="https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256/1</link>
+        <pubDate>Mon, 28 Aug 2017 10:40:54 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15256-1</guid>
+        <source url="https://leakfree.org/t/cannot-decompile-2-the-ichthyoquel/15256.rss">Cannot decompile 2: the Ichthyoquel</source>
+      </item>
+  </channel>
+</rss>

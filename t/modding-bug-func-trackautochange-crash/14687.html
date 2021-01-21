@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/modding-bug-func-trackautochange-crash/14687 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 11:48:17 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>[MODDING BUG] func_trackautochange crash - In-game Issues - Leakfree</title>
+    <meta name="description" content="Not really sure if this is the right place for this… Anyways. 
+I started experimenting with BM’s first OaR map (bm_c2a2a) to get a feel for how mapping in non-L4D Source games works, and to that end, added a loop around &amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="14687.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;[MODDING BUG] func_trackautochange crash&#39;" href="14687.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/modding-bug-func-trackautochange-crash/14687" />
+<meta name="twitter:url" content="https://leakfree.org/t/modding-bug-func-trackautochange-crash/14687" />
+<meta property="og:title" content="[MODDING BUG] func_trackautochange crash" />
+<meta name="twitter:title" content="[MODDING BUG] func_trackautochange crash" />
+<meta property="og:description" content="Not really sure if this is the right place for this… Anyways.  I started experimenting with BM’s first OaR map (bm_c2a2a) to get a feel for how mapping in non-L4D Source games works, and to that end, added a loop around the tracks similar to .RK’s Loop Mod.  At some point, while working on the level, I set the branch path to default to the path I added, which formed a closed loop around the level. The “main” path (that would take the player to the bridge to the next level) became the alternate p..." />
+<meta name="twitter:description" content="Not really sure if this is the right place for this… Anyways.  I started experimenting with BM’s first OaR map (bm_c2a2a) to get a feel for how mapping in non-L4D Source games works, and to that end, added a loop around the tracks similar to .RK’s Loop Mod.  At some point, while working on the level, I set the branch path to default to the path I added, which formed a closed loop around the level. The “main” path (that would take the player to the bridge to the next level) became the alternate p..." />
+<meta property="article:published_time" content="2016-02-18T06:46:45+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"QAPage","name":"[MODDING BUG] func_trackautochange crash","mainEntity":{"@type":"Question","name":"[MODDING BUG] func_trackautochange crash","text":"Not really sure if this is the right place for this… Anyways.\n\nI started experimenting with BM’s first OaR map (bm_c2a2a) to get a feel for how mapping in non-L4D Source games works, and to that end, added a loop around the tracks similar to .RK’s Loop Mod.\n\nAt some point, while working on the level&hellip;","upvoteCount":0,"answerCount":0,"dateCreated":"2016-02-18T06:46:45.000Z","author":{"@type":"Person","name":"Qtheman3456"}}}</script>
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="14687.html">[MODDING BUG] func_trackautochange crash</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/6.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa Archive</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/in-game-issues/47.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>In-game Issues</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/KyuuGryphon.html'><span itemprop='name'>KyuuGryphon</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14687.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-02-18T06:46:45Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:46:44Z' class='post-time'>
+                November 25, 2018,  4:46am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Not really sure if this is the right place for this… Anyways.</p>
+<p>I started experimenting with BM’s first OaR map (bm_c2a2a) to get a feel for how mapping in non-L4D Source games works, and to that end, added a loop around the tracks similar to .RK’s Loop Mod.<br>
+At some point, while working on the level, I set the branch path to default to the path I added, which formed a closed loop around the level. The “main” path (that would take the player to the bridge to the next level) became the alternate path. This was for the sake of ease while testing, so I wouldn’t have to manually fire the path_track to use the alternate path every single time.</p>
+<p>With the loop set as the primary path, Black Mesa would crash the moment that the func_trackautochange elevator at the beginning of the level reached the bottom floor - I was eventually able to track (pun fully intended) the source of the issue back to me having turned the tram path into a closed loop. Reverting it to how it was before (wherein the primary path is the one that takes the player to bm_c2a2b) fixed the crash.</p>
+<p>This isn’t something that causes problems in the regular game, of course, and I wouldn’t know whether or not this is a limitation of how the entity is set up, but I thought it might be worth reporting anyways…</p>
+        </div>
+
+        <meta itemprop='headline' content='[MODDING BUG] func_trackautochange crash'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/RK1.html'><span itemprop='name'>RK1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14687.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-02-20T10:26:18Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:30:29Z' class='post-time'>
+                August 11, 2020, 11:30am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>It’s funny you should bring this up, because I encountered the <span class="bbcode-i">exact same thing</span> while making Loop Mod. It’s been a while since I looked at this particular entity but I’m sure that the simple setup (that you could see on Uncut’s A1 map) worked there, but for some reason doesn’t work in the A map. It have to do with dropping the tram on this new path (via the elevator). I don’t know.</p>
+<p>For reference:<br>
+<a href="https://forums.blackmesasource.com/index.php/Thread/16159-OaR-Loop-Mod/?postID=539603#post539603" data-bbcode="true" rel="nofollow noopener">OaR - Loop Mod</a></p>
+        </div>
+
+        <meta itemprop='headline' content='[MODDING BUG] func_trackautochange crash'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/KyuuGryphon.html'><span itemprop='name'>KyuuGryphon</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14687.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-02-20T20:18:16Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:30:30Z' class='post-time'>
+                August 11, 2020, 11:30am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I haven’t looked at Text’s A1 map, so I dunno what he did to circumvent the issue, but I managed to fix it by just having a trigger enable the alternate path near the beginning of the level. I’m not sure why <span class="bbcode-i">that</span> works, while having the loop built into the track <span class="bbcode-i">doesn’t</span>, but… well, it <span class="bbcode-i">does</span> work, so I’m not complaining.   <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+<p>Getting kind of off-topic here, but - On that note, reading the post you linked to, I see that we’ve ended up running into the same problem with Source’s brushface limits. If you don’t mind my asking, how’d you get around that? When Hammer started squawking at me about the brush limit, I ended up getting around it by removing the elevator at the end of the map (which actually works out better for what I’m thinking of doing for the rest of the chapter) and turning all the “sidewalks” alongside the rails into props, which is… less than ideal, as <a href="https://i.imgur.com/Zuw8tJs.jpg" data-bbcode="true" rel="nofollow noopener">the lighting gets screwed up</a> and the texture alignment ends up being all wrong.</p>
+<p>For what it’s worth, when I took to Google to see what the brushface issue was about, I found <a href="https://developer.valvesoftware.com/wiki/MAX_MAP_BRUSHSIDES" data-bbcode="true" rel="nofollow noopener">this article</a> on the Valve Dev Wiki, which clarifies that the compiler’s brush limit includes the bounding boxes for any non-cubic or angled brush… which, in On A Rail’s case, means every corner, the sidewalks, the bevelled ceiling, the detailing on the walls… and so on.  :fffuuu:</p>
+        </div>
+
+        <meta itemprop='headline' content='[MODDING BUG] func_trackautochange crash'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/RK1.html'><span itemprop='name'>RK1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14687.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-02-21T00:44:07Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:46:52Z' class='post-time'>
+                November 25, 2018,  4:46am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Concerning the brushsides limits, the thing that I did the most was simply geometry. And when I say geometry, I actually mean under the hood. When working with the A map at least, I noticed that a lot of the structures contained within were made out of more brushes than they needed to be.</p>
+<p>With the A map in particular though, the electrical box in that sealed off room is a shitload of brushes. And the downed pipe near the electrical pool puzzle also utilizes a lot of brushes. I made the former into a prop and un-downed the latter.</p>
+<p>It’s a huge pain to deal with and even now I haven’t fully escaped it myself. Unfortunately it’s a hardcoded limit so the only thing you can do is have less brushes.</p>
+<p>I am under the impression that Source 2007 SDK was a lot nicer when counting brushsides, because I noticed I started having difficulties again when I switched to the more recent SDK that ships with BM. That might be worth looking into, I think. Not sure what effect it has on compiling, but it’s probably not a problem. Probably.</p>
+        </div>
+
+        <meta itemprop='headline' content='[MODDING BUG] func_trackautochange crash'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/KyuuGryphon.html'><span itemprop='name'>KyuuGryphon</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14687.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-03-05T22:12:21Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:47:21Z' class='post-time'>
+                November 25, 2018,  4:47am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Bumping this back up because reasons - I have another map that I’ve started working on, with a similar loop as what I added to c2a2a. I tried setting up the track so that the default path is the loop, and the alternate path is how to continue forward - like with c2a2a, when the elevator to this section arrives at the bottom of the shaft, the game crashes.</p>
+<p>So whatever the issue is, it definitely seems to be related to a series of path_track’s that either have no endpoint or link back to themselves somehow.</p>
+        </div>
+
+        <meta itemprop='headline' content='[MODDING BUG] func_trackautochange crash'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/modding-bug-func-trackautochange-crash/14687 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 11:48:17 GMT -->
+</html>

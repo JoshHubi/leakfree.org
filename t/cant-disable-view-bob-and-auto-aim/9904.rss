@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Can&#39;t Disable View Bob and Auto Aim</title>
+    <link>https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904</link>
+    <description>Has anyone been able to disable View Bob and Auto Aim?
+
+I can&#39;t continue playing the game with View Bob, I get really bad headaches and feel dizzy.
+
+I also can&#39;t disable Auto Aim.
+
+Does anyone know the console commands for this?</description>
+    
+    <lastBuildDate>Tue, 29 Jan 2013 04:51:42 +0000</lastBuildDate>
+    <category>In-game Issues (Mod)</category>
+    <atom:link href="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Can&#39;t Disable View Bob and Auto Aim</title>
+        <dc:creator><![CDATA[Mental_Ninja]]></dc:creator>
+        <description><![CDATA[
+            <p>For those so inclined, I fixed the Auto Aim check box always being checked (without an autoexec workaround). From what I can tell, the value of “cvar_name” for “EnableAutoAimCheckBox” inside resources/OptionsSubBlackMesa.res was labeled incorrectly, and causing the issue. Simply open it in notepad, and change the value of “cvar_name” from “sk_allow_autoaim” to “sk_autoaim_mode”. That fixed it for me.</p>
+          <p><a href="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/16</link>
+        <pubDate>Tue, 29 Jan 2013 04:51:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9904-16</guid>
+        <source url="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904.rss">Can&#39;t Disable View Bob and Auto Aim</source>
+      </item>
+      <item>
+        <title>Can&#39;t Disable View Bob and Auto Aim</title>
+        <dc:creator><![CDATA[Jenova19]]></dc:creator>
+        <description><![CDATA[
+            <p><span class="bbcode-i">Just to be clear on this one, “View Roll” is this …:</span></p>
+<p><span class="bbcode-b">View Roll (Reference Screenshot)</span><br>
+<span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span><br>
+<span class="bbcode-b">Size:</span> 174 x 56</p>
+<p><span class="bbcode-b">View Roll (Reference Code)</span></p>
+<pre><code class="lang-auto">rollangle "&lt;VALUE&gt;"</code></pre>
+<p><span class="bbcode-b">Note:</span> Replace  with any valid value between 0 (disabled) and 3.5 (maximum).</p>
+<hr>
+<p><span class="bbcode-i">… and “View Bob” is this:</span></p>
+<p><span class="bbcode-b">View Bob (Reference Screenshot)</span><br>
+<span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span><br>
+<span class="bbcode-b">Size:</span> 122 x 18</p>
+<p><span class="bbcode-b">View Bob (Reference Code)</span></p>
+<pre><code class="lang-auto">cl_bob_disable "&lt;VALUE&gt;"</code></pre>
+<p><span class="bbcode-b">Note:</span> Replace  with either 0 (disable the “Disable View Bob” flag) or 1 (enable the “Disable View Bob” flag).</p>
+<hr>
+<p>Make sure to add both <span class="bbcode-b">rollangle “”</span> and <span class="bbcode-b">cl_bob_disable “”</span> to the “<span class="bbcode-b">autoexec.cfg</span>”!</p>
+<p>Report back with your results, please.</p>
+<hr>
+<p><span class="bbcode-b">EDIT (04:42 PM):</span> This is an example of a (working) autoexec.cfg file:</p>
+<pre><code class="lang-auto">exec config.cfg
+//exec threading.cfg
+
+rollangle "2.1"
+cl_bob_disable "1"</code></pre>
+<p><span class="bbcode-b">Note:</span> Just tested this in-game and it definitely overwrites the existing parameters, on startup.</p>
+<hr>
+<p>Also, if you want to make sure if autoexec.cfg is (properly) executed, add this to Black Mesa’s launch options:</p>
+<pre><code class="lang-auto">-dev -console</code></pre>
+<p>Then, start the game; there should be a window (the console) on the right side of the screen.</p>
+<p>Do you see anything close to this / does it read the same?:</p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<p>If you do, autoexec has been read and executed, if you see something like “<span class="bbcode-b">exec: couldn’t exec autoexec.cfg</span>”, the file has not been executed.</p>
+          <p><a href="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/15</link>
+        <pubDate>Thu, 04 Oct 2012 16:41:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9904-15</guid>
+        <source url="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904.rss">Can&#39;t Disable View Bob and Auto Aim</source>
+      </item>
+      <item>
+        <title>Can&#39;t Disable View Bob and Auto Aim</title>
+        <dc:creator><![CDATA[totalamd]]></dc:creator>
+        <description><![CDATA[
+            <p>BMS doesn’t set variables from autoexec even after BMS start.</p>
+          <p><a href="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/14</link>
+        <pubDate>Thu, 04 Oct 2012 12:43:02 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9904-14</guid>
+        <source url="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904.rss">Can&#39;t Disable View Bob and Auto Aim</source>
+      </item>
+      <item>
+        <title>Can&#39;t Disable View Bob and Auto Aim</title>
+        <dc:creator><![CDATA[Jenova19]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="totalamd">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/t/d78d45/40.png" class="avatar"> totalamd:</div>
+<blockquote>
+<p>Doesn’t game take params from autoexec.cfg itself every load?</p>
+</blockquote>
+</aside>
+<p>It does, I should have mentioned that the mini-guide above is just one way - <span class="bbcode-u">not</span> the only one.</p>
+<p>So, yes - you could just add <span class="bbcode-b">rollangle “XX”</span> to autoexec.cfg itself.</p>
+<p>I just posted the ‘complicated’ way, since it looks ‘cleaner’ (to me, at least).</p>
+<hr>
+<p><span class="bbcode-b">EDIT (10:53 AM):</span> Now that I think about it, just adding the command to the autoexec.cfg could be the cleaner way, just to avoid (possible) “<span class="bbcode-i">file not found</span>” or “<span class="bbcode-i">file: access denied</span>” errors, ecetera.</p>
+<p>Who knows, use whichever you like best and are most comfortable with.</p>
+<p>As long as it does work (properly), either one of the two should be ok.</p>
+          <p><a href="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/13</link>
+        <pubDate>Thu, 04 Oct 2012 10:49:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9904-13</guid>
+        <source url="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904.rss">Can&#39;t Disable View Bob and Auto Aim</source>
+      </item>
+      <item>
+        <title>Can&#39;t Disable View Bob and Auto Aim</title>
+        <dc:creator><![CDATA[totalamd]]></dc:creator>
+        <description><![CDATA[
+            <p>Doesn’t game take params from autoexec.cfg itself every loading time?</p>
+          <p><a href="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/12</link>
+        <pubDate>Thu, 04 Oct 2012 10:46:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9904-12</guid>
+        <source url="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904.rss">Can&#39;t Disable View Bob and Auto Aim</source>
+      </item>
+      <item>
+        <title>Can&#39;t Disable View Bob and Auto Aim</title>
+        <dc:creator><![CDATA[Jenova19]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="totalamd">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/t/d78d45/40.png" class="avatar"> totalamd:</div>
+<blockquote>
+<p>BMS forgets rollangle parameter after every loading, even the first one after BMS start. Is it known issue?</p>
+</blockquote>
+</aside>
+<p>Yes, it is known.</p>
+<hr>
+<p><span class="bbcode-b">There is a (possible) workaround for it, though (if you want it to be persistent, before the update is released):</span></p>
+<ol type="1">
+<li> Close (Quit) Black Mesa.</li>
+<li> Browse to this location: ‘<span class="bbcode-b">\SteamApps\sourcemods\BMS\cfg</span>’.</li>
+<li> Locate the file ‘<span class="bbcode-b">autoexec.cfg</span>’, then copy and paste it into the same location.</li>
+<li> Open the newly created file (‘<span class="bbcode-b">autoexec - Copy.cfg</span>’) with a text-editor (Notepad++ or anything similiar [preferably with line-counting]).</li>
+<li> Select all the text inside (press Ctrl + A on your keyboard) and delete it by pressing Del on said keyboard.</li>
+<li> Copy and paste the contents of the Code-Box below into the file, then save and close it.</li>
+</ol>
+<pre><code class="lang-auto">rollangle "&lt;VALUE&gt;"</code></pre>
+<p><span class="bbcode-b">Note:</span> Replace  with any (valid) value between 0 and 3.5 (don’t forget the quotation marks “”).</p>
+<p><span class="bbcode-b">How to proceed:</span></p>
+<ol type="1">
+<li> Rename the file from ‘<span class="bbcode-b">autoexec - Copy.cfg</span>’ to ‘.cfg’ (replace  with any name you want [without special characters]) and remember the name (adjustRollAngle, for example).</li>
+<li> Open ‘<span class="bbcode-b">autoexec.cfg</span>’, in the same folder, with a text-editor.</li>
+<li> Add the previously edited file (’<span class="bbcode-b">.cfg</span>’) as a line underneath the existing text (see below, for reference).</li>
+</ol>
+<pre><code class="lang-auto">exec config.cfg
+//exec threading.cfg
+
+exec &lt;FILENAME&gt;.cfg</code></pre>
+<p><span class="bbcode-b">Note:</span> Replace  with the name of the file you’ve previously edited (and renamed).</p>
+<p><span class="bbcode-b">Lastly:</span></p>
+<ol type="1">
+<li> Save and close the file.</li>
+<li> Start Black Mesa, open the options menu and see if the specified value has been ‘<span class="bbcode-i">updated</span>’ in the game.</li>
+</ol>
+<hr>
+<p>This is not guaranteed to work, but it is worth a try, I guess.</p>
+<p>It works for me, let’s hope it does for you, as well.  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<hr>
+<p>If it does work and you want to adjust or change the value, you have to open the file with the <span class="bbcode-b">rollangle “”</span> line and edit said value inside the quotation marks, then save and close the file.</p>
+<p>Since autoexec.cfg is automatically executed on startup, changing the value in-game, then saving and closing the game would not adjust it permanently - the next time you’d start the game, it would be overwritten by the value specified in the cfg file (the one autoexec automatically executes).</p>
+          <p><a href="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/11</link>
+        <pubDate>Thu, 04 Oct 2012 10:39:22 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9904-11</guid>
+        <source url="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904.rss">Can&#39;t Disable View Bob and Auto Aim</source>
+      </item>
+      <item>
+        <title>Can&#39;t Disable View Bob and Auto Aim</title>
+        <dc:creator><![CDATA[FireTime]]></dc:creator>
+        <description><![CDATA[
+            <p>Yep. It’s on the list.</p>
+          <p><a href="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/10</link>
+        <pubDate>Thu, 04 Oct 2012 10:20:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9904-10</guid>
+        <source url="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904.rss">Can&#39;t Disable View Bob and Auto Aim</source>
+      </item>
+      <item>
+        <title>Can&#39;t Disable View Bob and Auto Aim</title>
+        <dc:creator><![CDATA[totalamd]]></dc:creator>
+        <description><![CDATA[
+            <p>BMS forgets rollangle parameter after every loading, even the first one after BMS start. Is it known issue?</p>
+          <p><a href="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/9</link>
+        <pubDate>Thu, 04 Oct 2012 10:06:53 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9904-9</guid>
+        <source url="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904.rss">Can&#39;t Disable View Bob and Auto Aim</source>
+      </item>
+      <item>
+        <title>Can&#39;t Disable View Bob and Auto Aim</title>
+        <dc:creator><![CDATA[Leijonasisu]]></dc:creator>
+        <description><![CDATA[
+            <p>You could bind up an autoexec.cfg to be run every time you start the game which will add those parameters every time you want to play.</p>
+          <p><a href="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/8</link>
+        <pubDate>Mon, 01 Oct 2012 22:02:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9904-8</guid>
+        <source url="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904.rss">Can&#39;t Disable View Bob and Auto Aim</source>
+      </item>
+      <item>
+        <title>Can&#39;t Disable View Bob and Auto Aim</title>
+        <dc:creator><![CDATA[Jenova19]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="totalamd">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/t/d78d45/40.png" class="avatar"> totalamd:</div>
+<blockquote>
+<p>Please, tell console variable responsible for ‘enable auto-aim’ and ‘enable train fail-safe’, to add its to autoexec.</p>
+</blockquote>
+</aside>
+<p><span class="bbcode-b">Enable Auto-Aim:</span></p>
+<pre><code class="lang-auto">sk_allow_autoaim 1</code></pre>
+<p><span class="bbcode-b">Note:</span> 1 to enable / 0 to disable.</p>
+<p><span class="bbcode-b">Enable Auto-Aim (<span class="bbcode-u">Optional</span>):</span></p>
+<pre><code class="lang-auto">sk_autoaim_mode 1</code></pre>
+<p><span class="bbcode-b">Note:</span> 1 to enable / 0 to disable.</p>
+<hr>
+<p><span class="bbcode-b">Enable Train Fail-Safe:</span></p>
+<pre><code class="lang-auto">sv_train_stop_owner_falloff 1</code></pre>
+<p><span class="bbcode-b">Note:</span> 1 to enable / 0 to disable.</p>
+<hr>
+<p><span class="bbcode-b">View Bob (Roll Angle):</span></p>
+<pre><code class="lang-auto">rollangle 3.5</code></pre>
+<p><span class="bbcode-b">Note:</span> Minimum = 0 (disabled); Maximum = 3.5 (highest)</p>
+<hr>
+<p>Information (Reference) about more of the CVars used in the “Black Mesa” options menu, open ‘<span class="bbcode-b">OptionsSubBlackMesa.res</span>’ located in: ‘[b]…\SteamApps\sourcemods\BMS\resource[/b]’, with a text-editor (Notepad++ or anything similiar [preferably with line-counting]).</p>
+<p><span class="bbcode-b">To spot the CVars, look for these two variables on both the left and right side:</span></p>
+<pre><code class="lang-auto">		"fieldName"			""
+		"cvar"				""</code></pre>
+          <p><a href="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/7</link>
+        <pubDate>Mon, 01 Oct 2012 20:28:30 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9904-7</guid>
+        <source url="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904.rss">Can&#39;t Disable View Bob and Auto Aim</source>
+      </item>
+      <item>
+        <title>Can&#39;t Disable View Bob and Auto Aim</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>Auto-aim seems to be broken anyway. Even with the setting on it doesn’t seem to do anything. I’ve had it mysteriously revert without my knowledge, and I didn’t realize because there isn’t any real difference.</p>
+          <p><a href="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/6</link>
+        <pubDate>Mon, 01 Oct 2012 19:18:07 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9904-6</guid>
+        <source url="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904.rss">Can&#39;t Disable View Bob and Auto Aim</source>
+      </item>
+      <item>
+        <title>Can&#39;t Disable View Bob and Auto Aim</title>
+        <dc:creator><![CDATA[totalamd]]></dc:creator>
+        <description><![CDATA[
+            <p>Please, tell console variables responsible for ‘enable auto-aim’ and ‘enable train fail-safe’, to add its to autoexec.</p>
+          <p><a href="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/5</link>
+        <pubDate>Mon, 01 Oct 2012 19:11:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9904-5</guid>
+        <source url="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904.rss">Can&#39;t Disable View Bob and Auto Aim</source>
+      </item>
+      <item>
+        <title>Can&#39;t Disable View Bob and Auto Aim</title>
+        <dc:creator><![CDATA[OCDMonkey]]></dc:creator>
+        <description><![CDATA[
+            <p>yah, a few settings (including view bob and auto aim) revert to the defaults every time you restart Black Mesa. As for the view bob:</p>
+<aside class="quote no-group" data-username="Litosns">
+<div class="title">
+<div class="quote-controls"></div>
+ Litosns:</div>
+<blockquote>
+<p>and roll (screen shake) put it to 0% and you have it</p>
+</blockquote>
+</aside>
+<p>that setting reverts on every restart too, so you will just have to reset it before playing.</p>
+          <p><a href="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/4</link>
+        <pubDate>Sun, 16 Sep 2012 20:05:23 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9904-4</guid>
+        <source url="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904.rss">Can&#39;t Disable View Bob and Auto Aim</source>
+      </item>
+      <item>
+        <title>Can&#39;t Disable View Bob and Auto Aim</title>
+        <dc:creator><![CDATA[Doltman945]]></dc:creator>
+        <description><![CDATA[
+            <p>For some reason it won’t remember your settings though, so check it each time you tsrat the game.</p>
+          <p><a href="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/3</link>
+        <pubDate>Sun, 16 Sep 2012 19:56:00 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9904-3</guid>
+        <source url="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904.rss">Can&#39;t Disable View Bob and Auto Aim</source>
+      </item>
+      <item>
+        <title>Can&#39;t Disable View Bob and Auto Aim</title>
+        <dc:creator><![CDATA[DaimeneX]]></dc:creator>
+        <description><![CDATA[
+            <p>Settings/black mesa<br>
+and there you go (every option of game)<br>
+auto run<br>
+auto aim<br>
+viewbob (only weapon  bob)<br>
+and roll (screen shake) put it to 0% and you have it</p>
+<p>Auto aim enables when game starts i dont think the same is with the screen roll</p>
+          <p><a href="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/2</link>
+        <pubDate>Sun, 16 Sep 2012 19:11:30 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9904-2</guid>
+        <source url="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904.rss">Can&#39;t Disable View Bob and Auto Aim</source>
+      </item>
+      <item>
+        <title>Can&#39;t Disable View Bob and Auto Aim</title>
+        <dc:creator><![CDATA[slingshotz06]]></dc:creator>
+        <description><![CDATA[
+            <p>Has anyone been able to disable View Bob and Auto Aim?</p>
+<p>I can’t continue playing the game with View Bob, I get really bad headaches and feel dizzy.</p>
+<p>I also can’t disable Auto Aim.</p>
+<p>Does anyone know the console commands for this?</p>
+          <p><a href="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904/1</link>
+        <pubDate>Sat, 15 Sep 2012 16:50:06 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9904-1</guid>
+        <source url="https://leakfree.org/t/cant-disable-view-bob-and-auto-aim/9904.rss">Can&#39;t Disable View Bob and Auto Aim</source>
+      </item>
+  </channel>
+</rss>

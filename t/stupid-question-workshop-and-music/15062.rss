@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Stupid Question - Workshop and music</title>
+    <link>https://leakfree.org/t/stupid-question-workshop-and-music/15062</link>
+    <description>Hi there,
+
+I&#39;m around here for a while, but I never dared to post a message. Here we are.
+
+So, my question may seem stupid (because I don&#39;t know anything about the way the Workshop works) but I just wondered : is that possible to put your custom soundtrack instead of the official one (which is real good, btw) ?
+
+The thing is : I&#39;m currently working on a more noisy/electronic/ambient/atmospheric soundtrack, more like the way the original soundtrack was. I think about more ambient soundscapes, creepier and scarier.
+Don&#39;t know if this question has already been asked, though.
+
+Consequently, I plan to post it on the workshop if it&#39;s possible (once it&#39;s finished) to let others enjoy it.
+
+Anybody knows ?
+
+Sorry if there was a topic on this matter already.</description>
+    
+    <lastBuildDate>Wed, 11 Jan 2017 14:30:28 +0000</lastBuildDate>
+    <category>The Cafeteria</category>
+    <atom:link href="https://leakfree.org/t/stupid-question-workshop-and-music/15062.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Stupid Question - Workshop and music</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <p>Yeah but forcing the user to input console commands is bad practice.<br>
+Getting them to use the console and type in map mapname is hard enough, have them input snd_restart manually and you’ll<br>
+see your comment wall spammed to death on how sounds doesn’t play.</p>
+<p>(Talking about custom maps here)</p>
+          <p><a href="https://leakfree.org/t/stupid-question-workshop-and-music/15062/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/stupid-question-workshop-and-music/15062/10</link>
+        <pubDate>Wed, 11 Jan 2017 14:30:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15062-10</guid>
+        <source url="https://leakfree.org/t/stupid-question-workshop-and-music/15062.rss">Stupid Question - Workshop and music</source>
+      </item>
+      <item>
+        <title>Stupid Question - Workshop and music</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>The user can also run the snd_restart command themselves from the console.</p>
+          <p><a href="https://leakfree.org/t/stupid-question-workshop-and-music/15062/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/stupid-question-workshop-and-music/15062/9</link>
+        <pubDate>Wed, 11 Jan 2017 13:23:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15062-9</guid>
+        <source url="https://leakfree.org/t/stupid-question-workshop-and-music/15062.rss">Stupid Question - Workshop and music</source>
+      </item>
+      <item>
+        <title>Stupid Question - Workshop and music</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <p>Small note about custom sounds for workshop that isn’t overriding old files:</p>
+<p>Sadly for custom .wavs and .oggs to work properly in workshop, you need to use a point_clientcommand, input command snd_restart</p>
+<p>This is because the game doesn’t find the sounds when the map is loaded (You’ll see plenty of red lines whining about it).<br>
+<span class="bbcode-b">This breaks ambient_generics with the Start Silent flag unchecked, as snd_restart mutes all playing sounds.</span></p>
+<p>The sounds work when placed in folder in your bms folder, but when you upload them to the steamworkshop and remove them from the bms folder, you’ll see the errors.</p>
+          <p><a href="https://leakfree.org/t/stupid-question-workshop-and-music/15062/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/stupid-question-workshop-and-music/15062/8</link>
+        <pubDate>Wed, 11 Jan 2017 04:00:13 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15062-8</guid>
+        <source url="https://leakfree.org/t/stupid-question-workshop-and-music/15062.rss">Stupid Question - Workshop and music</source>
+      </item>
+      <item>
+        <title>Stupid Question - Workshop and music</title>
+        <dc:creator><![CDATA[Hox3D]]></dc:creator>
+        <description><![CDATA[
+            <p>All right, got it now.<br>
+Thanks a lot.</p>
+<p>Well, I guess I got to work on the tracks right now.<br>
+I’ll try to give you some samples/examples of the kind of stuff I’m talking about sometime soon.</p>
+<p>See ya around there !</p>
+          <p><a href="https://leakfree.org/t/stupid-question-workshop-and-music/15062/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/stupid-question-workshop-and-music/15062/7</link>
+        <pubDate>Wed, 11 Jan 2017 00:33:23 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15062-7</guid>
+        <source url="https://leakfree.org/t/stupid-question-workshop-and-music/15062.rss">Stupid Question - Workshop and music</source>
+      </item>
+      <item>
+        <title>Stupid Question - Workshop and music</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>There are a couple of different things in Black Mesa that play sounds- the ones you seem interested in are ambient_generic entities, which play specific sound effects at specific times (including music tracks) and soundscape entities which play general background noises (like clanks and rumbles underground, distant gunfire topside, and sloshing water in flooded rooms) that don’t have one specific cue. Both reference outside sound files- if you change the files in question, every instance of the old sound will (<span class="bbcode-i">in theory</span>- see below) be replaced with the new one.</p>
+<p>Ambient_generics reference an actual .wav file, by name. Since most music tracks are played in only one place, you can just name your new music to the old name and it will (hopefully) replace the music that plays without having to touch any of the maps. Given that there are a few people who have released soundtrack mods as is, this seems to work. However, if you wanted to create <span class="bbcode-i">new</span> music that plays where nothing played before, you would indeed need to edit the maps.</p>
+<p>Soundscapes are more complicated. They too reference files that tell them what to play, but these are text-based and written in an odd sort of scripting language- it’s not hard to learn, but Black Mesa is terribly buggy about accepting modded content that uses these scripts. <span class="bbcode-i">In theory</span> if you changed one of the scripts the background noise in certain areas would change, but be aware that a lot of different places have the same soundscript referenced and changing one may change other areas you don’t expect. If you wanted to change the soundscape in one specific area to something else without affecting others, <span class="bbcode-i">or</span> wanted to add subsections of completely new background noises, you would need to alter the maps themselves.</p>
+          <p><a href="https://leakfree.org/t/stupid-question-workshop-and-music/15062/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/stupid-question-workshop-and-music/15062/6</link>
+        <pubDate>Tue, 10 Jan 2017 23:25:38 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15062-6</guid>
+        <source url="https://leakfree.org/t/stupid-question-workshop-and-music/15062.rss">Stupid Question - Workshop and music</source>
+      </item>
+      <item>
+        <title>Stupid Question - Workshop and music</title>
+        <dc:creator><![CDATA[Hox3D]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Admiral Sakai">
+<div class="title">
+<div class="quote-controls"></div>
+ Admiral Sakai:</div>
+<blockquote>
+<p>Soundscapes, and anything else in the Scripts folder for that matter, can be very difficult to replace. You may not be able to replace canonical ones, or add new ones at all.</p>
+</blockquote>
+</aside>
+<p>Okay, you answered the question I just asked.<br>
+When I was using Hammer, I learned about entities which play sounds (I think they are called ambient, if I remember well). Why are tracks or other ambient sounds not triggered by such entities, as you say this is a script ?</p>
+          <p><a href="https://leakfree.org/t/stupid-question-workshop-and-music/15062/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/stupid-question-workshop-and-music/15062/5</link>
+        <pubDate>Tue, 10 Jan 2017 23:10:06 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15062-5</guid>
+        <source url="https://leakfree.org/t/stupid-question-workshop-and-music/15062.rss">Stupid Question - Workshop and music</source>
+      </item>
+      <item>
+        <title>Stupid Question - Workshop and music</title>
+        <dc:creator><![CDATA[Hox3D]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for theses replies.</p>
+<p>I currently only plan to change the original soundtrack, not the ambient sound.<br>
+So I guess the only way is to try and see. I was thinking about change it directly .gcf (or .vpk now) files but I wondered if it would work.</p>
+<p>About additional sounds : I guess I would need to re-compile maps (which is, I think, simply not possible) to add triggers to add more tracks during game ?<br>
+Or is there a trickshot of death to force the game playing a given track at a given moment ?</p>
+          <p><a href="https://leakfree.org/t/stupid-question-workshop-and-music/15062/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/stupid-question-workshop-and-music/15062/4</link>
+        <pubDate>Tue, 10 Jan 2017 23:05:36 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15062-4</guid>
+        <source url="https://leakfree.org/t/stupid-question-workshop-and-music/15062.rss">Stupid Question - Workshop and music</source>
+      </item>
+      <item>
+        <title>Stupid Question - Workshop and music</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>While I like the idea, there are some standing technical issues that we’ve been trying to get the BM team to resolve which may affect a mod like this:</p>
+<ul>
+<li>
+<span class="bbcode-i">In theory</span>, just giving your music the same titles as the originals and putting it in an analogous file system will get it to replace- however, I have not tried this myself and some assets are weirdly resistant to replacement.</li>
+<li>Soundscapes, and anything else in the Scripts folder for that matter, can be very difficult to replace. You may not be able to replace canonical ones, or add new ones at all.</li>
+<li>Players may or may not need to use snd_restart to actually cause the mod to run.<br>
+EDIT: Ninja’d. It’s also notable that you can open and recompress vpks just by dragging the vpk (or the folder produced) over vpk.exe in the bin folder of your game directory.</li>
+</ul>
+          <p><a href="https://leakfree.org/t/stupid-question-workshop-and-music/15062/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/stupid-question-workshop-and-music/15062/3</link>
+        <pubDate>Tue, 10 Jan 2017 21:57:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15062-3</guid>
+        <source url="https://leakfree.org/t/stupid-question-workshop-and-music/15062.rss">Stupid Question - Workshop and music</source>
+      </item>
+      <item>
+        <title>Stupid Question - Workshop and music</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p>Totally possible.</p>
+<p>You’ll need <a href="https://nemesis.thewavelength.net/?p=26" data-bbcode="true" rel="nofollow noopener">gcfscape</a> to crack open the <span class="bbcode-b">bms_sounds_misc_dir.vpk</span> file in order to get the right file names for the music (under sound/music/) you want to replace so it works ingame, then convert the music you’re replacing it with into .ogg format.<br>
+Like other content, your custom music will probably have to be in a vpk for it to work. Just follow <a href="https://forums.blackmesasource.com/index.php/Thread/28820-Black-Mesa-Mod-Publishing-tool-Guide-How-use-and-edit-workshop-submissions/" data-bbcode="true" rel="nofollow noopener">this guide</a> to do that.</p>
+          <p><a href="https://leakfree.org/t/stupid-question-workshop-and-music/15062/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/stupid-question-workshop-and-music/15062/2</link>
+        <pubDate>Tue, 10 Jan 2017 21:54:10 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15062-2</guid>
+        <source url="https://leakfree.org/t/stupid-question-workshop-and-music/15062.rss">Stupid Question - Workshop and music</source>
+      </item>
+      <item>
+        <title>Stupid Question - Workshop and music</title>
+        <dc:creator><![CDATA[Hox3D]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi there,</p>
+<p>I’m around here for a while, but I never dared to post a message. Here we are.</p>
+<p>So, my question may seem stupid (because I don’t know anything about the way the Workshop works) but I just wondered : is that possible to put your custom soundtrack instead of the official one (which is real good, btw) ?</p>
+<p>The thing is : I’m currently working on a more noisy/electronic/ambient/atmospheric soundtrack, more like the way the original soundtrack was. I think about more ambient soundscapes, creepier and scarier.<br>
+Don’t know if this question has already been asked, though.</p>
+<p>Consequently, I plan to post it on the workshop if it’s possible (once it’s finished) to let others enjoy it.</p>
+<p>Anybody knows ?</p>
+<p>Sorry if there was a topic on this matter already.</p>
+          <p><a href="https://leakfree.org/t/stupid-question-workshop-and-music/15062/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/stupid-question-workshop-and-music/15062/1</link>
+        <pubDate>Tue, 10 Jan 2017 21:45:30 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15062-1</guid>
+        <source url="https://leakfree.org/t/stupid-question-workshop-and-music/15062.rss">Stupid Question - Workshop and music</source>
+      </item>
+  </channel>
+</rss>

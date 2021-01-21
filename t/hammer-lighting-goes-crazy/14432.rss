@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Hammer - Lighting goes crazy</title>
+    <link>https://leakfree.org/t/hammer-lighting-goes-crazy/14432</link>
+    <description>Hi, so I&#39;ve decided to start working on a project of editing the sound cues in Black Mesa, and so far so good. On my first attempt, I changed the trigger for the first track in UC to play as soon as you open your eyes.
+
+It worked when I opted to &quot;run map&quot; in the hammer editor just fine, so I thought to try it out in the main game. When loading the map in &quot;new game - UC,&quot; howver, every object looks bright as hell, metallic too.
+
+I didn&#39;t touch anything else in hammer... so if anyone can gimme some advice here that would be great.
+
+[img]https://images.akamai.steamusercontent.com/ugc/391043371307023904/EB3609677DA6369FB3A58013C1A51549499C5576/[/img]
+[img]https://images.akamai.steamusercontent.com/ugc/391043371307024570/AEFF4CAB978D136FFCD8AD7F2F2C7BC28F4DC7BD/[/img]</description>
+    
+    <lastBuildDate>Fri, 09 Oct 2015 12:38:17 +0000</lastBuildDate>
+    <category>Black Mesa</category>
+    <atom:link href="https://leakfree.org/t/hammer-lighting-goes-crazy/14432.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Hammer - Lighting goes crazy</title>
+        <dc:creator><![CDATA[fury]]></dc:creator>
+        <description><![CDATA[
+            <p>Hmm ok. Thx for info  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/hammer-lighting-goes-crazy/14432/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hammer-lighting-goes-crazy/14432/7</link>
+        <pubDate>Fri, 09 Oct 2015 12:38:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14432-7</guid>
+        <source url="https://leakfree.org/t/hammer-lighting-goes-crazy/14432.rss">Hammer - Lighting goes crazy</source>
+      </item>
+      <item>
+        <title>Hammer - Lighting goes crazy</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>In game - load the map, then type:</p>
+<p>buildcubemaps</p>
+<p>into the console.</p>
+<p>If your problem is that this doesn’t work for some reason, try restarting the map after you’ve built them. Using the map “mapname” command. This normally solves the issue. I always manually reload the map after a cubemap build, just as a force of habit.</p>
+<p>The cubemaps have to be rebuilt every time the map is recompiled.</p>
+          <p><a href="https://leakfree.org/t/hammer-lighting-goes-crazy/14432/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hammer-lighting-goes-crazy/14432/6</link>
+        <pubDate>Fri, 09 Oct 2015 11:01:22 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14432-6</guid>
+        <source url="https://leakfree.org/t/hammer-lighting-goes-crazy/14432.rss">Hammer - Lighting goes crazy</source>
+      </item>
+      <item>
+        <title>Hammer - Lighting goes crazy</title>
+        <dc:creator><![CDATA[fury]]></dc:creator>
+        <description><![CDATA[
+            <p>Which commands do I have to use to build and save cubemaps into my files? Somehow my cubemaps never saved…</p>
+          <p><a href="https://leakfree.org/t/hammer-lighting-goes-crazy/14432/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hammer-lighting-goes-crazy/14432/5</link>
+        <pubDate>Fri, 09 Oct 2015 10:43:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14432-5</guid>
+        <source url="https://leakfree.org/t/hammer-lighting-goes-crazy/14432.rss">Hammer - Lighting goes crazy</source>
+      </item>
+      <item>
+        <title>Hammer - Lighting goes crazy</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>You want to compile with ONLY HDR. Definitely don’t turn HDR off.</p>
+<p>This happens because of cubemaps, usually. Notice how it’s only happening to the objects which would be metallic/shiny to some degree? Build them, and the problem should go away. I had this happen on Gasworks quite a lot in early development (you can even see it on some of my dev blog screenshots).</p>
+          <p><a href="https://leakfree.org/t/hammer-lighting-goes-crazy/14432/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hammer-lighting-goes-crazy/14432/4</link>
+        <pubDate>Thu, 08 Oct 2015 07:10:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14432-4</guid>
+        <source url="https://leakfree.org/t/hammer-lighting-goes-crazy/14432.rss">Hammer - Lighting goes crazy</source>
+      </item>
+      <item>
+        <title>Hammer - Lighting goes crazy</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>I don’t see any reason why checking the HDR option would cause this problem. In fact, unchecking HDR is probably not what you want, since that disables HDR lighting and defaults the map to LDR lighting, which hasn’t been the default since like Half-Life 2.</p>
+<p>All maps in Black Mesa are compiled with HDR by default (and ONLY HDR… LDR is completely disabled for all stock maps). You may want to look into the root of the issue instead of sidestepping it entirely.</p>
+          <p><a href="https://leakfree.org/t/hammer-lighting-goes-crazy/14432/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hammer-lighting-goes-crazy/14432/3</link>
+        <pubDate>Thu, 08 Oct 2015 04:55:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14432-3</guid>
+        <source url="https://leakfree.org/t/hammer-lighting-goes-crazy/14432.rss">Hammer - Lighting goes crazy</source>
+      </item>
+      <item>
+        <title>Hammer - Lighting goes crazy</title>
+        <dc:creator><![CDATA[RageMaker]]></dc:creator>
+        <description><![CDATA[
+            <p>Solved the lighting issue, I had  HDR checked when compiling</p>
+          <p><a href="https://leakfree.org/t/hammer-lighting-goes-crazy/14432/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hammer-lighting-goes-crazy/14432/2</link>
+        <pubDate>Wed, 07 Oct 2015 21:26:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14432-2</guid>
+        <source url="https://leakfree.org/t/hammer-lighting-goes-crazy/14432.rss">Hammer - Lighting goes crazy</source>
+      </item>
+      <item>
+        <title>Hammer - Lighting goes crazy</title>
+        <dc:creator><![CDATA[RageMaker]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi, so I’ve decided to start working on a project of editing the sound cues in Black Mesa, and so far so good. On my first attempt, I changed the trigger for the first track in UC to play as soon as you open your eyes.</p>
+<p>It worked when I opted to “run map” in the hammer editor just fine, so I thought to try it out in the main game. When loading the map in “new game - UC,” howver, every object looks bright as hell, metallic too.</p>
+<p>I didn’t touch anything else in hammer… so if anyone can gimme some advice here that would be great.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://images.akamai.steamusercontent.com/ugc/391043371307023904/EB3609677DA6369FB3A58013C1A51549499C5576/" title="" rel="nofollow noopener"><img src="https://images.akamai.steamusercontent.com/ugc/391043371307023904/EB3609677DA6369FB3A58013C1A51549499C5576/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://images.akamai.steamusercontent.com/ugc/391043371307024570/AEFF4CAB978D136FFCD8AD7F2F2C7BC28F4DC7BD/" title="" rel="nofollow noopener"><img src="https://images.akamai.steamusercontent.com/ugc/391043371307024570/AEFF4CAB978D136FFCD8AD7F2F2C7BC28F4DC7BD/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+          <p><a href="https://leakfree.org/t/hammer-lighting-goes-crazy/14432/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hammer-lighting-goes-crazy/14432/1</link>
+        <pubDate>Wed, 07 Oct 2015 21:17:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14432-1</guid>
+        <source url="https://leakfree.org/t/hammer-lighting-goes-crazy/14432.rss">Hammer - Lighting goes crazy</source>
+      </item>
+  </channel>
+</rss>

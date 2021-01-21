@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>NPCs and Swing Doors</title>
+    <link>https://leakfree.org/t/npcs-and-swing-doors/15117</link>
+    <description>In a few isolated instances, I have seen scientist and security NPCs open use-to-open-based swing doors while attempting to get from one area to another. However, I have not been reliably able to replicate this.
+
+As the latest release of OCPD is planned to feature a few isolated prototypes of NPCs that actually move around the level, I would be interested in finding out if there was a way to make swing doors like those in Office Complex reliably openable by npc_human_scientist and npc_human_security as they move from place to place to perform scripted sequences. I am fairly sure there is a way to do it [i]through[/i] scripted sequences, but each door would require complicated logic to run different scripts if it is open or closed and even more complicated logic to make this method applicable to every NPC on the map as opposed to a specific named one.</description>
+    
+    <lastBuildDate>Wed, 29 Mar 2017 20:37:29 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/npcs-and-swing-doors/15117.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>NPCs and Swing Doors</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>Also, don’t forget to put in info_node_hint set to Entrance/Exit Pinch, this will help resolve issues with the AI bunching up on a door and not going through. The official wiki says to avoid having combat around doors if possible, and to use scripts or assaults when things like room clearing are necessary.</p>
+          <p><a href="https://leakfree.org/t/npcs-and-swing-doors/15117/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npcs-and-swing-doors/15117/5</link>
+        <pubDate>Wed, 29 Mar 2017 20:37:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15117-5</guid>
+        <source url="https://leakfree.org/t/npcs-and-swing-doors/15117.rss">NPCs and Swing Doors</source>
+      </item>
+      <item>
+        <title>NPCs and Swing Doors</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Yeah, I meant prop_door_rotating. I’ve been having a hard time coercing NPCs to move across hint nodes under their own power, though, and they <span class="bbcode-i">definitely</span> will not use them when moving to a scripted scene.</p>
+<p>The problem with logic-based and scripting-based approaches is that they can get rather complicated if the door is one players can open arbitrarily, as that requires at the very least enabling and disabling scripted sequences. I <span class="bbcode-i">might</span> have better luck with less override-based NPC controllers to get them to move around, though. Stuff like scripted sentences, etc. I’ll see what happens when I get home from work.</p>
+<p>UPDATE: Looks like scripted schedules don’t show the desired behavior either.  NPCs will shuffle around for a while and then stand in front of doors without opening them. That said, I <span class="bbcode-i">may</span> be able to get better results with, in the case of double doors, two hint nodes per door.</p>
+          <p><a href="https://leakfree.org/t/npcs-and-swing-doors/15117/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npcs-and-swing-doors/15117/4</link>
+        <pubDate>Tue, 28 Mar 2017 22:34:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15117-4</guid>
+        <source url="https://leakfree.org/t/npcs-and-swing-doors/15117.rss">NPCs and Swing Doors</source>
+      </item>
+      <item>
+        <title>NPCs and Swing Doors</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>There’s a few entities in base that can do this or can be made to do this.</p>
+<p><a href="https://developer.valvesoftware.com/wiki/Func_lookdoor" data-bbcode="true" rel="nofollow noopener">https://developer.valvesoftware.com/wiki/Func_lookdoor</a><br>
+This could be hooked up to respond to NPCs in theory, perhaps with a filter_activator_class to ensure only the right NPCs trigger it.</p>
+<p>I think there’s some kind of entity specifically designed to grab an NPC and make them use an object that isn’t scripted_sequence. I’ll update this post when I can verify this at home.</p>
+<p>Scripted_sequence could also work, but this would not be AI-driven and require taking the NPC out of AI to force them to open the door with an animation.</p>
+          <p><a href="https://leakfree.org/t/npcs-and-swing-doors/15117/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npcs-and-swing-doors/15117/3</link>
+        <pubDate>Tue, 28 Mar 2017 20:08:24 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15117-3</guid>
+        <source url="https://leakfree.org/t/npcs-and-swing-doors/15117.rss">NPCs and Swing Doors</source>
+      </item>
+      <item>
+        <title>NPCs and Swing Doors</title>
+        <dc:creator><![CDATA[Snaiper]]></dc:creator>
+        <description><![CDATA[
+            <p>I know that one of the ways to do it would be with an NPC-only trigger that opens the door when NPC enters it and closes when NPC exits it (so -&gt; trigger_multiple).</p>
+<p>Another way I can think of is having a scripted_sequence that plays animation of door opening in front of the door, which also triggers the door opening with a custom delay or on animation end.</p>
+<p>However, there is also another entity: hint node. Hint node with type of “Enter/exit pinch” should work in the doorway.</p>
+<p>Now, I am not sure what exactly do you mean by “swing doors”? Do you mean prop_door_rotating or do you mean physics-based door that are opened by momentum (traveling/pushing through them)? If it’s the former, then all of those should work, in fact, if NPC’s programming allows it to open doors, none of it should be needed. In case of latter, I think the last one might work.</p>
+<p>Because, I don’t recall any doors in Office Complex other than the standard prop_door_rotating.</p>
+          <p><a href="https://leakfree.org/t/npcs-and-swing-doors/15117/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npcs-and-swing-doors/15117/2</link>
+        <pubDate>Tue, 28 Mar 2017 19:52:25 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15117-2</guid>
+        <source url="https://leakfree.org/t/npcs-and-swing-doors/15117.rss">NPCs and Swing Doors</source>
+      </item>
+      <item>
+        <title>NPCs and Swing Doors</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>In a few isolated instances, I have seen scientist and security NPCs open use-to-open-based swing doors while attempting to get from one area to another. However, I have not been reliably able to replicate this.</p>
+<p>As the latest release of OCPD is planned to feature a few isolated prototypes of NPCs that actually move around the level, I would be interested in finding out if there was a way to make swing doors like those in Office Complex reliably openable by npc_human_scientist and npc_human_security as they move from place to place to perform scripted sequences. I am fairly sure there is a way to do it <span class="bbcode-i">through</span> scripted sequences, but each door would require complicated logic to run different scripts if it is open or closed and even more complicated logic to make this method applicable to every NPC on the map as opposed to a specific named one.</p>
+          <p><a href="https://leakfree.org/t/npcs-and-swing-doors/15117/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npcs-and-swing-doors/15117/1</link>
+        <pubDate>Sun, 12 Mar 2017 13:33:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15117-1</guid>
+        <source url="https://leakfree.org/t/npcs-and-swing-doors/15117.rss">NPCs and Swing Doors</source>
+      </item>
+  </channel>
+</rss>

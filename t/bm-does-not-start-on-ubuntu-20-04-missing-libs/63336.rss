@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>BM does not start on Ubuntu 20.04 - missing libs</title>
+    <link>https://leakfree.org/t/bm-does-not-start-on-ubuntu-20-04-missing-libs/63336</link>
+    <description>After upgrading to Kubuntu to 20.04 and BM to latest stable version as of now (unfortunately I upgraded both at the same time) BM does not start from Steam UI at all, and from bm.sh reports missing libraries. After manually installing some libraries, game progressed to main menu but still crashed on loading &quot;new game&quot;.
+BM is supposed to contain all libraries it needs, (since it is 32 bit, and mostly run on 64 bin Linux) and so far mostly did (except old problems with libstdc++.so.6)
+Following libs are missing:
+
+libopenal1
+libsndio7.0
+libasound2
+libtier0.so
+libfontconfig.so.1
+libfreetype.so.6
+... and many more. Root supplied libraries with missing dependencies seem to be engine.so and vguimatsurface.so
+
+
+CC, kindly fix it as a critical issue as that looks like is affecting everyone on Ubuntu 20.04 (these libs do not come preinstalled in 32 bit versions anymore?)
+
+Typical message reporting missing lib:
+XXX: resource creation failed
+XXX: resource creation failed
+XXX: resource creation failed
+XXX: resource creation failed
+ALSA lib pcm.c:8526:(snd_pcm_recover) underrun occurred
+ALSA lib pcm.c:8526:(snd_pcm_recover) underrun occurred
+crash_20200628014737_1.dmp[5820]: Uploading dump (out-of-process)
+/tmp/dumps/crash_20200628014737_1.dmp
+crash_20200628014737_1.dmp[5820]: Finished uploading minidump (out-of-process): success = no
+crash_20200628014737_1.dmp[5820]: error: libnghttp2.so.14: cannot open shared object file: No such file or directory
+crash_20200628014737_1.dmp[5820]: file &#39;&#39;/tmp/dumps/crash_20200628014737_1.dmp&#39;&#39;, upload no: &#39;&#39;libnghttp2.so.14: cannot open shared object file: No such file or directory&#39;&#39;
+./bms.sh: line 74:  5782 Segmentation fault      (core dumped) ${GAME_DEBUGGER} &quot;${GAMEROOT}&quot;/${GAMEEXE} &quot;$@&quot;
+
+I keep losing patience downloading these libs manually, which seems to be your job, right?</description>
+    
+    <lastBuildDate>Sun, 28 Jun 2020 16:53:52 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/bm-does-not-start-on-ubuntu-20-04-missing-libs/63336.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>BM does not start on Ubuntu 20.04 - missing libs</title>
+        <dc:creator><![CDATA[CPU]]></dc:creator>
+        <description><![CDATA[
+            <p>The community has moved to Discord.<br>
+Join us here <a href="https://discord.gg/KpBDTqm">https://discord.gg/KpBDTqm </a> and ask your questions in the appropriate channel.</p>
+          <p><a href="https://leakfree.org/t/bm-does-not-start-on-ubuntu-20-04-missing-libs/63336/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bm-does-not-start-on-ubuntu-20-04-missing-libs/63336/2</link>
+        <pubDate>Sun, 28 Jun 2020 16:53:52 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-63336-2</guid>
+        <source url="https://leakfree.org/t/bm-does-not-start-on-ubuntu-20-04-missing-libs/63336.rss">BM does not start on Ubuntu 20.04 - missing libs</source>
+      </item>
+      <item>
+        <title>BM does not start on Ubuntu 20.04 - missing libs</title>
+        <dc:creator><![CDATA[dino]]></dc:creator>
+        <description><![CDATA[
+            <p>After upgrading to Kubuntu to 20.04 and BM to latest stable version as of now (unfortunately I upgraded both at the same time) BM does not start from Steam UI at all, and from bm.sh reports missing libraries. After manually installing some libraries, game progressed to main menu but still crashed on loading “new game”.<br>
+BM is supposed to contain all libraries it needs, (since it is 32 bit, and mostly run on 64 bin Linux) and so far mostly did (except old problems with libstdc++.so.6)<br>
+Following libs are missing:</p>
+<p>libopenal1<br>
+libsndio7.0<br>
+libasound2<br>
+libtier0.so<br>
+libfontconfig.so.1<br>
+libfreetype.so.6<br>
+… and many more. Root supplied libraries with missing dependencies seem to be engine.so and vguimatsurface.so</p>
+<p>CC, kindly fix it as a critical issue as that looks like is affecting everyone on Ubuntu 20.04 (these libs do not come preinstalled in 32 bit versions anymore?)</p>
+<p>Typical message reporting missing lib:<br>
+XXX: resource creation failed<br>
+XXX: resource creation failed<br>
+XXX: resource creation failed<br>
+XXX: resource creation failed<br>
+ALSA lib pcm.c:8526:(snd_pcm_recover) underrun occurred<br>
+ALSA lib pcm.c:8526:(snd_pcm_recover) underrun occurred<br>
+crash_20200628014737_1.dmp[5820]: Uploading dump (out-of-process)<br>
+/tmp/dumps/crash_20200628014737_1.dmp<br>
+crash_20200628014737_1.dmp[5820]: Finished uploading minidump (out-of-process): success = no<br>
+crash_20200628014737_1.dmp[5820]: error: libnghttp2.so.14: cannot open shared object file: No such file or directory<br>
+crash_20200628014737_1.dmp[5820]: file ‘’/tmp/dumps/crash_20200628014737_1.dmp’’, upload no: ‘‘libnghttp2.so.14: cannot open shared object file: No such file or directory’’<br>
+./bms.sh: line 74:  5782 Segmentation fault      (core dumped) ${GAME_DEBUGGER} “${GAMEROOT}”/${GAMEEXE} “$@”</p>
+<p>I keep losing patience downloading these libs manually, which seems to be your job, right?</p>
+          <p><a href="https://leakfree.org/t/bm-does-not-start-on-ubuntu-20-04-missing-libs/63336/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bm-does-not-start-on-ubuntu-20-04-missing-libs/63336/1</link>
+        <pubDate>Sun, 28 Jun 2020 01:17:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-63336-1</guid>
+        <source url="https://leakfree.org/t/bm-does-not-start-on-ubuntu-20-04-missing-libs/63336.rss">BM does not start on Ubuntu 20.04 - missing libs</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Black mesa:How would i get a working train</title>
+    <link>https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945</link>
+    <description>So i was playing on a rail uncut mod then i tought that i would like to make a map with trains like on a rail uncut. so dose anyone know how to get the train and how you would do the track</description>
+    
+    <lastBuildDate>Wed, 02 Nov 2016 21:27:03 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Black mesa:How would i get a working train</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>The actual map is fairly small, considering. Will do.<br>
+Evidently not small enough to actually attach the full map. Rip. I’ll cut out the relevant bits and pray the filesize is small enough.<br>
+So on a whim I compiled the cut elements and wouldn’t you know it, there’s no problem with the underlying logic! Everything is scrolling as intended there. I think the cause therefore is some kind of physics conflict with existing world geometry built on top of the scrolling elements. There’s still a bit of weirdness in the compiled map though- the cloud layer still isn’t seamless but I might try that texture thing. I’ll still send it over so you can see if it looks right.</p>
+<p>CRAP it’s still too large- even just the bridge elements push the size to 1.2MB. Screw this, I’ll upload it to dropbox or something.</p>
+          <p><a href="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/21">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/21</link>
+        <pubDate>Wed, 02 Nov 2016 21:27:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14945-21</guid>
+        <source url="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945.rss">Black mesa:How would i get a working train</source>
+      </item>
+      <item>
+        <title>Black mesa:How would i get a working train</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <p>Cut it out of the map and PM me the .vmf and I could take a look at it.</p>
+          <p><a href="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/20</link>
+        <pubDate>Wed, 02 Nov 2016 13:40:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14945-20</guid>
+        <source url="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945.rss">Black mesa:How would i get a working train</source>
+      </item>
+      <item>
+        <title>Black mesa:How would i get a working train</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>Alright, my bridge is having problems. Parts seem to get hung up somehow and I’m having a hell of a time troubleshooting it.</p>
+          <p><a href="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/19</link>
+        <pubDate>Wed, 02 Nov 2016 08:16:41 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14945-19</guid>
+        <source url="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945.rss">Black mesa:How would i get a working train</source>
+      </item>
+      <item>
+        <title>Black mesa:How would i get a working train</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>God, I’ve been using the SDK for a decade and I’ve never seen this entity used before. I tracked down the map from the old examples that shipped with the editor in sdk_d1_trainstation_05 and found material_modify_control.<br>
+Name ModifyFrame<br>
+Material to modify- models/props_lab/eyescanner_disp<br>
+Material variable to modify- $frame</p>
+<p>Six inputs- three reserved for the player trying to use Kleiner’s eyescanner and failing, three for Kleiner’s scrpted scene where he submits his eyes to the scanner and unlocks it. Hoo boy. I had always thought the game had that as three skins for the eye scanner prop, not a separate texture.</p>
+<p>So what I’d need to make this entity do is make a huge brush in the skybox with the texture nature/forest_clouds001a scroll in one direction to represent movement perpetually. I also need the ability to hide the brush or change it’s scrolling direction if the direction of movement in the level changes. My current plan is that the main playable portion of the level is the player fighting their way along the train against enemy forces to the second car, housing the train’s automated controls. The player activates a virus that takes over the train’s computer and diverts it onto another track., letting go the previous cars in the process. I will probably be using two separate instances of the car the player is in- when the virus infects the computer, it causes a power surge and blacks out the car, exploding a lamp. I will probably black out the player’s screen momentarily to mask the transition to the second instance of the car, where the rest of the train is represented as brushes and props parented together to be let go as the train transfers to a second track. Since Source doesn’t support multiple skyboxes, if I want the scrolling sky to be in the skybox, it would have to be changeable on the fly to fit the change in direction of the train.</p>
+<p>Come to think of it, I could have used something like this to make the train track material scroll to further exaggerate the feel of motion. How have I not seen this entity before?!?</p>
+          <p><a href="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/18</link>
+        <pubDate>Sun, 30 Oct 2016 22:25:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14945-18</guid>
+        <source url="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945.rss">Black mesa:How would i get a working train</source>
+      </item>
+      <item>
+        <title>Black mesa:How would i get a working train</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p>It’s one of the material proxies - Texturescroll</p>
+<p>Here’s an example from one of the BM conveyor materials-</p>
+<p><code>	"Proxies"	
+        {
+		"TextureScroll"
+		{
+	        "texturescrollvar"
+                "$baseTextureTransform"
+		"texturescrollrate" 0.98
+		"texturescrollangle" -90.00
+		}
+         }</code>You can also put in a duplicate of this using  <span class="bbcode-b">“$bumptransform”</span> to scroll a normal map.</p>
+<p>I’m <span class="bbcode-i">fairly</span> sure that this will make it automatic ingame, unlike a few other proxies like the one used in eyescanner in Kleiner’s lab in HL2.</p>
+          <p><a href="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/17</link>
+        <pubDate>Sun, 30 Oct 2016 15:15:53 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14945-17</guid>
+        <source url="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945.rss">Black mesa:How would i get a working train</source>
+      </item>
+      <item>
+        <title>Black mesa:How would i get a working train</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>How do you do a scrolling material? Does that need to be in the texture data? Or can an entity hack it?</p>
+          <p><a href="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/16</link>
+        <pubDate>Sun, 30 Oct 2016 07:15:39 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14945-16</guid>
+        <source url="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945.rss">Black mesa:How would i get a working train</source>
+      </item>
+      <item>
+        <title>Black mesa:How would i get a working train</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p>You could possibly do the cloud layer as just a scrolling material in the 3D skybox.</p>
+          <p><a href="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/15</link>
+        <pubDate>Fri, 28 Oct 2016 14:26:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14945-15</guid>
+        <source url="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945.rss">Black mesa:How would i get a working train</source>
+      </item>
+      <item>
+        <title>Black mesa:How would i get a working train</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>The train itself right now is static world geometry and the track moves on a loop below it. It’s quite good looking!<br>
+However, I’m trying to add a scrolling cloud layer above the map to match. When it’s scrolling properly, it actually approaches looking decent once I fix the texture lines, but for some reason I keep seeing a gap in my train so suddenly there’s no cloud for a few seconds. Can’t really figure out why.</p>
+          <p><a href="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/14</link>
+        <pubDate>Fri, 28 Oct 2016 09:34:06 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14945-14</guid>
+        <source url="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945.rss">Black mesa:How would i get a working train</source>
+      </item>
+      <item>
+        <title>Black mesa:How would i get a working train</title>
+        <dc:creator><![CDATA[Morloc]]></dc:creator>
+        <description><![CDATA[
+            <p>Have the train stationary and just move the background… you’ll have way more control over things</p>
+          <p><a href="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/13</link>
+        <pubDate>Fri, 28 Oct 2016 09:01:44 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14945-13</guid>
+        <source url="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945.rss">Black mesa:How would i get a working train</source>
+      </item>
+      <item>
+        <title>Black mesa:How would i get a working train</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>A few meaning <span class="bbcode-i">22 separate pieces all moving in tandem.<br>
+</span><br>
+I feel quite clever for pulling that off.</p>
+          <p><a href="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/12</link>
+        <pubDate>Fri, 28 Oct 2016 08:54:07 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14945-12</guid>
+        <source url="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945.rss">Black mesa:How would i get a working train</source>
+      </item>
+      <item>
+        <title>Black mesa:How would i get a working train</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p>I seem to recall a few goldsource maps that did that, as well as a few others on various engines.</p>
+<p>You could also have that add variation by making a few extra landscape sections and randomly swapping them.</p>
+          <p><a href="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/11</link>
+        <pubDate>Thu, 27 Oct 2016 18:05:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14945-11</guid>
+        <source url="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945.rss">Black mesa:How would i get a working train</source>
+      </item>
+      <item>
+        <title>Black mesa:How would i get a working train</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>Or, I could split up the prop into several, have them mapped to trains in sequence, and loop it that way with a z clip to mask the ends.</p>
+          <p><a href="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/10</link>
+        <pubDate>Thu, 27 Oct 2016 17:07:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14945-10</guid>
+        <source url="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945.rss">Black mesa:How would i get a working train</source>
+      </item>
+      <item>
+        <title>Black mesa:How would i get a working train</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>I think you’re sort of running up against the fundamental limitations of the Source Engine here, in that I don’t think teleporting things was ever designed to be seamless. One thing you might try is having two train models that the player is teleported back and forth <span class="bbcode-i">between</span>, so that the train itself is not teleported. Then, have the one the player is not currently on move from the end of the level to the beginning outside of the player’s view, and repeat when the player is off the first train and <span class="bbcode-i">it</span> reaches the end.</p>
+          <p><a href="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/9</link>
+        <pubDate>Thu, 27 Oct 2016 12:07:25 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14945-9</guid>
+        <source url="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945.rss">Black mesa:How would i get a working train</source>
+      </item>
+      <item>
+        <title>Black mesa:How would i get a working train</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>I have a train related question as well. I’m currently attempting to set a level on a moving train for at least part of the level, so I tried to set up the bridge the train is traveling on as a repeating loop of a func_tracktrain. However, when doing the reset of the loop and teleporting back, the whole model “jumps” a bit before resetting. I’ve gotten the timing of the actual movements of the bridge on a good loop, but no matter how close together it looks, or how much I modify the bridge’s look, there’s still a strange visual glitch when the train resets. Anyone have any insight on a fix or an alternative strategy?</p>
+          <p><a href="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/8</link>
+        <pubDate>Thu, 27 Oct 2016 10:39:48 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14945-8</guid>
+        <source url="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945.rss">Black mesa:How would i get a working train</source>
+      </item>
+      <item>
+        <title>Black mesa:How would i get a working train</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p><a href="https://developer.valvesoftware.com/wiki/Trains" data-bbcode="true" rel="nofollow noopener">The VDC has you covered</a> - combine the info there with the prop_oar_tram_awesome entity*. As for the track, it’s mainly a collection of prop_statics using the rail model set, and some brushwork for the sides.</p>
+<p>*IIRC that’s what it’s called. I don’t have a either version of BM on this machine to check.[/size][/size]</p>
+          <p><a href="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/7</link>
+        <pubDate>Tue, 25 Oct 2016 17:28:38 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14945-7</guid>
+        <source url="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945.rss">Black mesa:How would i get a working train</source>
+      </item>
+      <item>
+        <title>Black mesa:How would i get a working train</title>
+        <dc:creator><![CDATA[Softkey]]></dc:creator>
+        <description><![CDATA[
+            <p>so i found a decompiler looked at the map and i have no idea how to do it</p>
+          <p><a href="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/6</link>
+        <pubDate>Tue, 25 Oct 2016 15:13:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14945-6</guid>
+        <source url="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945.rss">Black mesa:How would i get a working train</source>
+      </item>
+      <item>
+        <title>Black mesa:How would i get a working train</title>
+        <dc:creator><![CDATA[Softkey]]></dc:creator>
+        <description><![CDATA[
+            <p>but i dont have the retail game i have the mod</p>
+          <p><a href="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/5</link>
+        <pubDate>Tue, 25 Oct 2016 14:20:44 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14945-5</guid>
+        <source url="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945.rss">Black mesa:How would i get a working train</source>
+      </item>
+      <item>
+        <title>Black mesa:How would i get a working train</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>They’re shipped with the retail game, in the “mapsrc” folder.</p>
+          <p><a href="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/4</link>
+        <pubDate>Tue, 25 Oct 2016 09:02:52 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14945-4</guid>
+        <source url="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945.rss">Black mesa:How would i get a working train</source>
+      </item>
+      <item>
+        <title>Black mesa:How would i get a working train</title>
+        <dc:creator><![CDATA[Softkey]]></dc:creator>
+        <description><![CDATA[
+            <p>ummm and where would i get those</p>
+          <p><a href="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/3</link>
+        <pubDate>Tue, 25 Oct 2016 07:46:19 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14945-3</guid>
+        <source url="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945.rss">Black mesa:How would i get a working train</source>
+      </item>
+      <item>
+        <title>Black mesa:How would i get a working train</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>You can look at the source files for the current On A Rail maps- the technique used there is (nearly?) exactly the same as that used in OAR Uncut.</p>
+          <p><a href="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/2</link>
+        <pubDate>Tue, 25 Oct 2016 02:14:02 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14945-2</guid>
+        <source url="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945.rss">Black mesa:How would i get a working train</source>
+      </item>
+      <item>
+        <title>Black mesa:How would i get a working train</title>
+        <dc:creator><![CDATA[Softkey]]></dc:creator>
+        <description><![CDATA[
+            <p>So i was playing on a rail uncut mod then i tought that i would like to make a map with trains like on a rail uncut. so dose anyone know how to get the train and how you would do the track</p>
+          <p><a href="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945/1</link>
+        <pubDate>Mon, 24 Oct 2016 20:06:51 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14945-1</guid>
+        <source url="https://leakfree.org/t/black-mesa-how-would-i-get-a-working-train/14945.rss">Black mesa:How would i get a working train</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>What determines entity transitions?</title>
+    <link>https://leakfree.org/t/what-determines-entity-transitions/14337</link>
+    <description>Does anyone know what criteria the Source engine uses to determine which entities will be transferred from one level to the next during a transition? I&#39;ve set up an elevator transition (as in [b]bm_c1a1e[/b]) from [b]c1a2b[/b] to [b]c1a2c[/b]: when I use it [b]c1a2c[/b] becomes filled with physics props and npcs from [b]b[/b], with no readily apparent factor determining what is transitioned and what is not (other than that most of the objects taken were &quot;nearby&quot;). The Valve developer wiki seems pretty poorly documented on this issue- it describes in general terms how to make a transition, but that&#39;s about it.</description>
+    
+    <lastBuildDate>Mon, 31 Aug 2015 15:35:11 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/what-determines-entity-transitions/14337.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>What determines entity transitions?</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Well, “replying to my own thread a month after the issue it was created to address was apparently resolved, but not <span class="bbcode-i">technically</span> necroposting because it turns out I neglected to mention a few key details in my previous solution” was kind of clunky, so you’ve gotta cut me <span class="bbcode-i">some</span> slack here…</p>
+          <p><a href="https://leakfree.org/t/what-determines-entity-transitions/14337/21">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/what-determines-entity-transitions/14337/21</link>
+        <pubDate>Mon, 31 Aug 2015 15:35:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14337-21</guid>
+        <source url="https://leakfree.org/t/what-determines-entity-transitions/14337.rss">What determines entity transitions?</source>
+      </item>
+      <item>
+        <title>What determines entity transitions?</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>I only consider it necroposting if it’s dropped off  the first page AND you respond to the conversation with no new information as if people hadn’t stopped talking about it.</p>
+<p>Since you have new information to add, I think you’re fine.</p>
+          <p><a href="https://leakfree.org/t/what-determines-entity-transitions/14337/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/what-determines-entity-transitions/14337/20</link>
+        <pubDate>Mon, 31 Aug 2015 14:51:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14337-20</guid>
+        <source url="https://leakfree.org/t/what-determines-entity-transitions/14337.rss">What determines entity transitions?</source>
+      </item>
+      <item>
+        <title>What determines entity transitions?</title>
+        <dc:creator><![CDATA[Wristwatch4]]></dc:creator>
+        <description><![CDATA[
+            <p>Its only Necroposting if the thread in question has been inactive for a period longer than roughly 7 months. Nevertheless, this is good information to have.</p>
+          <p><a href="https://leakfree.org/t/what-determines-entity-transitions/14337/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/what-determines-entity-transitions/14337/19</link>
+        <pubDate>Mon, 31 Aug 2015 04:21:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14337-19</guid>
+        <source url="https://leakfree.org/t/what-determines-entity-transitions/14337.rss">What determines entity transitions?</source>
+      </item>
+      <item>
+        <title>What determines entity transitions?</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Necroposting to add an important caveat in case anyone looks to this for reference: <span class="bbcode-b">the trigger_transition <span class="bbcode-i">must</span> be present in <span class="bbcode-i">both</span> maps in order to prevent pseudorandom entity transitioning.</span> I’ve just discovered that if it exists in one map but not the other (or has a different name, of course), it will <span class="bbcode-i">not</span> demonstrate the above behavior and will instead transition based on the wiggy PVS behavior previously outlined.</p>
+          <p><a href="https://leakfree.org/t/what-determines-entity-transitions/14337/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/what-determines-entity-transitions/14337/18</link>
+        <pubDate>Mon, 31 Aug 2015 02:30:52 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14337-18</guid>
+        <source url="https://leakfree.org/t/what-determines-entity-transitions/14337.rss">What determines entity transitions?</source>
+      </item>
+      <item>
+        <title>What determines entity transitions?</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>That appears to have done it. I’m not sure what was wrong before (the new trigger_transition is as far as I can tell an exact duplicate), but it seems that in disproof of my previous statement, trigger_transitions also prevent any entity <span class="bbcode-i">outside</span> of its volume from transitioning.</p>
+          <p><a href="https://leakfree.org/t/what-determines-entity-transitions/14337/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/what-determines-entity-transitions/14337/17</link>
+        <pubDate>Mon, 27 Jul 2015 19:02:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14337-17</guid>
+        <source url="https://leakfree.org/t/what-determines-entity-transitions/14337.rss">What determines entity transitions?</source>
+      </item>
+      <item>
+        <title>What determines entity transitions?</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Confirmed there are no trigger_transition entities extant on the map. There are multiple trigger_changelevel entities, of course. I <span class="bbcode-i">had</span> a trigger_transition in the elevator previously, but it did not have the intended effect of preventing everything outside of the elevator from transitioning. Given your information, I can only conclude that I missed something then- will retry.</p>
+          <p><a href="https://leakfree.org/t/what-determines-entity-transitions/14337/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/what-determines-entity-transitions/14337/16</link>
+        <pubDate>Mon, 27 Jul 2015 18:38:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14337-16</guid>
+        <source url="https://leakfree.org/t/what-determines-entity-transitions/14337.rss">What determines entity transitions?</source>
+      </item>
+      <item>
+        <title>What determines entity transitions?</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>If it was named identically, then anything outside the trigger should not have transitioned. Also, this sounds very suspicious, because a level change WITHOUT a transition trigger should have simply failed and not worked at all in the first place.</p>
+<p>Are you sure that’s the only transition trigger?</p>
+          <p><a href="https://leakfree.org/t/what-determines-entity-transitions/14337/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/what-determines-entity-transitions/14337/15</link>
+        <pubDate>Mon, 27 Jul 2015 18:27:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14337-15</guid>
+        <source url="https://leakfree.org/t/what-determines-entity-transitions/14337.rss">What determines entity transitions?</source>
+      </item>
+      <item>
+        <title>What determines entity transitions?</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Currently there is none, as I have removed it. Previously, it was named identically to the info_landmark the elevator used.</p>
+          <p><a href="https://leakfree.org/t/what-determines-entity-transitions/14337/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/what-determines-entity-transitions/14337/14</link>
+        <pubDate>Mon, 27 Jul 2015 18:25:54 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14337-14</guid>
+        <source url="https://leakfree.org/t/what-determines-entity-transitions/14337.rss">What determines entity transitions?</source>
+      </item>
+      <item>
+        <title>What determines entity transitions?</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>What’s the name of your trigger_transition?</p>
+          <p><a href="https://leakfree.org/t/what-determines-entity-transitions/14337/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/what-determines-entity-transitions/14337/13</link>
+        <pubDate>Mon, 27 Jul 2015 18:12:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14337-13</guid>
+        <source url="https://leakfree.org/t/what-determines-entity-transitions/14337.rss">What determines entity transitions?</source>
+      </item>
+      <item>
+        <title>What determines entity transitions?</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Well, that’s exactly my point. I don’t <span class="bbcode-i">want</span> to transition anything but the contents of the elevator. The problem is that a large number of props (as well as a few NPCs and doors) <span class="bbcode-i">outside</span> of the elevator are also transitioning, and I am completely unable to stop them from doing so.</p>
+          <p><a href="https://leakfree.org/t/what-determines-entity-transitions/14337/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/what-determines-entity-transitions/14337/12</link>
+        <pubDate>Mon, 27 Jul 2015 17:39:41 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14337-12</guid>
+        <source url="https://leakfree.org/t/what-determines-entity-transitions/14337.rss">What determines entity transitions?</source>
+      </item>
+      <item>
+        <title>What determines entity transitions?</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>Perhaps I’m not understanding something. Why is it necessary for you to transition anything other than what’s in the elevator?</p>
+          <p><a href="https://leakfree.org/t/what-determines-entity-transitions/14337/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/what-determines-entity-transitions/14337/11</link>
+        <pubDate>Mon, 27 Jul 2015 17:04:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14337-11</guid>
+        <source url="https://leakfree.org/t/what-determines-entity-transitions/14337.rss">What determines entity transitions?</source>
+      </item>
+      <item>
+        <title>What determines entity transitions?</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>The actual trigger_changelevel is just a little block in a corner of the elevator, controlled by way of the button and the Changelevel input. There is no trigger_transition, as in addition to anything in the elevator a lot of entities outside of it would transition automatically. Adding a trigger-transition over the elevator volume did not help with this.</p>
+          <p><a href="https://leakfree.org/t/what-determines-entity-transitions/14337/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/what-determines-entity-transitions/14337/10</link>
+        <pubDate>Mon, 27 Jul 2015 16:52:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14337-10</guid>
+        <source url="https://leakfree.org/t/what-determines-entity-transitions/14337.rss">What determines entity transitions?</source>
+      </item>
+      <item>
+        <title>What determines entity transitions?</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>How large is your transition trigger?</p>
+          <p><a href="https://leakfree.org/t/what-determines-entity-transitions/14337/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/what-determines-entity-transitions/14337/9</link>
+        <pubDate>Mon, 27 Jul 2015 15:28:27 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14337-9</guid>
+        <source url="https://leakfree.org/t/what-determines-entity-transitions/14337.rss">What determines entity transitions?</source>
+      </item>
+      <item>
+        <title>What determines entity transitions?</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>At this point, I’ve pretty much thrown up my hands in despair and created an elaborate system of identical elevator cars and trigger_teleports to accomplish the necessary transition in Office Complex. It seems that the engine is <span class="bbcode-i">very</span> aggressive in transitioning entities, and making it not do so is something it has a lot of trouble with.</p>
+          <p><a href="https://leakfree.org/t/what-determines-entity-transitions/14337/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/what-determines-entity-transitions/14337/8</link>
+        <pubDate>Mon, 27 Jul 2015 15:11:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14337-8</guid>
+        <source url="https://leakfree.org/t/what-determines-entity-transitions/14337.rss">What determines entity transitions?</source>
+      </item>
+      <item>
+        <title>What determines entity transitions?</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>That’s normal. Source does that pretty much automatically.</p>
+          <p><a href="https://leakfree.org/t/what-determines-entity-transitions/14337/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/what-determines-entity-transitions/14337/7</link>
+        <pubDate>Mon, 27 Jul 2015 14:50:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14337-7</guid>
+        <source url="https://leakfree.org/t/what-determines-entity-transitions/14337.rss">What determines entity transitions?</source>
+      </item>
+      <item>
+        <title>What determines entity transitions?</title>
+        <dc:creator><![CDATA[Dragunov2]]></dc:creator>
+        <description><![CDATA[
+            <p>I carry the hat through the complete game and even if u drop the hat and u move forward (knowing u see the place where the hat is dropped again), u find the hat again, even after saving game, level transitions,…</p>
+<p>So I wonder how they did this aswell!</p>
+          <p><a href="https://leakfree.org/t/what-determines-entity-transitions/14337/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/what-determines-entity-transitions/14337/6</link>
+        <pubDate>Mon, 27 Jul 2015 10:23:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14337-6</guid>
+        <source url="https://leakfree.org/t/what-determines-entity-transitions/14337.rss">What determines entity transitions?</source>
+      </item>
+      <item>
+        <title>What determines entity transitions?</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>UPDATE: It seems that neither areaportals nor occluders can stop entities from transitioning. Will try to alter visleaves directly- if this does not work I will have to implement the extremely hackish solution of teleporting the player into a different elevator up above the map (or something). However, a <span class="bbcode-i">very</span> similar elevator transition at the end of Unforeseen Consequences works perfectly.</p>
+          <p><a href="https://leakfree.org/t/what-determines-entity-transitions/14337/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/what-determines-entity-transitions/14337/5</link>
+        <pubDate>Sun, 26 Jul 2015 20:59:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14337-5</guid>
+        <source url="https://leakfree.org/t/what-determines-entity-transitions/14337.rss">What determines entity transitions?</source>
+      </item>
+      <item>
+        <title>What determines entity transitions?</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Current findings:</p>
+<ul>
+<li>Trigger_transitions are RELATIVELY good at ensuring physics props <span class="bbcode-i">will </span>make it through a transition (have yet to test with other types of entity, but since most other types aren’t very portable I doubt that is a big deal).</li>
+<li>
+<span class="bbcode-b"><span class="bbcode-s">Preventing</span></span><span class="bbcode-s">a specific set of entities (or everything <span class="bbcode-i">but</span> a set of entities) from transitioning is more difficult.</span>
+</li>
+</ul>
+<p>[list][*]<span class="bbcode-s">Pure point entities do not appear to transition.</span></p>
+<ul>
+<li><span class="bbcode-s">Brush entities do not seem to transition.</span></li>
+<li>
+<span class="bbcode-s">Both doors (and other dynamic-like entities with non-mobile models?) and physics objects <span class="bbcode-i">seem</span> to correlate transitioning with PVS visibility. Thus, I am going to be looking at manipulating the PVS system- seeing if occluders, areaportala, and other objects that <span class="bbcode-i">at least in theory </span>prevent visibility can also prevent transitioning.</span><br>
+[/*:m][/list:u]</li>
+<li>If a trigger_transition entity is bound to the transition, any entities <span class="bbcode-i">not</span> within its volume will <span class="bbcode-b">not</span> transition to the new map.</li>
+</ul>
+          <p><a href="https://leakfree.org/t/what-determines-entity-transitions/14337/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/what-determines-entity-transitions/14337/4</link>
+        <pubDate>Sun, 26 Jul 2015 19:54:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14337-4</guid>
+        <source url="https://leakfree.org/t/what-determines-entity-transitions/14337.rss">What determines entity transitions?</source>
+      </item>
+      <item>
+        <title>What determines entity transitions?</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>Great question. Here’s my answer:</p>
+<p>I DON’T BLOODY !@#$% KNOW! &gt;.&lt;</p>
+<p>I’ve been trying to figure this out for ages. It seems almost completely random. I do know that physics props, decals, and NPCs are guaranteed to make the transition. I also know that dynamic props SOMETIMES make the transition. Brush entities will never transition. prop_door_rotating also makes the transition sometimes, although I have no idea when or why.</p>
+<p>Also, the “Global Entity Name” field seems to break <span class="bbcode-i">everything</span> for some inexplicable reason.</p>
+<p>DAMMIT VLAVE</p>
+          <p><a href="https://leakfree.org/t/what-determines-entity-transitions/14337/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/what-determines-entity-transitions/14337/3</link>
+        <pubDate>Sun, 26 Jul 2015 18:09:44 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14337-3</guid>
+        <source url="https://leakfree.org/t/what-determines-entity-transitions/14337.rss">What determines entity transitions?</source>
+      </item>
+      <item>
+        <title>What determines entity transitions?</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p>You can use <a href="https://developer.valvesoftware.com/wiki/Trigger_transition" data-bbcode="true" rel="nofollow noopener">trigger_transition</a> for that. IIRC the game tries to do is based off of PVS or line of sight or something, but adding a trigger_transition over the area visible from the info_landmark will ensure everything in it is carried over.</p>
+          <p><a href="https://leakfree.org/t/what-determines-entity-transitions/14337/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/what-determines-entity-transitions/14337/2</link>
+        <pubDate>Sun, 26 Jul 2015 16:49:53 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14337-2</guid>
+        <source url="https://leakfree.org/t/what-determines-entity-transitions/14337.rss">What determines entity transitions?</source>
+      </item>
+      <item>
+        <title>What determines entity transitions?</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Does anyone know what criteria the Source engine uses to determine which entities will be transferred from one level to the next during a transition? I’ve set up an elevator transition (as in <span class="bbcode-b">bm_c1a1e</span>) from <span class="bbcode-b">c1a2b</span> to <span class="bbcode-b">c1a2c</span>: when I use it <span class="bbcode-b">c1a2c</span> becomes filled with physics props and npcs from <span class="bbcode-b">b</span>, with no readily apparent factor determining what is transitioned and what is not (other than that most of the objects taken were “nearby”). The Valve developer wiki seems pretty poorly documented on this issue- it describes in general terms how to make a transition, but that’s about it.</p>
+          <p><a href="https://leakfree.org/t/what-determines-entity-transitions/14337/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/what-determines-entity-transitions/14337/1</link>
+        <pubDate>Sun, 26 Jul 2015 13:53:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14337-1</guid>
+        <source url="https://leakfree.org/t/what-determines-entity-transitions/14337.rss">What determines entity transitions?</source>
+      </item>
+  </channel>
+</rss>

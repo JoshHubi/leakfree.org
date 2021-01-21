@@ -1,0 +1,2669 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Crosshairs for the Visually Impaired</title>
+    <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318</link>
+    <description>OK, it&#39;s not that bad.  I made it all the way to Surface Tension without issues.  But once I was on the surface, surrounded by bright lights and yellow terrain... I couldn&#39;t see my crosshairs anymore, except for the shotgun and it&#39;s big funky circle.
+
+At 1600x900, with bright backgrounds, I can&#39;t see single pixels, not at any color (I&#39;ve tried a few).
+
+I tried a few things in console but no luck.  I took a peek around the textures, but not even sure where to look.
+
+As a graphic designer, I love the minimalism... as a glasses wearing Linux admin, I&#39;d like to have the option for something a little thicker  :smiley: 
+
+Is there a way to replace the crosshairs with something a little more high contrast?  Even if I have to make some textures myself in The Gimp I&#39;d be happy.</description>
+    
+    <lastBuildDate>Sun, 21 Oct 2012 18:50:07 +0000</lastBuildDate>
+    <category>In-game Issues (Mod)</category>
+    <atom:link href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[Jenova19]]></dc:creator>
+        <description><![CDATA[
+            <p>I’d like to apologize for not being able to complete PART 2 of the Mini-Guide - there are too many things I’ve got to attend to in Real-Life, so I don’t find enough time to work on it.</p>
+<p>Not to mention the fact that things didn’t quite work out the way how I wanted them to, reason being the lack of the possibility to change the reticle’s color or size, without digging too deep in the coding and scripting aspect, for instance.</p>
+<p>Sorry, but I hope you’ll understand,</p>
+<p><span class="bbcode-i">- Jenova</span></p>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/56">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/56</link>
+        <pubDate>Sun, 21 Oct 2012 18:50:07 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-56</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[Ronster]]></dc:creator>
+        <description><![CDATA[
+            <p>Hudlayout.res</p>
+<p>[code]“resource/HudLayout.res”<br>
+{	<br>
+HudCredits<br>
+{<br>
+“fieldName”			“HudCredits”<br>
+“visible”			“1”<br>
+“enabled”			“1”<br>
+“xpos”				“0”<br>
+“ypos”				“0”<br>
+“wide”				“640”<br>
+“tall”				“480”<br>
+“paintbackground”	“0”<br>
+}</p>
+<pre><code>CHudEndCredits
+{
+	"fieldName"			"CHudEndCredits"
+	"visible"			"1"
+	"enabled"			"1"
+	"xpos"				"0"
+	"ypos"				"0"
+	"wide"				"640"
+	"tall"				"480"
+	"paintbackground"	"0"
+
+	"LogoX"				"128"
+	"LogoY"				"32"
+	"LogoW"				"256"
+	"LogoH"				"32"
+
+	"BgX"				"0"
+	"BgY"				"0"
+	"BgW"				"640"
+	"BgH"				"480"
+
+	"imageborder"		"1"
+	"imagexoffset"		"128"
+	"imagesize"			"96"
+	"imagespacing"		"16"
+
+	"namesxoffset"		"64"
+	"defaultspacing"	"6"
+	"titlespace"		"32"
+	"subtitlespace"		"32"
+
+	"TitleFont"			"CreditsTitle" 
+	"SubTitleFont"		"CreditsSubTitle" 
+	"NameFont"			"CreditsNames" 
+	"QuoteFont"			"BootSeqTextVerySmall"
+
+	"TitleColor"		"190 223 245 255"
+	"SubTitleColor"		"255 228 181 255"
+	"NameColor"			"255 255 255 255" 
+	"QuoteColor"		"200 228 181 255"
+}
+
+HudChat
+{
+	"fieldName" "HudChat"
+	"visible" "0"
+	"enabled" "1"
+	"xpos"	"0"
+	"ypos"	"0"
+	"wide"	 "4"
+	"tall"	 "4"
+}
+
+HUDQuickInfo
+{
+	"fieldName" "HUDQuickInfo"
+	"visible" "1"
+	"enabled" "1"
+	"wide"	 "640"
+	"tall"	 "480"
+}
+
+CHudDevInfo
+{
+	"fieldName" "CHudDevInfo"
+	"visible" "1"
+	"enabled" "1"
+	"wide"	 "640"
+	"tall"	 "480"
+}
+		
+CHudBootSequence
+{
+	"fieldName"				"CHudBootSequence"
+	"enabled"				"1"
+	"paintbackground"		"0"
+	"xpos"					"0"
+	"ypos"					"0"
+	"wide"					"640"
+	"tall"					"480"
+	"visible"				"0"
+}
+
+CHudBugNodes
+{
+	"fieldName"				"CHudBugNodes"
+	"enabled"				"1"
+	"paintbackground"		"0"
+	"xpos"					"0"
+	"ypos"					"0"
+	"wide"					"640"
+	"tall"					"480"
+	"visible"				"1"
+}
+
+CHudWeaponSelection
+{
+	"fieldName"				"CHudWeaponSelection"
+	"enabled"				"1"
+	"paintbackground"		"0"
+	"xpos"					"15"
+	"ypos"					"15"
+	"wide"					"640"
+	"tall"					"480"
+	"visible"				"1"
+	"xgap"					"2"
+	"ygap"					"1"
+}
+
+CHudWeaponPanel
+{
+	"enabled"				"1"
+	"font"					"VerySmallNumber"
+	"textAlignment"			"east"
+	"paintbackground"		"1"
+	"visible"				"1"
+	"brighttext"			"1"
+	"bucket_box"			"10"
+	"selection_w"			"86"
+	"selection_h"			"22"
+}
+
+CHudAir
+{
+	"fieldName"				"CHudAir"
+	"enabled"				"1"
+	"xpos"					"10"
+	"ypos"					"r130"
+	"wide"					"60"
+	"tall"					"60"
+	"visible"				"1"
+	"paintbackground"		"0"
+	"textAlignment"			"west"
+}
+
+CHudCrosshair
+{
+	"fieldName"				"CHudCrosshair"
+	"textAlignment"			"center"
+	"paintbackground"		"0"
+	"brighttext"			"1"
+	"centerwrap"			"1"
+}
+
+CHudHealthDot
+{
+	"enabled"				"1"
+	"scaleImage"			"1"
+	"drawColor"				"FgColor"
+	"xpos"					"15"
+	"ypos"					"r41"
+	"wide"					"10"
+	"tall"					"10"
+	"visible"				"1"
+	"paintbackground"		"1"
+}
+
+CHudPrimaryAmmoIcon
+{
+	"enabled"				"1"
+	"scaleImage"			"1"
+	"drawColor"				"FgColor"
+	"xpos"					"r43"
+	"ypos"					"r36"
+	"xoffset_noclip"		"-40"
+	"yoffset_noclip"		"0"
+	"wide"					"15"
+	"tall"					"15"
+	"visible"				"1"
+	"paintbackground"		"1"
+	"shiftime"				"0.1"
+}
+
+CHudSecondaryAmmoIcon
+{
+	"enabled"				"1"
+	"scaleImage"			"1"
+	"drawColor"				"FgColor"
+	"xpos"					"r20"
+	"ypos"					"r36"
+	"xoffset_noclip"		"0"
+	"yoffset_noclip"		"0"
+	"wide"					"15"
+	"tall"					"15"
+	"visible"				"1"
+	"paintbackground"		"1"
+	"shiftime"				"0.1"
+}
+
+CHudHealth
+{
+	"enabled"				"1"
+	"font"					"LargeNumber"
+	"xpos"					"13"
+	"ypos"					"r42"
+	"wide"					"74"
+	"tall"					"26"
+	"visible"				"1"
+	"paintbackground"		"0"
+	"textAlignment"			"east"
+}
+
+CHudHEV
+{
+	"enabled"				"1"
+	"font"					"LargeNumber"
+	"xpos"					"88"
+	"ypos"					"r44"
+	"wide"					"74"
+	"tall"					"30"
+	"visible"				"1"
+	"paintbackground"		"0"
+	"textAlignment"			"east"
+}
+
+CHudAmmoDot
+{
+	"enabled"				"1"
+	"scaleImage"			"1"
+	"drawColor"				"FgColor"
+	"xpos"					"r128"
+	"ypos"					"r40"
+	"wide"					"10"
+	"tall"					"10"
+	"visible"				"1"
+	"paintbackground"		"1"
+}
+
+CHudClip
+{
+	"enabled"				"1"
+	"font"					"LargeNumber"
+	"textAlignment"			"east"
+	"xpos"					"r147"
+	"ypos"					"r44"
+	"wide"					"74"
+	"tall"					"30"
+	"visible"				"1"
+	"paintbackground"		"0"
+	"textAlignment"			"east"
+}
+		
+CHudVerticalAmmoSeparator
+{
+	"enabled"				"1"
+	"scaleImage"			"1"
+	"drawColor"				"BrightFg"
+	"xpos"					"r70"
+	"ypos"					"r41"
+	"wide"					"5"
+	"tall"					"20"
+	"visible"				"1"
+	"paintbackground"		"1"
+}
+
+CHudPrimaryAmmo
+{
+	"enabled"				"1"
+	"font"					"SmallNumber"
+	"xpos"					"r101"
+	"ypos"					"r43"
+	"wide"					"60"
+	"tall"					"21"
+	"visible"				"1"
+	"paintbackground"		"0"
+	"textAlignment"			"east"
+}
+
+CHudSecondaryAmmo
+{
+	"enabled"				"1"
+	"font"					"SmallNumber"
+	"xpos"					"r63"
+	"ypos"					"r43"
+	"wide"					"42"
+	"tall"					"21"
+	"visible"				"1"
+	"paintbackground"		"0"
+	"textAlignment"			"east"
+}
+
+CHudItemPickup
+{
+	"enabled"				"1"
+	"paintbackground"		"0"
+	"xpos"					"r212"
+	"ypos"					"r72"
+	"wide"					"200"
+	"tall"					"24"
+	"visible"				"1"
+	"shifttime"				"0.25"
+	"reverse"				"1"
+	"verticalshift"			"0"
+	"fadetime"				"0.5"
+	"fadedelay"				"1.5"
+	"fadeonlyvisible"		"0"
+	"fadeonlytop"			"0"
+}
+
+CHudIntroCredits
+{
+	"enabled"				"1"
+	"paintbackground"		"0"
+	"xpos"					"20"
+	"ypos"					"r50"
+	"wide"					"300"
+	"tall"					"35"
+	"visible"				"1"
+	"delaystart"			"28"
+	"shifttime"				"2"
+	"verticalshift"			"1"
+	"fadetime"				"6.0"
+	"fadedelay"				"3.5"
+	"fadeonlyvisible"		"1"
+	"fadeonlytop"			"1"
+}
+
+CHudIntroCreditsLabel
+{
+	"enabled"				"1"
+	"font"					"CreditsNames"
+	"textAlignment"			"west"
+	"paintbackground"		"0"
+	"wide"					"300"
+	"tall"					"35"
+	"visible"				"1"
+	"brighttext"			"1"
+}
+
+CHudWeaponPickup
+{
+	"enabled"				"1"
+	"paintbackground"		"0"
+	"xpos"					"r83"
+	"ypos"					"116"
+	"wide"					"75"
+	"tall"					"244"
+	"visible"				"1"
+	"shifttime"				"0"
+	"verticalshift"			"1"
+	"fadetime"				"0.5"
+	"fadedelay"				"3.0"
+	"fadeonlyvisible"		"1"
+	"fadeonlytop"			"0"
+}
+
+CHudWeaponPickupLabel
+{
+	"enabled"				"1"
+	"font"					"PickupLabel"
+	"textAlignment"			"east"
+	"paintbackground"		"0"
+	"wide"					"150"
+	"tall"					"48"
+	"visible"				"1"
+	"brighttext"			"1"
+}
+
+CHudDamageDirection
+{
+	"enabled"				"1"
+	"paintbackground"		"0"
+	"xpos"					"0"
+	"ypos"					"0"
+	"wide"					"640"
+	"tall"					"480"
+	"visible"				"1"
+}
+	
+CHudDamageType
+{
+	"enabled"				"1"
+	"paintbackground"		"0"
+	"xpos"					"12"
+	"ypos"					"r72"
+	"wide"					"200"
+	"tall"					"20"
+	"visible"				"1"
+	"shifttime"				"0.25"
+	"verticalshift"			"0"
+	"fadetime"				"1.5"
+	"fadedelay"				"1.5"
+	"fadeonlyvisible"		"0"
+	"fadeonlytop"			"0"
+}
+
+HudGeiger
+{
+	"fieldName" "HudGeiger"
+	"visible" "1"
+	"enabled" "1"
+	"wide"	 "640"
+	"tall"	 "480"
+}
+	
+HudMessage
+{
+	"fieldName" "HudMessage"
+	"visible" "1"
+	"enabled" "1"
+	"wide"	 "640"
+	"tall"	 "480"
+}
+
+HudHintDisplay
+{
+	"fieldName"				"HudHintDisplay"
+	"visible"				"0"
+	"enabled"				"1"
+	"xpos"					"r120"	
+	"ypos"					"r340"	
+	"wide"					"100"
+	"tall"					"200"
+	"text_xpos"				"8"
+	"text_ypos"				"8"
+	"text_xgap"				"8"
+	"text_ygap"				"8"
+	"TextColor"				"255 170 0 220"
+	"PaintBackgroundType"	"0"
+}
+
+HudHintKeyDisplay
+{
+	"fieldName"				"HudHintKeyDisplay"
+	"visible"				"0"
+	"enabled" 				"1"
+	"xpos"					"r120"	
+	"ypos"					"r340"	
+	"wide"					"100"
+	"tall"					"200"
+	"text_xpos"				"8"
+	"text_ypos"				"8"
+	"text_xgap"				"8"
+	"text_ygap"				"8"
+	"TextColor"				"255 170 0 220"
+	"PaintBackgroundType"	"0"
+}
+
+HudAnimationInfo
+{
+	"fieldName" "HudAnimationInfo"
+	"visible" "1"
+	"enabled" "1"
+	"wide"	 "640"
+	"tall"	 "480"
+}
+
+HudPredictionDump
+{
+	"fieldName" "HudPredictionDump"
+	"visible" "1"
+	"enabled" "1"
+	"wide"	 "640"
+	"tall"	 "480"
+}
+
+HudMessage
+{
+	"fieldName" "HudMessage"
+	"visible" "1"
+	"enabled" "1"
+	"wide"	 "640"
+	"tall"	 "480"
+}
+
+AchievementNotificationPanel	
+{
+	"fieldName"				"AchievementNotificationPanel"
+	"visible"				"1"
+	"enabled"				"1"
+	"xpos"					"0"
+	"ypos"					"10"
+	"wide"					"f60"	
+	"tall"					"100"
+	"paintbackground"		"0"
+}
+	
+HudCommentary
+{
+	"fieldName" "HudCommentary"
+	"xpos"	"c-190"
+	"ypos"	"350"
+	"wide"	"380"
+	"tall"  "40"
+	"visible" "1"
+	"enabled" "1"
+	
+	"PaintBackgroundType"	"2"
+	
+	"bar_xpos"		"50"
+	"bar_ypos"		"20"
+	"bar_height"	"8"
+	"bar_width"		"320"
+	"speaker_xpos"	"50"
+	"speaker_ypos"	"8"
+	"count_xpos_from_right"	"10"	// Counts from the right side
+	"count_ypos"	"8"
+	
+	"icon_texture"	"vgui/hud/icon_commentary"
+	"icon_xpos"		"0"
+	"icon_ypos"		"0"		
+	"icon_width"	"40"
+	"icon_height"	"40"
+}
+	
+HudMenu
+{
+	"fieldName" "HudMenu"
+	"visible" "1"
+	"enabled" "1"
+	"wide"	 "640"
+	"tall"	 "480"
+}
+
+HudCloseCaption
+{
+	"fieldName" "HudCloseCaption"
+	"visible"	"0"
+	"enabled"	"1"
+	"xpos"		"c-250"
+	"ypos"		"276"	
+	"wide"		"500"
+	"tall"		"136"	
+
+	"BgAlpha"	"128"
+
+	"GrowTime"		"0.25"
+	"ItemHiddenTime"	"0.2"  // Nearly same as grow time so that the item doesn't start to show until growth is finished
+	"ItemFadeInTime"	"0.15"	// Once ItemHiddenTime is finished, takes this much longer to fade in
+	"ItemFadeOutTime"	"0.3"
+	"topoffset"		"0"		
+}
+
+HUDAutoAim
+{
+	"fieldName" "HUDAutoAim"
+	"visible" "1"
+	"enabled" "1"
+	"wide"	 "640"	
+	"tall"	 "480"	
+}
+
+HudVehicle
+{
+	"fieldName" "HudVehicle"
+	"visible" "0"
+	"enabled" "0"
+	"wide"	 "640"
+	"tall"	 "480"
+}
+
+HudTrain
+{
+	"fieldName" "HudTrain"
+	"visible" "0"
+	"enabled" "0"
+	"wide"	 "640"
+	"tall"	 "480"
+}
+
+HudHistoryResource
+{
+	"fieldName" "HudHistoryResource"
+	"visible" "0"
+	"enabled" "0"
+	"wide"	 "640"
+	"tall"	 "480"
+}
+</code></pre>
+<p>}<br>
+HudCrosshair<br>
+{<br>
+“fieldName” “HudCrosshair”<br>
+“visible” “1”<br>
+“enabled” “1”<br>
+“wide”	 “640”<br>
+“tall”	 “480”<br>
+}<br>
+}	[/code]</p>
+<p>weapon_mp5.txt</p>
+<p>[code]WeaponData<br>
+{<br>
+printname	“Mp5”<br>
+bucket		“2”<br>
+bucket_position	“0”<br>
+clip_size	“30”<br>
+item_flags	“0”<br>
+playermodel	“models/weapons/w_mp5.mdl”<br>
+primary_ammo	“9mm”<br>
+secondary_ammo	“grenade_mp5”<br>
+viewmodel	“models/weapons/v_mp5.mdl”<br>
+weight		“3”<br>
+anim_prefix	“mp5”<br>
+fov		“54”</p>
+<pre><code>SoundData
+{
+	double_shot	"weapon_mp5.Double"
+	reload_npc	"weapon_mp5.Reload_NPC"
+	empty		"weapon_mp5.Empty"
+	single_shot	"weapon_mp5.Single"
+	single_shot_npc	"weapon_mp5.Single_NPC"
+}
+</code></pre>
+<p>}<br>
+“crosshair”<br>
+{<br>
+“font”		“Crosshairs”<br>
+“character”	“Q”<br>
+}<br>
+“autoaim”<br>
+{<br>
+“file”		“sprites/crosshairs”<br>
+“x”			“0”<br>
+“y”			“48”<br>
+“width”		“24”<br>
+“height”	“24”<br>
+}<br>
+}[/code]</p>
+<p>DON’T USE THIS CODE IT HAS AN ERROR BUT IT DOES DISPLAY A FONT BASED CROSSHAIR AND ONLY WORKS ON THE MP5</p>
+<p>THIS<br>
+<span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<p>need somone who knows coding it could be something really simple</p>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/55">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/55</link>
+        <pubDate>Fri, 19 Oct 2012 00:38:38 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-55</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[Ronster]]></dc:creator>
+        <description><![CDATA[
+            <p>What am I doing wrong… Is it the brackets because I am just copy pasting text and putting files in.</p>
+<p>Basically I don’t have a clue what I am doing but I know it relates to what I am trying to do…</p>
+<p>If I upload the text files can you check it for spacing errors?</p>
+<p>link below</p>
+<p><a href="https://www.mediafire.com/?6hzeze3ifskepep" data-bbcode="true" rel="nofollow noopener">https://www.mediafire.com/?6hzeze3ifskepep</a></p>
+<p>If you spot errors any chance you can upload it back fixed because I think it is nearly there?</p>
+<p>Looking again at the Hudtextures.txt perhaps should have put in Autoaim_c values in also</p>
+<p>OK see what you mean now</p>
+<p>ClientScheme.res</p>
+<pre><code class="lang-auto">Scheme
+{
+	Colors
+	{			
+		// base colors
+		"White"				"255 255 255 255"
+		"OffWhite"			"255 255 255 180"
+		"DullWhite"			"255 255 255 180"
+		"Orange"			"255 155 0 255"
+		"TransparentBlack"	"0 0 0 128"
+		"Black"				"0 0 0 255"
+		"Blank"				"0 0 0 0"	
+	}
+	
+	BaseSettings
+	{
+		"FgColor"				"255 180 0 150"
+		"BgColor"				"0 0 0 76"
+		"BrightDamagedFg"		"255 0 0 255"
+		"BrightFg"				"255 180 0 255"
+		"DamagedFg"				"180 0 0 255"
+		"FadeFg"				"255 180 0 0"
+		"BgHudColor"			"255 180 0 32"
+		
+		"Label.TextColor"		 "255 180 0 150"
+		"Label.TextBrightColor"	 "255 180 0 255"
+		"Label.TextRed"          "255 180 0 255"
+		"Label.TextBrightRed"    "255 0 0 255"
+		
+		"Main.Title1.X"			"53"
+		"Main.Title1.Y"			"190"
+		"Main.Title1.Y_hidef"	"130"
+		"Main.Title1.Color"		"255 255 255 255"
+		"Main.Title2.X"			"53"
+		"Main.Title2.Y"			"190"
+		"Main.Title2.Y_hidef"	"174"
+		"Main.Title2.Color"		"255 255 255 0"
+		"Main.Menu.X"			"53"
+		"Main.Menu.X_hidef"		"76"
+		"Main.Menu.Y"			"240"
+		"Main.BottomBorder"		"32"
+
+		ListPanel.TextColor					"OffWhite"
+		ListPanel.TextBgColor				"Blank"
+		ListPanel.BgColor					"TransparentBlack"
+		ListPanel.SelectedTextColor			"Black"
+		ListPanel.SelectedBgColor			"Orange"
+		ListPanel.SelectedOutOfFocusBgColor	"255 155 0 128"
+		ListPanel.EmptyListInfoTextColor	"OffWhite"
+
+		ScrollBar.Wide					17
+
+		ScrollBarButton.FgColor				"White"
+		ScrollBarButton.BgColor				"Blank"
+		ScrollBarButton.ArmedFgColor		"White"
+		ScrollBarButton.ArmedBgColor		"Blank"
+		ScrollBarButton.DepressedFgColor	"White"
+		ScrollBarButton.DepressedBgColor	"Blank"
+
+		ScrollBarSlider.FgColor				"Blank"			// nob color
+		ScrollBarSlider.BgColor				"255 255 255 64"	// slider background color
+
+		Slider.NobColor				"108 108 108 255"
+		Slider.TextColor			"180 180 180 255"
+		Slider.TrackColor			"31 31 31 255"
+		Slider.DisabledTextColor1	"117 117 117 255"
+		Slider.DisabledTextColor2	"30 30 30 255"
+
+		TextEntry.TextColor			"Orange"
+		TextEntry.BgColor			"TransparentBlack"
+		TextEntry.CursorColor		"Orange"
+		TextEntry.DisabledTextColor	"Orange"
+		TextEntry.DisabledBgColor	"Blank"
+		TextEntry.SelectedTextColor	"Black"
+		TextEntry.SelectedBgColor	"Red"
+		TextEntry.OutOfFocusSelectedBgColor	"Red"
+		TextEntry.FocusEdgeColor	"TransparentBlack"
+
+		//Weapon Selection
+		WeaponSelection.BucketColor				"255 180 0 180"
+		WeaponSelection.BucketSelected			"255 180 0 255"
+		WeaponSelection.BucketEnabledColor		"127 90 0 90"
+		WeaponSelection.BucketDisabledColor		"127 90 0 40"
+		WeaponSelection.BucketText				"255 180 0 255"
+		WeaponSelection.IconColor				"255 180 0 25"
+		WeaponSelection.IconSelectedColor		"255 180 0 250"
+		WeaponSelection.AmmoColor				"100 255 0 40"
+		WeaponSelection.AmmoSelectedColor		"100 255 0 255"
+		WeaponSelection.AmmoLowColor			"255 0 0 75"
+		WeaponSelection.AmmoLowSelectedColor	"255 0 0 255"
+	}
+
+	//
+	//////////////////// BORDERS //////////////////////////////
+	//
+	// describes all the border types
+	Borders
+	{
+		BaseBorder		DepressedBorder
+		ButtonBorder	RaisedBorder
+		ComboBoxBorder	DepressedBorder
+		MenuBorder		RaisedBorder
+		BrowserBorder	DepressedBorder
+		PropertySheetBorder	RaisedBorder
+
+		FrameBorder
+		{
+			// rounded corners for frames
+			"backgroundtype" "2"
+		}
+
+		DepressedBorder
+		{
+			"inset" "0 0 1 1"
+			Left
+			{
+				"1"
+				{
+					"color" "Border.Dark"
+					"offset" "0 1"
+				}
+			}
+
+			Right
+			{
+				"1"
+				{
+					"color" "Border.Bright"
+					"offset" "1 0"
+				}
+			}
+
+			Top
+			{
+				"1"
+				{
+					"color" "Border.Dark"
+					"offset" "0 0"
+				}
+			}
+
+			Bottom
+			{
+				"1"
+				{
+					"color" "Border.Bright"
+					"offset" "0 0"
+				}
+			}
+		}
+		RaisedBorder
+		{
+			"inset" "0 0 1 1"
+			Left
+			{
+				"1"
+				{
+					"color" "Border.Bright"
+					"offset" "0 1"
+				}
+			}
+
+			Right
+			{
+				"1"
+				{
+					"color" "Border.Dark"
+					"offset" "0 0"
+				}
+			}
+
+			Top
+			{
+				"1"
+				{
+					"color" "Border.Bright"
+					"offset" "0 1"
+				}
+			}
+
+			Bottom
+			{
+				"1"
+				{
+					"color" "Border.Dark"
+					"offset" "0 0"
+				}
+			}
+		}
+		
+		TitleButtonBorder
+		{
+			"backgroundtype" "0"
+		}
+
+		TitleButtonDisabledBorder
+		{
+			"backgroundtype" "0"
+		}
+
+		TitleButtonDepressedBorder
+		{
+			"backgroundtype" "0"
+		}
+
+		ScrollBarButtonBorder
+		{
+			"inset" "2 2 0 0"
+			Left
+			{
+				"1"
+				{
+					"color" "Border.Bright"
+					"offset" "0 1"
+				}
+			}
+
+			Right
+			{
+				"1"
+				{
+					"color" "Border.Dark"
+					"offset" "1 0"
+				}
+			}
+
+			Top
+			{
+				"1"
+				{
+					"color" "Border.Bright"
+					"offset" "0 0"
+				}
+			}
+
+			Bottom
+			{
+				"1"
+				{
+					"color" "Border.Dark"
+					"offset" "0 0"
+				}
+			}
+		}
+		
+		ScrollBarButtonDepressedBorder
+		{
+			"inset" "2 2 0 0"
+			Left
+			{
+				"1"
+				{
+					"color" "Border.Dark"
+					"offset" "0 1"
+				}
+			}
+
+			Right
+			{
+				"1"
+				{
+					"color" "Border.Bright"
+					"offset" "1 0"
+				}
+			}
+
+			Top
+			{
+				"1"
+				{
+					"color" "Border.Dark"
+					"offset" "0 0"
+				}
+			}
+
+			Bottom
+			{
+				"1"
+				{
+					"color" "Border.Bright"
+					"offset" "0 0"
+				}
+			}
+		}
+
+		TabBorder
+		{
+			"inset" "0 0 1 1"
+			Left
+			{
+				"1"
+				{
+					"color" "Border.Bright"
+					"offset" "0 1"
+				}
+			}
+
+			Right
+			{
+				"1"
+				{
+					"color" "Border.Dark"
+					"offset" "1 0"
+				}
+			}
+
+			Top
+			{
+				"1"
+				{
+					"color" "Border.Bright"
+					"offset" "0 0"
+				}
+			}
+
+		}
+
+		TabActiveBorder
+		{
+			"inset" "0 0 1 0"
+			Left
+			{
+				"1"
+				{
+					"color" "Border.Bright"
+					"offset" "0 0"
+				}
+			}
+
+			Right
+			{
+				"1"
+				{
+					"color" "Border.Dark"
+					"offset" "1 0"
+				}
+			}
+
+			Top
+			{
+				"1"
+				{
+					"color" "Border.Bright"
+					"offset" "0 0"
+				}
+			}
+
+		}
+
+
+		ToolTipBorder
+		{
+			"inset" "0 0 1 0"
+			Left
+			{
+				"1"
+				{
+					"color" "Border.Dark"
+					"offset" "0 0"
+				}
+			}
+
+			Right
+			{
+				"1"
+				{
+					"color" "Border.Dark"
+					"offset" "1 0"
+				}
+			}
+
+			Top
+			{
+				"1"
+				{
+					"color" "Border.Dark"
+					"offset" "0 0"
+				}
+			}
+
+			Bottom
+			{
+				"1"
+				{
+					"color" "Border.Dark"
+					"offset" "0 0"
+				}
+			}
+		}
+
+		// this is the border used for default buttons (the button that gets pressed when you hit enter)
+		ButtonKeyFocusBorder
+		{
+			"inset" "0 0 1 1"
+			Left
+			{
+				"1"
+				{
+					"color" "Border.Selection"
+					"offset" "0 0"
+				}
+				"2"
+				{
+					"color" "Border.Bright"
+					"offset" "0 1"
+				}
+			}
+			Top
+			{
+				"1"
+				{
+					"color" "Border.Selection"
+					"offset" "0 0"
+				}
+				"2"
+				{
+					"color" "Border.Bright"
+					"offset" "1 0"
+				}
+			}
+			Right
+			{
+				"1"
+				{
+					"color" "Border.Selection"
+					"offset" "0 0"
+				}
+				"2"
+				{
+					"color" "Border.Dark"
+					"offset" "1 0"
+				}
+			}
+			Bottom
+			{
+				"1"
+				{
+					"color" "Border.Selection"
+					"offset" "0 0"
+				}
+				"2"
+				{
+					"color" "Border.Dark"
+					"offset" "0 0"
+				}
+			}
+		}
+
+		ButtonDepressedBorder
+		{
+			"inset" "2 1 1 1"
+			Left
+			{
+				"1"
+				{
+					"color" "Border.Dark"
+					"offset" "0 1"
+				}
+			}
+
+			Right
+			{
+				"1"
+				{
+					"color" "Border.Bright"
+					"offset" "1 0"
+				}
+			}
+
+			Top
+			{
+				"1"
+				{
+					"color" "Border.Dark"
+					"offset" "0 0"
+				}
+			}
+
+			Bottom
+			{
+				"1"
+				{
+					"color" "Border.Bright"
+					"offset" "0 0"
+				}
+			}
+		}
+	}
+
+	BitmapFontFiles
+	{
+		"Buttons"		"materials/vgui/fonts/buttons_32.vbf"
+	}
+
+	Fonts
+	{
+		"AchievementNotification"
+		{
+			"1"
+			{
+				"name"		"Trebuchet MS"
+				"tall"		"14"
+				"weight"	"900"
+				"antialias" "1"
+			}
+		}
+		DebugFixed
+		{
+			"1"
+			{
+				"name"		"Courier New"
+				"tall"		"14"
+				"weight"	"400"
+				"antialias" "1"
+			}
+		}
+		DebugFixedSmall
+		{
+			"1"
+			{
+				"name"		"Courier New"
+				"tall"		"14"
+				"weight"	"400"
+				"antialias" "1"
+			}
+		}
+		Default
+		{
+			"1"	[$WIN32]
+			{
+				"name"		"Verdana"
+				"tall"		"9"
+				"weight"	"700"
+				"antialias" "1"
+				"yres"	"1 599"
+			}
+			"2"
+			{
+				"name"		"Verdana"
+				"tall"		"12"
+				"weight"	"700"
+				"antialias" "1"
+				"yres"	"600 767"
+			}
+			"3"
+			{
+				"name"		"Verdana"
+				"tall"		"14"
+				"weight"	"900"
+				"antialias" "1"
+				"yres"	"768 1023"
+			}
+			"4"
+			{
+				"name"		"Verdana"
+				"tall"		"20"
+				"weight"	"900"
+				"antialias" "1"
+				"yres"	"1024 1199"
+			}
+			"5"
+			{
+				"name"		"Verdana"
+				"tall"		"24"
+				"weight"	"900"
+				"antialias" "1"
+				"yres"	"1200 10000"
+				"additive"	"1"
+			}
+		}
+		DefaultS
+		{
+			"1"
+			{
+				"name"		"Verdana"
+				"tall"		"12"
+				"weight"	"0"
+				"range"		"0x0000 0x017F"
+				"yres"		"480 599"
+			}
+			"2"
+			{
+				"name"		"Verdana"
+				"tall"		"13"
+				"weight"	"0"
+				"range"		"0x0000 0x017F"
+				"yres"		"600 767"
+			}
+			"3"
+			{
+				"name"		"Verdana"
+				"tall"		"14"
+				"weight"	"0"
+				"range"		"0x0000 0x017F"
+				"yres"		"768 1023"
+				"antialias"	"1"
+			}
+			"4"
+			{
+				"name"		"Verdana"
+				"tall"		"20"
+				"weight"	"0"
+				"range"		"0x0000 0x017F"
+				"yres"		"1024 1199"
+				"antialias"	"1"
+			}
+			"5"
+			{
+				"name"		"Verdana"
+				"tall"		"24"
+				"weight"	"0"
+				"range"		"0x0000 0x017F"
+				"yres"		"1200 6000"
+				"antialias"	"1"
+			}
+			"6"
+			{
+				"name"		"Arial"
+				"tall"		"12"
+				"range" 	"0x0000 0x00FF"
+				"weight"	"0"
+			}
+		}
+		DefaultVerySmall
+		{
+			"1"
+			{
+				"name"		"Verdana"
+				"tall"		"12"
+				"weight"	"0"
+				"range"		"0x0000 0x017F"
+				"yres"		"480 599"
+			}
+			"2"
+			{
+				"name"		"Verdana"
+				"tall"		"13"
+				"weight"	"0"
+				"range"		"0x0000 0x017F"
+				"yres"		"600 767"
+			}
+			"3"
+			{
+				"name"		"Verdana"
+				"tall"		"14"
+				"weight"	"0"
+				"range"		"0x0000 0x017F"
+				"yres"		"768 1023"
+				"antialias"	"1"
+			}
+			"4"
+			{
+				"name"		"Verdana"
+				"tall"		"20"
+				"weight"	"0"
+				"range"		"0x0000 0x017F"
+				"yres"		"1024 1199"
+				"antialias"	"1"
+			}
+			"5"
+			{
+				"name"		"Verdana"
+				"tall"		"24"
+				"weight"	"0"
+				"range"		"0x0000 0x017F"
+				"yres"		"1200 6000"
+				"antialias"	"1"
+			}
+			"6"
+			{
+				"name"		"Verdana"
+				"tall"		"12"
+				"range" 	"0x0000 0x00FF"
+				"weight"	"0"
+			}
+			"7"
+			{
+				"name"		"Arial"
+				"tall"		"11"
+				"range" 	"0x0000 0x00FF"
+				"weight"	"0"
+			}
+		}
+		BudgetLabel
+		{
+			"1"
+			{
+				"name"		"Courier New"
+				"tall"		"14"
+				"weight"	"400"
+				"outline"	"1"
+			}
+		}
+		DebugOverlay
+		{
+			"1"	
+			{
+				"name"		"Courier New"
+				"tall"		"14"
+				"weight"	"400"
+				"outline"	"1"
+			}
+		}
+		Marlett
+		{
+			"1"
+			{
+				"name"		"Marlett"
+				"tall"		"14"
+				"weight"	"0"
+				"symbol"	"1"
+			}
+		}
+		Trebuchet24
+		{
+			"1"
+			{
+				"name"		"Trebuchet MS"
+				"tall"		"24"
+				"weight"	"900"
+				"range"		"0x0000 0x007F"
+				"antialias" "1"
+				"additive"	"1"
+			}
+		}
+		Trebuchet18
+		{
+			"1"
+			{
+				"name"		"Trebuchet MS"
+				"tall"		"18"
+				"weight"	"900"
+			}
+		}
+		ClientTitleFont
+		{
+			"1"
+			{
+				"name"  		"BlackMesa"
+				"tall"			"28"
+				"tall_hidef"	"34"
+				"weight"		"0"
+				"additive"		"0"
+				"antialias"		"1"
+				"custom"		"1"
+			}
+		}
+		CreditsLogo
+		{
+			"1"
+			{
+				"name"  		"BlackMesa"
+				"tall"			"48"
+				"weight"		"0"
+				"antialias"		"1"
+				"additive"		"1"
+				"custom"		"1"
+			}
+		}
+			
+		"CreditsNames"
+		{
+			"1"
+			{
+				"name"			"DIN 1451 Mittelschrift"
+				"additive"		"1"
+				"tall"			"16"
+				"weight"		"550"
+				"antialias"		"1"
+				"custom"		"1"
+			}
+		}
+		
+		"CreditsTitle"
+		{
+			"1"
+			{
+				"name"			"DIN 1451 Mittelschrift"
+				"additive"		"1"
+				"tall"			"24"
+				"weight"		"550"
+				"antialias"		"1"
+				"custom"		"1"
+			}
+		}
+		
+		"CreditsSubTitle"
+		{
+			"1"
+			{
+				"name"			"DIN 1451 Mittelschrift"
+				"additive"		"1"
+				"tall"			"20"
+				"weight"		"550"
+				"antialias"		"1"
+				"custom"		"1"
+			}
+		}
+					
+		"PickupLabel"
+		{
+			"1"
+			{
+				"name"			"DIN 1451 Mittelschrift"
+				"additive"		"1"
+				"tall"			"16"
+				"weight"		"550"
+				"antialias"		"1"
+				"custom"		"1"
+			}
+		}
+			
+		"TrainOnline"
+		{
+			"1"
+			{
+				"name"			"DIN 1451 Mittelschrift"
+				"additive"		"1"
+				"tall"			"100"
+				"weight"		"1200"
+				"antialias"		"1"
+				"custom"		"1"
+				"blur"			"3"
+			}
+		}
+			
+		"TrainSpeed"
+		{
+			"1"
+			{
+				"name"			"DIN 1451 Mittelschrift"
+				"additive"		"1"
+				"tall"			"128"
+				"weight"		"650"
+				"antialias"		"1"
+				"custom"		"1"
+				"scanlines"		"2"
+				"blur"			"3"
+			}
+		}
+
+		"BootSeqTextVerySmall"
+		{
+			"1"
+			{
+				"name"			"DIN 1451 Mittelschrift"
+				"additive"		"1"
+				"tall"			"12"
+				"weight"		"1200"
+				"antialias"		"1"
+				"custom"		"1"
+				"blur"			"0"
+			}
+		}
+					
+		"BootSeqTextSmall"
+		{
+			"1"
+			{
+				"name"			"DIN 1451 Mittelschrift"
+				"additive"		"1"
+				"tall"			"24"
+				"weight"		"1200"
+				"antialias"		"1"
+				"custom"		"1"
+				"blur"			"0"
+			}
+		}
+
+		"BootSeqText"
+		{
+			"1"
+			{
+				"name"			"DIN 1451 Mittelschrift"
+				"additive"		"1"
+				"tall"			"32"
+				"weight"		"1200"
+				"antialias"		"1"
+				"custom"		"1"
+				"blur"			"0"
+			}
+		}
+		
+		"CenterPrintText"
+		{
+			"1"
+			{
+				"name"		"DIN 1451 Mittelschrift"
+				"tall"		"18"
+				"weight"	"174"
+				"antialias" "1"
+				"additive"	"1"
+				"custom"		"1"
+			}
+		}
+					
+		"LargeNumber"
+		{
+			"1"
+			{
+				"name"			"SV Basic Manual Bold"
+				"tall"			"31"
+				"weight"		"1200"
+				"antialias"		"1"
+				"custom"		"1"
+			}
+		}
+				
+		"SmallNumber"
+		{
+			"1"
+			{
+				"name"			"SV Basic Manual"
+				"tall"			"14"
+				"weight"		"500"
+				"antialias"		"1"
+				"custom"		"1"
+			}
+		}
+
+		"VerySmallNumber"
+		{
+			"1"
+			{
+				"name"			"Tahoma"
+				"tall"			"7"
+				"weight"		"500"
+				"antialias"		"1"
+				"custom"		"1"
+			}
+		}
+		
+		"CloseCaption_Normal"
+		{
+			"1"
+			{
+				"name"		"Tahoma"
+				"tall"		"26"
+				"weight"	"500"
+			}
+		}
+		"CloseCaption_Italic"
+		{
+			"1"
+			{
+				"name"		"Tahoma"
+				"tall"		"26"
+				"weight"	"500"
+				"italic"	"1"
+			}
+		}
+		"CloseCaption_Bold"
+		{
+			"1"
+			{
+				"name"		"Tahoma"
+				"tall"		"26"
+				"weight"	"900"
+			}
+		}
+		"CloseCaption_BoldItalic"
+		{
+			"1"
+			{
+				"name"		"Tahoma"
+				"tall"		"26"
+				"weight"	"900"
+				"italic"	"1"
+			}
+		}
+		"CloseCaption_Small"
+		{
+			"1"
+			{
+				"name"		"Tahoma"
+				"tall"		"16"
+				"tall_hidef"	"24"
+				"weight"	"900"
+				"range"		"0x0000 0x017F" //	Basic Latin, Latin-1 Supplement, Latin Extended-A
+			}
+		}
+		Crosshairs
+		{
+			"1"
+			{
+				"name"		"HalfLife2"
+				"tall"		"40"
+				"weight"	"0"
+				"antialias" "0"
+				"additive"	"1"
+				"custom"	"1"
+				"yres"		"1 10000"
+			}
+		}
+		QuickInfo
+		{
+			"1"
+			{
+				"name"		"HL2cross"
+				"tall"		"28"
+				"weight"	"0"
+				"antialias" "1"
+				"additive"	"1"
+				"custom"	"1"
+			}
+		}
+
+	CustomFontFiles
+	{
+		"1"		"resource/HALFLIFE2.ttf"
+		"2"		"resource/HL2crosshairs.ttf"
+		"3"		"resource/HL2EP2.ttf"
+		"4"		"resource/blackmesa.ttf"
+		"6"		"resource/din1451m.ttf"
+		"7"		"resource/SVBasicManual-Bold.ttf"
+	}
+
+}</code></pre>
+<p>Hudtextures.txt</p>
+<p>[code]“sprites/640_hud”<br>
+{<br>
+TextureData<br>
+{	<br>
+“crosshair”<br>
+{<br>
+“file”		“sprites/qi_center”<br>
+“x”			“0”<br>
+“y”			“0”<br>
+“width”		“40”<br>
+“height”	“40”<br>
+}<br>
+“crosshair_left”<br>
+{<br>
+“font”		“QuickInfo”<br>
+“character”	“(”<br>
+}<br>
+“crosshair_right”<br>
+{<br>
+“font”		“QuickInfo”<br>
+“character”	“)”<br>
+}<br>
+“crosshair_left_full”<br>
+{<br>
+“font”		“QuickInfo”<br>
+“character”	“[’<br>
+}<br>
+‘crosshair_right_full’<br>
+{<br>
+‘font’		‘QuickInfo’<br>
+‘character’	']”<br>
+}<br>
+“crosshair_left_empty”<br>
+{<br>
+“font”		“QuickInfo”<br>
+“character”	“{”<br>
+}<br>
+“crosshair_right_empty”<br>
+{<br>
+“font”		“QuickInfo”<br>
+“character”	“}”<br>
+}<br>
+“crosshair_default”<br>
+{<br>
+“file”		“sprites/crosshairs”<br>
+“x”			“0”<br>
+“y”			“48”<br>
+“width”		“24”<br>
+“height”	“24”<br>
+}<br>
+“viewhair”<br>
+{<br>
+“file”		“sprites/hud/v_crosshair2”<br>
+“x”			“0”<br>
+“y”			“0”<br>
+“width”		“32”<br>
+“height”	“32”<br>
+}<br>
+“gunhair”<br>
+{<br>
+“file”		“sprites/hud/v_crosshair1”<br>
+“x”			“0”<br>
+“y”			“0”<br>
+“width”		“32”<br>
+“height”	“32”<br>
+}</p>
+<pre><code>	"progress_bar"
+	{
+			"file"		"sprites/hud1"
+			"x"			"238"
+			"y"			"0"
+			"width"		"10"
+			"height"	"28"
+	}
+
+	"plushair"
+	{
+			"font"		"Crosshairs"
+			"character"	"Q"
+</code></pre>
+<p>//				“file”		“sprites/crosshairs”<br>
+//				“x”			“0”<br>
+//				“y”			“24”<br>
+//				“width”		“24”<br>
+//				“height”	“24”<br>
+}<br>
+}	<br>
+}</p>
+<pre><code>}
+</code></pre>
+<p>}<br>
+[/code]</p>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/54">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/54</link>
+        <pubDate>Fri, 19 Oct 2012 00:07:14 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-54</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[Jenova19]]></dc:creator>
+        <description><![CDATA[
+            <p>“<span class="bbcode-b">BL@CK MESA</span>” instead of “<span class="bbcode-b">BLλCK MESA</span>” as your menu-title usually indicates a missing ‘<span class="bbcode-i">blackmesa.ttf</span>’ file.</p>
+<hr>
+<p><span class="bbcode-b">EDIT (11:20 PM):</span></p>
+<p>CODE-tags, Ronster - CODE-tags…</p>
+<p><span class="bbcode-b">This…:</span></p>
+<p>[ CODE ][ /CODE ]</p>
+<p><span class="bbcode-b">Note:</span> Remove the spaces.</p>
+<p><span class="bbcode-b">…looks like this:</span></p>
+<pre><code class="lang-auto">&lt;TEXT&gt;</code></pre>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/53">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/53</link>
+        <pubDate>Thu, 18 Oct 2012 23:13:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-53</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[Ronster]]></dc:creator>
+        <description><![CDATA[
+            <p>OK I have copied over every piece of code I can find referencing crosshairs.</p>
+<p>This includes the following</p>
+<p>Hudlayout.res<br>
+clientscheme.res<br>
+hudtextures.txt</p>
+<p>All Font files copies over and sprites in the correct directories that are referenced in the scripts</p>
+<p>I cannot get the quickinfo brackets to display but I found out most of the data is in Hudtextures.txt refrerencing the quickinfo brackets.</p>
+<p>Now my Black Mesa menu title text looks like this though</p>
+<p>BL@CK MESA</p>
+<p>so I have done something wrong I think in the coding or caused an error</p>
+<p>But I have managed to get a HL2crosshairs font to display on the mp5 only the same commands won’t work in the weapons scripts.</p>
+<p>Yes the HL2 font command works only on the MP5 so they must have missed a piece of coding for that  <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:">  or smg_crosshair vmt / vtf works</p>
+<p>CLIENTSCHEME RES</p>
+<pre><code>	Crosshairs
+	{
+		"1"
+		{
+			"name"		"HalfLife2"
+			"tall"		"40"
+			"weight"	"0"
+			"antialias" "0"
+			"additive"	"1"
+			"custom"	"1"
+			"yres"		"1 10000"
+		}
+	}
+	QuickInfo
+	{
+		"1"
+		{
+			"name"		"HL2cross"
+			"tall"		"28"
+			"weight"	"0"
+			"antialias" "1"
+			"additive"	"1"
+			"custom"	"1"
+		}
+	}
+
+CustomFontFiles
+{
+	"1"		"resource/HALFLIFE2.ttf"
+	"2"		"resource/HL2crosshairs.ttf"
+	"3"		"resource/HL2EP2.ttf"
+	"4"		"resource/blackmesa.ttf"
+	"6"		"resource/din1451m.ttf"
+	"7"		"resource/SVBasicManual-Bold.ttf"
+}
+</code></pre>
+<p>}</p>
+<p>HUDTEXTURES.TXT</p>
+<p>“sprites/640_hud”<br>
+{<br>
+TextureData<br>
+{	<br>
+“crosshair”<br>
+{<br>
+“file”		“sprites/qi_center”<br>
+“x”			“0”<br>
+“y”			“0”<br>
+“width”		“40”<br>
+“height”	“40”<br>
+}<br>
+“crosshair_left”<br>
+{<br>
+“font”		“QuickInfo”<br>
+“character”	“(”<br>
+}<br>
+“crosshair_right”<br>
+{<br>
+“font”		“QuickInfo”<br>
+“character”	“)”<br>
+}<br>
+“crosshair_left_full”<br>
+{<br>
+“font”		“QuickInfo”<br>
+“character”	“[’<br>
+}<br>
+‘crosshair_right_full’<br>
+{<br>
+‘font’		‘QuickInfo’<br>
+‘character’	']”<br>
+}<br>
+“crosshair_left_empty”<br>
+{<br>
+“font”		“QuickInfo”<br>
+“character”	“{”<br>
+}<br>
+“crosshair_right_empty”<br>
+{<br>
+“font”		“QuickInfo”<br>
+“character”	“}”<br>
+}<br>
+“crosshair_default”<br>
+{<br>
+“file”		“sprites/crosshairs”<br>
+“x”			“0”<br>
+“y”			“48”<br>
+“width”		“24”<br>
+“height”	“24”<br>
+}<br>
+“viewhair”<br>
+{<br>
+“file”		“sprites/hud/v_crosshair2”<br>
+“x”			“0”<br>
+“y”			“0”<br>
+“width”		“32”<br>
+“height”	“32”<br>
+}<br>
+“gunhair”<br>
+{<br>
+“file”		“sprites/hud/v_crosshair1”<br>
+“x”			“0”<br>
+“y”			“0”<br>
+“width”		“32”<br>
+“height”	“32”<br>
+}</p>
+<pre><code>	"progress_bar"
+	{
+			"file"		"sprites/hud1"
+			"x"			"238"
+			"y"			"0"
+			"width"		"10"
+			"height"	"28"
+	}
+
+	"plushair"
+	{
+			"font"		"Crosshairs"
+			"character"	"Q"
+</code></pre>
+<p>//				“file”		“sprites/crosshairs”<br>
+//				“x”			“0”<br>
+//				“y”			“24”<br>
+//				“width”		“24”<br>
+//				“height”	“24”<br>
+}<br>
+}	<br>
+}</p>
+<pre><code>}
+</code></pre>
+<p>}</p>
+<p>HUDLAYOUT.RES<br>
+HudCrosshair<br>
+{<br>
+“fieldName” “HudCrosshair”<br>
+“visible” “1”<br>
+“enabled” “1”<br>
+“wide”	 “640”<br>
+“tall”	 “480”<br>
+}</p>
+<p>WEAPON_MP5.TXT</p>
+<p>WeaponData<br>
+{<br>
+printname	“Mp5”<br>
+bucket		“2”<br>
+bucket_position	“0”<br>
+clip_size	“30”<br>
+item_flags	“0”<br>
+playermodel	“models/weapons/w_mp5.mdl”<br>
+primary_ammo	“9mm”<br>
+secondary_ammo	“grenade_mp5”<br>
+viewmodel	“models/weapons/v_mp5.mdl”<br>
+weight		“3”<br>
+anim_prefix	“mp5”<br>
+fov		“54”</p>
+<pre><code>SoundData
+{
+	double_shot	"weapon_mp5.Double"
+	reload_npc	"weapon_mp5.Reload_NPC"
+	empty		"weapon_mp5.Empty"
+	single_shot	"weapon_mp5.Single"
+	single_shot_npc	"weapon_mp5.Single_NPC"
+}
+</code></pre>
+<p>}<br>
+“crosshair”<br>
+{<br>
+“font”		“Crosshairs”<br>
+“character”	“Q”<br>
+}<br>
+“autoaim”<br>
+{<br>
+“file”		“sprites/crosshairs”<br>
+“x”			“0”<br>
+“y”			“48”<br>
+“width”		“24”<br>
+“height”	“24”<br>
+}<br>
+}</p>
+<p>Does quick info use the hudanimation.txt?</p>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/52">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/52</link>
+        <pubDate>Thu, 18 Oct 2012 23:08:26 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-52</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[Ronster]]></dc:creator>
+        <description><![CDATA[
+            <p>As far as I can gather the Brackets from HL2 are in HL2crosshairs.ttf</p>
+<p>as for HudQuickInfo reference that remains in BMS</p>
+<p>and the Font file HL2.crosshairs.ttf is also referenced in a Res custom fonts script so BMS uses the same font file with the brackets.</p>
+<p>So I think it is possible to call it but I don’t know where the code is that implements HudQuickInfo in HL2</p>
+<p>here is the string in the BMS Game info txt</p>
+<p>“GameUI_HudQuickInfo”			“Quick info”<br>
+“GameUI_HudQuickInfo_Info”		“Show health and ammo info on crosshair”</p>
+<p>It has been removed from the Clientscheme.res though in BMS</p>
+<p>Of which the values are</p>
+<p>QuickInfo<br>
+{<br>
+“1”<br>
+{<br>
+“name”		“HL2cross”<br>
+“tall”		“28”<br>
+“weight”	“0”<br>
+“antialias” “1”<br>
+“additive”	“1”<br>
+“custom”	“1”<br>
+}<br>
+}</p>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/51">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/51</link>
+        <pubDate>Thu, 18 Oct 2012 13:24:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-51</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[Jenova19]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m not going to jump to conclusions here, but I’ve tried many ways of getting new crosshairs to work, but it always turned out non-working.</p>
+<p>Replacing some of the .ttf files back and forth did not work, for example…</p>
+<p>Removing the material files (VTF, VMT) for the crosshairs, did not help.</p>
+<p>Removing the .ttf files entirely did not help, either.</p>
+<p>I am assuming that the crosshairs are handled in a hardcoded way, via ‘<span class="bbcode-b">client.dll</span>’ (it reads or stores part of its information from / in ‘<span class="bbcode-b">hud_textures.txt</span>’).</p>
+<p>BMS’ file is empty, though (apparently).</p>
+<p>It could be that the crosshairs are pre-defined in the library (DLL) itself, with settings which override any changes made to said crosshairs.</p>
+<p>Looking at the lines that are already in one of the Language files, one of the future updates’ probably going to give us the ability of changing the crosshair’s appearance entirely.</p>
+<hr>
+<p><span class="bbcode-b">EDIT (12 : 36 PM):</span> This is what a hud_textures.txt file <span class="bbcode-u">could</span> look like (extracted from one of the .gcf containers):</p>
+<pre><code class="lang-auto">"sprites/640_hud"
+{
+	TextureData
+	{
+		"arrow"				[$WIN32]
+		{
+				"file"		"sprites/arrow"
+				"x"			"0"
+				"y"			"0"
+				"width"		"32"
+				"height"	"32"
+		}
+		"autoaim_c"			[$WIN32]
+		{
+				"file"		"sprites/crosshairs"
+				"x"			"96"
+				"y"			"0"
+				"width"		"24"
+				"height"	"24"
+		}
+		"item_battery"		[$WIN32]
+		{
+				"font"		"WeaponIcons"
+				"character"	"*"
+		}
+		"item_healthkit"	[$WIN32]
+		{
+				"font"		"WeaponIcons"
+				"character"	"+"
+		}
+		"crosshair"
+		{
+				"file"		"sprites/qi_center"
+				"x"			"0"
+				"y"			"0"
+				"width"		"40"
+				"height"	"40"
+		}
+		"crosshair_left"
+		{
+				"font"		"QuickInfo"
+				"character"	"("
+		}
+		"crosshair_right"
+		{
+				"font"		"QuickInfo"
+				"character"	")"
+		}
+		"crosshair_left_full"
+		{
+				"font"		"QuickInfo"
+				"character"	"['
+		}
+		'crosshair_right_full'
+		{
+				'font'		'QuickInfo'
+				'character'	']"
+		}
+		"crosshair_left_empty"
+		{
+				"font"		"QuickInfo"
+				"character"	"{"
+		}
+		"crosshair_right_empty"
+		{
+				"font"		"QuickInfo"
+				"character"	"}"
+		}
+		"crosshair_default"
+		{
+				"file"		"sprites/crosshairs"
+				"x"			"0"
+				"y"			"48"
+				"width"		"24"
+				"height"	"24"
+		}
+		"crosshair_xbox"
+		{
+				"file"		"vgui/hud/xbox_reticle"
+				"x"		"0"
+				"y"		"0"
+				"width"		"64"
+				"height"	"64"
+		}
+		"viewhair"
+		{
+				"file"		"sprites/hud/v_crosshair2"
+				"x"			"0"
+				"y"			"0"
+				"width"		"32"
+				"height"	"32"
+		}
+		"gunhair"
+		{
+				"file"		"sprites/hud/v_crosshair1"
+				"x"			"0"
+				"y"			"0"
+				"width"		"32"
+				"height"	"32"
+		}
+		"plushair"
+		{
+				"font"		"Crosshairs"
+				"character"	"Q"
+		}
+	}	
+}
+</code></pre>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/50">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/50</link>
+        <pubDate>Thu, 18 Oct 2012 12:36:40 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-50</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[Ronster]]></dc:creator>
+        <description><![CDATA[
+            <p>Ok after digging about inside some of the text files it seems all the resources to implement the bracket crosshairs are already there.</p>
+<p>BMS uses the HL2Crosshais.ttf</p>
+<p>The BMS game UI.txt keeps a mention to hudquickinfo</p>
+<p>But I am struggling to find the actual scripting for hudquickinfo in half life 2.</p>
+<p>Basically I am only looking for the brackets at the momment.</p>
+<p>What is the console command and can someone try this out HudQuickInfo 1</p>
+<p>although I guess it will not draw the brackets… I am looking for the script code for the brackets in HL2 (HL2crosshairs.ttf)</p>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/49">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/49</link>
+        <pubDate>Thu, 18 Oct 2012 11:51:41 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-49</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[Ronster]]></dc:creator>
+        <description><![CDATA[
+            <p>Font driven seems to be the keyword here…</p>
+<p>Ok I think I will check weapondata.txt</p>
+<p>compare with HL2 weapndata.txt</p>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/48">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/48</link>
+        <pubDate>Thu, 18 Oct 2012 08:08:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-48</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[elivance]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Blackmesa wiki">
+<div class="title">
+<div class="quote-controls"></div>
+ Blackmesa wiki:</div>
+<blockquote>
+<pre><code> Crosshairs will be unique to each weapon, just as in HL1
+The style of each crosshair is largely similar to HL1's style
+[b]Crosshairs are font-driven and can be changed
+</code></pre>
+<p>[/b]        This means they are scaleable and resolution-independent<br>
+This means they are easily customizable.<br>
+Crosshair color can be changed.</p>
+</blockquote>
+</aside>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/47">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/47</link>
+        <pubDate>Thu, 18 Oct 2012 08:04:31 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-47</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[Ronster]]></dc:creator>
+        <description><![CDATA[
+            <p>Going to bump this one again…</p>
+<p>anyway to get this back for continuity and it also helps you see better?</p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span><br>
+<span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<p>Are the black Mesa Crosshairs also font based?</p>
+<p>If so I will attempt to edit the font file</p>
+<p><em>edit</em></p>
+<p>Ok they are texture based so can you import a second font based crosshair like in HL2?</p>
+<p>change the script to accept font based crosshairs?</p>
+<p>and is the weapon and ammo data hard coded on the brackets or a script?</p>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/46">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/46</link>
+        <pubDate>Thu, 18 Oct 2012 07:34:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-46</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[Cheerios]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Jenova19">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/j/f6c823/40.png" class="avatar"> Jenova19:</div>
+<blockquote>
+<p>Thanks for the feedback, you two!  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<hr>
+<p>How so?</p>
+<p>Because of their angle / how they’re thrown?</p>
+<hr>
+<p>If you know how to improve <a href="https://forums.blackmesasource.com/showpost.php?p=510907&amp;postcount=35" data-bbcode="true" rel="nofollow noopener">this little guide</a> (or if you spot any errors), feel free to reply below, with your suggestions.</p>
+<p>You may also want to ask for help, if it doesn’t work properly.</p>
+<hr>
+<p><span class="bbcode-b">EDIT (08:45 AM):</span></p>
+<p>Working on a small addition (PART 2) for the mini-guide, as well (if I get it done today, I’ll post it here, if not you’ll know I am working on it).</p>
+</blockquote>
+</aside>
+<p>I have no idea where a grenade is going to go when I throw it, and it certainly doesn’t land where the center of the screen is. I dont use the grenades cuz of their horrible throw placement.  your crosshairs cannot make up for it.</p>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/45">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/45</link>
+        <pubDate>Wed, 17 Oct 2012 15:25:00 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-45</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[Ronster]]></dc:creator>
+        <description><![CDATA[
+            <p>Something I thought would be carried over from HL2 was the Bracket Health and ammo indicators on the crosshair.</p>
+<p>The reason I say this it was a cool feature and it helped you see a bit better.</p>
+<p>Is this feature hardcoded or can it be loaded in to BMS by using the font file hl2crosshairs.txt</p>
+<p>Now I am aware there are 2 versions 1 that displays the health and ammo and the alternative in HLDM which stays as a solid bracket around the crosshair</p>
+<p>Is the crosshair for the Health and ammo scripted or coded?</p>
+<p>And can script this to display onto the HUD and use that font around the cross hair?</p>
+<p>Or can you go about it the auto-exec config method?</p>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/44">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/44</link>
+        <pubDate>Wed, 17 Oct 2012 09:52:54 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-44</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[Jenova19]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="CatzEyes93">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/catzeyes93/40/4402_2.png" class="avatar"> CatzEyes93:</div>
+<blockquote>
+<p>I can vouch for the toggle. &lt;3</p>
+</blockquote>
+</aside>
+<aside class="quote no-group" data-username="Bjossi">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/b/0ea827/40.png" class="avatar"> Bjossi:</div>
+<blockquote>
+<p>I tried it out and it is kind of a miracle, I can actually use the MP5 now…</p>
+</blockquote>
+</aside>
+<p>Thanks for the feedback, you two!  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<hr>
+<aside class="quote no-group" data-username="Cheerios4606">
+<div class="title">
+<div class="quote-controls"></div>
+ Cheerios4606:</div>
+<blockquote>
+<p>throwing grenades is still a shot in the dark tho.</p>
+</blockquote>
+</aside>
+<p>How so?</p>
+<p>Because of their angle / how they’re thrown?</p>
+<hr>
+<p>If you know how to improve <a href="https://forums.blackmesasource.com/showpost.php?p=510907&amp;postcount=35" data-bbcode="true" rel="nofollow noopener">this little guide</a> (or if you spot any errors), feel free to reply below, with your suggestions.</p>
+<p>You may also want to ask for help, if it doesn’t work properly.</p>
+<hr>
+<p><span class="bbcode-b">EDIT (08:45 AM):</span></p>
+<p><span class="bbcode-i">This was irrelevant information, see my last post in this thread, why.</span></p>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/43">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/43</link>
+        <pubDate>Wed, 17 Oct 2012 08:45:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-43</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[Cheerios]]></dc:creator>
+        <description><![CDATA[
+            <p>throwing grenades is still a shot in the dark tho.</p>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/42">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/42</link>
+        <pubDate>Thu, 11 Oct 2012 19:37:19 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-42</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[Bjossi]]></dc:creator>
+        <description><![CDATA[
+            <p>I tried it out and it is kind of a miracle, I can actually use the MP5 now…</p>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/41">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/41</link>
+        <pubDate>Mon, 08 Oct 2012 20:52:39 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-41</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[Jenova19]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Bjossi">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/b/0ea827/40.png" class="avatar"> Bjossi:</div>
+<blockquote>
+<p>Holy popsicles batman, I have to try this out. Thanks!</p>
+</blockquote>
+</aside>
+<p>Don’t expect a miracle, though… <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<hr>
+<p>This seems to be a ‘<span class="bbcode-i">Source-Wide</span>’ CVar / option, as it appears in both HL2 and TF2, although the latter does not work, properly.</p>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/40">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/40</link>
+        <pubDate>Mon, 08 Oct 2012 20:12:30 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-40</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[Bjossi]]></dc:creator>
+        <description><![CDATA[
+            <p>Holy popsicles batman, I have to try this out. Thanks!</p>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/39">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/39</link>
+        <pubDate>Mon, 08 Oct 2012 20:06:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-39</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[CatzEyes93]]></dc:creator>
+        <description><![CDATA[
+            <p>I can vouch for the toggle. &lt;3</p>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/38">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/38</link>
+        <pubDate>Sat, 06 Oct 2012 18:20:51 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-38</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[Jenova19]]></dc:creator>
+        <description><![CDATA[
+            <p><img src="https://leakfree.org/images/emoji/twitter/blush.png?v=9" title=":blush:" class="emoji only-emoji" alt=":blush:"></p>
+<p>Let’s hope it works…  <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/37">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/37</link>
+        <pubDate>Sat, 06 Oct 2012 16:21:47 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-37</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[CatzEyes93]]></dc:creator>
+        <description><![CDATA[
+            <p>I love you Jenova19. Gonna go try this now.</p>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/36">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/36</link>
+        <pubDate>Sat, 06 Oct 2012 16:03:50 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-36</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[Jenova19]]></dc:creator>
+        <description><![CDATA[
+            <p>[COLOR=’<span class="hashtag">#FFAA00</span>’]<span class="bbcode-u"><span class="bbcode-b">How-To ‘<span class="bbcode-i">bind</span>’ a key (TOGGLE) to enable or disable an additional reticle / crosshair on the screen.</span></span></p>
+<p><span class="bbcode-b">Description:</span></p>
+<p>This is a mini-guide - it explains how to add an ‘<span class="bbcode-i">extra</span>’ reticle around the crosshair for <span class="bbcode-u">all</span> weapons (including the Crowbar, Grenades, etc.), if you choose to follow its instructions.</p>
+<p>It is nothing special, just a little helper for all of you who are having trouble seeing the crosshair (it’s a bit ‘<span class="bbcode-i">cheaty</span>’, though - well, sort of).</p>
+<p>The first section describes how to ‘implement’ the reticle and bind it to a toggleable (On / Off) key, using a script, the next ([OPTIONAL]) section describes how to bind another script to a key, to enable and disable the reticl on HOLDING said key.</p>
+<p>It also includes a short section showing examples of how it would look like, if you chose to add one of the scripts to the autoexec.cfg directly.</p>
+<p>You may choose whichever you like best (TOGGLE = Press once to enable, press again to disable; HOLD = Press and hold to enable, release to disable).</p>
+<p>Also, the method I chose for this guide is (probably) unecessarily complicated, since you can just add the script file’s lines to the autoexec.cfg directly (as mentioned above), but for the sake of a more clean ‘implementation’, I recommend following and using the instructions below.</p>
+<p>If you do not have any problems with scripts being executed from the autoexec.cfg file, rather than externally (from another config / script file), be sure to follow the steps from ‘[COLOR=’<span class="hashtag">#FFAA00</span>’]<span class="bbcode-b"><span class="bbcode-u">[OPTIONAL 2] Mini-Guide (Examples for autoexec.cfg):</span></span>’ to the end of this post.</p>
+<p>The “sv_cheats” and “developer” commands are <span class="bbcode-u">not</span> needed for this to work!</p>
+<p><span class="bbcode-b">Preview:</span></p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span><br>
+<span class="bbcode-i">^- Enabled -^</span></p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span><br>
+<span class="bbcode-i">^- Disabled -^</span></p>
+<p><span class="bbcode-b">Note:</span> “^-” and “-^” are supposed to be arrows, pointing up.</p>
+<hr>
+<p>[COLOR=’<span class="hashtag">#D08900</span>’]<span class="bbcode-b">► Mini-Guide (Part 1 [Config P1/2]):</span></p>
+<ol type="1">
+<li> Close Black Mesa.</li>
+<li> Browse to this location: ‘<span class="bbcode-b">\SteamApps\sourcemods\BMS\cfg</span>’.</li>
+<li> Locate the file ‘<span class="bbcode-b">autoexec.cfg</span>’, copy and paste it into the same location (directory) and open the newly created file with a text-editor (Notepad++ or anything similiar [preferably with line-counting]).</li>
+<li> Select all the text inside (press Ctrl + A on your keyboard) and delete it (press Del on your keyboard).</li>
+<li> Add the lines from inside the Code-Box below into the file and save it.</li>
+</ol>
+<p><span class="bbcode-b">Lines to add (this is a TOGGLE Script):</span></p>
+<pre><code class="lang-auto">alias "toggleReticle" "incrementvar hud_draw_fixed_reticle 0 1 1"
+
+bind &lt;KEY&gt; "toggleReticle"</code></pre>
+<p><span class="bbcode-b">Note:</span> Replace  with any key you want to bind the (toggleable) reticle to (such as: T, G, X, etc.).</p>
+<p><span class="bbcode-b">Note 2:</span> More information about <span class="bbcode-b"><a href="https://developer.valvesoftware.com/wiki/Alias" data-bbcode="true" rel="nofollow noopener">alias</a></span> and <span class="bbcode-b"><a href="https://developer.valvesoftware.com/wiki/Incrementvar" data-bbcode="true" rel="nofollow noopener">incrementvar</a></span> can be found by clicking on the previous links (within this sentence).</p>
+<hr>
+<p>[COLOR=’<span class="hashtag">#D08900</span>’]<span class="bbcode-b">► Mini-Guide (Part 2 [Config P2/2]):</span></p>
+<ol type="1">
+<li> Once the file has been saved, close the text-editor.</li>
+<li> Rename the file from ‘<span class="bbcode-i">autoexec - Copy.cfg</span>’ to ‘<span class="bbcode-b">.cfg</span>’ (replace  with any name you want [toggleCrosshairReticle, for example]), without using special characters.</li>
+<li> Locate and open the file ‘<span class="bbcode-b">autoexec.cfg</span>’ (inside the cfg folder) with a text-editor.</li>
+<li> Add the name of the file you’ve previously renamed as a line to the autoexec file, as shown below.</li>
+</ol>
+<p><span class="bbcode-b">autoexec.cfg (Edited):</span></p>
+<pre><code class="lang-auto">exec config.cfg
+exec &lt;FILENAME&gt;.cfg
+//exec threading.cfg
+</code></pre>
+<p><span class="bbcode-b">Note:</span> Replace  with the previously specified file name (e.g. toggleCrosshairReticle).</p>
+<p>To revert the file back to default, simply remove the “exec .cfg” line entirely.</p>
+<p><span class="bbcode-b">How to proceed:</span></p>
+<ol type="1">
+<li> Save the file and close it.</li>
+<li> Start Black Mesa, load a map or savegame and test the script, by pressing the key you’ve previously specified (via the bind command / line) in the script file.</li>
+</ol>
+<p><span class="bbcode-b">Note:</span> If you see an orange reticle / crosshair in the center of your screen, the script has been successfully executed and is ready for use (since it is toggleable, simply press the key again and the reticle should disappear)!</p>
+<p>If you are interested in more details (such as: additional commands, etc.), feel free to read the rest of this post - if you’re satisfied with what you got so far, go play the game and hit stuff!  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<hr>
+<p>[COLOR=’<span class="hashtag">#D08900</span>’]<span class="bbcode-b">► Mini-Guide Demonstration (Part 1 [Screenshots P1/1]):</span></p>
+<p><span class="bbcode-u">Without</span> the additional reticle / crosshair (disabled):</p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span><br>
+<span class="bbcode-i"><span class="bbcode-b">Size:</span> 1920x1080</span></p>
+<p><span class="bbcode-u">With</span> the additional reticle / crosshair (enabled):</p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span><br>
+<span class="bbcode-i"><span class="bbcode-b">Size:</span> 1920x1080</span></p>
+<hr>
+<p>[COLOR=’<span class="hashtag">#FFAA00</span>’]<span class="bbcode-u"><span class="bbcode-b">[OPTIONAL] How-To ‘<span class="bbcode-i">bind</span>’ a key (HOLD) to enable or disable an additional reticle / crosshair on the screen.</span></span></p>
+<p>This section is purely optional - it explains how to add a script to the autoexec config, which allows you to enable or disable the reticle by HOLDING the specified key (as long as the key is held down, the reticle is present; on release, it disappears).</p>
+<p>[COLOR=’<span class="hashtag">#D08900</span>’]<span class="bbcode-b">[OPTIONAL]► Mini-Guide (Part 1):</span></p>
+<ol type="1">
+<li> Close Black Mesa.</li>
+<li> Browse to this location: ‘<span class="bbcode-b">\SteamApps\sourcemods\BMS\cfg</span>’.</li>
+<li> Locate the file ‘<span class="bbcode-b">autoexec.cfg</span>’, copy and paste it into the same location (directory) and open the newly created file with a text-editor (Notepad++ or anything similiar [preferably with line-counting]).</li>
+<li> Select all the text inside (press Ctrl + A on your keyboard) and delete it (press Del on your keyboard).</li>
+<li> Add the lines from inside the Code-Box below into the file and save it.</li>
+</ol>
+<p><span class="bbcode-b">Code-Box (this is a HOLD Script):</span></p>
+<pre><code class="lang-auto">alias "+reticle" "hud_draw_fixed_reticle 1"
+alias "-reticle" "hud_draw_fixed_reticle 0"
+
+bind &lt;KEY&gt; "+reticle"</code></pre>
+<p><span class="bbcode-b">Note:</span> Replace  with any key you want to bind the reticle to (such as: T, G, X, etc.).</p>
+<p><span class="bbcode-b">Explanation:</span></p>
+<p>First, the command “hud_draw_fixed_reticle 1” is assigned to the alias +reticle (+ for key down [press]) - this enables the reticle (as long as the key is held).<br>
+Then, the command “hud_draw_fixed_reticle 0” is assigned to the alias -reticle (- for key up [release]) - this disables the reticle (as soon as the key is released).<br>
+Lastly, the alias +reticle is bound to the specified key.</p>
+<p>Originally I had added a “wait” command as well, but since there are problems with higher intervals (wait 100, for example), causing the script to start mocking up and get caught in one or the other state (On or Off), if the bound key is pressed repeatedly, I decided not to include it.</p>
+<p><span class="bbcode-b">You can try to add it, if you want to:</span></p>
+<pre><code class="lang-auto">alias "+reticle" "hud_draw_fixed_reticle 1"
+alias "-reticle" "wait &lt;VALUE&gt;; hud_draw_fixed_reticle 0"
+
+bind T "+reticle"</code></pre>
+<p><span class="bbcode-b">Note:</span> Replace  with any valid value (10, 100, 1000, etc.).</p>
+<hr>
+<p>[COLOR=’<span class="hashtag">#D08900</span>’]<span class="bbcode-b">[OPTIONAL]► Mini-Guide (Part 2):</span></p>
+<ol type="1">
+<li> Rename the file from ’<span class="bbcode-i"> - Copy.cfg</span>’ to ‘<span class="bbcode-b">.cfg</span>’ (replace  with any name you want [holdCrosshairReticle, for example]).</li>
+<li> Locate and open the file ‘<span class="bbcode-b">autoexec.cfg</span>’ (inside the cfg folder) with a text-editor.</li>
+<li> Add the previously edited CFG file’s name as a line to the autoexec file, as shown below.</li>
+</ol>
+<p><span class="bbcode-b">autoexec.cfg (Edited):</span></p>
+<pre><code class="lang-auto">exec config.cfg
+exec &lt;FILENAME&gt;.cfg
+//exec threading.cfg
+</code></pre>
+<p><span class="bbcode-b">Note:</span>Replace  with the previously specified file name (e.g. holdCrosshairReticle).</p>
+<p><span class="bbcode-b">autoexec.cfg (Original):</span></p>
+<pre><code class="lang-auto">exec config.cfg
+//exec threading.cfg
+</code></pre>
+<p><span class="bbcode-b">How to proceed:</span></p>
+<ol type="1">
+<li> Save the file and close it.</li>
+<li> Start Black Mesa, load a map or savegame and test the script, by pressing (and holding) the key you’ve previously specified (via the bind command / line) in the script file.</li>
+</ol>
+<p><span class="bbcode-b">Note:</span> If you see an orange reticle / crosshair in the center of your screen, while holding down the specified key, the script has been successfully executed and is ready to use (release the key and the reticle should disappear)!</p>
+<hr>
+<p>[COLOR=’<span class="hashtag">#FFAA00</span>’]<span class="bbcode-b"><span class="bbcode-u">[OPTIONAL 2] Mini-Guide (Examples for autoexec.cfg):</span></span></p>
+<p><span class="bbcode-b">autoexec.cfg (TOGGLE)</span></p>
+<pre><code class="lang-auto">exec config.cfg
+//exec threading.cfg
+
+alias "toggleReticle" "incrementvar hud_draw_fixed_reticle 0 1 1"
+
+bind &lt;KEY&gt; "toggleReticle"</code></pre>
+<p><span class="bbcode-b">Note:</span> Replace  with any key you want to bind the (toggleable) reticle to (such as: T, G, X, etc.).</p>
+<p><span class="bbcode-b">autoexec.cfg (HOLD)</span></p>
+<pre><code class="lang-auto">exec config.cfg
+//exec threading.cfg
+
+alias "+reticle" "hud_draw_fixed_reticle 1"
+alias "-reticle" "hud_draw_fixed_reticle 0"
+
+bind &lt;KEY&gt; "+reticle"</code></pre>
+<p><span class="bbcode-b">Note:</span> Replace  with any key you want to bind the reticle to (such as: T, G, X, etc.).</p>
+<hr>
+<p>[COLOR=’<span class="hashtag">#D08900</span>’]<span class="bbcode-b">► Mini-Guide Extras (Part 1 [CVars P1/1]):</span></p>
+<p>This is just an extra section, listing different commands / CVars for you to play around with (including the one demonstrated in the video above).</p>
+<p><span class="bbcode-b">hud_reticle_alpha_speed:</span></p>
+<pre><code class="lang-auto">hud_reticle_alpha_speed &lt;VALUE&gt;</code></pre>
+<p><span class="bbcode-i"><span class="bbcode-b">Note 1:</span> Replace  with any valid value (0 and above) - it affects the time that is needed for the reticle to fade away, when you sprint (<span class="bbcode-b">Examples:</span> 0 = Does not fade; 350 = Fades away slower; 700 = Default (faster than 350); 1000 = Fades away faster (than 350 and 700); etc.).</span></p>
+<p><span class="bbcode-b">For a demonstration, see the video below (“Demonstration: hud_reticle_alpha_speed - YouTube”).</span></p>
+<p><span class="bbcode-b">Video:</span> <a href="https://www.youtube.com/watch?v=fzP2dIYCXRU" data-bbcode="true" rel="nofollow noopener">Demonstration: hud_reticle_alpha_speed - YouTube</a></p>
+<p><span class="bbcode-b">Note 1a:</span> This is a small collection of clips, for 4 different settings (0, 350, 700, 1000) of the above command “hud_reticle_alpha_speed”, I edited into one, including text overlays.</p>
+<p>It shows how each of the four settings above affect the reticle’s time to fade from solid to invisible and back.</p>
+<p><span class="bbcode-b">hud_reticle_minalpha:</span></p>
+<pre><code class="lang-auto">hud_reticle_minalpha &lt;VALUE&gt;</code></pre>
+<p><span class="bbcode-i"><span class="bbcode-b">Note 2:</span> Replace  with any valid value (between 0 [= invisible] and 255 [= solid]) - Determines the reticles’ minimum opacity (alpha).</span></p>
+<p><span class="bbcode-b">hud_reticle_maxalpha:</span></p>
+<pre><code class="lang-auto">hud_reticle_maxalpha &lt;VALUE&gt;</code></pre>
+<p><span class="bbcode-i"><span class="bbcode-b">Note 3:</span> Replace  with any valid value (between 0 [= invisible] and 255 [= solid]) - Determines the reticles’ maximum opacity (alpha).</span></p>
+<p>The minalpha and maxalpha commands may come in handy if the reticle is too ‘<span class="bbcode-i">apparent</span>’ for your taste or if you simply want to reduce its overall opacity.</p>
+<p>If you want to use any of the commands above, just add the preferred one (including a custom value) to the autoexec.cfg or to the script file you created earlier.</p>
+<p>There is another command called ‘hud_draw_active_reticle’, as well, but it seems to be unused at this point in time.</p>
+<p>If it’d work it would probably be responsible for an ‘active’ crosshair (the size increases steadily as you fire your weapon or run), much like the “Auto-Size” setting in most multiplayer games.</p>
+<p>To use the two alpha commands above, simply add them to the very end of the autoexec.cfg file (including a value, between 0 and 255), then save and close it.</p>
+<p>You may want to test different values in-game, to see what setting you are most comfortable with.</p>
+<hr>
+<p>[COLOR=’<span class="hashtag">#FFAA00</span>’]<span class="bbcode-b"><span class="bbcode-u">[THE END] Not much to say:</span></span></p>
+<p>Well, I guess this “Mini-Guide” quickly became a relatively large “Guide”, sorry about that.</p>
+<p>I am well aware of the (potential) flaws of this guide, if you’re having trouble understanding or using it, please let me know!</p>
+<p>Also, be sure to reply whether the scripts work or not!  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<hr>
+<p><span class="bbcode-b">EDIT (10-08-2012 - 08:24 PM):</span> Updated the guide’s overall structure from ‘<span class="bbcode-i">TOGGLE, Extras, HOLD, End</span>’ to ‘<span class="bbcode-i">TOGGLE, HOLD, Extras, End</span>’.</p>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/35">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/35</link>
+        <pubDate>Sat, 06 Oct 2012 00:18:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-35</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[ratcat]]></dc:creator>
+        <description><![CDATA[
+            <p>Seems theres no real fix for it so I guess my  problem will be infinetly worse. I play in 3D nVidia give you a 3D lasersight which works in practically every game but not HL2 BM etc. When you hit the key (F12) it comes up in green writing "3D lasersight turned on/off but there is no visible difference. 3D works very well but the crosshair is doubled except the Gluon cannon for some reason works fine - the crosshair reacts to surfaces IE: If Im pointing at a distant wall the crosshair will be on that wall, If I turn back to a wall close to me it is on that wall dead center and on its own, the other crosshairs as I said there are two and they appear to be on the top of the screen probably where the 2D image would normally be. I’d love a fix for it.</p>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/34">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/34</link>
+        <pubDate>Fri, 05 Oct 2012 06:56:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-34</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[Jenova19]]></dc:creator>
+        <description><![CDATA[
+            <p>Sorry about the delay, I am working on two posts at the same time (the one for the HUD Transparency thread and the one about the helper I mentioned before), but I’m really pushing towards getting at least one of them done in time (probably today).</p>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/33">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/33</link>
+        <pubDate>Fri, 05 Oct 2012 00:44:24 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-33</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+      <item>
+        <title>Crosshairs for the Visually Impaired</title>
+        <dc:creator><![CDATA[ildamos]]></dc:creator>
+        <description><![CDATA[
+            <p>Solved the MP5 problem with a piece of straw.  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"> ) Gave a shoutout to Jenova19 in the 11th part of my Let’s Play series (should go up within the next 24 hours). Part 10 just went live:</p>
+<p><a href="https://www.youtube.com/watch?v=fVuber79_5I&amp;feature=plcp" data-bbcode="true" rel="nofollow noopener">https://www.youtube.com/watch?v=fVuber79_5I&amp;feature=plcp</a></p>
+          <p><a href="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/32">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318/32</link>
+        <pubDate>Fri, 05 Oct 2012 00:18:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10318-32</guid>
+        <source url="https://leakfree.org/t/crosshairs-for-the-visually-impaired/10318.rss">Crosshairs for the Visually Impaired</source>
+      </item>
+  </channel>
+</rss>

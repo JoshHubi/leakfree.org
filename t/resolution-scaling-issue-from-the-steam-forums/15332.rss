@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Resolution scaling issue from the steam forums</title>
+    <link>https://leakfree.org/t/resolution-scaling-issue-from-the-steam-forums/15332</link>
+    <description>[b][/size][/b]
+[b][[/b]ANSWERED[b]][/b][/size]
+[b]Wrong resolution[/size][/b][b] in windowed mode[/size][/b][sub][b][/size][/b][/sub]
+[quote=keggerius]
+I am using the launch options -windowed -w -h. This works perfectly for other Source games, but Black Mesa thinks my 3840x2160 monitor is 2560x1440 for some reason, so it scales the window up by a factor of 1.5. So if I use, for example, -w 1920 -h 1080, it gives me a 2880x1620 window, with a 1920x1080 resolution but with all the pixels scaled up to 1.5x pixels, making them look blurry. On a 4k monitor, this still isn&#39;t that bad looking, but it would be nicer to have 1-to-1 pixels. Is there some setting in the config files that will force the game to think the monitor is 3840x2160? 
+[/quote]
+[url]https://steamcommunity.com/app/362890/discussions/0/1693785669854252232/[/url]</description>
+    
+    <lastBuildDate>Sat, 10 Feb 2018 18:34:51 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/resolution-scaling-issue-from-the-steam-forums/15332.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Resolution scaling issue from the steam forums</title>
+        <dc:creator><![CDATA[Flavrans]]></dc:creator>
+        <description><![CDATA[
+            <p>Ah, OK. I was about to post a follow up post saying to scratch my previous post as I figured out that it could be a DPI scaling issue.</p>
+<p>For some reason, when you run Black Mesa in windowed mode, the window gets scaled (stretched) according to the scaling setting in Windows Display settings (including -noborder had no effect on this on my system).</p>
+<p>There are two ways to work around this:</p>
+<ol>
+<li>Set the display scaling to 100%, or</li>
+<li>Enable the “Override high DPI scaling behavior” setting in bms.exe Properties -&gt; Compatibility, and make sure “Scaling performed by:” is set to “Application”.</li>
+</ol>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/DiEwUYx.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/DiEwUYx.png" alt="" width="342" height="500"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">363×530</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+          <p><a href="https://leakfree.org/t/resolution-scaling-issue-from-the-steam-forums/15332/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/resolution-scaling-issue-from-the-steam-forums/15332/4</link>
+        <pubDate>Sat, 10 Feb 2018 18:34:51 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15332-4</guid>
+        <source url="https://leakfree.org/t/resolution-scaling-issue-from-the-steam-forums/15332.rss">Resolution scaling issue from the steam forums</source>
+      </item>
+      <item>
+        <title>Resolution scaling issue from the steam forums</title>
+        <dc:creator><![CDATA[RedEye9]]></dc:creator>
+        <description><![CDATA[
+            <p>He figured it out after Chon replied. (simple as -noborder)<br>
+<a href="https://steamcommunity.com/app/362890/discussions/0/1693785669854252232" data-bbcode="true" rel="nofollow noopener">https://steamcommunity.com/app/362890/discussions/0/1693785669854252232</a></p>
+<p>I did repost your suggestion, thanks for your help.</p>
+          <p><a href="https://leakfree.org/t/resolution-scaling-issue-from-the-steam-forums/15332/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/resolution-scaling-issue-from-the-steam-forums/15332/3</link>
+        <pubDate>Sat, 10 Feb 2018 17:50:53 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15332-3</guid>
+        <source url="https://leakfree.org/t/resolution-scaling-issue-from-the-steam-forums/15332.rss">Resolution scaling issue from the steam forums</source>
+      </item>
+      <item>
+        <title>Resolution scaling issue from the steam forums</title>
+        <dc:creator><![CDATA[Flavrans]]></dc:creator>
+        <description><![CDATA[
+            <p>Just a long shot, but ask the user to check if [tt]mat_viewportscale[/tt] is set to something other than “1.0”.</p>
+<p>You’ll get a 1.5x upscaling if [tt]mat_viewportscale “0.666667”[/tt] and [tt]mat_viewportupscale “1”[/tt].</p>
+<p>On a side note, [tt]mat_viewportscale[/tt] doesn’t work well with the December Beta update. Changing [tt]mat_viewportscale[/tt] messes up the new dynamic lighting engine, and the console gets spammed with “ERROR!! - Secondary View NewLights RT SIZE MISMATCH VIEWSIZE […]” error messages.</p>
+<p>EDIT: I say long shot because I don’t think [tt]mat_viewportscale[/tt] will affect the size of the window, just the in-game rendering resolution.</p>
+          <p><a href="https://leakfree.org/t/resolution-scaling-issue-from-the-steam-forums/15332/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/resolution-scaling-issue-from-the-steam-forums/15332/2</link>
+        <pubDate>Sat, 10 Feb 2018 15:06:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15332-2</guid>
+        <source url="https://leakfree.org/t/resolution-scaling-issue-from-the-steam-forums/15332.rss">Resolution scaling issue from the steam forums</source>
+      </item>
+      <item>
+        <title>Resolution scaling issue from the steam forums</title>
+        <dc:creator><![CDATA[RedEye9]]></dc:creator>
+        <description><![CDATA[
+            <p><span class="bbcode-b">[/size]</span><br>
+<span class="bbcode-b">[</span>ANSWERED<span class="bbcode-b">]</span>[/size]<br>
+<span class="bbcode-b">Wrong resolution[/size]</span><span class="bbcode-b"> in windowed mode[/size]</span>[sub]<span class="bbcode-b">[/size]</span>[/sub]</p>
+<aside class="quote no-group" data-username="keggerius">
+<div class="title">
+<div class="quote-controls"></div>
+ keggerius:</div>
+<blockquote>
+<p>I am using the launch options -windowed -w -h. This works perfectly for other Source games, but Black Mesa thinks my 3840x2160 monitor is 2560x1440 for some reason, so it scales the window up by a factor of 1.5. So if I use, for example, -w 1920 -h 1080, it gives me a 2880x1620 window, with a 1920x1080 resolution but with all the pixels scaled up to 1.5x pixels, making them look blurry. On a 4k monitor, this still isn’t that bad looking, but it would be nicer to have 1-to-1 pixels. Is there some setting in the config files that will force the game to think the monitor is 3840x2160?</p>
+</blockquote>
+</aside>
+<p><a href="https://steamcommunity.com/app/362890/discussions/0/1693785669854252232/" data-bbcode="true" rel="nofollow noopener">https://steamcommunity.com/app/362890/discussions/0/1693785669854252232/</a></p>
+          <p><a href="https://leakfree.org/t/resolution-scaling-issue-from-the-steam-forums/15332/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/resolution-scaling-issue-from-the-steam-forums/15332/1</link>
+        <pubDate>Sat, 10 Feb 2018 05:13:50 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15332-1</guid>
+        <source url="https://leakfree.org/t/resolution-scaling-issue-from-the-steam-forums/15332.rss">Resolution scaling issue from the steam forums</source>
+      </item>
+  </channel>
+</rss>

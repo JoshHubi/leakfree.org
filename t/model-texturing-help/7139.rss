@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Model texturing help</title>
+    <link>https://leakfree.org/t/model-texturing-help/7139</link>
+    <description>I just begun modeling and i use xsi mod tool v6 i can port the models to source. But the textures wont work properly. They show up with the black and purple checkerboard texture. Can anyone help?.</description>
+    
+    <lastBuildDate>Mon, 16 May 2011 19:31:17 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/model-texturing-help/7139.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Model texturing help</title>
+        <dc:creator><![CDATA[Jack_Freeman]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks man it worked!.</p>
+          <p><a href="https://leakfree.org/t/model-texturing-help/7139/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/model-texturing-help/7139/4</link>
+        <pubDate>Mon, 16 May 2011 19:31:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7139-4</guid>
+        <source url="https://leakfree.org/t/model-texturing-help/7139.rss">Model texturing help</source>
+      </item>
+      <item>
+        <title>Model texturing help</title>
+        <dc:creator><![CDATA[Jack_Freeman]]></dc:creator>
+        <description><![CDATA[
+            <p>Thx gonna try it later.</p>
+          <p><a href="https://leakfree.org/t/model-texturing-help/7139/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/model-texturing-help/7139/3</link>
+        <pubDate>Mon, 16 May 2011 12:40:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7139-3</guid>
+        <source url="https://leakfree.org/t/model-texturing-help/7139.rss">Model texturing help</source>
+      </item>
+      <item>
+        <title>Model texturing help</title>
+        <dc:creator><![CDATA[p0rt1r]]></dc:creator>
+        <description><![CDATA[
+            <p>Open your .smd files in wordpad.</p>
+<p><code>version 1
+nodes
+  0 "green_bin"  -1
+end
+skeleton
+time 0
+  0 0.000000 -0.096582 0.261453 0.000000 -0.000000 0.000000
+end
+triangles
+difuse.PNG
+  0 -11.636561 -13.667243 0.261453 0.000000 0.000000 -1.000000 0.471805 0.045833 1 0 1.000000
+  0 11.636561 -13.667243 0.261453 0.000000 0.000000 -1.000000 0.216987 0.045833 1 0 1.000000
+  0 9.882102 -14.772702 0.261453 0.000000 -0.000000 -1.000000 0.236197 0.038038 1 0 1.000000
+difuse.PNG</code></p>
+<p>Now hit ctrl - h and find and replace all of your texture files with the name of your .vmt file.</p>
+<p>Example: The above is original, fresh export straight outa 3d studio max. It still has the name of my .PNG texture.</p>
+<p><code>version 1
+nodes
+  0 "green_bin"  -1
+end
+skeleton
+time 0
+  0 0.000000 -0.096582 0.261453 0.000000 -0.000000 0.000000
+end
+triangles
+difuse.vmt
+  0 -11.636561 -13.667243 0.261453 0.000000 0.000000 -1.000000 0.471805 0.045833 1 0 1.000000
+  0 11.636561 -13.667243 0.261453 0.000000 0.000000 -1.000000 0.216987 0.045833 1 0 1.000000
+  0 9.882102 -14.772702 0.261453 0.000000 -0.000000 -1.000000 0.236197 0.038038 1 0 1.000000
+difuse.vmt
+</code></p>
+<p>Now make sure your textures are called that and are in the right folders.<br>
+Since I generally model for css, my textures go here<br>
+‘\counter-strike source\cstrike\materials\p0rt1r’<br>
+My models go here.<br>
+‘\counter-strike source\cstrike\models\p0rt1r’</p>
+<p>Now my .QC file for green_bin looks like this.</p>
+<p><code>$scale 1.00
+$modelname "p0rt1r/green_bin.mdl"
+$cdmaterials "p0rt1r/"
+$body "Body" "green_bin.smd"
+$sequence "Idle" "green_bin.smd" fps 30 ACT_IDLE 1
+$keyvalues {
+   "prop_data" {
+      "base" "metal.large"
+   }
+}
+$collisionmodel "green_bin_phys.smd" {
+   $concave
+   $mass 150
+}</code><br>
+$cdmaterials “p0rt1r/” means that its gonna look for the texture in the p0rt1r folder in ‘\counter-strike source\cstrike\materials’</p>
+<p>This is what my vmt files usually look like</p>
+<pre><code class="lang-auto">"VertexlitGeneric"
+{
+	"$basetexture" "p0rt1r/lab_blue_barrel"
+	"$bumpmap" "p0rt1r/normals/lab_blue_barrel_normal"
+	"$surfaceprop" "plastic_barrel"
+	"$envmap" "env_cubemap"
+	"$normalmapalphaenvmapmask" 1 //Because I have a bump map
+}</code></pre>
+<p>You dont need most of that infact. all you really need is this:</p>
+<pre><code class="lang-auto">"VertexlitGeneric"
+{
+	"$basetexture" "p0rt1r/lab_blue_barrel"
+	"$surfaceprop" "plastic_barrel"
+}</code></pre>
+          <p><a href="https://leakfree.org/t/model-texturing-help/7139/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/model-texturing-help/7139/2</link>
+        <pubDate>Mon, 16 May 2011 00:13:00 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7139-2</guid>
+        <source url="https://leakfree.org/t/model-texturing-help/7139.rss">Model texturing help</source>
+      </item>
+      <item>
+        <title>Model texturing help</title>
+        <dc:creator><![CDATA[Jack_Freeman]]></dc:creator>
+        <description><![CDATA[
+            <p>I just begun modeling and i use xsi mod tool v6 i can port the models to source. But the textures wont work properly. They show up with the black and purple checkerboard texture. Can anyone help?.</p>
+          <p><a href="https://leakfree.org/t/model-texturing-help/7139/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/model-texturing-help/7139/1</link>
+        <pubDate>Sun, 15 May 2011 19:44:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7139-1</guid>
+        <source url="https://leakfree.org/t/model-texturing-help/7139.rss">Model texturing help</source>
+      </item>
+  </channel>
+</rss>

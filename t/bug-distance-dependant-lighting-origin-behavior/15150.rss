@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>[bug?] Distance-dependant lighting origin behavior.</title>
+    <link>https://leakfree.org/t/bug-distance-dependant-lighting-origin-behavior/15150</link>
+    <description>The info_lighting FGD (and the lighting origin key value) describe lighting origin overrides as follows:
+
+An entity that can be used to change the lighting origin of a prop_static. Set the prop_static&#39;s Lighting Origin to point at this entity to make the prop_static light as if it was at the info_lighting&#39;s origin. Good for prop_static entities that are embedded in world geometry (like rocks/windows/etc).
+
+This, however, does not seem to be what the entity actually [i]does[/i], as the amount of light on the entity varies with its distance [i]from[/i] the lighting_origin.
+
+
+Here, I have a lighting_origin and a light in a completely self-contained box outside of the main map, and a bulletin board with its lighting origin keyvalue set to that entity- if the lighting origin system worked as advertised, that [i]should[/i] mean the bulletin board would always be the same brightness (since the lighting at the info_light ent is completely determined by the single light in the box, which is kept constant). However, when I move the physical location of the box, light, and info_lighting while keeping them all fixed relative to each other, the brightness of the billboard changes.
+
+Here it is with the box at the edge of the map:
+[img]https://steamuserimages-a.akamaihd.net/ugc/90478170156713595/9FEDA73E5534AFBD1938F071041355D20D10FD29/[/img]And here it is with the box directly over this room:
+[img]https://steamuserimages-a.akamaihd.net/ugc/90478170156713870/F14F248F673EBE1B9BE45D689E831796486D0A4C/[/img]
+
+
+Is this intended behavior for these entities? If so, why?</description>
+    
+    <lastBuildDate>Wed, 12 Apr 2017 16:37:09 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/bug-distance-dependant-lighting-origin-behavior/15150.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>[bug?] Distance-dependant lighting origin behavior.</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>The info_lighting FGD (and the lighting origin key value) describe lighting origin overrides as follows:</p>
+<p>An entity that can be used to change the lighting origin of a prop_static. Set the prop_static’s Lighting Origin to point at this entity to make the prop_static light as if it was at the info_lighting’s origin. Good for prop_static entities that are embedded in world geometry (like rocks/windows/etc).</p>
+<p>This, however, does not seem to be what the entity actually <span class="bbcode-i">does</span>, as the amount of light on the entity varies with its distance <span class="bbcode-i">from</span> the lighting_origin.</p>
+<p>Here, I have a lighting_origin and a light in a completely self-contained box outside of the main map, and a bulletin board with its lighting origin keyvalue set to that entity- if the lighting origin system worked as advertised, that <span class="bbcode-i">should</span> mean the bulletin board would always be the same brightness (since the lighting at the info_light ent is completely determined by the single light in the box, which is kept constant). However, when I move the physical location of the box, light, and info_lighting while keeping them all fixed relative to each other, the brightness of the billboard changes.</p>
+<p>Here it is with the box at the edge of the map:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/90478170156713595/9FEDA73E5534AFBD1938F071041355D20D10FD29/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/90478170156713595/9FEDA73E5534AFBD1938F071041355D20D10FD29/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div>And here it is with the box directly over this room:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/90478170156713870/F14F248F673EBE1B9BE45D689E831796486D0A4C/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/90478170156713870/F14F248F673EBE1B9BE45D689E831796486D0A4C/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Is this intended behavior for these entities? If so, why?</p>
+          <p><a href="https://leakfree.org/t/bug-distance-dependant-lighting-origin-behavior/15150/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bug-distance-dependant-lighting-origin-behavior/15150/1</link>
+        <pubDate>Wed, 12 Apr 2017 16:37:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15150-1</guid>
+        <source url="https://leakfree.org/t/bug-distance-dependant-lighting-origin-behavior/15150.rss">[bug?] Distance-dependant lighting origin behavior.</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Water Shader Flicker</title>
+    <link>https://leakfree.org/t/water-shader-flicker/12919</link>
+    <description>Hey guys.
+
+I&#39;m having a problem that I&#39;ve never encountered before, nor have a definite cause or solution. In short, the water in [i]one room[/i] in one of my maps is flickering oddly when viewed at certain, specific angles. [url=&#39;https://youtu.be/eWvnNy23OgA&#39;]Here&#39;s a video.[/url]
+
+Here are some of the things I&#39;ve tried:
+
+*  Tweaking/redoing the water brush geometry
+*  Toying with water_lod_control
+*  Changing textures
+*  Modifying texture size/lightmap scale
+*  Disabling world detail visgroup to troubleshoot (i.e. no props/func_details, problem still occurs)
+
+
+Anyone have a clue why this is happening? I&#39;ve looked around and asked around to no avail.</description>
+    
+    <lastBuildDate>Wed, 15 Jan 2014 19:53:57 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/water-shader-flicker/12919.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Water Shader Flicker</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>Actually, you are allowed to have multiple expensive water heights in the same map as long as the two heights are not in the same PVS. This is because expensive water reflections are essentially everything that is above the water’s surface, but rendered twice (with one of the views flipped upside down). If you have multiple expensive water heights in same PVS, then the engine needs to render the above-water geometry more than twice, which is for obvious reasons very undesirable.</p>
+<p>So to prevent massive video lag, Source will simply refuse to render the reflections if multiple water heights enter the current PVS. That would explain why the reflections only flickered and disappeared when you looked at certain angles.</p>
+<p>Tl;dr you’re allowed to have multiple expensive water heights, as long as it’s completely impossible to see both water faces at the same time.</p>
+          <p><a href="https://leakfree.org/t/water-shader-flicker/12919/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/water-shader-flicker/12919/7</link>
+        <pubDate>Wed, 15 Jan 2014 19:53:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12919-7</guid>
+        <source url="https://leakfree.org/t/water-shader-flicker/12919.rss">Water Shader Flicker</source>
+      </item>
+      <item>
+        <title>Water Shader Flicker</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>Oh, wow. I’ve never learned that. Thanks!  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/water-shader-flicker/12919/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/water-shader-flicker/12919/6</link>
+        <pubDate>Tue, 14 Jan 2014 23:10:02 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12919-6</guid>
+        <source url="https://leakfree.org/t/water-shader-flicker/12919.rss">Water Shader Flicker</source>
+      </item>
+      <item>
+        <title>Water Shader Flicker</title>
+        <dc:creator><![CDATA[sersoft]]></dc:creator>
+        <description><![CDATA[
+            <p>you can’t have expensive water in two parts of the map, unless the water height is exactly the same all across the map, even Valve had to use cheap water in some areas because of that</p>
+          <p><a href="https://leakfree.org/t/water-shader-flicker/12919/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/water-shader-flicker/12919/5</link>
+        <pubDate>Tue, 14 Jan 2014 23:07:10 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12919-5</guid>
+        <source url="https://leakfree.org/t/water-shader-flicker/12919.rss">Water Shader Flicker</source>
+      </item>
+      <item>
+        <title>Water Shader Flicker</title>
+        <dc:creator><![CDATA[Dragunov2]]></dc:creator>
+        <description><![CDATA[
+            <p>Hammer confused u!</p>
+          <p><a href="https://leakfree.org/t/water-shader-flicker/12919/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/water-shader-flicker/12919/4</link>
+        <pubDate>Tue, 14 Jan 2014 22:53:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12919-4</guid>
+        <source url="https://leakfree.org/t/water-shader-flicker/12919.rss">Water Shader Flicker</source>
+      </item>
+      <item>
+        <title>Water Shader Flicker</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>Most of that is the first stuff I checked. Thanks, though.</p>
+<p>Anyway, I figured out the issue a short while ago. Apparently another place where I used water <span class="bbcode-i">in a different part of the map</span> was breaking it. I am confuse.</p>
+          <p><a href="https://leakfree.org/t/water-shader-flicker/12919/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/water-shader-flicker/12919/3</link>
+        <pubDate>Tue, 14 Jan 2014 20:40:10 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12919-3</guid>
+        <source url="https://leakfree.org/t/water-shader-flicker/12919.rss">Water Shader Flicker</source>
+      </item>
+      <item>
+        <title>Water Shader Flicker</title>
+        <dc:creator><![CDATA[Mental_Ninja]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve had this problem before with counter-strike source mapping, and it was a pain. Here’s a few other things to check that you didn’t mention, and while they seem basic, could be your problem.</p>
+<ul>
+<li>Have you made your water brush from completely textured nodraw except the top surface?</li>
+<li>If you’ve placed a env_cubemap entity over your water brush, is it about 64 units or so and actually assigned it to your water face?</li>
+<li>Have you checked if you have any leak around?</li>
+</ul>
+<p>Also, if you have more than one water brush you could try clicking one of the textured water faces, and while the Face Edit Sheet is open, use Alt + Right click to texture the adjacent ones, select them all and then click ‘Treat as one’ and ‘Fit’.</p>
+          <p><a href="https://leakfree.org/t/water-shader-flicker/12919/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/water-shader-flicker/12919/2</link>
+        <pubDate>Tue, 14 Jan 2014 15:33:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12919-2</guid>
+        <source url="https://leakfree.org/t/water-shader-flicker/12919.rss">Water Shader Flicker</source>
+      </item>
+      <item>
+        <title>Water Shader Flicker</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>Hey guys.</p>
+<p>I’m having a problem that I’ve never encountered before, nor have a definite cause or solution. In short, the water in <span class="bbcode-i">one room</span> in one of my maps is flickering oddly when viewed at certain, specific angles. <a href="https://youtu.be/eWvnNy23OgA" data-bbcode="true" rel="nofollow noopener">Here’s a video.</a></p>
+<p>Here are some of the things I’ve tried:</p>
+<ul>
+<li>Tweaking/redoing the water brush geometry</li>
+<li>Toying with water_lod_control</li>
+<li>Changing textures</li>
+<li>Modifying texture size/lightmap scale</li>
+<li>Disabling world detail visgroup to troubleshoot (i.e. no props/func_details, problem still occurs)</li>
+</ul>
+<p>Anyone have a clue why this is happening? I’ve looked around and asked around to no avail.</p>
+          <p><a href="https://leakfree.org/t/water-shader-flicker/12919/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/water-shader-flicker/12919/1</link>
+        <pubDate>Sat, 11 Jan 2014 04:29:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12919-1</guid>
+        <source url="https://leakfree.org/t/water-shader-flicker/12919.rss">Water Shader Flicker</source>
+      </item>
+  </channel>
+</rss>

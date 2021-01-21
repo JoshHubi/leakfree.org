@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Dropbox accessing random files</title>
+    <link>https://leakfree.org/t/dropbox-accessing-random-files/12934</link>
+    <description>Hello,
+so yesterday I thought it would be a good idea to monitor what files get accessed with procmon.
+So I found out that Dropbox.exe accesses random files that don&#39;t belong to it while my PC is idleing.
+It&#39;s mostly just reading the file attributes, I guess to enumerate all files existing on my system.
+Here is a complete list of all files it accessed, sorted by the access count, top is the most accessed:
+[code]
+&quot;C:\Users\pfannkuchen\AppData\Roaming\Dropbox\PENDING_zaqeyg&quot;
+&quot;C:\Users\pfannkuchen\AppData\Roaming\Dropbox\UPDATED_jciliy&quot;
+&quot;C:\Users\pfannkuchen\AppData\Roaming\Dropbox\filecache.dbx&quot;
+&quot;C:\Users\pfannkuchen\AppData\Roaming\Dropbox\PENDING_zaqeyg-journal&quot;
+&quot;C:\Users\pfannkuchen\AppData\Roaming\Dropbox\PENDING_zaqeyg-wal&quot;
+&quot;C:\Users\pfannkuchen\AppData\Roaming\Dropbox\TO_HASH_gkwy71&quot;
+&quot;C:\Users\pfannkuchen\AppData\Roaming\Dropbox\UPDATED_jciliy-journal&quot;
+&quot;C:\Users\pfannkuchen\AppData\Roaming\Dropbox\UPDATED_jciliy-wal&quot;
+&quot;C:\Users\pfannkuchen\AppData\Roaming\Dropbox\filecache.dbx-journal&quot;
+&quot;C:\Users\pfannkuchen\AppData\Roaming\Dropbox\filecache.dbx-wal&quot;
+&quot;C:\&quot;
+&quot;C:\Users\pfannkuchen\Documents&quot;
+&quot;D:\Downloads\cpu-z&quot;
+&quot;D:\Downloads&quot;
+&quot;C:\Users\pfannkuchen\AppData\Roaming\Dropbox\shellext\dump&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games&quot;
+&quot;C:\Users&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\SpecOps-TheLine\SRGame\Config&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\SpecOps-TheLine\SRGame&quot;
+&quot;C:\Users\pfannkuchen\AppData\Roaming\Dropbox\TO_HASH_gkwy71-journal&quot;
+&quot;C:\Users\pfannkuchen\AppData\Roaming\Dropbox\TO_HASH_gkwy71-wal&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\BioShock Infinite\XGame\Config&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\BioShock Infinite\XGame\Config\XEngine.ini&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\RedOrchestra2\ROGame\Config&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\RedOrchestra2\ROGame\Config\ROEngine.ini&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\SpecOps-TheLine&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\SpecOps-TheLine\SRGame\Config\SREngine.ini&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\SpecOps-TheLine\SRGame\Config\SRGame.ini&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\cxx-stl\gnu-libstdc++&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\cxx-stl\gnu-libstdc++\libs&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\BioShock Infinite\XGame&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\Borderlands 2\WillowGame\Config\WillowEngine.ini&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\Chivalry Medieval Warfare\UDKGame&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\Chivalry Medieval Warfare\UDKGame\Config\UDKEngine.ini&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\Dishonored\DishonoredGame\Config\DishonoredEngine.ini&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\Hawken\HawkenGame\Config\HawkenEngine.ini&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\Painkiller Hell and Damnation\PKHDGame&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\Painkiller Hell and Damnation\PKHDGame\Config\PKHDEngine.ini&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\Ravaged\RavagedGame\Config\RavagedEngine.ini&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\RedOrchestra2\ROGame&quot;
+&quot;D:\Downloads\6126_win7.x64-44326\Win7.x64-44326\2.62&quot;
+&quot;D:\Downloads\6126_win7.x64-44326\Win7.x64-44326\2.62\scripts&quot;
+&quot;D:\Downloads\6126_win7.x64-44326\Win7.x64-44326\2.62\scripts\addons&quot;
+&quot;D:\Downloads\6126_win7.x64-44326\Win7.x64-44326\2.62\scripts\addons\cycles&quot;
+&quot;D:\Downloads\6126_win7.x64-44326\Win7.x64-44326\2.62\scripts\addons\cycles\kernel&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-3\arch-arm&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-3\arch-arm\usr&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-3\arch-arm\usr\include\asm-generic&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-4\arch-arm&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-4\arch-arm\usr&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-4\arch-arm\usr\include\asm-generic&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-5\arch-arm&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-5\arch-arm\usr&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-5\arch-arm\usr\include\asm-generic&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-8\arch-arm&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-8\arch-arm\usr&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-8\arch-arm\usr\include\asm-generic&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-9\arch-arm&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-9\arch-arm\usr&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-9\arch-arm\usr\include\asm-generic&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\cxx-stl\gnu-libstdc++\libs\armeabi&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\cxx-stl\gnu-libstdc++\libs\armeabi-v7a\include&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\cxx-stl\gnu-libstdc++\libs\armeabi\include&quot;
+&quot;D:\Downloads\awstats-7.0\awstats-7.0\wwwroot&quot;
+&quot;D:\Downloads\awstats-7.0\awstats-7.0\wwwroot\icon&quot;
+&quot;D:\Downloads\sfera-win32-v1.0devel1\sfera-win32-v1.0devel1\gamedata&quot;
+&quot;D:\Downloads\sfera-win32-v1.0devel1\sfera-win32-v1.0devel1\gamedata\cfgs&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\BioShock Infinite&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\Borderlands 2\WillowGame&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\Chivalry Medieval Warfare&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\Chivalry Medieval Warfare\UDKGame\Config&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\Dishonored\DishonoredGame&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\Hawken\HawkenGame&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\Hawken\HawkenGame\Config&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\Painkiller Hell and Damnation&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\Painkiller Hell and Damnation\PKHDGame\Config&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\Ravaged\RavagedGame&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\Ravaged\RavagedGame\Config&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\RedOrchestra2&quot;
+&quot;D:\Downloads\6126_win7.x64-44326\Win7.x64-44326&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\docs&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-3&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-3\arch-arm\usr\include\asm-generic\cputime.h&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-4&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-4\arch-arm\usr\include\asm-generic\cputime.h&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-5&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-5\arch-arm\usr\include\asm-generic\cputime.h&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-8&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-8\arch-arm\usr\include\asm-generic\cputime.h&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-9&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-9\arch-arm\usr\include\asm-generic\cputime.h&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\cxx-stl&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\cxx-stl\gnu-libstdc++\libs\armeabi-v7a&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\cxx-stl\gnu-libstdc++\libs\armeabi-v7a\include\bits&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\cxx-stl\gnu-libstdc++\libs\armeabi\include\bits&quot;
+&quot;D:\Downloads\awstats-7.0\awstats-7.0&quot;
+&quot;D:\Downloads\awstats-7.0\awstats-7.0\wwwroot\icon\cpu&quot;
+&quot;D:\Downloads\cpu-z-159.zip&quot;
+&quot;D:\Downloads\cpu-z\cpuz.exe&quot;
+&quot;D:\Downloads\cpu-z\cpuz.ini&quot;
+&quot;D:\Downloads\cpu-z\cpuz64.exe&quot;
+&quot;D:\Downloads\sfera-win32-v1.0devel1\sfera-win32-v1.0devel1&quot;
+&quot;D:\Downloads\sfera-win32-v1.0devel1\sfera-win32-v1.0devel1\gamedata\cfgs\cpu.cfg&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\Borderlands 2\WillowGame\Config&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\Dishonored\DishonoredGame\Config&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\Hawken&quot;
+&quot;C:\Users\pfannkuchen\Documents\My Games\Ravaged&quot;
+&quot;D:\Downloads\6126_win7.x64-44326\Win7.x64-44326\2.62\scripts\addons\cycles\kernel\kernel_compat_cpu.h&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\docs\CPU-ARCH-ABIS.html&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-3\arch-arm\usr\include&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-4\arch-arm\usr\include&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-5\arch-arm\usr\include&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-8\arch-arm\usr\include&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-9\arch-arm\usr\include&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\android&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\android\cpufeatures\cpu-features.c&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\cxx-stl\gnu-libstdc++\libs\armeabi-v7a\include\bits\cpu_defines.h&quot;
+&quot;D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\cxx-stl\gnu-libstdc++\libs\armeabi\include\bits\cpu_defines.h&quot;
+&quot;D:\Downloads\cpu-z\cpuz-3200.txt&quot;
+&quot;D:\Downloads\cpu-z\cpuz_readme.txt&quot;
+&quot;D:\Downloads\sfera-win32-v1.0devel1\sfera-win32-v1.0devel1\RUN_SFERA_CPU_CFG.bat&quot;
+[/code]
+
+Any idea what the heck it&#39;s doing? The Folder it&#39;s configured to sync is D :\Dropbox
+
+EDIT: someone on another forum gave me a link which quoted an answer from Dropbox support, in which they state that it&#39;s just checking the files if they are synced to determine if the little sync icon needs to be drawn. That sounds logical, but still is a little strange that it checks all files, no matter if they&#39;re in the dropbox folder or not.</description>
+    
+    <lastBuildDate>Sat, 18 Jan 2014 11:07:28 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/dropbox-accessing-random-files/12934.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Dropbox accessing random files</title>
+        <dc:creator><![CDATA[pfannkuchen_gesicht]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello,<br>
+so yesterday I thought it would be a good idea to monitor what files get accessed with procmon.<br>
+So I found out that Dropbox.exe accesses random files that don’t belong to it while my PC is idleing.<br>
+It’s mostly just reading the file attributes, I guess to enumerate all files existing on my system.<br>
+Here is a complete list of all files it accessed, sorted by the access count, top is the most accessed:</p>
+<pre><code class="lang-auto">"C:\Users\pfannkuchen\AppData\Roaming\Dropbox\PENDING_zaqeyg"
+"C:\Users\pfannkuchen\AppData\Roaming\Dropbox\UPDATED_jciliy"
+"C:\Users\pfannkuchen\AppData\Roaming\Dropbox\filecache.dbx"
+"C:\Users\pfannkuchen\AppData\Roaming\Dropbox\PENDING_zaqeyg-journal"
+"C:\Users\pfannkuchen\AppData\Roaming\Dropbox\PENDING_zaqeyg-wal"
+"C:\Users\pfannkuchen\AppData\Roaming\Dropbox\TO_HASH_gkwy71"
+"C:\Users\pfannkuchen\AppData\Roaming\Dropbox\UPDATED_jciliy-journal"
+"C:\Users\pfannkuchen\AppData\Roaming\Dropbox\UPDATED_jciliy-wal"
+"C:\Users\pfannkuchen\AppData\Roaming\Dropbox\filecache.dbx-journal"
+"C:\Users\pfannkuchen\AppData\Roaming\Dropbox\filecache.dbx-wal"
+"C:\"
+"C:\Users\pfannkuchen\Documents"
+"D:\Downloads\cpu-z"
+"D:\Downloads"
+"C:\Users\pfannkuchen\AppData\Roaming\Dropbox\shellext\dump"
+"C:\Users\pfannkuchen\Documents\My Games"
+"C:\Users"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b"
+"C:\Users\pfannkuchen\Documents\My Games\SpecOps-TheLine\SRGame\Config"
+"C:\Users\pfannkuchen\Documents\My Games\SpecOps-TheLine\SRGame"
+"C:\Users\pfannkuchen\AppData\Roaming\Dropbox\TO_HASH_gkwy71-journal"
+"C:\Users\pfannkuchen\AppData\Roaming\Dropbox\TO_HASH_gkwy71-wal"
+"C:\Users\pfannkuchen\Documents\My Games\BioShock Infinite\XGame\Config"
+"C:\Users\pfannkuchen\Documents\My Games\BioShock Infinite\XGame\Config\XEngine.ini"
+"C:\Users\pfannkuchen\Documents\My Games\RedOrchestra2\ROGame\Config"
+"C:\Users\pfannkuchen\Documents\My Games\RedOrchestra2\ROGame\Config\ROEngine.ini"
+"C:\Users\pfannkuchen\Documents\My Games\SpecOps-TheLine"
+"C:\Users\pfannkuchen\Documents\My Games\SpecOps-TheLine\SRGame\Config\SREngine.ini"
+"C:\Users\pfannkuchen\Documents\My Games\SpecOps-TheLine\SRGame\Config\SRGame.ini"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\cxx-stl\gnu-libstdc++"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\cxx-stl\gnu-libstdc++\libs"
+"C:\Users\pfannkuchen\Documents\My Games\BioShock Infinite\XGame"
+"C:\Users\pfannkuchen\Documents\My Games\Borderlands 2\WillowGame\Config\WillowEngine.ini"
+"C:\Users\pfannkuchen\Documents\My Games\Chivalry Medieval Warfare\UDKGame"
+"C:\Users\pfannkuchen\Documents\My Games\Chivalry Medieval Warfare\UDKGame\Config\UDKEngine.ini"
+"C:\Users\pfannkuchen\Documents\My Games\Dishonored\DishonoredGame\Config\DishonoredEngine.ini"
+"C:\Users\pfannkuchen\Documents\My Games\Hawken\HawkenGame\Config\HawkenEngine.ini"
+"C:\Users\pfannkuchen\Documents\My Games\Painkiller Hell and Damnation\PKHDGame"
+"C:\Users\pfannkuchen\Documents\My Games\Painkiller Hell and Damnation\PKHDGame\Config\PKHDEngine.ini"
+"C:\Users\pfannkuchen\Documents\My Games\Ravaged\RavagedGame\Config\RavagedEngine.ini"
+"C:\Users\pfannkuchen\Documents\My Games\RedOrchestra2\ROGame"
+"D:\Downloads\6126_win7.x64-44326\Win7.x64-44326\2.62"
+"D:\Downloads\6126_win7.x64-44326\Win7.x64-44326\2.62\scripts"
+"D:\Downloads\6126_win7.x64-44326\Win7.x64-44326\2.62\scripts\addons"
+"D:\Downloads\6126_win7.x64-44326\Win7.x64-44326\2.62\scripts\addons\cycles"
+"D:\Downloads\6126_win7.x64-44326\Win7.x64-44326\2.62\scripts\addons\cycles\kernel"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-3\arch-arm"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-3\arch-arm\usr"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-3\arch-arm\usr\include\asm-generic"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-4\arch-arm"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-4\arch-arm\usr"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-4\arch-arm\usr\include\asm-generic"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-5\arch-arm"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-5\arch-arm\usr"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-5\arch-arm\usr\include\asm-generic"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-8\arch-arm"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-8\arch-arm\usr"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-8\arch-arm\usr\include\asm-generic"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-9\arch-arm"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-9\arch-arm\usr"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-9\arch-arm\usr\include\asm-generic"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\cxx-stl\gnu-libstdc++\libs\armeabi"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\cxx-stl\gnu-libstdc++\libs\armeabi-v7a\include"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\cxx-stl\gnu-libstdc++\libs\armeabi\include"
+"D:\Downloads\awstats-7.0\awstats-7.0\wwwroot"
+"D:\Downloads\awstats-7.0\awstats-7.0\wwwroot\icon"
+"D:\Downloads\sfera-win32-v1.0devel1\sfera-win32-v1.0devel1\gamedata"
+"D:\Downloads\sfera-win32-v1.0devel1\sfera-win32-v1.0devel1\gamedata\cfgs"
+"C:\Users\pfannkuchen\Documents\My Games\BioShock Infinite"
+"C:\Users\pfannkuchen\Documents\My Games\Borderlands 2\WillowGame"
+"C:\Users\pfannkuchen\Documents\My Games\Chivalry Medieval Warfare"
+"C:\Users\pfannkuchen\Documents\My Games\Chivalry Medieval Warfare\UDKGame\Config"
+"C:\Users\pfannkuchen\Documents\My Games\Dishonored\DishonoredGame"
+"C:\Users\pfannkuchen\Documents\My Games\Hawken\HawkenGame"
+"C:\Users\pfannkuchen\Documents\My Games\Hawken\HawkenGame\Config"
+"C:\Users\pfannkuchen\Documents\My Games\Painkiller Hell and Damnation"
+"C:\Users\pfannkuchen\Documents\My Games\Painkiller Hell and Damnation\PKHDGame\Config"
+"C:\Users\pfannkuchen\Documents\My Games\Ravaged\RavagedGame"
+"C:\Users\pfannkuchen\Documents\My Games\Ravaged\RavagedGame\Config"
+"C:\Users\pfannkuchen\Documents\My Games\RedOrchestra2"
+"D:\Downloads\6126_win7.x64-44326\Win7.x64-44326"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\docs"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-3"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-3\arch-arm\usr\include\asm-generic\cputime.h"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-4"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-4\arch-arm\usr\include\asm-generic\cputime.h"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-5"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-5\arch-arm\usr\include\asm-generic\cputime.h"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-8"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-8\arch-arm\usr\include\asm-generic\cputime.h"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-9"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-9\arch-arm\usr\include\asm-generic\cputime.h"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\cxx-stl"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\cxx-stl\gnu-libstdc++\libs\armeabi-v7a"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\cxx-stl\gnu-libstdc++\libs\armeabi-v7a\include\bits"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\cxx-stl\gnu-libstdc++\libs\armeabi\include\bits"
+"D:\Downloads\awstats-7.0\awstats-7.0"
+"D:\Downloads\awstats-7.0\awstats-7.0\wwwroot\icon\cpu"
+"D:\Downloads\cpu-z-159.zip"
+"D:\Downloads\cpu-z\cpuz.exe"
+"D:\Downloads\cpu-z\cpuz.ini"
+"D:\Downloads\cpu-z\cpuz64.exe"
+"D:\Downloads\sfera-win32-v1.0devel1\sfera-win32-v1.0devel1"
+"D:\Downloads\sfera-win32-v1.0devel1\sfera-win32-v1.0devel1\gamedata\cfgs\cpu.cfg"
+"C:\Users\pfannkuchen\Documents\My Games\Borderlands 2\WillowGame\Config"
+"C:\Users\pfannkuchen\Documents\My Games\Dishonored\DishonoredGame\Config"
+"C:\Users\pfannkuchen\Documents\My Games\Hawken"
+"C:\Users\pfannkuchen\Documents\My Games\Ravaged"
+"D:\Downloads\6126_win7.x64-44326\Win7.x64-44326\2.62\scripts\addons\cycles\kernel\kernel_compat_cpu.h"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\docs\CPU-ARCH-ABIS.html"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-3\arch-arm\usr\include"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-4\arch-arm\usr\include"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-5\arch-arm\usr\include"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-8\arch-arm\usr\include"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\platforms\android-9\arch-arm\usr\include"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\android"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\android\cpufeatures\cpu-features.c"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\cxx-stl\gnu-libstdc++\libs\armeabi-v7a\include\bits\cpu_defines.h"
+"D:\Downloads\android-ndk-r5b-windows\android-ndk-r5b\sources\cxx-stl\gnu-libstdc++\libs\armeabi\include\bits\cpu_defines.h"
+"D:\Downloads\cpu-z\cpuz-3200.txt"
+"D:\Downloads\cpu-z\cpuz_readme.txt"
+"D:\Downloads\sfera-win32-v1.0devel1\sfera-win32-v1.0devel1\RUN_SFERA_CPU_CFG.bat"</code></pre>
+<p>Any idea what the heck it’s doing? The Folder it’s configured to sync is D :\Dropbox</p>
+<p>EDIT: someone on another forum gave me a link which quoted an answer from Dropbox support, in which they state that it’s just checking the files if they are synced to determine if the little sync icon needs to be drawn. That sounds logical, but still is a little strange that it checks all files, no matter if they’re in the dropbox folder or not.</p>
+          <p><a href="https://leakfree.org/t/dropbox-accessing-random-files/12934/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/dropbox-accessing-random-files/12934/1</link>
+        <pubDate>Sat, 18 Jan 2014 11:07:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12934-1</guid>
+        <source url="https://leakfree.org/t/dropbox-accessing-random-files/12934.rss">Dropbox accessing random files</source>
+      </item>
+  </channel>
+</rss>

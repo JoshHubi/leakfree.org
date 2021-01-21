@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/constant-light-with-sharp-falloff/15307 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:24:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Constant Light With Sharp Falloff - Source 1 - Leakfree</title>
+    <meta name="description" content="I am trying to configure some lights that have constant or near-constant attenuation up to a certain radius, but then fall off abruptly (this would dramatically help with the ‘lighting pileup’ problems that have been dog&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="15307.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Constant Light With Sharp Falloff&#39;" href="15307.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/constant-light-with-sharp-falloff/15307" />
+<meta name="twitter:url" content="https://leakfree.org/t/constant-light-with-sharp-falloff/15307" />
+<meta property="og:title" content="Constant Light With Sharp Falloff" />
+<meta name="twitter:title" content="Constant Light With Sharp Falloff" />
+<meta property="og:description" content="I am trying to configure some lights that have constant or near-constant attenuation up to a certain radius, but then fall off abruptly (this would dramatically help with the ‘lighting pileup’ problems that have been dogging me since Day 1 of BMPD). It is possible to set up something similar using the 50% and 100% falloff distance values with the ‘hard falloff’ option set…     but every setting I’ve tried for the 50% falloff distance (the 100% falloff value determines the ‘stop’ radius, which I ..." />
+<meta name="twitter:description" content="I am trying to configure some lights that have constant or near-constant attenuation up to a certain radius, but then fall off abruptly (this would dramatically help with the ‘lighting pileup’ problems that have been dogging me since Day 1 of BMPD). It is possible to set up something similar using the 50% and 100% falloff distance values with the ‘hard falloff’ option set…     but every setting I’ve tried for the 50% falloff distance (the 100% falloff value determines the ‘stop’ radius, which I ..." />
+<meta property="article:published_time" content="2017-12-06T05:46:17+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="next" href="153074658.html?page=2">
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="15307.html">Constant Light With Sharp Falloff</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/7.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>General Development</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/source-1/43.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #ED207B'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Source 1</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15307.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-06T05:46:17Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:23Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I am trying to configure some lights that have constant or near-constant attenuation up to a certain radius, but then fall off abruptly (this would dramatically help with the ‘lighting pileup’ problems that have been dogging me since Day 1 of BMPD). It is possible to set up something similar using the 50% and 100% falloff distance values with the ‘hard falloff’ option set…</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/879755598705262357/9838B427EB91BF08489DD3A7017D71A8DEF97488/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/879755598705262357/9838B427EB91BF08489DD3A7017D71A8DEF97488/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>but every setting I’ve tried for the 50% falloff distance (the 100% falloff value determines the ‘stop’ radius, which I want to configure arbitrarily in about the 200-500 range) results in quadratic-like attenuation (there’s a real constant light on the right side of the above image, for comparison).</p>
+<p>For a while I thought that the ‘maximum distance’ parameter controlled this and it was broken only in the most recent version of the engine (and that it would be fixed in the Xengine Update), but now I find that it is seemingly nonfunctional in all versions of the engine. Not quite sure what to do from here.</p>
+        </div>
+
+        <meta itemprop='headline' content='Constant Light With Sharp Falloff'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/raw_bean.html'><span itemprop='name'>raw_bean</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15307.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-06T11:07:30Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:23Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m no mapper, but have you tried setting the 50% distance to (or near) 0? Or to (or near) the same distance as the 100% falloff?</p>
+<p>EDIT: For that matter, what happens if you set the 50% falloff level to be greater (maybe even significantly greater) than the 100% falloff value? Maybe the 50% distance is setting a literal half-life (  <img src="../../images/emoji/twitter/smileyc164.png?v=9" title=":smiley:" class="emoji" alt=":smiley:">  ) for a geometric curve of attenuating light levels, but the 100% distance and hard falloff option override that to zero at that distance.</p>
+        </div>
+
+        <meta itemprop='headline' content='Constant Light With Sharp Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/ESToomere.html'><span itemprop='name'>ESToomere</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15307.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-06T13:04:57Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:23Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Works fine for me:</p>
+<p><span class="spoiler"><div class="lightbox-wrapper"><a class="lightbox" href="https://dl.dropbox.com/s/ra0ao0h9wjo3y2z/hardfalloff.png?dl=0" title="" rel="nofollow noopener"><img src="https://dl.dropbox.com/s/ra0ao0h9wjo3y2z/hardfalloff.png?dl=0" alt="" width="690" height="365"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1343×712</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<img src="https://dl.dropbox.com/s/22372gpqyr4la56/hardfalloff_altenter.PNG?dl=0" alt="" width="657" height="491"><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://dl.dropbox.com/s/iwhcmbuu5hhj5i5/hardfalloff_hammer.png?dl=0" title="" rel="nofollow noopener"><img src="https://dl.dropbox.com/s/iwhcmbuu5hhj5i5/hardfalloff_hammer.png?dl=0" alt="" width="690" height="397"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1147×660</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></span></p>
+        </div>
+
+        <meta itemprop='headline' content='Constant Light With Sharp Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15307.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-06T15:50:08Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:23Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="raw_bean">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/r/439d5e/40.png" class="avatar"> raw_bean:</div>
+<blockquote>
+<p>I’m no mapper, but have you tried setting the 50% distance to (or near) 0? Or to (or near) the same distance as the 100% falloff?</p>
+</blockquote>
+</aside>
+<p>This actually seems to have done the trick.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/879755598706985792/71747146F4C42B03CA946F1ADFCDFE7FE36F4BEB/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/879755598706985792/71747146F4C42B03CA946F1ADFCDFE7FE36F4BEB/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>There is the one undesirable property that the light in question must be made extremely bright (in the hundreds of thousands or even millions, the one shown here has a 50% falloff dist of 0.01 and a brightness of 500000) and I can see these being kind of hard to work with, but overall I think I am on the right track.</p>
+<p>I remember experimenting with similar lights much earlier on, but that was with a bunch of other factors that may have made them unsuitable.</p>
+        </div>
+
+        <meta itemprop='headline' content='Constant Light With Sharp Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15307.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-06T16:10:20Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:24Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>UPDATE: These lights cause some <span class="bbcode-i">very</span> strange artifacts on props and NPCs at various locations where they either are close to the light or close to its falloff:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/879755598707056668/3FFAD8BCAF5D113579C91C315EFFAFA496F63B85/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/879755598707056668/3FFAD8BCAF5D113579C91C315EFFAFA496F63B85/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>This <span class="bbcode-i">might</span> get fixed in the Xengine update, but until I know more I’m really not sure if this is the right way to proceed.</p>
+        </div>
+
+        <meta itemprop='headline' content='Constant Light With Sharp Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/raw_bean.html'><span itemprop='name'>raw_bean</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15307.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-06T16:29:38Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:24Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Try a normal brightness but an enormously large 50% falloff distance instead. Much bigger than your 100% distance, if it will let you.</p>
+        </div>
+
+        <meta itemprop='headline' content='Constant Light With Sharp Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15307.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-06T16:43:40Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:24Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That, sadly, causes the hard falloff to be pushed out to the larger 50% distance. Making the 50% and 100% distances nearly equal just results in very severe artifacts, most commonly a very bright ‘ring’ around pitch blackness.</p>
+        </div>
+
+        <meta itemprop='headline' content='Constant Light With Sharp Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/ESToomere.html'><span itemprop='name'>ESToomere</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15307.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-06T19:18:25Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:24Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Did you just… completely ignore my post?</p>
+        </div>
+
+        <meta itemprop='headline' content='Constant Light With Sharp Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15307.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-06T19:32:56Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:24Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>No, I just didn’t see it because it was tiny compared to the others.</p>
+<p>Using the settings provided I get something with a significantly brighter ‘center’ and dimmer corners than the constant, which is what I’m trying to avoid:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/879755598707666117/D51268A0F0C2288155EE84AB6A0284E39912A66B/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/879755598707666117/D51268A0F0C2288155EE84AB6A0284E39912A66B/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Constant Light With Sharp Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/ESToomere.html'><span itemprop='name'>ESToomere</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15307.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-06T20:00:49Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:24Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Admiral Sakai">
+<div class="title">
+<div class="quote-controls"></div>
+ Admiral Sakai:</div>
+<blockquote>
+<p>No, I just didn’t see it because it was tiny compared to the others.</p>
+<p>Using the settings provided I get something with a significantly brighter ‘center’ and dimmer corners than the constant, which is what I’m trying to avoid:</p>
+<p><img src="https://steamuserimages-a.akamaihd.net/ugc/879755598707666117/D51268A0F0C2288155EE84AB6A0284E39912A66B/" alt="" width="690" height="388"></p>
+</blockquote>
+</aside>
+<p>Yeah, but that’s just down to the size of the room, because this looks like the one on the right:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://dl.dropbox.com/s/5b10deeqpvnw35s/bms_hf1.png?dl=0" title="" rel="nofollow noopener"><img src="https://dl.dropbox.com/s/5b10deeqpvnw35s/bms_hf1.png?dl=0" alt="" width="690" height="387"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1366×768</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Constant Light With Sharp Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/jadebenn.html'><span itemprop='name'>jadebenn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15307.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-07T00:23:34Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:42:00Z' class='post-time'>
+                August 11, 2020, 11:42am
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a href="https://forums.blackmesasource.com/index.php/User/57844-Admiral-Sakai/" data-bbcode="true" rel="nofollow noopener">@Admiral Sakai</a> I believe the reason you’re having so much trouble with lighting is that you’re using it in ways it was never designed to be used.</p>
+<p>Let me explain. Like all game lights, Source lights aren’t very realistic. They don’t behave as real lights do. We can work around this with clever usage of point lights and spotlights, but the fact remains that these lights don’t work realistically, and you’re making a lot of unnecessary work for yourself by trying to make them do so.</p>
+<p>I’ll bring up a picture from one of your threads to illustrate this point:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://images.akamai.steamusercontent.com/ugc/90474193444020671/208432E967D03AB7E4C0AADE6E704092E43D4ABB/" title="" rel="nofollow noopener"><img src="https://images.akamai.steamusercontent.com/ugc/90474193444020671/208432E967D03AB7E4C0AADE6E704092E43D4ABB/" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+Now, this <span class="bbcode-i">is </span>close to realistic office lighting. There are very few shadows, and the whole place is brightly lit. But there’s two problems here. One: the near constant lighting washes everything else out. Notice how flat everything looks with so few shadows? That’s because they help our brains perceive depth. In addition, the usage of constant light has all-but-completely eliminated the shadows of static props; creating a rather unrealistic looking floor. Notice how the floor underneath the desks isn’t even slightly dimmer than that of the floor around it? Indeed, the only shadows I can see here are the extremely dark dynamic shadows cast by physics props, which contrast <span class="bbcode-i">very sharply</span> with the lack of shadows anywhere else.</p>
+<p>Two: that’s not how it’s done by the devs in their pre-disaster area of Sector C.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/Y2VP5ye.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/Y2VP5ye.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+Notice the shadows, how dim the room is overall. In real life, this lighting would be a pain to work in: it’s way too dim to see well, but it’s what they went with because it looks much better.</p>
+<p>On a more technical note, you’d probably achieve better results by placing a higher density of more focused light sources rather than your current setup of that makes large use of a few constant light sources.</p>
+        </div>
+
+        <meta itemprop='headline' content='Constant Light With Sharp Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/LordDz.html'><span itemprop='name'>LordDz</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15307.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-07T01:14:46Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:24Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>If you add more focused light sources, won’t you have a higher chance of running into the lovely “TOO MANY LIGHT SOURCES ON BRUSH” compile error?<br>
+Or does that only happen for named lights?</p>
+        </div>
+
+        <meta itemprop='headline' content='Constant Light With Sharp Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15307.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-07T01:49:47Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:24Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Pretty sure it only happens for named lights.</p>
+<p><a href="https://forums.blackmesasource.com/index.php/User/45637-jadebenn/" data-bbcode="true" rel="nofollow noopener">@jadebenn</a>, I think you’ve hit the nail on the head as far as what the problem was with my earlier attempts at these maps; currently I am shooting for a kind of a happy medium where most areas are bright enough to be a pleasant workplace (unless they’re, like, a maintenance closet or something), but there’s still a clear falloff as one gets further and further away from the actual light sources. I’ve switched to the “more, smaller lights” paradigm and it seems to be working pretty well so far; it’s difficult to work on these maps ATM though because decals, NPCs, and props are all currently very broken in how they light relative to world geometry and the engine fixes involved are IIRC wrapped up in the December Xen update. I’ll be posting screenshots with a good amount of the glitchy stuff removed soon, however.</p>
+        </div>
+
+        <meta itemprop='headline' content='Constant Light With Sharp Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15307.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-07T03:10:20Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:24Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Keep in mind that these are a work in progress and there are a lot of things in Black Mesa currently that <span class="bbcode-i">just don’t light properly</span>, but it should give you some idea of what I’m going for:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/879755598709005106/234429C0FCEC6235296D2EC86B7BCD13C4475B27/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/879755598709005106/234429C0FCEC6235296D2EC86B7BCD13C4475B27/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/879755598709004962/BF28F938B8EFF7F8BB34EE32162281A1B3E766D4/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/879755598709004962/BF28F938B8EFF7F8BB34EE32162281A1B3E766D4/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/879755598709004782/DB962E91D073BFB89C5F125497D8CE912E85F247/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/879755598709004782/DB962E91D073BFB89C5F125497D8CE912E85F247/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Constant Light With Sharp Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/jadebenn.html'><span itemprop='name'>jadebenn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15307.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-07T03:27:58Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:24Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I wonder why you’re not getting prop lighting. You should at least be getting point lighting, if not vertex.</p>
+<p>Are you compiling with -staticproplighting?</p>
+        </div>
+
+        <meta itemprop='headline' content='Constant Light With Sharp Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15307.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-07T03:37:27Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:24Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I deliberately disabled prop lighting because things like the billboards light <span class="bbcode-i">waaaay</span> too brightly.</p>
+        </div>
+
+        <meta itemprop='headline' content='Constant Light With Sharp Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/jadebenn.html'><span itemprop='name'>jadebenn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15307.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-07T03:43:49Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:24Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Admiral Sakai">
+<div class="title">
+<div class="quote-controls"></div>
+ Admiral Sakai:</div>
+<blockquote>
+<p>I deliberately disabled prop lighting because things like the billboards light <span class="bbcode-i">waaaay</span> too brightly.</p>
+</blockquote>
+</aside>
+<p>You could probably fix that by attaching the billboard to a lighting origin placed in a slightly dimmer room.</p>
+        </div>
+
+        <meta itemprop='headline' content='Constant Light With Sharp Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15307.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-07T03:56:04Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:24Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>It’s <a href="https://forums.blackmesasource.com/index.php/Thread/30784-Lack-of-a-Bumpmap-Causes-Props-To-Light-Weirdly/" data-bbcode="true" rel="nofollow noopener">going to be fixed in the Xengine Update</a> so I’m not really going out of my way to deal with it.</p>
+        </div>
+
+        <meta itemprop='headline' content='Constant Light With Sharp Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/jadebenn.html'><span itemprop='name'>jadebenn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15307.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-07T07:20:37Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:24Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#19</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Admiral Sakai">
+<div class="title">
+<div class="quote-controls"></div>
+ Admiral Sakai:</div>
+<blockquote>
+<p>It’s <a href="https://forums.blackmesasource.com/index.php/Thread/30784-Lack-of-a-Bumpmap-Causes-Props-To-Light-Weirdly/" data-bbcode="true" rel="nofollow noopener">going to be fixed in the Xengine Update</a> so I’m not really going out of my way to deal with it.</p>
+</blockquote>
+</aside>
+<p>Oh, okay. That makes sense. Overall, that picture is a massive improvement. Bright enough to be plausible, but not enough to wash everything out. I assume you’re still working on the color, so I won’t comment on that.</p>
+<p>I am confused as to why there still appears to be no shadows cast on the floor by props. I assumed it was the constant light washing everything out in the first picture, but that shouldn’t be the case here.</p>
+        </div>
+
+        <meta itemprop='headline' content='Constant Light With Sharp Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15307.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-07T15:14:57Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:25Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#20</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>It’s a combination of the lightmap density of the floors being low and many of the props having their shadows disabled, which is actually inherited from the canon map (although it’s less noticeable there because the map itself is so dark). I’ll probably fix it when the static props themselves aren’t such a giant pile of horrible.</p>
+<p>The color is <span class="bbcode-i">about</span> as good as it’s going to get on the current engine build, although once Black Mesa adds more support for color correction I may go back and tweak it. The <span class="bbcode-i">textures </span>are actually my own, as the canonical ones do not work well when taken out of that dark environment, and I may tweak their coloring as well (I’m particularly dissatisfied with the ceiling tiles, which look way too uniform and don’t really show well the occasional darker tile that’s on the canon texture).</p>
+        </div>
+
+        <meta itemprop='headline' content='Constant Light With Sharp Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="153074658.html?page=2">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/constant-light-with-sharp-falloff/15307 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:24:51 GMT -->
+</html>

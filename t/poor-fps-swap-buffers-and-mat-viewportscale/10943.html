@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 11:55:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>poor FPS, Swap_Buffers and mat_viewportscale - In-game Issues (Mod) - Leakfree</title>
+    <meta name="description" content="I’m getting much lower FPS than I would expect at higher resolutions (1920x1200). 
+showbudget was showing that most of the time was spent in Swap_Buffers: 
+ 
+however, i noticed that the Swap_Buffers was significantly red&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="10943.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;poor FPS, Swap_Buffers and mat_viewportscale&#39;" href="10943.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/optimized/2X/0/0418c57a4d3fcefc83038ec43d41a59585349acd_2_1024x639.jpeg" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/optimized/2X/0/0418c57a4d3fcefc83038ec43d41a59585349acd_2_1024x639.jpeg" />
+<meta property="og:url" content="https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943" />
+<meta name="twitter:url" content="https://leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943" />
+<meta property="og:title" content="poor FPS, Swap_Buffers and mat_viewportscale" />
+<meta name="twitter:title" content="poor FPS, Swap_Buffers and mat_viewportscale" />
+<meta property="og:description" content="I’m getting much lower FPS than I would expect at higher resolutions (1920x1200).  showbudget was showing that most of the time was spent in Swap_Buffers:     however, i noticed that the Swap_Buffers was significantly reduced, if i set  mat_viewportscale 0.99999 :     obviously the number of pixels being drawn isn’t significantly different. can anyone explain what’s going on here?  it would seem to indicate something weird in the fragment shaders. is there something in there that’s disabled by h..." />
+<meta name="twitter:description" content="I’m getting much lower FPS than I would expect at higher resolutions (1920x1200).  showbudget was showing that most of the time was spent in Swap_Buffers:     however, i noticed that the Swap_Buffers was significantly reduced, if i set  mat_viewportscale 0.99999 :     obviously the number of pixels being drawn isn’t significantly different. can anyone explain what’s going on here?  it would seem to indicate something weird in the fragment shaders. is there something in there that’s disabled by h..." />
+<meta property="article:published_time" content="2012-09-20T22:05:43+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="10943.html">poor FPS, Swap_Buffers and mat_viewportscale</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/6.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa Archive</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/in-game-issues-mod/50.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>In-game Issues (Mod)</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/spongman.html'><span itemprop='name'>spongman</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10943.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/0/0418c57a4d3fcefc83038ec43d41a59585349acd.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-20T22:05:43Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:32:17Z' class='post-time'>
+                November 25, 2018,  2:32am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m getting much lower FPS than I would expect at higher resolutions (1920x1200).</p>
+<p>showbudget was showing that most of the time was spent in <span class="bbcode-b">Swap_Buffers</span>:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/0/0418c57a4d3fcefc83038ec43d41a59585349acd.jpg" data-download-href="https://leakfree.org/uploads/default/0418c57a4d3fcefc83038ec43d41a59585349acd" title="bm_c1a3b0001.jpg"><img src="../../uploads/default/original/2X/0/0418c57a4d3fcefc83038ec43d41a59585349acd.jpg" alt="bm_c1a3b0001.jpg" data-base62-sha1="AeYUaWyhucm2ILAYzMR3BStPg9" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/0/0418c57a4d3fcefc83038ec43d41a59585349acd_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">bm_c1a3b0001.jpg</span><span class="informations">1119×699 89.3 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>however, i noticed that the <span class="bbcode-b">Swap_Buffers</span> was significantly reduced, if i set <code>
+mat_viewportscale 0.99999
+</code>:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/0/03db10fedaeda10da2f5068295eb6a7454129342.jpg" data-download-href="https://leakfree.org/uploads/default/03db10fedaeda10da2f5068295eb6a7454129342" title="bm_c1a3b0000.jpg"><img src="../../uploads/default/original/2X/0/03db10fedaeda10da2f5068295eb6a7454129342.jpg" alt="bm_c1a3b0000.jpg" data-base62-sha1="y6Mmgc3G67c2r8JJxnoZ4WMokG" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/0/03db10fedaeda10da2f5068295eb6a7454129342_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">bm_c1a3b0000.jpg</span><span class="informations">1117×698 89.4 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>obviously the number of pixels being drawn isn’t significantly different. can anyone explain what’s going on here?</p>
+<p>it would seem to indicate something weird in the fragment shaders. is there something in there that’s disabled by having a non-1 viewport scale?</p>
+<p>here’s my sysinfo:</p>
+<pre><code class="lang-auto">Processor Information:
+    Vendor:  GenuineIntel
+    Speed: 2671 Mhz
+    4 logical processors
+    4 physical processors
+    HyperThreading:  Unsupported
+    FCMOV:  Supported
+    SSE2:  Supported
+    SSE3:  Supported
+    SSSE3:  Supported
+    SSE4a:  Unsupported
+    SSE41:  Unsupported
+    SSE42:  Unsupported
+
+Operating System Version:
+    Windows 7 (64 bit)
+    NTFS:  Supported
+    Crypto Provider Codes:  Supported 323 0x0 0x0 0x0
+    
+Video Card:
+    Driver:  NVIDIA GeForce GT 520 
+
+    DirectX Driver Name:  nvd3dum.dll
+    Driver Version:  9.18.13.623
+    DirectX Driver Version:  9.18.13.623
+    Driver Date: 30 Aug 2012
+    Desktop Color Depth: 32 bits per pixel
+    Monitor Refresh Rate: 59 Hz
+    DirectX Card: NVIDIA GeForce GT 520 
+    VendorID:  0x10de
+    DeviceID:  0x1040
+    Number of Monitors:  2
+    Number of Logical Video Cards:  2
+    No SLI or Crossfire Detected
+    Primary Display Resolution:  1920 x 1200
+    Desktop Resolution: 3840 x 1200
+    Primary Display Size: 26.65" x 16.65"  (31.42" diag)
+                                            67.7cm x 42.3cm  (79.8cm diag)
+    Primary Bus: PCI Express 16x
+    Primary VRAM: 1023 MB
+    Supported MSAA Modes:  2x 4x 8x 
+    
+Sound card:
+    Audio device: Speakers (Realtek High Definiti
+    
+Memory:
+    RAM:  8191 Mb
+    
+Miscellaneous:
+    UI Language:  English
+    Microphone:  Not set
+    Media Type:  DVD
+    Total Hard Disk Space Available:  5246124 Mb
+    Largest Free Hard Disk Block:  1400325 Mb
+    OS Install Date: Dec 31 1969
+    Game Controller: None detected</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='poor FPS, Swap_Buffers and mat_viewportscale'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/lexa2.html'><span itemprop='name'>lexa2</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10943.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-21T04:15:18Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T09:32:23Z' class='post-time'>
+                August 11, 2020,  9:32am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Pretty strange bug really. You’re right that you most likely hitting fillrate shortage due to some pixel shader eating up all of it. It might be a problem with of the fullscreen post-processing shaders. What could you do is to turn off HUD and chromatic postprocessing in the game settings menu and try using one of the methods to disable noise postprocessing shader described here:</p>
+<p><a href="https://forums.blackmesasource.com/showthread.php?p=502093#post502093" data-bbcode="true" rel="nofollow noopener">https://forums.blackmesasource.com/showthread.php?p=502093#post502093</a></p>
+<p>What else would be interesting is try changing dxlevel used from what you use to other among 90, 95 and 98. Then, checking what’s displayed with mat_fillrate 1 might give and insight on what is wrong here.</p>
+<p>What else? Hmm, maybe check for overdraw-related problems, there was a cvar for that. Use “find overdraw” in console, it’d be easy to determine which one is correct to use.</p>
+        </div>
+
+        <meta itemprop='headline' content='poor FPS, Swap_Buffers and mat_viewportscale'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/spongman.html'><span itemprop='name'>spongman</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10943.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/1/13e8258c049e298f3e1f06ac0fdb809a143cf590.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-21T16:45:29Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:33:07Z' class='post-time'>
+                November 25, 2018,  2:33am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>ok, super weird stuff going on.</p>
+<p>first up, i’m running win7 x64, up-to-date everything, dx11 hardware.</p>
+<ul>
+<li>I have all the perf/video settings set to disabled/low</li>
+<li>I tried removing the .vcs files, no fix</li>
+<li>I tried removing game_shader_dx9.dll, no fix</li>
+<li>I tried mat_fillrate 1. i couldn’t see any difference between the two mat_viewportscale values, except the fps, of course.</li>
+<li>I tried the overdraw thing, it showed overdraw around the lights. again, no visible difference between the two mat_viewportscale values.</li>
+<li>apparently, the game is detecting dxlevel ‘95’. i tried adding ‘-dxlevel 98’ to the startup parameters. after starting bms, the screen resolution and video settings were reset, so i changed them back to 1920x1200, disabled/low, etc… after that the rendering was really weird. the letters of the main menu had black boxes around them, as if alpha-blending was broken. the red background of the ‘showbudget’ display was all messed up, almost as if the vertex buffer was being overwritten by some other data:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/1/13e8258c049e298f3e1f06ac0fdb809a143cf590.jpg" data-download-href="https://leakfree.org/uploads/default/13e8258c049e298f3e1f06ac0fdb809a143cf590" title="bm_c1a3b0003.jpg"><img src="../../uploads/default/original/2X/1/13e8258c049e298f3e1f06ac0fdb809a143cf590.jpg" alt="bm_c1a3b0003.jpg" data-base62-sha1="2Q6rwh76tc7Iwtvy1SCjWtBcu7m" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/1/13e8258c049e298f3e1f06ac0fdb809a143cf590_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">bm_c1a3b0003.jpg</span><span class="informations">1186×741 92.8 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div>
+</li>
+</ul>
+<p>the weird thing is that the difference in the number of pixels drawn between mat_viewportscale 1 and mat_viewportscale 0.99999 is tiny (around .1%) but the fps difference is huge.</p>
+<p>the fps seems to vary almost linearly for other values of mat_viewportscale, but at ‘1’ it hits a cliff. there’s some inneficiency that’s triggered when it’s set to 1.</p>
+        </div>
+
+        <meta itemprop='headline' content='poor FPS, Swap_Buffers and mat_viewportscale'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/lexa2.html'><span itemprop='name'>lexa2</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10943.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-21T17:24:23Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T09:32:52Z' class='post-time'>
+                August 11, 2020,  9:32am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="spongman">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/s/958977/40.png" class="avatar"> spongman:</div>
+<blockquote>
+<p>first up, i’m running win7 x64, up-to-date everything, dx11 hardware.</p>
+</blockquote>
+</aside>
+<p>Yep, I’ve seen details on your hardware in the first post of the thread thus I had also been surprised but the stuff that’s going on.</p>
+<aside class="quote no-group" data-username="spongman">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/s/958977/40.png" class="avatar"> spongman:</div>
+<blockquote>
+<p>[*]apparently, the game is detecting dxlevel ‘95’. i tried adding ‘-dxlevel 98’ to the startup parameters. after starting bms, the screen resolution and video settings were reset, so i changed them back to 1920x1200, disabled/low, etc… after that the rendering was really weird. the letters of the main menu had black boxes around them, as if alpha-blending was broken. the red background of the ‘showbudget’ display was all messed up, almost as if the vertex buffer was being overwritten by some other data:<br>
+<a href="https://localhost/mybb/attachment.php?aid=1464" data-bbcode="true" rel="nofollow noopener">bm_c1a3b0003.jpg</a><br>
+[/LIST]</p>
+</blockquote>
+</aside>
+<p>You had restarted the game after changing the resolution and gfx settings, hadn’t you? I’ve seen similar problems on my rig while been messing with different resolutions, switching fullscreen/windowed, e.t.c. After changing two or three different settings pressing “Apply” after each I end up with messed up rendering that been looking similar to what could be seen on your screenshot. Quiting the game and starting it up again fixed the problem.</p>
+<aside class="quote no-group" data-username="spongman">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/s/958977/40.png" class="avatar"> spongman:</div>
+<blockquote>
+<p>the weird thing is that the difference in the number of pixels drawn between mat_viewportscale 1 and mat_viewportscale 0.99999 is tiny (around .1%) but the fps difference is huge.</p>
+<p>the fps seems to vary almost linearly for other values of mat_viewportscale, but at ‘1’ it hits a cliff. there’s some inneficiency that’s triggered when it’s set to 1.</p>
+</blockquote>
+</aside>
+<p>Yes, linear FPS scale with the vieportscale changes is something that is expected to get in as long as FPS is fillrate-capped. Having sudden drop when it is set to 1 is a really strange thing. The only possible reason I could think of in case it’s not a fullscreen post-processing shaders kicking-in and behaving wrong (which seems not to be the case as you tried to de-facto turn them off by removing shader dll and things hadn’t get better) are:</p>
+<p>a) Driver-related problem. There are a lot of things nVIDIA drivers do “behind the scenes” and some execution paths could only kick in if the size of the offscreen render buffer matches the resolution of current d3d swapchain. I’ve seen some signs of similar behavior with OpenGL when been implementing a small app to test Adaptive/Standard vsync behavior in the dual display environment for nVIDIA cards. It might be that driver does something strange/wrong and causes FPS drop you observe. There are no obvious ways to check it except for trying downgrading or upgrading driver version in hopes that the problem would disappear. Also it’s worth checking if you get the same drop in windowed mode.</p>
+<p>b) Problem inducted by some third-party software messing up with the game’s render context. MSI Afterburner, Steam Community in-game, recording tools like xsplit, FRAPS or DXtory - all they could possibly cause problems like this. But I have to admit I had never hit anything like the problem you describe caused by any of the tools listed above.</p>
+        </div>
+
+        <meta itemprop='headline' content='poor FPS, Swap_Buffers and mat_viewportscale'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/spongman.html'><span itemprop='name'>spongman</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10943.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/7/795aed9680d10518f9188f3e1b8606cae54aff77.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-21T23:26:36Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:33:29Z' class='post-time'>
+                November 25, 2018,  2:33am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="lexa2">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/l/34f0e0/40.png" class="avatar"> lexa2:</div>
+<blockquote>
+<p>You had restarted the game after changing the resolution and gfx settings, hadn’t you?</p>
+</blockquote>
+</aside>
+<p>yeah, i did have the kinds off issues you described with settings not sticking initially, but i did restart after setting them, just to make sure. i also tried different combinations of .vcs/.dll presence, to no avail.</p>
+<aside class="quote no-group" data-username="lexa2">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/l/34f0e0/40.png" class="avatar"> lexa2:</div>
+<blockquote>
+<p>Yes, linear FPS scale with the vieportscale changes is something that is expected to get in as long as FPS is fillrate-capped. Having sudden drop when it is set to 1 is a really strange thing. The only possible reason I could think of in case it’s not a fullscreen post-processing shaders kicking-in and behaving wrong (which seems not to be the case as you tried to de-facto turn them off by removing shader dll and things hadn’t get better) are:</p>
+<p>a) Driver-related problem. There are a lot of things nVIDIA drivers do “behind the scenes” and some execution paths could only kick in if the size of the offscreen render buffer matches the resolution of current d3d swapchain. I’ve seen some signs of similar behavior with OpenGL when been implementing a small app to test Adaptive/Standard vsync behavior in the dual display environment for nVIDIA cards. It might be that driver does something strange/wrong and causes FPS drop you observe. There are no obvious ways to check it except for trying downgrading or upgrading driver version in hopes that the problem would disappear. Also it’s worth checking if you get the same drop in windowed mode.</p>
+</blockquote>
+</aside>
+<p>I was running an older nvidia driver when i first saw this problem. i forget which version, but i upgraded to the latest in the hopes of finding a fix  <img src="../../images/emoji/twitter/frowningc164.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+<aside class="quote no-group" data-username="lexa2">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/l/34f0e0/40.png" class="avatar"> lexa2:</div>
+<blockquote>
+<p>b) Problem inducted by some third-party software messing up with the game’s render context. MSI Afterburner, Steam Community in-game, recording tools like xsplit, FRAPS or DXtory - all they could possibly cause problems like this. But I have to admit I had never hit anything like the problem you describe caused by any of the tools listed above.</p>
+</blockquote>
+</aside>
+<p>i don’t have any of those installed, and i don’t have anything installed that i think would mess with it. regardless, i’m not sure what would be sensitive to the viewscale value…</p>
+<p>anyway, i loaded the two screenshots above into photoshop, re-scaled them to account for the viewscale change, and took the difference<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/7/795aed9680d10518f9188f3e1b8606cae54aff77.jpg" data-download-href="https://leakfree.org/uploads/default/795aed9680d10518f9188f3e1b8606cae54aff77" title="diff.jpg"><img src="../../uploads/default/original/2X/7/795aed9680d10518f9188f3e1b8606cae54aff77.jpg" alt="diff.jpg" data-base62-sha1="hjyAmfgNmNARzuTTPjkENtUgDxZ" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/7/795aed9680d10518f9188f3e1b8606cae54aff77_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">diff.jpg</span><span class="informations">1650×1031 77.3 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+it does look like there’s some slight difference in the shadows (although i didn’t change any setting other than the viewscale).</p>
+        </div>
+
+        <meta itemprop='headline' content='poor FPS, Swap_Buffers and mat_viewportscale'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/lexa2.html'><span itemprop='name'>lexa2</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10943.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-22T04:20:45Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T09:33:49Z' class='post-time'>
+                August 11, 2020,  9:33am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="spongman">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/s/958977/40.png" class="avatar"> spongman:</div>
+<blockquote>
+<p>…<br>
+anyway, i loaded the two screenshots above into photoshop, re-scaled them to account for the viewscale change, and took the difference<br>
+<a href="https://localhost/mybb/attachment.php?aid=1466" data-bbcode="true" rel="nofollow noopener">diff.jpg</a><br>
+it does look like there’s some slight difference in the shadows (although i didn’t change any setting other than the viewscale).</p>
+</blockquote>
+</aside>
+<p>Hmm, differences look like there’s a some kind of an ambient occlusion kicking in (you could easily see that the lighting differs at the places that are expected to be affected by radiosity simulation done in the AO simulating pixel shader).</p>
+<p>This theory is pretty much in line with the FPS drop you’re facing as it is a known fact that driver-forced AO for nVIDIA cards only works in case you have offscreen backbuffer the same size as your screen resolution is (check investigations done by DSfix author on this topic if you’re interested in the gory details from the programmers PoV).</p>
+<p>Check your nVIDIA driver setting. Make sure you have AO disabled. You could also try installing nVIDIA Inspector and using it to force AO disabled for hl2.exe profile.</p>
+        </div>
+
+        <meta itemprop='headline' content='poor FPS, Swap_Buffers and mat_viewportscale'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/spongman.html'><span itemprop='name'>spongman</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10943.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-23T05:20:21Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:35:05Z' class='post-time'>
+                November 25, 2018,  2:35am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="lexa2">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/l/34f0e0/40.png" class="avatar"> lexa2:</div>
+<blockquote>
+<p>Hmm, differences look like there’s a some kind of an ambient occlusion kicking in…</p>
+</blockquote>
+</aside>
+<p>that was it!</p>
+<p>i force-disabled ambient occlusion in the nvidia driver and now there’s no difference between mat_viewportscale 0.99999 &amp; 1.</p>
+<p>you the man <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='poor FPS, Swap_Buffers and mat_viewportscale'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/lexa2.html'><span itemprop='name'>lexa2</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10943.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-09-24T16:31:01Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:36:07Z' class='post-time'>
+                November 25, 2018,  2:36am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Good to hear you resolved this one. You’re welcome.<br>
+Please, add “[SOLVED]” to the thread title if you have such possibility. If not - friendly moderators, could you please help this thread with being marked as solved? Thanks in advance.</p>
+        </div>
+
+        <meta itemprop='headline' content='poor FPS, Swap_Buffers and mat_viewportscale'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/poor-fps-swap-buffers-and-mat-viewportscale/10943 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 11:55:59 GMT -->
+</html>

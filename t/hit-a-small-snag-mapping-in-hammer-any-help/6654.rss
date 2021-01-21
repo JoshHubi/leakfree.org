@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Hit a small snag mapping in hammer, any help?</title>
+    <link>https://leakfree.org/t/hit-a-small-snag-mapping-in-hammer-any-help/6654</link>
+    <description>So I am quite the novice using hammer but I have been trying to improve my skills with a L4D map I have been working on recently, all is going swimmingly but with some static props the lighting and texture seem to be a little warped, any suggestions
+
+PIC: here is the problem with a car model
+![](upload://yOOxZSdPo31FQoMZGuQTxD3Wtva.png)
+
+and the same for a curtain rail
+![](upload://yOOxZSdPo31FQoMZGuQTxD3Wtva.png)
+
+Another problem I have been getting is with models that have transparent textures the shadows seem to be cast off the collision model as opposed to the dominant texture. I have tried to fix this using the lights.rad method but the shadow is still being cast off the collision model despite being told not to. 
+
+as shown here;![](upload://yOOxZSdPo31FQoMZGuQTxD3Wtva.png)
+
+any help would be greatly appreciated
+
+EDIT:
+progress. or lack there of.
+
+![](upload://yOOxZSdPo31FQoMZGuQTxD3Wtva.png)
+![](upload://yOOxZSdPo31FQoMZGuQTxD3Wtva.png)
+![](upload://yOOxZSdPo31FQoMZGuQTxD3Wtva.png)</description>
+    
+    <lastBuildDate>Wed, 02 Mar 2011 02:04:05 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/hit-a-small-snag-mapping-in-hammer-any-help/6654.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Hit a small snag mapping in hammer, any help?</title>
+        <dc:creator><![CDATA[Toxicitate]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="T3nnisball">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/t/b4bc9f/40.png" class="avatar"> T3nnisball:</div>
+<blockquote>
+<p>This explains now to get the shadows casting from the polys, instead of the collision model pretty well <a href="https://www.youtube.com/watch?v=2jEuuvSevi0&amp;feature=player_embedded" data-bbcode="true" rel="nofollow noopener">https://www.youtube.com/watch?v=2jEuuvSevi0&amp;feature=player_embedded</a></p>
+<p>As for the texture thing, I have no idea. Have you tried using a prop_physics and ticking static in flags?</p>
+</blockquote>
+</aside>
+<p>That was the exact tut I was using to try and solve it but as stated the lights.rad method didn’t exactly work. but cheers anyway.</p>
+<p>Tried using cubemaps and that solved the texture problem so i’m content for now</p>
+<p>EDIT &lt; Success</p>
+<p><img src="https://leakfree.org/uploads/default/original/2X/f/f4086c3679e9de8eeb89059690e5127459ca9b40.png" alt="" data-base62-sha1="yOOxZSdPo31FQoMZGuQTxD3Wtva" width="160" height="120"></p>
+          <p><a href="https://leakfree.org/t/hit-a-small-snag-mapping-in-hammer-any-help/6654/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hit-a-small-snag-mapping-in-hammer-any-help/6654/5</link>
+        <pubDate>Wed, 02 Mar 2011 02:04:05 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6654-5</guid>
+        <source url="https://leakfree.org/t/hit-a-small-snag-mapping-in-hammer-any-help/6654.rss">Hit a small snag mapping in hammer, any help?</source>
+      </item>
+      <item>
+        <title>Hit a small snag mapping in hammer, any help?</title>
+        <dc:creator><![CDATA[Door]]></dc:creator>
+        <description><![CDATA[
+            <p><span class="bbcode-b">1st picture</span>: env_cubemap. <a href="https://developer.valvesoftware.com/wiki/Cubemap" data-bbcode="true" rel="nofollow noopener"><span class="bbcode-i">You need to place them</span></a> in your map then type “buildcubemaps”, without quotation marks, in the developer console to build them.</p>
+<p><span class="bbcode-b">2nd picture</span>: You will need to go into your <a href="https://developer.valvesoftware.com/wiki/Expert_compile_mode" data-bbcode="true" rel="nofollow noopener">expert compile options</a>, and put <a href="https://developer.valvesoftware.com/wiki/VRAD#Options" data-bbcode="true" rel="nofollow noopener">“-StaticPropPolys”, “-StaticPropLighting” and “-TextureShadows”</a> in the $light program’s command-line options, again without quotation marks.<br>
+Your light model doesn’t look like it’s using it’s “on” texture. Make sure it’s using the right skin, there should be a tab in the model browser in Hammer which will tell you which skin you need to be using.</p>
+<p>That’s about it, for your issues.</p>
+          <p><a href="https://leakfree.org/t/hit-a-small-snag-mapping-in-hammer-any-help/6654/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hit-a-small-snag-mapping-in-hammer-any-help/6654/4</link>
+        <pubDate>Tue, 01 Mar 2011 21:19:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6654-4</guid>
+        <source url="https://leakfree.org/t/hit-a-small-snag-mapping-in-hammer-any-help/6654.rss">Hit a small snag mapping in hammer, any help?</source>
+      </item>
+      <item>
+        <title>Hit a small snag mapping in hammer, any help?</title>
+        <dc:creator><![CDATA[T3nnisball]]></dc:creator>
+        <description><![CDATA[
+            <p>This explains now to get the shadows casting from the polys, instead of the collision model pretty well <a href="https://www.youtube.com/watch?v=2jEuuvSevi0&amp;feature=player_embedded" data-bbcode="true" rel="nofollow noopener">https://www.youtube.com/watch?v=2jEuuvSevi0&amp;feature=player_embedded</a></p>
+<p>As for the texture thing, I have no idea. Have you tried using a prop_physics and ticking static in flags?</p>
+          <p><a href="https://leakfree.org/t/hit-a-small-snag-mapping-in-hammer-any-help/6654/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hit-a-small-snag-mapping-in-hammer-any-help/6654/3</link>
+        <pubDate>Tue, 01 Mar 2011 20:58:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6654-3</guid>
+        <source url="https://leakfree.org/t/hit-a-small-snag-mapping-in-hammer-any-help/6654.rss">Hit a small snag mapping in hammer, any help?</source>
+      </item>
+      <item>
+        <title>Hit a small snag mapping in hammer, any help?</title>
+        <dc:creator><![CDATA[DeGllenn]]></dc:creator>
+        <description><![CDATA[
+            <p>What i usually do is place an env_cubemap next to it, if that happens, but that’s probably not the proper way to solve this.</p>
+          <p><a href="https://leakfree.org/t/hit-a-small-snag-mapping-in-hammer-any-help/6654/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hit-a-small-snag-mapping-in-hammer-any-help/6654/2</link>
+        <pubDate>Tue, 01 Mar 2011 18:30:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6654-2</guid>
+        <source url="https://leakfree.org/t/hit-a-small-snag-mapping-in-hammer-any-help/6654.rss">Hit a small snag mapping in hammer, any help?</source>
+      </item>
+      <item>
+        <title>Hit a small snag mapping in hammer, any help?</title>
+        <dc:creator><![CDATA[Toxicitate]]></dc:creator>
+        <description><![CDATA[
+            <p>So I am quite the novice using hammer but I have been trying to improve my skills with a L4D map I have been working on recently, all is going swimmingly but with some static props the lighting and texture seem to be a little warped, any suggestions</p>
+<p>PIC: here is the problem with a car model<br>
+<img src="https://leakfree.org/uploads/default/original/2X/f/f4086c3679e9de8eeb89059690e5127459ca9b40.png" alt="" data-base62-sha1="yOOxZSdPo31FQoMZGuQTxD3Wtva" width="160" height="120"></p>
+<p>and the same for a curtain rail<br>
+<img src="https://leakfree.org/uploads/default/original/2X/f/f4086c3679e9de8eeb89059690e5127459ca9b40.png" alt="" data-base62-sha1="yOOxZSdPo31FQoMZGuQTxD3Wtva" width="160" height="120"></p>
+<p>Another problem I have been getting is with models that have transparent textures the shadows seem to be cast off the collision model as opposed to the dominant texture. I have tried to fix this using the lights.rad method but the shadow is still being cast off the collision model despite being told not to.</p>
+<p>as shown here;<img src="https://leakfree.org/uploads/default/original/2X/f/f4086c3679e9de8eeb89059690e5127459ca9b40.png" alt="" data-base62-sha1="yOOxZSdPo31FQoMZGuQTxD3Wtva" width="160" height="120"></p>
+<p>any help would be greatly appreciated</p>
+<p>EDIT:<br>
+progress. or lack there of.</p>
+<p><img src="https://leakfree.org/uploads/default/original/2X/f/f4086c3679e9de8eeb89059690e5127459ca9b40.png" alt="" data-base62-sha1="yOOxZSdPo31FQoMZGuQTxD3Wtva" width="160" height="120"><br>
+<img src="https://leakfree.org/uploads/default/original/2X/f/f4086c3679e9de8eeb89059690e5127459ca9b40.png" alt="" data-base62-sha1="yOOxZSdPo31FQoMZGuQTxD3Wtva" width="160" height="120"><br>
+<img src="https://leakfree.org/uploads/default/original/2X/f/f4086c3679e9de8eeb89059690e5127459ca9b40.png" alt="" data-base62-sha1="yOOxZSdPo31FQoMZGuQTxD3Wtva" width="160" height="120"></p>
+          <p><a href="https://leakfree.org/t/hit-a-small-snag-mapping-in-hammer-any-help/6654/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hit-a-small-snag-mapping-in-hammer-any-help/6654/1</link>
+        <pubDate>Tue, 01 Mar 2011 14:25:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6654-1</guid>
+        <source url="https://leakfree.org/t/hit-a-small-snag-mapping-in-hammer-any-help/6654.rss">Hit a small snag mapping in hammer, any help?</source>
+      </item>
+  </channel>
+</rss>

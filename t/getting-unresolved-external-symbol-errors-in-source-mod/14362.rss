@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Getting &quot;unresolved external symbol&quot; errors in Source Mod</title>
+    <link>https://leakfree.org/t/getting-unresolved-external-symbol-errors-in-source-mod/14362</link>
+    <description>So after successfully writing &quot;Hello world!&quot; three times, I decided to take it upon myself to resume programming work on my mod project after our programmer fell off of the face of Earth with minimal work done (everyone act surprised that this happened).
+
+I don&#39;t know if this issue is coming up from something he did, something wrong in the base files from Valve, or something I&#39;m doing wrong (likely two, extremely likely three). Getting &quot;unresolved external symbol&quot; errors out the wazoo, here&#39;s a sampling:
+
+[code]6&gt;entitylist.obj : error LNK2019: unresolved external symbol &quot;void __cdecl ClientPutInServer(struct edict_t *,char const *)&quot; (?ClientPutInServer@@YAXPAUedict_t@@PBD@Z) referenced in function &quot;public: virtual void __thiscall CEntityListSystem::FrameUpdatePostEntityThink(void)&quot; (?FrameUpdatePostEntityThink@CEntityListSystem@@UAEXXZ)
+6&gt;gameinterface.obj : error LNK2001: unresolved external symbol &quot;void __cdecl ClientPutInServer(struct edict_t *,char const *)&quot; (?ClientPutInServer@@YAXPAUedict_t@@PBD@Z)
+6&gt;gameinterface.obj : error LNK2019: unresolved external symbol &quot;char const * __cdecl GetGameDescription(void)&quot; (?GetGameDescription@@YAPBDXZ) referenced in function &quot;public: virtual char const * __thiscall CServerGameDLL::GetGameDescription(void)&quot; (?GetGameDescription@CServerGameDLL@@UAEPBDXZ)
+6&gt;gameinterface.obj : error LNK2019: unresolved external symbol &quot;class IGameSystem * __cdecl GameLogSystem(void)&quot; (?GameLogSystem@@YAPAVIGameSystem@@XZ) referenced in function &quot;public: virtual bool __thiscall CServerGameDLL: :D LLInit(void * (__cdecl*)(char const *,int *),void * (__cdecl*)(char const *,int *),void * (__cdecl*)(char const *,int *),class CGlobalVars *)&quot; (?DLLInit@CServerGameDLL@@UAE_NP6APAXPBDPAH@Z22PAVCGlobalVars@@@Z)
+6&gt;gameinterface.obj : error LNK2001: unresolved external symbol &quot;public: virtual void __thiscall CServerGameClients::GetPlayerLimits(int &amp;,int &amp;,int &amp;)const &quot; (?GetPlayerLimits@CServerGameClients@@UBEXAAH00@Z)
+6&gt;gameinterface.obj : error LNK2019: unresolved external symbol &quot;private: void __thiscall CServerGameDLL::LevelInit_ParseAllEntities(char const *)&quot; (?LevelInit_ParseAllEntities@CServerGameDLL@@AAEXPBD@Z) referenced in function &quot;public: virtual bool __thiscall CServerGameDLL::LevelInit(char const *,char const *,char const *,char const *,bool,bool)&quot; (?LevelInit@CServerGameDLL@@UAE_NPBD000_N1@Z)[/code]
+That&#39;s just a small bit, there&#39;s all sorts more. I&#39;m not really sure what I&#39;m looking for based off of these, any thoughts?</description>
+    
+    <lastBuildDate>Sun, 09 Aug 2015 00:13:13 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/getting-unresolved-external-symbol-errors-in-source-mod/14362.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Getting &quot;unresolved external symbol&quot; errors in Source Mod</title>
+        <dc:creator><![CDATA[Sage_J_Fox]]></dc:creator>
+        <description><![CDATA[
+            <p>So after successfully writing “Hello world!” three times, I decided to take it upon myself to resume programming work on my mod project after our programmer fell off of the face of Earth with minimal work done (everyone act surprised that this happened).</p>
+<p>I don’t know if this issue is coming up from something he did, something wrong in the base files from Valve, or something I’m doing wrong (likely two, extremely likely three). Getting “unresolved external symbol” errors out the wazoo, here’s a sampling:</p>
+<p><code>6&gt;entitylist.obj : error LNK2019: unresolved external symbol "void __cdecl ClientPutInServer(struct edict_t *,char const *)" (?ClientPutInServer@@YAXPAUedict_t@@PBD@Z) referenced in function "public: virtual void __thiscall CEntityListSystem::FrameUpdatePostEntityThink(void)" (?FrameUpdatePostEntityThink@CEntityListSystem@@UAEXXZ)
+6&gt;gameinterface.obj : error LNK2001: unresolved external symbol "void __cdecl ClientPutInServer(struct edict_t *,char const *)" (?ClientPutInServer@@YAXPAUedict_t@@PBD@Z)
+6&gt;gameinterface.obj : error LNK2019: unresolved external symbol "char const * __cdecl GetGameDescription(void)" (?GetGameDescription@@YAPBDXZ) referenced in function "public: virtual char const * __thiscall CServerGameDLL::GetGameDescription(void)" (?GetGameDescription@CServerGameDLL@@UAEPBDXZ)
+6&gt;gameinterface.obj : error LNK2019: unresolved external symbol "class IGameSystem * __cdecl GameLogSystem(void)" (?GameLogSystem@@YAPAVIGameSystem@@XZ) referenced in function "public: virtual bool __thiscall CServerGameDLL: :D LLInit(void * (__cdecl*)(char const *,int *),void * (__cdecl*)(char const *,int *),void * (__cdecl*)(char const *,int *),class CGlobalVars *)" (?DLLInit@CServerGameDLL@@UAE_NP6APAXPBDPAH@Z22PAVCGlobalVars@@@Z)
+6&gt;gameinterface.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall CServerGameClients::GetPlayerLimits(int &amp;,int &amp;,int &amp;)const " (?GetPlayerLimits@CServerGameClients@@UBEXAAH00@Z)
+6&gt;gameinterface.obj : error LNK2019: unresolved external symbol "private: void __thiscall CServerGameDLL::LevelInit_ParseAllEntities(char const *)" (?LevelInit_ParseAllEntities@CServerGameDLL@@AAEXPBD@Z) referenced in function "public: virtual bool __thiscall CServerGameDLL::LevelInit(char const *,char const *,char const *,char const *,bool,bool)" (?LevelInit@CServerGameDLL@@UAE_NPBD000_N1@Z)</code><br>
+That’s just a small bit, there’s all sorts more. I’m not really sure what I’m looking for based off of these, any thoughts?</p>
+          <p><a href="https://leakfree.org/t/getting-unresolved-external-symbol-errors-in-source-mod/14362/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/getting-unresolved-external-symbol-errors-in-source-mod/14362/1</link>
+        <pubDate>Sun, 09 Aug 2015 00:13:13 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14362-1</guid>
+        <source url="https://leakfree.org/t/getting-unresolved-external-symbol-errors-in-source-mod/14362.rss">Getting &quot;unresolved external symbol&quot; errors in Source Mod</source>
+      </item>
+  </channel>
+</rss>

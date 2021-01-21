@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Left 4 Dead - Multicore Rendering Crash?</title>
+    <link>https://leakfree.org/t/left-4-dead-multicore-rendering-crash/14652</link>
+    <description>So, okay. This is probably an oddly specific issue, but I&#39;ve found nothing about it on Google and I&#39;m clueless as to what could be causing this.
+
+A few months ago, I was bored and started working on an L4D campaign, based off of the early-2000&#39;s City 17 concepts for HL2, to brush up (no pun intended) on my Hammer skills. The third map is based on some really early WC maps of the C17 underground/canals, and at one point the player wades through a sort of large storm drain series of pipes.
+[img=&#39;https://i.imgur.com/6sdS9CH.jpg&#39;,none,838][/img]
+I&#39;ve created a reflective water texture for the campaign, but I&#39;ve already looked into that and determined it&#39;s not part of the issue here.
+
+So, problem: The rest of the map works fine. However, in the pipes, when there are a multitude of infected, the game tends to crash to desktop. Disabling multicore rendering &quot;fixes&quot; the issue, but I&#39;m stumped as to why it happens in the first place. There&#39;s a noticeable spike just before crashing in Mat_ThreadedEndFrame according to the showbudget panel. This crash only happens on L4D1, as well - L4D2 copes perfectly fine, with or without multicore rendering.
+
+Things I&#39;ve tried:
+* Using another water material, in case the reflections were somehow responsible - No result
+* Adding a func_ragdoll_fader - Prevents crashing, but it looks pretty terrible to have the ragdolls just vanish like that, so I&#39;d rather not do this if possible
+* Adding a func_radoll_fader and killing it at the beginning of the map - I can&#39;t remember what gave me this idea, but it [i]seemed[/i] to work for a while before it started crashing again
+* Changing the height of the water - No result, IIRC
+Does anyone know of a way for me to fix this [i]without[/i] getting rid of the water or using a ragdoll fader, or is there nothing to be done about it?</description>
+    
+    <lastBuildDate>Sun, 31 Jan 2016 21:05:30 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/left-4-dead-multicore-rendering-crash/14652.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Left 4 Dead - Multicore Rendering Crash?</title>
+        <dc:creator><![CDATA[KyuuGryphon]]></dc:creator>
+        <description><![CDATA[
+            <p>So, okay. This is probably an oddly specific issue, but I’ve found nothing about it on Google and I’m clueless as to what could be causing this.</p>
+<p>A few months ago, I was bored and started working on an L4D campaign, based off of the early-2000’s City 17 concepts for HL2, to brush up (no pun intended) on my Hammer skills. The third map is based on some really early WC maps of the C17 underground/canals, and at one point the player wades through a sort of large storm drain series of pipes.<br>
+<img alt=""><br>
+I’ve created a reflective water texture for the campaign, but I’ve already looked into that and determined it’s not part of the issue here.</p>
+<p>So, problem: The rest of the map works fine. However, in the pipes, when there are a multitude of infected, the game tends to crash to desktop. Disabling multicore rendering “fixes” the issue, but I’m stumped as to why it happens in the first place. There’s a noticeable spike just before crashing in Mat_ThreadedEndFrame according to the showbudget panel. This crash only happens on L4D1, as well - L4D2 copes perfectly fine, with or without multicore rendering.</p>
+<p>Things I’ve tried:</p>
+<ul>
+<li>Using another water material, in case the reflections were somehow responsible - No result</li>
+<li>Adding a func_ragdoll_fader - Prevents crashing, but it looks pretty terrible to have the ragdolls just vanish like that, so I’d rather not do this if possible</li>
+<li>Adding a func_radoll_fader and killing it at the beginning of the map - I can’t remember what gave me this idea, but it <span class="bbcode-i">seemed</span> to work for a while before it started crashing again</li>
+<li>Changing the height of the water - No result, IIRC<br>
+Does anyone know of a way for me to fix this <span class="bbcode-i">without</span> getting rid of the water or using a ragdoll fader, or is there nothing to be done about it?</li>
+</ul>
+          <p><a href="https://leakfree.org/t/left-4-dead-multicore-rendering-crash/14652/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/left-4-dead-multicore-rendering-crash/14652/1</link>
+        <pubDate>Sun, 31 Jan 2016 21:05:30 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14652-1</guid>
+        <source url="https://leakfree.org/t/left-4-dead-multicore-rendering-crash/14652.rss">Left 4 Dead - Multicore Rendering Crash?</source>
+      </item>
+  </channel>
+</rss>

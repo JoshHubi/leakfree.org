@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>FPS drop on lambda core</title>
+    <link>https://leakfree.org/t/fps-drop-on-lambda-core/10268</link>
+    <description>Usually i got about 50 fps, on lambda core level, when scientist open a portal and enemy are comming to attack me, i have got about 10 FPS.
+Console errors
+[code]
+unrecognized conditional test !lowfill?$depthblend in particle/smoke1/smoke1
+unrecognized conditional test lowfill?$depthblend in particle/smoke1/smoke1
+...
+
+Physics queue not empty, error!
+No caption found for &#39;weapons/hivehand/buzz.wav&#39;
+ShaderAPIDX8::CreateD3DTexture: D3DERR_INVALIDCALL
+
+[/code]
+screen
+![](upload://6I6PuuEmauXO02up6hgyYXrei26.jpeg)</description>
+    
+    <lastBuildDate>Thu, 20 Sep 2012 15:03:17 +0000</lastBuildDate>
+    <category>In-game Issues (Mod)</category>
+    <atom:link href="https://leakfree.org/t/fps-drop-on-lambda-core/10268.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>FPS drop on lambda core</title>
+        <dc:creator><![CDATA[mimol]]></dc:creator>
+        <description><![CDATA[
+            <p>hmm. Yep, but its strange that I cant load, because of fps drops  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"><br>
+Anyway thx 4 solution of my problem</p>
+          <p><a href="https://leakfree.org/t/fps-drop-on-lambda-core/10268/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fps-drop-on-lambda-core/10268/9</link>
+        <pubDate>Thu, 20 Sep 2012 15:03:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10268-9</guid>
+        <source url="https://leakfree.org/t/fps-drop-on-lambda-core/10268.rss">FPS drop on lambda core</source>
+      </item>
+      <item>
+        <title>FPS drop on lambda core</title>
+        <dc:creator><![CDATA[Cameron_D]]></dc:creator>
+        <description><![CDATA[
+            <p>I ran into this issue, but only if I saved the game during the teleporter sequence and then loaded it. If I went back to the save from before the sequence (The autosave it makes when you enter the room) everything was fine.</p>
+          <p><a href="https://leakfree.org/t/fps-drop-on-lambda-core/10268/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fps-drop-on-lambda-core/10268/8</link>
+        <pubDate>Thu, 20 Sep 2012 12:37:45 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10268-8</guid>
+        <source url="https://leakfree.org/t/fps-drop-on-lambda-core/10268.rss">FPS drop on lambda core</source>
+      </item>
+      <item>
+        <title>FPS drop on lambda core</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <p>These “prop” things are a major part of the level, you could check it by executing “r_drawstaticprops 0” in console. You’d see that a lot of things would “disappear” around you making the game basically unplayable.</p>
+<p>P.S. There are reports that you only get extremely bad FPS in Lambda Core portal sequence if you do a save/load there. Loading an autosave which puts you in the moment before starting portal opening sequence could fix your FPS issues somewhat up until the point you do a save/load there.</p>
+          <p><a href="https://leakfree.org/t/fps-drop-on-lambda-core/10268/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fps-drop-on-lambda-core/10268/7</link>
+        <pubDate>Thu, 20 Sep 2012 12:33:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10268-7</guid>
+        <source url="https://leakfree.org/t/fps-drop-on-lambda-core/10268.rss">FPS drop on lambda core</source>
+      </item>
+      <item>
+        <title>FPS drop on lambda core</title>
+        <dc:creator><![CDATA[mimol]]></dc:creator>
+        <description><![CDATA[
+            <p>Is there some extra comments to increase fps, without desreasing overall quality of game?<br>
+I want to trun off only this ‘prop’ things</p>
+<p>And is it happens only for me or for everyone?</p>
+          <p><a href="https://leakfree.org/t/fps-drop-on-lambda-core/10268/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fps-drop-on-lambda-core/10268/6</link>
+        <pubDate>Thu, 20 Sep 2012 12:26:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10268-6</guid>
+        <source url="https://leakfree.org/t/fps-drop-on-lambda-core/10268.rss">FPS drop on lambda core</source>
+      </item>
+      <item>
+        <title>FPS drop on lambda core</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for posting these. Looks just like the case I’ve been most afraid of. It seems that most of the time engine spends rendering highly-detailed geometry for so-called prop_static entities and for re-calculating lighting for moving models (npcs and alike). For starters, both problems could only be fixed by game developers. What is worse, lights cache recalculating could only be fixed wither by reducing the number of moving entities or by reducing the number of lights used for lighting these moving entities.</p>
+<p>In other words it would require to redesign this level somewhat to really fix this problem. prop_static entities either should be made more simple wrt geometry details or should be fixed to use more aggressive LOD settings and visibility culling. Bad luck for both users (no easy way to fix) and developers (extra work to be done).</p>
+          <p><a href="https://leakfree.org/t/fps-drop-on-lambda-core/10268/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fps-drop-on-lambda-core/10268/5</link>
+        <pubDate>Thu, 20 Sep 2012 09:43:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10268-5</guid>
+        <source url="https://leakfree.org/t/fps-drop-on-lambda-core/10268.rss">FPS drop on lambda core</source>
+      </item>
+      <item>
+        <title>FPS drop on lambda core</title>
+        <dc:creator><![CDATA[mimol]]></dc:creator>
+        <description><![CDATA[
+            <p><span class="bbcode-b">Hardware:</span><br>
+Ram 2x2GB<br>
+Graphic: Readeon 6770<br>
+CPU Athlon II x3 440   -  3x3.3Gh<br>
+<span class="bbcode-b">Software</span><br>
+Win 7 x64<br>
+Even when I go to menu(ESC), menu works slower<br>
+two first pic -&gt; low fps<br>
+<img src="https://leakfree.org/uploads/default/original/2X/2/2f0984456f8dd47c5beb0a68b72c3d6cf62ef2aa.jpeg" alt="" data-base62-sha1="6I6PuuEmauXO02up6hgyYXrei26" width="300" height="300"><br>
+<img src="https://leakfree.org/uploads/default/original/2X/2/2f0984456f8dd47c5beb0a68b72c3d6cf62ef2aa.jpeg" alt="" data-base62-sha1="6I6PuuEmauXO02up6hgyYXrei26" width="300" height="300"><br>
+third pic, another map - more fps<br>
+<img src="https://leakfree.org/uploads/default/original/2X/2/2f0984456f8dd47c5beb0a68b72c3d6cf62ef2aa.jpeg" alt="" data-base62-sha1="6I6PuuEmauXO02up6hgyYXrei26" width="300" height="300"></p>
+          <p><a href="https://leakfree.org/t/fps-drop-on-lambda-core/10268/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fps-drop-on-lambda-core/10268/4</link>
+        <pubDate>Thu, 20 Sep 2012 08:53:01 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10268-4</guid>
+        <source url="https://leakfree.org/t/fps-drop-on-lambda-core/10268.rss">FPS drop on lambda core</source>
+      </item>
+      <item>
+        <title>FPS drop on lambda core</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <p>Please read sticky BEFORE YOU POST thread and include hardware and software configuration you have. Make sure to post screenshots with budget panel turned on. You could read info on how to turn this panel on in the sticky FAQ thread in this section of the forum.</p>
+          <p><a href="https://leakfree.org/t/fps-drop-on-lambda-core/10268/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fps-drop-on-lambda-core/10268/3</link>
+        <pubDate>Thu, 20 Sep 2012 04:10:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10268-3</guid>
+        <source url="https://leakfree.org/t/fps-drop-on-lambda-core/10268.rss">FPS drop on lambda core</source>
+      </item>
+      <item>
+        <title>FPS drop on lambda core</title>
+        <dc:creator><![CDATA[jambo]]></dc:creator>
+        <description><![CDATA[
+            <p>I had a huge FPS drop as well, but only on my second playthrough of the level.</p>
+<p>I didn’t check the console, but I will tonight.</p>
+          <p><a href="https://leakfree.org/t/fps-drop-on-lambda-core/10268/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fps-drop-on-lambda-core/10268/2</link>
+        <pubDate>Thu, 20 Sep 2012 00:40:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10268-2</guid>
+        <source url="https://leakfree.org/t/fps-drop-on-lambda-core/10268.rss">FPS drop on lambda core</source>
+      </item>
+      <item>
+        <title>FPS drop on lambda core</title>
+        <dc:creator><![CDATA[mimol]]></dc:creator>
+        <description><![CDATA[
+            <p>Usually i got about 50 fps, on lambda core level, when scientist open a portal and enemy are comming to attack me, i have got about 10 FPS.<br>
+Console errors</p>
+<pre><code class="lang-auto">unrecognized conditional test !lowfill?$depthblend in particle/smoke1/smoke1
+unrecognized conditional test lowfill?$depthblend in particle/smoke1/smoke1
+...
+
+Physics queue not empty, error!
+No caption found for 'weapons/hivehand/buzz.wav'
+ShaderAPIDX8::CreateD3DTexture: D3DERR_INVALIDCALL
+</code></pre>
+<p>screen<br>
+<img src="https://leakfree.org/uploads/default/original/2X/2/2f0984456f8dd47c5beb0a68b72c3d6cf62ef2aa.jpeg" alt="" data-base62-sha1="6I6PuuEmauXO02up6hgyYXrei26" width="300" height="300"></p>
+          <p><a href="https://leakfree.org/t/fps-drop-on-lambda-core/10268/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fps-drop-on-lambda-core/10268/1</link>
+        <pubDate>Sun, 16 Sep 2012 14:13:07 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10268-1</guid>
+        <source url="https://leakfree.org/t/fps-drop-on-lambda-core/10268.rss">FPS drop on lambda core</source>
+      </item>
+  </channel>
+</rss>

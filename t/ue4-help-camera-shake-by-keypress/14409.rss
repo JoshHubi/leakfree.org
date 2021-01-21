@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>UE4 help?  Camera shake by keypress?</title>
+    <link>https://leakfree.org/t/ue4-help-camera-shake-by-keypress/14409</link>
+    <description>Hey, folks!
+
+I&#39;m looking to elicit help in the UE4 engine for a project. Here&#39;s what I&#39;m trying to do:
+
+I&#39;m looking to set up a camera shake, such as being nudged or something, via a keypress. So, for example, the camera is stationary and looking at something, then you press a key on the keyboard, such as the F key, then the camera shakes. I don&#39;t want any effects associated with it beyond camera movement. I don&#39;t want explosions or whatnot... just the camera movement.
+
+Is that possible in UE4? It should be, but I can&#39;t for the life of me figure it out.
+
+I tried contacting the UE4 forums about this but I have not yet received a response about it after more than a day of waiting so any help I can get from you fine people would be wonderful!
+
+Thanks!</description>
+    
+    <lastBuildDate>Sat, 19 Sep 2015 20:54:54 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/ue4-help-camera-shake-by-keypress/14409.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>UE4 help?  Camera shake by keypress?</title>
+        <dc:creator><![CDATA[danielsangeo]]></dc:creator>
+        <description><![CDATA[
+            <p>That worked out great!  Thank you so much, Jack Freeman!  Here!  Have some Naughty By Nature by the Muppets:</p>
+<p><a href="https://www.youtube.com/watch?v=mG8yRXdIcZU">youtube.com/watch?v=mG8yRXdIcZU</a></p>
+<p><img src="https://leakfree.org/images/emoji/twitter/thumbsup.png?v=9" title=":thumbsup:" class="emoji only-emoji" alt=":thumbsup:"></p>
+          <p><a href="https://leakfree.org/t/ue4-help-camera-shake-by-keypress/14409/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/ue4-help-camera-shake-by-keypress/14409/5</link>
+        <pubDate>Sat, 19 Sep 2015 20:54:54 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14409-5</guid>
+        <source url="https://leakfree.org/t/ue4-help-camera-shake-by-keypress/14409.rss">UE4 help?  Camera shake by keypress?</source>
+      </item>
+      <item>
+        <title>UE4 help?  Camera shake by keypress?</title>
+        <dc:creator><![CDATA[Jack_Freeman]]></dc:creator>
+        <description><![CDATA[
+            <p>Ah, so you have a blank project with no character blueprint. Alright then, you’ll just have to create your own character blueprint. BTW don’t name your CameraShake blueprint just ‘CameraShake’, otherwise there’ll show up two CameraShake blueprints on the lists and it’ll just be confusing for you  <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+<p>First thing you’ll have to do is create a gamemode blueprint. Name it something other than just ‘GameMode’.</p>
+<div class="spoiler">
+<p><img src="https://i.imgur.com/HNX0wqU.png" alt="" width="548" height="429"></p>
+</div>
+<p>Now create a character blueprint. Again, don’t name it just ‘Character’.</p>
+<div class="spoiler">
+<p><img src="https://i.imgur.com/K4FyHFJ.png" alt="" width="548" height="429"></p>
+</div>
+<p>Go into your gamemode blueprint and in the details panel change “Default Pawn Class” to the character blueprint you just created.</p>
+<div class="spoiler">
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/GpS03YQ.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/GpS03YQ.png" alt="" width="690" height="373"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1038</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+</div>
+<p>Then you go into your project settings and in the “Maps and Modes” tab you change Default GameMode to the gamemode blueprint you created earlier.</p>
+<div class="spoiler">
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/yNqahAT.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/yNqahAT.png" alt="" width="690" height="373"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1038</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+</div>
+<p>Keep the project settings open and go into the Input tab, and add all these axis mappings. It’s VERY important that you set the scale values as I have. This is because when you for example want to move forward, you hold the W key and the scale will go up to 1, you feed this scale value into an “Add Movement Input” node in your character blueprint. The Add Movement Input will have the Forward Vector of your character connected into it, so when the scale value is 1, the character will move forward, but when the scale value is -1, the character will move backward. Same thing with all the other movement axis inputs you’ve added. The mouse look Y input has a scale value of -1 because otherwise the mouse look would be inverted (if you need further explanation on this stuff, PM me on Steam).</p>
+<div class="spoiler">
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/ejdTgKD.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/ejdTgKD.png" alt="" width="690" height="374"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1043</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+</div>
+<p>Now go into your character’s blueprint. Add a camera component, select it and check the “Use Pawn Control Rotation” box in the camera settings on the details panel.</p>
+<div class="spoiler">
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/ztjVDD4.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/ztjVDD4.png" alt="" width="690" height="373"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1040</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+</div>
+<p>Still in your character blueprint, open the details of the CharacterMovement component, check the three boxes labelled “Orient Rotation To Movement”, “Use Controller Desired Rotation” and “Ignore Base Rotation”.</p>
+<div class="spoiler">
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/p8ZUA2D.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/p8ZUA2D.png" alt="" width="690" height="372"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1037</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+</div>
+<p>Now here comes a branching point. I don’t know if you want a flying camera or a first person character. If you want a flying camera, open this spoiler and follow this step. If not, skip down to the next one.</p>
+<div class="spoiler">
+<p>Go into the capsule component inside your Character Blueprint and change the Capsule Half Height to 34.</p>
+<div class="spoiler">
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/0Kn74YB.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/0Kn74YB.png" alt="" width="690" height="373"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1040</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+</div>
+<p>Then back to the character movement component. Change the Gravity Scale setting to 0, and in the “Character Movement: Flying” change the Braking Deceleration Flying to 2048 (or whatever you want the deceleration to be), and change “Default Land Movement Mode” to Flying.</p>
+<div class="spoiler">
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/I8Qgnuf.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/I8Qgnuf.png" alt="" width="690" height="373"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1038</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+</div>
+</div>
+<p>This step is if you want a First Person character moving on the ground. If you already did the flying camera step, just skip this one.</p>
+<div class="spoiler">
+<p>Go into the character blueprint and move it up the Z-axis to where you want the eye height to be.</p>
+<div class="spoiler">
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/KqL1tDh.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/KqL1tDh.png" alt="" width="690" height="374"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1042</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+</div>
+</div>
+<p>Now go into the Event Graph of your character blueprint and add all these nodes (you right click to open up a search box with all the nodes). The gray comments are unneeded, I just add them to tidy up a bit. There’s a bit of explanation on how to find them all below.</p>
+<div class="spoiler">
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/Lx2g2x8.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/Lx2g2x8.png" alt="" width="690" height="374"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1042</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+</div>
+<p>The blue ‘Camera’ nodes can be added just by dragging the camera component from the component list into the graph. You can drag off the blue pin (marked with a green box) from the Camera node and it’ll open a search box for you with things that can be added, from there you can easily add the “Get Forward/Right Vector”. Instead of a “Get Up Vector” connected to a Camera node, I connected a “Get Actor Up Vector” to the FlyUpDown movement input. This is because the Forward and Right vectors should be relative to the camera’s rotation (this means that for example the forward vector will be in front of the camera) while the Up vector should be absolute (which means it’ll always go up, if it was relative to the camera’s rotation it would be depending on the camera’s upside, so for example if the camera was pointing down, the upside would be directly in front of you, so the camera wouldn’t fly up but rather go forward if that makes any sense).<br>
+If you can’t find some of the nodes, turn off Context Sensitive Search when you search for a node by right clicking (the Play Camera Shake node doesn’t show up otherwise).</p>
+<div class="spoiler">
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/ovOWSfA.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/ovOWSfA.png" alt="" width="690" height="374"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1041</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+</div>
+<p>Need help or something explained you can PM me on Steamo. If it’s too daunting like this, I could make you a video or something.</p>
+          <p><a href="https://leakfree.org/t/ue4-help-camera-shake-by-keypress/14409/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/ue4-help-camera-shake-by-keypress/14409/4</link>
+        <pubDate>Sat, 19 Sep 2015 10:44:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14409-4</guid>
+        <source url="https://leakfree.org/t/ue4-help-camera-shake-by-keypress/14409.rss">UE4 help?  Camera shake by keypress?</source>
+      </item>
+      <item>
+        <title>UE4 help?  Camera shake by keypress?</title>
+        <dc:creator><![CDATA[danielsangeo]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks so much for this!</p>
+<p>I’m lost on the last step–the “character blueprint” part.  I see “FirstPersonCharacter &gt; Event Graph” at the top but I have no idea how to get to it.</p>
+<p>I should tell you that I’m doing this in “Scifi Hallway” which I downloaded from the UE4 community samples page so I’m not sure if there’s some sort of weird custom thing going on there.  Maybe there isn’t even a character controller on this at all, and it’s, like, the editor’s “camera”, as it were.</p>
+<p>And I’m a total newb on this so I apologize for any gross stupidity on my part.   <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+<p>Any further advice on this would be greatly appreciated.  Here’s what I’m seeing right now, if that’s any help to you:</p>
+<div class="spoiler">
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/8JLjmab.png" title=""><img src="https://i.imgur.com/8JLjmab.png" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+</div>
+<p>I’m probably doing something completely wrong here.</p>
+          <p><a href="https://leakfree.org/t/ue4-help-camera-shake-by-keypress/14409/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/ue4-help-camera-shake-by-keypress/14409/3</link>
+        <pubDate>Sat, 19 Sep 2015 01:42:48 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14409-3</guid>
+        <source url="https://leakfree.org/t/ue4-help-camera-shake-by-keypress/14409.rss">UE4 help?  Camera shake by keypress?</source>
+      </item>
+      <item>
+        <title>UE4 help?  Camera shake by keypress?</title>
+        <dc:creator><![CDATA[Jack_Freeman]]></dc:creator>
+        <description><![CDATA[
+            <p>I assume you know how to register new action mappings in the project settings. But just in case you don’t:</p>
+<div class="spoiler">
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/5H3AjQT.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/5H3AjQT.png" alt="" width="690" height="376"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1253×684</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+</div>
+<p>Then you create a new blueprint with parent class “CameraShake”</p>
+<div class="spoiler">
+<p><img src="https://i.imgur.com/MZHpjnT.png" alt="" width="537" height="495"></p>
+</div>
+<p>Then you go into the newly created blueprint and edit its oscillation settings. I’ll let you figure out what all these things do on your own.</p>
+<div class="spoiler">
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/LV4ug4W.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/LV4ug4W.png" alt="" width="315" height="500"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">461×730</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+</div>
+<p>Once you’ve done all that you go into your character blueprint and put in the action input and connect it to a “Play Camera Shake” node. Remember to change the shake class to the CameraShake blueprint you created and connect the Player Character Manager node to the target pin on the Play Camera Shake node.</p>
+<div class="spoiler">
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/ZEgPJcQ.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/ZEgPJcQ.png" alt="" width="690" height="379"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1282×705</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+</div>
+          <p><a href="https://leakfree.org/t/ue4-help-camera-shake-by-keypress/14409/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/ue4-help-camera-shake-by-keypress/14409/2</link>
+        <pubDate>Fri, 18 Sep 2015 14:31:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14409-2</guid>
+        <source url="https://leakfree.org/t/ue4-help-camera-shake-by-keypress/14409.rss">UE4 help?  Camera shake by keypress?</source>
+      </item>
+      <item>
+        <title>UE4 help?  Camera shake by keypress?</title>
+        <dc:creator><![CDATA[danielsangeo]]></dc:creator>
+        <description><![CDATA[
+            <p>Hey, folks!</p>
+<p>I’m looking to elicit help in the UE4 engine for a project. Here’s what I’m trying to do:</p>
+<p>I’m looking to set up a camera shake, such as being nudged or something, via a keypress. So, for example, the camera is stationary and looking at something, then you press a key on the keyboard, such as the F key, then the camera shakes. I don’t want any effects associated with it beyond camera movement. I don’t want explosions or whatnot… just the camera movement.</p>
+<p>Is that possible in UE4? It should be, but I can’t for the life of me figure it out.</p>
+<p>I tried contacting the UE4 forums about this but I have not yet received a response about it after more than a day of waiting so any help I can get from you fine people would be wonderful!</p>
+<p>Thanks!</p>
+          <p><a href="https://leakfree.org/t/ue4-help-camera-shake-by-keypress/14409/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/ue4-help-camera-shake-by-keypress/14409/1</link>
+        <pubDate>Fri, 18 Sep 2015 13:34:40 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14409-1</guid>
+        <source url="https://leakfree.org/t/ue4-help-camera-shake-by-keypress/14409.rss">UE4 help?  Camera shake by keypress?</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+    <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075</link>
+    <description>[b]In Office Complex in BMS, on the first level you pull the lever and lights turn off. Everything works fine. Lights on, lights off - all fine.[/b]
+
+When I do this, even when all lights are on, all of my prop_static entities are pitch black. When I added cubemaps, I could only see cubemap reflections on pitch black models.[/size]
+
+[b]I tried compiling the Office Complex map myself - no issue. So, it&#39;s not compile settings, it&#39;s something in the map.
+[/b]
+Anyone got any idea as to what could be causing this? Thanks a lot!</description>
+    
+    <lastBuildDate>Sat, 04 Mar 2017 10:17:26 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[Snaiper]]></dc:creator>
+        <description><![CDATA[
+            <p><span class="bbcode-b">Back at this again!</span><br>
+<span class="bbcode-b"></span><br>
+<span class="bbcode-b">I’ve decided to copy the Office Complex map 1’s vmf and put it elsewhere, then rename it, and compile. Works just fine.</span></p>
+<p><span class="bbcode-b">So, I decided to make a zoo/test map, and here it is:</span><br>
+<span class="bbcode-b"><a class="attachment" href="https://leakfree.org/uploads/default/original/2X/3/35c241904abf18e2ec63d657a5e142a1e48964cf.zip">bm_lighttest.zip</a> (6.98 KB)bm_lighttest.vmf[/attach]</span></p>
+<p>So, I’ve yet to figure out how Black Mesa (vanilla) Office Complex does it.</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/26">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/26</link>
+        <pubDate>Sat, 04 Mar 2017 10:17:26 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-26</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Just tried recompiling a clean Office Complex and the props are still dim. I suspect I know what’s happening there, though- somehow you’re getting the vanilla map instead of your recompile in game. Try making some other obvious change in Office Complex (like adding a prop or something) far away from any of the lights involved and see if it carries through.</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/25">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/25</link>
+        <pubDate>Wed, 25 Jan 2017 21:10:01 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-25</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[Snaiper]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Admiral Sakai">
+<div class="title">
+<div class="quote-controls"></div>
+ Admiral Sakai:</div>
+<blockquote>
+<p>So, to make sure I am understanding this correctly, some static props but not others are affected by this issue; and the issue causes affected props to not be lit by named lights (although they will be lit just fine by unnamed lights, if an area has nothing <span class="bbcode-i">but</span> unnamed lights this will cause the props to appear to be pitch black as nothing is lighting them).</p>
+<p>If so, this corresponds well to my own experience.</p>
+<p>However, you claim to have compiled the first map of Office Complex (bm_c1a2a) and had all the props light fine. This does <span class="bbcode-i">not</span> match my experience, as even recompiling the bm_c1a2a version in mapsrc with no alterations caused the relevant props to light glitchily.</p>
+</blockquote>
+</aside>
+<p><span class="bbcode-b">Everything you said is correct, yes</span>. It’s as if there is some compile parameter, such as -StaticPropLighting in CSGO, that we’re not being told about.</p>
+<p>Maybe you should try compiling it again from mapsrc, but check your files to make sure it’s all correct - maybe it works out this time.</p>
+<p>Interestingly enough, I didn’t notice this issue happening with flickering lights where logic_timer would turn entities on and off. ALTHOUGH, maybe I just overlooked it because either all entities happened to be physics or dynamic or another light source was giving it light.</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/24">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/24</link>
+        <pubDate>Wed, 25 Jan 2017 19:33:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-24</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>So, to make sure I am understanding this correctly, some static props but not others are affected by this issue; and the issue causes affected props to not be lit by named lights (although they will be lit just fine by unnamed lights, if an area has nothing <span class="bbcode-i">but</span> unnamed lights this will cause the props to appear to be pitch black as nothing is lighting them).</p>
+<p>If so, this corresponds well to my own experience.</p>
+<p>However, you claim to have compiled the first map of Office Complex (bm_c1a2a) and had all the props light fine. This does <span class="bbcode-i">not</span> match my experience, as even recompiling the bm_c1a2a version in mapsrc with no alterations caused the relevant props to light glitchily.</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/23">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/23</link>
+        <pubDate>Wed, 25 Jan 2017 19:20:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-23</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[Snaiper]]></dc:creator>
+        <description><![CDATA[
+            <p><span class="bbcode-b">PEOPLE, I’VE <span class="bbcode-u"><span class="bbcode-i">KINDA</span></span> FIGURED IT OUT![/size]</span><br>
+This is a prop_static + lighting issue. Certain prop_static work under these conditions, but certain do not.  Seems like if you have all lights in the level turn off = that bug, but if you have some light, then that bug does not occur. But it does not occur for some props at all - see screenshots below.</p>
+<p>[/size]<br>
+<span class="bbcode-b">[/size]</span><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/UdXQEds.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/UdXQEds.png" alt="" width="690" height="398"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">813×469</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/Vdr38YN.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/Vdr38YN.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><span class="bbcode-b">As you can see, it does not happen with the box - it’s lit fine, but all the other props I put here for test purposes are pitch black.[/size]</span><br>
+<span class="bbcode-b">However, if I were to add an unnamed light right next to them, they’d be lit fine by that light.</span>[/size]</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/TNysE6L.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/TNysE6L.png" alt="" width="690" height="236"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1343×460</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/ETVAQL1.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/ETVAQL1.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/7p0wFES.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/7p0wFES.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/Ny511dr.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/Ny511dr.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div>Static props are lit under flashlight, but not by light and light_spot entities that are named and are to turn on/off.</p>
+<p>EDIT: This still doesn’t explain how vanilla Office Complex does this without any static props having issues. <img src="https://leakfree.org/images/emoji/twitter/confused.png?v=9" title=":confused:" class="emoji" alt=":confused:"></p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/22">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/22</link>
+        <pubDate>Wed, 25 Jan 2017 17:01:00 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-22</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>I don’t know quite how the engine would manage that as I am not sure how the safeguards are defined, but this seems like a way to try to get four light permutations recognized as two.</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/21">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/21</link>
+        <pubDate>Wed, 25 Jan 2017 15:47:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-21</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <p>So I guess that if you want more than 2 blinking lights to go off at different times, you could name them the same and then use:<br>
+OnUser1<br>
+!self<br>
+turn on/off.</p>
+<p>with different delays.</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/20</link>
+        <pubDate>Wed, 25 Jan 2017 15:05:46 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-20</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>As Lordz said above, that will be because of the limit of up to 2 named lights per face, or 4 for the entire map. It’s to do with lightmap pages. So yeah, if you want to have a bunch of lights in a room turn on/off at the same time, they all need the same name. VRAD treats them as a single light because even if they’re all different they collectively only use up a single lightmap page.</p>
+<p>Doesn’t quite explain why that would make the static props crap themselves, but I’m sure it’s related.</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/19</link>
+        <pubDate>Wed, 25 Jan 2017 14:44:22 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-19</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[Snaiper]]></dc:creator>
+        <description><![CDATA[
+            <p>Sorry for the delay and stuff, I was very busy. I’ve put several light entities in the map, one unnamed, others named same and they turn off. All works fine now.  My map is completely indoors, so there’s no cascade lighting entity, no and, yes, it’s HDR. I will keep you guys posted, especially if this issue occurs again. I had static lighting working properly before, it’s just that for some reason this bug occurred, which is probably due to more than 2 names given to light entities, the only real issue was why the bug stuck even when it should have been fixed. Either way - all fine now. I’ll keep you posted!</p>
+<p>And, regarding system specs: Sapphire R9 270X + AMD FX-6300 + 8GB RAM.</p>
+<p>This was the first time to encounter this issue, maybe with my tinkering if I encounter it again we finally get to the bottom of it and see what’s actually causing it!</p>
+<p>TL;DR 1 name for all lights that turn off, one light unnamed and doesn’t turn off - no artifact.</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/18</link>
+        <pubDate>Wed, 25 Jan 2017 14:26:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-18</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve simply always experienced this problem in every map I’ve tried to compile since migrating to the retail version, where named lights otherwise work perfectly (within known limitations).</p>
+<p>At this point I’m wondering if we should get people posting system specs.</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/17</link>
+        <pubDate>Tue, 24 Jan 2017 15:32:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-17</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Admiral Sakai">
+<div class="title">
+<div class="quote-controls"></div>
+ Admiral Sakai:</div>
+<blockquote>
+<p>I would be extremely surprised if you managed to get statics to light properly; as near as I can determine the issue is universal.</p>
+</blockquote>
+</aside>
+<p>I feel like I’m missing something here even though I’ve reread this thread a few times. I’ve never seen this issue before, how is it universal exactly?</p>
+<p>Another question: are you compiling the map with HDR only? Is the an env_cascade_light entity present in the map? Maps for BMS should not be compiled with LDR - this could be causing issues. If there’s an env_cascade_light entity, and you’re compiling with CSM, you need to enable skiplightmap in the env_cascade_light entity, otherwise there will be lighting artifacts (because you are using named lights/lightstyles, which don’t play well with CSM unless you enable skiplightmap).</p>
+<p>Or if your map is not meant to have CSM (no environment light) there should not be an env_cascade_light entity. This could cause additional problems.</p>
+<p>Alternatively, send the VMF my way. I can take a quick and dirty (giggity) look at it for you.</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/16</link>
+        <pubDate>Tue, 24 Jan 2017 15:07:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-16</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>I would be extremely surprised if you managed to get statics to light properly; as near as I can determine the issue is universal.</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/15</link>
+        <pubDate>Tue, 24 Jan 2017 14:35:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-15</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[Snaiper]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<p>That isn’t possible. VMFs contain no lighting data whatsoever apart from lightmap scales.</p>
+<p>As I said, the only way that lighting would stay broken in the BSP after you’ve fixed it in the VMF (if you have fixed it in the VMF) is if the map is stealthily not actually recompiling properly, which can easily happen even with a seemingly successful compile. Make an easily visible change to your map, and see if it carries through through the recompile. Easiest way to see.</p>
+</blockquote>
+</aside>
+<p>Even after renaming it and re-saving it and fixing all the potential causes; the issue persisted. The only time I managed to fix it is by selecting the map and copying it to a brand new, also differently named, file. The map was recompiling properly to the point where any changes I did were there - removed a light, added a light, moved a prop, changed prop type, added some props, etc. All of those were compiled, yet static props remained black.</p>
+<p>Now, I am doing lighting from scratch in a new file and I will first experiment with no more than 10 light entities overall, and I’ll tell you results tonight.</p>
+<p>I mean, I wouldn’t be here all confused if something REALLY weird wasn’t going on.</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/14</link>
+        <pubDate>Tue, 24 Jan 2017 11:18:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-14</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>That isn’t possible. VMFs contain no lighting data whatsoever apart from lightmap scales.</p>
+<p>As I said, the only way that lighting would stay broken in the BSP after you’ve fixed it in the VMF (if you have fixed it in the VMF) is if the map is stealthily not actually recompiling properly, which can easily happen even with a seemingly successful compile. Make an easily visible change to your map, and see if it carries through through the recompile. Easiest way to see.</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/13</link>
+        <pubDate>Tue, 24 Jan 2017 10:43:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-13</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[Snaiper]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Admiral Sakai">
+<div class="title">
+<div class="quote-controls"></div>
+ Admiral Sakai:</div>
+<blockquote>
+<p>I have run into this when recompiling Office Complex.</p>
+<p>A quick fix is to make whatever props are not being lit prop_dynamic_override. If they are still not lit there is indeed something wrong with your map, however I strongly believe that there is an actual bug in here as well.</p>
+</blockquote>
+</aside>
+<p>Yeah, that worked when I tried it originally (since I instantly noticed it only affected static props), however dynamic objects don’t render proper shadows.</p>
+<p>I am re-trying the thing completely, and I’ll tell you exactly at which point it bugs out IF it does. My theory so far is that I had 3 differently named light entities which caused the bug, but the bad lighting got embedded into the VMF or somewhere else, so fixing it wouldn’t actually fix it.</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/12</link>
+        <pubDate>Tue, 24 Jan 2017 09:26:23 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-12</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>I have run into this when recompiling Office Complex.</p>
+<p>A quick fix is to make whatever props are not being lit prop_dynamic_override. If they are still not lit there is indeed something wrong with your map, however I strongly believe that there is an actual bug in here as well.</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/11</link>
+        <pubDate>Tue, 24 Jan 2017 04:00:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-11</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[Snaiper]]></dc:creator>
+        <description><![CDATA[
+            <p><span class="bbcode-b">I’m redoing the whole thing, step by step. I want to know at which step it happens exactly. I will post more details tomorrow.</span></p>
+<p><span class="bbcode-b">Done so far:[/size]</span></p>
+<ul>
+<li>Completely removed lighting (just selected all lights in entity report)</li>
+<li>Removed all flickering lights with their logic_timer entities</li>
+<li>Selected and copied the whole map to a new VMF file.</li>
+<li>Added some unnamed lights<br>
+No errors so far. Next, I will add more lights, then try to name them, see if any errors pop up.</li>
+</ul>
+<p><a class="attachment" href="https://leakfree.org/uploads/default/original/2X/3/3ec60a88c3a7bf1188ad6fa5bf9cbefbb394a378.zip">loggies.zip</a> (4.02 KB)log (zip)[/attach] -&gt; this is the broken map log btw</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/10</link>
+        <pubDate>Mon, 23 Jan 2017 22:36:54 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-10</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <p>When in doubt, post the compile log.</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/9</link>
+        <pubDate>Mon, 23 Jan 2017 20:36:22 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-9</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[Snaiper]]></dc:creator>
+        <description><![CDATA[
+            <p>If it’s 2 max, then that was the problem; I had 3.</p>
+<p>HOWEVER, all the lights did compile and they all work, it’s just that static props did not receive them. The only way I could light up static props was by using flashlight.<br>
+Dynamic and physics props work fine.</p>
+<p>But, even when I removed all of differently named lights, the issue persisted, as if something wasn’t being overwritten.</p>
+<p>I will tinker with it a bit later and tell you all I find out and give you compile log.</p>
+<p>It’s really weird, the only time I ever witnessed this was in CSGO after the Wildfire update, but all that had to be done there was put the “-StaticPropLighting” parameter in advanced compile settings.</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/8</link>
+        <pubDate>Mon, 23 Jan 2017 19:17:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-8</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <p>Ok, it might not be 4 max, it just looked like that way when I tested it.</p>
+<p>Apparently it’s… 2?<br>
+<a href="https://developer.valvesoftware.com/wiki/Naming_Lights" data-bbcode="true" rel="nofollow noopener">https://developer.valvesoftware.com/wiki/Naming_Lights</a></p>
+<p>“VRAD attempts to avoid this with its <span class="bbcode-b">hard-coded limits</span> of two switchable lights affecting a brush face and 32 pages in total.”</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/7</link>
+        <pubDate>Mon, 23 Jan 2017 12:49:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-7</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>If that’s happening, it’s highly likely that your map isn’t recompiling properly. Make sure the map is successfully compiling with no errors at any stage of the compile process.</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/6</link>
+        <pubDate>Mon, 23 Jan 2017 12:47:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-6</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <p>Post your compile log.</p>
+<p>Also if you have more than 4 <span class="bbcode-b">different</span> named lights in one area, the compiler will ignore all of the lights and the lights will not show, the compile log will mention this.</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/5</link>
+        <pubDate>Mon, 23 Jan 2017 12:46:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-5</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[Snaiper]]></dc:creator>
+        <description><![CDATA[
+            <p>Here’s what I had:</p>
+<p><span class="bbcode-b">light_spot</span> entities that are constantly on<br>
+<span class="bbcode-b">light</span> entities that are constantly on</p>
+<p><span class="bbcode-b">light_spot</span> entities that ‘flicker’ using logic_timer<br>
+<span class="bbcode-b">light entities</span> that ‘flicker’ using logic_timer</p>
+<p><span class="bbcode-b"><span class="bbcode-u">Upon pressing a button/pulling a lever = all of them turn off.</span></span><br>
+But, right before turning off, I’d disable/kill logic_timers of flickering lights.</p>
+<p><a href="https://i.imgur.com/fsP9BIm.png" data-bbcode="true" rel="nofollow noopener">https://i.imgur.com/fsP9BIm.png</a></p>
+<p>EDIT: There’s a chance that I named a light but forgot to make it turn it off, and fixed that, but the broken lighting stuck. That could’ve happened. Or something similar. Either way; seems like broken lighting is stuck on the level no matter what I do, and it only affects static props.</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/4</link>
+        <pubDate>Mon, 23 Jan 2017 12:02:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-4</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>Lights should ONLY be named if you are planning on turning them on/off via I/O. The engine treats named lights completely differently from unnamed lights and there are very strict limits about named lights (only up to 4 different named lights allowed before the engine freaks out).</p>
+<p>If you have lights that are named that you aren’t turning on or off (which should be 90% of your lights), then you need to remove their name. If you have lights which turn on/off at the same time (for example many lights in the same room that are tied to a single switch), they should all share the same name.</p>
+<p>Let me know if this helps. Source is VERY particular about lights.</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/3</link>
+        <pubDate>Mon, 23 Jan 2017 11:57:36 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-3</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+      <item>
+        <title>Pitch black static props w/ dynamic lighting? (lights that turn on and off)</title>
+        <dc:creator><![CDATA[Snaiper]]></dc:creator>
+        <description><![CDATA[
+            <p>Well, so far I’ve only managed to figure out that it probably has to do with naming lights. But, I tried the same on a test map (naming lights and making them turn off on a press of a button + static props), seems like there’s no issue there at all.</p>
+<p>It’s as if it broke the VMF file, so no matter what I do it compiles wrongly. Weird.</p>
+<p>When I come home, last thing I’ll try to do is un-name all my lights, see if that fixes it.</p>
+          <p><a href="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075/2</link>
+        <pubDate>Mon, 23 Jan 2017 11:39:27 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15075-2</guid>
+        <source url="https://leakfree.org/t/pitch-black-static-props-w-dynamic-lighting-lights-that-turn-on-and-off/15075.rss">Pitch black static props w/ dynamic lighting? (lights that turn on and off)</source>
+      </item>
+  </channel>
+</rss>

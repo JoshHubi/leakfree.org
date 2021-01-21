@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/tutorial-triggering-events-in-other-levels/11763 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 10:52:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>[Tutorial]Triggering events in other levels - Source 1 - Leakfree</title>
+    <meta name="description" content="How to carry over outputs to other BSPs? According to Google searches, many people are trying to figure out how to trigger events in one map, that take place in another map. I wasn’t able to find a good tutorial, so afte&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="11763.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;[Tutorial]Triggering events in other levels&#39;" href="11763.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/tutorial-triggering-events-in-other-levels/11763" />
+<meta name="twitter:url" content="https://leakfree.org/t/tutorial-triggering-events-in-other-levels/11763" />
+<meta property="og:title" content="[Tutorial]Triggering events in other levels" />
+<meta name="twitter:title" content="[Tutorial]Triggering events in other levels" />
+<meta property="og:description" content="How to carry over outputs to other BSPs? According to Google searches, many people are trying to figure out how to trigger events in one map, that take place in another map. I wasn’t able to find a good tutorial, so after scraping bits of information together, I decided to write this to explain how it works.  First off, I’ll quickly run you through the system. You can’t directly target an entity in another map. The I/O-system will simply not find the entity you are refering to, since it’s not in..." />
+<meta name="twitter:description" content="How to carry over outputs to other BSPs? According to Google searches, many people are trying to figure out how to trigger events in one map, that take place in another map. I wasn’t able to find a good tutorial, so after scraping bits of information together, I decided to write this to explain how it works.  First off, I’ll quickly run you through the system. You can’t directly target an entity in another map. The I/O-system will simply not find the entity you are refering to, since it’s not in..." />
+<meta property="article:published_time" content="2012-11-29T15:28:31+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="11763.html">[Tutorial]Triggering events in other levels</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/7.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>General Development</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/source-1/43.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #ED207B'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Source 1</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Hezus.html'><span itemprop='name'>Hezus</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11763.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-11-29T15:28:31Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T09:57:42Z' class='post-time'>
+                August 11, 2020,  9:57am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>How to carry over outputs to other BSPs? According to Google searches, many people are trying to figure out how to trigger events in one map, that take place in another map. I wasn’t able to find a good tutorial, so after scraping bits of information together, I decided to write this to explain how it works.</p>
+<p>First off, I’ll quickly run you through the system. You can’t directly target an entity in another map. The I/O-system will simply not find the entity you are refering to, since it’s not in the same map. Now Source has an entity called env_global to help you with this. It does not relay outputs as you might expect but it puts the game in a “state”. This state is carried over to the next BSP. Now in the next BSP you can use a trigger_auto to read the state and then trigger events. Here is a step-by-step tutorial on to set it up:</p>
+<ol>
+<li>Set up 2 rooms and a corridor with a 90 degree angle.</li>
+<li>In room 1 create a func_button, a white light, an info_player_start, and an env_global.</li>
+</ol>
+<p>Env_global:<br>
+Name: global<br>
+Global State to Set: redlighton (type this in the field, it’s not in the drop down menu)<br>
+Flags: Set Initial State</p>
+<p>Func_button’s properties:<br>
+Flags: Don’t Move<br>
+Output: OnPressed &gt; global &gt; TurnOn</p>
+<ol start="3">
+<li>In the corridor, place a trigger_changelevel brush and a info_landmark.</li>
+</ol>
+<p>Trigger_changelevel’s properies:<br>
+New Map Name: lvlchange2<br>
+Landmark Name: lvl_lvl2</p>
+<p>Info_landmark’s properties:<br>
+Name: lvl_lvl2</p>
+<ol start="4">
+<li>
+<p>Now save your map as lvlchange1. Save it again as lvlchange2 and load up that map.</p>
+</li>
+<li>
+<p>In lvlchange2, delete the info_player_start, func_button and env_global.</p>
+</li>
+<li>
+<p>Now move the trigger_changelevel a bit towards the direction the player comes from. If he transitions into the next map, the trigger to lvlchange1 should be behind him. If the player touches the trigger_changelevel after the level change, you’ll be stuck in an endless loop. Now change the properties:</p>
+</li>
+</ol>
+<p>New Map Name: lvlchange1</p>
+<p>Note that the info_landmark should remain in the same position. This is the engines anchor point for level changes. All entities and geometry should always be the same relative from this position in both maps. You can actually select the entire map and move it somewhere else on the grid, as long as the distances between the landmark and the rest of the map remains the same.</p>
+<ol start="7">
+<li>
+<p>In room2 set up a light and give it a red colour and the properties:<br>
+Name: red_light<br>
+Flags: Initially Dark</p>
+</li>
+<li>
+<p>Now set up a trigger_auto.<br>
+Global State to Read: redlighton (type it)<br>
+Output: OnMapTransition &gt; red_light &gt; Toggle</p>
+</li>
+<li>
+<p>All done! Compile both maps and load up lvlchange1. Before pressing the button, go into the other room to check if it’s dark. Then go back and press the button in room 1. Now go through the corridor and there should be a red light in room2.</p>
+</li>
+</ol>
+<p>The button triggers the env_global and sets the game into the “redlighton” state. The trigger_auto reads that the “redlighton” state is activated and then fires it’s outputs.</p>
+<p>Example map can be downloaded from <a href="https://deved-portal.com/hezus/up/tutorials/lvlchange_tutorial.zip" data-bbcode="true" rel="nofollow noopener">here</a>.</p>
+        </div>
+
+        <meta itemprop='headline' content='[Tutorial]Triggering events in other levels'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/ojcoolj.html'><span itemprop='name'>ojcoolj</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11763.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-11-29T16:11:56Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:58:27Z' class='post-time'>
+                November 25, 2018,  2:58am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I love you, Hezus</p>
+        </div>
+
+        <meta itemprop='headline' content='[Tutorial]Triggering events in other levels'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Hezus.html'><span itemprop='name'>Hezus</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11763.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-11-30T14:43:58Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:58:36Z' class='post-time'>
+                November 25, 2018,  2:58am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="ojcoolj">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/o/ecb155/40.png" class="avatar"> ojcoolj:</div>
+<blockquote>
+<p>I love you, Hezus</p>
+</blockquote>
+</aside>
+<p><img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji only-emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='[Tutorial]Triggering events in other levels'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/tutorial-triggering-events-in-other-levels/11763 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 10:52:48 GMT -->
+</html>

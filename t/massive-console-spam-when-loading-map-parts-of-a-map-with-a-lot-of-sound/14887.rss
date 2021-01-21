@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Massive console spam when loading map/parts of a map with a lot of sound</title>
+    <link>https://leakfree.org/t/massive-console-spam-when-loading-map-parts-of-a-map-with-a-lot-of-sound/14887</link>
+    <description>First time poster here.
+
+Must say, love the game so far. But this sound issue is also causing parts of the game to literary dip below 1 fps. Yes, [b]1 fps[/b].
+
+Here&#39;s the spam when loading bm_c3a2h (first map after exiting the teleporting upwards sequence in Lambda Core):
+
+[code]187.760879 BlockingGetDataPointer:  Async I/O Force ambient\atmosphere\city_rumble_loop1.wav (    0.04 msec /     0.05 msec total )
+187.760879 BlockingGetDataPointer:  Async I/O Force npc\strider\charging.wav (    1.78 msec /     1.79 msec total )
+187.760879 BlockingGetDataPointer:  Async I/O Force bms_scripted\lc\lc-mb_fire.wav (    0.14 msec /     0.14 msec total )
+[...]
+187.760879 BlockingGetDataPointer:  Async I/O Force music\bms - end credits.ogg (   17.71 msec /    17.73 msec total )
+187.760879 BlockingGetDataPointer:  Async I/O Force npc\nihilanth\breath1.wav (    1.90 msec /     1.91 msec total )
+187.760879 BlockingGetDataPointer:  Async I/O Force npc\nihilanth\breath2.wav (    1.89 msec /     1.89 msec total )[/code]
+
+(The code was cut down to not exceed the 10k character limit on this forum, in total 87 of these messages popped up).
+Now, here the sounds take 0.xx milliseconds to load/play/be cached (I don&#39;t actually know what Source is doing here). However, in some situations (especially in combat heavy situations, like at the beginning of the map with the hanger where you sneak past a bunch of soldiers (I was totally surprised by the drastic gameplay change compared to HL1 or earlier versions of Black Mesa, in a good way, because it&#39;s brilliant)) those sounds will take 40+ milliseconds to do whatever it is they&#39;re doing. With so many sounds taking 40+ ms to load, the game literary freezes until it&#39;s done doing its thing, at which point the fps jumps to 60 again (at which I have it locked). The game doesn&#39;t crash, it just hangs while it completely saturates the CPU with sound work until it&#39;s done doing that, at which point normal operation continues.
+
+The console during lots of action (total 43 messages) :
+
+[code]1228.309563 BlockingGetDataPointer:  Async I/O Force physics\concrete\concrete_impact_bullet3.wav (    0.58 msec /     0.61 msec total )
+1228.309563 BlockingGetDataPointer:  Async I/O Force npc\alien_slave\vort_bm_alert04.wav (   15.91 msec /    15.99 msec total )
+1233.349376 BlockingGetDataPointer:  Async I/O Force weapons\mp5\single_npc.wav (   26.68 msec /    26.61 msec total )
+[...]
+1238.545319 BlockingGetDataPointer:  Async I/O Force weapons\hivehand\buzz.wav (   12.21 msec /    12.21 msec total )
+1238.820829 BlockingGetDataPointer:  Async I/O Force weapons\hivehand\buzz.wav (   12.25 msec /    12.21 msec total )[/code]Look at the fps counter:
+[img]https://i.imgur.com/chIVsFe.jpg[/img]
+
+
+My system&#39;s specs:
+
+Core i7-4870HQ @ 2.5GHz
+16GB of DDR3-1600 RAM
+GeForece GT 750M with 2GB of GDDR5
+Windows 7 Home Premium SP1
+(it&#39;s a late 2014 15&quot; Retina MacBook Pro, btw)
+
+
+So, what is it doing, what&#39;s causing this, and can I do something to fix it, or this this an actual coding thing that I can&#39;t do anything about?</description>
+    
+    <lastBuildDate>Thu, 04 Aug 2016 07:20:13 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/massive-console-spam-when-loading-map-parts-of-a-map-with-a-lot-of-sound/14887.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Massive console spam when loading map/parts of a map with a lot of sound</title>
+        <dc:creator><![CDATA[Vel0city]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<p>I’ll report this to one of our programmers and we’ll look into it. Thanks for the report.</p>
+</blockquote>
+</aside>
+<p>This is what a guy over at Facepunch had to say about it (he knows his stuff):</p>
+<p>“If I understand this correctly, then what the message is saying is that the normally asynchronously executed Input/Output operation to load the sound files was instead forced to execute using a blocking I/O operation.<br>
+This means that, instead of loading the sounds in parallel to the game running, the game’s execution was halted to make sure the files would be properly loaded into memory. The time measurements you’re seeing afterwards describe for how long the game was halted, so if the program does nothing but try and do more synchronous I/O operations, it’s obvious that the framerate would go down to 0. The execution of the game has come to a complete stop.”</p>
+          <p><a href="https://leakfree.org/t/massive-console-spam-when-loading-map-parts-of-a-map-with-a-lot-of-sound/14887/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/massive-console-spam-when-loading-map-parts-of-a-map-with-a-lot-of-sound/14887/4</link>
+        <pubDate>Thu, 04 Aug 2016 07:20:13 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14887-4</guid>
+        <source url="https://leakfree.org/t/massive-console-spam-when-loading-map-parts-of-a-map-with-a-lot-of-sound/14887.rss">Massive console spam when loading map/parts of a map with a lot of sound</source>
+      </item>
+      <item>
+        <title>Massive console spam when loading map/parts of a map with a lot of sound</title>
+        <dc:creator><![CDATA[Vel0city]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<p>I’ll report this to one of our programmers and we’ll look into it. Thanks for the report.</p>
+</blockquote>
+</aside>
+<p>I wanted to let you know that this seems more like an overall recent engine error affecting more Source titles, as Team Fortress 2 has also had this since the Tough Break update in December.</p>
+          <p><a href="https://leakfree.org/t/massive-console-spam-when-loading-map-parts-of-a-map-with-a-lot-of-sound/14887/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/massive-console-spam-when-loading-map-parts-of-a-map-with-a-lot-of-sound/14887/3</link>
+        <pubDate>Wed, 03 Aug 2016 13:06:23 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14887-3</guid>
+        <source url="https://leakfree.org/t/massive-console-spam-when-loading-map-parts-of-a-map-with-a-lot-of-sound/14887.rss">Massive console spam when loading map/parts of a map with a lot of sound</source>
+      </item>
+      <item>
+        <title>Massive console spam when loading map/parts of a map with a lot of sound</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ll report this to one of our programmers and we’ll look into it. Thanks for the report.</p>
+          <p><a href="https://leakfree.org/t/massive-console-spam-when-loading-map-parts-of-a-map-with-a-lot-of-sound/14887/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/massive-console-spam-when-loading-map-parts-of-a-map-with-a-lot-of-sound/14887/2</link>
+        <pubDate>Wed, 03 Aug 2016 12:14:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14887-2</guid>
+        <source url="https://leakfree.org/t/massive-console-spam-when-loading-map-parts-of-a-map-with-a-lot-of-sound/14887.rss">Massive console spam when loading map/parts of a map with a lot of sound</source>
+      </item>
+      <item>
+        <title>Massive console spam when loading map/parts of a map with a lot of sound</title>
+        <dc:creator><![CDATA[Vel0city]]></dc:creator>
+        <description><![CDATA[
+            <p>First time poster here.</p>
+<p>Must say, love the game so far. But this sound issue is also causing parts of the game to literary dip below 1 fps. Yes, <span class="bbcode-b">1 fps</span>.</p>
+<p>Here’s the spam when loading bm_c3a2h (first map after exiting the teleporting upwards sequence in Lambda Core):</p>
+<p><code>187.760879 BlockingGetDataPointer:  Async I/O Force ambient\atmosphere\city_rumble_loop1.wav (    0.04 msec /     0.05 msec total )
+187.760879 BlockingGetDataPointer:  Async I/O Force npc\strider\charging.wav (    1.78 msec /     1.79 msec total )
+187.760879 BlockingGetDataPointer:  Async I/O Force bms_scripted\lc\lc-mb_fire.wav (    0.14 msec /     0.14 msec total )
+[...]
+187.760879 BlockingGetDataPointer:  Async I/O Force music\bms - end credits.ogg (   17.71 msec /    17.73 msec total )
+187.760879 BlockingGetDataPointer:  Async I/O Force npc\nihilanth\breath1.wav (    1.90 msec /     1.91 msec total )
+187.760879 BlockingGetDataPointer:  Async I/O Force npc\nihilanth\breath2.wav (    1.89 msec /     1.89 msec total )</code></p>
+<p>(The code was cut down to not exceed the 10k character limit on this forum, in total 87 of these messages popped up).<br>
+Now, here the sounds take 0.xx milliseconds to load/play/be cached (I don’t actually know what Source is doing here). However, in some situations (especially in combat heavy situations, like at the beginning of the map with the hanger where you sneak past a bunch of soldiers (I was totally surprised by the drastic gameplay change compared to HL1 or earlier versions of Black Mesa, in a good way, because it’s brilliant)) those sounds will take 40+ milliseconds to do whatever it is they’re doing. With so many sounds taking 40+ ms to load, the game literary freezes until it’s done doing its thing, at which point the fps jumps to 60 again (at which I have it locked). The game doesn’t crash, it just hangs while it completely saturates the CPU with sound work until it’s done doing that, at which point normal operation continues.</p>
+<p>The console during lots of action (total 43 messages) :</p>
+<p><code>1228.309563 BlockingGetDataPointer:  Async I/O Force physics\concrete\concrete_impact_bullet3.wav (    0.58 msec /     0.61 msec total )
+1228.309563 BlockingGetDataPointer:  Async I/O Force npc\alien_slave\vort_bm_alert04.wav (   15.91 msec /    15.99 msec total )
+1233.349376 BlockingGetDataPointer:  Async I/O Force weapons\mp5\single_npc.wav (   26.68 msec /    26.61 msec total )
+[...]
+1238.545319 BlockingGetDataPointer:  Async I/O Force weapons\hivehand\buzz.wav (   12.21 msec /    12.21 msec total )
+1238.820829 BlockingGetDataPointer:  Async I/O Force weapons\hivehand\buzz.wav (   12.25 msec /    12.21 msec total )</code>Look at the fps counter:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/chIVsFe.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/chIVsFe.jpg" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1200</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>My system’s specs:</p>
+<p>Core i7-4870HQ @ 2.5GHz<br>
+16GB of DDR3-1600 RAM<br>
+GeForece GT 750M with 2GB of GDDR5<br>
+Windows 7 Home Premium SP1<br>
+(it’s a late 2014 15" Retina MacBook Pro, btw)</p>
+<p>So, what is it doing, what’s causing this, and can I do something to fix it, or this this an actual coding thing that I can’t do anything about?</p>
+          <p><a href="https://leakfree.org/t/massive-console-spam-when-loading-map-parts-of-a-map-with-a-lot-of-sound/14887/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/massive-console-spam-when-loading-map-parts-of-a-map-with-a-lot-of-sound/14887/1</link>
+        <pubDate>Wed, 03 Aug 2016 11:42:38 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14887-1</guid>
+        <source url="https://leakfree.org/t/massive-console-spam-when-loading-map-parts-of-a-map-with-a-lot-of-sound/14887.rss">Massive console spam when loading map/parts of a map with a lot of sound</source>
+      </item>
+  </channel>
+</rss>

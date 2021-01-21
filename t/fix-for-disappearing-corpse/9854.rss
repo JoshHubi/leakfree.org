@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>fix for disappearing corpse</title>
+    <link>https://leakfree.org/t/fix-for-disappearing-corpse/9854</link>
+    <description>edit:
+ i correct my mistake, you just have to change one number in 1 file not in 2. (now it works fine) 
+(i fixed it after comments to this original post came with problems now it´s allright)
+
+so here is the temporary fix:
+you have to go to your BMS-directory, it´s under sourcemods
+and change in the file &quot;steam.inf&quot;  the &quot;appID&quot;  to 109.
+
+now it will work</description>
+    
+    <lastBuildDate>Sat, 15 Sep 2012 14:53:13 +0000</lastBuildDate>
+    <category>In-game Issues (Mod)</category>
+    <atom:link href="https://leakfree.org/t/fix-for-disappearing-corpse/9854.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>fix for disappearing corpse</title>
+        <dc:creator><![CDATA[tzp666]]></dc:creator>
+        <description><![CDATA[
+            <p>Ok, here is the solution to this problem, which should work for everyone (I hope).</p>
+<ol>
+<li>Have all files in their original state.</li>
+<li>Start Steam (Steam displays Black Mesa)</li>
+<li>Alter the following files in the BMS source directory (sourcemods/…)<br>
+a) steam.inf<br>
+b) gameinfo.txt</li>
+</ol>
+<p>so that they look like this:</p>
+<p>a)<br>
+appID=109</p>
+<p>b) “GameInfo”<br>
+{<br>
+game		“Black Mesa”<br>
+title		“BL@CK MESA”<br>
+title2		“”</p>
+<pre><code>developer	"Black Mesa Team"
+developer_url	"https://www.blackmesasource.com/"
+type		"singleplayer_only"
+
+icon            "resource/bms"
+nomodels	0
+nocrosshair	1
+
+hidden_maps
+{
+	"test_speakers"	1
+	"test_hardware" 1
+}
+
+FileSystem
+{
+	SteamAppId 109
+	ToolsAppId 211
+
+	SearchPaths
+	{
+		Game |gameinfo_path|.
+		Game hl2
+		Game ep1
+		Game ep2
+		Game episodic
+	}
+}
+</code></pre>
+<p>}</p>
+<p>Basically you just replace the SteamAppId and appID number with 109.</p>
+<ol start="4">
+<li>
+<p>THIS IS THE IMPORTANT PART: DO NOT CLOSE/RESTART STEAM. Just open the game from the Steam client afterwards. Bodies will stay.<br>
+If you restart Steam, the game will be gone and unlaunchable until you change the numbers back to the way they used to be.</p>
+</li>
+<li>
+<p>When you want to resume your game, BlackMesa will be gone from Steam. But don’t worry, just reset the numbers to the way they used to be (causing the Game to appear once Steam is restarted), and then change them back to “109”.</p>
+</li>
+</ol>
+<p>Should work, let me know if this helped.</p>
+          <p><a href="https://leakfree.org/t/fix-for-disappearing-corpse/9854/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-for-disappearing-corpse/9854/5</link>
+        <pubDate>Sat, 15 Sep 2012 14:53:13 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9854-5</guid>
+        <source url="https://leakfree.org/t/fix-for-disappearing-corpse/9854.rss">fix for disappearing corpse</source>
+      </item>
+      <item>
+        <title>fix for disappearing corpse</title>
+        <dc:creator><![CDATA[Flexomatic]]></dc:creator>
+        <description><![CDATA[
+            <p>After reverting SteamAppID in gameinfo.txt back to 218, the game is back in the library and zombies do not disappear anymore.</p>
+<p>(keeping the 109 in steam.inf)</p>
+          <p><a href="https://leakfree.org/t/fix-for-disappearing-corpse/9854/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-for-disappearing-corpse/9854/4</link>
+        <pubDate>Sat, 15 Sep 2012 13:43:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9854-4</guid>
+        <source url="https://leakfree.org/t/fix-for-disappearing-corpse/9854.rss">fix for disappearing corpse</source>
+      </item>
+      <item>
+        <title>fix for disappearing corpse</title>
+        <dc:creator><![CDATA[Hofler]]></dc:creator>
+        <description><![CDATA[
+            <p>Fixed it for me. THX!!</p>
+          <p><a href="https://leakfree.org/t/fix-for-disappearing-corpse/9854/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-for-disappearing-corpse/9854/3</link>
+        <pubDate>Sat, 15 Sep 2012 13:35:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9854-3</guid>
+        <source url="https://leakfree.org/t/fix-for-disappearing-corpse/9854.rss">fix for disappearing corpse</source>
+      </item>
+      <item>
+        <title>fix for disappearing corpse</title>
+        <dc:creator><![CDATA[Flexomatic]]></dc:creator>
+        <description><![CDATA[
+            <p>Nope, all that did was removing Black Mesa from my library.</p>
+          <p><a href="https://leakfree.org/t/fix-for-disappearing-corpse/9854/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-for-disappearing-corpse/9854/2</link>
+        <pubDate>Sat, 15 Sep 2012 13:33:38 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9854-2</guid>
+        <source url="https://leakfree.org/t/fix-for-disappearing-corpse/9854.rss">fix for disappearing corpse</source>
+      </item>
+      <item>
+        <title>fix for disappearing corpse</title>
+        <dc:creator><![CDATA[lochbrett]]></dc:creator>
+        <description><![CDATA[
+            <p>edit:<br>
+i correct my mistake, you just have to change one number in 1 file not in 2. (now it works fine)<br>
+(i fixed it after comments to this original post came with problems now it´s allright)</p>
+<p>so here is the temporary fix:<br>
+you have to go to your BMS-directory, it´s under sourcemods<br>
+and change in the file “steam.inf”  the “appID”  to 109.</p>
+<p>now it will work</p>
+          <p><a href="https://leakfree.org/t/fix-for-disappearing-corpse/9854/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-for-disappearing-corpse/9854/1</link>
+        <pubDate>Sat, 15 Sep 2012 13:22:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9854-1</guid>
+        <source url="https://leakfree.org/t/fix-for-disappearing-corpse/9854.rss">fix for disappearing corpse</source>
+      </item>
+  </channel>
+</rss>

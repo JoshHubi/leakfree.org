@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>NewGameUI - missing string &quot;QTUI_Option_Video_CSMQuality&quot; and getString unicode char problem and din-bold.ttf don&#39;t support all chars</title>
+    <link>https://leakfree.org/t/newgameui-missing-string-qtui-option-video-csmquality-and-getstring-unicode-char-problem-and-din-bold-ttf-dont-support-all-chars/62506</link>
+    <description>I test New Game UI (-newgameui) and I have found three problems:
+1. In video settings there is option called &quot;QTUI_Option_Video_CSMQuality&quot; but in crowbarcollective_english.txt string is missing
+2. Function getString doesn&#39;t support unicode characters. Example use in component-optionslist-row.qml:
+text: model &amp;&amp; L10n.getString(model.label)
+when I change this line to:
+text: model &amp;&amp; label
+all unicode chars was OK.
+Also found this function in file component-optionslist-input-select.qml:
+text: L10n.getString(model.options.get(selectedIndex).label)
+changing it to:
+text: model.options.get(selectedIndex).label
+solved the problem.
+3. din-bold.ttf don&#39;t support all unicode chars (ex. Polish like ść etc.)
+I combine DIN Pro Bold with DIN Bold and now is ok:
+https://drive.google.com/open?id=1_C1CD5ACbdaVZ8ESgpWmLxuDKAhdkzHH
+
+I fix all this problem in Polish language pack:
+https://steamcommunity.com/app/362890/discussions/0/215439774868724627</description>
+    
+    <lastBuildDate>Sun, 11 Aug 2019 04:32:01 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/newgameui-missing-string-qtui-option-video-csmquality-and-getstring-unicode-char-problem-and-din-bold-ttf-dont-support-all-chars/62506.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>NewGameUI - missing string &quot;QTUI_Option_Video_CSMQuality&quot; and getString unicode char problem and din-bold.ttf don&#39;t support all chars</title>
+        <dc:creator><![CDATA[Eselter]]></dc:creator>
+        <description><![CDATA[
+            <p>I test New Game UI (-newgameui) and I have found three problems:</p>
+<ol>
+<li>In video settings there is option called “QTUI_Option_Video_CSMQuality” but in crowbarcollective_english.txt string is missing</li>
+<li>Function getString doesn’t support unicode characters. Example use in component-optionslist-row.qml:<br>
+text: model &amp;&amp; L10n.getString(model.label)<br>
+when I change this line to:<br>
+text: model &amp;&amp; label<br>
+all unicode chars was OK.<br>
+Also found this function in file component-optionslist-input-select.qml:<br>
+text: L10n.getString(model.options.get(selectedIndex).label)<br>
+changing it to:<br>
+text: model.options.get(selectedIndex).label<br>
+solved the problem.</li>
+<li>din-bold.ttf don’t support all unicode chars (ex. Polish like ść etc.)<br>
+I combine DIN Pro Bold with DIN Bold and now is ok:<br>
+<a href="https://drive.google.com/open?id=1_C1CD5ACbdaVZ8ESgpWmLxuDKAhdkzHH" rel="nofollow noopener">https://drive.google.com/open?id=1_C1CD5ACbdaVZ8ESgpWmLxuDKAhdkzHH</a>
+</li>
+</ol>
+<p>I fix all this problem in Polish language pack:<br>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      <img src="https://steamcommunity.com/favicon.ico" class="site-icon" width="256" height="256">
+      <a href="https://steamcommunity.com/app/362890/discussions/0/215439774868724627" target="_blank" rel="nofollow noopener">steamcommunity.com</a>
+  </header>
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:460/215;"><img src="https://steamcdn-a.akamaihd.net/steam/apps/362890/header.jpg?t=1593070451" class="thumbnail" width="460" height="215"></div>
+
+<h3><a href="https://steamcommunity.com/app/362890/discussions/0/215439774868724627" target="_blank" rel="nofollow noopener">Polish language Black Mesa thread :: Black Mesa General Discussions</a></h3>
+
+<p>yes</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+</p>
+          <p><a href="https://leakfree.org/t/newgameui-missing-string-qtui-option-video-csmquality-and-getstring-unicode-char-problem-and-din-bold-ttf-dont-support-all-chars/62506/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/newgameui-missing-string-qtui-option-video-csmquality-and-getstring-unicode-char-problem-and-din-bold-ttf-dont-support-all-chars/62506/1</link>
+        <pubDate>Sun, 11 Aug 2019 04:15:05 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62506-1</guid>
+        <source url="https://leakfree.org/t/newgameui-missing-string-qtui-option-video-csmquality-and-getstring-unicode-char-problem-and-din-bold-ttf-dont-support-all-chars/62506.rss">NewGameUI - missing string &quot;QTUI_Option_Video_CSMQuality&quot; and getString unicode char problem and din-bold.ttf don&#39;t support all chars</source>
+      </item>
+  </channel>
+</rss>

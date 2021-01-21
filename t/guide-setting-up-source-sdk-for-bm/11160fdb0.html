@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160?page=4 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 10:20:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>GUIDE: Setting up Source SDK for BM - Help! - Leakfree</title>
+    <meta name="description" content="I see some people asking for a guide on how to set up the Source SDK to make content for Black Mesa. If this was already posted somewhere, my apologies. 
+Here is how it’s done: 
+
+
+Make sure Black Mesa, Source SDK Base 20&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="11160fdb0.html?page=4" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;GUIDE: Setting up Source SDK for BM&#39;" href="11160.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160?page=4" />
+<meta name="twitter:url" content="https://leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160?page=4" />
+<meta property="og:title" content="GUIDE: Setting up Source SDK for BM" />
+<meta name="twitter:title" content="GUIDE: Setting up Source SDK for BM" />
+<meta property="og:description" content="Yeah so after looking over my instructions and seeing that it’s something of a wall o’ text, I wrote a small tool to automate the process.  Download here: https://htdlhost.herokuapp.com/files/download/sdk2013bms.zip  (Chrome might mark the download as “dangerous”, probably because I only coded it recently and few people have actually downloaded it so far. It shouldn’t be dangerous, I swear.  😛 )  Extract it anywhere, run sdk2013bms.exe, and fill in your Steam directory, a VMF di..." />
+<meta name="twitter:description" content="Yeah so after looking over my instructions and seeing that it’s something of a wall o’ text, I wrote a small tool to automate the process.  Download here: https://htdlhost.herokuapp.com/files/download/sdk2013bms.zip  (Chrome might mark the download as “dangerous”, probably because I only coded it recently and few people have actually downloaded it so far. It shouldn’t be dangerous, I swear.  😛 )  Extract it anywhere, run sdk2013bms.exe, and fill in your Steam directory, a VMF di..." />
+<meta property="article:published_time" content="2014-03-28T03:31:03+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="prev" href="111609ba9.html?page=3">
+        <link rel="next" href="11160af4d.html?page=5">
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="11160.html">GUIDE: Setting up Source SDK for BM</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/6.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa Archive</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/help/12.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Help!</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/dky.tehkingd.html'><span itemprop='name'>dky.tehkingd.u</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11160.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-28T03:31:03Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T10:52:44Z' class='post-time'>
+                August 11, 2020, 10:52am
+              </time>
+          <span itemprop='position'>#61</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yeah so after looking over my instructions and seeing that it’s something of a wall o’ text, I wrote a small tool to automate the process.</p>
+<p>Download here: <a href="https://htdlhost.herokuapp.com/files/download/sdk2013bms.zip" data-bbcode="true" rel="nofollow noopener">https://htdlhost.herokuapp.com/files/download/sdk2013bms.zip</a></p>
+<p>(Chrome might mark the download as “dangerous”, probably because I only coded it recently and few people have actually downloaded it so far. It shouldn’t be dangerous, I swear.  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"> )</p>
+<p>Extract it anywhere, run <span class="bbcode-b">sdk2013bms.exe</span>, and fill in your Steam directory, a VMF directory, and a separate directory for the rungame script, and the tool should take care of the rest.</p>
+<p>If anything screws up royally, let me know!</p>
+<p>EDIT: For reference, my original manual setup instructions are in this post, just in case my tool fails:</p>
+<p><a href="https://forums.blackmesasource.com/showpost.php?p=575363&amp;postcount=59" data-bbcode="true" rel="nofollow noopener">https://forums.blackmesasource.com/showpost.php?p=575363&amp;postcount=59</a></p>
+<p>If my tool DOES fail, please report the error(s) to me so I can try to fix it, before resorting to the manual setup instructions! Thanks.  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='GUIDE: Setting up Source SDK for BM'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Daa.html'><span itemprop='name'>Daa</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11160.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-05-09T17:15:24Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:05:36Z' class='post-time'>
+                November 25, 2018,  4:05am
+              </time>
+          <span itemprop='position'>#62</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="dky.tehkingd.u">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/dky.tehkingd.u/40/4377_2.png" class="avatar"> dky.tehkingd.u:</div>
+<blockquote>
+<p>If anything screws up royally, let me know!</p>
+</blockquote>
+</aside>
+<p>After setting everything up I got a “missing wireframe” texture error. All materials work just fine. I tried coping the wireframe texture from an other source game, but it didn’t work - although the error doesn’t show up, the viewports stay black no matter what I do. Any hints?</p>
+        </div>
+
+        <meta itemprop='headline' content='GUIDE: Setting up Source SDK for BM'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/dky.tehkingd.html'><span itemprop='name'>dky.tehkingd.u</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11160.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-05-13T06:01:43Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:05:56Z' class='post-time'>
+                November 25, 2018,  4:05am
+              </time>
+          <span itemprop='position'>#63</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Sounds like a gameinfo.txt issue. What does your gameinfo.txt look like in your SDK 2013/BMS folder?</p>
+        </div>
+
+        <meta itemprop='headline' content='GUIDE: Setting up Source SDK for BM'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Spartan6914.html'><span itemprop='name'>Spartan6914</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11160.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-05-19T11:36:34Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:06:38Z' class='post-time'>
+                November 25, 2018,  4:06am
+              </time>
+          <span itemprop='position'>#64</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I have a problem too : I installed it and all worked perfectly but one day, I launched Source SDK but Black Mesa wasn’t in the list as always. I tried to reinstall with your tool but when I press begin!, it shows an error : “error : Config”<br>
+Do you know why it shows that?</p>
+        </div>
+
+        <meta itemprop='headline' content='GUIDE: Setting up Source SDK for BM'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/dky.tehkingd.html'><span itemprop='name'>dky.tehkingd.u</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11160.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-05-19T18:52:48Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:06:38Z' class='post-time'>
+                November 25, 2018,  4:06am
+              </time>
+          <span itemprop='position'>#65</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’d need something more descriptive than that. Ideally a screenshot of the tool and the error, but if not, then precise instructions to reproduce the problem would help.</p>
+        </div>
+
+        <meta itemprop='headline' content='GUIDE: Setting up Source SDK for BM'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Spartan6914.html'><span itemprop='name'>Spartan6914</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11160.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/b/b5025feb6431913a253a84d593be82d58eb42cf2.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-05-20T06:25:45Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:06:40Z' class='post-time'>
+                November 25, 2018,  4:06am
+              </time>
+          <span itemprop='position'>#66</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="dky.tehkingd.u">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/dky.tehkingd.u/40/4377_2.png" class="avatar"> dky.tehkingd.u:</div>
+<blockquote>
+<p>I’d need something more descriptive than that. Ideally a screenshot of the tool and the error, but if not, then precise instructions to reproduce the problem would help.</p>
+</blockquote>
+</aside>
+<p>Here’s the screenshot with the error and all my configuration<br>
+<img src="../../uploads/default/original/2X/b/b5025feb6431913a253a84d593be82d58eb42cf2.jpg" alt="bandicam 2014-05-20 08-16-27-269.jpg" data-base62-sha1="pPhvC1rhtgmHO5vZ5zCrDwQVWlY" width="653" height="385"></p>
+        </div>
+
+        <meta itemprop='headline' content='GUIDE: Setting up Source SDK for BM'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/dky.tehkingd.html'><span itemprop='name'>dky.tehkingd.u</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11160.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-05-20T08:17:34Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:06:40Z' class='post-time'>
+                November 25, 2018,  4:06am
+              </time>
+          <span itemprop='position'>#67</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Interesting. Just a hunch, but for the file <span class="bbcode-i">Steam\steamapps\common\Source SDK 2013 Singleplayer\bin\GameConfig.txt</span>, is the first line “Configs” with a capital C, or a lowercase c?</p>
+        </div>
+
+        <meta itemprop='headline' content='GUIDE: Setting up Source SDK for BM'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Spartan6914.html'><span itemprop='name'>Spartan6914</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11160.html">
+
+            <link itemprop="image" href="../../uploads/default/original/3X/f/7/f72f3b31a16f392fb48f92592bc77c9d4f0cb924.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-05-20T19:24:56Z'>
+              <time itemprop='dateModified' datetime='2020-08-12T08:59:01Z' class='post-time'>
+                August 12, 2020,  8:59am
+              </time>
+          <span itemprop='position'>#68</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Well, the only GameConfig.txt that I’ve got is that one and the only “Config” I see is the one of the title in the file (as you can see in the screenshots)<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/3X/f/7/f72f3b31a16f392fb48f92592bc77c9d4f0cb924.jpg" data-download-href="https://leakfree.org/uploads/default/f72f3b31a16f392fb48f92592bc77c9d4f0cb924" title=""><img src="../../uploads/default/optimized/3X/f/7/f72f3b31a16f392fb48f92592bc77c9d4f0cb924_2_690x219.jpg" alt="" data-base62-sha1="zgH7UDf0HSsxHsyrzUgbzBKrZLC" width="690" height="219" srcset="https://leakfree.org/uploads/default/optimized/3X/f/7/f72f3b31a16f392fb48f92592bc77c9d4f0cb924_2_690x219.jpeg, https://leakfree.org/uploads/default/optimized/3X/f/7/f72f3b31a16f392fb48f92592bc77c9d4f0cb924_2_1035x328.jpeg 1.5x, https://leakfree.org/uploads/default/original/3X/f/7/f72f3b31a16f392fb48f92592bc77c9d4f0cb924.jpeg 2x" data-small-upload="../../uploads/default/optimized/3X/f/7/f72f3b31a16f392fb48f92592bc77c9d4f0cb924_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1258×401 151 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+and<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/3X/a/6/a62b2de555db904ef5266d5343555524670eb599.jpg" data-download-href="https://leakfree.org/uploads/default/a62b2de555db904ef5266d5343555524670eb599" title=""><img src="../../uploads/default/optimized/3X/a/6/a62b2de555db904ef5266d5343555524670eb599_2_681x500.jpg" alt="" data-base62-sha1="nHZLOMOINLH3TVHSuI8RsFhqMKl" width="681" height="500" srcset="https://leakfree.org/uploads/default/optimized/3X/a/6/a62b2de555db904ef5266d5343555524670eb599_2_681x500.jpeg, https://leakfree.org/uploads/default/optimized/3X/a/6/a62b2de555db904ef5266d5343555524670eb599_2_1021x750.jpeg 1.5x, https://leakfree.org/uploads/default/original/3X/a/6/a62b2de555db904ef5266d5343555524670eb599.jpeg 2x" data-small-upload="../../uploads/default/optimized/3X/a/6/a62b2de555db904ef5266d5343555524670eb599_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1258×923 419 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+So I don’t know if the problem is in it^^</p>
+        </div>
+
+        <meta itemprop='headline' content='GUIDE: Setting up Source SDK for BM'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/dky.tehkingd.html'><span itemprop='name'>dky.tehkingd.u</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11160.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-05-20T20:19:56Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:06:44Z' class='post-time'>
+                November 25, 2018,  4:06am
+              </time>
+          <span itemprop='position'>#69</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Very interesting. Do me a favor and change the first line that says “GameConfig.txt” to “Configs” (with the capital C) and see if that fixes the issue.</p>
+        </div>
+
+        <meta itemprop='headline' content='GUIDE: Setting up Source SDK for BM'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Spartan6914.html'><span itemprop='name'>Spartan6914</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11160.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-05-21T15:05:13Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:06:49Z' class='post-time'>
+                November 25, 2018,  4:06am
+              </time>
+          <span itemprop='position'>#70</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="dky.tehkingd.u">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/dky.tehkingd.u/40/4377_2.png" class="avatar"> dky.tehkingd.u:</div>
+<blockquote>
+<p>Very interesting. Do me a favor and change the first line that says “GameConfig.txt” to “Configs” (with the capital C) and see if that fixes the issue.</p>
+</blockquote>
+</aside>
+<p>Thanks it works now!</p>
+        </div>
+
+        <meta itemprop='headline' content='GUIDE: Setting up Source SDK for BM'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Happy_Dog.html'><span itemprop='name'>Happy_Dog</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11160.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-11-15T02:44:09Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:18:15Z' class='post-time'>
+                November 25, 2018,  4:18am
+              </time>
+          <span itemprop='position'>#71</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>1st off, thanks for fragging my source sdk, second off, the solutions for gameConfig.txt missing dont work, Black Mesa will run fine, but It keeps showing the same error! I even looked for a GameConfig.txt or Gameinfo.txt in BMS, but alas to nothing. Please, Ive spent 3  hours trying to get this work and pulling my hair, and now I have a bloody Fragged source sdk. Any Help?</p>
+        </div>
+
+        <meta itemprop='headline' content='GUIDE: Setting up Source SDK for BM'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11160.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-11-15T07:46:44Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:18:16Z' class='post-time'>
+                November 25, 2018,  4:18am
+              </time>
+          <span itemprop='position'>#72</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>First off, don’t blame him for <span class="bbcode-i">your</span> failures. It’s really unbecoming to join a community and your first words being passive-aggressive towards someone who was only being helpful. &gt; <img src="../../images/emoji/twitter/frowningc164.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+<p>Secondly, I assume you mean the Source SDK launcher, which has been phased out for over a year. I’m sort of amazed you’re still trying to use it.</p>
+<p>Next, GameConfig.txt is a Base 2013 file, it’ll be in your <span class="bbcode-i">Source SDK Base 2013 SP\bin</span> folder, not the BMS one (And if you couldn’t find GameInfo.txt in the BMS folder, you didn’t try at all  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"> ).</p>
+<p>Lastly, what exactly is your issue? Or the error you mentioned? We need some more info to solve your problem.</p>
+        </div>
+
+        <meta itemprop='headline' content='GUIDE: Setting up Source SDK for BM'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Chrillen.html'><span itemprop='name'>Chrillen</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11160.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-11-15T09:38:35Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:18:16Z' class='post-time'>
+                November 25, 2018,  4:18am
+              </time>
+          <span itemprop='position'>#73</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m having some trouble compiling maps properly.</p>
+<p>The apparent issue is that after compiling, it can’t find the map in the BMS/maps-directory, despite it being set up accordingly. I managed to do a successful compile earlier on (this would be weeks ago), so when the map loads, it’s still an early version of it. When I copied the content to a new map, renamed it and compiled, I got this message:</p>
+<p>The command failed. Windows reported the error:<br>
+“The system cannot find the file specified.”</p>
+<p>Edit:<br>
+Nevermind. I apparently fixed it myself by actually making a skybox instead of just using cordon.</p>
+        </div>
+
+        <meta itemprop='headline' content='GUIDE: Setting up Source SDK for BM'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/dky.tehkingd.html'><span itemprop='name'>dky.tehkingd.u</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11160.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-12-15T05:54:44Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:19:56Z' class='post-time'>
+                November 25, 2018,  4:19am
+              </time>
+          <span itemprop='position'>#74</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>A note to anyone who gets an error saying that your GameConfig.txt file does not exist when you run my setup tool:</p>
+<p>Run ‘hammer.exe’ in Source SDK Base 2013 Singleplayer\bin FIRST, and then try again. (If you installed Multiplayer, run hammer.exe from Source SDK Base 2013 Multiplayer\bin instead.)</p>
+<p>Thanks!</p>
+        </div>
+
+        <meta itemprop='headline' content='GUIDE: Setting up Source SDK for BM'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/fury.html'><span itemprop='name'>fury</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11160.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-05T18:20:02Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:27:30Z' class='post-time'>
+                November 25, 2018,  4:27am
+              </time>
+          <span itemprop='position'>#75</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hey guys. Can you please explain how to set up Source SDK for making Black Mesa Deathmatch maps?</p>
+        </div>
+
+        <meta itemprop='headline' content='GUIDE: Setting up Source SDK for BM'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Mr_GameCrazy.html'><span itemprop='name'>Mr_GameCrazy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11160.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-05T18:26:35Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:27:31Z' class='post-time'>
+                November 25, 2018,  4:27am
+              </time>
+          <span itemprop='position'>#76</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="fury">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/3bc359/40.png" class="avatar"> fury:</div>
+<blockquote>
+<p>Hey guys. Can you please explain how to set up Source SDK for making Black Mesa Deathmatch maps?</p>
+</blockquote>
+</aside>
+<p>The Steam version of Black Mesa has its own SDK so I don’t think that’s necessary. Besides, the OP hasn’t been around here in a long time.</p>
+        </div>
+
+        <meta itemprop='headline' content='GUIDE: Setting up Source SDK for BM'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11160.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-05T18:31:50Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:27:31Z' class='post-time'>
+                November 25, 2018,  4:27am
+              </time>
+          <span itemprop='position'>#77</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Guides are incoming very shortly. We’re working on it.</p>
+        </div>
+
+        <meta itemprop='headline' content='GUIDE: Setting up Source SDK for BM'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Humam.html'><span itemprop='name'>Humam</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11160.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-08T19:04:02Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:29:19Z' class='post-time'>
+                November 25, 2018,  4:29am
+              </time>
+          <span itemprop='position'>#78</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Latest guide:</p>
+<p>go to common/Black Mesa/bin/hammer.exe</p>
+<p>Worked.</p>
+        </div>
+
+        <meta itemprop='headline' content='GUIDE: Setting up Source SDK for BM'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Asatrix.html'><span itemprop='name'>Asatrix</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11160.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-11T06:29:14Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:30:30Z' class='post-time'>
+                November 25, 2018,  4:30am
+              </time>
+          <span itemprop='position'>#79</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Is this still valid for the Early Access copy?</p>
+        </div>
+
+        <meta itemprop='headline' content='GUIDE: Setting up Source SDK for BM'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Mr_GameCrazy.html'><span itemprop='name'>Mr_GameCrazy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11160.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-11T06:44:05Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:30:30Z' class='post-time'>
+                November 25, 2018,  4:30am
+              </time>
+          <span itemprop='position'>#80</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Asatrix">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/a/77aa72/40.png" class="avatar"> Asatrix:</div>
+<blockquote>
+<p>Is this still valid for the Early Access copy?</p>
+</blockquote>
+</aside>
+<p>It’s not. The Steam version of Black Mesa uses its own configuration.</p>
+        </div>
+
+        <meta itemprop='headline' content='GUIDE: Setting up Source SDK for BM'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><a rel="prev" itemprop="url" href="111609ba9.html?page=3">← previous page</a></span>
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="11160af4d.html?page=5">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/guide-setting-up-source-sdk-for-bm/11160?page=4 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 10:20:42 GMT -->
+</html>

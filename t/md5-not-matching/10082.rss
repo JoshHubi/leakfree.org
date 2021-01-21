@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>md5 not matching</title>
+    <link>https://leakfree.org/t/md5-not-matching/10082</link>
+    <description>First of all, great thanks to anyone involved in this great project!
+
+What I miss on the download page on [url]https://release.blackmesasource.com/[/url] is an md5 of the BlackMesa.zip file, that way one could verify a download site isn&#39;t trying to fool you.
+
+The md5 of the BlackMesa.zip I downloaded from &quot;FileShack&quot; is: c46a8ce25bde0760f23ae1c94b60c64d
+That zip file contains the following BlackMesa.md5:
+[code]f1d86575816f4c6994a5657eebf76409 *BlackMesa.7z
+502b417a7857c3ffb82a8b2c93ee1ecf *BlackMesa-Setup.exe
+[/code]
+
+BlackMesa-Setup.exe matches, though the md5sum of my BlackMesa.7z is a different one: 30dfce1f9105e384d26772a67a2158b3
+
+There are different possible reasons:
+- My download is corrupt.
+- The hoster modified BlackMesa.7z (e.g. inserting malware) and was too stupid to update BlackMesa.md5.
+- The md5 provided in BlackMesa.md5 is actually wrong.
+
+At least the first two cases could have been avoided by providing an md5 of BlackMesa.zip on the official Black Mesa site.
+
+Any suggestions are appreciated!  :slight_smile:</description>
+    
+    <lastBuildDate>Sun, 16 Jun 2013 12:29:17 +0000</lastBuildDate>
+    <category>Help!</category>
+    <atom:link href="https://leakfree.org/t/md5-not-matching/10082.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>md5 not matching</title>
+        <dc:creator><![CDATA[pcworld]]></dc:creator>
+        <description><![CDATA[
+            <p>Okay, finally looked into this.</p>
+<p><code>$ diff -rq BlackMesa_fixed/BlackMesa BlackMesa_wrong7zhash/BlackMesa
+Only in BlackMesa_wrong7zhash/BlackMesa: BlackMesa-Setup.exe
+Only in BlackMesa_wrong7zhash/BlackMesa: BlackMesa.md5</code></p>
+<p>So the only difference between the probably-official (f1d86575816f4c6994a5657eebf76409) and 30dfce1f9105e384d26772a67a2158b3 version of BlackMesa.7z is that the latter contains BlackMesa-Setup.exe and BlackMesa.md5. These files are identical to those found in the torrent or direct-download-zips (I compared the hashes).</p>
+          <p><a href="https://leakfree.org/t/md5-not-matching/10082/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/md5-not-matching/10082/4</link>
+        <pubDate>Sun, 16 Jun 2013 12:29:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10082-4</guid>
+        <source url="https://leakfree.org/t/md5-not-matching/10082.rss">md5 not matching</source>
+      </item>
+      <item>
+        <title>md5 not matching</title>
+        <dc:creator><![CDATA[mgr.inz.player]]></dc:creator>
+        <description><![CDATA[
+            <p>You can download official torrent file and check all three files manually (<a href="https://forums.blackmesasource.com/showpost.php?p=495082&amp;postcount=4" data-bbcode="true" rel="nofollow noopener">like this</a>)</p>
+<p>Anyway, I’ve downloaded official torrent file hosted on <a href="https://www.gameupdates.org/details.php?id=5152" data-bbcode="true" rel="nofollow noopener">https://www.gameupdates.org/details.php?id=5152</a> (Uploaded by BlackMesa) and now on mediafire (it has extra trackers).</p>
+<p>I re-checked all three files (BlackMesa.7z, BlackMesa-Setup.exe and BlackMesa.md5). So, I’m perfectly sure: all of them have original content. And those md5 sums are official (the same as in <span class="hashtag">#1</span> post):<br>
+f1d86575816f4c6994a5657eebf76409 *BlackMesa.7z<br>
+502b417a7857c3ffb82a8b2c93ee1ecf *BlackMesa-Setup.exe</p>
+          <p><a href="https://leakfree.org/t/md5-not-matching/10082/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/md5-not-matching/10082/3</link>
+        <pubDate>Sun, 16 Sep 2012 11:42:06 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10082-3</guid>
+        <source url="https://leakfree.org/t/md5-not-matching/10082.rss">md5 not matching</source>
+      </item>
+      <item>
+        <title>md5 not matching</title>
+        <dc:creator><![CDATA[RyanTranquil]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi PCWorld,</p>
+<p>We have been unsuccessful in contacting BSM support directly, since we are in hopes of hosting their files directly on our companies servers. We have partnered with Amazon and Rackspace, and are interested in hosting, since there seems to be lackluster options at this time.</p>
+<p>I would highly recommend the staff of BSM to provide MD5 Checksum for all download options so users can verify the integrity of the source.</p>
+<p>Thanks,<br>
+Ryan</p>
+          <p><a href="https://leakfree.org/t/md5-not-matching/10082/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/md5-not-matching/10082/2</link>
+        <pubDate>Sun, 16 Sep 2012 01:49:07 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10082-2</guid>
+        <source url="https://leakfree.org/t/md5-not-matching/10082.rss">md5 not matching</source>
+      </item>
+      <item>
+        <title>md5 not matching</title>
+        <dc:creator><![CDATA[pcworld]]></dc:creator>
+        <description><![CDATA[
+            <p>First of all, great thanks to anyone involved in this great project!</p>
+<p>What I miss on the download page on <a href="https://release.blackmesasource.com/" data-bbcode="true" rel="nofollow noopener">https://release.blackmesasource.com/</a> is an md5 of the BlackMesa.zip file, that way one could verify a download site isn’t trying to fool you.</p>
+<p>The md5 of the BlackMesa.zip I downloaded from “FileShack” is: c46a8ce25bde0760f23ae1c94b60c64d<br>
+That zip file contains the following BlackMesa.md5:</p>
+<p><code>f1d86575816f4c6994a5657eebf76409 *BlackMesa.7z
+502b417a7857c3ffb82a8b2c93ee1ecf *BlackMesa-Setup.exe
+</code></p>
+<p>BlackMesa-Setup.exe matches, though the md5sum of my BlackMesa.7z is a different one: 30dfce1f9105e384d26772a67a2158b3</p>
+<p>There are different possible reasons:</p>
+<ul>
+<li>My download is corrupt.</li>
+<li>The hoster modified BlackMesa.7z (e.g. inserting malware) and was too stupid to update BlackMesa.md5.</li>
+<li>The md5 provided in BlackMesa.md5 is actually wrong.</li>
+</ul>
+<p>At least the first two cases could have been avoided by providing an md5 of BlackMesa.zip on the official Black Mesa site.</p>
+<p>Any suggestions are appreciated!  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/md5-not-matching/10082/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/md5-not-matching/10082/1</link>
+        <pubDate>Sun, 16 Sep 2012 00:59:31 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10082-1</guid>
+        <source url="https://leakfree.org/t/md5-not-matching/10082.rss">md5 not matching</source>
+      </item>
+  </channel>
+</rss>

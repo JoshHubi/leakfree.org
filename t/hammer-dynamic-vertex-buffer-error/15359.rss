@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>[Hammer] Dynamic Vertex Buffer error</title>
+    <link>https://leakfree.org/t/hammer-dynamic-vertex-buffer-error/15359</link>
+    <description>When attempting to change a prop_static to use props_am\am_server.mdl, Hammer crashes with the following error dialog:
+
+[attach=5727,none,400][/attach]
+
+Not sure what caused this to suddenly happen, but the model loads fine into the in-hammer viewer and clearly works both ingame and back when it was being added to AM and UC. I&#39;m also [i]pretty sure[/i] that the model has far fewer than 27960 verts, so maybe it&#39;s a format issue?
+
+Other variations of the server model work fine, so it&#39;s not a showstopper for what I&#39;m working on, but thought you ought to know.
+![Capture.PNG|400x136](upload://8bcncTDI1VfReRkNsnOJYs3mD3F.png)</description>
+    
+    <lastBuildDate>Mon, 30 Apr 2018 10:31:13 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/hammer-dynamic-vertex-buffer-error/15359.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>[Hammer] Dynamic Vertex Buffer error</title>
+        <dc:creator><![CDATA[Darakuu]]></dc:creator>
+        <description><![CDATA[
+            <p>Had this problem as well and I’ve been googling for the past half hour for a solution, luckily I’ve stumbled upon the forum again and this time I’ve made an account to give my feedback on this.<br>
+Here’s what I’m getting:<br>
+<img src="https://i.imgur.com/1BdEttJ.png" alt="" width="507" height="179"></p>
+<p>It ALWAYS happens in a particular portion of the map I’m working on, but it’s definitely not ‘props_am\am_server.mdl’, since I’m sure that I’m not using the model.<br>
+I’ve found two ways of getting around this:</p>
+<ul>
+<li>Some clever use of Visgroups (as a temp fix)</li>
+<li>
+<span class="bbcode-b"><span class="bbcode-s">Reducing Hammer’s resolution,</span></span><span class="bbcode-s">basically just don’t work on any map that has this bug on fullscreen, but rather in windowed mode. A bit uncomfortable for sure, but it’s definitely better than using visgroups.</span> EDIT1= Nevermind, this doesn’t always works.</li>
+</ul>
+<p>EDIT2 = The model that was causing problems for me was: ‘zombies\zombie_grunt.mdl’ used as a prop_ragdoll. Torso and legs of said model work fine however.</p>
+          <p><a href="https://leakfree.org/t/hammer-dynamic-vertex-buffer-error/15359/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hammer-dynamic-vertex-buffer-error/15359/2</link>
+        <pubDate>Mon, 30 Apr 2018 10:31:13 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15359-2</guid>
+        <source url="https://leakfree.org/t/hammer-dynamic-vertex-buffer-error/15359.rss">[Hammer] Dynamic Vertex Buffer error</source>
+      </item>
+      <item>
+        <title>[Hammer] Dynamic Vertex Buffer error</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p>When attempting to change a prop_static to use props_am\am_server.mdl, Hammer crashes with the following error dialog:</p>
+<p>[attach=5727,none,400][/attach]</p>
+<p>Not sure what caused this to suddenly happen, but the model loads fine into the in-hammer viewer and clearly works both ingame and back when it was being added to AM and UC. I’m also <span class="bbcode-i">pretty sure</span> that the model has far fewer than 27960 verts, so maybe it’s a format issue?</p>
+<p>Other variations of the server model work fine, so it’s not a showstopper for what I’m working on, but thought you ought to know.<br>
+<img src="https://leakfree.org/uploads/default/original/2X/3/39557d15b3d4386273394672c5c90385fd2f94ff.png" alt="Capture.PNG" data-base62-sha1="8bcncTDI1VfReRkNsnOJYs3mD3F" width="400" height="136"></p>
+          <p><a href="https://leakfree.org/t/hammer-dynamic-vertex-buffer-error/15359/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hammer-dynamic-vertex-buffer-error/15359/1</link>
+        <pubDate>Mon, 30 Apr 2018 03:59:27 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15359-1</guid>
+        <source url="https://leakfree.org/t/hammer-dynamic-vertex-buffer-error/15359.rss">[Hammer] Dynamic Vertex Buffer error</source>
+      </item>
+  </channel>
+</rss>

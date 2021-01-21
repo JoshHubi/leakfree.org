@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Problem when changing Steam language [steam version]</title>
+    <link>https://leakfree.org/t/problem-when-changing-steam-language-steam-version/13883</link>
+    <description>I&#39;m working in the french translation team and testing french translation files. Using Steam in french, after the first start of Black Mesa, menu were all in french (I imagine that&#39;s the translations from HL2).
+I wanted to see english subtitles, so I change my Steam language to english to display them.
+Now the game is in full english and subtitles works but if I set Steam langage back to french, Black Mesa is still in english and french files don&#39;t work anymore. Quite a problem to work on translation  ! :whistling: 
+Also, it would be nice to be able to select language directly in the Steam properties of the game instead of changing main Steam language.
+
+Thank you ! Your work is awesome !
+
+
+EDIT: Nevermind, the reason is the patch 0.0.1 which set English for all in-game UI. To Close.</description>
+    
+    <lastBuildDate>Sat, 23 May 2015 12:50:31 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/problem-when-changing-steam-language-steam-version/13883.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Problem when changing Steam language [steam version]</title>
+        <dc:creator><![CDATA[NickMaps]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Merrick Simms">
+<div class="title">
+<div class="quote-controls"></div>
+ Merrick Simms:</div>
+<blockquote>
+<p>About this. Is there any way to manually change the language of the game (to perform translations tests)?</p>
+</blockquote>
+</aside>
+<p>Yes, There is ! It requires some work, but it’s totally possible, I’ll post here what I sent to uneXpaX:</p>
+<p>You will need a Program called GCFScape.</p>
+<p>Before all the process below, make a <span class="bbcode-b">backup</span> of this files located at “steamapps\common\Black Mesa\bms”</p>
+<p>bms_misc.vpk.sound.cache<br>
+bms_misc_000.vpk<br>
+bms_misc_dir.vpk</p>
+<ol>
+<li>Open up the bms_misc_dir.vpk with GCF and extract all the folders to the desktop.</li>
+<li>Create a folder on desktop called “bms_misc_dir” and move all the folders that you’ve extracted</li>
+<li>Your folder tree should look like this:</li>
+</ol>
+<p>"bms_misc_dir<br>
+cfg<br>
+expressions<br>
+media<br>
+particles<br>
+resource<br>
+scenes<br>
+scripts<br>
+"</p>
+<ol start="4">
+<li>If it is correct, then open the resource folder and locate this files:</li>
+</ol>
+<p>closecaption_english<br>
+gameui_english<br>
+gameui_loading_screen<br>
+bms_english<br>
+bmsmp_english<br>
+bootup_english</p>
+<ol start="5">
+<li>Translate them as needed and stay with the extension “english” since you can’t add more languages.</li>
+<li>STAY with the name of the files in english, you will only translate the internal contents of this files</li>
+<li>For exemple, inside gameui_english:</li>
+</ol>
+<p>“lang”<br>
+{<br>
+“Language” “<span class="bbcode-b">English</span>”<br>
+“Tokens”<br>
+{<br>
+“BMS_CampaignName_BMSCP1” “<span class="bbcode-i">TRANSLATE HERE TO YOUR LANGUAGE</span>”<br>
+“BMS_Chapter1_Title” “<span class="bbcode-i">BLA BLA BLA TRANSLATE HERE</span>”</p>
+<p>See the file structure ? you <span class="bbcode-b">MUST NOT</span> modify the “Language” input nor the keys to translations.</p>
+<ol start="8">
+<li>When finished, make sure all the files are in the “bms_misc_dir\resource” as created before.</li>
+<li>Open up your BMS installation folder, in this directory: “steamapps\common\Black Mesa\bin”</li>
+<li>Drag and Drop the “bms_misc_dir” folder (the desktop one) to a program called “vpk.exe” at the <span class="bbcode-b">bin</span> dir.</li>
+<li>It will create a bms_misc.vpk</li>
+<li>When finished, delete the files:</li>
+</ol>
+<p>bms_misc.vpk.sound.cache<br>
+bms_misc_000.vpk<br>
+bms_misc_dir.vpk</p>
+<p>Don’t forget to backup !!.</p>
+<ol start="13">
+<li>Paste the created bms_misc.vpk" where you deleted the above.</li>
+<li>Run the game and test.</li>
+</ol>
+<p>Hope it helps</p>
+          <p><a href="https://leakfree.org/t/problem-when-changing-steam-language-steam-version/13883/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-when-changing-steam-language-steam-version/13883/3</link>
+        <pubDate>Sat, 23 May 2015 12:50:31 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13883-3</guid>
+        <source url="https://leakfree.org/t/problem-when-changing-steam-language-steam-version/13883.rss">Problem when changing Steam language [steam version]</source>
+      </item>
+      <item>
+        <title>Problem when changing Steam language [steam version]</title>
+        <dc:creator><![CDATA[Merrick_Simms]]></dc:creator>
+        <description><![CDATA[
+            <p>About this. Is there any way to manually change the language of the game (to perform translations tests)?</p>
+          <p><a href="https://leakfree.org/t/problem-when-changing-steam-language-steam-version/13883/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-when-changing-steam-language-steam-version/13883/2</link>
+        <pubDate>Sat, 23 May 2015 12:08:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13883-2</guid>
+        <source url="https://leakfree.org/t/problem-when-changing-steam-language-steam-version/13883.rss">Problem when changing Steam language [steam version]</source>
+      </item>
+      <item>
+        <title>Problem when changing Steam language [steam version]</title>
+        <dc:creator><![CDATA[Ulrik]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m working in the french translation team and testing french translation files. Using Steam in french, after the first start of Black Mesa, menu were all in french (I imagine that’s the translations from HL2).<br>
+I wanted to see english subtitles, so I change my Steam language to english to display them.<br>
+Now the game is in full english and subtitles works but if I set Steam langage back to french, Black Mesa is still in english and french files don’t work anymore. Quite a problem to work on translation  ! :whistling:<br>
+Also, it would be nice to be able to select language directly in the Steam properties of the game instead of changing main Steam language.</p>
+<p>Thank you ! Your work is awesome !</p>
+<p>EDIT: Nevermind, the reason is the patch 0.0.1 which set English for all in-game UI. To Close.</p>
+          <p><a href="https://leakfree.org/t/problem-when-changing-steam-language-steam-version/13883/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-when-changing-steam-language-steam-version/13883/1</link>
+        <pubDate>Thu, 07 May 2015 23:23:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13883-1</guid>
+        <source url="https://leakfree.org/t/problem-when-changing-steam-language-steam-version/13883.rss">Problem when changing Steam language [steam version]</source>
+      </item>
+  </channel>
+</rss>

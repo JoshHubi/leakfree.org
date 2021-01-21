@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>hl2 coding questions</title>
+    <link>https://leakfree.org/t/hl2-coding-questions/3426</link>
+    <description>I have a few question about hl2 coding.
+
+How to draw a line along a tracer?
+
+Where can I find the code which kills npcs when a npc got hit by a bullet?</description>
+    
+    <lastBuildDate>Thu, 27 May 2010 16:55:23 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/hl2-coding-questions/3426.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>hl2 coding questions</title>
+        <dc:creator><![CDATA[pfannkuchen_gesicht]]></dc:creator>
+        <description><![CDATA[
+            <p>thx, the forum there is really very helpful</p>
+          <p><a href="https://leakfree.org/t/hl2-coding-questions/3426/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hl2-coding-questions/3426/14</link>
+        <pubDate>Thu, 27 May 2010 16:55:23 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3426-14</guid>
+        <source url="https://leakfree.org/t/hl2-coding-questions/3426.rss">hl2 coding questions</source>
+      </item>
+      <item>
+        <title>hl2 coding questions</title>
+        <dc:creator><![CDATA[Chrillen]]></dc:creator>
+        <description><![CDATA[
+            <p>I can’t help you with the coding, but have you tried asking for help at Interlopers? Really helpful community.</p>
+          <p><a href="https://leakfree.org/t/hl2-coding-questions/3426/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hl2-coding-questions/3426/13</link>
+        <pubDate>Wed, 26 May 2010 21:08:02 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3426-13</guid>
+        <source url="https://leakfree.org/t/hl2-coding-questions/3426.rss">hl2 coding questions</source>
+      </item>
+      <item>
+        <title>hl2 coding questions</title>
+        <dc:creator><![CDATA[pfannkuchen_gesicht]]></dc:creator>
+        <description><![CDATA[
+            <p>sorry to revive this thread again, but I need some help again.</p>
+<p>Could someone explain me how to spawn clientside particles?</p>
+          <p><a href="https://leakfree.org/t/hl2-coding-questions/3426/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hl2-coding-questions/3426/12</link>
+        <pubDate>Tue, 25 May 2010 17:02:30 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3426-12</guid>
+        <source url="https://leakfree.org/t/hl2-coding-questions/3426.rss">hl2 coding questions</source>
+      </item>
+      <item>
+        <title>hl2 coding questions</title>
+        <dc:creator><![CDATA[pfannkuchen_gesicht]]></dc:creator>
+        <description><![CDATA[
+            <p>bump!<br>
+I wrote this:</p>
+<pre><code class="lang-auto">void Spawner::Think()
+{
+	BaseClass::Think();
+	m_nRenderMode = kRenderTransAlpha;
+	m_nRenderFX = kRenderFxFadeFast;
+	DevMsg("Alpha Value of %s is %i\n",this-&gt;GetDebugName(), m_clrRender-&gt;a);
+	if ( m_clrRender-&gt;a == 0 )
+	{
+		UTIL_Remove(this);
+		return;
+	}
+
+	SetNextThink( gpGlobals-&gt;curtime + 1.0f );
+}</code></pre>
+<p>the problem: m_clrRender and GetrenderColor() always say a = 255<br>
+how to solve this?</p>
+<p>EDIT:</p>
+<pre><code class="lang-auto">void Spawner::Think()
+{
+	BaseClass::Think();
+	m_nRenderMode = kRenderTransAlpha;
+	//m_nRenderFX = kRenderFxFadeFast;
+        SetRenderColorA(GetRenderColor().a-5);
+
+	if ( m_clrRender-&gt;a == 0 )
+	{
+		UTIL_Remove(this);
+		return;
+	}
+
+	SetNextThink( gpGlobals-&gt;curtime + 0.01f );
+}</code></pre>
+          <p><a href="https://leakfree.org/t/hl2-coding-questions/3426/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hl2-coding-questions/3426/11</link>
+        <pubDate>Wed, 05 May 2010 18:38:47 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3426-11</guid>
+        <source url="https://leakfree.org/t/hl2-coding-questions/3426.rss">hl2 coding questions</source>
+      </item>
+      <item>
+        <title>hl2 coding questions</title>
+        <dc:creator><![CDATA[pfannkuchen_gesicht]]></dc:creator>
+        <description><![CDATA[
+            <p>got a new problem:<br>
+if I kill a npc with takedamage() short after the npc shot at the player the game crashes, because it can’t get the entity infos.<br>
+How to fix this?(something like preventing deletion of the entity in the memory)</p>
+          <p><a href="https://leakfree.org/t/hl2-coding-questions/3426/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hl2-coding-questions/3426/10</link>
+        <pubDate>Wed, 14 Apr 2010 18:48:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3426-10</guid>
+        <source url="https://leakfree.org/t/hl2-coding-questions/3426.rss">hl2 coding questions</source>
+      </item>
+      <item>
+        <title>hl2 coding questions</title>
+        <dc:creator><![CDATA[pfannkuchen_gesicht]]></dc:creator>
+        <description><![CDATA[
+            <p>wow, it worked I thought I would have to tell the game event manager something</p>
+          <p><a href="https://leakfree.org/t/hl2-coding-questions/3426/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hl2-coding-questions/3426/9</link>
+        <pubDate>Mon, 22 Mar 2010 21:23:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3426-9</guid>
+        <source url="https://leakfree.org/t/hl2-coding-questions/3426.rss">hl2 coding questions</source>
+      </item>
+      <item>
+        <title>hl2 coding questions</title>
+        <dc:creator><![CDATA[JamesKane]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="pfannkuchen_gesicht">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/p/ee7513/40.png" class="avatar"> pfannkuchen_gesicht:</div>
+<blockquote>
+<p>another question:<br>
+when I kill an npc with TakeDamage() I get this:</p>
+<pre><code class="lang-auto">CreateEvent: event 'entity_killed' not registered.</code></pre>
+<p>how to register an event?</p>
+</blockquote>
+</aside>
+<p>…sourcemods/yourmod/resources/GameEvents.res ( If it is missing then you need to rip it from an gcf )</p>
+<p>add if missing</p>
+<pre><code class="lang-auto">	"entity_killed"				
+	{
+		"entindex_killed" "long"	
+		"entindex_attacker" "long"
+                "entindex_inflictor" "long"
+		"damagebits" "long"
+	}</code></pre>
+          <p><a href="https://leakfree.org/t/hl2-coding-questions/3426/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hl2-coding-questions/3426/8</link>
+        <pubDate>Mon, 22 Mar 2010 05:47:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3426-8</guid>
+        <source url="https://leakfree.org/t/hl2-coding-questions/3426.rss">hl2 coding questions</source>
+      </item>
+      <item>
+        <title>hl2 coding questions</title>
+        <dc:creator><![CDATA[pfannkuchen_gesicht]]></dc:creator>
+        <description><![CDATA[
+            <p>another question:<br>
+when I kill an npc with TakeDamage() I get this:</p>
+<pre><code class="lang-auto">CreateEvent: event 'entity_killed' not registered.</code></pre>
+<p>how to register an event?</p>
+          <p><a href="https://leakfree.org/t/hl2-coding-questions/3426/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hl2-coding-questions/3426/7</link>
+        <pubDate>Sun, 21 Mar 2010 01:56:51 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3426-7</guid>
+        <source url="https://leakfree.org/t/hl2-coding-questions/3426.rss">hl2 coding questions</source>
+      </item>
+      <item>
+        <title>hl2 coding questions</title>
+        <dc:creator><![CDATA[pfannkuchen_gesicht]]></dc:creator>
+        <description><![CDATA[
+            <p>thank you very much!</p>
+          <p><a href="https://leakfree.org/t/hl2-coding-questions/3426/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hl2-coding-questions/3426/6</link>
+        <pubDate>Sat, 20 Mar 2010 01:49:41 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3426-6</guid>
+        <source url="https://leakfree.org/t/hl2-coding-questions/3426.rss">hl2 coding questions</source>
+      </item>
+      <item>
+        <title>hl2 coding questions</title>
+        <dc:creator><![CDATA[JamesKane]]></dc:creator>
+        <description><![CDATA[
+            <p>UTIL_TraceLine(…)…is what you want</p>
+<pre><code class="lang-auto">
+[list]
+[*][B]vStart, vEnd[/B] are points defined as vectors
+[*][B]iMask[/B] is that mask for solids to test against; usually MASK_SHOT
+[*][B]pTraceEntity[/B] is entity you wish to ignore when firing this trace. 
+[*][B]iCollision[/B] is the collision group to skip; usually COLLISION_GROUP_NONE
+[/list]
+
+trace_t tr;
+UTIL_TraceLine( vStart, vEnd, iMask, pTraceEntity, iCollison, &amp;tr );
+
+Once you fire the trace you can use [B]tr[/B] to find the following infromation:
+
+[list]
+[*][B]tr.m_pEnt[/b], if the trace hit anything then this may return the entity that was hit.
+[*][B]tr.startpos &amp; tr.endpos[/B], the start point and end point where the trace calculated
+[*][B]tr.plane[/B], plane information if any ( this is where you can get the normal, search the code for struct cplane_t )
+[*] and more defined in ..public/trace.h
+[/list]</code></pre>
+<p>You can draw a debug 1pixel length line with NDebugOverlay::Line(…)</p>
+          <p><a href="https://leakfree.org/t/hl2-coding-questions/3426/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hl2-coding-questions/3426/5</link>
+        <pubDate>Sat, 20 Mar 2010 01:17:19 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3426-5</guid>
+        <source url="https://leakfree.org/t/hl2-coding-questions/3426.rss">hl2 coding questions</source>
+      </item>
+      <item>
+        <title>hl2 coding questions</title>
+        <dc:creator><![CDATA[pfannkuchen_gesicht]]></dc:creator>
+        <description><![CDATA[
+            <p>didn’t help much, but thanks though.<br>
+any idea how to draw a simple line?(not env_beam or env_laser, just a simple 1px line)</p>
+          <p><a href="https://leakfree.org/t/hl2-coding-questions/3426/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hl2-coding-questions/3426/4</link>
+        <pubDate>Fri, 19 Mar 2010 22:45:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3426-4</guid>
+        <source url="https://leakfree.org/t/hl2-coding-questions/3426.rss">hl2 coding questions</source>
+      </item>
+      <item>
+        <title>hl2 coding questions</title>
+        <dc:creator><![CDATA[Solokiller]]></dc:creator>
+        <description><![CDATA[
+            <p>Take a look at the <a href="https://developer.valvesoftware.com/wiki/Env_gunfire" data-bbcode="true" rel="nofollow noopener">env_gunfire</a> entity code.</p>
+          <p><a href="https://leakfree.org/t/hl2-coding-questions/3426/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hl2-coding-questions/3426/3</link>
+        <pubDate>Thu, 18 Mar 2010 21:25:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3426-3</guid>
+        <source url="https://leakfree.org/t/hl2-coding-questions/3426.rss">hl2 coding questions</source>
+      </item>
+      <item>
+        <title>hl2 coding questions</title>
+        <dc:creator><![CDATA[pfannkuchen_gesicht]]></dc:creator>
+        <description><![CDATA[
+            <p>has nobody an answere?</p>
+          <p><a href="https://leakfree.org/t/hl2-coding-questions/3426/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hl2-coding-questions/3426/2</link>
+        <pubDate>Thu, 18 Mar 2010 17:50:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3426-2</guid>
+        <source url="https://leakfree.org/t/hl2-coding-questions/3426.rss">hl2 coding questions</source>
+      </item>
+      <item>
+        <title>hl2 coding questions</title>
+        <dc:creator><![CDATA[pfannkuchen_gesicht]]></dc:creator>
+        <description><![CDATA[
+            <p>I have a few question about hl2 coding.</p>
+<p>How to draw a line along a tracer?</p>
+<p>Where can I find the code which kills npcs when a npc got hit by a bullet?</p>
+          <p><a href="https://leakfree.org/t/hl2-coding-questions/3426/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hl2-coding-questions/3426/1</link>
+        <pubDate>Wed, 17 Mar 2010 19:36:24 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3426-1</guid>
+        <source url="https://leakfree.org/t/hl2-coding-questions/3426.rss">hl2 coding questions</source>
+      </item>
+  </channel>
+</rss>

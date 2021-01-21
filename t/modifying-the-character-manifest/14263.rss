@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Modifying the Character Manifest</title>
+    <link>https://leakfree.org/t/modifying-the-character-manifest/14263</link>
+    <description>* How would one go about either adding entries to the character_manifest.txt file or replacing it with another version that includes more entries (other than the obvious, hackish, and not very portable option of decompressing bms_misc_dir.vpk, messing with the files, and then recompressing it, of course)?
+
+* Will modded character_manifest.txt files [i]add[/i] (as in, all entries will be accessible alongside one another), or will they replace each other so that only the modded content is available (not a [i]big[/i] deal as I could just copy everything that is in the vanilla file, but may cause compatibility issues down the road)?
+
+
+I&#39;m trying to use some armorless guards as office workers, and the existing security_no_armor entry both suffers from a bad case of same-face syndrome and makes the choreography I want to do impossible as all the workers have the same name. Being able to add a few of the &quot;office worker&quot; no-armor configurations to the manifest would go a long way to solving these problems, but at the moment I am getting no results even with a vpk containing an expanded vanilla characters_manifest.txt (taken from bms_misc) in its &quot;scripts&quot; folder.</description>
+    
+    <lastBuildDate>Fri, 03 Jul 2015 17:48:56 +0000</lastBuildDate>
+    <category>Black Mesa</category>
+    <atom:link href="https://leakfree.org/t/modifying-the-character-manifest/14263.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Modifying the Character Manifest</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you for the information; do you have any idea if/when this functionality will become available?</p>
+          <p><a href="https://leakfree.org/t/modifying-the-character-manifest/14263/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/modifying-the-character-manifest/14263/8</link>
+        <pubDate>Fri, 03 Jul 2015 17:48:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14263-8</guid>
+        <source url="https://leakfree.org/t/modifying-the-character-manifest/14263.rss">Modifying the Character Manifest</source>
+      </item>
+      <item>
+        <title>Modifying the Character Manifest</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>From what I’ve tested a while ago, it seems that some files can be overridden, but others for some reason can’t.</p>
+          <p><a href="https://leakfree.org/t/modifying-the-character-manifest/14263/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/modifying-the-character-manifest/14263/7</link>
+        <pubDate>Fri, 03 Jul 2015 15:22:13 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14263-7</guid>
+        <source url="https://leakfree.org/t/modifying-the-character-manifest/14263.rss">Modifying the Character Manifest</source>
+      </item>
+      <item>
+        <title>Modifying the Character Manifest</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>All right, it appears that the problem is not limited to the character manifest but to <span class="bbcode-i">any</span> file that has the same name as and is intended to replace another file. This includes scenes/image, individual scene .vcd files, other scripts and manifests, and assets like audio and model files. This happens regardless of where the files are, whether they are in VPKs or folders, or whether they are mentioned in gameinfo.txt or not. Completely new files appear in both Hammer and the game.</p>
+<p>Can anyone replicate/confirm this?</p>
+          <p><a href="https://leakfree.org/t/modifying-the-character-manifest/14263/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/modifying-the-character-manifest/14263/6</link>
+        <pubDate>Thu, 02 Jul 2015 23:45:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14263-6</guid>
+        <source url="https://leakfree.org/t/modifying-the-character-manifest/14263.rss">Modifying the Character Manifest</source>
+      </item>
+      <item>
+        <title>Modifying the Character Manifest</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>That is, again, exactly what I have been doing, with no results. I guess I’ll be testing to see if I can include other types of asset, including dialogue conditions and other things that go in the “scripts” folder.</p>
+          <p><a href="https://leakfree.org/t/modifying-the-character-manifest/14263/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/modifying-the-character-manifest/14263/5</link>
+        <pubDate>Tue, 30 Jun 2015 22:55:26 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14263-5</guid>
+        <source url="https://leakfree.org/t/modifying-the-character-manifest/14263.rss">Modifying the Character Manifest</source>
+      </item>
+      <item>
+        <title>Modifying the Character Manifest</title>
+        <dc:creator><![CDATA[jadebenn]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Admiral Sakai">
+<div class="title">
+<div class="quote-controls"></div>
+ Admiral Sakai:</div>
+<blockquote>
+<p>That’s what I’ve been trying, and it is not working. I’ve tried building VPKs around both TEST\scripts\character_manifest.txt and TEST\bms_misc_dir\scripts\character_manifest.txt to no avail.</p>
+</blockquote>
+</aside>
+<p>Eh, let me try and explain a bit better.</p>
+<ol>
+<li>Extract the bms_misc_dir.vpk to any folder you like (feel free to delete it after you are done)</li>
+<li>Create a new folder (it can be named anything, but for convenience I’ll call it character_mod)</li>
+<li>Since you are going to mod the character manifest, in the character_mod folder, create a folder named scripts first</li>
+<li>Place your edited version of the character_manifest.txt in the scripts folder (you’re aiming to recreate the necessary file structure).</li>
+<li>Drag and drop the character_mod folder onto vpk.exe</li>
+<li>Place character_mod.vpk in the addons folder</li>
+<li>You’re done!</li>
+</ol>
+          <p><a href="https://leakfree.org/t/modifying-the-character-manifest/14263/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/modifying-the-character-manifest/14263/4</link>
+        <pubDate>Tue, 30 Jun 2015 20:45:39 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14263-4</guid>
+        <source url="https://leakfree.org/t/modifying-the-character-manifest/14263.rss">Modifying the Character Manifest</source>
+      </item>
+      <item>
+        <title>Modifying the Character Manifest</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>That’s what I’ve been trying, and it is not working. I’ve tried building VPKs around both TEST\scripts\character_manifest.txt and TEST\bms_misc_dir\scripts\character_manifest.txt to no avail.</p>
+          <p><a href="https://leakfree.org/t/modifying-the-character-manifest/14263/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/modifying-the-character-manifest/14263/3</link>
+        <pubDate>Tue, 30 Jun 2015 17:47:38 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14263-3</guid>
+        <source url="https://leakfree.org/t/modifying-the-character-manifest/14263.rss">Modifying the Character Manifest</source>
+      </item>
+      <item>
+        <title>Modifying the Character Manifest</title>
+        <dc:creator><![CDATA[jadebenn]]></dc:creator>
+        <description><![CDATA[
+            <p>You just need to extract the character manifest text file, make the required text file, then replicate the file structure of where you found it in the vpk, repack it using vpk.exe (drag and drop) and place the resulting vpk in the addons folder where it will override the vanilla content.</p>
+          <p><a href="https://leakfree.org/t/modifying-the-character-manifest/14263/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/modifying-the-character-manifest/14263/2</link>
+        <pubDate>Tue, 30 Jun 2015 08:08:16 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14263-2</guid>
+        <source url="https://leakfree.org/t/modifying-the-character-manifest/14263.rss">Modifying the Character Manifest</source>
+      </item>
+      <item>
+        <title>Modifying the Character Manifest</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <ul>
+<li>
+<p>How would one go about either adding entries to the character_manifest.txt file or replacing it with another version that includes more entries (other than the obvious, hackish, and not very portable option of decompressing bms_misc_dir.vpk, messing with the files, and then recompressing it, of course)?</p>
+</li>
+<li>
+<p>Will modded character_manifest.txt files <span class="bbcode-i">add</span> (as in, all entries will be accessible alongside one another), or will they replace each other so that only the modded content is available (not a <span class="bbcode-i">big</span> deal as I could just copy everything that is in the vanilla file, but may cause compatibility issues down the road)?</p>
+</li>
+</ul>
+<p>I’m trying to use some armorless guards as office workers, and the existing security_no_armor entry both suffers from a bad case of same-face syndrome and makes the choreography I want to do impossible as all the workers have the same name. Being able to add a few of the “office worker” no-armor configurations to the manifest would go a long way to solving these problems, but at the moment I am getting no results even with a vpk containing an expanded vanilla characters_manifest.txt (taken from bms_misc) in its “scripts” folder.</p>
+          <p><a href="https://leakfree.org/t/modifying-the-character-manifest/14263/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/modifying-the-character-manifest/14263/1</link>
+        <pubDate>Sun, 28 Jun 2015 20:19:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14263-1</guid>
+        <source url="https://leakfree.org/t/modifying-the-character-manifest/14263.rss">Modifying the Character Manifest</source>
+      </item>
+  </channel>
+</rss>

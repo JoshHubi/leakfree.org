@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Indirect object access in JAVA</title>
+    <link>https://leakfree.org/t/indirect-object-access-in-java/9385</link>
+    <description>I am trying to understand how to indirectly access objects.
+
+Using the following simple Customer Class.  For example, here are two of 50 Customer objects.  They are Bill and Bob.
+
+public class Customer {
+	private int CustNum;
+	private String name;
+	private String homePhone;
+
+
+Customer Bill = new Customer(100, &quot;Bill West&quot;,&quot;1234567890&quot;);
+Customer Bob = new Customer(101, &quot;Bob East&quot;,&quot;1234567891&quot;);
+
+I then wish to perform tasks on a certain object.  
+i.e.   I want to work on object &quot;Bob&quot;
+
+String custObj= &quot;Bob&quot;;
+
+int dummynum = &amp;custObj.CustNum;
+
+I would like dummynum to contain the value 101.
+
+You could even extend this to 
+
+String custObj= &quot;Bob&quot;;
+String custField= &quot;CustNum&quot;;
+
+int dummynum = &amp;custObj.&amp;custField;
+
+The thought is to create dynamic flexible methods.</description>
+    
+    <lastBuildDate>Wed, 12 Sep 2012 01:33:34 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/indirect-object-access-in-java/9385.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Indirect object access in JAVA</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>I updated/clarified some of my code comments in case you’re interested.</p>
+<p>And since you’re handling a large number of Customer objects, I suggest handling them using an array instead of repeatedly making new objects.</p>
+          <p><a href="https://leakfree.org/t/indirect-object-access-in-java/9385/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/indirect-object-access-in-java/9385/5</link>
+        <pubDate>Wed, 12 Sep 2012 01:33:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9385-5</guid>
+        <source url="https://leakfree.org/t/indirect-object-access-in-java/9385.rss">Indirect object access in JAVA</source>
+      </item>
+      <item>
+        <title>Indirect object access in JAVA</title>
+        <dc:creator><![CDATA[cknew1]]></dc:creator>
+        <description><![CDATA[
+            <p>Sorry, I took them from the actual problem, but will review the conventions.<br>
+I will also look at your suggestion.</p>
+          <p><a href="https://leakfree.org/t/indirect-object-access-in-java/9385/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/indirect-object-access-in-java/9385/4</link>
+        <pubDate>Tue, 11 Sep 2012 23:16:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9385-4</guid>
+        <source url="https://leakfree.org/t/indirect-object-access-in-java/9385.rss">Indirect object access in JAVA</source>
+      </item>
+      <item>
+        <title>Indirect object access in JAVA</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>You can create another Customer, use it to point to a specific Customer, then invoke a method on your container Customer, which now “contains” the Customer object instance.</p>
+<pre><code class="lang-auto">private Customer bob = new Customer(stuff, stuff, stuff);
+private Customer john = new Customer(stuff, stuff, stuff);
+
+private Customer myCustomer;
+
+// Let's do Bob first
+myCustomer = bob;
+myCustomer.doStuff();                   // Equivalent to "bob.doStuff();"
+
+int myInt = myCustomer.getCustNum();    /* Equivalent to "int myInt = bob.getCustNum();"
+                                         * Notice how I am not trying to access the custNum variable directly.
+                                         * Instead, I am calling a "getter" int method defined in the Customer
+                                         * class that returns the private variable custNum.
+                                         * Most of the time this is considered to be good coding practice.
+                                         */
+
+// Now let's do John
+myCustomer = john;
+myCustomer.doStuff();                   // Equivalent to "john.doStuff();"</code></pre>
+<p>EDIT: By the way, try not to capitalize your instance names… it’s bad practice and can be confusing. See the <a href="https://www.oracle.com/technetwork/java/codeconv-138413.html" data-bbcode="true" rel="nofollow noopener">standard Java coding conventions</a> for more.  <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+          <p><a href="https://leakfree.org/t/indirect-object-access-in-java/9385/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/indirect-object-access-in-java/9385/3</link>
+        <pubDate>Tue, 11 Sep 2012 22:43:40 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9385-3</guid>
+        <source url="https://leakfree.org/t/indirect-object-access-in-java/9385.rss">Indirect object access in JAVA</source>
+      </item>
+      <item>
+        <title>Indirect object access in JAVA</title>
+        <dc:creator><![CDATA[wheybags]]></dc:creator>
+        <description><![CDATA[
+            <p>Pretty sure you cant do this.<br>
+You could put them all in a map though.<br>
+EDIT: Also, stackoverflow for this kinda shit man, seriously  <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+          <p><a href="https://leakfree.org/t/indirect-object-access-in-java/9385/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/indirect-object-access-in-java/9385/2</link>
+        <pubDate>Tue, 11 Sep 2012 20:53:24 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9385-2</guid>
+        <source url="https://leakfree.org/t/indirect-object-access-in-java/9385.rss">Indirect object access in JAVA</source>
+      </item>
+      <item>
+        <title>Indirect object access in JAVA</title>
+        <dc:creator><![CDATA[cknew1]]></dc:creator>
+        <description><![CDATA[
+            <p>I am trying to understand how to indirectly access objects.</p>
+<p>Using the following simple Customer Class.  For example, here are two of 50 Customer objects.  They are Bill and Bob.</p>
+<p>public class Customer {<br>
+private int CustNum;<br>
+private String name;<br>
+private String homePhone;</p>
+<p>Customer Bill = new Customer(100, “Bill West”,“1234567890”);<br>
+Customer Bob = new Customer(101, “Bob East”,“1234567891”);</p>
+<p>I then wish to perform tasks on a certain object.<br>
+i.e.   I want to work on object “Bob”</p>
+<p>String custObj= “Bob”;</p>
+<p>int dummynum = &amp;custObj.CustNum;</p>
+<p>I would like dummynum to contain the value 101.</p>
+<p>You could even extend this to</p>
+<p>String custObj= “Bob”;<br>
+String custField= “CustNum”;</p>
+<p>int dummynum = &amp;custObj.&amp;custField;</p>
+<p>The thought is to create dynamic flexible methods.</p>
+          <p><a href="https://leakfree.org/t/indirect-object-access-in-java/9385/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/indirect-object-access-in-java/9385/1</link>
+        <pubDate>Tue, 11 Sep 2012 19:46:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9385-1</guid>
+        <source url="https://leakfree.org/t/indirect-object-access-in-java/9385.rss">Indirect object access in JAVA</source>
+      </item>
+  </channel>
+</rss>

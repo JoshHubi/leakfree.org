@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>PHP: sessions</title>
+    <link>https://leakfree.org/t/php-sessions/898</link>
+    <description>Hi all,
+I have a problem:
+I want to make a login script, but the session which has all the important datas destroys itself.
+script:
+[code]
+
+$sid = md5($email.$password.date(&quot;HisYmd&quot;));
+session_name(&quot;uac_session&quot;);
+session_id($sid);
+setcookie(&quot;session_name&quot;, session_name());
+session_start();
+$_SESSION[&#39;semail&#39;] = $email;
+$_SESSION[&#39;spass&#39;] = $password;
+ 
+[/code]
+
+what to do?</description>
+    
+    <lastBuildDate>Sun, 19 Jul 2009 22:08:47 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/php-sessions/898.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>PHP: sessions</title>
+        <dc:creator><![CDATA[pfannkuchen_gesicht]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi all,<br>
+I have a problem:<br>
+I want to make a login script, but the session which has all the important datas destroys itself.<br>
+script:</p>
+<pre><code class="lang-auto">
+$sid = md5($email.$password.date("HisYmd"));
+session_name("uac_session");
+session_id($sid);
+setcookie("session_name", session_name());
+session_start();
+$_SESSION['semail'] = $email;
+$_SESSION['spass'] = $password;
+ </code></pre>
+<p>what to do?</p>
+          <p><a href="https://leakfree.org/t/php-sessions/898/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/php-sessions/898/1</link>
+        <pubDate>Sun, 19 Jul 2009 22:08:47 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-898-1</guid>
+        <source url="https://leakfree.org/t/php-sessions/898.rss">PHP: sessions</source>
+      </item>
+  </channel>
+</rss>

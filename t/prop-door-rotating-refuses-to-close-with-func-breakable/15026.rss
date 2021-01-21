@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>prop_door_rotating refuses to close with func_breakable</title>
+    <link>https://leakfree.org/t/prop-door-rotating-refuses-to-close-with-func-breakable/15026</link>
+    <description>I realize this is somewhat of an edge-case, does [b]not[/b] apply to stock BM maps, and, from my tests is a bug that dates back to older versions of the engine, [i]but[/i]:
+
+I&#39;m working on a custom door model for one of my maps, which is designed to have a brushwork (func_breakable) window inside it. However, on testing the asset ingame, I found some odd behavior, and after my tests, here&#39;s what I know:
+
+- If a brush-based entity is parented and inside a prop_door_rotating, the door will open, but not close - though it will still play the animation and sound for closing when used.
+- This happens both on my model and stock models
+- This only happens with solid entities, so for example, a func_breakable will prevent closing, but a func_brush set to not solid will not.
+- This happens if the entity penetrates the bounding box of the model, regardless of the concavity of the collision mesh.
+- This is also present on older builds of the engine, such as 2013.
+- Disabling collisions with logic_collision_pair does not seem to work.
+
+I know this has a very low chance of being fixed, as the only doors in the base game this would affect are the OC doors that stay open permanently anyway (and have &quot;close on use&quot; unchecked so the audio and visual parts of this bug don&#39;t even show up) but I figured I&#39;d file it just in case one of the programmers is going through the prop_door_rotating code someday anyway or something. It&#39;s also by no means something that breaks my map, but I am still searching for some kind of workaround I can use.</description>
+    
+    <lastBuildDate>Sun, 11 Dec 2016 16:16:26 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/prop-door-rotating-refuses-to-close-with-func-breakable/15026.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>prop_door_rotating refuses to close with func_breakable</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Also ran into this a while ago while making the doors closable in OCPD; I was unable to find a workaround and settled for making the brush nonsolid.</p>
+          <p><a href="https://leakfree.org/t/prop-door-rotating-refuses-to-close-with-func-breakable/15026/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/prop-door-rotating-refuses-to-close-with-func-breakable/15026/2</link>
+        <pubDate>Sun, 11 Dec 2016 16:16:26 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15026-2</guid>
+        <source url="https://leakfree.org/t/prop-door-rotating-refuses-to-close-with-func-breakable/15026.rss">prop_door_rotating refuses to close with func_breakable</source>
+      </item>
+      <item>
+        <title>prop_door_rotating refuses to close with func_breakable</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p>I realize this is somewhat of an edge-case, does <span class="bbcode-b">not</span> apply to stock BM maps, and, from my tests is a bug that dates back to older versions of the engine, <span class="bbcode-i">but</span>:</p>
+<p>I’m working on a custom door model for one of my maps, which is designed to have a brushwork (func_breakable) window inside it. However, on testing the asset ingame, I found some odd behavior, and after my tests, here’s what I know:</p>
+<ul>
+<li>If a brush-based entity is parented and inside a prop_door_rotating, the door will open, but not close - though it will still play the animation and sound for closing when used.</li>
+<li>This happens both on my model and stock models</li>
+<li>This only happens with solid entities, so for example, a func_breakable will prevent closing, but a func_brush set to not solid will not.</li>
+<li>This happens if the entity penetrates the bounding box of the model, regardless of the concavity of the collision mesh.</li>
+<li>This is also present on older builds of the engine, such as 2013.</li>
+<li>Disabling collisions with logic_collision_pair does not seem to work.</li>
+</ul>
+<p>I know this has a very low chance of being fixed, as the only doors in the base game this would affect are the OC doors that stay open permanently anyway (and have “close on use” unchecked so the audio and visual parts of this bug don’t even show up) but I figured I’d file it just in case one of the programmers is going through the prop_door_rotating code someday anyway or something. It’s also by no means something that breaks my map, but I am still searching for some kind of workaround I can use.</p>
+          <p><a href="https://leakfree.org/t/prop-door-rotating-refuses-to-close-with-func-breakable/15026/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/prop-door-rotating-refuses-to-close-with-func-breakable/15026/1</link>
+        <pubDate>Sun, 11 Dec 2016 00:36:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15026-1</guid>
+        <source url="https://leakfree.org/t/prop-door-rotating-refuses-to-close-with-func-breakable/15026.rss">prop_door_rotating refuses to close with func_breakable</source>
+      </item>
+  </channel>
+</rss>

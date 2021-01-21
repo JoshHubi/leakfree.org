@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>[MINOR] Decals Do Not Respect Trigger_Transition</title>
+    <link>https://leakfree.org/t/minor-decals-do-not-respect-trigger-transition/15395</link>
+    <description>The &#39;official&#39; way that entities like props, info_decals, npcs, and prop_door_rotatings which can transfer from one map to another upon level transition are supposed to work (based on what documentation is available from the Valve Developer Wiki and other sites, as well as my own experiments) is as follows: If left to their own devices, these entities will transfer if there is playable (i.e. &#39;interior&#39; in the BSP) space for them in a corresponding location in the new map (as measured relative to the info_landmark entity for the level transition) and will stay in the old map otherwise. Adding a trigger_transition entity to that level transition will cause only entities within that volume to transfer; all others will stay even if there is space for them. However, it seems that [b]info_decal[/b] entities do not respect the trigger_transition if present and will [i]always[/i] transfer if there is space for them, which can result in their being applied inappropriately.
+
+
+Note the trash decals outside of the elevator in bm_c1a1e:
+
+[img]https://steamuserimages-a.akamaihd.net/ugc/947329065476125258/1C3DDFBD5D71BE589A2E2BFF9F632AD75FD1275F/[/img]
+
+
+The level transition gets rid of the physics props lying around near the elevator as it should, but the trash decals are still there in bm_c1a2a (including one climbing up the wall):
+
+[img]https://steamuserimages-a.akamaihd.net/ugc/947329065476129307/A6377AC0262930DC48C78948666B3C53A5551E52/[/img]
+
+
+This can be worked around by using info_overlays or thin detail brushes for decals that would otherwise transition (and in any case it hardly makes the game unplayable), but as it is present in canon maps I figured the developers should be aware.</description>
+    
+    <lastBuildDate>Mon, 09 Jul 2018 03:15:35 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/minor-decals-do-not-respect-trigger-transition/15395.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>[MINOR] Decals Do Not Respect Trigger_Transition</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>The ‘official’ way that entities like props, info_decals, npcs, and prop_door_rotatings which can transfer from one map to another upon level transition are supposed to work (based on what documentation is available from the Valve Developer Wiki and other sites, as well as my own experiments) is as follows: If left to their own devices, these entities will transfer if there is playable (i.e. ‘interior’ in the BSP) space for them in a corresponding location in the new map (as measured relative to the info_landmark entity for the level transition) and will stay in the old map otherwise. Adding a trigger_transition entity to that level transition will cause only entities within that volume to transfer; all others will stay even if there is space for them. However, it seems that <span class="bbcode-b">info_decal</span> entities do not respect the trigger_transition if present and will <span class="bbcode-i">always</span> transfer if there is space for them, which can result in their being applied inappropriately.</p>
+<p>Note the trash decals outside of the elevator in bm_c1a1e:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/947329065476125258/1C3DDFBD5D71BE589A2E2BFF9F632AD75FD1275F/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/947329065476125258/1C3DDFBD5D71BE589A2E2BFF9F632AD75FD1275F/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>The level transition gets rid of the physics props lying around near the elevator as it should, but the trash decals are still there in bm_c1a2a (including one climbing up the wall):</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/947329065476129307/A6377AC0262930DC48C78948666B3C53A5551E52/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/947329065476129307/A6377AC0262930DC48C78948666B3C53A5551E52/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>This can be worked around by using info_overlays or thin detail brushes for decals that would otherwise transition (and in any case it hardly makes the game unplayable), but as it is present in canon maps I figured the developers should be aware.</p>
+          <p><a href="https://leakfree.org/t/minor-decals-do-not-respect-trigger-transition/15395/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/minor-decals-do-not-respect-trigger-transition/15395/1</link>
+        <pubDate>Mon, 09 Jul 2018 03:15:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15395-1</guid>
+        <source url="https://leakfree.org/t/minor-decals-do-not-respect-trigger-transition/15395.rss">[MINOR] Decals Do Not Respect Trigger_Transition</source>
+      </item>
+  </channel>
+</rss>

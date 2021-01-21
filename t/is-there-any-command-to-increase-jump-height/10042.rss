@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Is there any command to increase jump height?</title>
+    <link>https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042</link>
+    <description>I&#39;ve tried looking around the internet for a command but I can only find one to change gravity. I&#39;d like to change the jumping height from 3 inches off the ground to a more reasonable couple of feet. I&#39;m having to jump over kerbs all the time and it&#39;s getting a bit annoying.</description>
+    
+    <lastBuildDate>Wed, 26 Sep 2012 15:41:32 +0000</lastBuildDate>
+    <category>Help!</category>
+    <atom:link href="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Is there any command to increase jump height?</title>
+        <dc:creator><![CDATA[Mont_Blanc]]></dc:creator>
+        <description><![CDATA[
+            <p>This</p>
+<aside class="quote no-group" data-username="JamesKane">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/j/838e76/40.png" class="avatar"> JamesKane:</div>
+<blockquote>
+<p>You can increase the jump height with the following commands:</p>
+<p>bms_normal_jump_vertical_speed<br>
+bms_normal_jump_crouch_vertical_speed</p>
+</blockquote>
+</aside>
+<p>or</p>
+<aside class="quote no-group" data-username="mgr.inz.player">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/m/e0b2c6/40.png" class="avatar"> mgr.inz.player:</div>
+<blockquote>
+<p><span class="bbcode-b">M[/SIZE]</span>any successful jumps can be achieved by simple sprinting and jumping. Three buttons: forward(hold), sprint(hold), jump(press).</p>
+<p>And if you have “always run/sprint” enabled (original HL1 has “always run/sprint” enabled by default), the only thing you need is press forward button and then press space at the last moment. Two buttons: forward(hold) and space(press).</p>
+<p>If you don’t have enough skills to press jump key at the last moment, you can press jump key earlier, then crouch/duck while in air, to pull Gordon feet up towards this body.</p>
+<p>Yes, there are places where the usual sprinting and jumping does not help - you have to use crouch/duck key while in air.</p>
+<p><span class="bbcode-b">Auto jump-crouch script for you.</span>[/SIZE]</p>
+<ul>
+<li>hit space to jump normally</li>
+<li>press and hold jump key to jump-crouch</li>
+</ul>
+<p>Copy paste this to your autoexec.cfg file inside cfg folder (steamapps\sourcemods\BMS)</p>
+<p>[code]bind “space” “+jumpcrouch”<br>
+alias +jumpcrouch “+jump; wait 5; duckON”<br>
+alias -jumpcrouch “wait 5; duckOFF; -jump”<br>
+alias duckON “+duck”<br>
+alias duckOFF “-duck”</p>
+<p>//fix jump from crouch state<br>
+bind “ctrl” “+normalduck”<br>
+bind “c” “+normalduck”<br>
+alias +normalduck “+duck; alias duckON; alias duckOFF”<br>
+alias -normalduck “-duck; alias duckON +duck; alias duckOFF -duck”<br>
+[/code]<br>
+PS: change “ctrl” or “c” to your liking.</p>
+<p><span class="bbcode-b">EDIT:</span><br>
+Apparently, jump-crouch and crouch-jump isn’t the same… or is it?</p>
+<p>I think:<br>
+Crouch Jump = Jump Crouch = Duck Jump = Jump Duck,   it is both:</p>
+<ul>
+<li>longer jump (like Olympic long jump event)</li>
+<li>and higher jump (like Olympic Hurdle event)</li>
+</ul>
+<p>Athletes bend their knees, pull up legs at the right moment.</p>
+<p>“Jump While Crouching” is different. You use it to get into some ventilation openings, or, if you have a “Long Jump Module”, to achieve a much longer jump.</p>
+</blockquote>
+</aside>
+          <p><a href="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/20</link>
+        <pubDate>Wed, 26 Sep 2012 15:41:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10042-20</guid>
+        <source url="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042.rss">Is there any command to increase jump height?</source>
+      </item>
+      <item>
+        <title>Is there any command to increase jump height?</title>
+        <dc:creator><![CDATA[The_Scientist]]></dc:creator>
+        <description><![CDATA[
+            <p>…and save a copy of the original .cfg file somewhere safe, just in case.</p>
+          <p><a href="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/19</link>
+        <pubDate>Tue, 25 Sep 2012 16:30:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10042-19</guid>
+        <source url="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042.rss">Is there any command to increase jump height?</source>
+      </item>
+      <item>
+        <title>Is there any command to increase jump height?</title>
+        <dc:creator><![CDATA[AlanGarou]]></dc:creator>
+        <description><![CDATA[
+            <p>Here’s what to do. Go to wherever the Steam files are on your computer, then go to the <span class="bbcode-b">Steam &gt; SteamApps &gt; sourcemods &gt; BMS &gt; cfg</span> folder, and open the <span class="bbcode-b">skill.cfg</span> file. In the gameplay section of the file, there are two values you’ll need to change: <span class="bbcode-b">bms_normal_jump_vertical_speed</span> and <span class="bbcode-b">bms_normal_jump_crouch_vertical_speed</span>. Change the numbers next to these to 200, then save the file. This will make the jump height more reasonable and useful while not making it higher than it needs to be.</p>
+          <p><a href="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/18</link>
+        <pubDate>Sat, 22 Sep 2012 03:40:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10042-18</guid>
+        <source url="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042.rss">Is there any command to increase jump height?</source>
+      </item>
+      <item>
+        <title>Is there any command to increase jump height?</title>
+        <dc:creator><![CDATA[patman64]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for posting the console command. I don’t know why the developers have a fetish for awkward crouch jumping, but it’s just awful.</p>
+          <p><a href="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/17</link>
+        <pubDate>Thu, 20 Sep 2012 21:37:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10042-17</guid>
+        <source url="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042.rss">Is there any command to increase jump height?</source>
+      </item>
+      <item>
+        <title>Is there any command to increase jump height?</title>
+        <dc:creator><![CDATA[Verdale]]></dc:creator>
+        <description><![CDATA[
+            <p>I never had a problem at all with jumping onto things, so it can’t be the games fault.</p>
+<p><img src="https://leakfree.org/uploads/default/original/3X/d/1/d1c4be052efebcc172bdace14a6edda8623eddd3.jpeg" alt="" data-base62-sha1="tVHjcqQxwd81V6dxBNoTNgXJ2UP" width="219" height="119"></p>
+          <p><a href="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/16</link>
+        <pubDate>Wed, 19 Sep 2012 14:20:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10042-16</guid>
+        <source url="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042.rss">Is there any command to increase jump height?</source>
+      </item>
+      <item>
+        <title>Is there any command to increase jump height?</title>
+        <dc:creator><![CDATA[David_VI]]></dc:creator>
+        <description><![CDATA[
+            <p>I only remember duck jumping for vents in HL1. Must admit it got annoying in BM, so much so I’ve tried to finda good value for the cfg.</p>
+          <p><a href="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/15</link>
+        <pubDate>Tue, 18 Sep 2012 22:46:24 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10042-15</guid>
+        <source url="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042.rss">Is there any command to increase jump height?</source>
+      </item>
+      <item>
+        <title>Is there any command to increase jump height?</title>
+        <dc:creator><![CDATA[Zombie]]></dc:creator>
+        <description><![CDATA[
+            <p>Okay, I now see the crouch jump…</p>
+<p>I’ve played all the Half Life games and only remember using something similar to get into ducts. It really isn’t a standard for any other FPS game so a lot of people might not notice this one. Double jump would have made more sense. Jumping twice should say, cause your legs to fold up in mid air.</p>
+<p>Whatever, the game is still awesome anyway. <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/14</link>
+        <pubDate>Tue, 18 Sep 2012 15:03:23 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10042-14</guid>
+        <source url="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042.rss">Is there any command to increase jump height?</source>
+      </item>
+      <item>
+        <title>Is there any command to increase jump height?</title>
+        <dc:creator><![CDATA[Navitas]]></dc:creator>
+        <description><![CDATA[
+            <p>Brilliant!</p>
+<p><span class="mention">@Noobs</span>: Please remain calm and follow on the on screen instructions.</p>
+<p>This seriously shouldn’t be an issue in the age of quick time events.</p>
+          <p><a href="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/13</link>
+        <pubDate>Tue, 18 Sep 2012 06:14:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10042-13</guid>
+        <source url="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042.rss">Is there any command to increase jump height?</source>
+      </item>
+      <item>
+        <title>Is there any command to increase jump height?</title>
+        <dc:creator><![CDATA[Dr_Tub]]></dc:creator>
+        <description><![CDATA[
+            <p>There was, specfically directly after the Cascade while traversing the room on fire where you have to jump onto the forklift while escaping the headcrab.</p>
+          <p><a href="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/12</link>
+        <pubDate>Tue, 18 Sep 2012 05:49:33 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10042-12</guid>
+        <source url="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042.rss">Is there any command to increase jump height?</source>
+      </item>
+      <item>
+        <title>Is there any command to increase jump height?</title>
+        <dc:creator><![CDATA[Navitas]]></dc:creator>
+        <description><![CDATA[
+            <p>Was there a prompt in the game that informed newbies about crouch-jumping? Perhaps one should be added in…</p>
+          <p><a href="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/11</link>
+        <pubDate>Tue, 18 Sep 2012 05:28:25 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10042-11</guid>
+        <source url="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042.rss">Is there any command to increase jump height?</source>
+      </item>
+      <item>
+        <title>Is there any command to increase jump height?</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>Once again, crouch jump is the way to go.</p>
+          <p><a href="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/10</link>
+        <pubDate>Tue, 18 Sep 2012 04:40:00 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10042-10</guid>
+        <source url="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042.rss">Is there any command to increase jump height?</source>
+      </item>
+      <item>
+        <title>Is there any command to increase jump height?</title>
+        <dc:creator><![CDATA[Zombie]]></dc:creator>
+        <description><![CDATA[
+            <p>I just started playing this game and really would have liked to not use cheats, but alas, I already had to. I just passed a series of pipes you need to cross to get to the other side. (It’s the part where a creature blows up and takes the bridge with it.) I had to use “noclip” just to make it. The jumping is so bad, you can’t even get on top of a 2’ high pipe. And stacking doesn’t work to climb either. I don’t know how this was overlooked. It’s obvious your supposed to jump up to each pipe, but you just can’t. I’ve already encountered numerous times where you need to climb, but your jump just isn’t high enough. My 2 cents anyways…</p>
+          <p><a href="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/9</link>
+        <pubDate>Tue, 18 Sep 2012 04:25:46 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10042-9</guid>
+        <source url="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042.rss">Is there any command to increase jump height?</source>
+      </item>
+      <item>
+        <title>Is there any command to increase jump height?</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>After my first playthrough I went to the console and typed “bms_normal_jump_vertical_speed 230”. It’s not considered a cheat, it’s a nice decent jump that doesn’t make everything require a crouch jump, and best of all it doesn’t break your physics.</p>
+          <p><a href="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/8</link>
+        <pubDate>Tue, 18 Sep 2012 00:38:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10042-8</guid>
+        <source url="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042.rss">Is there any command to increase jump height?</source>
+      </item>
+      <item>
+        <title>Is there any command to increase jump height?</title>
+        <dc:creator><![CDATA[Navitas]]></dc:creator>
+        <description><![CDATA[
+            <p>Wouldn’t lowering the gravity break some of the puzzles?</p>
+<p>I found it limiting, but realistic. I noticed that I could barely jump whilst holding some objects.</p>
+          <p><a href="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/7</link>
+        <pubDate>Tue, 18 Sep 2012 00:27:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10042-7</guid>
+        <source url="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042.rss">Is there any command to increase jump height?</source>
+      </item>
+      <item>
+        <title>Is there any command to increase jump height?</title>
+        <dc:creator><![CDATA[melcaleb]]></dc:creator>
+        <description><![CDATA[
+            <p>I find the game’s normal jump height very annoying as well. Didn’t really bother me until I got to the train car in the beginning of Blast Pit. Can’t jump out of the rail area with out duck jumping. After browsing the console commands I found “bms_normal_jump_vertical_speed”. Default is 160. Still not sure what “classic” jump height would be. Also not sure if modifying it negates the ability to complete achievements.</p>
+          <p><a href="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/6</link>
+        <pubDate>Tue, 18 Sep 2012 00:02:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10042-6</guid>
+        <source url="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042.rss">Is there any command to increase jump height?</source>
+      </item>
+      <item>
+        <title>Is there any command to increase jump height?</title>
+        <dc:creator><![CDATA[UnrealEck]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="uncle_revie">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/u/c57346/40.png" class="avatar"> uncle_revie:</div>
+<blockquote>
+<p>why do you need to, learn to duck jump.</p>
+<p>if that dosent work then you obviously aint meant to jump there  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+</blockquote>
+</aside>
+<p>I already know how to duck jump. Having to duck jump over a kerb becomes a bit tedious after a short while, that’s all.</p>
+          <p><a href="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/5</link>
+        <pubDate>Sun, 16 Sep 2012 00:13:19 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10042-5</guid>
+        <source url="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042.rss">Is there any command to increase jump height?</source>
+      </item>
+      <item>
+        <title>Is there any command to increase jump height?</title>
+        <dc:creator><![CDATA[Twilightwolf4]]></dc:creator>
+        <description><![CDATA[
+            <p>sv_gravity 400 works for me</p>
+          <p><a href="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/4</link>
+        <pubDate>Sat, 15 Sep 2012 23:24:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10042-4</guid>
+        <source url="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042.rss">Is there any command to increase jump height?</source>
+      </item>
+      <item>
+        <title>Is there any command to increase jump height?</title>
+        <dc:creator><![CDATA[netham45]]></dc:creator>
+        <description><![CDATA[
+            <p>You can turn down the gravity with sv_gravity , default is 600.</p>
+          <p><a href="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/3</link>
+        <pubDate>Sat, 15 Sep 2012 23:15:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10042-3</guid>
+        <source url="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042.rss">Is there any command to increase jump height?</source>
+      </item>
+      <item>
+        <title>Is there any command to increase jump height?</title>
+        <dc:creator><![CDATA[uncle_revie]]></dc:creator>
+        <description><![CDATA[
+            <p>why do you need to, learn to duck jump.</p>
+<p>if that dosent work then you obviously aint meant to jump there  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/2</link>
+        <pubDate>Sat, 15 Sep 2012 23:14:33 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10042-2</guid>
+        <source url="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042.rss">Is there any command to increase jump height?</source>
+      </item>
+      <item>
+        <title>Is there any command to increase jump height?</title>
+        <dc:creator><![CDATA[UnrealEck]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve tried looking around the internet for a command but I can only find one to change gravity. I’d like to change the jumping height from 3 inches off the ground to a more reasonable couple of feet. I’m having to jump over kerbs all the time and it’s getting a bit annoying.</p>
+          <p><a href="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042/1</link>
+        <pubDate>Sat, 15 Sep 2012 23:09:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10042-1</guid>
+        <source url="https://leakfree.org/t/is-there-any-command-to-increase-jump-height/10042.rss">Is there any command to increase jump height?</source>
+      </item>
+  </channel>
+</rss>

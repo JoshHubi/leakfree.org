@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Installation issues</title>
+    <link>https://leakfree.org/t/installation-issues/12716</link>
+    <description>Hi there, first timer posting. 
+
+So, i followed all the instructions, downloaded everything from file front, have SDK 2007 installed, exited of steam, installed black mesa, and when i try to run it, i get this message: 
+
+&quot;Setup file &#39;gameinfo.txt&#39; doesn&#39;t exist in subdirectory &#39;C:\Program Files (x86)\Steam\SteamApps\sourcemods\BMS&#39;.
+Check your -game parameter or VCONFIG setting.
+
+Also, the black mesa option does not appear in the library. What do i do??</description>
+    
+    <lastBuildDate>Mon, 04 Nov 2013 01:46:56 +0000</lastBuildDate>
+    <category>Help!</category>
+    <atom:link href="https://leakfree.org/t/installation-issues/12716.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Installation issues</title>
+        <dc:creator><![CDATA[sersoft]]></dc:creator>
+        <description><![CDATA[
+            <p>well, black mesa setup looks in the registry to find out where Steam was installed to, but if Steam was moved after installation, it will get it wrong</p>
+<p>to put it in layman terms: sometimes Steam is not where Black Mesa thinks it is</p>
+<p>the part that <span class="bbcode-i">really</span> doesn’t make sense is that for Black Mesa to be in the steam games list, steam has to read from SteamApps/SourceMods/BMS/gameinfo.txt to get the game title <img src="https://leakfree.org/images/emoji/twitter/expressionless.png?v=9" title=":expressionless:" class="emoji" alt=":expressionless:"></p>
+          <p><a href="https://leakfree.org/t/installation-issues/12716/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/installation-issues/12716/7</link>
+        <pubDate>Mon, 04 Nov 2013 01:46:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12716-7</guid>
+        <source url="https://leakfree.org/t/installation-issues/12716.rss">Installation issues</source>
+      </item>
+      <item>
+        <title>Installation issues</title>
+        <dc:creator><![CDATA[CatzEyes93]]></dc:creator>
+        <description><![CDATA[
+            <p>but but but… when installing, it should automatically put it there.</p>
+          <p><a href="https://leakfree.org/t/installation-issues/12716/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/installation-issues/12716/6</link>
+        <pubDate>Sun, 03 Nov 2013 20:17:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12716-6</guid>
+        <source url="https://leakfree.org/t/installation-issues/12716.rss">Installation issues</source>
+      </item>
+      <item>
+        <title>Installation issues</title>
+        <dc:creator><![CDATA[sersoft]]></dc:creator>
+        <description><![CDATA[
+            <p>i’m pretty sure it’s not just gameinfo.txt</p>
+<p>you need to move BMS to the SourceMods folder in your Steam/SteamApps/ directory</p>
+          <p><a href="https://leakfree.org/t/installation-issues/12716/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/installation-issues/12716/5</link>
+        <pubDate>Sun, 03 Nov 2013 16:39:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12716-5</guid>
+        <source url="https://leakfree.org/t/installation-issues/12716.rss">Installation issues</source>
+      </item>
+      <item>
+        <title>Installation issues</title>
+        <dc:creator><![CDATA[CatzEyes93]]></dc:creator>
+        <description><![CDATA[
+            <p>not sure why you even have to do this… it should have done it during installation.</p>
+<p>Anyway, open notepad and copy paste that text into it. Then save the file as gameinfo.txt</p>
+          <p><a href="https://leakfree.org/t/installation-issues/12716/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/installation-issues/12716/4</link>
+        <pubDate>Sun, 03 Nov 2013 13:49:00 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12716-4</guid>
+        <source url="https://leakfree.org/t/installation-issues/12716.rss">Installation issues</source>
+      </item>
+      <item>
+        <title>Installation issues</title>
+        <dc:creator><![CDATA[Ryanv1]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="homebythesea">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/h/c89c15/40.png" class="avatar"> homebythesea:</div>
+<blockquote>
+<p>I think you need to create gameinfo.txt in your BMS folder. This is what mine looks like.</p>
+<p>“GameInfo”<br>
+{<br>
+game		“Black Mesa”<br>
+title		“BL@CK MESA”<br>
+title2		“”</p>
+<pre><code>developer	"Black Mesa Team"
+developer_url	"https://www.blackmesasource.com/"
+type		"singleplayer_only"
+
+icon            "resource/bms"
+nomodels	0
+nocrosshair	1
+
+hidden_maps
+{
+	"test_speakers"	1
+	"test_hardware" 1
+}
+
+FileSystem
+{
+	SteamAppId 218
+	ToolsAppId 211
+
+	SearchPaths
+	{
+		Game |gameinfo_path|.
+		Game hl2
+		Game ep1
+		Game ep2
+		Game episodic
+	}
+}
+</code></pre>
+<p>}</p>
+</blockquote>
+</aside>
+<p>So, for us computer challenged folks, how i would i go about doing this?</p>
+          <p><a href="https://leakfree.org/t/installation-issues/12716/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/installation-issues/12716/3</link>
+        <pubDate>Sun, 03 Nov 2013 06:59:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12716-3</guid>
+        <source url="https://leakfree.org/t/installation-issues/12716.rss">Installation issues</source>
+      </item>
+      <item>
+        <title>Installation issues</title>
+        <dc:creator><![CDATA[homebythesea]]></dc:creator>
+        <description><![CDATA[
+            <p>I think you need to create gameinfo.txt in your BMS folder. This is what mine looks like.</p>
+<p>“GameInfo”<br>
+{<br>
+game		“Black Mesa”<br>
+title		“BL@CK MESA”<br>
+title2		“”</p>
+<pre><code>developer	"Black Mesa Team"
+developer_url	"https://www.blackmesasource.com/"
+type		"singleplayer_only"
+
+icon            "resource/bms"
+nomodels	0
+nocrosshair	1
+
+hidden_maps
+{
+	"test_speakers"	1
+	"test_hardware" 1
+}
+
+FileSystem
+{
+	SteamAppId 218
+	ToolsAppId 211
+
+	SearchPaths
+	{
+		Game |gameinfo_path|.
+		Game hl2
+		Game ep1
+		Game ep2
+		Game episodic
+	}
+}
+</code></pre>
+<p>}</p>
+          <p><a href="https://leakfree.org/t/installation-issues/12716/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/installation-issues/12716/2</link>
+        <pubDate>Wed, 30 Oct 2013 13:25:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12716-2</guid>
+        <source url="https://leakfree.org/t/installation-issues/12716.rss">Installation issues</source>
+      </item>
+      <item>
+        <title>Installation issues</title>
+        <dc:creator><![CDATA[Ryanv1]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi there, first timer posting.</p>
+<p>So, i followed all the instructions, downloaded everything from file front, have SDK 2007 installed, exited of steam, installed black mesa, and when i try to run it, i get this message:</p>
+<p>"Setup file ‘gameinfo.txt’ doesn’t exist in subdirectory ‘C:\Program Files (x86)\Steam\SteamApps\sourcemods\BMS’.<br>
+Check your -game parameter or VCONFIG setting.</p>
+<p>Also, the black mesa option does not appear in the library. What do i do??</p>
+          <p><a href="https://leakfree.org/t/installation-issues/12716/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/installation-issues/12716/1</link>
+        <pubDate>Wed, 30 Oct 2013 01:59:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12716-1</guid>
+        <source url="https://leakfree.org/t/installation-issues/12716.rss">Installation issues</source>
+      </item>
+  </channel>
+</rss>

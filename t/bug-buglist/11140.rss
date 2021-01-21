@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>[BUG] Buglist</title>
+    <link>https://leakfree.org/t/bug-buglist/11140</link>
+    <description>I played the game through a second time to find bugs. I wanted to share my results though I am certain some of the bugs have been reported already.
+
+On the whole, I must say that you should consider taking a second look at Surface Tension again. The chapter misses some memorable moments from original game and has probably more bugs than the other chapters. I know a developer quit but you cannot tell me that it is such a difficult task to find another developer for this map.
+Anyways,  I want to present my results in detail. I have divided my list into 4 sections. Major issues should have top priority, of course. (Map-)Glitches are annoying little bugs that don&#39;t break the game or make it a worse experience (with few exceptions). Suggestions is something you might take a look at but would only be a bonus.
+
+MAJOR ISSUES
+- A.I. often ignores you although you are either in their view range or shooting at them. 
+	Example: That alien grunt in Lambda Complex in the screenshot just ignores you if you keep standing there, even if you shoot him.
+	map bm_c3a2c; setpos -1407.760742 1014.547180 8.031250;setang -7.556681 71.784477 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c3a2c0002jwc5k.jpg[/url]
+
+- Particle effects cause severe fps drops
+
+- Bad performance or engine crashes sometimes occur after reloading or after switching to windows and back to game again. In rare cases the engine is not even able to reload all textures again.
+
+- Balancing. Hard difficulty is barely more demanding then medium difficulty etc., see thread.
+
+
+GLITCHES
+- Autoaim option is always checked in the Black Mesa Option menu after every restart of the game
+
+- No anti-aliasing applied to the crossbow scope view on AMD graphics cards (not sure about Nvidia with or without custum aa bits), not even SSAA which normally should work
+
+- If turrets have been activated and you quickload to a position nearby before the turrets have been activated, they are active anyway. 
+	Example: On A Rail, see MAP GLITCHES
+
+- Sometimes the ammo counter is red when the weapon is fully charged. Switching the weapons forth and back changes it again to yellow. 
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c2a2c0000g8eb2.jpg[/url]
+
+- Sometimes the process of soldiers rappeling down the Osprey does not work perfectly and soldiers get stuck inside it, hanging in the air.
+
+
+MAP GLITCHES
+- Unforseen Consequences: Flashlight makes the sign barely visible. This happens quite often in other maps.
+	map bm_c1a1c;
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c1a1c0001iyshq.jpg[/url]
+
+- Unforseen Consequences: You can climb up again from the water if you run up the broken bridge.
+	map bm_c1a1e; setpos -2690.976318 -6060.282715 -3903.968750;setang 22.936005 -19.663010 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c1a1e0002jmsc4.jpg[/url]
+
+- Office Complex: Each of the three scientist pictures has one copy hanging inside the original one.
+	map bm_c1a2b; setpos -125.200775 651.909363 352.031250;setang 1.236655 15.337654 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c1a2b0000r1s9r.jpg[/url]
+
+- We&#39;ve Got Hostiles: Two soldiers rappel down the shaft, but if you quickload, only one soldier is visible, and the other one is somewhere in the wall.
+	map bm_c1a3c; setpos -2535.400146 1037.434570 -1687.968750;setang 3.539679 69.344749 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c1a3c0001nnsrs.jpg[/url]
+
+- Blast Pit: If you quicksave right before the guard that gets into the rocket room draws the Tentacle&#39;s attention to him, the guard cannot be killed by the Tentacle after a quickload to that postion.
+	This makes it much harder because the tentacles are not distracted by grenades anymore when that happens.
+	map bm_c1a4b; setpos -2039.928589 -1592.918945 1800.031250;setang 14.808007 -90.439629 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c1a4b0002vfsmi.jpg[/url]
+
+- Blast Pit: Strange flickering in the reflection when you walk towards the bars.
+	map bm_c1a4c; setpos -3430.775879 1454.790283 -447.968750;setang 8.326049 94.569351 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c1a4c0003qdss6.jpg[/url]
+
+- Bast Pit: Sound of water dripping out of pipe, but no water leak visible in the pipe.
+	map bm_c1a4c; setpos -3075.972900 -1434.912964 -447.968750;setang -2.494473 -156.759354 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c1a4c0004afsik.jpg[/url]
+
+- Power Up!: I know you cannot use sexy water here, but this is a very strange environment map. I think this is a glitch and not intended.
+	map bm_c2a1b; setpos 876.004395 2827.968750 -511.968750;setang 21.326931 -1.277807 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c2a1b0000scsu5.jpg[/url]
+
+- On A Rail:  Sometimes, the platform just wouldn&#39;t go upwards after parking the train on it. (If you kill the turrets upstairs before) And why can&#39;t you drive backwards from here on till you get the next train car?
+	map bm_c2a2a; setpos -1849.976685 3144.632568 816.031250;setang 15.583108 -133.361069 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c2a2a000164s09.jpg[/url]
+
+- Apprehension: Under some circumstances, the Ichthyosaur can even attack you if you stay in the cage under water. This can also happen later on in Forget About Freeman.
+	map bm_c2a3a; setpos 2566.778809 384.736389 -622.914185;setang 2.620093 33.633514 1.215382
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c2a3a000187sm4.jpg[/url]
+
+- Residue Processing: Leak in the wall.
+	map bm_c2a4a; setpos -748.628723 2773.600098 -79.968750;setang -2.603468 165.586487 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c2a4a000387sk8.jpg[/url]
+
+- Residue Processing: Why is there an arm hanging in the air?
+	map bm_c2a4c; setpos 178.662476 -1145.068726 -237.302063;setang 4.958405 -174.939743 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c2a4c0004x1syf.jpg[/url]
+
+- Questionable Ethics: Why can you actually break the servers here? You cannot do that anywhere else as far as I remember. And the server working sounds remain after they have been crushed disappeared.
+	map bm_c2a4e; setpos 267.737427 -1397.198975 432.031250;setang -2.156145 -107.482361 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c2a4e0005oxsic.jpg[/url]
+
+- Surface Tension: The upper side of the dam has several leaks. You can even hide in one and regain oxygen, see screenshot!
+	map bm_c2a5a; setpos -3043.167236 1879.790527 627.989258;setang -14.187468 176.749161 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c2a5a0002o7skc.jpg[/url]
+
+- Surface Tension: Something wrong with the pipe textures/models, see screenshot. A low poly LOD stage seems to be bugged since the error disappears once you approach the pipes.
+	map bm_c2a5b; setpos -21.366106 -662.429565 328.031250;setang 17.092949 -77.570869 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c2a5b0001hvsqa.jpg[/url]
+
+- Surface Tension: No smoothing groups for bars on ladder?
+	map bm_c2a5b; setpos -1990.290771 -1802.016235 704.031250;setang 38.041153 -18.096479 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c2a5b0002b0srh.jpg[/url]
+
+- Surface Tension: Misaligned sunrays.
+	map bm_c2a5b; setpos -4215.264160 -224.235046 494.142090;setang -49.405251 140.634964 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c2a5b00030wsjc.jpg[/url]
+
+- Surface Tension: Map leak.
+	map bm_c2a5b; setpos -1964.823120 1627.934937 752.586182;setang 21.945299 117.897507 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c2a5b000457s25.jpg[/url]
+ 
+- Surface Tension: Ladder not working.
+	map bm_c2a5b; setpos -3933.430664 4776.107910 678.387207;setang 59.523533 -90.197655 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c2a5b00050hs1j.jpg[/url]
+
+- Surface Tension: Flashlight changes texture of both near and distant mountains.
+	map bm_c2a5c; setpos -12806.094727 -4740.344727 6347.858398;setang 3.789246 3.949928 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c2a5c000208s6j.jpg[/url]
+
+- Surface Tension: No smoothing groups for pipe?
+	map bm_c2a5d; setpos 365.084869 1606.113892 -993.031616;setang 30.942612 -52.452595 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c2a5d0003ywi4g.jpg[/url]
+
+- Surface Tension: Strange trail floating in the air.
+	map bm_c2a5d; setpos -843.775879 -374.761475 -191.968750;setang -17.362137 -83.537560 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c2a5d0005lbe9k.jpg[/url]
+
+- Surface Tension: Overlapping meshes flickering in flashlight.
+	map bm_c2a5e; setpos 371.218597 -1320.504028 32.031250;setang 3.643145 2.605645 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c2a5e00061zd9r.jpg[/url]
+
+- Surface Tension: Saving and reloading the game in front of the tactical air strike map causes the crosshair to flicker and/or disappear depending on the view angle. It is, however, still functional!
+	map bm_c2a5g; setpos -141.583542 5575.933594 287.281281;setang 44.967354 129.189636 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c2a5g0000h6ek9.jpg[/url]
+
+- Forget About Freeman: Clipping error, you can walk a little too far into the truck!
+	map bm_c3a1a; setpos 4493.212402 -994.543335 -447.968750;setang -3.512099 141.659149 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c3a1a0001umdkd.jpg[/url]
+
+- Forget About Freeman: Overlapping meshes flickering in flashlight!
+	map bm_c3a1a; setpos 2670.968262 -871.851440 -526.469116;setang 55.157433 -107.368973 -0.660815
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c3a1a00029zdnb.jpg[/url]
+
+- Forget About Freeman: Under rare circumstances, you can climb up here straigt from the water!
+	map bm_c3a1a; setpos 1401.662964 -2223.036377 -1079.368774;setang 35.934181 15.484625 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c3a1a00036rims.jpg[/url]
+
+- Lambda Complex: No Chapter title displayed.
+
+- Lambda Complex: This monster appears out of nowhere once you activate the switch in that room. This is not Doom3!
+	map bm_c3a2e; setpos -157.005005 1287.776489 840.031250;setang 13.443222 2.511582 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c3a2e0000keflj.jpg[/url]
+
+- Lambda Complex: After you have turned on both coolant tanks, the random chatter with the scientist at the maintenance station is still the same, meaning that he tells you to go to the cooling tanks, which you have already done!
+	map bm_c3a2c; setpos -980.300354 2263.882080 -247.968750;setang 10.539683 -99.416687 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c3a2c0001wdi44.jpg[/url]
+
+- Lambda Complex: Maybe that is intended, but it is barely possible to grab the hat on the lower rotating platform. You have to shoot it and sometimes it simply falls through the platform. And occasionally, you simply die on those platforms, for no apparent reason.
+	map bm_c3a2g; setpos 626.091248 641.447998 549.031250;setang 32.461430 -133.341339 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c3a2g000001cvz.jpg[/url]
+
+
+
+SUGGESTIONS
+- Reload sequence for magnum: Let Gordon reload just the amount that is needed in the animation sequence.
+
+- Apprehension: There are several places where broken electrified wires cannot harm you in any way, but here you get killed instantly. Maybe you should give a stronger visual hint here.
+	map bm_c2a3b0; setpos -153.484589 -1035.059204 2.031250;setang 1.413721 52.963608 0.000000
+	Screenshot: [url]https://www.abload.de/image.php?img=bm_c2a3b00023yf56.jpg[/url]
+ 
+- Jumping off a ladder and pressing the movement key (like e.g. runnig forward) simultaneously often does not work, this is not intuitive
+
+- Ensure momentum conservation for the player while jumping on some moving platforms or trains (e.g. the Inbound train), probably just an engine limitation but maybe you can fix that.
+
+I&#39;m looking into submitting these to the Bug Tracker.</description>
+    
+    <lastBuildDate>Tue, 25 Sep 2012 18:57:53 +0000</lastBuildDate>
+    <category>In-game Issues (Mod)</category>
+    <atom:link href="https://leakfree.org/t/bug-buglist/11140.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>[BUG] Buglist</title>
+        <dc:creator><![CDATA[Leijonasisu]]></dc:creator>
+        <description><![CDATA[
+            <p>Epic work!</p>
+          <p><a href="https://leakfree.org/t/bug-buglist/11140/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bug-buglist/11140/2</link>
+        <pubDate>Tue, 25 Sep 2012 18:57:53 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11140-2</guid>
+        <source url="https://leakfree.org/t/bug-buglist/11140.rss">[BUG] Buglist</source>
+      </item>
+      <item>
+        <title>[BUG] Buglist</title>
+        <dc:creator><![CDATA[Langenscheiss]]></dc:creator>
+        <description><![CDATA[
+            <p>I played the game through a second time to find bugs. I wanted to share my results though I am certain some of the bugs have been reported already.</p>
+<p>On the whole, I must say that you should consider taking a second look at Surface Tension again. The chapter misses some memorable moments from original game and has probably more bugs than the other chapters. I know a developer quit but you cannot tell me that it is such a difficult task to find another developer for this map.<br>
+Anyways,  I want to present my results in detail. I have divided my list into 4 sections. Major issues should have top priority, of course. (Map-)Glitches are annoying little bugs that don’t break the game or make it a worse experience (with few exceptions). Suggestions is something you might take a look at but would only be a bonus.</p>
+<p>MAJOR ISSUES</p>
+<ul>
+<li>
+<p>A.I. often ignores you although you are either in their view range or shooting at them.<br>
+Example: That alien grunt in Lambda Complex in the screenshot just ignores you if you keep standing there, even if you shoot him.<br>
+map bm_c3a2c; setpos -1407.760742 1014.547180 8.031250;setang -7.556681 71.784477 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c3a2c0002jwc5k.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c3a2c0002jwc5k.jpg</a></p>
+</li>
+<li>
+<p>Particle effects cause severe fps drops</p>
+</li>
+<li>
+<p>Bad performance or engine crashes sometimes occur after reloading or after switching to windows and back to game again. In rare cases the engine is not even able to reload all textures again.</p>
+</li>
+<li>
+<p>Balancing. Hard difficulty is barely more demanding then medium difficulty etc., see thread.</p>
+</li>
+</ul>
+<p>GLITCHES</p>
+<ul>
+<li>
+<p>Autoaim option is always checked in the Black Mesa Option menu after every restart of the game</p>
+</li>
+<li>
+<p>No anti-aliasing applied to the crossbow scope view on AMD graphics cards (not sure about Nvidia with or without custum aa bits), not even SSAA which normally should work</p>
+</li>
+<li>
+<p>If turrets have been activated and you quickload to a position nearby before the turrets have been activated, they are active anyway.<br>
+Example: On A Rail, see MAP GLITCHES</p>
+</li>
+<li>
+<p>Sometimes the ammo counter is red when the weapon is fully charged. Switching the weapons forth and back changes it again to yellow.<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c2a2c0000g8eb2.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c2a2c0000g8eb2.jpg</a></p>
+</li>
+<li>
+<p>Sometimes the process of soldiers rappeling down the Osprey does not work perfectly and soldiers get stuck inside it, hanging in the air.</p>
+</li>
+</ul>
+<p>MAP GLITCHES</p>
+<ul>
+<li>
+<p>Unforseen Consequences: Flashlight makes the sign barely visible. This happens quite often in other maps.<br>
+map bm_c1a1c;<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c1a1c0001iyshq.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c1a1c0001iyshq.jpg</a></p>
+</li>
+<li>
+<p>Unforseen Consequences: You can climb up again from the water if you run up the broken bridge.<br>
+map bm_c1a1e; setpos -2690.976318 -6060.282715 -3903.968750;setang 22.936005 -19.663010 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c1a1e0002jmsc4.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c1a1e0002jmsc4.jpg</a></p>
+</li>
+<li>
+<p>Office Complex: Each of the three scientist pictures has one copy hanging inside the original one.<br>
+map bm_c1a2b; setpos -125.200775 651.909363 352.031250;setang 1.236655 15.337654 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c1a2b0000r1s9r.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c1a2b0000r1s9r.jpg</a></p>
+</li>
+<li>
+<p>We’ve Got Hostiles: Two soldiers rappel down the shaft, but if you quickload, only one soldier is visible, and the other one is somewhere in the wall.<br>
+map bm_c1a3c; setpos -2535.400146 1037.434570 -1687.968750;setang 3.539679 69.344749 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c1a3c0001nnsrs.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c1a3c0001nnsrs.jpg</a></p>
+</li>
+<li>
+<p>Blast Pit: If you quicksave right before the guard that gets into the rocket room draws the Tentacle’s attention to him, the guard cannot be killed by the Tentacle after a quickload to that postion.<br>
+This makes it much harder because the tentacles are not distracted by grenades anymore when that happens.<br>
+map bm_c1a4b; setpos -2039.928589 -1592.918945 1800.031250;setang 14.808007 -90.439629 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c1a4b0002vfsmi.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c1a4b0002vfsmi.jpg</a></p>
+</li>
+<li>
+<p>Blast Pit: Strange flickering in the reflection when you walk towards the bars.<br>
+map bm_c1a4c; setpos -3430.775879 1454.790283 -447.968750;setang 8.326049 94.569351 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c1a4c0003qdss6.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c1a4c0003qdss6.jpg</a></p>
+</li>
+<li>
+<p>Bast Pit: Sound of water dripping out of pipe, but no water leak visible in the pipe.<br>
+map bm_c1a4c; setpos -3075.972900 -1434.912964 -447.968750;setang -2.494473 -156.759354 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c1a4c0004afsik.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c1a4c0004afsik.jpg</a></p>
+</li>
+<li>
+<p>Power Up!: I know you cannot use sexy water here, but this is a very strange environment map. I think this is a glitch and not intended.<br>
+map bm_c2a1b; setpos 876.004395 2827.968750 -511.968750;setang 21.326931 -1.277807 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c2a1b0000scsu5.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c2a1b0000scsu5.jpg</a></p>
+</li>
+<li>
+<p>On A Rail:  Sometimes, the platform just wouldn’t go upwards after parking the train on it. (If you kill the turrets upstairs before) And why can’t you drive backwards from here on till you get the next train car?<br>
+map bm_c2a2a; setpos -1849.976685 3144.632568 816.031250;setang 15.583108 -133.361069 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c2a2a000164s09.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c2a2a000164s09.jpg</a></p>
+</li>
+<li>
+<p>Apprehension: Under some circumstances, the Ichthyosaur can even attack you if you stay in the cage under water. This can also happen later on in Forget About Freeman.<br>
+map bm_c2a3a; setpos 2566.778809 384.736389 -622.914185;setang 2.620093 33.633514 1.215382<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c2a3a000187sm4.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c2a3a000187sm4.jpg</a></p>
+</li>
+<li>
+<p>Residue Processing: Leak in the wall.<br>
+map bm_c2a4a; setpos -748.628723 2773.600098 -79.968750;setang -2.603468 165.586487 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c2a4a000387sk8.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c2a4a000387sk8.jpg</a></p>
+</li>
+<li>
+<p>Residue Processing: Why is there an arm hanging in the air?<br>
+map bm_c2a4c; setpos 178.662476 -1145.068726 -237.302063;setang 4.958405 -174.939743 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c2a4c0004x1syf.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c2a4c0004x1syf.jpg</a></p>
+</li>
+<li>
+<p>Questionable Ethics: Why can you actually break the servers here? You cannot do that anywhere else as far as I remember. And the server working sounds remain after they have been crushed disappeared.<br>
+map bm_c2a4e; setpos 267.737427 -1397.198975 432.031250;setang -2.156145 -107.482361 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c2a4e0005oxsic.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c2a4e0005oxsic.jpg</a></p>
+</li>
+<li>
+<p>Surface Tension: The upper side of the dam has several leaks. You can even hide in one and regain oxygen, see screenshot!<br>
+map bm_c2a5a; setpos -3043.167236 1879.790527 627.989258;setang -14.187468 176.749161 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c2a5a0002o7skc.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c2a5a0002o7skc.jpg</a></p>
+</li>
+<li>
+<p>Surface Tension: Something wrong with the pipe textures/models, see screenshot. A low poly LOD stage seems to be bugged since the error disappears once you approach the pipes.<br>
+map bm_c2a5b; setpos -21.366106 -662.429565 328.031250;setang 17.092949 -77.570869 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c2a5b0001hvsqa.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c2a5b0001hvsqa.jpg</a></p>
+</li>
+<li>
+<p>Surface Tension: No smoothing groups for bars on ladder?<br>
+map bm_c2a5b; setpos -1990.290771 -1802.016235 704.031250;setang 38.041153 -18.096479 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c2a5b0002b0srh.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c2a5b0002b0srh.jpg</a></p>
+</li>
+<li>
+<p>Surface Tension: Misaligned sunrays.<br>
+map bm_c2a5b; setpos -4215.264160 -224.235046 494.142090;setang -49.405251 140.634964 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c2a5b00030wsjc.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c2a5b00030wsjc.jpg</a></p>
+</li>
+<li>
+<p>Surface Tension: Map leak.<br>
+map bm_c2a5b; setpos -1964.823120 1627.934937 752.586182;setang 21.945299 117.897507 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c2a5b000457s25.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c2a5b000457s25.jpg</a></p>
+</li>
+<li>
+<p>Surface Tension: Ladder not working.<br>
+map bm_c2a5b; setpos -3933.430664 4776.107910 678.387207;setang 59.523533 -90.197655 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c2a5b00050hs1j.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c2a5b00050hs1j.jpg</a></p>
+</li>
+<li>
+<p>Surface Tension: Flashlight changes texture of both near and distant mountains.<br>
+map bm_c2a5c; setpos -12806.094727 -4740.344727 6347.858398;setang 3.789246 3.949928 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c2a5c000208s6j.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c2a5c000208s6j.jpg</a></p>
+</li>
+<li>
+<p>Surface Tension: No smoothing groups for pipe?<br>
+map bm_c2a5d; setpos 365.084869 1606.113892 -993.031616;setang 30.942612 -52.452595 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c2a5d0003ywi4g.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c2a5d0003ywi4g.jpg</a></p>
+</li>
+<li>
+<p>Surface Tension: Strange trail floating in the air.<br>
+map bm_c2a5d; setpos -843.775879 -374.761475 -191.968750;setang -17.362137 -83.537560 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c2a5d0005lbe9k.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c2a5d0005lbe9k.jpg</a></p>
+</li>
+<li>
+<p>Surface Tension: Overlapping meshes flickering in flashlight.<br>
+map bm_c2a5e; setpos 371.218597 -1320.504028 32.031250;setang 3.643145 2.605645 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c2a5e00061zd9r.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c2a5e00061zd9r.jpg</a></p>
+</li>
+<li>
+<p>Surface Tension: Saving and reloading the game in front of the tactical air strike map causes the crosshair to flicker and/or disappear depending on the view angle. It is, however, still functional!<br>
+map bm_c2a5g; setpos -141.583542 5575.933594 287.281281;setang 44.967354 129.189636 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c2a5g0000h6ek9.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c2a5g0000h6ek9.jpg</a></p>
+</li>
+<li>
+<p>Forget About Freeman: Clipping error, you can walk a little too far into the truck!<br>
+map bm_c3a1a; setpos 4493.212402 -994.543335 -447.968750;setang -3.512099 141.659149 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c3a1a0001umdkd.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c3a1a0001umdkd.jpg</a></p>
+</li>
+<li>
+<p>Forget About Freeman: Overlapping meshes flickering in flashlight!<br>
+map bm_c3a1a; setpos 2670.968262 -871.851440 -526.469116;setang 55.157433 -107.368973 -0.660815<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c3a1a00029zdnb.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c3a1a00029zdnb.jpg</a></p>
+</li>
+<li>
+<p>Forget About Freeman: Under rare circumstances, you can climb up here straigt from the water!<br>
+map bm_c3a1a; setpos 1401.662964 -2223.036377 -1079.368774;setang 35.934181 15.484625 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c3a1a00036rims.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c3a1a00036rims.jpg</a></p>
+</li>
+<li>
+<p>Lambda Complex: No Chapter title displayed.</p>
+</li>
+<li>
+<p>Lambda Complex: This monster appears out of nowhere once you activate the switch in that room. This is not Doom3!<br>
+map bm_c3a2e; setpos -157.005005 1287.776489 840.031250;setang 13.443222 2.511582 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c3a2e0000keflj.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c3a2e0000keflj.jpg</a></p>
+</li>
+<li>
+<p>Lambda Complex: After you have turned on both coolant tanks, the random chatter with the scientist at the maintenance station is still the same, meaning that he tells you to go to the cooling tanks, which you have already done!<br>
+map bm_c3a2c; setpos -980.300354 2263.882080 -247.968750;setang 10.539683 -99.416687 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c3a2c0001wdi44.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c3a2c0001wdi44.jpg</a></p>
+</li>
+<li>
+<p>Lambda Complex: Maybe that is intended, but it is barely possible to grab the hat on the lower rotating platform. You have to shoot it and sometimes it simply falls through the platform. And occasionally, you simply die on those platforms, for no apparent reason.<br>
+map bm_c3a2g; setpos 626.091248 641.447998 549.031250;setang 32.461430 -133.341339 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c3a2g000001cvz.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c3a2g000001cvz.jpg</a></p>
+</li>
+</ul>
+<p>SUGGESTIONS</p>
+<ul>
+<li>
+<p>Reload sequence for magnum: Let Gordon reload just the amount that is needed in the animation sequence.</p>
+</li>
+<li>
+<p>Apprehension: There are several places where broken electrified wires cannot harm you in any way, but here you get killed instantly. Maybe you should give a stronger visual hint here.<br>
+map bm_c2a3b0; setpos -153.484589 -1035.059204 2.031250;setang 1.413721 52.963608 0.000000<br>
+Screenshot: <a href="https://www.abload.de/image.php?img=bm_c2a3b00023yf56.jpg" data-bbcode="true" rel="nofollow noopener">https://www.abload.de/image.php?img=bm_c2a3b00023yf56.jpg</a></p>
+</li>
+<li>
+<p>Jumping off a ladder and pressing the movement key (like e.g. runnig forward) simultaneously often does not work, this is not intuitive</p>
+</li>
+<li>
+<p>Ensure momentum conservation for the player while jumping on some moving platforms or trains (e.g. the Inbound train), probably just an engine limitation but maybe you can fix that.</p>
+</li>
+</ul>
+<p>I’m looking into submitting these to the Bug Tracker.</p>
+          <p><a href="https://leakfree.org/t/bug-buglist/11140/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bug-buglist/11140/1</link>
+        <pubDate>Tue, 25 Sep 2012 18:49:26 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11140-1</guid>
+        <source url="https://leakfree.org/t/bug-buglist/11140.rss">[BUG] Buglist</source>
+      </item>
+  </channel>
+</rss>

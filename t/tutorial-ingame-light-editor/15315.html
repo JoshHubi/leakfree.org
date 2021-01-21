@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/tutorial-ingame-light-editor/15315 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:32:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Tutorial - Ingame Light Editor - Developer Logs - Leakfree</title>
+    <meta name="description" content="ello Guys, Since a lot of people were asking how to implement new lights I have uploaded some of our internal tutorial/test maps on Dropbox. 
+I would recommend checking out tut_nextgen_lights_optimised.vmf since it conta&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="15315.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Tutorial - Ingame Light Editor&#39;" href="15315.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/tutorial-ingame-light-editor/15315" />
+<meta name="twitter:url" content="https://leakfree.org/t/tutorial-ingame-light-editor/15315" />
+<meta property="og:title" content="Tutorial - Ingame Light Editor" />
+<meta name="twitter:title" content="Tutorial - Ingame Light Editor" />
+<meta property="og:description" content="ello Guys, Since a lot of people were asking how to implement new lights I have uploaded some of our internal tutorial/test maps on Dropbox.  I would recommend checking out tut_nextgen_lights_optimised.vmf since it contains a lot of examples in a single map. Then you can check one of those specialized example/test maps too.  Please note that these maps are not the most optimized version of maps and they were just created to test/demo specific bugs/features.  To help us configure new lights in a ..." />
+<meta name="twitter:description" content="ello Guys, Since a lot of people were asking how to implement new lights I have uploaded some of our internal tutorial/test maps on Dropbox.  I would recommend checking out tut_nextgen_lights_optimised.vmf since it contains a lot of examples in a single map. Then you can check one of those specialized example/test maps too.  Please note that these maps are not the most optimized version of maps and they were just created to test/demo specific bugs/features.  To help us configure new lights in a ..." />
+<meta property="article:published_time" content="2017-12-26T18:55:50+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="15315.html">Tutorial - Ingame Light Editor</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/6.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa Archive</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/developer-logs/15.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Developer Logs</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/chetanjags.html'><span itemprop='name'>chetanjags</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15315.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-26T18:55:50Z'>
+              <time itemprop='dateModified' datetime='2019-09-30T13:58:59Z' class='post-time'>
+                September 30, 2019,  1:58pm
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>ello Guys, Since a lot of people were asking how to implement new lights I have uploaded some of our internal tutorial/test maps on <a href="https://www.dropbox.com/s/vu928yw5jw39b7i/tut_nextgen_lights_optimised.vmf?dl=0" data-bbcode="true">Dropbox</a>.<br>
+I would recommend checking out tut_nextgen_lights_optimised.vmf since it contains a lot of examples in a single map. Then you can check one of those specialized example/test maps too.<br>
+Please note that these maps are not the most optimized version of maps and they were just created to test/demo specific bugs/features.</p>
+<p>To help us configure new lights in a faster way we have implemented Ingame Light Editor. Here’s a quick tutorial/documentation from our internal forums -</p>
+<p>In game Light Editor - a Convar based system for easily selecting new Light entities and edit their properties via convar. (Whenever alex get free from UI he will look into UI for editor and even saving to vmf if its easy)</p>
+<p>Here’s the overall workflow -</p>
+<ol>
+<li>
+<p><span class="bbcode-b">le_editor_selection_mode_enabled</span> - Enable Light Editor selection mode. It will show you xyz axis and a box around light entity in your cross hair.<br>
+[ATTACHMENT NOT FOUND]</p>
+</li>
+<li>
+<p><span class="bbcode-b">le_editor_selection_lock</span> - Lock your selection.</p>
+</li>
+<li>
+<p>Opon locking its properties will be mapped to convars starting with <span class="bbcode-b">le_light_</span> and <span class="bbcode-b">le_gr_</span> . You can use these convars to modify different light properties and copy paste them to hammer later on.</p>
+</li>
+</ol>
+<p>[ATTACHMENT NOT FOUND][ATTACHMENT NOT FOUND]</p>
+<ol start="4">
+<li>
+<span class="bbcode-b">le_editor_selection_clear</span> - Once you are done with a selected light and if you want to clear selection you can use this convar. Once selection is reset all the helper meshes (box/sphere) will also disappear.</li>
+</ol>
+<p><span class="bbcode-b">List of Convars </span></p>
+<p>(Each of these le_light_* convar should have helpful descriptions but still in case someone needs more info feel free to ask questions.)</p>
+<p><span class="bbcode-b">Editor Convars</span></p>
+<p><span class="bbcode-b">le_editor_selection_mode_enabled </span>- Toggles New Light selection mode. When it is on, the bounding box, pivot and debugging text is displayed for whatever LIGHT the player is looking at.<br>
+<span class="bbcode-b">le_editor_selection_lock</span> - Locks the selected light and exits selection mode<br>
+<span class="bbcode-b">le_editor_print_selected_light_details</span> - print the details of selected light<br>
+<span class="bbcode-b">le_editor_selection_clear </span>- Clears Light Selection</p>
+<p><span class="bbcode-b">Editor config Convars</span></p>
+<p><span class="bbcode-b">le_config_selected_sphere_size </span>- Size of sphere shown around selected Light<br>
+<span class="bbcode-b">le_config_selection_box_size</span> - Size of box that appears during selection mode</p>
+<p><span class="bbcode-b">Light Properties Convars</span></p>
+<p>le_light_Pos<br>
+le_light_Col<br>
+etc</p>
+<p>le_gr_radius<br>
+le_gr_col_rays<br>
+etc</p>
+<aside class="quote no-group" data-username="Chetan">
+<div class="title">
+<div class="quote-controls"></div>
+ Chetan:</div>
+<blockquote>
+<p><span class="bbcode-b">NOTE - You cannot change Light Type (static/stationary/dynamic) at runtime. You cannot shadow shadowmap LOD at runtime. You cannot change cookie texture at runtime. Also You cannot change Light GodraysMode at runtime. I may add support for this in near future after an optimization pass on engine.</span></p>
+<p><span class="bbcode-b">I might add a convar to add lights at runtime too once above things are done but at the moment you can achieve that via ent_create.</span></p>
+</blockquote>
+</aside>
+<aside class="quote no-group" data-username="Chetan">
+<div class="title">
+<div class="quote-controls"></div>
+ Chetan:</div>
+<blockquote>
+<p>NOTE - Another important thing for people who don’t know this - sometimes in source engine convars are not processed unless we resume the game so some of the above convars wont take effect unless you go back into game from console. But again if you gents bind selection convars to shortcut keys there’s no need to open console anyways.</p>
+</blockquote>
+</aside>
+        </div>
+
+        <meta itemprop='headline' content='Tutorial - Ingame Light Editor'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dmx6.html'><span itemprop='name'>Dmx6</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15315.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-27T15:43:03Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:09:26Z' class='post-time'>
+                November 25, 2018,  5:09am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Is it me, or are the images not working? Anyway very big thanks for the Tutorial.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tutorial - Ingame Light Editor'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/JeffMOD.html'><span itemprop='name'>JeffMOD</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15315.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-27T22:31:17Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:09:26Z' class='post-time'>
+                November 25, 2018,  5:09am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Is it intentional that the newLight_spot entity doesn’t have any Godray options, or did that just get left out of the FGD? Also, how big of a hit on performance do the shadow maps take? I’ve been considering modifying my copy of the FGD to make that “on” by default.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tutorial - Ingame Light Editor'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15315.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-27T22:45:29Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:09:27Z' class='post-time'>
+                November 25, 2018,  5:09am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Spot lights do not support godrays. There’s some fancy schmancy programming reason for this, but basically it destroys performance.</p>
+<p>The shadow maps do impact performance, and there is a pretty hard limit on the number allowed in the map (I think it’s like…60, but each point light will take up 6). Do not have them on unless they add significantly to the scene.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tutorial - Ingame Light Editor'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/jadebenn.html'><span itemprop='name'>jadebenn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15315.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-27T22:52:24Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:09:27Z' class='post-time'>
+                November 25, 2018,  5:09am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="JeffMOD">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/jeffmod/40/4333_2.png" class="avatar"> JeffMOD:</div>
+<blockquote>
+<p>Is it intentional that the newLight_spot entity doesn’t have any Godray options, or did that just get left out of the FGD? Also, how big of a hit on performance do the shadow maps take? I’ve been considering modifying my copy of the FGD to make that “on” by default.</p>
+</blockquote>
+</aside>
+<p><span class="bbcode-s">I can’t speak to your other questions, but there is a godray toggle on the lights, even if it’s not present in the FGD. I know this because I was using EntSpy to copy them from c2a2a into one of my previously-compiled maps. Although I can’t say whether or not the keyvalue functions, it’s definitely there.</span><br>
+<span class="bbcode-s"></span><br>
+<span class="bbcode-s">There are two keyvalues in particular that seem to control godrays. The first is EnableGodRays, which is a boolean set to either 0 or 1. This one’s pretty self-explanatory. The second keyvalue is LightnGodRayMode which is also a boolean. I believe this keyvalue controls whether the light just emits godrays or if it actually emits light as well. So it’s probably best to keep that set to zero.</span></p>
+<p>EDIT: Ninja’d.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tutorial - Ingame Light Editor'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/chetanjags.html'><span itemprop='name'>chetanjags</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15315.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-28T18:47:21Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:09:27Z' class='post-time'>
+                November 25, 2018,  5:09am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Godrays aren’t supported for spot lights. This may change in future.</p>
+<p>There’s a limit of 48 shadowmaps per map per LOD. (total 144 shadowmaps per map)</p>
+<p>There’s a perf cost for these shadowmaps Dynamic &gt; Stationary &gt; static.</p>
+<p>Keeping shadows on by default in FGD might not be a good idea depending on map and surroundings of lights etc.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tutorial - Ingame Light Editor'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15315.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2018-01-15T16:38:36Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:09:43Z' class='post-time'>
+                November 25, 2018,  5:09am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>How exactly is the ‘static’ light option supposed to function?  It seems to just prevent the light in question from illuminating anything in the map.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tutorial - Ingame Light Editor'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/drgibbles.html'><span itemprop='name'>drgibbles</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15315.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2018-01-23T14:27:58Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:09:48Z' class='post-time'>
+                November 25, 2018,  5:09am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Just wanted to pass this along, the phone number listed on <a href="http://bmrf.us/" rel="nofollow noopener">BMRF.US</a> has been reassigned to a different company.  I called this morning and a lady answered,  she was baffled when I asked if this was BMRF.  Then she asked what number, she said she just got this number for a funding company.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tutorial - Ingame Light Editor'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/CatzEyes93.html'><span itemprop='name'>CatzEyes93</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15315.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2018-01-25T14:44:32Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:09:49Z' class='post-time'>
+                November 25, 2018,  5:09am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for the heads up. Just curious… what company answered?</p>
+        </div>
+
+        <meta itemprop='headline' content='Tutorial - Ingame Light Editor'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/chetanjags.html'><span itemprop='name'>chetanjags</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15315.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2018-02-14T06:37:04Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:10:03Z' class='post-time'>
+                November 25, 2018,  5:10am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Admiral Sakai">
+<div class="title">
+<div class="quote-controls"></div>
+ Admiral Sakai:</div>
+<blockquote>
+<p>How exactly is the ‘static’ light option supposed to function?  It seems to just prevent the light in question from illuminating anything in the map.</p>
+</blockquote>
+</aside>
+<p>Sorry for late reply.</p>
+<p>So Static Light should illuminate anything object brush/prop static or dynamic but this light can’t move or change position or even change its angles.<br>
+If you turn on shadows for these lights then the shadows will be casted only for static geometry like brushes and/or static props. In other words only brushes and static props will block the light.</p>
+<p>If you are facing a specific issue in a map or situation, you can post screenshot of both light settings in hammer and how it looks in game on insane or very high (Its a good habit to use insane or devonly batch files for gfx settings during development , if your PC can handle it). In case required I wont mind checking out vmf either if I can compile it in &lt;= 5 mins.</p>
+<p>I would love to answer any questions regarding any new engine upgrade (or get answers from other members as required) and help you guys out in any way possible. I know these features are new to source so they might take sometime for getting used to.<br>
+Sorry for later reply. I don’t really check the forums that often and I dont think email notifications are working on this website ( I will message our web team to confirm this &amp; sort it out ).<br>
+In case you guys are waiting for important info and I dont reply in 1-2 days feel free to post it on steam forums or reaching out on steam chat.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tutorial - Ingame Light Editor'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Tuc0.html'><span itemprop='name'>Tuc0</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15315.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2018-08-11T19:52:09Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:12:28Z' class='post-time'>
+                November 25, 2018,  5:12am
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Is the “<span class="bbcode-b">Image Based Ambient Lighting</span>” functional? How can I set it to use ambient light from skybox texture?</p>
+        </div>
+
+        <meta itemprop='headline' content='Tutorial - Ingame Light Editor'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15315.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2018-08-12T19:23:31Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:12:29Z' class='post-time'>
+                November 25, 2018,  5:12am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Compile the map with the switch -realskylight in VRAD.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tutorial - Ingame Light Editor'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Tuc0.html'><span itemprop='name'>Tuc0</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15315.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2018-08-13T13:01:10Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:12:29Z' class='post-time'>
+                November 25, 2018,  5:12am
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for reply, working fine now.</p>
+<p>Got few questions about parameters:</p>
+<p>-realskylightscale “x”      Does this key have same effect as 4th value for “Ambient” key? (modifying amount of light)<br>
+-extrasky “x”                     I have tried various values for this parameter, but I can’t recognize any effect in lighting. What                                                            exactly  does  this parameter affect?</p>
+        </div>
+
+        <meta itemprop='headline' content='Tutorial - Ingame Light Editor'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15315.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2018-08-13T13:59:22Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:12:29Z' class='post-time'>
+                November 25, 2018,  5:12am
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>-realskylightscale scales the amount of light from the skybox generated by the image based lighting by x times. 2 would double the brightness, for example.</p>
+<p>-extrasky increases the number of light bounces calculated from the environment light. I believe the default is -32 when you’re using the -final switch in the compiler. So you need values of 64 or 128 to have a noticeable effect. Dramatically increases compile times.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tutorial - Ingame Light Editor'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Tuc0.html'><span itemprop='name'>Tuc0</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15315.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2018-08-13T14:45:54Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:12:29Z' class='post-time'>
+                November 25, 2018,  5:12am
+              </time>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for explanation. I had quite large opened area in my test map, so that could be the reason I didn’t noticed -extrasky light bounces.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tutorial - Ingame Light Editor'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/tutorial-ingame-light-editor/15315 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:32:39 GMT -->
+</html>

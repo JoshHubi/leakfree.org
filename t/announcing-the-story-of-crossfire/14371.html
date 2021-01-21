@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/announcing-the-story-of-crossfire/14371 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:32:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Announcing: The Story of Crossfire - Developer Logs - Leakfree</title>
+    <meta name="description" content="Hey everyone! 
+Everyday, we get asked a singular question: “WHERE’S XE-”- … No, not that one.“Where’s Crossfire?” … Yea, that one. Until now, we’ve just been saying “we’re working on it!” or something to that effect. Tod&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="14371.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Announcing: The Story of Crossfire&#39;" href="14371.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/optimized/2X/0/00228effa79503e9f8c2b0398bfbf8e567641840_2_1024x576.jpeg" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/optimized/2X/0/00228effa79503e9f8c2b0398bfbf8e567641840_2_1024x576.jpeg" />
+<meta property="og:url" content="https://leakfree.org/t/announcing-the-story-of-crossfire/14371" />
+<meta name="twitter:url" content="https://leakfree.org/t/announcing-the-story-of-crossfire/14371" />
+<meta property="og:title" content="Announcing: The Story of Crossfire" />
+<meta name="twitter:title" content="Announcing: The Story of Crossfire" />
+<meta property="og:description" content="Hey everyone!  Everyday, we get asked a singular question: “WHERE’S XE-”- … No, not that one.“Where’s Crossfire?” … Yea, that one. Until now, we’ve just been saying “we’re working on it!” or something to that effect. Today however, is different. We’re now able to answer that question.  It’s boring and painful (mostly boring) working on something that you can’t talk about and everyone wants to know about it. Sorry guys, we aren’t ready to talk about Xen yet, despite how boring/painful it is for u..." />
+<meta name="twitter:description" content="Hey everyone!  Everyday, we get asked a singular question: “WHERE’S XE-”- … No, not that one.“Where’s Crossfire?” … Yea, that one. Until now, we’ve just been saying “we’re working on it!” or something to that effect. Today however, is different. We’re now able to answer that question.  It’s boring and painful (mostly boring) working on something that you can’t talk about and everyone wants to know about it. Sorry guys, we aren’t ready to talk about Xen yet, despite how boring/painful it is for u..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="4 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="1 ❤" />
+<meta property="article:published_time" content="2015-08-14T20:39:52+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="next" href="143714658.html?page=2">
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="14371.html">Announcing: The Story of Crossfire</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/6.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa Archive</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/developer-logs/15.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Developer Logs</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14371.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/0/00228effa79503e9f8c2b0398bfbf8e567641840.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-14T20:39:52Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:23:56Z' class='post-time'>
+                August 11, 2020, 11:23am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hey everyone!</p>
+<p>Everyday, we get asked a singular question: “WHERE’S XE-”- … No, not that one.“Where’s Crossfire?” … Yea, that one. Until now, we’ve just been saying “we’re working on it!” or something to that effect. Today however, is different. We’re now able to answer that question.</p>
+<p>It’s boring and painful (mostly boring) working on something that you can’t talk about and everyone wants to know about it. Sorry guys, we aren’t ready to talk about Xen yet, despite how boring/painful it is for us. Instead, we’re going to be talking about Crossfire. Yep, we’re going to be bringing you guys into the inner workings of what it’s like to work on a multiplayer map for Black Mesa Multiplayer! Now, we’re cheating a little. This isn’t a start-from-scratch development cycle, we’ve been tweaking the layout of Crossfire for a little while now so that it plays just as everyone remembers it back in the day.</p>
+<p>We’re going to make the process as simple and as understandable as possible. It’s going to be quick! Let me lay out really quickly what we are planning to do with the rest of the development of Crossfire.</p>
+<ul>
+<li>We’re going to show you guys what development versions of Crossfire look like. So you get to see it through all its different stages. I’ve added shots of the unarted version of Crossfire below.</li>
+<li>We’ll say why we do what we do. Why are we using this colour light? Why are the weapons placed the way they are? Why the heck is it taking so long!?! If there’s something you don’t necessarily think works, let us know.</li>
+<li>Anything you want to know? Ask! We’ll take questions from you guys and have the MP team answer all the questions we can for you.</li>
+<li>Finally, we’ll welcome you play the development and internal version of Crossfire, via the Black Mesa Public Beta and our Beta Servers. More info on that later.<br>
+We’re totally excited to be able to start showing off what we’ve been doing with Crossfire and being able to give you guys another window into the world of Black Mesa Multiplayer Development. Stay tuned to the normal channels for more information as it comes up.</li>
+</ul>
+<p><a href="https://www.facebook.com/BlackMesaDevs" data-bbcode="true" rel="nofollow noopener">Facebook</a> | <a href="https://twitter.com/BlackMesaDevs" data-bbcode="true" rel="nofollow noopener">Twitter</a> |<a href="https://steamcommunity.com/groups/BlackMesa" data-bbcode="true" rel="nofollow noopener">Steam Group</a></p>
+<p><span class="bbcode-b">- The MP Team  :thumbup: </span></p>
+<p>          <a href="https://i.imgur.com/APGsxSh.png" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="../../uploads/default/original/2X/0/00228effa79503e9f8c2b0398bfbf8e567641840.jpg" width="690" height="388">
+          </a>
+<br>
+          <a href="https://i.imgur.com/kzAPjMO.png" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="../../uploads/default/original/2X/6/6d95f0aed1864c7f00394be536d76ea3ab33a55e.jpg" width="690" height="388">
+          </a>
+<br>
+          <a href="https://i.imgur.com/v0zBWMH.png" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="../../uploads/default/original/2X/b/b619a6b3bd9870437e99d26af8515ae77318743d.jpg" width="690" height="388">
+          </a>
+<br>
+          <a href="https://i.imgur.com/dIsofDK.png" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="../../uploads/default/original/2X/a/a45df7dc996a8c3e65f5a79f202bc7b3bc4a0df7.jpg" width="690" height="388">
+          </a>
+</p>
+        </div>
+
+        <meta itemprop='headline' content='Announcing: The Story of Crossfire'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Sage_J_Fox.html'><span itemprop='name'>Sage_J_Fox</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14371.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-14T20:50:22Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:29Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Love how detailed it is, even as an orange(-lacking gray) map.</p>
+<p>Have fond memories of Crossfire, think it was my first excursion into HL1DM.</p>
+        </div>
+
+        <meta itemprop='headline' content='Announcing: The Story of Crossfire'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Turret_Cube.html'><span itemprop='name'>Turret_Cube</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14371.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-14T20:53:20Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:30Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yesh!!!1 More Boatz Plz</p>
+        </div>
+
+        <meta itemprop='headline' content='Announcing: The Story of Crossfire'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14371.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-14T21:57:58Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:31Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>All <span class="bbcode-i">right</span>, a new devblog!</p>
+<p>That reminds me, I need to get myself in gear and work on that BMPD blog I promised people.</p>
+        </div>
+
+        <meta itemprop='headline' content='Announcing: The Story of Crossfire'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/FlotsamX.html'><span itemprop='name'>FlotsamX</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14371.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-14T22:16:19Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:31Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I haven’t been following Black Mesa that closely, but isn’t there already a BM Crossfire map? I remember playing one only about a month ago, with all the updated visuals of Black Mesa. Was that fanmade?</p>
+        </div>
+
+        <meta itemprop='headline' content='Announcing: The Story of Crossfire'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14371.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-14T22:23:27Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:23:56Z' class='post-time'>
+                August 11, 2020, 11:23am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I believe you may have been thinking of this: <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=438811384&amp;searchtext=" data-bbcode="true" rel="nofollow noopener">https://steamcommunity.com/sharedfiles/filedetails/?id=438811384&amp;searchtext=</a></p>
+        </div>
+
+        <meta itemprop='headline' content='Announcing: The Story of Crossfire'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Slendgy.html'><span itemprop='name'>Slendgy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14371.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-15T02:26:36Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:31Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The workshop one looks a bit more HL2 than Black Mesa.</p>
+        </div>
+
+        <meta itemprop='headline' content='Announcing: The Story of Crossfire'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14371.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-15T04:39:05Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:31Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>It’s a start.</p>
+<p>I definitely like that we’ll be seeing it go through most of development. I think that’ll help a lot in regards to feedback not necessarily being as drastic to implement as it would be on a more complete map.</p>
+        </div>
+
+        <meta itemprop='headline' content='Announcing: The Story of Crossfire'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/fury.html'><span itemprop='name'>fury</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14371.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-15T12:32:26Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:32Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>you should readd the ramps below windows… they allow players to perform trickjumps… for example when you leave LJ Egon and gaussjump against the opposite window-ramp, you bounce into healthcharger batteries room. it’s a very useful and often used trick.<br>
+edit: but yea… if these ramps won’t get added, people can still play my dm_pro_crossfire… it’s pretty much exact the same like in HLDM. I’d like to add some more dirt to the walls to make it look better… atm it looks way too clean… so if somebody knows a good overlay or decal texture that I could use to add dirt on walls I would be glad to know  <img src="../../images/emoji/twitter/winkc164.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Announcing: The Story of Crossfire'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14371.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-15T14:18:05Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:32Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Could you provide a video of what you mean with that?</p>
+        </div>
+
+        <meta itemprop='headline' content='Announcing: The Story of Crossfire'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/fury.html'><span itemprop='name'>fury</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14371.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-15T15:16:45Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:32Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a href="https://youtu.be/j_Mo7prGfSI?t=23m53s" rel="nofollow noopener">youtu.be/j_Mo7prGfSI?t=23m53s</a><br>
+Edit: 23:53<br>
+you see i leave the room and gaussjump against the ramp below the window and get bounced into the uppder healthcharger batteries room.<br>
+you can use the same kind of trick near the other LJ to jump up into MP5 house… (but i don’t have a video for that, sorry)<br>
+It would also be cool if this jump would work in BM (later when you have new movement code):<br>
+<a href="https://youtu.be/j_Mo7prGfSI?t=23m43s" rel="nofollow noopener">youtu.be/j_Mo7prGfSI?t=23m43s</a><br>
+Edit: 21:43</p>
+        </div>
+
+        <meta itemprop='headline' content='Announcing: The Story of Crossfire'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14371.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-15T17:13:14Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:32Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Oh, I see, you kind of bounce off the lip and into the window.</p>
+<p>Thats neat, I love those little things.</p>
+<p>I will see what I can do.</p>
+        </div>
+
+        <meta itemprop='headline' content='Announcing: The Story of Crossfire'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dmx6.html'><span itemprop='name'>Dmx6</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14371.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-16T21:20:54Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:33Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I just hope we will able to jump over the deathly Trigger like in HL1.  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Announcing: The Story of Crossfire'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dalek.html'><span itemprop='name'>Dalek</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14371.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-17T00:47:08Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:34Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Will there be that secret room with the crossbow, batteries, and healthkits?</p>
+        </div>
+
+        <meta itemprop='headline' content='Announcing: The Story of Crossfire'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Narfin.html'><span itemprop='name'>Narfin</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14371.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-17T02:39:55Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:35Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Wait, I’m a little confused. Is this like the Story of Gasworks where you will be showing us all your progress up to the map’s current state, or are these screenshots current and we get to see Crossfire as you are developing it?</p>
+<p>Either way I’m so excited for this! Crossfire is such an iconic and unique map (at the time, anyway). I do have a question: Are you planning to leave in the death button? I was bummed when the flood button was removed from Undertow :&lt;</p>
+        </div>
+
+        <meta itemprop='headline' content='Announcing: The Story of Crossfire'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14371.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-17T11:11:00Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:35Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Narfin">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/n/46a35a/40.png" class="avatar"> Narfin:</div>
+<blockquote>
+<p>Wait, I’m a little confused. Is this like the Story of Gasworks where you will be showing us all your progress up to the map’s current state, or are these screenshots current and we get to see Crossfire as you are developing it?</p>
+<p>Either way I’m so excited for this! Crossfire is such an iconic and unique map (at the time, anyway). I do have a question: Are you planning to leave in the death button? I was bummed when the flood button was removed from Undertow :&lt;</p>
+</blockquote>
+</aside>
+<p>These are screenshots of the current Crossfire, and you’ll be seeing it as we develop it.</p>
+        </div>
+
+        <meta itemprop='headline' content='Announcing: The Story of Crossfire'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Joe_chief.html'><span itemprop='name'>Joe_chief</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14371.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-17T11:49:34Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:35Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Do you plan on creating cannons for the towers, or will they be replaced for weapons already ingame?</p>
+        </div>
+
+        <meta itemprop='headline' content='Announcing: The Story of Crossfire'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14371.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-17T12:56:30Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:36Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>They are tiny, but I can see 50-cals in the towers in the bottom middle screenshot.</p>
+        </div>
+
+        <meta itemprop='headline' content='Announcing: The Story of Crossfire'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14371.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-17T14:26:46Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:36Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#19</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Joe chief">
+<div class="title">
+<div class="quote-controls"></div>
+ Joe chief:</div>
+<blockquote>
+<p>Do you plan on creating cannons for the towers, or will they be replaced for weapons already ingame?</p>
+</blockquote>
+</aside>
+<p>We’re currently planning to use the .50Cal Machine guns</p>
+        </div>
+
+        <meta itemprop='headline' content='Announcing: The Story of Crossfire'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Artic_Xiongmao.html'><span itemprop='name'>Artic_Xiongmao</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14371.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-01T10:15:57Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:58Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#20</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>So, it’s September. When is the next Story of Crossfire update coming?  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Announcing: The Story of Crossfire'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="143714658.html?page=2">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/announcing-the-story-of-crossfire/14371 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:32:33 GMT -->
+</html>

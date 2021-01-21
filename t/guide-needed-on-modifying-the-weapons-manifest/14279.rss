@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Guide needed on modifying the weapons manifest</title>
+    <link>https://leakfree.org/t/guide-needed-on-modifying-the-weapons-manifest/14279</link>
+    <description>I desperately need the SPAS-12, and M4 models back in my game.
+
+I grew up playing the the PS2 version of HL1 (which was Hi-Def pack only) the M4, and SPAS are BURNED IN to my brain as the &#39;correct&#39; weapons for HL. Without them, the game feels... nothing like it used to. The PS2 version, took me years to beat, but once I finally did - only then did I realize how amazing the game was. I was able to reexperience that amazement again with the release of the standalone mod. However, now that the Store version is out - the Animation Revamp Pack, just causes broken textures, and lack of sounds.
+
+Sounds can be easily replaced by just packing a VPK with any 705 kbps wave file. However, getting the Animation Revamp (a.k.a High Definition Models) back is now a different story. The entire weapons manifest is different. And while you can override Vanilla BM with VPK&#39;s - the new weapons manifest makes no sense to me. And even though we can REPLACE sound files - how do we add in NEW sound files for different weapon remodels?
+
+Thank you all.</description>
+    
+    <lastBuildDate>Mon, 06 Jul 2015 08:59:58 +0000</lastBuildDate>
+    <category>Black Mesa</category>
+    <atom:link href="https://leakfree.org/t/guide-needed-on-modifying-the-weapons-manifest/14279.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Guide needed on modifying the weapons manifest</title>
+        <dc:creator><![CDATA[Stairway_To_Sto_Vo_K]]></dc:creator>
+        <description><![CDATA[
+            <p>A month or so ago I got the idea in my head that I needed IIopn’s Deagle in Steam BM and I went about installing it. I don’t quite recall whether I got the sounds working but the model, textures, and animations all worked perfectly. Then I realized just how bad the hand textures(dat phong) he used were compared to the new stock ones and went back to the default 357. While I could’ve probably tweaked them somewhat by messing with the .vmt’s, I didn’t give enough of a damn and the hands looked really out of place since just 1 weapon used them and the rest used the default hands.</p>
+<p>To reply to Buzz’s inquiry, I’m pretty sure the sound manifest files work the same as they did in the mod release. I don’t have the 2012 version on hand to check and i’m not going to download it again but I remember it looked something like</p>
+<p>“precache_file”        “scripts/game_sounds_announcement.txt”<br>
+“precache_file”        “scripts/game_sounds_exp.txt”<br>
+“precache_file”        “scripts/game_sounds.txt”</p>
+<p>etc, and you just added the new entry for the M4 or Beretta or whatever weapon to the bottom of the list.</p>
+<p>I’ll redownload IIopn’s animation revamp pack and see what I can get it to do for me in the 2015 version.</p>
+<p>Update: The models, animations, textures, and firing sounds(since they replace the default, same filenames) all work perfectly well in the Steam version. The reload/action cycling sounds don’t play but the console didn’t show any “x.wav is missing from disk repository” or whatever that message says. I copied the lines from sound_weapon_glock.txt from the anim revamp and pasted them below the last glock entry in game_sounds_weapons.txt from the bms_misc vpk. I then tried adding a “)” before “weapons/” in the wave line for each added entry since the default glock entries have that for some reason(they have a “^” instead of “(” for firing sounds) I even opened NewGlock/clipin.wav in wavepad and re-exported it as pcm uncompressed 44100khz 16bit mono and it still didn’t play ingame. I really have no idea what it would take to make the reload/action sounds to work in the steam version. And when(if) the solution is revealed i’m probably going to feel really stupid.</p>
+          <p><a href="https://leakfree.org/t/guide-needed-on-modifying-the-weapons-manifest/14279/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-needed-on-modifying-the-weapons-manifest/14279/4</link>
+        <pubDate>Mon, 06 Jul 2015 08:59:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14279-4</guid>
+        <source url="https://leakfree.org/t/guide-needed-on-modifying-the-weapons-manifest/14279.rss">Guide needed on modifying the weapons manifest</source>
+      </item>
+      <item>
+        <title>Guide needed on modifying the weapons manifest</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>In theory, you could inject new models by creating a directory called FOLDERNAME/models/weapons and including the appropriate models there (look in the Hammer model viewer to easily see what they are called, can’t speak for the “official” model viewer). Then, drag FOLDERNAME over the vpk.exe tool (all of this is in Black Mesa/bin) to create FOLDERNAME.vpk, and stick that in bms/addons. <span class="bbcode-i">HOWEVER</span>, a lot of the asset replacement system is currently unimplemented/buggy, so the new models may just not appear at all.</p>
+          <p><a href="https://leakfree.org/t/guide-needed-on-modifying-the-weapons-manifest/14279/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-needed-on-modifying-the-weapons-manifest/14279/3</link>
+        <pubDate>Mon, 06 Jul 2015 00:26:40 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14279-3</guid>
+        <source url="https://leakfree.org/t/guide-needed-on-modifying-the-weapons-manifest/14279.rss">Guide needed on modifying the weapons manifest</source>
+      </item>
+      <item>
+        <title>Guide needed on modifying the weapons manifest</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p>I’d like to point out that the SPAS-12<span class="bbcode-i"> is</span> in BM, as it was in the original LD models for Half-Life. It just doesn’t inexplicably have the stock on the gun but not used.<br>
+Sadly I can’t actually help with your problem, because I don’t know offhand how the weapon manifest works.</p>
+          <p><a href="https://leakfree.org/t/guide-needed-on-modifying-the-weapons-manifest/14279/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-needed-on-modifying-the-weapons-manifest/14279/2</link>
+        <pubDate>Sun, 05 Jul 2015 13:54:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14279-2</guid>
+        <source url="https://leakfree.org/t/guide-needed-on-modifying-the-weapons-manifest/14279.rss">Guide needed on modifying the weapons manifest</source>
+      </item>
+      <item>
+        <title>Guide needed on modifying the weapons manifest</title>
+        <dc:creator><![CDATA[BuzzKillington]]></dc:creator>
+        <description><![CDATA[
+            <p>I desperately need the SPAS-12, and M4 models back in my game.</p>
+<p>I grew up playing the the PS2 version of HL1 (which was Hi-Def pack only) the M4, and SPAS are BURNED IN to my brain as the ‘correct’ weapons for HL. Without them, the game feels… nothing like it used to. The PS2 version, took me years to beat, but once I finally did - only then did I realize how amazing the game was. I was able to reexperience that amazement again with the release of the standalone mod. However, now that the Store version is out - the Animation Revamp Pack, just causes broken textures, and lack of sounds.</p>
+<p>Sounds can be easily replaced by just packing a VPK with any 705 kbps wave file. However, getting the Animation Revamp (a.k.a High Definition Models) back is now a different story. The entire weapons manifest is different. And while you can override Vanilla BM with VPK’s - the new weapons manifest makes no sense to me. And even though we can REPLACE sound files - how do we add in NEW sound files for different weapon remodels?</p>
+<p>Thank you all.</p>
+          <p><a href="https://leakfree.org/t/guide-needed-on-modifying-the-weapons-manifest/14279/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/guide-needed-on-modifying-the-weapons-manifest/14279/1</link>
+        <pubDate>Wed, 01 Jul 2015 23:31:47 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14279-1</guid>
+        <source url="https://leakfree.org/t/guide-needed-on-modifying-the-weapons-manifest/14279.rss">Guide needed on modifying the weapons manifest</source>
+      </item>
+  </channel>
+</rss>

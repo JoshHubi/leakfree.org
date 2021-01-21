@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Problem loading Source games in general. Help?</title>
+    <link>https://leakfree.org/t/problem-loading-source-games-in-general-help/9737</link>
+    <description>Okay so this kinda has nothing to do with Black Mesa but at the same time it does. I haven&#39;t been able to start this game since its initial download and I&#39;ve spent about nine or so hours installing, uninstalling, and reinstalling BMS today. Every time I attempt to start it I get a &quot;Preparing to Launch Black Mesa...&quot; message, the cursor spins a little and then nothing happens. 
+
+At first I thought it was something wrong with the mod in and of itself. Out of curiosity however, I checked to see if it was really the mod and not my system. Turns out [u][b]none[/b][/u] of my source engine games will get past the &quot;Preparing to load _______...&quot; command box. Now after scouring both the Steam, Windows 7, and other forums I really cannot find anything to help my case. So, in essence, what do I do next? Do I reinstall steam altogether? Should I delete some obscurely named executable/registry key/.ini etc. What do I do next?
+
+Edit: Also I realize that it launches hl2.exe*32 briefly as a process but shuts it down less than 2 seconds later. Could this be because I&#39;m running this on a 64 bit system?</description>
+    
+    <lastBuildDate>Wed, 10 Oct 2012 01:19:51 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Problem loading Source games in general. Help?</title>
+        <dc:creator><![CDATA[shepters]]></dc:creator>
+        <description><![CDATA[
+            <p>The “-novid” option doesn’t work for me but the dll in that update cab does (even though it has a few funny effects while the game is loading).<br>
+What to do:</p>
+<ol>
+<li>Download the 64 bit version from Skitch’s MS link. Don’t open it, just save it. (The 64 bit version also contains the 32 bit versions). The 64 bit dll version in this update doesn’t work for me either.<br>
+Direct link -  <a href="https://download.microsoft.com/download/9/6/3/963B01D2-97C2-416B-B97A-38BF39E8B763/Windows6.0-KB939130-x64.msu" data-bbcode="true" rel="nofollow noopener">https://download.microsoft.com/download/9/6/3/963B01D2-97C2-416B-B97A-38BF39E8B763/Windows6.0-KB939130-x64.msu</a>
+</li>
+<li>Use Skitch’s example script to extract it.</li>
+<li>Copy the DLL from one of the x86 folders and paste it where I described in my earlier post.</li>
+</ol>
+          <p><a href="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/21">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/21</link>
+        <pubDate>Wed, 10 Oct 2012 01:19:51 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9737-21</guid>
+        <source url="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737.rss">Problem loading Source games in general. Help?</source>
+      </item>
+      <item>
+        <title>Problem loading Source games in general. Help?</title>
+        <dc:creator><![CDATA[Skitch]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="happyapplesauce">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/h/5daacb/40.png" class="avatar"> happyapplesauce:</div>
+<blockquote>
+<p>That sounds like a good idea Shepters, but how would I go about getting that dll? I don’t have access to another computer where I am, much less your son’s  <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+</blockquote>
+</aside>
+<p>You should be able to find an old (but legal) version here:<br>
+<a href="https://support.microsoft.com/kb/939130" data-bbcode="true" rel="nofollow noopener">https://support.microsoft.com/kb/939130</a><br>
+I wouldn’t install it. Just extract all the files and get the dll you need. The commands (I didn’t try them) should be something like:</p>
+<pre><code class="lang-auto">expand -F:* update.msu C:\&lt;target_dir&gt;
+cd &lt;target_dir&gt;
+expand -F:* update.cab C:\&lt;target_dir&gt;</code></pre>
+<p>But on second thought, since you’re trying to replace a dll to handle .avi files… Did you try the “-novid” option?</p>
+<p>Also, did you try starting the “Source SDK 2007 Base” video stress? (in Steam, Library-&gt;Tools-&gt;Source SDK 2007 Base-&gt;Play Game.) Does it work?</p>
+          <p><a href="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/20</link>
+        <pubDate>Tue, 09 Oct 2012 05:53:22 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9737-20</guid>
+        <source url="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737.rss">Problem loading Source games in general. Help?</source>
+      </item>
+      <item>
+        <title>Problem loading Source games in general. Help?</title>
+        <dc:creator><![CDATA[shepters]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="happyapplesauce">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/h/5daacb/40.png" class="avatar"> happyapplesauce:</div>
+<blockquote>
+<p>That sounds like a good idea Shepters, but how would I go about getting that dll? I don’t have access to another computer where I am, much less your son’s  <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+</blockquote>
+</aside>
+<p>Sorry, can’t help you there. Obviously there are copyright issues. Even an XP Version would probably work since this is a Windows DLL. I bought both OSs so I may be safe. Maybe you can find something useful on the web.</p>
+          <p><a href="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/19</link>
+        <pubDate>Tue, 09 Oct 2012 03:51:44 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9737-19</guid>
+        <source url="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737.rss">Problem loading Source games in general. Help?</source>
+      </item>
+      <item>
+        <title>Problem loading Source games in general. Help?</title>
+        <dc:creator><![CDATA[happyapplesauce]]></dc:creator>
+        <description><![CDATA[
+            <p>That sounds like a good idea Shepters, but how would I go about getting that dll? I don’t have access to another computer where I am, much less your son’s  <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+          <p><a href="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/18</link>
+        <pubDate>Tue, 09 Oct 2012 02:53:10 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9737-18</guid>
+        <source url="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737.rss">Problem loading Source games in general. Help?</source>
+      </item>
+      <item>
+        <title>Problem loading Source games in general. Help?</title>
+        <dc:creator><![CDATA[shepters]]></dc:creator>
+        <description><![CDATA[
+            <p>Am running W7 64 and have been having problems with steam games. As others have said, steam runs, maybe shows an advert and then nothing else happens. This first happened with Portal 2 and now with Black Mesa (BM) but I found a solution.<br>
+If you try to run the game exe in the steam folder it reports a bad dll “windows/system32/ avifil32.dl”. Mine is 106KB. My Son has W7 32 90KB and BM works there. So I dropped his dll next to the game exe in my steam folder and it worked.<br>
+The idea here is that when an exe loads a dll it looks for it first (if a path is not included in the call)  in the exe folder then in the system/registered paths. So the dll is only used for the specific game that needs it and not the whole system.<br>
+I have no idea what’s causing this problem but this worked for me. BM exe is called hl2.exe and is located in “Steam folder”\SteamApps"Your Steam ID"\source sdk base 2007.</p>
+          <p><a href="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/17</link>
+        <pubDate>Mon, 08 Oct 2012 23:14:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9737-17</guid>
+        <source url="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737.rss">Problem loading Source games in general. Help?</source>
+      </item>
+      <item>
+        <title>Problem loading Source games in general. Help?</title>
+        <dc:creator><![CDATA[papernick]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="happyapplesauce">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/h/5daacb/40.png" class="avatar"> happyapplesauce:</div>
+<blockquote>
+<p>Not that I’m not open to trying that, but how would it help? (I rarely use my torrent client; that shouldn’t be a factor.)</p>
+</blockquote>
+</aside>
+<p>Games never open for me when utorrent is running, even if steam is already loaded up (maybe it’s because of shared ports, I don’t really know).</p>
+<p>Also W7 x64 is not the problem.</p>
+          <p><a href="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/16</link>
+        <pubDate>Wed, 19 Sep 2012 18:55:33 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9737-16</guid>
+        <source url="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737.rss">Problem loading Source games in general. Help?</source>
+      </item>
+      <item>
+        <title>Problem loading Source games in general. Help?</title>
+        <dc:creator><![CDATA[geekofalltrades]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="instinx">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/i/858c86/40.png" class="avatar"> instinx:</div>
+<blockquote>
+<p>Also are you using W7 x64? It seems like Black Mesa cant play with W7 x64</p>
+</blockquote>
+</aside>
+<aside class="quote no-group" data-username="happyapplesauce">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/h/5daacb/40.png" class="avatar"> happyapplesauce:</div>
+<blockquote>
+<p>Aw man, it’s w7 x64’s problem? Lame. I don’t know this modding team at all, but they seem very committed. Chances of a patch? Or should I just give up and and install xp on another machine?</p>
+</blockquote>
+</aside>
+<p>I’m using W7 x64.  It’s not the problem.</p>
+          <p><a href="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/15</link>
+        <pubDate>Wed, 19 Sep 2012 18:29:16 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9737-15</guid>
+        <source url="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737.rss">Problem loading Source games in general. Help?</source>
+      </item>
+      <item>
+        <title>Problem loading Source games in general. Help?</title>
+        <dc:creator><![CDATA[happyapplesauce]]></dc:creator>
+        <description><![CDATA[
+            <p>Not that I’m not open to trying that, but how would it help? (I rarely use my torrent client; that shouldn’t be a factor.)</p>
+<aside class="quote no-group" data-username="acade365">
+<div class="title">
+<div class="quote-controls"></div>
+ acade365:</div>
+<blockquote>
+<p>Have you tried disabling your firewall and/or torrent client?</p>
+</blockquote>
+</aside>
+          <p><a href="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/14</link>
+        <pubDate>Tue, 18 Sep 2012 05:01:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9737-14</guid>
+        <source url="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737.rss">Problem loading Source games in general. Help?</source>
+      </item>
+      <item>
+        <title>Problem loading Source games in general. Help?</title>
+        <dc:creator><![CDATA[papernick]]></dc:creator>
+        <description><![CDATA[
+            <p>Have you tried disabling your firewall and/or torrent client?</p>
+          <p><a href="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/13</link>
+        <pubDate>Tue, 18 Sep 2012 03:34:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9737-13</guid>
+        <source url="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737.rss">Problem loading Source games in general. Help?</source>
+      </item>
+      <item>
+        <title>Problem loading Source games in general. Help?</title>
+        <dc:creator><![CDATA[Launcer]]></dc:creator>
+        <description><![CDATA[
+            <p>Well after wiping out several months of data for a single third party mod, I find that there’s nothing I can really do about this issue but install it on a different machine.</p>
+<p>If an admin can close this thread, I’d greatly appreciate it. Good Night.</p>
+          <p><a href="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/12</link>
+        <pubDate>Mon, 17 Sep 2012 00:05:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9737-12</guid>
+        <source url="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737.rss">Problem loading Source games in general. Help?</source>
+      </item>
+      <item>
+        <title>Problem loading Source games in general. Help?</title>
+        <dc:creator><![CDATA[Launcer]]></dc:creator>
+        <description><![CDATA[
+            <p>Reinstalling Source SDK 2007, Black Mesa, as well as several gigabytes of game data. Here goes nothing.</p>
+<p>EDIT: Well that didn’t work. Maybe I wasn’t meant to play Black Mesa. Or have fun in general :[.</p>
+          <p><a href="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/11</link>
+        <pubDate>Sun, 16 Sep 2012 20:19:23 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9737-11</guid>
+        <source url="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737.rss">Problem loading Source games in general. Help?</source>
+      </item>
+      <item>
+        <title>Problem loading Source games in general. Help?</title>
+        <dc:creator><![CDATA[instinx]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="DarkumZ">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/d/d2c977/40.png" class="avatar"> DarkumZ:</div>
+<blockquote>
+<p>I could not launch the game until i put that into my launch options but now when i get in game my graphics are really broken</p>
+<p><a href="https://imgur.com/a/ZAXY6" data-bbcode="true" rel="nofollow noopener">https://imgur.com/a/ZAXY6</a></p>
+<p>Does anyone know a fix for this? i have already tried reinstalling black mesa and Source SDK base 2007. Its really unplayable i cannot go into the water without my hole screen going black and purple checkered please help.</p>
+</blockquote>
+</aside>
+<aside class="quote no-group" data-username="happyapplesauce">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/h/5daacb/40.png" class="avatar"> happyapplesauce:</div>
+<blockquote>
+<p>Aw man, it’s w7 x64’s problem? Lame. I don’t know this modding team at all, but they seem very committed. Chances of a patch? Or should I just give up and and install xp on another machine?</p>
+</blockquote>
+</aside>
+<p>hm, well I think it is W7 x64 but I have quite a few having problems with the game using W7 x64.</p>
+          <p><a href="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/10</link>
+        <pubDate>Sun, 16 Sep 2012 12:54:47 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9737-10</guid>
+        <source url="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737.rss">Problem loading Source games in general. Help?</source>
+      </item>
+      <item>
+        <title>Problem loading Source games in general. Help?</title>
+        <dc:creator><![CDATA[happyapplesauce]]></dc:creator>
+        <description><![CDATA[
+            <p>Aw man, it’s w7 x64’s problem? Lame. I don’t know this modding team at all, but they seem very committed. Chances of a patch? Or should I just give up and and install xp on another machine?</p>
+          <p><a href="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/9</link>
+        <pubDate>Sun, 16 Sep 2012 12:45:00 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9737-9</guid>
+        <source url="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737.rss">Problem loading Source games in general. Help?</source>
+      </item>
+      <item>
+        <title>Problem loading Source games in general. Help?</title>
+        <dc:creator><![CDATA[instinx]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="DarkumZ">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/d/d2c977/40.png" class="avatar"> DarkumZ:</div>
+<blockquote>
+<p>I could not launch the game until i put that into my launch options but now when i get in game my graphics are really broken</p>
+<p><a href="https://imgur.com/a/ZAXY6" data-bbcode="true" rel="nofollow noopener">https://imgur.com/a/ZAXY6</a></p>
+<p>Does anyone know a fix for this? i have already tried reinstalling black mesa and Source SDK base 2007. Its really unplayable i cannot go into the water without my hole screen going black and purple checkered please help.</p>
+</blockquote>
+</aside>
+<p>I have broken graphics too, take a look at this:<br>
+<a href="https://forums.blackmesasource.com/showthread.php?t=13342" data-bbcode="true" rel="nofollow noopener">https://forums.blackmesasource.com/showthread.php?t=13342</a></p>
+<p>Also are you using W7 x64? It seems like Black Mesa cant play with W7 x64</p>
+          <p><a href="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/8</link>
+        <pubDate>Sun, 16 Sep 2012 12:32:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9737-8</guid>
+        <source url="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737.rss">Problem loading Source games in general. Help?</source>
+      </item>
+      <item>
+        <title>Problem loading Source games in general. Help?</title>
+        <dc:creator><![CDATA[DarkumZ]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="instinx">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/i/858c86/40.png" class="avatar"> instinx:</div>
+<blockquote>
+<p>Guys try this out, go to Black Mesa in the library, right click it, click on properties then click on ‘Set Launch Options’ in the text field put in this EXACTLY:</p>
+<p>-dxlevel 9.0</p>
+<p>It might work now…</p>
+</blockquote>
+</aside>
+<p>I could not launch the game until i put that into my launch options but now when i get in game my graphics are really broken</p>
+<p><a href="https://imgur.com/a/ZAXY6" data-bbcode="true" rel="nofollow noopener">https://imgur.com/a/ZAXY6</a></p>
+<p>Does anyone know a fix for this? i have already tried reinstalling black mesa and Source SDK base 2007. Its really unplayable i cannot go into the water without my hole screen going black and purple checkered please help.</p>
+          <p><a href="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/7</link>
+        <pubDate>Sun, 16 Sep 2012 06:45:07 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9737-7</guid>
+        <source url="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737.rss">Problem loading Source games in general. Help?</source>
+      </item>
+      <item>
+        <title>Problem loading Source games in general. Help?</title>
+        <dc:creator><![CDATA[happyapplesauce]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Launcer">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/e68b1a/40.png" class="avatar"> Launcer:</div>
+<blockquote>
+<p>No dice. Still not loading.</p>
+</blockquote>
+</aside>
+<p>Yeah, it didn’t work for me either.  <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+          <p><a href="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/6</link>
+        <pubDate>Sun, 16 Sep 2012 05:35:23 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9737-6</guid>
+        <source url="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737.rss">Problem loading Source games in general. Help?</source>
+      </item>
+      <item>
+        <title>Problem loading Source games in general. Help?</title>
+        <dc:creator><![CDATA[Launcer]]></dc:creator>
+        <description><![CDATA[
+            <p>No dice. Still not loading.</p>
+          <p><a href="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/5</link>
+        <pubDate>Sun, 16 Sep 2012 04:03:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9737-5</guid>
+        <source url="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737.rss">Problem loading Source games in general. Help?</source>
+      </item>
+      <item>
+        <title>Problem loading Source games in general. Help?</title>
+        <dc:creator><![CDATA[instinx]]></dc:creator>
+        <description><![CDATA[
+            <p>Guys try this out, go to Black Mesa in the library, right click it, click on properties then click on ‘Set Launch Options’ in the text field put in this EXACTLY:</p>
+<p>-dxlevel 9.0</p>
+<p>It might work now…</p>
+          <p><a href="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/4</link>
+        <pubDate>Sun, 16 Sep 2012 00:44:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9737-4</guid>
+        <source url="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737.rss">Problem loading Source games in general. Help?</source>
+      </item>
+      <item>
+        <title>Problem loading Source games in general. Help?</title>
+        <dc:creator><![CDATA[instinx]]></dc:creator>
+        <description><![CDATA[
+            <p>Same problem, It says Loading… then says not responding…<br>
+I’m on W7 x64</p>
+          <p><a href="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/3</link>
+        <pubDate>Sat, 15 Sep 2012 23:48:14 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9737-3</guid>
+        <source url="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737.rss">Problem loading Source games in general. Help?</source>
+      </item>
+      <item>
+        <title>Problem loading Source games in general. Help?</title>
+        <dc:creator><![CDATA[happyapplesauce]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Launcer">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/e68b1a/40.png" class="avatar"> Launcer:</div>
+<blockquote>
+<p>Okay so this kinda has nothing to do with Black Mesa but at the same time it does. I haven’t been able to start this game since its initial download and I’ve spent about nine or so hours installing, uninstalling, and reinstalling BMS today. Every time I attempt to start it I get a “Preparing to Launch Black Mesa…” message, the cursor spins a little and then nothing happens.</p>
+<p>At first I thought it was something wrong with the mod in and of itself. Out of curiosity however, I checked to see if it was really the mod and not my system. Turns out <span class="bbcode-u"><span class="bbcode-b">none</span></span> of my source engine games will get past the “Preparing to load _______…” command box. Now after scouring both the Steam, Windows 7, and other forums I really cannot find anything to help my case. So, in essence, what do I do next? Do I reinstall steam altogether? Should I delete some obscurely named executable/registry key/.ini etc. What do I do next?</p>
+<p>Edit: Also I realize that it launches hl2.exe*32 briefly as a process but shuts it down less than 2 seconds later. Could this be because I’m running this on a 64 bit system?</p>
+</blockquote>
+</aside>
+<p>I’ve been having the exact same problem for the past 5 hours. :*( Quite frustrating, I agree.</p>
+<p>I’m running windowsx64, 570m with up to date drivers. I tried doing a complete uninstall of all of my steam games and the steam client followed by a reinstall of steam, then source sdk 2007 and black mesa source. Problem persisted. Rewipe, fresh install of steam and Half life 2 and it won’t boot. I’m assuming that reinstalling black mesa source will result in the same error so I’m not going to waste my time banging my head on a wall.</p>
+<p>If anyone figures anything out with this I’d love to hear about it. Thanks in advance</p>
+          <p><a href="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/2</link>
+        <pubDate>Sat, 15 Sep 2012 12:33:52 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9737-2</guid>
+        <source url="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737.rss">Problem loading Source games in general. Help?</source>
+      </item>
+      <item>
+        <title>Problem loading Source games in general. Help?</title>
+        <dc:creator><![CDATA[Launcer]]></dc:creator>
+        <description><![CDATA[
+            <p>Okay so this kinda has nothing to do with Black Mesa but at the same time it does. I haven’t been able to start this game since its initial download and I’ve spent about nine or so hours installing, uninstalling, and reinstalling BMS today. Every time I attempt to start it I get a “Preparing to Launch Black Mesa…” message, the cursor spins a little and then nothing happens.</p>
+<p>At first I thought it was something wrong with the mod in and of itself. Out of curiosity however, I checked to see if it was really the mod and not my system. Turns out <span class="bbcode-u"><span class="bbcode-b">none</span></span> of my source engine games will get past the “Preparing to load _______…” command box. Now after scouring both the Steam, Windows 7, and other forums I really cannot find anything to help my case. So, in essence, what do I do next? Do I reinstall steam altogether? Should I delete some obscurely named executable/registry key/.ini etc. What do I do next?</p>
+<p>Edit: Also I realize that it launches hl2.exe*32 briefly as a process but shuts it down less than 2 seconds later. Could this be because I’m running this on a 64 bit system?</p>
+          <p><a href="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/problem-loading-source-games-in-general-help/9737/1</link>
+        <pubDate>Sat, 15 Sep 2012 05:17:05 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9737-1</guid>
+        <source url="https://leakfree.org/t/problem-loading-source-games-in-general-help/9737.rss">Problem loading Source games in general. Help?</source>
+      </item>
+  </channel>
+</rss>

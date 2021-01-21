@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Modern SDK for BM?</title>
+    <link>https://leakfree.org/t/modern-sdk-for-bm/13593</link>
+    <description>Hello everyone.
+
+Before we begin I have read the instructions on this forum for how to include BM in the source SDK, and have done all that already. I am now having issues compiling the game.
+
+I have a simple map, a hollow box with a player start. No lights or entities of any kind. When compiling it I run it with Normal on all settings, and this is what I get back:
+
+Loads menu with a blurred background.
+Console:
+[i]maxplayers set to 1
+Steam config directory: D:\Steam\VALVE\steamapps\common\Source SDK Base 2007\platform\config
+Legacy Surround disabled.
+exec: couldn&#39;t exec userconfig.cfg
+CModelLoader::Map_IsValid:  No such map &#39;maps/tes6.bsp&#39;
+map load failed: tes6 not found or invalid[/i] (map name is tes6, and when I use &quot;map &quot; in the console to load it, I get no results, it doesn&#39;t exist to BM)
+
+Log:
+[i]** Executing...
+** Command: &quot;d:\steam\valve\steam\steamapps\fragnbrag\sourcesdk\bin\source2007\bin\vbsp.exe&quot;
+** Parameters: -game &quot;d:\steam\valve\steamapps\sourcemods\BMS&quot; &quot;D:\Steam\VALVE\SteamApps\SourceMods\BMS\maps\tes6&quot;
+
+* Could not execute the command:
+   &quot;d:\steam\valve\steam\steamapps\fragnbrag\sourcesdk\bin\source2007\bin\vbsp.exe&quot; -game &quot;d:\steam\valve\steamapps\sourcemods\BMS&quot; &quot;D:\Steam\VALVE\SteamApps\SourceMods\BMS\maps\tes6&quot;
+* Windows gave the error message:
+   &quot;Access is denied.&quot;
+
+** Executing...
+** Command: &quot;d:\steam\valve\steam\steamapps\fragnbrag\sourcesdk\bin\source2007\bin\vvis.exe&quot;
+** Parameters: -game &quot;d:\steam\valve\steamapps\sourcemods\BMS&quot; &quot;D:\Steam\VALVE\SteamApps\SourceMods\BMS\maps\tes6&quot;
+
+* Could not execute the command:
+   &quot;d:\steam\valve\steam\steamapps\fragnbrag\sourcesdk\bin\source2007\bin\vvis.exe&quot; -game &quot;d:\steam\valve\steamapps\sourcemods\BMS&quot; &quot;D:\Steam\VALVE\SteamApps\SourceMods\BMS\maps\tes6&quot;
+* Windows gave the error message:
+   &quot;Access is denied.&quot;
+
+** Executing...
+** Command: &quot;d:\steam\valve\steam\steamapps\fragnbrag\sourcesdk\bin\source2007\bin\vrad.exe&quot;
+** Parameters:  -game &quot;d:\steam\valve\steamapps\sourcemods\BMS&quot; &quot;D:\Steam\VALVE\SteamApps\SourceMods\BMS\maps\tes6&quot;
+
+* Could not execute the command:
+   &quot;d:\steam\valve\steam\steamapps\fragnbrag\sourcesdk\bin\source2007\bin\vrad.exe&quot;  -game &quot;d:\steam\valve\steamapps\sourcemods\BMS&quot; &quot;D:\Steam\VALVE\SteamApps\SourceMods\BMS\maps\tes6&quot;
+* Windows gave the error message:
+   &quot;Access is denied.&quot;
+
+** Executing...
+** Command: Copy File
+** Parameters: &quot;D:\Steam\VALVE\SteamApps\SourceMods\BMS\maps\tes6.bsp&quot; &quot;d:\steam\valve\steamapps\sourcemods\BMS\maps\tes6.bsp&quot;
+
+
+** Executing...
+** Command: D:\Steam\VALVE\steam.exe
+** Parameters: -applaunch 218 -game &quot;d:\steam\valve\steamapps\sourcemods\BMS&quot;  +map &quot;tes6&quot;
+
+[/i]
+
+And the only thing that is produced in the folder is &quot;tes6.vmf&quot;. Nothing else.
+I have copied old maps from a previous PC that have a .bsp and .vmf file and they load and run flawlessly.
+
+Here is the Gameconfig I copied from the aforementioned SDK setup thread:
+[i]&quot;Configs&quot;
+{
+	&quot;Games&quot;
+	{
+		&quot;Black Mesa&quot;
+		{
+			&quot;GameDir&quot;		&quot;d:\steam\valve\steamapps\sourcemods\BMS&quot;
+			&quot;hammer&quot;
+			{
+				&quot;GameData0&quot;		&quot;d:\steam\valve\steamapps\sourcemods\BMS\bms.fgd&quot;
+				&quot;TextureFormat&quot;		&quot;5&quot;
+				&quot;MapFormat&quot;		&quot;4&quot;
+				&quot;DefaultTextureScale&quot;		&quot;0.250000&quot;
+				&quot;DefaultLightmapScale&quot;		&quot;16&quot;
+				&quot;GameExe&quot;		&quot;d:\steam\valve\steamapps\fragnbrag\half-life 2\hl2.exe&quot;
+				&quot;DefaultSolidEntity&quot;		&quot;func_detail&quot;
+				&quot;DefaultPointEntity&quot;		&quot;info_player_start&quot;
+				&quot;BSP&quot;		&quot;d:\steam\valve\steam\steamapps\fragnbrag\sourcesdk\bin\source2007\bin\vbsp.exe&quot;
+				&quot;Vis&quot;		&quot;d:\steam\valve\steam\steamapps\fragnbrag\sourcesdk\bin\source2007\bin\vvis.exe&quot;
+				&quot;Light&quot;		&quot;d:\steam\valve\steam\steamapps\fragnbrag\sourcesdk\bin\source2007\bin\vrad.exe&quot;
+				&quot;GameExeDir&quot;		&quot;d:\steam\valve\steamapps\fragnbrag\half-life 2&quot;
+				&quot;MapDir&quot;		&quot;d:\steam\valve\steamapps\sourcemods\BMS\maps&quot;
+				&quot;BSPDir&quot;		&quot;d:\steam\valve\steamapps\sourcemods\BMS\maps&quot;
+				&quot;CordonTexture&quot;		&quot;tools\toolsskybox&quot;
+				&quot;MaterialExcludeCount&quot;		&quot;0&quot;
+			}
+		}
+	}
+	&quot;SDKVersion&quot;		&quot;3&quot;
+}
+[/i]
+
+Any and all help would be greatly appreciated. Thanks in advance.</description>
+    
+    <lastBuildDate>Wed, 10 Dec 2014 01:43:18 +0000</lastBuildDate>
+    <category>Help!</category>
+    <atom:link href="https://leakfree.org/t/modern-sdk-for-bm/13593.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Modern SDK for BM?</title>
+        <dc:creator><![CDATA[Tom_caT]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you Crypt! This worked, though the exe is a little off-putting, what with the danger thing. I followed his wall of text manual and I can now edit BMS maps again!</p>
+          <p><a href="https://leakfree.org/t/modern-sdk-for-bm/13593/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/modern-sdk-for-bm/13593/3</link>
+        <pubDate>Wed, 10 Dec 2014 01:43:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13593-3</guid>
+        <source url="https://leakfree.org/t/modern-sdk-for-bm/13593.rss">Modern SDK for BM?</source>
+      </item>
+      <item>
+        <title>Modern SDK for BM?</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>I’d say either you have the compile tools (or the folder they’re in) set to read-only for some reason, or maybe the old SDK is bonked.<br>
+Try <a href="https://forums.blackmesasource.com/showthread.php?t=14702&amp;page=4" data-bbcode="true" rel="nofollow noopener">this tutorial</a> for setting up in the 2013 SDK.</p>
+          <p><a href="https://leakfree.org/t/modern-sdk-for-bm/13593/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/modern-sdk-for-bm/13593/2</link>
+        <pubDate>Tue, 09 Dec 2014 14:42:05 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13593-2</guid>
+        <source url="https://leakfree.org/t/modern-sdk-for-bm/13593.rss">Modern SDK for BM?</source>
+      </item>
+      <item>
+        <title>Modern SDK for BM?</title>
+        <dc:creator><![CDATA[Tom_caT]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello everyone.</p>
+<p>Before we begin I have read the instructions on this forum for how to include BM in the source SDK, and have done all that already. I am now having issues compiling the game.</p>
+<p>I have a simple map, a hollow box with a player start. No lights or entities of any kind. When compiling it I run it with Normal on all settings, and this is what I get back:</p>
+<p>Loads menu with a blurred background.<br>
+Console:<br>
+<span class="bbcode-i">maxplayers set to 1<br>
+Steam config directory: D:\Steam\VALVE\steamapps\common\Source SDK Base 2007\platform\config<br>
+Legacy Surround disabled.<br>
+exec: couldn’t exec userconfig.cfg<br>
+CModelLoader::Map_IsValid:  No such map ‘maps/tes6.bsp’<br>
+map load failed: tes6 not found or invalid</span> (map name is tes6, and when I use "map " in the console to load it, I get no results, it doesn’t exist to BM)</p>
+<p>Log:<br>
+[i]** Executing…<br>
+** Command: “d:\steam\valve\steam\steamapps\fragnbrag\sourcesdk\bin\source2007\bin\vbsp.exe”<br>
+** Parameters: -game “d:\steam\valve\steamapps\sourcemods\BMS” “D:\Steam\VALVE\SteamApps\SourceMods\BMS\maps\tes6”</p>
+<ul>
+<li>Could not execute the command:<br>
+“d:\steam\valve\steam\steamapps\fragnbrag\sourcesdk\bin\source2007\bin\vbsp.exe” -game “d:\steam\valve\steamapps\sourcemods\BMS” “D:\Steam\VALVE\SteamApps\SourceMods\BMS\maps\tes6”</li>
+<li>Windows gave the error message:<br>
+“Access is denied.”</li>
+</ul>
+<p>** Executing…<br>
+** Command: “d:\steam\valve\steam\steamapps\fragnbrag\sourcesdk\bin\source2007\bin\vvis.exe”<br>
+** Parameters: -game “d:\steam\valve\steamapps\sourcemods\BMS” “D:\Steam\VALVE\SteamApps\SourceMods\BMS\maps\tes6”</p>
+<ul>
+<li>Could not execute the command:<br>
+“d:\steam\valve\steam\steamapps\fragnbrag\sourcesdk\bin\source2007\bin\vvis.exe” -game “d:\steam\valve\steamapps\sourcemods\BMS” “D:\Steam\VALVE\SteamApps\SourceMods\BMS\maps\tes6”</li>
+<li>Windows gave the error message:<br>
+“Access is denied.”</li>
+</ul>
+<p>** Executing…<br>
+** Command: “d:\steam\valve\steam\steamapps\fragnbrag\sourcesdk\bin\source2007\bin\vrad.exe”<br>
+** Parameters:  -game “d:\steam\valve\steamapps\sourcemods\BMS” “D:\Steam\VALVE\SteamApps\SourceMods\BMS\maps\tes6”</p>
+<ul>
+<li>Could not execute the command:<br>
+“d:\steam\valve\steam\steamapps\fragnbrag\sourcesdk\bin\source2007\bin\vrad.exe”  -game “d:\steam\valve\steamapps\sourcemods\BMS” “D:\Steam\VALVE\SteamApps\SourceMods\BMS\maps\tes6”</li>
+<li>Windows gave the error message:<br>
+“Access is denied.”</li>
+</ul>
+<p>** Executing…<br>
+** Command: Copy File<br>
+** Parameters: “D:\Steam\VALVE\SteamApps\SourceMods\BMS\maps\tes6.bsp” “d:\steam\valve\steamapps\sourcemods\BMS\maps\tes6.bsp”</p>
+<p>** Executing…<br>
+** Command: D:\Steam\VALVE\steam.exe<br>
+** Parameters: -applaunch 218 -game “d:\steam\valve\steamapps\sourcemods\BMS”  +map “tes6”</p>
+<p>[/i]</p>
+<p>And the only thing that is produced in the folder is “tes6.vmf”. Nothing else.<br>
+I have copied old maps from a previous PC that have a .bsp and .vmf file and they load and run flawlessly.</p>
+<p>Here is the Gameconfig I copied from the aforementioned SDK setup thread:<br>
+<span class="bbcode-i">“Configs”<br>
+{<br>
+“Games”<br>
+{<br>
+“Black Mesa”<br>
+{<br>
+“GameDir”		“d:\steam\valve\steamapps\sourcemods\BMS”<br>
+“hammer”<br>
+{<br>
+“GameData0”		“d:\steam\valve\steamapps\sourcemods\BMS\bms.fgd”<br>
+“TextureFormat”		“5”<br>
+“MapFormat”		“4”<br>
+“DefaultTextureScale”		“0.250000”<br>
+“DefaultLightmapScale”		“16”<br>
+“GameExe”		“d:\steam\valve\steamapps\fragnbrag\half-life 2\hl2.exe”<br>
+“DefaultSolidEntity”		“func_detail”<br>
+“DefaultPointEntity”		“info_player_start”<br>
+“BSP”		“d:\steam\valve\steam\steamapps\fragnbrag\sourcesdk\bin\source2007\bin\vbsp.exe”<br>
+“Vis”		“d:\steam\valve\steam\steamapps\fragnbrag\sourcesdk\bin\source2007\bin\vvis.exe”<br>
+“Light”		“d:\steam\valve\steam\steamapps\fragnbrag\sourcesdk\bin\source2007\bin\vrad.exe”<br>
+“GameExeDir”		“d:\steam\valve\steamapps\fragnbrag\half-life 2”<br>
+“MapDir”		“d:\steam\valve\steamapps\sourcemods\BMS\maps”<br>
+“BSPDir”		“d:\steam\valve\steamapps\sourcemods\BMS\maps”<br>
+“CordonTexture”		“tools\toolsskybox”<br>
+“MaterialExcludeCount”		“0”<br>
+}<br>
+}<br>
+}<br>
+“SDKVersion”		“3”<br>
+}<br>
+</span></p>
+<p>Any and all help would be greatly appreciated. Thanks in advance.</p>
+          <p><a href="https://leakfree.org/t/modern-sdk-for-bm/13593/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/modern-sdk-for-bm/13593/1</link>
+        <pubDate>Tue, 09 Dec 2014 05:57:27 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13593-1</guid>
+        <source url="https://leakfree.org/t/modern-sdk-for-bm/13593.rss">Modern SDK for BM?</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/decompiling-black-mesa-maps/15217 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:15:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Decompiling Black Mesa Maps - Source 1 - Leakfree</title>
+    <meta name="description" content="I had some significant reservations about posting on this topic publicly, but I’ve concluded that I will not be the only person ever to realize it could be done and more to the point I’m offering a workaround for somethi&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="15217.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Decompiling Black Mesa Maps&#39;" href="15217.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/decompiling-black-mesa-maps/15217" />
+<meta name="twitter:url" content="https://leakfree.org/t/decompiling-black-mesa-maps/15217" />
+<meta property="og:title" content="Decompiling Black Mesa Maps" />
+<meta name="twitter:title" content="Decompiling Black Mesa Maps" />
+<meta property="og:description" content="I had some significant reservations about posting on this topic publicly, but I’ve concluded that I will not be the only person ever to realize it could be done and more to the point I’m offering a workaround for something (namely, providing up-to-date sources for all all areas of the game) that the developers have stated they themselves plan to do but are understandably too busy to bother with at the moment. That said, please be polite in your decompiling adventures.  The information below is o..." />
+<meta name="twitter:description" content="I had some significant reservations about posting on this topic publicly, but I’ve concluded that I will not be the only person ever to realize it could be done and more to the point I’m offering a workaround for something (namely, providing up-to-date sources for all all areas of the game) that the developers have stated they themselves plan to do but are understandably too busy to bother with at the moment. That said, please be polite in your decompiling adventures.  The information below is o..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="5 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="1 ❤" />
+<meta property="article:published_time" content="2017-07-09T02:24:00+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="15217.html">Decompiling Black Mesa Maps</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/7.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>General Development</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/source-1/43.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #ED207B'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Source 1</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15217.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-07-09T02:24:00Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:05:30Z' class='post-time'>
+                November 25, 2018,  5:05am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I had some significant reservations about posting on this topic publicly, but I’ve concluded that I will <span class="bbcode-i">not</span> be the only person ever to realize it could be done and more to the point I’m offering a workaround for something (namely, providing up-to-date sources for all all areas of the game) that the developers have stated they themselves plan to do but are understandably too busy to bother with at the moment. That said, please be <a href="https://developer.valvesoftware.com/wiki/Decompiling_Maps" data-bbcode="true" rel="nofollow noopener">polite</a> in your decompiling adventures.</p>
+<p>The information below is out-of-date. Check lower in the thread for a version of the decompiler made by Flavrans which does not need the workaround described below.</p>
+<p>Getting a Decompiled Map [/size]</p>
+<ul>
+<li>
+<p>The actual maps which Black Mesa runs need to be extracted from the vpk files like any other game asset. This can be done by dragging bms_maps_dir.vpk over the vpk.exe program stored in the game’s ‘bin’ folder.</p>
+</li>
+<li>
+<p>You will need ata4’s bspsrc utility. The current best (only?) place to get it is from <a href="https://github.com/ata4/bspsrc/releases" data-bbcode="true" rel="nofollow noopener">the releases section of the author’s github page</a>.</p>
+</li>
+<li>
+<p>Unzip and run bspsrc.bat.</p>
+</li>
+<li>
+<p>Leave the advanced compilation options as defaults.</p>
+</li>
+<li>
+<p>Add as many maps as you want and decompile. The program will throw a number of “invalid vector” errors.</p>
+</li>
+<li>
+<p>This will produce decompiled VMFs with some bad data in them that will cause Hammer to crash if opened directly.<br>
+Making A Decompiled Map Functional[/size]</p>
+</li>
+<li>
+<p>In order to make the VMFs you created up above work, you will need to open them in a text editor like Notepad and remove a block of bad data.</p>
+</li>
+<li>
+<p>The data you are looking for are a bunch of spurious lighting origins lumped together near the bottom of the file. They take the form of blocks like this:<br>
+[tt]entity[/tt]<br>
+[tt]{[/tt][tt]    “id” “”[/tt][tt]    “classname” “info_lighting”[/tt][tt]    “targetname” “sprp_lighting_”[/tt][tt]    “origin” “”[/tt][tt]}[/tt]<br>
+The coordinates in the origin are occasionally something absurd like “0 0 103161719131765890000000000”- it’s these Very Large Numbers that break Hammer when the map is loaded. However, <span class="bbcode-i">all</span> of these lighting origins will cause the props they are connected to to light improperly, and will likely be in a place that will cause map leaks, so there’s nothing to be gained by only deleting the weird ones.</p>
+</li>
+<li>
+<p>There are typically several hundred of these entites (Gasworks has nearly two thousand!) but since they are all in a row and the decompiler never includes any “legitimate” lighting origins you can just find the first one, find the last one, select everything in between, and delete.</p>
+</li>
+<li>
+<p>The map can now be opened in Hammer, but I find that the reconstructed optimization (areaportals, occluders, and hint brushes) almost universally have an extremely negative effect on both compile time and in-game performance, and may cause compile errors. So, I typically use the ‘auto’ visgroups to hide everything except for those three categories, select the entire map area, and delete all of it. This makes a map that is barely playable and will take a long time to compile, but it’s better than nothing and you can fill in at least basic optimization yourself.</p>
+</li>
+<li>
+<p>Very rarely other elements may be decompiled in a way that causes errors; it’s typically possible to just delete them and make new ones that look the same.</p>
+</li>
+<li>
+<p>If you’re looking to update one of the maps like the outdoor ones that only have had new static props added since the official VMF release, you are probably better off just using hammer’s “entity report” or visgroup functionality to delete every prop_static from the official map, select every prop_static from a decompiled map, and copy them over. This will let you use the new props with the original optimization.</p>
+</li>
+</ul>
+        </div>
+
+        <meta itemprop='headline' content='Decompiling Black Mesa Maps'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/_I-M_Taz.html'><span itemprop='name'>_I-M_Taz</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15217.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-07-13T14:49:28Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:05:46Z' class='post-time'>
+                November 25, 2018,  5:05am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>so the vmf’s that were release some time ago in the mapsrc folder don’t get redownloaded if you had to do a clean install of the game ?</p>
+        </div>
+
+        <meta itemprop='headline' content='Decompiling Black Mesa Maps'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15217.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-07-13T16:25:34Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:05:46Z' class='post-time'>
+                November 25, 2018,  5:05am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>They most certainly do, the thing is they are not the most recent ones- they are from before the STU update.</p>
+        </div>
+
+        <meta itemprop='headline' content='Decompiling Black Mesa Maps'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Flavrans.html'><span itemprop='name'>Flavrans</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15217.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-07-19T12:43:52Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:05:53Z' class='post-time'>
+                November 25, 2018,  5:05am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The current version of bspsrc can’t properly read the static prop structure in Black Mesa’s BSP format. The version of the static prop structure in Black Mesa’s BSP format is identified as V11, which isn’t supported by bspsrc, and as a result, it falls back to reading the static prop structure as a V4 structure. This works for reading some of the static prop data, but fails from the point where the two structure versions are different and it will interpret the rest of the data incorrectly. That’s what’s causing the erroneous data like the spurious lighting origins and invalid numbers that cause Hammer to crash.</p>
+<p>I’ve made some modifications to the source code of bspsrc to add support for Black Mesa’s V11 static prop structure, and I think it’s working perfectly now. Decompiled maps can be opened in Hammer without crashing it, and the lighting origins should be correct and other settings should be present in the static prop data. But I need to test it some more. There’s one piece of data in the static prop structure that I’ve ignored, and that’s the DiffuseModulation struct member. This corresponds to the “rendercolor” and “renderamt” settings in the .VMF. Hammer will apply the color to the static prop in the 3D view, but you can’t edit the settings in the prop’s properties, and it doesn’t appear to be rendered in-game.</p>
+<p>If anyone wants to try/test my version of bspsrc, it’s available for download below along with the modified source code.</p>
+<p><span class="bbcode-b">EDIT 2017-07-22:</span></p>
+<p>Uploaded new version. Changes:</p>
+<ul>
+<li>Fixed buggy handling of V10 structs. Cleaned up V11 struct code so that it now extends V10.<br>
+Other notes:</li>
+</ul>
+<p>BM’s V11 static prop struct also supports <a href="https://tf2maps.net/threads/guide-prop-lightmaps.24682/" data-bbcode="true" rel="nofollow noopener">prop lightmaps</a> settings, but they don’t appear to be handled by BM’s vbsp.exe, i.e., the flag that enables it and the Lightmap Resolution X and Y don’t get written to the .BSP.</p>
+<p><span class="bbcode-b">EDIT 2017-12-31:</span></p>
+<p>New version. Changes:</p>
+<ul>
+<li>Added support for the newer V11 prop_static structure format found in the Black Mesa December 2017 Update while maintaining support for the older V11 structure found in surface-tension-update(cu3) and halloween-update(cu4), as well as the V10 structure found in the crossfire-update(cu2) (and likely in older releases). The new structure contains an additional (32-bit) integer (m_FlagsEx) which use is currently unknown, and this data will therefore not be processed by BSPSource.</li>
+<li>Changed fallback mechanism for unknown static prop lumps so that it falls back to v4 only if the static prop lump version is &lt; 10. If it’s &gt;= 10 it will fall back to v10.</li>
+<li>Added code to sort the list in the BSP format combobox alphabetically for easier selection.</li>
+<li>Updated file pattern for Black Mesa in the app database to include ‘i’ maps, eg., bm_c3a2i, and added some new entities to improve auto detection of current and future Black Mesa map files.</li>
+<li>Added support for displacement surface flags (No Physics Collision, No Hull Collision, No Ray Collision) based on a patch by jason-e.</li>
+</ul>
+<p>Download[/size][/size][/size]<br>
+<a href="https://drive.google.com/open?id=16f2xyAv13ae4grBpbCfYzv_2y1Zby75I" data-bbcode="true" rel="nofollow noopener">bspsrc_1.3.23_bmfix_r4.zip</a> | <a href="https://drive.google.com/open?id=19BgMp-Q-4fGKG0ADa08BYVSwoKGpyITp" data-bbcode="true" rel="nofollow noopener">Source code (zip)</a></p>
+<p>Previous version:<br>
+<a href="https://drive.google.com/open?id=0B_rjs74WOPM3R2xlWTk2TkdUaW8" data-bbcode="true" rel="nofollow noopener">bspsrc_1.3.23_bmfix_r3.zip</a> | <a href="https://drive.google.com/open?id=0B_rjs74WOPM3bDVfelFPZE5EMlE" data-bbcode="true" rel="nofollow noopener">Source code (zip)</a><br>
+[/size]</p>
+        </div>
+
+        <meta itemprop='headline' content='Decompiling Black Mesa Maps'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Super_Ninja_Fat.html'><span itemprop='name'>Super_Ninja_Fat</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15217.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-10-30T01:40:56Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:07:42Z' class='post-time'>
+                November 25, 2018,  5:07am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Ummm for some reason bspsrc_1.3.23 won’t work, even the bmfix version. As soon as I hit the “decompile” button, the program crashes and leaves an error log. Anyone else getting this problem?   <img src="../../images/emoji/twitter/frowningc164.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"><br>
+Oddly enough, it worked just fine for me over the summer. Maybe I’m forgetting to do a step…</p>
+        </div>
+
+        <meta itemprop='headline' content='Decompiling Black Mesa Maps'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Flavrans.html'><span itemprop='name'>Flavrans</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15217.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-10-30T16:00:17Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:41:47Z' class='post-time'>
+                August 11, 2020, 11:41am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Super Ninja Fat">
+<div class="title">
+<div class="quote-controls"></div>
+ Super Ninja Fat:</div>
+<blockquote>
+<p>Ummm for some reason bspsrc_1.3.23 won’t work, even the bmfix version. As soon as I hit the “decompile” button, the program crashes and leaves an error log. Anyone else getting this problem?   <img src="../../images/emoji/twitter/frowningc164.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"><br>
+Oddly enough, it worked just fine for me over the summer. Maybe I’m forgetting to do a step…</p>
+</blockquote>
+</aside>
+<p>Does it crash with any .bsp, or just one specifically? Which version of the Java runtime is installed on your system? (Click the Windows Start Menu button and type “About Java” and then click it/press Enter to see the installed version number.) Perhaps an update broke it. The version I’m using is 8u151, but the latest is 9.0.1. If you are on 9.0.1, then you could try downgrading to 8u151 and see if that works (<a href="https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html" data-bbcode="true" rel="nofollow noopener">available here</a>).</p>
+<p>EDIT: I tried running bspsrc 1.3.23 (orig. and bmfix) under JRE-9.0.1, and didn’t experience any crashes (decompiling some stock BM maps). So, that’s probably not it.</p>
+        </div>
+
+        <meta itemprop='headline' content='Decompiling Black Mesa Maps'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Super_Ninja_Fat.html'><span itemprop='name'>Super_Ninja_Fat</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15217.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-10-30T20:06:29Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:41:47Z' class='post-time'>
+                August 11, 2020, 11:41am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Flavrans">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/flavrans/40/4375_2.jpg" class="avatar"> Flavrans:</div>
+<blockquote>
+<aside class="quote no-group" data-username="Super Ninja Fat">
+<div class="title">
+<div class="quote-controls"></div>
+ Super Ninja Fat:</div>
+<blockquote>
+<p>Ummm for some reason bspsrc_1.3.23 won’t work, even the bmfix version. As soon as I hit the “decompile” button, the program crashes and leaves an error log. Anyone else getting this problem?   <img src="../../images/emoji/twitter/frowningc164.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"><br>
+Oddly enough, it worked just fine for me over the summer. Maybe I’m forgetting to do a step…</p>
+</blockquote>
+</aside>
+<p>Does it crash with any .bsp, or just one specifically? Which version of the Java runtime is installed on your system? (Click the Windows Start Menu button and type “About Java” and then click it/press Enter to see the installed version number.) Perhaps an update broke it. The version I’m using is 8u151, but the latest is 9.0.1. If you are on 9.0.1, then you could try downgrading to 8u151 and see if that works (<a href="https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html" data-bbcode="true" rel="nofollow noopener">available here</a>).<br>
+EDIT: I tried running bspsrc 1.3.23 (orig. and bmfix) under JRE-9.0.1, and didn’t experience any crashes (decompiling some stock BM maps). So, that’s probably not it.</p>
+</blockquote>
+</aside>
+<p>Any .bsp file. I’ve installed the latest version of java. For some reason, About Java isn’t working right now (I’ll check it again later) but I think it’s 9.0.1. So yeah I’ll just try downgrading. Thanks!</p>
+        </div>
+
+        <meta itemprop='headline' content='Decompiling Black Mesa Maps'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Flavrans.html'><span itemprop='name'>Flavrans</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15217.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-26T15:33:24Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:09:25Z' class='post-time'>
+                November 25, 2018,  5:09am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>FYI, the <a href="https://forums.blackmesasource.com/index.php/Thread/43132-Steam-Sale-December-Update-and-Patch-Notes/?postID=645327#post645327" data-bbcode="true" rel="nofollow noopener">December Update</a> (aka. the Xengine Update) broke BSPSource again, including my version which included a fix to handle Black Mesa’s static prop lump.</p>
+<p>The format of the static prop lump has been changed again, thus causing the same problem as before. I’m looking into it and I’ll see if I can patch BSPSource again to handle the new format if/when I find some time.</p>
+        </div>
+
+        <meta itemprop='headline' content='Decompiling Black Mesa Maps'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Flavrans.html'><span itemprop='name'>Flavrans</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15217.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-31T07:43:51Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:09:30Z' class='post-time'>
+                November 25, 2018,  5:09am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’ve built a new version of bspsrc-bmfix which adds support for the new V11 prop_static structure. See my <a href="https://forums.blackmesasource.com/index.php/Thread/30772-Decompiling-Black-Mesa-Maps/?postID=630253#post630253" data-bbcode="true" rel="nofollow noopener">first post</a> in this thread for download links and changelog.</p>
+<p>So, the static prop lump found in the December update map files is still identifying itself as version 11, like in cu3 and cu4, but has grown by four bytes (from 76 to 80 bytes) compared to the earlier version of the structure. The four additional bytes are used by a new struct member called m_FlagsEx (a 32-bit integer), which I have no idea what is being used for. In the few maps I’ve checked it’s just set to 0 and there’s nothing in the .fgd’s that might shed some light on what it’s supposed to be used for. Perhaps it’s something to do with the upcoming improved prop lighting feature (as mentioned in the December update announcement).</p>
+<p>I’ve just made sure that BSPSource is able to detect the format and able to read the rest of the relevant data from the structure properly.</p>
+<aside class="quote no-group" data-username="Revvylo">
+<div class="title">
+<div class="quote-controls"></div>
+ Revvylo:</div>
+<blockquote>
+<p>Still works for me. I managed to decompile bm_c2a4h_d from the public beta.</p>
+</blockquote>
+</aside>
+<p>Yes, the decompilation would appear to finish successfully, but you would see the following messages in the errors &amp; warnings box:</p>
+<p><code>[warning] BspFileReader: Static prop struct size mismatch: expected 80, got 76 (using DStaticPropV11)
+[warning] BspFileReader: Falling back to static prop v4</code>This means that static props have been read incorrectly, and will have some properties that will likely be wrong. Most if not all static props will have an invalid lighting origin defined, even if they are not supposed to have a lighting origin, and those that <span class="bbcode-i">are</span> supposed to, will have lighting origin coordinates filled with invalid numbers that might crash Hammer upon opening the .vmf. This has now been fixed in my new build of bspsrc-bmfix.</p>
+        </div>
+
+        <meta itemprop='headline' content='Decompiling Black Mesa Maps'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TJHL.html'><span itemprop='name'>TJHL</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15217.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2018-05-02T00:31:04Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:11:05Z' class='post-time'>
+                November 25, 2018,  5:11am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This doesn’t work for me. When i launch the .bat, an error pops up saying "Windows cannot find ‘javaw’ ".</p>
+        </div>
+
+        <meta itemprop='headline' content='Decompiling Black Mesa Maps'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Flavrans.html'><span itemprop='name'>Flavrans</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15217.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2018-05-02T17:16:24Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:43:03Z' class='post-time'>
+                August 11, 2020, 11:43am
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="TJHL">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/tjhl/40/4870_2.png" class="avatar"> TJHL:</div>
+<blockquote>
+<p>This doesn’t work for me. When i launch the .bat, an error pops up saying "Windows cannot find ‘javaw’ ".</p>
+</blockquote>
+</aside>
+<p>You need to download and install the Java SE Runtime Environment:</p>
+<p><a href="https://www.oracle.com/technetwork/java/javase/downloads/jre10-downloads-4417026.html" data-bbcode="true" rel="nofollow noopener">https://www.oracle.com/technetwork/java/javase/downloads/jre10-downloads-4417026.html</a></p>
+<p>The modified version of bspsrc I posted in this thread was built in a Java 8 environment. If there’s a problem with running bspsrc under JRE 10, uninstall the JRE 10 and try the JRE 8 (8u171) instead:</p>
+<p><a href="https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html" data-bbcode="true" rel="nofollow noopener">https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html</a></p>
+        </div>
+
+        <meta itemprop='headline' content='Decompiling Black Mesa Maps'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TJHL.html'><span itemprop='name'>TJHL</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15217.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2018-05-02T22:43:38Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:11:06Z' class='post-time'>
+                November 25, 2018,  5:11am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Solved, but new problem. After the unpacking (valve side), i cant find the files to de-compile (3rd party side). As soon as vpk finishes, it closes.</p>
+        </div>
+
+        <meta itemprop='headline' content='Decompiling Black Mesa Maps'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15217.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2018-05-02T23:59:59Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:11:07Z' class='post-time'>
+                November 25, 2018,  5:11am
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>VPK should dump the unpacked folder into the same directory as the VPK. For instance, bms_maps_dir.vpk will make a folder called bms_maps_dir right next to itself.</p>
+        </div>
+
+        <meta itemprop='headline' content='Decompiling Black Mesa Maps'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Flavrans.html'><span itemprop='name'>Flavrans</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15217.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-09-18T17:45:43Z' class='post-time'>
+                September 18, 2019,  5:45pm
+              </time>
+              <meta itemprop='dateModified' content='2019-09-18T17:45:43Z'>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I have released a new <em><strong>unofficial</strong></em> build of BSPSource built from the codebase in my <a href="https://github.com/flavrans/bspsrc" rel="nofollow noopener">forked repository on github</a>.</p>
+<p>You can download it from the releases section of my repository: <a href="https://github.com/flavrans/bspsrc/releases" rel="nofollow noopener">https://github.com/flavrans/bspsrc/releases</a></p>
+<p>This version is based on the latest commit by the original author from December 10, 2018. I have merged a number of patches by a github user named gitRihi into it, which add several fixes and improvements. Two of of note are: 1) a rewrite of the areaportal and occluder mapping code, 2) fix for blocklight tool textures, which would appear as nodraw textures in previous versions.</p>
+<p>In addition to the aforementioned patches, there are also a few minor fixes of my own. One of the fixes ensures support for static prop lumps across all versions of Black Mesa. Another fix worth mentioning is a feature that fixes the alignment of tool textures. All tool textures will be realigned on their brush faces (by emulating Hammer’s face alignment method.) This fixes the issue with some tool textures appearing weirdly scaled and distorted in the decompiled map. The reason this happens is because the texture axis (UV) information is not preserved in the BSP, and what is stored in the BSP often results in invalid or nonsensical UVs. This is not surprising as texture alignment on tool brushes is completely irrelevant to the engine.</p>
+<p>A full changelog is on the release page.</p>
+<p>It is also worth noting that with this version of BSPSource, the decompiled bm_c2a5a and bm_c2a5h maps no longer causes Hammer to crash upon loading the VMF’s.</p>
+        </div>
+
+        <meta itemprop='headline' content='Decompiling Black Mesa Maps'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/decompiling-black-mesa-maps/15217 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:15:07 GMT -->
+</html>

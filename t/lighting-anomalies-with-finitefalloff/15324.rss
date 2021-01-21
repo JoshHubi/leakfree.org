@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Lighting Anomalies With -finitefalloff</title>
+    <link>https://leakfree.org/t/lighting-anomalies-with-finitefalloff/15324</link>
+    <description>I&#39;ve been seeing some very weird behavior with prop and NPC lighting where the lighting origins appear to be displaced spatially- sometimes I get very dim props in otherwise bright areas, and more commonly the converse:
+[img]https://steamuserimages-a.akamaihd.net/ugc/913535663943509578/709649ADC63210277767E6DC28A2D414E00EAA50/[/img]
+
+I did a little experimenting with copy machines in identical lighting conditions (static props since they have more controllable parameters; looking at actual levels it seems static props, dynamic/physics props, and NPCs are all lit similarly), as well as the copy machine texture on a brush, and it looks like all props are indeed being lit brighter than corresponding brush textures but there is also some sort of position-dependant &#39;displacement&#39; effect that partially cancels this out (notice how the copy machine on the end is lit much more similarly to the brush than the others). An alternative possibility is that the location-based offset is just affecting all props, but why would it move them all [i]closer[/i] to lights?
+[img]https://steamuserimages-a.akamaihd.net/ugc/913535663943582069/375E59F13F4F5C0387A749C36E363B4F652984FE/[/img]
+[img]https://steamuserimages-a.akamaihd.net/ugc/913535663943582459/477E8E92FDA6DBC84D6D35D692EC9FACDF8258AF/[/img]
+
+Setting the compile options to &quot;final&quot; makes the offset issue much less noticeable, but does not [i]seem[/i] to remove it completely. It also does not seem to affect the brighter-than-brush issue:
+[img]https://steamuserimages-a.akamaihd.net/ugc/913535663943587791/2120ED59EC381478F82432679F9749134EF94DCB/[/img]
+
+
+Additionally, textures with self-illumination or unlitgeneric shaders (computer screens, most lights) appear extremely bright, but this has been an issue ever since the early days of the CSM update. Another minor thing is that the &#39;minimum ambient lighting&#39; parameter on func_brush entities is no longer functional.</description>
+    
+    <lastBuildDate>Wed, 17 Jan 2018 01:34:31 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/lighting-anomalies-with-finitefalloff/15324.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Lighting Anomalies With -finitefalloff</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>That’s probably because no map in the game is compiled with -finitefalloff. It’s kind of an odd thing to include, actually, since I’m the only one who seems at all interested in doing anything that would use it.</p>
+          <p><a href="https://leakfree.org/t/lighting-anomalies-with-finitefalloff/15324/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/lighting-anomalies-with-finitefalloff/15324/4</link>
+        <pubDate>Wed, 17 Jan 2018 01:34:31 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15324-4</guid>
+        <source url="https://leakfree.org/t/lighting-anomalies-with-finitefalloff/15324.rss">Lighting Anomalies With -finitefalloff</source>
+      </item>
+      <item>
+        <title>Lighting Anomalies With -finitefalloff</title>
+        <dc:creator><![CDATA[Johnwalter]]></dc:creator>
+        <description><![CDATA[
+            <p>Interesting.</p>
+<p>Although, i can’t say i saw anything like this in-game.</p>
+          <p><a href="https://leakfree.org/t/lighting-anomalies-with-finitefalloff/15324/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/lighting-anomalies-with-finitefalloff/15324/3</link>
+        <pubDate>Tue, 16 Jan 2018 19:08:27 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15324-3</guid>
+        <source url="https://leakfree.org/t/lighting-anomalies-with-finitefalloff/15324.rss">Lighting Anomalies With -finitefalloff</source>
+      </item>
+      <item>
+        <title>Lighting Anomalies With -finitefalloff</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve narrowed the problem down to certain lights with extreme falloff values accidentally created in the original map and copied over to the test map; these are basically a hackish way of invoking the ‘finitefalloff’ VRAD argument. With this enabled (or the previous iteration of lights with very small 50% falloff distances set) props but not brushes show a very obvious ‘checkerboard’ effect at the edge of the light falloff distance- it looks like the light value is becoming extremely high at that point and then rolling over to 0:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/928172965696939325/AB7F532CC86B80999B81EEC9240A0A54679BB323/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/928172965696939325/AB7F532CC86B80999B81EEC9240A0A54679BB323/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/928172965696939715/4482BCC79F4EE2D7A5EFE389A32192BE538AB34C/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/928172965696939715/4482BCC79F4EE2D7A5EFE389A32192BE538AB34C/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+          <p><a href="https://leakfree.org/t/lighting-anomalies-with-finitefalloff/15324/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/lighting-anomalies-with-finitefalloff/15324/2</link>
+        <pubDate>Mon, 15 Jan 2018 17:52:49 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15324-2</guid>
+        <source url="https://leakfree.org/t/lighting-anomalies-with-finitefalloff/15324.rss">Lighting Anomalies With -finitefalloff</source>
+      </item>
+      <item>
+        <title>Lighting Anomalies With -finitefalloff</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve been seeing some very weird behavior with prop and NPC lighting where the lighting origins appear to be displaced spatially- sometimes I get very dim props in otherwise bright areas, and more commonly the converse:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/913535663943509578/709649ADC63210277767E6DC28A2D414E00EAA50/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/913535663943509578/709649ADC63210277767E6DC28A2D414E00EAA50/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>I did a little experimenting with copy machines in identical lighting conditions (static props since they have more controllable parameters; looking at actual levels it seems static props, dynamic/physics props, and NPCs are all lit similarly), as well as the copy machine texture on a brush, and it looks like all props are indeed being lit brighter than corresponding brush textures but there is also some sort of position-dependant ‘displacement’ effect that partially cancels this out (notice how the copy machine on the end is lit much more similarly to the brush than the others). An alternative possibility is that the location-based offset is just affecting all props, but why would it move them all <span class="bbcode-i">closer</span> to lights?<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/913535663943582069/375E59F13F4F5C0387A749C36E363B4F652984FE/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/913535663943582069/375E59F13F4F5C0387A749C36E363B4F652984FE/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/913535663943582459/477E8E92FDA6DBC84D6D35D692EC9FACDF8258AF/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/913535663943582459/477E8E92FDA6DBC84D6D35D692EC9FACDF8258AF/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Setting the compile options to “final” makes the offset issue much less noticeable, but does not <span class="bbcode-i">seem</span> to remove it completely. It also does not seem to affect the brighter-than-brush issue:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/913535663943587791/2120ED59EC381478F82432679F9749134EF94DCB/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/913535663943587791/2120ED59EC381478F82432679F9749134EF94DCB/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Additionally, textures with self-illumination or unlitgeneric shaders (computer screens, most lights) appear extremely bright, but this has been an issue ever since the early days of the CSM update. Another minor thing is that the ‘minimum ambient lighting’ parameter on func_brush entities is no longer functional.</p>
+          <p><a href="https://leakfree.org/t/lighting-anomalies-with-finitefalloff/15324/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/lighting-anomalies-with-finitefalloff/15324/1</link>
+        <pubDate>Tue, 09 Jan 2018 16:21:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15324-1</guid>
+        <source url="https://leakfree.org/t/lighting-anomalies-with-finitefalloff/15324.rss">Lighting Anomalies With -finitefalloff</source>
+      </item>
+  </channel>
+</rss>

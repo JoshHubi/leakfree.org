@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>UnlitTwoTexture Not Working in Left 4 Dead</title>
+    <link>https://leakfree.org/t/unlittwotexture-not-working-in-left-4-dead/6621</link>
+    <description>ok, I don&#39;t know much on programming. I am using someones code that was working in Half-Life 2. I tried importing it into Left 4 Dead and I get the following error...
+
+Material **** does not support vertex format used by the mesh (maybe missing fields or mismatched vertex compression?), mesh will not be rendered. Grab a programmer!
+
+So I&#39;m here to Grab a programmer I guess.
+
+Now by what I found out.
+
+UnlitTwoTexture Shader does not work well by what valve developer site told me. But they did not including any other information on how to get it to work another way. They hint it but I still don&#39;t know.
+
+Valve Hinting it? &gt; [url=&#39;https://developer.valvesoftware.com/wiki/Talk:UnlitTwoTexture&#39;]developer.valvesoftware.com[/url]
+
+and...
+
+[url=&#39;https://developer.valvesoftware.com/wiki/UnlitTwoTexture&#39;]developer.valvesoftware.com[/url]
+
+UnlitTwoTexture = Two textures are mixed evenly and appear at full brightness. 
+
+Anyways, below is the code for the material file. Hopefully someone can help me to get this to work?  Sense I know nothing about it.
+
+I am basically making a hologram like display with no quality loss and this method below seems to work in HL2, unless there is another method that is fast and easy. 
+
+The Material is tied to the model.
+[code]
+&quot;UnlitTwoTexture_DX6&quot;
+{
+	&quot;$basetexture&quot; &quot;game/Models/doors/gui/gui_locked_restore_power&quot;
+	&quot;$surfaceprop&quot; &quot;glass&quot;
+	&quot;$texture2&quot;	&quot;dev/dev_scanline&quot;
+	&quot;$vertexcolor&quot; 1
+
+	&quot;$model&quot;		1
+	&quot;$additive&quot;	1
+	&quot;$nocull&quot;		1
+
+	&quot;$one&quot;		1
+	&quot;$zero&quot;		0
+	&quot;$temp&quot;		0
+	&quot;$texoffset&quot;	&quot;[0 0]&quot;
+	&quot;$texscale&quot;	.25
+	&quot;$tex2offset&quot;	&quot;[0 0]&quot;
+	&quot;$tex2scale&quot;	0
+
+	&quot;$a_b_halfwidth&quot; 	0.1
+	&quot;$a_b_noise&quot;		0
+
+	&quot;$a_s_halfwidth&quot; 	0.025
+	&quot;$a_s_noise&quot;		0
+
+	&quot;$a_t_halfwidth&quot; 	0.00
+	&quot;$a_threshold&quot;		0.7
+
+	&quot;$alpha_bias&quot;		0.2
+
+//
+	&quot;$j_b_halfwidth&quot; 	2
+	&quot;$j_b_noise&quot;		0
+
+	&quot;$j_s_halfwidth&quot; 	0.05
+	&quot;$j_s_noise&quot;		0
+
+	&quot;$j_t_halfwidth&quot; 	0.25
+	&quot;$j_threshold&quot;		3
+
+	&quot;$j_basescale&quot;		2
+
+//
+	&quot;$xo_b_halfwidth&quot; 	0.035
+	&quot;$xo_b_noise&quot;		0
+
+	&quot;$xo_s_halfwidth&quot; 	0.001
+	&quot;$xo_s_noise&quot;		0
+
+	&quot;$xo_t_halfwidth&quot; 	0.0
+	&quot;$xo_threshold&quot;		0.1
+
+
+
+
+	&quot;Proxies&quot;
+	{
+
+		&quot;Sine&quot;
+		{
+			&quot;resultVar&quot; &quot;$color[0]&quot;
+			&quot;sineperiod&quot; 1
+			&quot;sinemin&quot; .9
+			&quot;sinemax&quot; .9
+		}
+		&quot;Sine&quot;
+		{
+			&quot;resultVar&quot; &quot;$color[1]&quot;
+			&quot;sineperiod&quot; .01
+			&quot;sinemin&quot; .9
+			&quot;sinemax&quot; 1
+		}
+
+
+
+
+//		alpha noise
+
+		&quot;GaussianNoise&quot;
+		{
+			&quot;mean&quot;	&quot;$zero&quot;
+			&quot;halfwidth&quot;	&quot;$a_b_halfwidth&quot;
+			&quot;resultVar&quot;	&quot;$a_b_noise&quot;
+		}
+		&quot;Abs&quot;
+		{
+			&quot;srcVar1&quot;	&quot;$a_b_noise&quot;
+			&quot;resultVar&quot;	&quot;$a_b_noise&quot;
+		}
+		&quot;Subtract&quot;
+		{
+			&quot;srcvar1&quot;	&quot;$one&quot;
+			&quot;srcvar2&quot;	&quot;$a_b_noise&quot;
+			&quot;resultvar&quot;	&quot;$a_b_noise&quot;
+		}
+		&quot;GaussianNoise&quot;
+		{
+			&quot;mean&quot;	&quot;$zero&quot;
+			&quot;halfwidth&quot;	&quot;$a_s_halfwidth&quot;
+			&quot;resultVar&quot;	&quot;$a_s_noise&quot;
+		}
+		&quot;Abs&quot;
+		{
+			&quot;srcVar1&quot;	&quot;$a_s_noise&quot;
+			&quot;resultVar&quot;	&quot;$a_s_noise&quot;
+		}
+		&quot;Subtract&quot;
+		{
+			&quot;srcvar1&quot;	&quot;$one&quot;
+			&quot;srcvar2&quot;	&quot;$a_s_noise&quot;
+			&quot;resultvar&quot;	&quot;$a_s_noise&quot;
+		}
+		&quot;GaussianNoise&quot;
+		{
+			&quot;mean&quot;	&quot;$a_threshold&quot;
+			&quot;halfwidth&quot;	&quot;$a_t_halfwidth&quot;
+			&quot;resultVar&quot;	&quot;$a_threshold&quot;
+		}
+		&quot;LessOrEqual&quot;
+		{
+			&quot;srcVar1&quot;	&quot;$a_b_noise&quot;
+			&quot;srcVar2&quot;	&quot;$a_threshold&quot;
+			&quot;lessEqualVar&quot;	&quot;$a_b_noise&quot;
+			&quot;greaterVar&quot;	&quot;$a_s_noise&quot;
+			&quot;resultVar&quot;	&quot;$temp&quot;
+		}
+
+
+
+//		interlace noise
+
+
+		&quot;GaussianNoise&quot;
+		{
+			&quot;mean&quot;	&quot;$zero&quot;
+			&quot;halfwidth&quot;	&quot;$j_b_halfwidth&quot;
+			&quot;resultVar&quot;	&quot;$j_b_noise&quot;
+		}
+		&quot;GaussianNoise&quot;
+		{
+			&quot;mean&quot;	&quot;$zero&quot;
+			&quot;halfwidth&quot;	&quot;$j_s_halfwidth&quot;
+			&quot;resultVar&quot;	&quot;$j_s_noise&quot;
+		}
+		&quot;GaussianNoise&quot;
+		{
+			&quot;mean&quot;	&quot;$j_threshold&quot;
+			&quot;halfwidth&quot;	&quot;$j_t_halfwidth&quot;
+			&quot;resultVar&quot;	&quot;$j_threshold&quot;
+		}
+		&quot;Abs&quot;
+		{
+			&quot;srcVar1&quot;	&quot;$j_b_noise&quot;
+			&quot;resultVar&quot;	&quot;$temp&quot;
+		}
+		&quot;LessOrEqual&quot;
+		{
+			&quot;srcVar1&quot;	&quot;$temp&quot;
+			&quot;srcVar2&quot;	&quot;$j_threshold&quot;
+			&quot;lessEqualVar&quot;	&quot;$j_s_noise&quot;
+			&quot;greaterVar&quot;	&quot;$j_b_noise&quot;
+			&quot;resultVar&quot;	&quot;$temp&quot;
+		}
+		&quot;Add&quot;
+		{
+			&quot;srcvar1&quot;	&quot;$temp&quot;
+			&quot;srcvar2&quot;	&quot;$j_basescale&quot;
+			&quot;resultvar&quot;	&quot;$tex2scale&quot;
+		}
+
+
+
+
+
+
+
+// debug
+//		&quot;Equals&quot;
+//		{
+//			&quot;resultvar&quot;	&quot;$alpha&quot;
+//			&quot;srcvar1&quot;	&quot;$one&quot;
+//		}
+
+
+
+		&quot;TextureTransform&quot;
+		{
+			&quot;translateVar&quot; &quot;$texoffset&quot;
+			&quot;resultVar&quot; &quot;$basetexturetransform&quot;
+		}
+
+
+//		interlacing
+
+
+		&quot;LinearRamp&quot;
+		{
+			&quot;resultVar&quot; &quot;$tex2offset[1]&quot;
+			&quot;rate&quot; -.91
+		}
+
+		&quot;TextureTransform&quot;
+		{
+//			&quot;scaleVar&quot;	&quot;$tex2scale&quot;
+			&quot;translateVar&quot;	&quot;$tex2offset&quot;
+			&quot;resultVar&quot;	&quot;$texture2transform&quot;
+		}
+	}
+}[/code]</description>
+    
+    <lastBuildDate>Sat, 26 Feb 2011 08:07:58 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/unlittwotexture-not-working-in-left-4-dead/6621.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>UnlitTwoTexture Not Working in Left 4 Dead</title>
+        <dc:creator><![CDATA[SpyShadow]]></dc:creator>
+        <description><![CDATA[
+            <p>Well, I got it fix by myself. I this changed the first line to “MonitorScreen” and now it works in Left 4 Dead. Took several hours to figure out and I was this messing around. Anyone else could use the code above to make models look like a hologram. I believe it keeps a high brightness.</p>
+          <p><a href="https://leakfree.org/t/unlittwotexture-not-working-in-left-4-dead/6621/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/unlittwotexture-not-working-in-left-4-dead/6621/2</link>
+        <pubDate>Sat, 26 Feb 2011 08:07:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6621-2</guid>
+        <source url="https://leakfree.org/t/unlittwotexture-not-working-in-left-4-dead/6621.rss">UnlitTwoTexture Not Working in Left 4 Dead</source>
+      </item>
+      <item>
+        <title>UnlitTwoTexture Not Working in Left 4 Dead</title>
+        <dc:creator><![CDATA[SpyShadow]]></dc:creator>
+        <description><![CDATA[
+            <p>ok, I don’t know much on programming. I am using someones code that was working in Half-Life 2. I tried importing it into Left 4 Dead and I get the following error…</p>
+<p>Material **** does not support vertex format used by the mesh (maybe missing fields or mismatched vertex compression?), mesh will not be rendered. Grab a programmer!</p>
+<p>So I’m here to Grab a programmer I guess.</p>
+<p>Now by what I found out.</p>
+<p>UnlitTwoTexture Shader does not work well by what valve developer site told me. But they did not including any other information on how to get it to work another way. They hint it but I still don’t know.</p>
+<p>Valve Hinting it? &gt; <a href="https://developer.valvesoftware.com/wiki/Talk:UnlitTwoTexture" data-bbcode="true" rel="nofollow noopener">developer.valvesoftware.com</a></p>
+<p>and…</p>
+<p><a href="https://developer.valvesoftware.com/wiki/UnlitTwoTexture" data-bbcode="true" rel="nofollow noopener">developer.valvesoftware.com</a></p>
+<p>UnlitTwoTexture = Two textures are mixed evenly and appear at full brightness.</p>
+<p>Anyways, below is the code for the material file. Hopefully someone can help me to get this to work?  Sense I know nothing about it.</p>
+<p>I am basically making a hologram like display with no quality loss and this method below seems to work in HL2, unless there is another method that is fast and easy.</p>
+<p>The Material is tied to the model.</p>
+<p>[code]<br>
+“UnlitTwoTexture_DX6”<br>
+{<br>
+“$basetexture” “game/Models/doors/gui/gui_locked_restore_power”<br>
+“$surfaceprop” “glass”<br>
+“$texture2”	“dev/dev_scanline”<br>
+“$vertexcolor” 1</p>
+<pre><code>"$model"		1
+"$additive"	1
+"$nocull"		1
+
+"$one"		1
+"$zero"		0
+"$temp"		0
+"$texoffset"	"[0 0]"
+"$texscale"	.25
+"$tex2offset"	"[0 0]"
+"$tex2scale"	0
+
+"$a_b_halfwidth" 	0.1
+"$a_b_noise"		0
+
+"$a_s_halfwidth" 	0.025
+"$a_s_noise"		0
+
+"$a_t_halfwidth" 	0.00
+"$a_threshold"		0.7
+
+"$alpha_bias"		0.2
+</code></pre>
+<p>//<br>
+“$j_b_halfwidth” 	2<br>
+“$j_b_noise”		0</p>
+<pre><code>"$j_s_halfwidth" 	0.05
+"$j_s_noise"		0
+
+"$j_t_halfwidth" 	0.25
+"$j_threshold"		3
+
+"$j_basescale"		2
+</code></pre>
+<p>//<br>
+“$xo_b_halfwidth” 	0.035<br>
+“$xo_b_noise”		0</p>
+<pre><code>"$xo_s_halfwidth" 	0.001
+"$xo_s_noise"		0
+
+"$xo_t_halfwidth" 	0.0
+"$xo_threshold"		0.1
+
+
+
+
+"Proxies"
+{
+
+	"Sine"
+	{
+		"resultVar" "$color[0]"
+		"sineperiod" 1
+		"sinemin" .9
+		"sinemax" .9
+	}
+	"Sine"
+	{
+		"resultVar" "$color[1]"
+		"sineperiod" .01
+		"sinemin" .9
+		"sinemax" 1
+	}
+</code></pre>
+<p>//		alpha noise</p>
+<pre><code>	"GaussianNoise"
+	{
+		"mean"	"$zero"
+		"halfwidth"	"$a_b_halfwidth"
+		"resultVar"	"$a_b_noise"
+	}
+	"Abs"
+	{
+		"srcVar1"	"$a_b_noise"
+		"resultVar"	"$a_b_noise"
+	}
+	"Subtract"
+	{
+		"srcvar1"	"$one"
+		"srcvar2"	"$a_b_noise"
+		"resultvar"	"$a_b_noise"
+	}
+	"GaussianNoise"
+	{
+		"mean"	"$zero"
+		"halfwidth"	"$a_s_halfwidth"
+		"resultVar"	"$a_s_noise"
+	}
+	"Abs"
+	{
+		"srcVar1"	"$a_s_noise"
+		"resultVar"	"$a_s_noise"
+	}
+	"Subtract"
+	{
+		"srcvar1"	"$one"
+		"srcvar2"	"$a_s_noise"
+		"resultvar"	"$a_s_noise"
+	}
+	"GaussianNoise"
+	{
+		"mean"	"$a_threshold"
+		"halfwidth"	"$a_t_halfwidth"
+		"resultVar"	"$a_threshold"
+	}
+	"LessOrEqual"
+	{
+		"srcVar1"	"$a_b_noise"
+		"srcVar2"	"$a_threshold"
+		"lessEqualVar"	"$a_b_noise"
+		"greaterVar"	"$a_s_noise"
+		"resultVar"	"$temp"
+	}
+</code></pre>
+<p>//		interlace noise</p>
+<pre><code>	"GaussianNoise"
+	{
+		"mean"	"$zero"
+		"halfwidth"	"$j_b_halfwidth"
+		"resultVar"	"$j_b_noise"
+	}
+	"GaussianNoise"
+	{
+		"mean"	"$zero"
+		"halfwidth"	"$j_s_halfwidth"
+		"resultVar"	"$j_s_noise"
+	}
+	"GaussianNoise"
+	{
+		"mean"	"$j_threshold"
+		"halfwidth"	"$j_t_halfwidth"
+		"resultVar"	"$j_threshold"
+	}
+	"Abs"
+	{
+		"srcVar1"	"$j_b_noise"
+		"resultVar"	"$temp"
+	}
+	"LessOrEqual"
+	{
+		"srcVar1"	"$temp"
+		"srcVar2"	"$j_threshold"
+		"lessEqualVar"	"$j_s_noise"
+		"greaterVar"	"$j_b_noise"
+		"resultVar"	"$temp"
+	}
+	"Add"
+	{
+		"srcvar1"	"$temp"
+		"srcvar2"	"$j_basescale"
+		"resultvar"	"$tex2scale"
+	}
+</code></pre>
+<p>// debug<br>
+//		“Equals”<br>
+//		{<br>
+//			“resultvar”	“$alpha”<br>
+//			“srcvar1”	“$one”<br>
+//		}</p>
+<pre><code>	"TextureTransform"
+	{
+		"translateVar" "$texoffset"
+		"resultVar" "$basetexturetransform"
+	}
+</code></pre>
+<p>//		interlacing</p>
+<pre><code>	"LinearRamp"
+	{
+		"resultVar" "$tex2offset[1]"
+		"rate" -.91
+	}
+
+	"TextureTransform"
+	{
+</code></pre>
+<p>//			“scaleVar”	“$tex2scale”<br>
+“translateVar”	“$tex2offset”<br>
+“resultVar”	“$texture2transform”<br>
+}<br>
+}<br>
+}[/code]</p>
+          <p><a href="https://leakfree.org/t/unlittwotexture-not-working-in-left-4-dead/6621/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/unlittwotexture-not-working-in-left-4-dead/6621/1</link>
+        <pubDate>Fri, 25 Feb 2011 23:35:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6621-1</guid>
+        <source url="https://leakfree.org/t/unlittwotexture-not-working-in-left-4-dead/6621.rss">UnlitTwoTexture Not Working in Left 4 Dead</source>
+      </item>
+  </channel>
+</rss>

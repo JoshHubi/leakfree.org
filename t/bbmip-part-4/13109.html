@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/bbmip-part-4/13109 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:47:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>BBMIP: Part 4 - Developer Logs - Leakfree</title>
+    <meta name="description" content="For this week we have moved from AM to UC. Keep in mind this isn’t a exhaustive list of the props that are added just a sampling. The main major changes model wise were the additions of all the cabinets into AM/UC. After&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="13109.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;BBMIP: Part 4&#39;" href="13109.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/optimized/2X/2/263395c950e9ae215c1db0ea195b8070d88ac86a_2_1023x702.jpeg" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/optimized/2X/2/263395c950e9ae215c1db0ea195b8070d88ac86a_2_1023x702.jpeg" />
+<meta property="og:url" content="https://leakfree.org/t/bbmip-part-4/13109" />
+<meta name="twitter:url" content="https://leakfree.org/t/bbmip-part-4/13109" />
+<meta property="og:title" content="BBMIP: Part 4" />
+<meta name="twitter:title" content="BBMIP: Part 4" />
+<meta property="og:description" content="For this week we have moved from AM to UC. Keep in mind this isn’t a exhaustive list of the props that are added just a sampling. The main major changes model wise were the additions of all the cabinets into AM/UC. After I got done with what I thought was all the cabinets, Jonathan pointed out that there were just the Pre-RC ones. Yay…so I had to go back and rework some of the models to be more broken down and smashed up fpr UC. The result is the first series of pictures from lab 3. The first is..." />
+<meta name="twitter:description" content="For this week we have moved from AM to UC. Keep in mind this isn’t a exhaustive list of the props that are added just a sampling. The main major changes model wise were the additions of all the cabinets into AM/UC. After I got done with what I thought was all the cabinets, Jonathan pointed out that there were just the Pre-RC ones. Yay…so I had to go back and rework some of the models to be more broken down and smashed up fpr UC. The result is the first series of pictures from lab 3. The first is..." />
+<meta property="article:published_time" content="2014-03-25T04:20:29+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="next" href="131094658.html?page=2">
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="13109.html">BBMIP: Part 4</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/6.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa Archive</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/developer-logs/15.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Developer Logs</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bkdale86.html'><span itemprop='name'>bkdale86</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13109.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/2/263395c950e9ae215c1db0ea195b8070d88ac86a.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-25T04:20:29Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:00:47Z' class='post-time'>
+                November 25, 2018,  4:00am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>For this week we have moved from AM to UC. Keep in mind this isn’t a exhaustive list of the props that are added just a sampling. The main major changes model wise were the additions of all the cabinets into AM/UC. After I got done with what I thought was all the cabinets, Jonathan pointed out that there were just the Pre-RC ones. Yay…so I had to go back and rework some of the models to be more broken down and smashed up fpr UC. The result is the first series of pictures from lab 3. The first is just a screen grab from the modeling program and the 2nd is a render of the final model in toolbag. Once it’s in game you realize 90% of the players won’t even see the cabinet lol.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/2/263395c950e9ae215c1db0ea195b8070d88ac86a.jpg" data-download-href="https://leakfree.org/uploads/default/263395c950e9ae215c1db0ea195b8070d88ac86a" title="6.jpg"><img src="../../uploads/default/original/2X/2/263395c950e9ae215c1db0ea195b8070d88ac86a.jpg" alt="6.jpg" data-base62-sha1="5rWFc9d3DbyYHrfiVHwXlQW2UrM" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/2/263395c950e9ae215c1db0ea195b8070d88ac86a_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">6.jpg</span><span class="informations">1370×940 51.9 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/1/1429ab93d4cd8fd1c319955294479866e6b8f90a.jpg" data-download-href="https://leakfree.org/uploads/default/1429ab93d4cd8fd1c319955294479866e6b8f90a" title="7.jpg"><img src="../../uploads/default/original/2X/1/1429ab93d4cd8fd1c319955294479866e6b8f90a.jpg" alt="7.jpg" data-base62-sha1="2SmPiJg8BqoPwBNfDQ4MC7wzrS2" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/1/1429ab93d4cd8fd1c319955294479866e6b8f90a_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">7.jpg</span><span class="informations">1812×974 59.5 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/4/499983e001add559901d3c8f67c1df08cdbd1242.jpg" data-download-href="https://leakfree.org/uploads/default/499983e001add559901d3c8f67c1df08cdbd1242" title="2014-03-24_00001.jpg"><img src="../../uploads/default/original/2X/4/499983e001add559901d3c8f67c1df08cdbd1242.jpg" alt="2014-03-24_00001.jpg" data-base62-sha1="av5L7sPKpl58li5jZVDqruv5zRo" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/4/499983e001add559901d3c8f67c1df08cdbd1242_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">2014-03-24_00001.jpg</span><span class="informations">1743×1089 70.4 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP: Part 4'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bkdale86.html'><span itemprop='name'>bkdale86</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13109.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/a/ae5d6bce8ff764971aa100b40c1971fe5520238a.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-25T04:29:52Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:00:49Z' class='post-time'>
+                November 25, 2018,  4:00am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I just decided to split this up a bit by pictures. Along with making new models I have been going back and adding some details into some of our really old low poly models. The wall cable shown earlier really made a nice improvement, so this weekend I did the ceiling cable. The first image shows the differences. The improved model looks a lot more rounded without getting into really high poly counts for a small prop.  The 2nd image is showing the replacement model. It was compiled so that it just shows up as the replacement for the old model without having to place them all again. So I’m running through UC looking at all the changes and I see the 3rd image. It is creatively used by the LD but really looks bad as a model. I don’t know if it shows but you can see inside the model and through it because of the backface culling. Which led to the 4th picture. Basically its the base model copied several times and then repostioned to actually look like it has had a lot of tension placed on it then snapped allowing the wires to retract a bit in their brackets.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/a/ae5d6bce8ff764971aa100b40c1971fe5520238a.jpg" data-download-href="https://leakfree.org/uploads/default/ae5d6bce8ff764971aa100b40c1971fe5520238a" title="cc1.jpg"><img src="../../uploads/default/original/2X/a/ae5d6bce8ff764971aa100b40c1971fe5520238a.jpg" alt="cc1.jpg" data-base62-sha1="oSveuhV0pTXSmiLozsgiC1J6HAC" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/a/ae5d6bce8ff764971aa100b40c1971fe5520238a_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">cc1.jpg</span><span class="informations">1852×833 44.7 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/4/4acd645c9dac464c87caf141402be67425610814.jpg" data-download-href="https://leakfree.org/uploads/default/4acd645c9dac464c87caf141402be67425610814" title="4.jpg"><img src="../../uploads/default/original/2X/4/4acd645c9dac464c87caf141402be67425610814.jpg" alt="4.jpg" data-base62-sha1="aFJnL7obnTrSorXj5KHXzUwV1Yg" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/4/4acd645c9dac464c87caf141402be67425610814_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">4.jpg</span><span class="informations">1289×806 84.5 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/b/bfa2e382986183bd0903c3531c2d41f93e425deb.jpg" data-download-href="https://leakfree.org/uploads/default/bfa2e382986183bd0903c3531c2d41f93e425deb" title="2014-03-21_00001.jpg"><img src="../../uploads/default/original/2X/b/bfa2e382986183bd0903c3531c2d41f93e425deb.jpg" alt="2014-03-21_00001.jpg" data-base62-sha1="rlibqunerWuR9P3dAS0pL4ILqXN" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/b/bfa2e382986183bd0903c3531c2d41f93e425deb_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">2014-03-21_00001.jpg</span><span class="informations">1449×906 80.2 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/3/37364225ac3c6749ff1e55db97e777361a06563e.jpg" data-download-href="https://leakfree.org/uploads/default/37364225ac3c6749ff1e55db97e777361a06563e" title="cable.jpg"><img src="../../uploads/default/optimized/2X/3/37364225ac3c6749ff1e55db97e777361a06563e_2_690x500.jpg" alt="cable.jpg" data-base62-sha1="7Sqvyl5Bq6iKOqubBmKffuq4bkW" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/3/37364225ac3c6749ff1e55db97e777361a06563e_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/3/37364225ac3c6749ff1e55db97e777361a06563e_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/3/37364225ac3c6749ff1e55db97e777361a06563e_2_1380x1000.jpeg 2x" data-small-upload="../../uploads/default/optimized/2X/3/37364225ac3c6749ff1e55db97e777361a06563e_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">cable.jpg</span><span class="informations">1910×996 47.1 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/2/282de27c62b50248405c5ef48a734eebda57f2a7.jpg" data-download-href="https://leakfree.org/uploads/default/282de27c62b50248405c5ef48a734eebda57f2a7" title="2.jpg"><img src="../../uploads/default/original/2X/2/282de27c62b50248405c5ef48a734eebda57f2a7.jpg" alt="2.jpg" data-base62-sha1="5Jrpc2c2Kl9xiJnj21T6tSAvT03" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/2/282de27c62b50248405c5ef48a734eebda57f2a7_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">2.jpg</span><span class="informations">1634×1021 74.1 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP: Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bkdale86.html'><span itemprop='name'>bkdale86</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13109.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-25T04:35:27Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:00:49Z' class='post-time'>
+                November 25, 2018,  4:00am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>As a reminder, please stay on topic. Don’t ask for things not covered in this blog. I’ll try to answer any reasonable questions relating to the blog.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP: Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Mr_GameCrazy.html'><span itemprop='name'>Mr_GameCrazy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13109.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-25T04:38:46Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:00:49Z' class='post-time'>
+                November 25, 2018,  4:00am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The new cabinet and cables look really good.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP: Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Diabolical.html'><span itemprop='name'>Diabolical</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13109.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-25T04:43:23Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:00:49Z' class='post-time'>
+                November 25, 2018,  4:00am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Edited: Off topic.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP: Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Mr_GameCrazy.html'><span itemprop='name'>Mr_GameCrazy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13109.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-25T04:45:19Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:00:49Z' class='post-time'>
+                November 25, 2018,  4:00am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Off topic</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP: Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13109.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-25T04:49:24Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:00:49Z' class='post-time'>
+                November 25, 2018,  4:00am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I don’t think we’re supposed to talk about that…</p>
+<p>On-Topic: I like that those cables got updated with their own model. I noticed that type of stuff happening a few times and while it’s a minor issue, I’m glad it’s being fixed.  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP: Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Mr_GameCrazy.html'><span itemprop='name'>Mr_GameCrazy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13109.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-25T04:51:21Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:00:50Z' class='post-time'>
+                November 25, 2018,  4:00am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Crypt">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/crypt/40/4394_2.png" class="avatar"> Crypt:</div>
+<blockquote>
+<p>I don’t think we’re supposed to talk about that…</p>
+</blockquote>
+</aside>
+<p>Right. Sorry about that bkdale86. Anyway I really like seeing the improvements in the models and props. I look forward to seeing some more from you very soon.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP: Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13109.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-25T04:52:58Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:00:50Z' class='post-time'>
+                November 25, 2018,  4:00am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yeah, appreciate the update! Thankies!<br>
+I’ve got nothing further of merit to add, this time, though.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP: Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Swaggless.html'><span itemprop='name'>Swaggless</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13109.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-25T05:05:47Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:00:50Z' class='post-time'>
+                November 25, 2018,  4:00am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Where the cabinets different post-RC in the previous version? I never noticed if they were… those look great, though!  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP: Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Diabolical.html'><span itemprop='name'>Diabolical</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13109.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-25T05:15:07Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:00:50Z' class='post-time'>
+                November 25, 2018,  4:00am
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Crypt">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/crypt/40/4394_2.png" class="avatar"> Crypt:</div>
+<blockquote>
+<p>I don’t think we’re supposed to talk about that…</p>
+</blockquote>
+</aside>
+<p>Yeah you’re right, sorry about bkdale86, I like your improvements of your work.  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP: Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Salk.html'><span itemprop='name'>Salk</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13109.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-25T05:52:48Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:00:50Z' class='post-time'>
+                November 25, 2018,  4:00am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I must say I agree with everyone else. I really love the updated cabinet and cables. They look so good that I doubt there is space for any kind of criticism.</p>
+<p>Thanks for sharing, bkdale86.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP: Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Mr_Someguy.html'><span itemprop='name'>Mr_Someguy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13109.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-25T10:27:07Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T10:52:34Z' class='post-time'>
+                August 11, 2020, 10:52am
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<p>If there was a lot of downward pressure put on these wires, shouldn’t the ‘curved’ bits been pulled straight as pressure was put on the part that is now snapped?</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP: Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bkdale86.html'><span itemprop='name'>bkdale86</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13109.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-25T11:05:25Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:00:51Z' class='post-time'>
+                November 25, 2018,  4:00am
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The right side is the left side recoiled back some that’s why the first loop is bigger than the rest. Without doing some complicated simulation to see exactly how they would fall I took a educated guess.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP: Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13109.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-25T12:13:55Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:00:52Z' class='post-time'>
+                November 25, 2018,  4:00am
+              </time>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Looks fine to me. On the right, it looks like the hanging bit is pulling the rest of the cable taut. Not really seeing an issue.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP: Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/danielsangeo.html'><span itemprop='name'>danielsangeo</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13109.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-25T13:31:41Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:00:53Z' class='post-time'>
+                November 25, 2018,  4:00am
+              </time>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yeah, it also depends a bit on how the cables reacted when they snapped.  If they had a leftwards direction, it would pull more of the right-side of the cable through the loop holding it up than the left.  Looks fine to me, physics-wise.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP: Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13109.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-25T13:33:45Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:00:53Z' class='post-time'>
+                November 25, 2018,  4:00am
+              </time>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>And even if it’s not accurate, no one’s gonna analyze and try and figure it out in-game.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP: Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/44000.html'><span itemprop='name'>44000</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13109.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-26T18:34:15Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:06Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>its all looking really good, although if you don’t mind me giving one criticism, cabinet hinges tend to be around 1/4 of the way down from the top (and bottom respectively). so it should be hanging from that point. It immidiatly really jars if you know what you are looking at. I know its only a few of the players that probably do, but still, its one of those immersion breakers when everything els is looking so good.</p>
+<p>On another note? do you think it will push graphics cards too much if more cables are distributed around the place? They look really good, and if this really was a high tech research facility built in an old bunker, then it probably would need a hell of a lot more retrofitted cables about the place?</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP: Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bkdale86.html'><span itemprop='name'>bkdale86</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13109.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-26T22:30:55Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:07Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#19</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The cabinets you mention were based on the brush work cabinet. I didn’t want to model hinges on all the cabinet models and without those showing having the doors hanging realistically is kinda a moot point. So I just went with copying the references. As to the cable question…it’s one I have brought up several times. Problem is a 6 sided cylinder isn’t enough and 12 is probably too much unless it’s really big then you are going to get 24+. The you have to look at how long they are and how much they coil. You could realistically get 10k cables if there are several involved. I think the ones I posted are 7 or so. So it becomes an entity count issue and memory too. Who knows we may add some more and maybe we won’t.</p>
+<p>As to the pictures remember they are all WIP. That means the GUI everything. What you buy when ever it is released may or may not be different.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP: Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Maxey.html'><span itemprop='name'>Maxey</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13109.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-27T00:16:09Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:08Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#20</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Most players aren’t going to look at those map props for more than 5 seconds at a time. The people in this thread are just nitpicking because those props are being given all the focus in this particular instance but when given the big picture most everyone else won’t even notice those kinds of minutiae details.</p>
+<p>Anyway, good job with your models and keep pumping these update threads  <img src="../../images/emoji/twitter/winkc164.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP: Part 4'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="131094658.html?page=2">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/bbmip-part-4/13109 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:47:57 GMT -->
+</html>

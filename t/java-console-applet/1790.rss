@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Java Console Applet?</title>
+    <link>https://leakfree.org/t/java-console-applet/1790</link>
+    <description>Is it possible to make a Java applet that runs just like a console.
+Like, you&#39;d have a console screen embedded in the page that you&#39;re running your applet in.
+Your applet would have no visual interface, just a console one.
+
+I&#39;m using the Eclipse environment to program this.
+
+(And to everyone who&#39;ll say &#39;boo java&#39;s ded language,&#39; I have to use this language for my IB Computer Science course in school. This project is my dossier.)</description>
+    
+    <lastBuildDate>Thu, 12 Nov 2009 20:09:46 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/java-console-applet/1790.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Java Console Applet?</title>
+        <dc:creator><![CDATA[Guf]]></dc:creator>
+        <description><![CDATA[
+            <p>switch statements need a jumpable index so can’t use strings or general expressions in all C based languages - others do allow switching on a string, but last I checked, not Java, and not on an expression like the above definitely.<br>
+That said, if it were any more complex then I’d advise having a tokeniser and a switch statement on the token ID.  Just trying to keep my example simple enough for anyone to follow as I have no idea what level people are at with their coding, so applying the entirety of my 20+ years as a coder might not get the best result…</p>
+<p>As for the actual Java console, that lives in the systray when a Java applet starts, no - to my knowledge there is no access to it, but definitely not for input anyway.</p>
+<p>One other thing I would recommend tho: make your console app exactly that - something you can run from the command line and use straight text input/output, and have a layer handling input/output that can be swapped for the applet version.<br>
+This allows you to quickly test stuff even if the applet interface is not ready yet, and allows you to itterate its form e.g. you have a commandline (cmd window) layer, a version 0 applet layer that has a text field for input and another for output but no prettyness, and a version X one that is as fancy as you want, if you have time to work on it.  Meanwhile the core code is separate and can be worked on independently.</p>
+          <p><a href="https://leakfree.org/t/java-console-applet/1790/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-console-applet/1790/18</link>
+        <pubDate>Thu, 12 Nov 2009 20:09:46 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1790-18</guid>
+        <source url="https://leakfree.org/t/java-console-applet/1790.rss">Java Console Applet?</source>
+      </item>
+      <item>
+        <title>Java Console Applet?</title>
+        <dc:creator><![CDATA[ManlyStump]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Guf">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/g/c2a13f/40.png" class="avatar"> Guf:</div>
+<blockquote>
+<p>Coding a simple console is easy tho.  Chuck a readonly textarea and an editable text field on, and whenever someone presses enter in the text field, read it’s contents and do something based on what the start of it is.<br>
+e.g.<code>
+// on enter:
+if (enteredText.startsWith("echo")) {
+    // code for echo command here...
+} else if (enteredText.startsWith("dir")) {
+    // code for dir command here...
+}
+//...
+else {
+    outputArea.addText("\nSupported commands are..."); // or however this is done - been a while...
+} 
+</code></p>
+</blockquote>
+</aside>
+<p>Never heard of a switch statement…?</p>
+<p>And I inferred that he meant the ACTUAL Java console, not inventing your own one.</p>
+          <p><a href="https://leakfree.org/t/java-console-applet/1790/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-console-applet/1790/17</link>
+        <pubDate>Thu, 12 Nov 2009 15:47:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1790-17</guid>
+        <source url="https://leakfree.org/t/java-console-applet/1790.rss">Java Console Applet?</source>
+      </item>
+      <item>
+        <title>Java Console Applet?</title>
+        <dc:creator><![CDATA[Dillxn]]></dc:creator>
+        <description><![CDATA[
+            <p>No no, I have a command system set up currently. I mean the actual console interface itself, not the whole command parsing / executing system.</p>
+          <p><a href="https://leakfree.org/t/java-console-applet/1790/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-console-applet/1790/16</link>
+        <pubDate>Thu, 12 Nov 2009 01:03:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1790-16</guid>
+        <source url="https://leakfree.org/t/java-console-applet/1790.rss">Java Console Applet?</source>
+      </item>
+      <item>
+        <title>Java Console Applet?</title>
+        <dc:creator><![CDATA[Guf]]></dc:creator>
+        <description><![CDATA[
+            <p>Coding a simple console is easy tho.  Chuck a readonly textarea and an editable text field on, and whenever someone presses enter in the text field, read it’s contents and do something based on what the start of it is.<br>
+e.g.<code>
+// on enter:
+if (enteredText.startsWith("echo")) {
+    // code for echo command here...
+} else if (enteredText.startsWith("dir")) {
+    // code for dir command here...
+}
+//...
+else {
+    outputArea.addText("\nSupported commands are..."); // or however this is done - been a while...
+} 
+</code></p>
+          <p><a href="https://leakfree.org/t/java-console-applet/1790/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-console-applet/1790/15</link>
+        <pubDate>Wed, 11 Nov 2009 22:42:25 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1790-15</guid>
+        <source url="https://leakfree.org/t/java-console-applet/1790.rss">Java Console Applet?</source>
+      </item>
+      <item>
+        <title>Java Console Applet?</title>
+        <dc:creator><![CDATA[Dillxn]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for all your help, guys. But it looks like I’ll have to code an entire console interface for the applet, which is just out of the scope of my dossier.<br>
+Thanks again though!<br>
+-Dillon</p>
+          <p><a href="https://leakfree.org/t/java-console-applet/1790/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-console-applet/1790/14</link>
+        <pubDate>Wed, 11 Nov 2009 21:05:46 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1790-14</guid>
+        <source url="https://leakfree.org/t/java-console-applet/1790.rss">Java Console Applet?</source>
+      </item>
+      <item>
+        <title>Java Console Applet?</title>
+        <dc:creator><![CDATA[Guf]]></dc:creator>
+        <description><![CDATA[
+            <p>The Applet has a rectangle of screen it can draw on (or more usually populate with controls).  There is nothing stopping you adding a single textarea and handling the text entry into it as if it was a dos box, or perhaps more likely, adding a textarea with an input field below it, so as to make historical output non-editable.<br>
+You can then colour/align things so they look like they are one thing.</p>
+<p>Like I said, anything is possible with the application of enough time and skill, and skill comes with practice, which takes time.  Tho talent helps too I guess.</p>
+          <p><a href="https://leakfree.org/t/java-console-applet/1790/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-console-applet/1790/13</link>
+        <pubDate>Wed, 11 Nov 2009 20:07:10 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1790-13</guid>
+        <source url="https://leakfree.org/t/java-console-applet/1790.rss">Java Console Applet?</source>
+      </item>
+      <item>
+        <title>Java Console Applet?</title>
+        <dc:creator><![CDATA[ManlyStump]]></dc:creator>
+        <description><![CDATA[
+            <p>I did a couple of years of Java at uni, but since joining the working world I’ve moved onto C#/.Net. As far as I know Applets utilise a GUI automatically to allow them to work as embeddable objects, so access to the main Java console isn’t possible.</p>
+          <p><a href="https://leakfree.org/t/java-console-applet/1790/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-console-applet/1790/12</link>
+        <pubDate>Wed, 11 Nov 2009 19:10:22 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1790-12</guid>
+        <source url="https://leakfree.org/t/java-console-applet/1790.rss">Java Console Applet?</source>
+      </item>
+      <item>
+        <title>Java Console Applet?</title>
+        <dc:creator><![CDATA[Will89]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m not really too familiar with Java either, I only just started programming with it a few months ago with emphasis on object-oriented implementation. I’m more into C.</p>
+          <p><a href="https://leakfree.org/t/java-console-applet/1790/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-console-applet/1790/11</link>
+        <pubDate>Wed, 11 Nov 2009 17:36:47 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1790-11</guid>
+        <source url="https://leakfree.org/t/java-console-applet/1790.rss">Java Console Applet?</source>
+      </item>
+      <item>
+        <title>Java Console Applet?</title>
+        <dc:creator><![CDATA[Dillxn]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks, Will! I have it all set up now in my project, but I don’t know how to actually utilize it. I’m a total Java newbie.</p>
+          <p><a href="https://leakfree.org/t/java-console-applet/1790/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-console-applet/1790/10</link>
+        <pubDate>Wed, 11 Nov 2009 00:35:16 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1790-10</guid>
+        <source url="https://leakfree.org/t/java-console-applet/1790.rss">Java Console Applet?</source>
+      </item>
+      <item>
+        <title>Java Console Applet?</title>
+        <dc:creator><![CDATA[Will89]]></dc:creator>
+        <description><![CDATA[
+            <p>Something like <a href="https://stackoverflow.com/questions/138157/java-console-like-web-applet" data-bbcode="true" rel="nofollow noopener">this</a>?</p>
+          <p><a href="https://leakfree.org/t/java-console-applet/1790/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-console-applet/1790/9</link>
+        <pubDate>Tue, 10 Nov 2009 23:42:30 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1790-9</guid>
+        <source url="https://leakfree.org/t/java-console-applet/1790.rss">Java Console Applet?</source>
+      </item>
+      <item>
+        <title>Java Console Applet?</title>
+        <dc:creator><![CDATA[Dillxn]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes I’ve coded the console application as …well, an application. I’d like to be able to embed it into a webpage as an applet. As far as I can tell about applets, they have to be graphical. I’m hoping that I’m just mistaken, and this isn’t the case at all.</p>
+          <p><a href="https://leakfree.org/t/java-console-applet/1790/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-console-applet/1790/8</link>
+        <pubDate>Tue, 10 Nov 2009 23:17:24 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1790-8</guid>
+        <source url="https://leakfree.org/t/java-console-applet/1790.rss">Java Console Applet?</source>
+      </item>
+      <item>
+        <title>Java Console Applet?</title>
+        <dc:creator><![CDATA[Nintyuk]]></dc:creator>
+        <description><![CDATA[
+            <p><a href="https://www.aperturescience.com/" data-bbcode="true" rel="nofollow noopener">https://www.aperturescience.com/</a><br>
+Is this kind of thing your after? (minus the feed of course)</p>
+          <p><a href="https://leakfree.org/t/java-console-applet/1790/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-console-applet/1790/7</link>
+        <pubDate>Tue, 10 Nov 2009 22:36:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1790-7</guid>
+        <source url="https://leakfree.org/t/java-console-applet/1790.rss">Java Console Applet?</source>
+      </item>
+      <item>
+        <title>Java Console Applet?</title>
+        <dc:creator><![CDATA[Guf]]></dc:creator>
+        <description><![CDATA[
+            <p>It completely depends on what the console is to be able to do.<br>
+If it has simple commands that’s one thing (e.g. quake1’s console), but if it has more of a functional/expression based syntax that’s a whole other ballgame (serious sam’s console for example).<br>
+Anything is possible, given sufficient time.<br>
+If you do go for a more complex console syntax/abilities, I’d recommend using a parser generator tool such as javacc or freecc to make that part much easier.  If it’s simple, then a hand-crafted state machine would work just fine.</p>
+          <p><a href="https://leakfree.org/t/java-console-applet/1790/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-console-applet/1790/6</link>
+        <pubDate>Tue, 10 Nov 2009 22:22:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1790-6</guid>
+        <source url="https://leakfree.org/t/java-console-applet/1790.rss">Java Console Applet?</source>
+      </item>
+      <item>
+        <title>Java Console Applet?</title>
+        <dc:creator><![CDATA[Dillxn]]></dc:creator>
+        <description><![CDATA[
+            <p>Can it be made like a console, without having to code a whole console interface? (for an applet, not application)</p>
+          <p><a href="https://leakfree.org/t/java-console-applet/1790/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-console-applet/1790/5</link>
+        <pubDate>Tue, 10 Nov 2009 21:47:16 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1790-5</guid>
+        <source url="https://leakfree.org/t/java-console-applet/1790.rss">Java Console Applet?</source>
+      </item>
+      <item>
+        <title>Java Console Applet?</title>
+        <dc:creator><![CDATA[Will89]]></dc:creator>
+        <description><![CDATA[
+            <p>What? Do you mean making a program that just uses a TUI?</p>
+<p>If so, then yes.</p>
+          <p><a href="https://leakfree.org/t/java-console-applet/1790/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-console-applet/1790/4</link>
+        <pubDate>Tue, 10 Nov 2009 21:45:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1790-4</guid>
+        <source url="https://leakfree.org/t/java-console-applet/1790.rss">Java Console Applet?</source>
+      </item>
+      <item>
+        <title>Java Console Applet?</title>
+        <dc:creator><![CDATA[Dillxn]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="pfannkuchen_gesicht">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/p/ee7513/40.png" class="avatar"> pfannkuchen_gesicht:</div>
+<blockquote>
+<ol>
+<li>I don’t know</li>
+<li>I’m sure it’s easier with NetBeans</li>
+</ol>
+</blockquote>
+</aside>
+<p>you realize 1 contradicts 2, right?</p>
+          <p><a href="https://leakfree.org/t/java-console-applet/1790/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-console-applet/1790/3</link>
+        <pubDate>Tue, 10 Nov 2009 21:34:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1790-3</guid>
+        <source url="https://leakfree.org/t/java-console-applet/1790.rss">Java Console Applet?</source>
+      </item>
+      <item>
+        <title>Java Console Applet?</title>
+        <dc:creator><![CDATA[pfannkuchen_gesicht]]></dc:creator>
+        <description><![CDATA[
+            <ol>
+<li>I don’t know</li>
+<li>I’m sure it’s easier with NetBeans</li>
+</ol>
+          <p><a href="https://leakfree.org/t/java-console-applet/1790/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-console-applet/1790/2</link>
+        <pubDate>Tue, 10 Nov 2009 21:03:27 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1790-2</guid>
+        <source url="https://leakfree.org/t/java-console-applet/1790.rss">Java Console Applet?</source>
+      </item>
+      <item>
+        <title>Java Console Applet?</title>
+        <dc:creator><![CDATA[Dillxn]]></dc:creator>
+        <description><![CDATA[
+            <p>Is it possible to make a Java applet that runs just like a console.<br>
+Like, you’d have a console screen embedded in the page that you’re running your applet in.<br>
+Your applet would have no visual interface, just a console one.</p>
+<p>I’m using the Eclipse environment to program this.</p>
+<p>(And to everyone who’ll say ‘boo java’s ded language,’ I have to use this language for my IB Computer Science course in school. This project is my dossier.)</p>
+          <p><a href="https://leakfree.org/t/java-console-applet/1790/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/java-console-applet/1790/1</link>
+        <pubDate>Tue, 10 Nov 2009 20:29:39 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1790-1</guid>
+        <source url="https://leakfree.org/t/java-console-applet/1790.rss">Java Console Applet?</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Func_tracktrain with &quot;Stations&quot;</title>
+    <link>https://leakfree.org/t/func-tracktrain-with-stations/15206</link>
+    <description>So I&#39;m trying to create a func_tracktrain that responds normally to the startForward and startBackward inputs to move it along its track (these will be supplied by func_buttons the player can use), [i]but[/i] when it hits certain specific path_track entites along that path it will stop and require another startforward or startbackward input to get it moving again. (This would be useful for creating a tram with different predetermined &quot;stops&quot; the user can move back and forth between, or an elevator that moves up and down across multiple floors, etc.)
+
+I have already tried giving the station nodes an &quot;OnPass [train] Stop&quot; output, but this does not seem stable- sometimes the tram will immediately stop when it attempts to [i]leave [/i]the station node, creating the appearance that it is &quot;stalled&quot; or that the button press did not work.</description>
+    
+    <lastBuildDate>Tue, 11 Jul 2017 21:39:59 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/func-tracktrain-with-stations/15206.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Func_tracktrain with &quot;Stations&quot;</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <p>Use the onPass for the path_track but have it trigger a logic_relay?<br>
+the logic_relay then tells the train to stop.<br>
+Disable the logic_relay when it’s triggered and only enable it after the train has started moving forward / backwards after a few seconds again?</p>
+<p>Thus if you get an OnPass when moving forward, you will only trigger a disabled logic_relay, thus the train should continue forward.</p>
+          <p><a href="https://leakfree.org/t/func-tracktrain-with-stations/15206/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/func-tracktrain-with-stations/15206/3</link>
+        <pubDate>Tue, 11 Jul 2017 21:39:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15206-3</guid>
+        <source url="https://leakfree.org/t/func-tracktrain-with-stations/15206.rss">Func_tracktrain with &quot;Stations&quot;</source>
+      </item>
+      <item>
+        <title>Func_tracktrain with &quot;Stations&quot;</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>So I’ve found a workaround using a telescoping system of func_doors parented one-after-the-other, which is actually fairly practical and scales well. However, while fine for an elevator that moves strictly along one axis (in this case the vertical), it’s not going to be of much use for a train that turns corners.</p>
+          <p><a href="https://leakfree.org/t/func-tracktrain-with-stations/15206/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/func-tracktrain-with-stations/15206/2</link>
+        <pubDate>Tue, 11 Jul 2017 14:05:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15206-2</guid>
+        <source url="https://leakfree.org/t/func-tracktrain-with-stations/15206.rss">Func_tracktrain with &quot;Stations&quot;</source>
+      </item>
+      <item>
+        <title>Func_tracktrain with &quot;Stations&quot;</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>So I’m trying to create a func_tracktrain that responds normally to the startForward and startBackward inputs to move it along its track (these will be supplied by func_buttons the player can use), <span class="bbcode-i">but</span> when it hits certain specific path_track entites along that path it will stop and require another startforward or startbackward input to get it moving again. (This would be useful for creating a tram with different predetermined “stops” the user can move back and forth between, or an elevator that moves up and down across multiple floors, etc.)</p>
+<p>I have already tried giving the station nodes an “OnPass [train] Stop” output, but this does not seem stable- sometimes the tram will immediately stop when it attempts to <span class="bbcode-i">leave </span>the station node, creating the appearance that it is “stalled” or that the button press did not work.</p>
+          <p><a href="https://leakfree.org/t/func-tracktrain-with-stations/15206/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/func-tracktrain-with-stations/15206/1</link>
+        <pubDate>Sat, 01 Jul 2017 18:28:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15206-1</guid>
+        <source url="https://leakfree.org/t/func-tracktrain-with-stations/15206.rss">Func_tracktrain with &quot;Stations&quot;</source>
+      </item>
+  </channel>
+</rss>

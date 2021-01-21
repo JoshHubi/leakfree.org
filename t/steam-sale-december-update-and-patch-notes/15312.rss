@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Steam Sale, December Update, and Patch Notes</title>
+    <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312</link>
+    <description>[align=center][img]https://i.imgur.com/FxOjzO3.jpg[/img][/align]
+
+Happy Holidays, and happy Steam Winter Sale everyone! [url=&#39;https://store.steampowered.com/app/362890/Black_Mesa/&#39;]Black Mesa is currently $4.99, our largest discount yet.[/url]
+
+We released an update for Black Mesa [b](currently on public beta)[/b] that adds real-time dynamic lights, lens flares, god rays, and a host of other features to the existing earthbound sections of the game. The goal of this update is to get the released version of the game as close to our internal build as possible. This way, the final Xen release can be closer to a simple map drop; with less potential for engine and code issues affecting players on their first time playing Xen. We are hoping to test the engine and solve all feature and performance problems before the real release, so that everyone can enjoy our definitive vision of the game without issues.
+
+As promised, here is an update on where we are at with developing the Xen chapters.
+
+[align=center][img]https://i.imgur.com/6qzNmJD.jpg[/img][/align]
+
+We are striving to make sure Xen is fun, well thought-out, and cohesive. Each chapter has its own theme and artstyle, and we are developing them in parallel to ensure they are all at the same high standard of quality. Xen, in its current form, is made up of 14 maps across these final 5 chapters, with each map alone being significantly larger than the originals. We are putting our full effort into completing Xen in a timely manner so that everyone can have the complete Black Mesa experience!
+
+[b][u]Screenshots From the Update[/size][/u][/b]
+
+[img=&#39;https://i.imgur.com/4oRN3B9.jpg&#39;,none,960][/img]
+
+[img=&#39;https://i.imgur.com/WcMOJKn.jpg&#39;,none,960][/img]
+
+
+
+[img=&#39;https://i.imgur.com/4WdSZQ0.jpg&#39;,none,960][/img]
+
+[u]Upcoming Feature[/u][/size]
+
+[b]Improved Prop Lighting[/b]
+While developing Xen, we realized the existing Source lighting just wasn&#39;t accurate enough. In the original Source, up to 4 lights are allowed per object and there is no self-shadowing. This works fine for small or medium sized objects, but for something like a massive, detailed rock archway, the limitations appear. In the screenshot, the vines hanging under the arch do not appear properly in shadow, and the arch looks strangely flat because only 4 light samples are being taken.
+
+Our new static lighting supports all the nearby lights in the scene, self-shadows correctly, and also works seamlessly with both our new skydome lighting and our new dynamic lights. This makes a big difference &quot;merging&quot; the objects with their environment.
+
+Left is the old style of prop lighting, Right is the new:
+
+[img=&#39;https://i.imgur.com/ybPA1Tz.jpg&#39;,none,960][/img]
+
+[img=&#39;https://i.imgur.com/yNwj2sA.jpg&#39;,none,960][/img]
+
+The new lighting is much less flat overall, displays colours which are truer to the scene’s real tone, and shadows in a much more appealing and realistic manner.
+
+[b][u]Patch Notes[/size][/u][/b]
+
+[b][u]New Features[/u][/b]
+[b]Dynamic Lights[/b] - Full featured dynamic lights that are able to cast real time shadows, project textures, and emit volumetric light (godrays). These have been implemented across earthbound to help amp up the visual fidelity and “nextgen-ness”.
+
+[b]Lens Flares[/b] - New entity that creates a lens flare with customizable colors, styles, and effects. These have been implemented across earthbound too; only on lights we deemed very bright or important enough to warrant a lens flare.
+
+[b]Overhauled CSM and Godrays[/b] - Cascade Shadow Maps (CSM) have been totally rewritten and now run better than before. Godrays are completely overhauled to run smoother and operate off of a new entity that automatically gets the sun angle from the environment light.
+
+[b]New Crossbow Scope[/b] - Crossbow scope no longer uses an in game camera to zoom in. This makes the scope easier to aim and increases performance by removing a second rendering pass. It also fixes a number of visual bugs with using the scope throughout the game.
+
+[b]Image Based Ambient Lighting[/b] - Lighting can now be generated based off of the skybox image. This allows mappers to have significantly more accurate environmental lighting, which automatically takes into account the nuances and difference colours of the sky. This is unlike any other version of Source, where environment lighting is simply one flat colour picked by the mapper.
+
+[b]4 Way Texture Support[/b] - 4 way texture blends are now supported in engine, each with their own bump map, specular map, and procedural blending options. This allows for much more variety in texturing natural landscapes, as most older versions of Source only support 2 way texture blends.
+
+[b]Color Correction[/b] - All existing earthbound maps now utilize color correction.
+
+[b]Better Hammer Compiles [/b]- Hammer now uses current windows themes and the compiler does not block you from continuing to use Hammer; running in a separate batch window (similar to CSGO).
+
+[b]Added Support for $treesway[/b] - Props can now move in the wind using tree sway. This creates more much more dynamic looking natural environments, with a very small performance cost.
+
+[b]Implemented Hammer Instance Support[/b] - Hammer can now instance other VMFs to support modular level design.
+
+[b]Improved Blood Particles[/b] - Updated and improved blood particle effects for NPCs, to not look as blocky and unrealistic.
+
+[b]New Long Jump Mechanics[/b] - Modified long jump mechanics to be more similar to modern day games (press “jump” twice to long jump). Added a long jump recharge meter and “mana” mechanic to keep people from spamming long jump in both single and multiplayer (the long jump has a limited charge, with a medium base recharge rate, and the jumps consume this charge). Added a small “pop jump” mechanic to allow course corrects while player is mid air.
+
+[b]Dynamic Light Implementation[/b] - Moved all existing old Source dynamic lights over to our new dynamic lights system. This should improve visuals and reduce hitching when a dynamic light is activated (such as explosions, flashlight, Xen portal, muzzle flash, etc).
+
+[b]Doubled Source Displacement Limit [/b]- Max number of displacements allowed per map from 2048 to 4096. This allows the creation of more detailed and expansive natural outdoor environments.
+
+[b]Fixed Hammer Shaded Textured View[/b] - No more horrendous fullbright mapping!
+
+[b][u]Bug Fixes[/u][/b]
+[b]NPCs[/b]
+Fixed HECU not holding weapons correctly
+
+Fixed scientist ties jiggling out of control when FPS is low
+
+Fixed instances where Vort would not react to player
+
+Fixed ragdoll errors after loading a saved game
+
+Fixed rappelling HECU sometimes getting stuck in Osprey
+
+Fixed helicopter rockets getting stuck underwater
+
+Fixed grenade throw mechanics, grenades should be much easier to throw now
+
+Fixed crash from blowing up zombie HECU
+
+Fixed HECU turrets not shooting at zombie HECU
+
+Added IK (Inverse Kinematics) setup on Houndeye/Bullsquid
+
+Fixed Houndeye hitboxes, ragdoll, and gibs
+
+Added glow back to Houndeye’s blue stripes
+
+Fixed skinning on Houndeye
+
+Fixed player being able to pick up assassin’s pistol
+
+Fixed and improved Alien Controller AI and combat
+
+Fixed Agrunt hornet tracking to be more fair, making the Agunts more fun to fight
+
+Updated Vort eyes
+
+Fixed Vorts getting stuck after loading a save game
+
+[b]Multiplayer[/b]
+Added HUD icon for players using voice chat in multiplayer
+
+Added hit indicators in multiplayer
+
+Fixed UI spectate bugs in multiplayer
+
+Increased crossbow zoom sensitivity in multiplayer
+
+Fixed satchel being able to be thrown through the ground
+
+Fixed TOW launchers in Crossfire breaking if you moved them too much
+
+Fix fast weapon switch getting turned off in multiplayer
+
+Fixed ent_create not respecting sv_cheats
+
+Fixed filter_damage being able to crash servers
+
+[b]Miscellaneous[/b]
+Temporarily removed blood on weapons and hands, to fix the engine hitching when the effect is first applied
+
+Fixed Tau firing with limited ammo. The Tau will not longer auto fire if you do not have enough ammo for a full charge.
+
+Fixed Tau overcharge not hurting the player
+
+Fixed soundscapes not playing underwater
+
+Fixed maps crashing if there were no lights in VMF
+
+Fixed UI errors with certain translation files (Russian, Chinese)
+
+Fixed shotgun shells disappearing during reload animation
+
+Fixed missing translations in Italian closed captions
+
+Split last map of Lambda Core into two maps, for better performance
+
+Fixed VRAD to always pay attention to “Disable Vertex Lighting” in Hammer
+
+Fixed crossbow aiming too high when zoomed in
+
+Fixed various crashes and bugs when using the workshop tools
+
+[b][u]Known Issues[/size][/u][/b]
+Dynamic light shadows sometimes flicker
+
+Wall decals sometimes flicker
+
+Props sometimes “pop” with different lighting values
+
+Shadows from dynamic lights sometimes flicker on surfaces tangent to light, or when light is moving very fast
+
+When using dynamic light godrays, the game is slightly blurred
+
+Player occasionally gets stuck in Inbound tram when turning corner; issue fixes itself
+
+Cameras in game are off angle
+
+Gman gibs are wrong in multiplayer
+
+Crossbow will force you to descope after firing a shot in multiplayer
+
+Thanks!
+The Black Mesa Team</description>
+    
+    <lastBuildDate>Wed, 06 Jun 2018 03:33:55 +0000</lastBuildDate>
+    <category>News &amp; Developer Updates</category>
+    <atom:link href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[RedEye9]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="CatzEyes93">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/catzeyes93/40/4402_2.png" class="avatar"> CatzEyes93:</div>
+<blockquote>
+<p>Every time someone asks about Xen, another month is added to its development.</p>
+</blockquote>
+</aside>
+<p>Still my favorite Cateyes post of all time and it’s s[/size]till just as true today as it was on June 3, 2015.[/size]</p>
+<p><a href="https://forums.blackmesasource.com/index.php/Thread/28273-Any-News-on-Xen/?postID=610034#post610034" data-bbcode="true" rel="nofollow noopener">Any News on Xen?</a>[/size]</p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/94">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/94</link>
+        <pubDate>Wed, 06 Jun 2018 03:33:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-94</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[RedEye9]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="CatzEyes93">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/catzeyes93/40/4402_2.png" class="avatar"> CatzEyes93:</div>
+<blockquote>
+<p>By estimation, I think we are now looking at Novemburary 2032.   <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:">    <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+</blockquote>
+</aside>
+<p>Awesome, that’s my birthday! <img src="https://leakfree.org/images/emoji/twitter/thumbsup.png?v=9" title=":thumbsup:" class="emoji" alt=":thumbsup:"></p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/93">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/93</link>
+        <pubDate>Wed, 06 Jun 2018 00:18:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-93</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[darkone]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="CatzEyes93">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/catzeyes93/40/4402_2.png" class="avatar"> CatzEyes93:</div>
+<blockquote>
+<p>Everytime someone asks about it, it delays it another month. By estimation, I think we are now looking at Novemburary 2032.   <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:">    <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+</blockquote>
+</aside>
+<p>I get that is a joke but please do not give red eye more ammo for his hate.</p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/92">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/92</link>
+        <pubDate>Tue, 05 Jun 2018 17:50:12 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-92</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[CatzEyes93]]></dc:creator>
+        <description><![CDATA[
+            <p>Everytime someone asks about it, it delays it another month. By estimation, I think we are now looking at Novemburary 2032.   <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:">    <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/91">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/91</link>
+        <pubDate>Tue, 05 Jun 2018 13:06:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-91</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes.</p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/90">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/90</link>
+        <pubDate>Mon, 04 Jun 2018 16:32:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-90</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[Johnwalter]]></dc:creator>
+        <description><![CDATA[
+            <p>The only problem i see really, is that there is a planned release date for Xen, one that everyone hopes for/aims for.</p>
+<p>I would like to know what is the realistic release date. One that takes into account real job, family, friends, taking breaks,  possible accidents and other predictable events.<br>
+All those things that can delay the game. What would such a release date be?</p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/89">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/89</link>
+        <pubDate>Mon, 04 Jun 2018 16:18:25 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-89</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="chenmozx">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/c/e68b1a/40.png" class="avatar"> chenmozx:</div>
+<blockquote>
+<p>Thanks for the reply, Chon.</p>
+<p>I always believe that most of people those keeping asking information about Xen are just preferring to know what you guys are doing during the past time rather than showing out a screenshot or something else to the pubic. Though you guys are actually tired of answering the same content, XD.</p>
+<p>For me, currently I just only want to know two things, I hope I can get a answer here:</p>
+<ol>
+<li>
+<p>You guys mentioned that you will probably do another engine update before Xen drops. Will this plan still be launched as scheduled, or it has already been cancelled? If it remains, what contents does this engine update have? More new features or just bug fixes?</p>
+</li>
+<li>
+<p>Will you guys push the Xen contents to the mainline branch directly, or you need to release them to the public beta branch first, for the deep testing?</p>
+</li>
+</ol>
+<p>I’d be glad if you can solve my questions!</p>
+</blockquote>
+</aside>
+<ol>
+<li>
+<p>This will be launched, yeah. Probably not for quite some time. We want to finalise and stabilise everything engine related before we get it out. So it probably won’t happen until Xen is completely 100% code locked. What you have right now is probably…75% of the picture. Following that, bugfixes ONLY, based on public feedback.</p>
+</li>
+<li>
+<p>Not sure. Public beta probably.</p>
+</li>
+</ol>
+<aside class="quote no-group" data-username="Admiral Sakai">
+<div class="title">
+<div class="quote-controls"></div>
+ Admiral Sakai:</div>
+<blockquote>
+<p>One response I <span class="bbcode-i">would</span> like to see that would actually be helpful in determining the direction I want to go with mods is what the Black Mesa team’s plans are <span class="bbcode-i">after</span> Xen is released and reasonably stable- a yea or nay on stuff that’s been on modders’ wishlists for a good long while like map-specific playermodels and custom LCSs. Other than that, I’m totally happy with the way the game is developing.</p>
+</blockquote>
+</aside>
+<p>We have zero idea on our priorities post-Xen currently. “Play it by ear” is the most likely outcome. The things you’ve listed are things we are aware of and would like to deal with, but it’s really dependent on our workload post-Xen.</p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/88">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/88</link>
+        <pubDate>Mon, 04 Jun 2018 15:46:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-88</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>One response I <span class="bbcode-i">would</span> like to see that would actually be helpful in determining the direction I want to go with mods is what the Black Mesa team’s plans are <span class="bbcode-i">after</span> Xen is released and reasonably stable- a yea or nay on stuff that’s been on modders’ wishlists for a good long while like map-specific playermodels and custom LCSs. Other than that, I’m totally happy with the way the game is developing.</p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/87">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/87</link>
+        <pubDate>Mon, 04 Jun 2018 12:20:10 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-87</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[chenmozx]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for the reply, Chon.</p>
+<p>I always believe that most of people those keeping asking information about Xen are just preferring to know what you guys are doing during the past time rather than showing out a screenshot or something else to the pubic. Though you guys are actually tired of answering the same content, XD.</p>
+<p>For me, currently I just only want to know two things, I hope I can get a answer here:</p>
+<ol>
+<li>
+<p>You guys mentioned that you will probably do another engine update before Xen drops. Will this plan still be launched as scheduled, or it has already been cancelled? If it remains, what contents does this engine update have? More new features or just bug fixes?</p>
+</li>
+<li>
+<p>Will you guys push the Xen contents to the mainline branch directly, or you need to release them to the public beta branch first, for the deep testing?</p>
+</li>
+</ol>
+<p>I’d be glad if you can solve my questions!</p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/86">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/86</link>
+        <pubDate>Mon, 04 Jun 2018 11:40:30 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-86</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>Right, time to put an end to this. Downvotes are downvotes. Don’t whinge about them. They don’t matter. Posting “STOP ASKING FOR DEVELOPMENT UPDATES” or jumping down the throats of someone asking for an update is considerably worse than the people asking for the updates. It derails and clutters up the threads, as evidenced by the conversation prior to this. From now on, this will now be a temp bannable offense. If someone’s post upsets you, post a constructive reply, or downvote it, or report it if you must, or don’t post anything at all. We appreciate people trying to stand up for us or whatever, but we got this. Keep it constructive or don’t have a conversation on our forums at all.</p>
+<p>Regarding posting public updates, there are a few key elements to understand here.</p>
+<p>Firstly, we are insanely bogged down with work at the moment. The team is working harder than we’ve ever worked, and we have been for quite a long period of time now. I’m often getting up at 8am and working until 11pm, ALL WEEK. Xen is absolutely shaping up fantastically well and we’re driven both by excited motivation and by…well, this damn thing has to be finished at this point, let’s put it like that. We tend not to want to post things publicly that won’t be revealed until Xen is out - preferring only to talk about stuff that will be released soon in updates, or things we know are safe. Which we have been doing, constantly…on the Steam forums.</p>
+<p>Secondly, these forums are really rather dead. The reasons for that are multiple and are almost irrelevant to this discussion. I check these forums daily and reply where I see fit, but there’s VERY RARELY anything worthwhile to reply to. I do the same with the Steam forums, which are considerably more active. We’ve actually been considering retiring these forums for a while now, which would break my heart, but it’s quite possible that they’ve served their purpose at this point. We’re considering several avenues - using the Steam forums only, opening a Discord, etc etc. But it’s hard to think about at the moment when we’ve got so much XEN on the brain. It can come after.</p>
+<p>Thirdly, our last update was a month ago because that’s when our last update was. Our public releases tend to trickle out rather slowly for a variety of reasons, but we don’t plan on having another public update for a while now. The imminently pressing issues with this particular release have been addressed in some form or another, via workarounds or small patches we’ve been pushing. Again, the Steam forums are really the place to go to keep your finger on the pulse of that one.</p>
+<p>There’s not really much to update apart from “WE ARE VERY HARD AT WORK ON XEN AND BUG FIXES,” and let’s be honest, me constantly posting that really starts to look like lip-service beyond a point. This is an unfortunate consequence of us trying to keep things secret, for the most part. We think it will be worth it, in the end. Hence why we are keeping our heads down and getting on with it. We’ll update publicly when we have something to show, and not before. We know that sucks for some fans who want more updates and more media and have been waiting patiently a long time. We’re simply doing what we think is right.</p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/85">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/85</link>
+        <pubDate>Mon, 04 Jun 2018 06:59:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-85</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[Epitaph]]></dc:creator>
+        <description><![CDATA[
+            <p>Well, speaking for myself, if i was in the position of the devs, i’d definitely post updates at least once a month.</p>
+<p>Why?<br>
+Cause<br>
+i) it would serve as a break to the crushing routine of either writing code, mapping, moddeling or testing/crunching the game for bugs.<br>
+ii) it would serve as a medium to communicate with people that love this game and have also paid some money. It would made those people happy. Something i’ve always written in the devs’ updates. Even a small progress update would do.</p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/84">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/84</link>
+        <pubDate>Mon, 04 Jun 2018 06:24:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-84</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[Johnwalter]]></dc:creator>
+        <description><![CDATA[
+            <p>Then again, i’m an adult now and begging to understand how crappy it gets to have less time in the day</p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/83">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/83</link>
+        <pubDate>Mon, 04 Jun 2018 05:48:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-83</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[Johnwalter]]></dc:creator>
+        <description><![CDATA[
+            <p>Great, now there’s arguing.</p>
+<p>Regardless of whether the Devs use this forum or the Steam one.</p>
+<p>I checked both, last update was a month ago, on May 1st.</p>
+<p>I am not going to beg them to post an update, i want them to want to post an update.</p>
+<p>I just find it hard sometimes to believe that there is so much real paid job work and game work that there’s no room left for copying the list of changes the keep track of.</p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/82">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/82</link>
+        <pubDate>Mon, 04 Jun 2018 05:47:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-82</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[RedEye9]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="darkone">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/darkone/40/4296_2.png" class="avatar"> darkone:</div>
+<blockquote>
+<p>thing is I know from experience it takes 5 seconds to copy paste the updates from one forum to another.</p>
+</blockquote>
+</aside>
+<p>And you are free to do that yourself instead of whining about it.</p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/81">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/81</link>
+        <pubDate>Mon, 04 Jun 2018 00:37:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-81</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>I never really needed any reason to thumb-down “when-xen” posts than that they are mildly annoying. It’s a downvote, it’s not like I put out a hit on anyone.</p>
+<p>The forums have definitely gone downhill, but I don’t think this is necessarily due to either the suppression of when-Xen posts or the posts themselves.  I’m posting big long development dissertations and getting at <span class="bbcode-i">best</span> one or two responses, people just aren’t <span class="bbcode-i">there</span>. Really, it feels like I’m the only one doing any sort of mod development here, at least that’s posting about it; there’s external stuff like RTSL’s contest maps and JamaicanDave’s maps being posted to the workshop but I have no idea where it’s coming from or how it was developed.</p>
+<p>If anything is responsible for this in terms of the <span class="bbcode-i">game</span> it’d be that there’s a lot about the engine still restricting what modders can do, but looking at what’s coming out about the necessary code additions required to get Xen off the ground I honestly think the developers are doing exactly the right thing by focusing exclusively on the Xen-necessary features and not fixing the other stuff. To do otherwise would invalidate most of their own fixes whenever they added a Xen feature, we did that with some in-house simulation software at <a href="https://engineering.case.edu/groups/robotics/" data-bbcode="true" rel="nofollow noopener">the lab where I work</a> and it has been, to use a technical term, <span class="bbcode-i">hellish</span> trying to keep the system both polished and up-to-date with the required basic features.</p>
+<p>I don’t blame the developers for neglecting the forums as a result. Of course they are going to post where the activity is. And I don’t think the developers posting on these forums instead would do much of anything to bring them back.</p>
+<p>That’s all I have to say on the matter, as I much prefer to actually interact with Black Mesa in a <span class="bbcode-b">productive </span>manner.</p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/80">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/80</link>
+        <pubDate>Sun, 03 Jun 2018 23:27:07 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-80</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[darkone]]></dc:creator>
+        <description><![CDATA[
+            <p>thing is I know from experience it takes 5 seconds to copy paste the updates from one forum to another. Both REDeye and his likely alt redeye9 forget one thing. They are posting the updates to the damn steam forum.</p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/79">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/79</link>
+        <pubDate>Sun, 03 Jun 2018 21:49:39 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-79</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[RedEye9]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Epitaph">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/e/aeb1de/40.png" class="avatar"> Epitaph:</div>
+<blockquote>
+<p>So having someone to <span class="bbcode-b"><span class="bbcode-u"><font face="Trebuchet MS, Helvetica, sans-serif">waste 20 minutes</font> </span></span>of his life every 30 days, to post an update about something that some other people paid for, is too much?</p>
+</blockquote>
+</aside>
+<p>You just called it a waste and that’s exactly what it is, sad thing is I bet you think you’re entitled to it.</p>
+<p>I gave them money to help fund the game. <span class="bbcode-b">I did not pay them for updates or patch notes.</span></p>
+<p>Tough to grasp, i guess?</p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/78">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/78</link>
+        <pubDate>Sun, 03 Jun 2018 21:42:05 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-78</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[Epitaph]]></dc:creator>
+        <description><![CDATA[
+            <p>So having someone to waste 20 minutes of his life every 30 days, to post an update about something that some other people paid for, is too much?</p>
+<p>The question was simple. I didn’t demand any pictures, trailers, sneak peak videos or to explain some difficult concept. It was “if any of the big bugs have been fixed?”.<br>
+And the answer would be something along the lines of :</p>
+<p>“Yes we’ve fixed some animation bugs, but we’re still working on the flashlight bug.”</p>
+<p>Which is something that does NOT demand uploading pictures, editing videos or being careful in constructing the form of what they’re about to say (as they do in big updates).<br>
+Tough to grasp, i guess?</p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/77">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/77</link>
+        <pubDate>Sun, 03 Jun 2018 19:28:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-77</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[RedEye]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="LordDz">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/d2c977/40.png" class="avatar"> LordDz:</div>
+<blockquote>
+<p>So… We should all stop posting on the forum I guess?</p>
+</blockquote>
+</aside>
+<p>What childishly odd thing to take away from this conversation.</p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/76">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/76</link>
+        <pubDate>Sun, 03 Jun 2018 17:21:07 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-76</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[RedEye]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="darkone">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/darkone/40/4296_2.png" class="avatar"> darkone:</div>
+<blockquote>
+<p>Ok first USE NORMAL TEXT. It is like reading a kindergartners writing you even used comic sands in the post before which is a sin on the internet.</p>
+<p>Also that is dodging the point. Most people here are paying customers aswell, while we are not intitled to news and media about xen we atleast deserve the patch notes and updates. MOST PLAYERS AVOID STEAM FORUMS. In all games but this one that I Have seen. And once again you are dodging the point and actually making things worse.</p>
+</blockquote>
+</aside>
+<p><font face="Consolas, Courier New, Courier, monospace">What is the point i keep dodging.[/size]</font></p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/75">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/75</link>
+        <pubDate>Sun, 03 Jun 2018 17:19:26 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-75</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[darkone]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="RedEye">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/redeye/40/4899_2.png" class="avatar"> RedEye:</div>
+<blockquote>
+<aside class="quote no-group" data-username="darkone">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/darkone/40/4296_2.png" class="avatar"> darkone:</div>
+<blockquote>
+<p>Sorry hate to disagree but RED EYE, the forums are dying. The fact that the devs respond more to posts on the steam forum is evidence of that. The fact that none of the patch notes have been posted here for a while shows that. No this place is more or less dying.</p>
+</blockquote>
+</aside>
+<p>[sup]T[/sup][sub]h[/sub]e point[/size] I was[/size] <span class="bbcode-i">trying</span> to <span class="bbcode-u">make</span> was <font face="Verdana, Geneva, sans-serif">not</font> very<span class="bbcode-b"> clear</span>. [sup]The[/sup][sub] forum [/sub]is <font face="Arial, Helvetica, sans-serif">not</font><font face="Comic Sans MS, cursive"> the</font> <font face="Consolas, Courier New, Courier, monospace">game</font> <font face="Georgia, serif">and</font> <font face="Tahoma, Geneva, sans-serif">the</font> <font face="Times New Roman, Times, serif">death</font>[sub] of[/sub] [sup]it[/sup] <font face="Verdana, Geneva, sans-serif">will</font> <font face="Trebuchet MS, Helvetica, sans-serif">not</font> change anything.<br>
+The devs respond to posts on Steam because that is home for the Steam Version of the game and the location of the majority of all the paying customers. That is also where all the funding for the game comes from.</p>
+</blockquote>
+</aside>
+<p>Ok first USE NORMAL TEXT. It is like reading a kindergartners writing you even used comic sands in the post before which is a sin on the internet.</p>
+<p>Also that is dodging the point. Most people here are paying customers aswell, while we are not intitled to news and media about xen we atleast deserve the patch notes and updates. MOST PLAYERS AVOID STEAM FORUMS. In all games but this one that I Have seen. And once again you are dodging the point and actually making things worse.</p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/74">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/74</link>
+        <pubDate>Sun, 03 Jun 2018 17:17:30 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-74</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <p>So… We should all stop posting on the forum I guess?<br>
+But didn’t you just say that the devs shouldn’t respond to posts and instead spend time working on the game?</p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/73">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/73</link>
+        <pubDate>Sun, 03 Jun 2018 17:12:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-73</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[RedEye]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="darkone">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/darkone/40/4296_2.png" class="avatar"> darkone:</div>
+<blockquote>
+<p>Sorry hate to disagree but RED EYE, the forums are dying. The fact that the devs respond more to posts on the steam forum is evidence of that. The fact that none of the patch notes have been posted here for a while shows that. No this place is more or less dying.</p>
+</blockquote>
+</aside>
+<p>[sup]T[/sup][sub]h[/sub]e point[/size] I was[/size] <span class="bbcode-i">trying</span> to <span class="bbcode-u">make</span> was <font face="Verdana, Geneva, sans-serif">not</font> very<span class="bbcode-b"> clear</span>. [sup]The[/sup][sub] forum [/sub]is <font face="Arial, Helvetica, sans-serif">not</font><font face="Comic Sans MS, cursive"> the</font> <font face="Consolas, Courier New, Courier, monospace">game</font> <font face="Georgia, serif">and</font> <font face="Tahoma, Geneva, sans-serif">the</font> <font face="Times New Roman, Times, serif">death</font>[sub] of[/sub] [sup]it[/sup] <font face="Verdana, Geneva, sans-serif">will</font> <font face="Trebuchet MS, Helvetica, sans-serif">not</font> change anything.</p>
+<p>The devs respond to posts on Steam because that is home for the Steam Version of the game and the location of the majority of all the paying customers. That is also where all the funding for the game comes from.</p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/72">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/72</link>
+        <pubDate>Sun, 03 Jun 2018 17:09:06 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-72</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="RedEye">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/redeye/40/4899_2.png" class="avatar"> RedEye:</div>
+<blockquote>
+<aside class="quote no-group" data-username="LordDz">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/d2c977/40.png" class="avatar"> LordDz:</div>
+<blockquote>
+<p>Fine, I get it that the devs get asked these questions a lot, but to dislike them whenever they’re asked… I mean, the folks who ask them just show that they still like the development of the game.<br>
+Isn’t it better to have people ask about the development of the game rather than just let the forum die because nobody discusses anything anymore?</p>
+</blockquote>
+</aside>
+<p>You are aware that the devs are working on the game. Time spent responding to the " <font face="Times New Roman, Times, serif">Give us updates on the game that you’re working on, are you working on the game that you’re working on, show us some media and screenshot of the game that you’re working on, are you fixing the bugs in the game that you’re working on</font> " plethora of endless <font face="Comic Sans MS, cursive">nonsense questions</font> is a waste of time. <span class="bbcode-b">That time is better spent working on the game.</span>[/size]</p>
+<p>As for the forum dying what a ridiculous statement. The end result is the game and that’s what people want and that is what the devs are working on.<br>
+Thankfully they are not wasting valuable time responding to every <font face="Comic Sans MS, cursive">nonsense question</font> that is asked.[/size]</p>
+</blockquote>
+</aside>
+<p>What’s up with the font? It just makes it harder to read what you’re trying to say.<br>
+I am aware that the devs are working on the game, however not everyone else is due to not that much communication.</p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/71">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/71</link>
+        <pubDate>Sun, 03 Jun 2018 16:58:47 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-71</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+      <item>
+        <title>Steam Sale, December Update, and Patch Notes</title>
+        <dc:creator><![CDATA[darkone]]></dc:creator>
+        <description><![CDATA[
+            <p>Sorry hate to disagree but RED EYE, the forums are dying. The fact that the devs respond more to posts on the steam forum is evidence of that. The fact that none of the patch notes have been posted here for a while shows that. No this place is more or less dying.</p>
+          <p><a href="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/70">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312/70</link>
+        <pubDate>Sun, 03 Jun 2018 16:54:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15312-70</guid>
+        <source url="https://leakfree.org/t/steam-sale-december-update-and-patch-notes/15312.rss">Steam Sale, December Update, and Patch Notes</source>
+      </item>
+  </channel>
+</rss>

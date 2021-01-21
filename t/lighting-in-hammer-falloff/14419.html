@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/lighting-in-hammer-falloff/14419 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:56:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Lighting in Hammer - Falloff - Black Mesa - Leakfree</title>
+    <meta name="description" content="Hello again! 
+I hope this question isn’t too stupid, though hopefully it’s still easy to solve. 
+I’ve got my lights set up like this in my first ‘test’ map: 
+ 
+As you can see, a spot light, with a normal light underneath&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="14419.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Lighting in Hammer - Falloff&#39;" href="14419.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/lighting-in-hammer-falloff/14419" />
+<meta name="twitter:url" content="https://leakfree.org/t/lighting-in-hammer-falloff/14419" />
+<meta property="og:title" content="Lighting in Hammer - Falloff" />
+<meta name="twitter:title" content="Lighting in Hammer - Falloff" />
+<meta property="og:description" content="Hello again!  I hope this question isn’t too stupid, though hopefully it’s still easy to solve.  I’ve got my lights set up like this in my first ‘test’ map:     As you can see, a spot light, with a normal light underneath it. This is how I saw the lights done in Anomalous Materials. I even took pretty much the same values from a couple of lights, though I toned down the blue slightly.  It results in this:     I’m pretty happy with the lighting of the floor and main room, but the ceiling and top ..." />
+<meta name="twitter:description" content="Hello again!  I hope this question isn’t too stupid, though hopefully it’s still easy to solve.  I’ve got my lights set up like this in my first ‘test’ map:     As you can see, a spot light, with a normal light underneath it. This is how I saw the lights done in Anomalous Materials. I even took pretty much the same values from a couple of lights, though I toned down the blue slightly.  It results in this:     I’m pretty happy with the lighting of the floor and main room, but the ceiling and top ..." />
+<meta property="article:published_time" content="2015-09-23T13:53:03+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="14419.html">Lighting in Hammer - Falloff</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/7.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>General Development</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/black-mesa/44.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/ArcHammer.html'><span itemprop='name'>ArcHammer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14419.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-23T13:53:03Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:24:33Z' class='post-time'>
+                August 11, 2020, 11:24am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hello again!<br>
+I hope this question isn’t too stupid, though hopefully it’s still easy to solve.</p>
+<p>I’ve got my lights set up like this in my first ‘test’ map:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/8hefABl.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/8hefABl.png" alt="" width="690" height="415"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">778×469</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>As you can see, a spot light, with a normal light underneath it. This is how I saw the lights done in Anomalous Materials. I even took pretty much the same values from a couple of lights, though I toned down the blue slightly.</p>
+<p>It results in this:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/Ll6HDpZ.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/Ll6HDpZ.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>I’m pretty happy with the lighting of the floor and main room, but the ceiling and top of the walls are unlit and the fade-away is sudden.</p>
+<p>In the spoiler are the settings for my light_spots and lights.</p>
+<div class="spoiler">
+<p><img src="https://i.imgur.com/AD64lou.png" alt="" width="657" height="492"><br>
+<img src="https://i.imgur.com/STkQ1uQ.png" alt="" width="660" height="489"></p>
+</div>
+<p>I think I’ve seen a lot of people with this problem before, so apologies if this has been asked too many times - I couldn’t seem to find an answer.<br>
+Thanks!</p>
+        </div>
+
+        <meta itemprop='headline' content='Lighting in Hammer - Falloff'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14419.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-23T14:03:52Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:38:54Z' class='post-time'>
+                November 25, 2018,  4:38am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I would suggest using the %age falloff distances rather than the C/L/Q ratios. Much easier to understand and works way better. CLQ is only really useful for 100% constant light, and you only really want that in very specific scenarios.</p>
+        </div>
+
+        <meta itemprop='headline' content='Lighting in Hammer - Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/ArcHammer.html'><span itemprop='name'>ArcHammer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14419.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-23T14:12:32Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:38:54Z' class='post-time'>
+                November 25, 2018,  4:38am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<p>I would suggest using the %age falloff distances rather than the C/L/Q ratios. Much easier to understand and works way better. CLQ is only really useful for 100% constant light, and you only really want that in very specific scenarios.</p>
+</blockquote>
+</aside>
+<p>By that do you mean the “50 percent falloff distance” entry and “0 percent falloff distance”?<br>
+If so, which one should I use?<br>
+(Excuse the noob)</p>
+        </div>
+
+        <meta itemprop='headline' content='Lighting in Hammer - Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14419.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-23T14:15:55Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:38:55Z' class='post-time'>
+                November 25, 2018,  4:38am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That is what I meant, and you have to use both. The combination of the two allows you to determine almost exactly how you would like the light to fall off. For instance, if you set the 50% falloff to 64 units and then the 0% falloff to 512 units, you get a light which is very bright at its center (but only for a very small space), and then moderately bright for the rest of its lifespan (512 units). Or if you set the 50% falloff to 256 units and then the 0% falloff to 320, you get a light which is quite uniformly bright (but still brighter at its center), and then falls off abruptly.</p>
+        </div>
+
+        <meta itemprop='headline' content='Lighting in Hammer - Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14419.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-23T14:50:34Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:38:55Z' class='post-time'>
+                November 25, 2018,  4:38am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I remember having similar substantial difficulties with the tile drop ceilings in Office Complex- I’ve had good results by making the light_spots much weaker than the general lights, and moving said regular lights closer to the middle of the room rather than up against the ceiling.</p>
+        </div>
+
+        <meta itemprop='headline' content='Lighting in Hammer - Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/ArcHammer.html'><span itemprop='name'>ArcHammer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14419.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-23T14:50:46Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:24:34Z' class='post-time'>
+                August 11, 2020, 11:24am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks! With the combination of moving the lights down slightly (they were too close to the ceiling so now they spread their light out further), changing the colour to a less deep-bluey, and a pretty large falloff distance, I’m quite happy with the result!<br>
+Feedback is much required as this is my test map so I know a sort of “template” for future projects (in labs, at least.)</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/EWm0mM7.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/EWm0mM7.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>How does the lighting look now? Any problems? I had to decrease the falloff distance for the light closest to the camera (not seen in view, just slightly off) as it was close to the wall/elevator, and it produced too much glare/brightness off it.</p>
+        </div>
+
+        <meta itemprop='headline' content='Lighting in Hammer - Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14419.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-23T15:28:12Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:38:55Z' class='post-time'>
+                November 25, 2018,  4:38am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I think you could stand to even them out a bit more (the ceiling still looks a little dim, while the retinal scanner against the far door appears to be glowing), and you should also start messing around with and getting conversant in the tonemap_ctrl entity- this will help with the bloominess and potential really dark spots, and the Black Mesa default maps change tonemap values pretty abruptly depending on where you are.</p>
+<p>Architecturally, the labs look a bit square when the walls usually have some more curved elements, and over all you could so with a few more detail brushes and props. To my knowledge, the brown maintenance door (and its frame) never appear in the lab sections, so you may want to consider replacing it with a white door or another sliding door.</p>
+        </div>
+
+        <meta itemprop='headline' content='Lighting in Hammer - Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/ArcHammer.html'><span itemprop='name'>ArcHammer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14419.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-09-23T23:43:26Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:38:57Z' class='post-time'>
+                November 25, 2018,  4:38am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for the lighting advice. I’ll definitely try the tonemapping. As for the details, they aren’t finished yet - I was mainly worried about the lighting and I’ve since added a few more details (though I’ll be adding more). I’ll see what I can do with the door, it’ll probably have to become a locked  generic lab door.</p>
+        </div>
+
+        <meta itemprop='headline' content='Lighting in Hammer - Falloff'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/lighting-in-hammer-falloff/14419 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:56:00 GMT -->
+</html>

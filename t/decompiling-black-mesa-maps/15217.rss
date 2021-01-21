@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Decompiling Black Mesa Maps</title>
+    <link>https://leakfree.org/t/decompiling-black-mesa-maps/15217</link>
+    <description>I had some significant reservations about posting on this topic publicly, but I&#39;ve concluded that I will [i]not[/i] be the only person ever to realize it could be done and more to the point I&#39;m offering a workaround for something (namely, providing up-to-date sources for all all areas of the game) that the developers have stated they themselves plan to do but are understandably too busy to bother with at the moment. That said, please be [url=&#39;https://developer.valvesoftware.com/wiki/Decompiling_Maps&#39;]polite[/url] in your decompiling adventures.
+
+
+The information below is out-of-date. Check lower in the thread for a version of the decompiler made by Flavrans which does not need the workaround described below.
+
+Getting a Decompiled Map [/size]
+* The actual maps which Black Mesa runs need to be extracted from the vpk files like any other game asset. This can be done by dragging bms_maps_dir.vpk over the vpk.exe program stored in the game&#39;s &#39;bin&#39; folder.
+* You will need ata4&#39;s bspsrc utility. The current best (only?) place to get it is from [url=&#39;https://github.com/ata4/bspsrc/releases&#39;]the releases section of the author&#39;s github page[/url].
+* Unzip and run bspsrc.bat.
+* Leave the advanced compilation options as defaults.
+* Add as many maps as you want and decompile. The program will throw a number of &quot;invalid vector&quot; errors.
+* This will produce decompiled VMFs with some bad data in them that will cause Hammer to crash if opened directly.
+Making A Decompiled Map Functional[/size]
+* In order to make the VMFs you created up above work, you will need to open them in a text editor like Notepad and remove a block of bad data.
+* The data you are looking for are a bunch of spurious lighting origins lumped together near the bottom of the file. They take the form of blocks like this:
+[tt]entity[/tt]
+[tt]{[/tt][tt]    &quot;id&quot; &quot;&lt;SOME NUMBER&gt;&quot;[/tt][tt]    &quot;classname&quot; &quot;info_lighting&quot;[/tt][tt]    &quot;targetname&quot; &quot;sprp_lighting_&lt;SOME NUMBER&gt;&quot;[/tt][tt]    &quot;origin&quot; &quot;&lt;THREE NUMBERS&gt;&quot;[/tt][tt]}[/tt]
+The coordinates in the origin are occasionally something absurd like &quot;0 0 103161719131765890000000000&quot;- it&#39;s these Very Large Numbers that break Hammer when the map is loaded. However, [i]all[/i] of these lighting origins will cause the props they are connected to to light improperly, and will likely be in a place that will cause map leaks, so there&#39;s nothing to be gained by only deleting the weird ones.
+
+* There are typically several hundred of these entites (Gasworks has nearly two thousand!) but since they are all in a row and the decompiler never includes any &quot;legitimate&quot; lighting origins you can just find the first one, find the last one, select everything in between, and delete.
+* The map can now be opened in Hammer, but I find that the reconstructed optimization (areaportals, occluders, and hint brushes) almost universally have an extremely negative effect on both compile time and in-game performance, and may cause compile errors. So, I typically use the &#39;auto&#39; visgroups to hide everything except for those three categories, select the entire map area, and delete all of it. This makes a map that is barely playable and will take a long time to compile, but it&#39;s better than nothing and you can fill in at least basic optimization yourself.
+* Very rarely other elements may be decompiled in a way that causes errors; it&#39;s typically possible to just delete them and make new ones that look the same.
+* If you&#39;re looking to update one of the maps like the outdoor ones that only have had new static props added since the official VMF release, you are probably better off just using hammer&#39;s &quot;entity report&quot; or visgroup functionality to delete every prop_static from the official map, select every prop_static from a decompiled map, and copy them over. This will let you use the new props with the original optimization.</description>
+    
+    <lastBuildDate>Wed, 18 Sep 2019 17:45:43 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/decompiling-black-mesa-maps/15217.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Decompiling Black Mesa Maps</title>
+        <dc:creator><![CDATA[Flavrans]]></dc:creator>
+        <description><![CDATA[
+            <p>I have released a new <em><strong>unofficial</strong></em> build of BSPSource built from the codebase in my <a href="https://github.com/flavrans/bspsrc" rel="nofollow noopener">forked repository on github</a>.</p>
+<p>You can download it from the releases section of my repository: <a href="https://github.com/flavrans/bspsrc/releases" rel="nofollow noopener">https://github.com/flavrans/bspsrc/releases</a></p>
+<p>This version is based on the latest commit by the original author from December 10, 2018. I have merged a number of patches by a github user named gitRihi into it, which add several fixes and improvements. Two of of note are: 1) a rewrite of the areaportal and occluder mapping code, 2) fix for blocklight tool textures, which would appear as nodraw textures in previous versions.</p>
+<p>In addition to the aforementioned patches, there are also a few minor fixes of my own. One of the fixes ensures support for static prop lumps across all versions of Black Mesa. Another fix worth mentioning is a feature that fixes the alignment of tool textures. All tool textures will be realigned on their brush faces (by emulating Hammer’s face alignment method.) This fixes the issue with some tool textures appearing weirdly scaled and distorted in the decompiled map. The reason this happens is because the texture axis (UV) information is not preserved in the BSP, and what is stored in the BSP often results in invalid or nonsensical UVs. This is not surprising as texture alignment on tool brushes is completely irrelevant to the engine.</p>
+<p>A full changelog is on the release page.</p>
+<p>It is also worth noting that with this version of BSPSource, the decompiled bm_c2a5a and bm_c2a5h maps no longer causes Hammer to crash upon loading the VMF’s.</p>
+          <p><a href="https://leakfree.org/t/decompiling-black-mesa-maps/15217/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/decompiling-black-mesa-maps/15217/14</link>
+        <pubDate>Wed, 18 Sep 2019 17:45:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15217-14</guid>
+        <source url="https://leakfree.org/t/decompiling-black-mesa-maps/15217.rss">Decompiling Black Mesa Maps</source>
+      </item>
+      <item>
+        <title>Decompiling Black Mesa Maps</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>VPK should dump the unpacked folder into the same directory as the VPK. For instance, bms_maps_dir.vpk will make a folder called bms_maps_dir right next to itself.</p>
+          <p><a href="https://leakfree.org/t/decompiling-black-mesa-maps/15217/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/decompiling-black-mesa-maps/15217/13</link>
+        <pubDate>Wed, 02 May 2018 23:59:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15217-13</guid>
+        <source url="https://leakfree.org/t/decompiling-black-mesa-maps/15217.rss">Decompiling Black Mesa Maps</source>
+      </item>
+      <item>
+        <title>Decompiling Black Mesa Maps</title>
+        <dc:creator><![CDATA[TJHL]]></dc:creator>
+        <description><![CDATA[
+            <p>Solved, but new problem. After the unpacking (valve side), i cant find the files to de-compile (3rd party side). As soon as vpk finishes, it closes.</p>
+          <p><a href="https://leakfree.org/t/decompiling-black-mesa-maps/15217/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/decompiling-black-mesa-maps/15217/12</link>
+        <pubDate>Wed, 02 May 2018 22:43:38 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15217-12</guid>
+        <source url="https://leakfree.org/t/decompiling-black-mesa-maps/15217.rss">Decompiling Black Mesa Maps</source>
+      </item>
+      <item>
+        <title>Decompiling Black Mesa Maps</title>
+        <dc:creator><![CDATA[Flavrans]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="TJHL">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/tjhl/40/4870_2.png" class="avatar"> TJHL:</div>
+<blockquote>
+<p>This doesn’t work for me. When i launch the .bat, an error pops up saying "Windows cannot find ‘javaw’ ".</p>
+</blockquote>
+</aside>
+<p>You need to download and install the Java SE Runtime Environment:</p>
+<p><a href="https://www.oracle.com/technetwork/java/javase/downloads/jre10-downloads-4417026.html" data-bbcode="true" rel="nofollow noopener">https://www.oracle.com/technetwork/java/javase/downloads/jre10-downloads-4417026.html</a></p>
+<p>The modified version of bspsrc I posted in this thread was built in a Java 8 environment. If there’s a problem with running bspsrc under JRE 10, uninstall the JRE 10 and try the JRE 8 (8u171) instead:</p>
+<p><a href="https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html" data-bbcode="true" rel="nofollow noopener">https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html</a></p>
+          <p><a href="https://leakfree.org/t/decompiling-black-mesa-maps/15217/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/decompiling-black-mesa-maps/15217/11</link>
+        <pubDate>Wed, 02 May 2018 17:16:24 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15217-11</guid>
+        <source url="https://leakfree.org/t/decompiling-black-mesa-maps/15217.rss">Decompiling Black Mesa Maps</source>
+      </item>
+      <item>
+        <title>Decompiling Black Mesa Maps</title>
+        <dc:creator><![CDATA[TJHL]]></dc:creator>
+        <description><![CDATA[
+            <p>This doesn’t work for me. When i launch the .bat, an error pops up saying "Windows cannot find ‘javaw’ ".</p>
+          <p><a href="https://leakfree.org/t/decompiling-black-mesa-maps/15217/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/decompiling-black-mesa-maps/15217/10</link>
+        <pubDate>Wed, 02 May 2018 00:31:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15217-10</guid>
+        <source url="https://leakfree.org/t/decompiling-black-mesa-maps/15217.rss">Decompiling Black Mesa Maps</source>
+      </item>
+      <item>
+        <title>Decompiling Black Mesa Maps</title>
+        <dc:creator><![CDATA[Flavrans]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve built a new version of bspsrc-bmfix which adds support for the new V11 prop_static structure. See my <a href="https://forums.blackmesasource.com/index.php/Thread/30772-Decompiling-Black-Mesa-Maps/?postID=630253#post630253" data-bbcode="true" rel="nofollow noopener">first post</a> in this thread for download links and changelog.</p>
+<p>So, the static prop lump found in the December update map files is still identifying itself as version 11, like in cu3 and cu4, but has grown by four bytes (from 76 to 80 bytes) compared to the earlier version of the structure. The four additional bytes are used by a new struct member called m_FlagsEx (a 32-bit integer), which I have no idea what is being used for. In the few maps I’ve checked it’s just set to 0 and there’s nothing in the .fgd’s that might shed some light on what it’s supposed to be used for. Perhaps it’s something to do with the upcoming improved prop lighting feature (as mentioned in the December update announcement).</p>
+<p>I’ve just made sure that BSPSource is able to detect the format and able to read the rest of the relevant data from the structure properly.</p>
+<aside class="quote no-group" data-username="Revvylo">
+<div class="title">
+<div class="quote-controls"></div>
+ Revvylo:</div>
+<blockquote>
+<p>Still works for me. I managed to decompile bm_c2a4h_d from the public beta.</p>
+</blockquote>
+</aside>
+<p>Yes, the decompilation would appear to finish successfully, but you would see the following messages in the errors &amp; warnings box:</p>
+<p><code>[warning] BspFileReader: Static prop struct size mismatch: expected 80, got 76 (using DStaticPropV11)
+[warning] BspFileReader: Falling back to static prop v4</code>This means that static props have been read incorrectly, and will have some properties that will likely be wrong. Most if not all static props will have an invalid lighting origin defined, even if they are not supposed to have a lighting origin, and those that <span class="bbcode-i">are</span> supposed to, will have lighting origin coordinates filled with invalid numbers that might crash Hammer upon opening the .vmf. This has now been fixed in my new build of bspsrc-bmfix.</p>
+          <p><a href="https://leakfree.org/t/decompiling-black-mesa-maps/15217/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/decompiling-black-mesa-maps/15217/9</link>
+        <pubDate>Sun, 31 Dec 2017 07:43:51 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15217-9</guid>
+        <source url="https://leakfree.org/t/decompiling-black-mesa-maps/15217.rss">Decompiling Black Mesa Maps</source>
+      </item>
+      <item>
+        <title>Decompiling Black Mesa Maps</title>
+        <dc:creator><![CDATA[Flavrans]]></dc:creator>
+        <description><![CDATA[
+            <p>FYI, the <a href="https://forums.blackmesasource.com/index.php/Thread/43132-Steam-Sale-December-Update-and-Patch-Notes/?postID=645327#post645327" data-bbcode="true" rel="nofollow noopener">December Update</a> (aka. the Xengine Update) broke BSPSource again, including my version which included a fix to handle Black Mesa’s static prop lump.</p>
+<p>The format of the static prop lump has been changed again, thus causing the same problem as before. I’m looking into it and I’ll see if I can patch BSPSource again to handle the new format if/when I find some time.</p>
+          <p><a href="https://leakfree.org/t/decompiling-black-mesa-maps/15217/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/decompiling-black-mesa-maps/15217/8</link>
+        <pubDate>Tue, 26 Dec 2017 15:33:24 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15217-8</guid>
+        <source url="https://leakfree.org/t/decompiling-black-mesa-maps/15217.rss">Decompiling Black Mesa Maps</source>
+      </item>
+      <item>
+        <title>Decompiling Black Mesa Maps</title>
+        <dc:creator><![CDATA[Super_Ninja_Fat]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Flavrans">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/flavrans/40/4375_2.png" class="avatar"> Flavrans:</div>
+<blockquote>
+<aside class="quote no-group" data-username="Super Ninja Fat">
+<div class="title">
+<div class="quote-controls"></div>
+ Super Ninja Fat:</div>
+<blockquote>
+<p>Ummm for some reason bspsrc_1.3.23 won’t work, even the bmfix version. As soon as I hit the “decompile” button, the program crashes and leaves an error log. Anyone else getting this problem?   <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"><br>
+Oddly enough, it worked just fine for me over the summer. Maybe I’m forgetting to do a step…</p>
+</blockquote>
+</aside>
+<p>Does it crash with any .bsp, or just one specifically? Which version of the Java runtime is installed on your system? (Click the Windows Start Menu button and type “About Java” and then click it/press Enter to see the installed version number.) Perhaps an update broke it. The version I’m using is 8u151, but the latest is 9.0.1. If you are on 9.0.1, then you could try downgrading to 8u151 and see if that works (<a href="https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html" data-bbcode="true" rel="nofollow noopener">available here</a>).<br>
+EDIT: I tried running bspsrc 1.3.23 (orig. and bmfix) under JRE-9.0.1, and didn’t experience any crashes (decompiling some stock BM maps). So, that’s probably not it.</p>
+</blockquote>
+</aside>
+<p>Any .bsp file. I’ve installed the latest version of java. For some reason, About Java isn’t working right now (I’ll check it again later) but I think it’s 9.0.1. So yeah I’ll just try downgrading. Thanks!</p>
+          <p><a href="https://leakfree.org/t/decompiling-black-mesa-maps/15217/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/decompiling-black-mesa-maps/15217/7</link>
+        <pubDate>Mon, 30 Oct 2017 20:06:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15217-7</guid>
+        <source url="https://leakfree.org/t/decompiling-black-mesa-maps/15217.rss">Decompiling Black Mesa Maps</source>
+      </item>
+      <item>
+        <title>Decompiling Black Mesa Maps</title>
+        <dc:creator><![CDATA[Flavrans]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Super Ninja Fat">
+<div class="title">
+<div class="quote-controls"></div>
+ Super Ninja Fat:</div>
+<blockquote>
+<p>Ummm for some reason bspsrc_1.3.23 won’t work, even the bmfix version. As soon as I hit the “decompile” button, the program crashes and leaves an error log. Anyone else getting this problem?   <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"><br>
+Oddly enough, it worked just fine for me over the summer. Maybe I’m forgetting to do a step…</p>
+</blockquote>
+</aside>
+<p>Does it crash with any .bsp, or just one specifically? Which version of the Java runtime is installed on your system? (Click the Windows Start Menu button and type “About Java” and then click it/press Enter to see the installed version number.) Perhaps an update broke it. The version I’m using is 8u151, but the latest is 9.0.1. If you are on 9.0.1, then you could try downgrading to 8u151 and see if that works (<a href="https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html" data-bbcode="true" rel="nofollow noopener">available here</a>).</p>
+<p>EDIT: I tried running bspsrc 1.3.23 (orig. and bmfix) under JRE-9.0.1, and didn’t experience any crashes (decompiling some stock BM maps). So, that’s probably not it.</p>
+          <p><a href="https://leakfree.org/t/decompiling-black-mesa-maps/15217/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/decompiling-black-mesa-maps/15217/6</link>
+        <pubDate>Mon, 30 Oct 2017 16:00:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15217-6</guid>
+        <source url="https://leakfree.org/t/decompiling-black-mesa-maps/15217.rss">Decompiling Black Mesa Maps</source>
+      </item>
+      <item>
+        <title>Decompiling Black Mesa Maps</title>
+        <dc:creator><![CDATA[Super_Ninja_Fat]]></dc:creator>
+        <description><![CDATA[
+            <p>Ummm for some reason bspsrc_1.3.23 won’t work, even the bmfix version. As soon as I hit the “decompile” button, the program crashes and leaves an error log. Anyone else getting this problem?   <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"><br>
+Oddly enough, it worked just fine for me over the summer. Maybe I’m forgetting to do a step…</p>
+          <p><a href="https://leakfree.org/t/decompiling-black-mesa-maps/15217/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/decompiling-black-mesa-maps/15217/5</link>
+        <pubDate>Mon, 30 Oct 2017 01:40:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15217-5</guid>
+        <source url="https://leakfree.org/t/decompiling-black-mesa-maps/15217.rss">Decompiling Black Mesa Maps</source>
+      </item>
+      <item>
+        <title>Decompiling Black Mesa Maps</title>
+        <dc:creator><![CDATA[Flavrans]]></dc:creator>
+        <description><![CDATA[
+            <p>The current version of bspsrc can’t properly read the static prop structure in Black Mesa’s BSP format. The version of the static prop structure in Black Mesa’s BSP format is identified as V11, which isn’t supported by bspsrc, and as a result, it falls back to reading the static prop structure as a V4 structure. This works for reading some of the static prop data, but fails from the point where the two structure versions are different and it will interpret the rest of the data incorrectly. That’s what’s causing the erroneous data like the spurious lighting origins and invalid numbers that cause Hammer to crash.</p>
+<p>I’ve made some modifications to the source code of bspsrc to add support for Black Mesa’s V11 static prop structure, and I think it’s working perfectly now. Decompiled maps can be opened in Hammer without crashing it, and the lighting origins should be correct and other settings should be present in the static prop data. But I need to test it some more. There’s one piece of data in the static prop structure that I’ve ignored, and that’s the DiffuseModulation struct member. This corresponds to the “rendercolor” and “renderamt” settings in the .VMF. Hammer will apply the color to the static prop in the 3D view, but you can’t edit the settings in the prop’s properties, and it doesn’t appear to be rendered in-game.</p>
+<p>If anyone wants to try/test my version of bspsrc, it’s available for download below along with the modified source code.</p>
+<p><span class="bbcode-b">EDIT 2017-07-22:</span></p>
+<p>Uploaded new version. Changes:</p>
+<ul>
+<li>Fixed buggy handling of V10 structs. Cleaned up V11 struct code so that it now extends V10.<br>
+Other notes:</li>
+</ul>
+<p>BM’s V11 static prop struct also supports <a href="https://tf2maps.net/threads/guide-prop-lightmaps.24682/" data-bbcode="true" rel="nofollow noopener">prop lightmaps</a> settings, but they don’t appear to be handled by BM’s vbsp.exe, i.e., the flag that enables it and the Lightmap Resolution X and Y don’t get written to the .BSP.</p>
+<p><span class="bbcode-b">EDIT 2017-12-31:</span></p>
+<p>New version. Changes:</p>
+<ul>
+<li>Added support for the newer V11 prop_static structure format found in the Black Mesa December 2017 Update while maintaining support for the older V11 structure found in surface-tension-update(cu3) and halloween-update(cu4), as well as the V10 structure found in the crossfire-update(cu2) (and likely in older releases). The new structure contains an additional (32-bit) integer (m_FlagsEx) which use is currently unknown, and this data will therefore not be processed by BSPSource.</li>
+<li>Changed fallback mechanism for unknown static prop lumps so that it falls back to v4 only if the static prop lump version is &lt; 10. If it’s &gt;= 10 it will fall back to v10.</li>
+<li>Added code to sort the list in the BSP format combobox alphabetically for easier selection.</li>
+<li>Updated file pattern for Black Mesa in the app database to include ‘i’ maps, eg., bm_c3a2i, and added some new entities to improve auto detection of current and future Black Mesa map files.</li>
+<li>Added support for displacement surface flags (No Physics Collision, No Hull Collision, No Ray Collision) based on a patch by jason-e.</li>
+</ul>
+<p>Download[/size][/size][/size]<br>
+<a href="https://drive.google.com/open?id=16f2xyAv13ae4grBpbCfYzv_2y1Zby75I" data-bbcode="true" rel="nofollow noopener">bspsrc_1.3.23_bmfix_r4.zip</a> | <a href="https://drive.google.com/open?id=19BgMp-Q-4fGKG0ADa08BYVSwoKGpyITp" data-bbcode="true" rel="nofollow noopener">Source code (zip)</a></p>
+<p>Previous version:<br>
+<a href="https://drive.google.com/open?id=0B_rjs74WOPM3R2xlWTk2TkdUaW8" data-bbcode="true" rel="nofollow noopener">bspsrc_1.3.23_bmfix_r3.zip</a> | <a href="https://drive.google.com/open?id=0B_rjs74WOPM3bDVfelFPZE5EMlE" data-bbcode="true" rel="nofollow noopener">Source code (zip)</a><br>
+[/size]</p>
+          <p><a href="https://leakfree.org/t/decompiling-black-mesa-maps/15217/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/decompiling-black-mesa-maps/15217/4</link>
+        <pubDate>Wed, 19 Jul 2017 12:43:52 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15217-4</guid>
+        <source url="https://leakfree.org/t/decompiling-black-mesa-maps/15217.rss">Decompiling Black Mesa Maps</source>
+      </item>
+      <item>
+        <title>Decompiling Black Mesa Maps</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>They most certainly do, the thing is they are not the most recent ones- they are from before the STU update.</p>
+          <p><a href="https://leakfree.org/t/decompiling-black-mesa-maps/15217/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/decompiling-black-mesa-maps/15217/3</link>
+        <pubDate>Thu, 13 Jul 2017 16:25:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15217-3</guid>
+        <source url="https://leakfree.org/t/decompiling-black-mesa-maps/15217.rss">Decompiling Black Mesa Maps</source>
+      </item>
+      <item>
+        <title>Decompiling Black Mesa Maps</title>
+        <dc:creator><![CDATA[_I-M_Taz]]></dc:creator>
+        <description><![CDATA[
+            <p>so the vmf’s that were release some time ago in the mapsrc folder don’t get redownloaded if you had to do a clean install of the game ?</p>
+          <p><a href="https://leakfree.org/t/decompiling-black-mesa-maps/15217/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/decompiling-black-mesa-maps/15217/2</link>
+        <pubDate>Thu, 13 Jul 2017 14:49:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15217-2</guid>
+        <source url="https://leakfree.org/t/decompiling-black-mesa-maps/15217.rss">Decompiling Black Mesa Maps</source>
+      </item>
+      <item>
+        <title>Decompiling Black Mesa Maps</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>I had some significant reservations about posting on this topic publicly, but I’ve concluded that I will <span class="bbcode-i">not</span> be the only person ever to realize it could be done and more to the point I’m offering a workaround for something (namely, providing up-to-date sources for all all areas of the game) that the developers have stated they themselves plan to do but are understandably too busy to bother with at the moment. That said, please be <a href="https://developer.valvesoftware.com/wiki/Decompiling_Maps" data-bbcode="true" rel="nofollow noopener">polite</a> in your decompiling adventures.</p>
+<p>The information below is out-of-date. Check lower in the thread for a version of the decompiler made by Flavrans which does not need the workaround described below.</p>
+<p>Getting a Decompiled Map [/size]</p>
+<ul>
+<li>
+<p>The actual maps which Black Mesa runs need to be extracted from the vpk files like any other game asset. This can be done by dragging bms_maps_dir.vpk over the vpk.exe program stored in the game’s ‘bin’ folder.</p>
+</li>
+<li>
+<p>You will need ata4’s bspsrc utility. The current best (only?) place to get it is from <a href="https://github.com/ata4/bspsrc/releases" data-bbcode="true" rel="nofollow noopener">the releases section of the author’s github page</a>.</p>
+</li>
+<li>
+<p>Unzip and run bspsrc.bat.</p>
+</li>
+<li>
+<p>Leave the advanced compilation options as defaults.</p>
+</li>
+<li>
+<p>Add as many maps as you want and decompile. The program will throw a number of “invalid vector” errors.</p>
+</li>
+<li>
+<p>This will produce decompiled VMFs with some bad data in them that will cause Hammer to crash if opened directly.<br>
+Making A Decompiled Map Functional[/size]</p>
+</li>
+<li>
+<p>In order to make the VMFs you created up above work, you will need to open them in a text editor like Notepad and remove a block of bad data.</p>
+</li>
+<li>
+<p>The data you are looking for are a bunch of spurious lighting origins lumped together near the bottom of the file. They take the form of blocks like this:<br>
+[tt]entity[/tt]<br>
+[tt]{[/tt][tt]    “id” “”[/tt][tt]    “classname” “info_lighting”[/tt][tt]    “targetname” “sprp_lighting_”[/tt][tt]    “origin” “”[/tt][tt]}[/tt]<br>
+The coordinates in the origin are occasionally something absurd like “0 0 103161719131765890000000000”- it’s these Very Large Numbers that break Hammer when the map is loaded. However, <span class="bbcode-i">all</span> of these lighting origins will cause the props they are connected to to light improperly, and will likely be in a place that will cause map leaks, so there’s nothing to be gained by only deleting the weird ones.</p>
+</li>
+<li>
+<p>There are typically several hundred of these entites (Gasworks has nearly two thousand!) but since they are all in a row and the decompiler never includes any “legitimate” lighting origins you can just find the first one, find the last one, select everything in between, and delete.</p>
+</li>
+<li>
+<p>The map can now be opened in Hammer, but I find that the reconstructed optimization (areaportals, occluders, and hint brushes) almost universally have an extremely negative effect on both compile time and in-game performance, and may cause compile errors. So, I typically use the ‘auto’ visgroups to hide everything except for those three categories, select the entire map area, and delete all of it. This makes a map that is barely playable and will take a long time to compile, but it’s better than nothing and you can fill in at least basic optimization yourself.</p>
+</li>
+<li>
+<p>Very rarely other elements may be decompiled in a way that causes errors; it’s typically possible to just delete them and make new ones that look the same.</p>
+</li>
+<li>
+<p>If you’re looking to update one of the maps like the outdoor ones that only have had new static props added since the official VMF release, you are probably better off just using hammer’s “entity report” or visgroup functionality to delete every prop_static from the official map, select every prop_static from a decompiled map, and copy them over. This will let you use the new props with the original optimization.</p>
+</li>
+</ul>
+          <p><a href="https://leakfree.org/t/decompiling-black-mesa-maps/15217/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/decompiling-black-mesa-maps/15217/1</link>
+        <pubDate>Sun, 09 Jul 2017 02:24:00 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15217-1</guid>
+        <source url="https://leakfree.org/t/decompiling-black-mesa-maps/15217.rss">Decompiling Black Mesa Maps</source>
+      </item>
+  </channel>
+</rss>

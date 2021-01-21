@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/source-level-design-student-taught-course/12737 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 10:33:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Source Level Design Student-Taught Course - Source 1 - Leakfree</title>
+    <meta name="description" content="Hey guys. I haven’t been around lately due to schoolwork, but at the same time, I’ve been thinking a lot lately about an idea I came up with. 
+My university offers student-taught courses, and they allow any enrolled stud&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="12737.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Source Level Design Student-Taught Course&#39;" href="12737.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/source-level-design-student-taught-course/12737" />
+<meta name="twitter:url" content="https://leakfree.org/t/source-level-design-student-taught-course/12737" />
+<meta property="og:title" content="Source Level Design Student-Taught Course" />
+<meta name="twitter:title" content="Source Level Design Student-Taught Course" />
+<meta property="og:description" content="Hey guys. I haven’t been around lately due to schoolwork, but at the same time, I’ve been thinking a lot lately about an idea I came up with.  My university offers student-taught courses, and they allow any enrolled student to teach whatever we want to anyone who will take the course. Usually these courses are for fun (eg. Intro to Minecraft, Intro to Ballroom Dancing, Advanced League of Legends, etc), and offer a small amount of elective credit. I had the idea to (eventually) teach an Intro to ..." />
+<meta name="twitter:description" content="Hey guys. I haven’t been around lately due to schoolwork, but at the same time, I’ve been thinking a lot lately about an idea I came up with.  My university offers student-taught courses, and they allow any enrolled student to teach whatever we want to anyone who will take the course. Usually these courses are for fun (eg. Intro to Minecraft, Intro to Ballroom Dancing, Advanced League of Legends, etc), and offer a small amount of elective credit. I had the idea to (eventually) teach an Intro to ..." />
+<meta property="article:published_time" content="2013-11-06T05:33:53+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="12737.html">Source Level Design Student-Taught Course</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/7.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>General Development</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/source-1/43.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #ED207B'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Source 1</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/dky.tehkingd.html'><span itemprop='name'>dky.tehkingd.u</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12737.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2013-11-06T05:33:53Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:46:44Z' class='post-time'>
+                November 25, 2018,  3:46am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hey guys. I haven’t been around lately due to schoolwork, but at the same time, I’ve been thinking a lot lately about an idea I came up with.</p>
+<p>My university offers student-taught courses, and they allow any enrolled student to teach whatever we want to anyone who will take the course. Usually these courses are for fun (eg. Intro to Minecraft, Intro to Ballroom Dancing, Advanced League of Legends, etc), and offer a small amount of elective credit. I had the idea to (eventually) teach an Intro to Source Level Design course, since it’s something that I’ve always enjoyed practicing and reading about.</p>
+<p>If I were to do this, I’d like some suggestions for it. Things like, what material should I cover? How much to cover? How quickly? What concepts should I focus on? Should I focus on singleplayer or multiplayer? Both? If so, which game(s) should I use?</p>
+<p>The course would be weekly. I’m not sure how long each class session would be (probably an hour to two hours), but the course would last for one semester. I’d have to type up a week-to-week syllabus of all material that I want to teach, as well as propose a midterm and final project/exam.</p>
+<p>This probably won’t happen very soon (I’ll wait at least a year), but I want to do it and I feel like I’d want a good amount of preparation in advance.</p>
+<p>So. Any suggestions? <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Source Level Design Student-Taught Course'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Moran.html'><span itemprop='name'>Moran</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12737.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2013-11-06T05:55:27Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:46:44Z' class='post-time'>
+                November 25, 2018,  3:46am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Please teach them the proper way to set-up a map.</p>
+<p>Unless these guys cannot create a map without detailing one area first for ideas, make sure they use dev-textures and plain layouts.</p>
+        </div>
+
+        <meta itemprop='headline' content='Source Level Design Student-Taught Course'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/RK1.html'><span itemprop='name'>RK1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12737.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2013-11-06T06:35:58Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:46:44Z' class='post-time'>
+                November 25, 2018,  3:46am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Just off the top of my head, I think a fairly decent flow would run something like this:</p>
+<ul>
+<li>Exploring the editor and compiler tools</li>
+<li>Basic brushwork and texture tools</li>
+<li>Basic entities (pickups, props, possibly NPCS)</li>
+<li>NPCs / Enemies</li>
+<li>Input/Output</li>
+<li>Lighting</li>
+<li>Sounds (soundscapes, ambient_generics)</li>
+<li>Navigation (AI nodes, clip textures, ladders)</li>
+<li>Optimization (hint brush, func_details, physics optimization)</li>
+<li>Outdoor areas (making skyboxes, setting up sunlight</li>
+<li>Special effects (fog, explosions, trains, sprites)</li>
+</ul>
+<p>Assuming one item per week, and assuming 15 week semesters, this leaves four weeks unfilled, which you can easily use for lab days where students can work on their maps. Or, for the last class, you could have students present their final projects, which might be a three-minute HL2 level or something.</p>
+<p>I would say focus on Half-Life 2, because a single player game will be easier to for them to learn and is a lot more versatile.</p>
+<p>As far as the final project itself goes, have it be something that they build over the course of the semester using the concepts that they learn along the way. Have them plan out their levels in advance and build from the ground up. Encourage them to make outdoor levels too (since most locations <span class="bbcode-i">are</span> outdoor areas).</p>
+<p>As far as a midterm goes, have them submit a rundown of how their level will run. This will let you gauge who is where in the development process and give them pointers. You could even have presentations to the class if you want.</p>
+<p>Also do take home tests each week, going over key terms and design concepts. Multiple choice seems like a good idea for this.</p>
+<p>I take most of this from how my basic web design class ran. First week we were given a final project, and we knew what to expect over the course of the class. Next eight weeks was spent actually learning and doing html assignments where we made actual webpages. The final few weeks was spent solely doing lab and building our final projects (working webpages with multiple pages and links). Final night of class, everyone showed off their websites for a grade.</p>
+<p>Gosh dky, I really want to teach your class ._.</p>
+        </div>
+
+        <meta itemprop='headline' content='Source Level Design Student-Taught Course'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/JeffMOD.html'><span itemprop='name'>JeffMOD</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12737.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2013-11-06T11:39:45Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:46:46Z' class='post-time'>
+                November 25, 2018,  3:46am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This is neat.<br>
+For additions to the course outline .RK posted, I’d probably have one of the first lectures be on level design theory; What makes a good map, colour theory, loops, bounce, flow etc. Maybe use some terms from the Left 4 Dictionary.</p>
+        </div>
+
+        <meta itemprop='headline' content='Source Level Design Student-Taught Course'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Jack_Freeman.html'><span itemprop='name'>Jack_Freeman</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12737.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2013-11-06T13:04:57Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:46:46Z' class='post-time'>
+                November 25, 2018,  3:46am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I desperately need some proper optimization tutorials, because that’s what I’m worst at.</p>
+        </div>
+
+        <meta itemprop='headline' content='Source Level Design Student-Taught Course'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/dky.tehkingd.html'><span itemprop='name'>dky.tehkingd.u</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12737.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2013-11-06T18:40:53Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:46:47Z' class='post-time'>
+                November 25, 2018,  3:46am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m struggling to come up with a good order of what to teach.</p>
+<p>I definitely want to touch upon what Jeff mentioned in terms of Level Design theory, and I also want to teach at least the basics of compilation theory (probably as a lead-in to optimization, since good optimization is helped by a good knowledge of compilation theory). I don’t know when to introduce those though, since they seem like somewhat advanced topics.</p>
+<p>I also had the idea of using Black Mesa, since it’s free to use and play last I checked. Then again, HL2 and the episodes are dirt cheap now. Hmm…</p>
+        </div>
+
+        <meta itemprop='headline' content='Source Level Design Student-Taught Course'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/D3lta.html'><span itemprop='name'>D3lta</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12737.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2013-11-06T19:08:40Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:46:47Z' class='post-time'>
+                November 25, 2018,  3:46am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Maybe slowly build it up?<br>
+In terms of level design theory, I’d definetly show them the level design guide from <a href="http://worldofleveldesign.com/" rel="nofollow noopener">worldofleveldesign.com</a>, and the stuff Jeff posted.</p>
+        </div>
+
+        <meta itemprop='headline' content='Source Level Design Student-Taught Course'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Swaggless.html'><span itemprop='name'>Swaggless</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12737.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2013-11-06T19:21:39Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:46:47Z' class='post-time'>
+                November 25, 2018,  3:46am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="dky.tehkingd.u">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/dky.tehkingd.u/40/4377_2.png" class="avatar"> dky.tehkingd.u:</div>
+<blockquote>
+<p>I also had the idea of using Black Mesa, since it’s free to use and play last I checked. Then again, HL2 and the episodes are dirt cheap now. Hmm…</p>
+</blockquote>
+</aside>
+<p>I like the idea of using BM. It has a lot of great examples as to what Source has to offer.You could make it a prerequisite for the class that they play the game.</p>
+<p>Maybe get some more people in Haf-Life…</p>
+        </div>
+
+        <meta itemprop='headline' content='Source Level Design Student-Taught Course'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/source-level-design-student-taught-course/12737 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 10:33:49 GMT -->
+</html>

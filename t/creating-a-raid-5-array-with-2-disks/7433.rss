@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Creating a RAID 5 array with 2 disks</title>
+    <link>https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433</link>
+    <description>I know RAID 5 is meant for 3+ drives, but I have data on one of the disk that I can&#39;t backup anywhere else...
+So I want to setup the array with 2 fresh drives, copy the data from the other disk to the array, then add that disk to the array.
+[url=https://ubuntuforums.org/showthread.php?t=670147]This guy[/url] got a clear answer on how to do this on Linux, but would it also work on Win7? My Googling skills only got me running in circles...  :frowning:</description>
+    
+    <lastBuildDate>Tue, 12 Jul 2011 12:31:33 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Creating a RAID 5 array with 2 disks</title>
+        <dc:creator><![CDATA[BaTz281]]></dc:creator>
+        <description><![CDATA[
+            <p>Yeah you will see burst speeds in the low 100s, but average should be 60-85ish, I’d say.  This varies based on file size of course - large files usually copy faster than multiple small files.  But that was a good find - the power of Google  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/14</link>
+        <pubDate>Tue, 12 Jul 2011 12:31:33 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7433-14</guid>
+        <source url="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433.rss">Creating a RAID 5 array with 2 disks</source>
+      </item>
+      <item>
+        <title>Creating a RAID 5 array with 2 disks</title>
+        <dc:creator><![CDATA[Samapico]]></dc:creator>
+        <description><![CDATA[
+            <p>Holy shit…</p>
+<p>I was getting write speeds around 10-12MB/s on the array, and I thought I just had to deal with it cause RAID 5 was supposed to be quite slow on the writes, and WD’s Caviar Green drives are not built for performance…</p>
+<p>But then I stumbled on this:</p>
+<p><a href="https://forums.storagereview.com/index.php/topic/25786-how-to-achieve-superb-write-speeds-with-nforce-onboard-raid5/page__st__60__gopid__270191#entry270191" data-bbcode="true" rel="nofollow noopener">https://forums.storagereview.com/index.php/topic/25786-how-to-achieve-superb-write-speeds-with-nforce-onboard-raid5/page__st__60__gopid__270191#entry270191</a></p>
+<p>So I set my stripe size to 32k,<br>
+partition cluster size to 64k,<br>
+made sure the partition was aligned properly,</p>
+<p>and guess what… I get write speeds between <span class="bbcode-b">90</span> and <span class="bbcode-b">110 </span>MB/s now!!!</p>
+<p>Edit: After a couple of GB’s it drops to 75 MB/s, but still… that’s a huge improvement.</p>
+          <p><a href="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/13</link>
+        <pubDate>Tue, 12 Jul 2011 01:08:02 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7433-13</guid>
+        <source url="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433.rss">Creating a RAID 5 array with 2 disks</source>
+      </item>
+      <item>
+        <title>Creating a RAID 5 array with 2 disks</title>
+        <dc:creator><![CDATA[BaTz281]]></dc:creator>
+        <description><![CDATA[
+            <p>Glad to hear  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/12</link>
+        <pubDate>Mon, 11 Jul 2011 12:09:10 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7433-12</guid>
+        <source url="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433.rss">Creating a RAID 5 array with 2 disks</source>
+      </item>
+      <item>
+        <title>Creating a RAID 5 array with 2 disks</title>
+        <dc:creator><![CDATA[Samapico]]></dc:creator>
+        <description><![CDATA[
+            <p>I ended up reinstalling Win7 with ‘RAID’ enabled so that the proper drivers get installed… worked like a charm.</p>
+<p>Conclusion of this topic: If you’re planning to do any kind of RAID in any kind of distant future, enable it before you install Windows, it will save you lots of trouble.</p>
+          <p><a href="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/11</link>
+        <pubDate>Mon, 11 Jul 2011 02:48:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7433-11</guid>
+        <source url="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433.rss">Creating a RAID 5 array with 2 disks</source>
+      </item>
+      <item>
+        <title>Creating a RAID 5 array with 2 disks</title>
+        <dc:creator><![CDATA[Vol7ron]]></dc:creator>
+        <description><![CDATA[
+            <p>It is because you created a software RAID instead of a Hardware RAID.  With software RAID, the OS helps in the managing of the array where as with Hardware, well , the RAID card does all the work.  Hardware RAID cards are quite expensive, but would allow you to boot of the array.  Unless I have drastically missed something in all my years with working with RAID array’s, you can not have 2 drives for a RAID 5, you must have 5.  It simply won’t work.</p>
+          <p><a href="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/10</link>
+        <pubDate>Mon, 11 Jul 2011 00:27:14 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7433-10</guid>
+        <source url="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433.rss">Creating a RAID 5 array with 2 disks</source>
+      </item>
+      <item>
+        <title>Creating a RAID 5 array with 2 disks</title>
+        <dc:creator><![CDATA[Samapico]]></dc:creator>
+        <description><![CDATA[
+            <p>I “configured the RAID array just fine” in the BIOS, and the array is only for storage.</p>
+<p>For the disabled ports, the 2 missing ports are actually not functional only in IDE mode. In AHCI and RAID modes, they are properly detected. So that kind of becomes a non-issue, but I just find it weird…</p>
+<aside class="quote no-group">
+<blockquote>
+<p>does Windows recognize the RAID controller and array?</p>
+</blockquote>
+</aside>
+<p>Well, in ‘RAID’ mode I can’t load Windows, and in ‘AHCI’ mode, there’s nothing in the device manager that mentions RAID. It has something along the lines of ‘Standard AHCI 1.0 Serial ATA Controller’. Is there some other place I should check?</p>
+<p>From what I understand, I just need the RAID drivers then? Are these supposed to be found on my motherboard’s driver disk or something? There are RAID drivers on there… but the autorun setup thingy won’t allow me to select it, it’s greyed out… probably because I’d need to have ‘RAID’ selected in the BIOS?<br>
+…Oh, so I’d need to install them during the boot or something…</p>
+          <p><a href="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/9</link>
+        <pubDate>Sun, 10 Jul 2011 22:06:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7433-9</guid>
+        <source url="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433.rss">Creating a RAID 5 array with 2 disks</source>
+      </item>
+      <item>
+        <title>Creating a RAID 5 array with 2 disks</title>
+        <dc:creator><![CDATA[BaTz281]]></dc:creator>
+        <description><![CDATA[
+            <p>Windows is VERY finicky about the SATA/IDE mode, and usually you cannot change it once the OS has been installed (though you can gamble with the registry hack, like you mentioned).  Thus, once AHCI came out, it was advised to change the mode to AHCI before installing Windows (however, I’ve encountered some errors where Windows 7 doesn’t have a particular motherboard’s chipset drivers on the disk, so you actually need to do the old “Press F6 to load drivers” trick and then load the drivers from another disk in order for it to recognize AHCI).</p>
+<p>That said, I’m not quite sure what needs to happen in this situation, though it may still be driver related - does Windows recognize the RAID controller and array?  I’m sorry if you mentioned this, but is the RAID your OS drive, or just storage?  Or rather, are you trying to turn your OS drive into a RAID setup?  Where did you “configure the RAID array just fine” - in the BIOS RAID utility, or in disk management?</p>
+<p>As for your disabled SATA ports, are they on the same controller?  I know I’ve had motherboards that have a total of 8 ports, but 6 are managed by the south bridge and the other 2 by a third party (VIA, Marvell, etc) controller.  You may need to enable that controller specifically so you can access those ports (unless you’re saying that those 2 will only operate in IDE mode?)</p>
+<p>Sorry if I’ve misinterpreted any of this, I’m at work and trying to focus on too much at once  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/8</link>
+        <pubDate>Fri, 08 Jul 2011 19:55:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7433-8</guid>
+        <source url="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433.rss">Creating a RAID 5 array with 2 disks</source>
+      </item>
+      <item>
+        <title>Creating a RAID 5 array with 2 disks</title>
+        <dc:creator><![CDATA[Samapico]]></dc:creator>
+        <description><![CDATA[
+            <p>Ok… so I’ll keep this thread to avoid some spammage.</p>
+<p>I received my drives, hooked them up in my PC, started the thing.<br>
+Turns out my BIOS and OS only use 4 out of the 6 SATA ports in ‘IDE’ mode (the “Integrated Peripherals - OnChip SATA” setting in the BIOS).</p>
+<p>I need 5 of them (6 when I reconnect my DVD drive… waiting for my shipment of SATA cables), so I try AHCI. It detects all 6 ports and the disks on them. But it gives a quick BSOD-like screen when Windows loads and restarts immediatly, so I found this:<br>
+<a href="https://www.tomshardware.com/forum/257792-30-vista-boot-pick-ahci-sata-mode" data-bbcode="true" rel="nofollow noopener">https://www.tomshardware.com/forum/257792-30-vista-boot-pick-ahci-sata-mode</a><br>
+Edited some registry key to enable AHCI, and I could boot in AHCI fine.</p>
+<p>However, the disk manager in Win7 still had the ‘Create RAID 5 volume’ option greyed out… So I actually need to set the “Integrated Peripherals - OnChip SATA” to “RAID”. I do that, configure the RAID array just fine, but then I get another quick BSOD when Windows load.<br>
+What do I need to do to boot properly with the RAID setting on?</p>
+<p>My motherboard is a <a href="https://www.newegg.ca/Product/Product.aspx?Item=N82E16813130236" data-bbcode="true" rel="nofollow noopener">MSI NF980-G65 AM3 NVIDIA nForce 980a SLI</a>, if that can be of any help…<br>
+On a side note, I couldn’t find anything about 2 of the SATA ports not being activated by default on that motherboard… I find that quite surprising.</p>
+          <p><a href="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/7</link>
+        <pubDate>Fri, 08 Jul 2011 12:55:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7433-7</guid>
+        <source url="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433.rss">Creating a RAID 5 array with 2 disks</source>
+      </item>
+      <item>
+        <title>Creating a RAID 5 array with 2 disks</title>
+        <dc:creator><![CDATA[Samapico]]></dc:creator>
+        <description><![CDATA[
+            <p>Indeed… fixed  <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+          <p><a href="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/6</link>
+        <pubDate>Mon, 04 Jul 2011 19:23:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7433-6</guid>
+        <source url="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433.rss">Creating a RAID 5 array with 2 disks</source>
+      </item>
+      <item>
+        <title>Creating a RAID 5 array with 2 disks</title>
+        <dc:creator><![CDATA[wheybags]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Samapico">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/s/839c29/40.png" class="avatar"> Samapico:</div>
+<blockquote>
+<p>I think I’ll just go get myself another 500GB HD or something… that will allow me to keep the 1TB on Machine 1, thus saving me some painful data swaps…<br>
+I think it will be worth the investment.</p>
+<p>Edit: bleh… doublepost</p>
+<p>The end-result will be pretty overkill… but oh well…<br>
+Machine1: 60GB SSD + 1TB WD Caviar Black + 3TB (3x 1.5[COLOR=‘Red’]GB[/SIZE] WD Caviar Green in RAID 5)<br>
+Machine2: 750GB WD Caviar Green</p>
+<p>Almost 5TB of storage in total <img src="https://leakfree.org/images/emoji/twitter/confused.png?v=9" title=":confused:" class="emoji" alt=":confused:"></p>
+<p>Guess I’ll have to keep downloading stuff… thank god for unlimited interwebz.</p>
+</blockquote>
+</aside>
+<p>That should be Terabytes, right?</p>
+          <p><a href="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/5</link>
+        <pubDate>Mon, 04 Jul 2011 16:21:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7433-5</guid>
+        <source url="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433.rss">Creating a RAID 5 array with 2 disks</source>
+      </item>
+      <item>
+        <title>Creating a RAID 5 array with 2 disks</title>
+        <dc:creator><![CDATA[Samapico]]></dc:creator>
+        <description><![CDATA[
+            <p>I think I’ll just go get myself another 500GB HD or something… that will allow me to keep the 1TB on Machine 1, thus saving me some painful data swaps…<br>
+I think it will be worth the investment.</p>
+<p>Edit: bleh… doublepost</p>
+<p>The end-result will be pretty overkill… but oh well…<br>
+Machine1: 60GB SSD + 1TB WD Caviar Black + 3TB (3x 1.5TB WD Caviar Green in RAID 5)<br>
+Machine2: 750GB WD Caviar Green</p>
+<p>Almost 5TB of storage in total <img src="https://leakfree.org/images/emoji/twitter/confused.png?v=9" title=":confused:" class="emoji" alt=":confused:"></p>
+<p>Guess I’ll have to keep downloading stuff… thank god for unlimited interwebz.</p>
+          <p><a href="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/4</link>
+        <pubDate>Sun, 03 Jul 2011 18:36:48 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7433-4</guid>
+        <source url="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433.rss">Creating a RAID 5 array with 2 disks</source>
+      </item>
+      <item>
+        <title>Creating a RAID 5 array with 2 disks</title>
+        <dc:creator><![CDATA[Samapico]]></dc:creator>
+        <description><![CDATA[
+            <p>Well… it’s kind of a puzzle…</p>
+<p>I have 2 computers,</p>
+<p>Machine 1: 1TB drive (~75% full)<br>
+Machine 2: 1.5TB drive (~66% full)</p>
+<p>Only machine 1 supports RAID, so I need to swap the data on these 2 drives, then add 2x 1.5TB in machine 1 to form a 3 disks array.<br>
+There’s about 600GB of movies currently on machine 2 that I’ll want to move to the RAID array, otherwise the current data on the 1.5TB won’t fit on 1TB anyway.</p>
+<p>I do have an external HDD on the network with about 200GB free… this could be just enough of a buffer to save me.</p>
+          <p><a href="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/3</link>
+        <pubDate>Sun, 03 Jul 2011 14:02:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7433-3</guid>
+        <source url="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433.rss">Creating a RAID 5 array with 2 disks</source>
+      </item>
+      <item>
+        <title>Creating a RAID 5 array with 2 disks</title>
+        <dc:creator><![CDATA[BaTz281]]></dc:creator>
+        <description><![CDATA[
+            <p>When you say you can’t back it up anywhere else - why is that?  Can’t you build a fresh array of 3 drives, then add the data from the fourth [existing] drive?  Since that seems the most obvious answer, I presume something is preventing you from doing so, but I figured I’d play devil’s advocate.</p>
+<p>EDIT: Couldn’t you also build a RAID 1 with 2 drives, add the data from the third, then migrate to a RAID 5?  My brief Googling says this ability may vary depending on your RAID controller.</p>
+<p>EDIT2: More Googling says that RAID conversions seem to work best for Linux.  Hmmm…</p>
+          <p><a href="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/2</link>
+        <pubDate>Thu, 30 Jun 2011 03:15:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7433-2</guid>
+        <source url="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433.rss">Creating a RAID 5 array with 2 disks</source>
+      </item>
+      <item>
+        <title>Creating a RAID 5 array with 2 disks</title>
+        <dc:creator><![CDATA[Samapico]]></dc:creator>
+        <description><![CDATA[
+            <p>I know RAID 5 is meant for 3+ drives, but I have data on one of the disk that I can’t backup anywhere else…<br>
+So I want to setup the array with 2 fresh drives, copy the data from the other disk to the array, then add that disk to the array.<br>
+<a href="https://ubuntuforums.org/showthread.php?t=670147" data-bbcode="true" rel="nofollow noopener">This guy</a> got a clear answer on how to do this on Linux, but would it also work on Win7? My Googling skills only got me running in circles…  <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+          <p><a href="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433/1</link>
+        <pubDate>Wed, 29 Jun 2011 23:25:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7433-1</guid>
+        <source url="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433.rss">Creating a RAID 5 array with 2 disks</source>
+      </item>
+  </channel>
+</rss>

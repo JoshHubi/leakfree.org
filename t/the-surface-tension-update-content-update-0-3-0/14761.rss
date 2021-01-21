@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>The Surface Tension Update - Content Update 0.3.0</title>
+    <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761</link>
+    <description>[align=center][img]https://i.imgur.com/TU8oH1Y.jpg?1[/img][/size][/align]
+
+[u][b]Highlights[/size][/b][/u]
+
+* Surface Tension: UNCUT! With an hour of gameplay added to the game!
+* High definition shadows, with the new CSM graphical feature!
+* Up to 75% faster load times. Fixed “Node graph out of date” on level load.
+* Official translation support for Finnish, German, Italian, Norwegian, and Spanish!
+
+
+[u][b]New Content and Features[/b][/u][/size]
+
+[u]Note: This update does not contain Xen. We are working on Xen![/u]
+
+[b]Surface Tension Uncut![/b]
+* We have lovingly recreated the previously missing Surface Tension maps, and restored them into Black Mesa’s main campaign! This adds three new maps - C2A5G, C2A5H, and C2A5I.
+* Added many new assets (textures, sounds, models, particles), and improved quality of many existing assets.
+* Existing Surface Tension maps C2A5B and C2A5E have been updated, providing areas with new design and gameplay.
+* Updated C3A1A, first map of Forget About Freeman, to use new Xen assets.
+[b]Cascaded Shadow Mapping (CSM)[/b]
+* Implemented Cascaded Shadow Mapping (CSM), which adds dynamic shadows to outdoor maps.
+[b]Vastly Improved Load Times[/b]
+* Maps load up to 75% faster.
+[b]Official Translation Support[/b]
+* Translated closed captions can now be enabled in the “Options &gt; Audio” menu. Currently supported languages are Finnish, German, Italian, Norwegian, and Spanish.
+
+
+[b][u]Artificial Intelligence[/u][/b][/size]
+
+[b]Alien Grunt[/b]
+* We made a significant number of tweaks and fixes to the alien grunt AI. Overall these fixes should significantly improve their intelligence, and mostly prevent moments where they behave weirdly or inexplicably.
+* Made sure multiple alien grunts can advance at once, if they belong to the same squad. This should prevent them rushing one by one and make them appear more coordinated.
+* Added patrolling schedule. Previously, when leaving the “combat” state, the alien grunt would drop straight back to “idle”. Instead of going straight from “combat” to “idle”, the alien grunt will now drop into the “patrol” state, where he cautiously walks around the combat area, looking for a target.
+* Changed fallback schedule. Instead of retreating, the alien grunt might now choose to patrol instead.
+* Changed behaviour when target is lost. Instead of immediately dropping to “patrol” state when the alien grunt’s active target is lost, the alien grunt will now attempt to establish line of sight with its lost target.
+* Target Prioritisation improvements. The alien grunt will now make far fewer switches between targets. His prioritisation for targets should now be much improved.
+* The alien grunt is no longer deaf. He was previously unable to react to sounds. We gave them the ability to hear things, so there will be fewer situations where he’s standing around doing nothing.
+* The alien grunt will now attempt to go into “advance” mode more often. This makes them more aggressive towards their target.
+* Implemented new behaviour when failing to complete a schedule (such as advance). This should reduce the number of situations where the AI does nothing. Instead, he will fire at the enemy or seek cover if possible. Patrolling is still possible from this situation, but should be less frequent.
+* Made it so the alien grunt’s advance schedule can cheat a bit. The alien grunt may now traverse the full route to a player.
+* Fixed the condition for the alien grunt’s melee attack. The condition which determines the alien grunt’s ability to melee attack, COND_MELEE_ATTACK1, would ignore the height of the target. This is fixed.
+* Lowered the alien grunt’s hivehand firerate. This makes fighting alien grunts less frustrating: you’re not constantly being pelted by bees.
+* Lowered the alien grunt’s rest interval min and max values, to give the alien grunt a lower rest time between firing bursts. This is to compensate for him being given a slightly lower rate of fire.
+* Lowered the minimum range of the alien grunt’s hivehand. This prevents a situation where the alien grunt cannot melee or shoot the player.
+
+
+[b]Alien Slave[/b]
+* We fixed a serious bug in the alien slave’s AI routine. An AI loop created a situation where the Alien Slaves would stop and ignore the player during combat.
+* The alien slaves can hear the player now. Previously, they were incapable of reacting
+
+
+[b]HECU Fixes[/b]
+* The HECU’s accuracy is now significantly reduced (halved) while they are running, using the parameter “npcmovementinaccuracypenaltymultiplier”, which can be found in weapon_mp5.dmx.
+
+
+[u][b]Balance[/b][/size][/u]
+
+Did a small balance pass across the game to address some community concerns.
+
+* Reload Stops. Once a new magazine is loaded, weapons will remain loaded after a weapon switch, even if the reload animation was not completely finished.
+* Increased crowbar range from 40 to 56. This should make it easier to fight zombies with the crowbar.
+* Re-balanced explosive weapons. Previously, all explosive weapons had uniform damage and radius. Now there are 3 levels of explosive weapon:
+[b]Basic-Tier:[/b] 100 damage, 250 radius (frag grenades, MP5 grenades)
+[b]Mid-Tier:[/b] 150 damage, 300 radius (satchel charges, tripmines)
+[b]Top-Tier:[/b] 175 damage, 300 radius (RPG)
+* Apache health increased from 200 to 400. This compensates for the nearly doubled RPG damage; the required number of RPG shots to destroy an Apache only increases by 1. This also brings the RPG and tau’s effectiveness against vehicles closer together. These changes do not affect the Apache on the dam map, only the boss fight on the cliffside map.
+
+
+[b]Tau[/b]
+* The tau has been rebalanced, mostly for MP. It will still remain one of the most powerful weapons in the game, but should be tougher to use at maximum effectiveness. This forum post outlines the changes in great detail.
+* Adjusted the code for the tau’s overcharge bias. Previously, the overcharge bias adjusted the cosine wave for the tau’s damage vs total charge. Now, the overcharge bias value dictates the point at which the tau reaches 50% damage value.
+* Tau overcharge bias changed from 0.9 to 0.85. This reflects the overcharge bias’s new function, and means the tau will do 50% of its total damage at 0.85 total charge. It then abruptly ramps up to 100% total damage at 1.0 total charge. This should make it much tougher to chain together half charged tau shots, because they are now ineffective.
+* Fixed a bug in the tau’s overcharge bias function. This value was not normalized, effectively meaning that the tau was only taking 1 second to fully charge in MP, rather than the intended 1.25 seconds. This is now corrected. 
+Increased tau jump velocity from 500 to 650. This improves the effectiveness of tau jumping, and also adds utility to non fully charged shots.
+* Depending on how these changes play out in MP, we may adjust the tau’s damage or total charge time in the future.
+
+
+[u][b]Programming Bug Fixes[/b][/u][/size]
+
+* Fixed “Node graph out of date” message displayed on each level load.
+* Fixed a Windows XP crash. Fixed a bug which prevents Windows XP users from launching the game.
+* Cleaned and optimized shaders. All shaders below DX9 are removed.
+* Fixed a crash related to satchels.
+* “Always Run” option is fixed/updated. When using always run, the sprint animations and sounds do not play.
+* Added “Caption Language” setting. Caption language can now be set in  “Options &gt; Audio” menu.
+* Fixed outstanding bugs with crossbow animations.
+* Updated shotgun gibbing code. Gibbing should only occur at close range, and only from a double blast.
+* Added “reload points” to all reloadable weapons. Previously, weapons were only considered “reloaded” when the reload animation was complete. Now, weapons take into account the point at which a magazine was inserted to determine when they are reloaded.
+* Fixed disappearing throwables. Fixed a bug where throwables would appear invisible after loading a saved game.
+* Colour correction enabled.
+* Drowning sound fixed. The bubbly drowning sound would always play when you come into contact with water. This is now fixed.
+* Added old save notification. Loading a saved game from an older version of Black Mesa will display a notification to the user.
+* Extended depth buffer range to render entire scene.
+* Implemented Portal 2 resource caching system.
+* Fixed crossbow scope refraction. Refraction images on crossbow scope now display correctly when not zoomed in.
+
+
+[u][b]Models[/b][/u][/size]
+
+* Updated older existing assets with new models and textures, as part of our continued effort to unify all the game’s assets and bring them up to a higher standard.
+* Fixed crossbow collision and lighting origin.
+* Fixed the sheen effect on the RPG world model.
+* Lowered the resolution of the shotgun world model texture.
+* Fixed fullbright tau world model.
+* Removed empty alpha maps from some materials.
+* Lowered resolution of texture maps for satchel and crossbow world models.
+* Fixed jump pad animation in SP.
+
+
+[u][b]Single Player Level Design[/b][/u][/size]
+
+[b]bm_c1a1c[/b]
+* Fixed frozen lab soundscape occasionally not triggering when entering the area.
+* Fixed the coolant puzzle so that players can no longer get stuck behind a pipe.
+[b]bm_c1a3c[/b]
+* Fixed a bug with the rappelling marines. They should no longer fall all the way down the shaft, but if they do, the fall will now kill them.
+* Added air raid siren to the airstrike section.
+[b]bm_c1a4a[/b]
+* Fixed soundscapes not playing after descending through the lift shaft.
+[b]bm_c1a4b[/b]
+* Fixed a bug with some vent lighting.
+[b]bm_c2a2a[/b]
+* Fixed tram being unable to reverse when approaching the bridge.
+[b]bm_c2a2b[/b]
+* The .50 cal turret will now default to facing forwards when players release control.
+[b]bm_c2a2c[/b]
+* Fixed broken appearance of moon texture.
+[b]bm_c2a3a[/b]
+* Players can no longer backtrack to On a Rail.
+* Fixed bug in Ichtyosaur scene which prevented players from progressing forward.
+[b]bm_c2a4f[/b]
+* Fixed problems with marine encounter in cryogenics scene.
+[b]bm_c2a4h[/b]
+* Fixed exterior soundscape so that it will correctly play when exiting the tunnel.
+[b]bm_c2a5a[/b]
+* Removed the icy material property from the gravel at the start of the map.
+[b]bm_c2a5b[/b]
+* This map had some major sections redone. The side route should be much more interesting to explore and much more rewarding now.
+* Overall this map should look, play, and feel a lot more up to standard than it did before.
+[b]bm_c2a5c[/b]
+* Fixed a missing soundscape when exiting the walkway via the shack window.
+[b]bm_c2a5e[/b]
+* Detailed up the outdoor area with some new foliage and rock props, as well as miscellaneous detail fixes.
+* Added a set of player spawn equipment at the start of the map if the player chooses to restart the level.
+* Disabled the explosion death effect until the player is inside the explosive warehouse. This fixes a bug where players could accidentally trigger the explosion from outside the warehouse, or could get stuck in a save game loop.
+[b]bm_c3a1a[/b]
+* Made the Xen slime and growths consistent with other areas throughout the game.
+* Cleaned up AI nodes to improve NPC navigation.
+[b]bm_c3a1b[/b]
+* Cleaned up AI nodes to improve NPC navigation.
+[b]bm_c3a2h[/b]
+* Fixed missing texture on the alien grunts’ hivehands at the beginning of the map
+
+
+[u][b]Multiplayer[/b][/u][/size]
+
+[b]Crossfire[/b]
+
+* Updated some Crossfire props with new textures: Crane bridge, frame hoist,
+blast doors, elevator car and frame
+
+
+[u][b]Miscellaneous[/b][/u][/size]
+
+* mp_warmuptime cvar fixed.
+* Added bulletproof vest to MP guard skin.
+* Added game_round_win and game_player_equip entities to enable mappers to develop custom game types.
+* Added game_mp_gamerules entity which can be set to enable or disable player canister drops on death, allowing development of class-based game modes.
+* Fixed some bugs with the new stats system which made players show up as “unnamed”.
+* sv_lan now defaults to 0.
+* Fixed server crash when server was empty and map changed.
+[u][b]For Modders[/b][/u][/size]
+* Max entity limit per map increased from 2048 to 4096.
+* Forced optimizations inside VBSP, VVIS and VRAD, which should speed up compile times for maps.
+
+
+[u][b]Known Issues[/b][/u][/size]
+
+* Players can become stuck in map bm_c2a5g by backing up after opening the garage door.
+* Bees, grenades and rockets can get stuck on .50 cal turrets.
+* Bounce pads in MP loop bounce animations after being jumped on.
+* Static props without normal maps do not receive CSM shadows.
+* Dedicated servers may need sv_ranked set to “0” to avoid crash after warm up round.
+* Ragdolls sometimes break on loading saves (Instigating).
+* AMD video cards may not display CSM.</description>
+    
+    <lastBuildDate>Sat, 07 Jan 2017 11:36:55 +0000</lastBuildDate>
+    <category>Patches</category>
+    <atom:link href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[JakSpoon]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<p>[align=center]<img src="https://i.imgur.com/TU8oH1Y.jpg?1" alt="" width="690" height="255">[/size][/align]</p>
+<p><span class="bbcode-u"><span class="bbcode-b">Highlights[/size]</span></span></p>
+<ul>
+<li>Official translation support for Finnish, German, Italian, Norwegian, and Spanish!</li>
+</ul>
+<p><span class="bbcode-u"><span class="bbcode-b">New Content and Features</span></span>[/size]</p>
+<p><span class="bbcode-b">Official Translation Support</span></p>
+<ul>
+<li>Translated closed captions can now be enabled in the “Options &gt; Audio” menu. Currently supported languages are Finnish, German, Italian, Norwegian, and Spanish.</li>
+</ul>
+</blockquote>
+</aside>
+<p>Thanks a lot but… the Italian closed captions translation is not so good:</p>
+<p>See my Bug report here:<br>
+<a href="https://forums.blackmesasource.com/index.php/Thread/30482-Italian-Closed-Caption-does-t-work-correctly/" data-bbcode="true" rel="nofollow noopener">Italian Closed Caption - does’t work correctly!</a></p>
+<p>I hope you can fix it soon!<br>
+Thanks for all your work with this beautiful game!!!<br>
+<img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji only-emoji" alt=":wink:"></p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/36">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/36</link>
+        <pubDate>Sat, 07 Jan 2017 11:36:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-36</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[Dragunov2]]></dc:creator>
+        <description><![CDATA[
+            <p>It’s some kind of Area 51</p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/35">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/35</link>
+        <pubDate>Thu, 02 Jun 2016 18:36:38 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-35</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[Agent6]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="sourcegamer101">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/sourcegamer101/40/5252_2.png" class="avatar"> sourcegamer101:</div>
+<blockquote>
+<p>he was talking about Kemp Air, cause Kemp is the last name of the developer of the STU mod version.</p>
+</blockquote>
+</aside>
+<p>Oh, thought that was just a note, and he was talking about what I said. Whatever, I think my point is still valid though.</p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/34">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/34</link>
+        <pubDate>Thu, 02 Jun 2016 14:01:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-34</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Hmmm, you know, as much as I like the design of the airport overall, that huge red “BLACK MESA” sign makes the place seem kind of… “mall-like” I guess would be the best term.</p>
+<p>I don’t know, maybe those are actually a thing at isolated airports and serve some sort of navigational purpose, but I think it clashes with the institutional aesthetic of the rest of the facility.</p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/33">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/33</link>
+        <pubDate>Thu, 02 Jun 2016 13:53:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-33</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[sourcegamer101]]></dc:creator>
+        <description><![CDATA[
+            <p>he was talking about Kemp Air, cause Kemp is the last name of the developer of the STU mod version.</p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/32">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/32</link>
+        <pubDate>Thu, 02 Jun 2016 13:46:13 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-32</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[Agent6]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="wayne_acoba">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/wayne_acoba/40/4378_2.png" class="avatar"> wayne_acoba:</div>
+<blockquote>
+<p>Just awesome work all around on the new update. Played through it a couple of times already, but found this right away on my first playthrough. Don’t think anyone here has mentioned it yet. Nice nod to the original creator of the mod expansion   <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+<div class="spoiler">
+<p><img src="https://i.imgur.com/zDCkm5m.jpg" alt="" width="690" height="387"></p>
+</div>
+</blockquote>
+</aside>
+<p>^ This, I have definitely noticed how undetailed is the ground in that particular area and just wanted to point this out now too. I wonder what happened there.</p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/31">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/31</link>
+        <pubDate>Thu, 02 Jun 2016 12:37:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-31</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[wayne_acoba]]></dc:creator>
+        <description><![CDATA[
+            <p>Just awesome work all around on the new update. Played through it a couple of times already, but found this right away on my first playthrough. Don’t think anyone here has mentioned it yet. Nice nod to the original creator of the mod expansion   <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+<div class="spoiler">
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/zDCkm5m.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/zDCkm5m.jpg" alt="" width="690" height="387"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1366×768</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+</div>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/30">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/30</link>
+        <pubDate>Thu, 02 Jun 2016 11:41:40 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-30</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[Fitne_Por]]></dc:creator>
+        <description><![CDATA[
+            <p>I assume that pieces of Xen are slowly creeping in with each update…</p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/29">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/29</link>
+        <pubDate>Thu, 02 Jun 2016 01:28:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-29</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[cisek66]]></dc:creator>
+        <description><![CDATA[
+            <p>I have problems with optimization on STU maps too. I think it’s caused by particle effects - there’s lots of smoke outside, lots of fire inside flammable gas building etc.</p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/28">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/28</link>
+        <pubDate>Sun, 22 May 2016 17:35:54 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-28</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[chenmozx]]></dc:creator>
+        <description><![CDATA[
+            <p>Nice work, I’ve played through the whole game again!<br>
+But I have a bad FPS about 30~40, sometimes below 30, in some of the new maps. Is it my own problem? Does anyone else have a very low FPS in some of the new STU maps?</p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/27">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/27</link>
+        <pubDate>Sat, 21 May 2016 08:00:46 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-27</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[TheObscure]]></dc:creator>
+        <description><![CDATA[
+            <p>This trick actually worked on my PC, however I did start to get an issue where some models get dark when I am a certain distance from them. The closer I get, the more they flicker, but not always. This only happens every now and then with random models, so it is tolerable. The only issue I am having with the CSM is the fact that when you aim down, the entire view model goes dark as if it is sticking into the ground. This makes the entire view model shaded, until I bring my crosshair back to the horizon. I am not sure if this is a common issue, but I hope that it is going to be resolved, just like I hope to get the CSM issue on AMD cards resolved.</p>
+<p>Thanks to whoever figured out about the workaround command.  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/26">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/26</link>
+        <pubDate>Thu, 19 May 2016 17:41:30 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-26</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[RedEye]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Johnwalter">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/johnwalter/40/4365_2.png" class="avatar"> Johnwalter:</div>
+<blockquote>
+<aside class="quote no-group" data-username="sourcegamer101">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/sourcegamer101/40/5252_2.png" class="avatar"> sourcegamer101:</div>
+<blockquote>
+<p>put</p>
+<p>-force_vendor_id 0x10DE -force_device_id 0x17C8</p>
+<p>in the black mesa launch options to mimic a nvidia card, and you will get CSM’s</p>
+</blockquote>
+</aside>
+<p>But what are the side effects of this?Will this harm my GPU or anything else?</p>
+</blockquote>
+</aside>
+<p>There is a slight possibility that you will go back in time, but no more so than if you were to Xerox a mirror or type Google into Google.</p>
+<p>This can’t harm your computer or it’s components, it’s telling the game that you have an Nvidia GPU and to unlock all of the games graphics options.</p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/25">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/25</link>
+        <pubDate>Thu, 19 May 2016 11:37:10 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-25</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[Johnwalter]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="sourcegamer101">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/sourcegamer101/40/5252_2.png" class="avatar"> sourcegamer101:</div>
+<blockquote>
+<p>put</p>
+<p>-force_vendor_id 0x10DE -force_device_id 0x17C8</p>
+<p>in the black mesa launch options to mimic a nvidia card, and you will get CSM’s</p>
+</blockquote>
+</aside>
+<p>But what are the side effects of this?<br>
+Will this harm my GPU or anything else?</p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/24">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/24</link>
+        <pubDate>Thu, 19 May 2016 08:15:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-24</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[sourcegamer101]]></dc:creator>
+        <description><![CDATA[
+            <p>put</p>
+<p>-force_vendor_id 0x10DE -force_device_id 0x17C8</p>
+<p>in the black mesa launch options to mimic a nvidia card, and you will get CSM’s</p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/23">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/23</link>
+        <pubDate>Thu, 19 May 2016 00:01:51 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-23</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Awesome work all around, I know I’m going to have a <span class="bbcode-i">great</span> time restoring all the new topside areas.</p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/22">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/22</link>
+        <pubDate>Wed, 18 May 2016 23:49:25 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-22</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[Anevist]]></dc:creator>
+        <description><![CDATA[
+            <p>And second problem , grapichs problem in On a Rail chapter (map bm_c2a2b).</p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/21">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/21</link>
+        <pubDate>Tue, 17 May 2016 17:18:26 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-21</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[CANEVER]]></dc:creator>
+        <description><![CDATA[
+            <p>Awesome work, guys — the additions to the game are fantastic! I’m here to confirm that I also have an older AMD HD graphics card, 6670, and that CSM is not working properly — sometimes there’s no CSM and sometimes there is, but it’s very faint, almost non-existent. I hope you guys can fix that soon, because I can play CSGO with shadows on maximum settings. Anyway, keep up the good work for us HL fans! =D</p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/20</link>
+        <pubDate>Tue, 17 May 2016 00:50:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-20</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[Medkit]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Nonimportantuser">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/nonimportantuser/40/4353_2.png" class="avatar"> Nonimportantuser:</div>
+<blockquote>
+<p>…</p>
+<p>In On A Rail there where a lot of missing textures in many places the whole chapter.</p>
+<p>I do not know if this is because i have the uncut mod installed or not but they only happened in the  maps that did not come with the mod.</p>
+<p>…</p>
+</blockquote>
+</aside>
+<p>Yes. It’s because of OaR: Uncut. The mod is pretty much broken now, with multitute of bugs including the texture one.  I uninstalled it.  On the bright side, Text promised he’ll fix it when he’ll have the time.</p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/19</link>
+        <pubDate>Mon, 16 May 2016 22:03:06 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-19</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[Anevist]]></dc:creator>
+        <description><![CDATA[
+            <p>I have a bug at Blast Pit chapter , freeze tentacles.</p>
+<p>How to fix ?</p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/18</link>
+        <pubDate>Mon, 16 May 2016 17:20:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-18</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[Nonimportantuser]]></dc:creator>
+        <description><![CDATA[
+            <p>Everything is great in all but i did encounter a few bugs.</p>
+<p>In On A Rail there where a lot of missing textures in many places the whole chapter.</p>
+<p>I do not know if this is because i have the uncut mod installed or not but they only happened in the  maps that did not come with the mod.</p>
+<p>The last major thing that just started happening was this.</p>
+<p>Everything was affected by this glitch.</p>
+<p><a href="https://www.youtube.com/watch?v=DKGCUe4Ufzk">youtube.com/watch?v=DKGCUe4Ufzk</a></p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/17</link>
+        <pubDate>Mon, 16 May 2016 00:39:19 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-17</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[Comrade_Suhov]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<ul>
+<li>
+<p>Updated older existing assets with new models and textures, as part of our continued effort to unify all the game’s assets and bring them up to a higher standard.</p>
+</li>
+<li>
+<p>Lowered the resolution of the shotgun world model texture.</p>
+</li>
+<li>
+<p>Lowered resolution of texture maps for satchel and crossbow world models.</p>
+</li>
+</ul>
+</blockquote>
+</aside>
+<p>May I ask why the world models textures get lower resolution? I mean, is there a technical side of it because of the Source engine limitation or something else?<br>
+With ST Uncut release, I finally decided to make a full playthrough of BM (haven’t played the retail version yet) and so far I’ve noticed most textures are rather blurry. Not HL2 level of blury, but a Portal 2 one (if not more). For instance, the amazing panels from Chapter 1 by bkdale86 sometimes have noticeable texture compression artefacts everywhere and I barely could read the text on small objects due to watered down textures. And even nocliping I cannot figure out a word on a Tram Maintance book lying on the tram floor.</p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/16</link>
+        <pubDate>Sun, 15 May 2016 18:46:30 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-16</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[TheObscure]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Pianownd">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/p/51bf81/40.png" class="avatar"> Pianownd:</div>
+<blockquote>
+<p>Aw damn, the CSM isn’t working on my Radeon HD 7950, so that’s a bummer.</p>
+</blockquote>
+</aside>
+<p>I feel your pain mate. I have the HD 6970. I am not sure if the reason it might not be working is because we have relatively old graphics cards. Maybe the newer R9 200 and R9 300 series of cards don’t have this issue. I’ll be upgrading to the newer upcoming R9 400 series soon, so I am anxious to see what the outcome will be regarding these awesome shadows.</p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/15</link>
+        <pubDate>Sun, 15 May 2016 17:18:05 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-15</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[Pianownd]]></dc:creator>
+        <description><![CDATA[
+            <p>Aw damn, the CSM isn’t working on my Radeon HD 7950, so that’s a bummer. Other than that, awesome update! Made the whole flow and pacing of the chapter way better!</p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/14</link>
+        <pubDate>Sun, 15 May 2016 16:57:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-14</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[Johnwalter]]></dc:creator>
+        <description><![CDATA[
+            <p>Neither my HDD or GPU are prepared for this update, but i’m excited to try it!</p>
+<p>Absolutely insane work guys!</p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/13</link>
+        <pubDate>Sun, 15 May 2016 16:47:26 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-13</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+      <item>
+        <title>The Surface Tension Update - Content Update 0.3.0</title>
+        <dc:creator><![CDATA[TheObscure]]></dc:creator>
+        <description><![CDATA[
+            <p>So, it seems that I am unfortunate to have an AMD graphics card… but I guess this bug will be fixed right?</p>
+<p>Anyway, thank you so much for adding this CSM feature. I asked for it a year ago and was very surprised to see this morning that it has been released in this update.  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761/12</link>
+        <pubDate>Sun, 15 May 2016 15:51:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14761-12</guid>
+        <source url="https://leakfree.org/t/the-surface-tension-update-content-update-0-3-0/14761.rss">The Surface Tension Update - Content Update 0.3.0</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Detail-Sprite shadowing</title>
+    <link>https://leakfree.org/t/detail-sprite-shadowing/14469</link>
+    <description>Hello guys.
+I&#39;m currently working on my next multiplayer map and I want to add some cool vegetation. For the vegetation to get shadowed correctly I tried out prop_static, prop_detail and prop_dynamic. But the models appear fullbright in game all the time.
+How can I use correctly lit grass-models and detail sprites in source engine?
+
+So far it doesn&#39;t work for the following models:
+models/props_foliage/detail_plant01.mdl
+models/props_foliage/detail_shrub03.mdl
+models/props_foliage/detail_shrub05.mdl
+models/props_foliage/detail_plant02.mdl
+
+
+Help pls  :slight_smile:</description>
+    
+    <lastBuildDate>Thu, 19 Nov 2015 21:01:39 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/detail-sprite-shadowing/14469.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Detail-Sprite shadowing</title>
+        <dc:creator><![CDATA[fury]]></dc:creator>
+        <description><![CDATA[
+            <p>Ok… Thx for info… I guess I will wait then.</p>
+          <p><a href="https://leakfree.org/t/detail-sprite-shadowing/14469/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/detail-sprite-shadowing/14469/3</link>
+        <pubDate>Thu, 19 Nov 2015 21:01:39 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14469-3</guid>
+        <source url="https://leakfree.org/t/detail-sprite-shadowing/14469.rss">Detail-Sprite shadowing</source>
+      </item>
+      <item>
+        <title>Detail-Sprite shadowing</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p>Unfortunately, with those models, you can’t - It’s a limitation of the detail prop system. All models and sprites to be used in the system (primarily for auto-placement on specific displacement types, but they can be hand-placed as you’ve been doing) have to use the UnlitGeneric shader, which means they can’t <span class="bbcode-i">not</span> be fullbright. (I’m under the assumption that this was done because most detail models are very low-poly, down to 2 tris, so so Valve opted to disallow vertex lighting)</p>
+<p>Any foliage prop with detail in the name is used by that system, so short of making a copy of the model and material without the unlit shader, there’s not really a way to use lighting on them.<br>
+Luckily the larger shrubs are designed for prop_static!</p>
+<p>EDIT: Just found this on the Developer wiki-</p>
+<aside class="quote no-group" data-username="Valve Developer Community">
+<div class="title">
+<div class="quote-controls"></div>
+ Valve Developer Community:</div>
+<blockquote>
+<p><span class="bbcode-b"> Tip:</span>To allow <a href="https://developer.valvesoftware.com/wiki/VertexLitGeneric" data-bbcode="true" rel="nofollow noopener">VertexLitGeneric</a> models, open game\client\detailobjectsystem.cpp and remove the conditional block from CDetailObjectSystem::UnserializeModelDict().</p>
+</blockquote>
+</aside>
+<p>So support for vertexlitgeneric can be coded in fairly easily. Might be something we should ask the devs to do for the next update.</p>
+          <p><a href="https://leakfree.org/t/detail-sprite-shadowing/14469/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/detail-sprite-shadowing/14469/2</link>
+        <pubDate>Thu, 19 Nov 2015 18:08:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14469-2</guid>
+        <source url="https://leakfree.org/t/detail-sprite-shadowing/14469.rss">Detail-Sprite shadowing</source>
+      </item>
+      <item>
+        <title>Detail-Sprite shadowing</title>
+        <dc:creator><![CDATA[fury]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello guys.<br>
+I’m currently working on my next multiplayer map and I want to add some cool vegetation. For the vegetation to get shadowed correctly I tried out prop_static, prop_detail and prop_dynamic. But the models appear fullbright in game all the time.<br>
+How can I use correctly lit grass-models and detail sprites in source engine?</p>
+<p>So far it doesn’t work for the following models:<br>
+models/props_foliage/detail_plant01.mdl<br>
+models/props_foliage/detail_shrub03.mdl<br>
+models/props_foliage/detail_shrub05.mdl<br>
+models/props_foliage/detail_plant02.mdl</p>
+<p>Help pls  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/detail-sprite-shadowing/14469/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/detail-sprite-shadowing/14469/1</link>
+        <pubDate>Thu, 19 Nov 2015 16:32:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14469-1</guid>
+        <source url="https://leakfree.org/t/detail-sprite-shadowing/14469.rss">Detail-Sprite shadowing</source>
+      </item>
+  </channel>
+</rss>

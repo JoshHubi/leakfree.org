@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>[BUG] Floating prop in Surface Tension, buggy skybox water reflections</title>
+    <link>https://leakfree.org/t/bug-floating-prop-in-surface-tension-buggy-skybox-water-reflections/14704</link>
+    <description>Sorry if either of these are duplicates, I haven&#39;t seen them mentioned. Anyways!
+
+1) In bm_c2a5b, just outside the control room for the storm access hatch that leads to the cliff, there&#39;s a military cot prop that&#39;s floating just above the ground:
+
+[img=&#39;https://i.imgur.com/L73fh3h.jpg&#39;,none,630][/img]
+status:
+[code]hostname: Black Mesa
+version : 100004/24 100004 insecure
+map     : bm_c2a5b at: -980 x, 2954 y, 641 z
+tags    : 
+players : 1 humans, 0 bots (1 max)
+edicts  : 728 used of 2048 max
+# userid name                uniqueid            connected ping loss state  adr
+#      3 &quot;KyuuGryphon&quot;       STEAM_ID_PENDING    34:10       17    0 active loopback[/code]getpos:
+[code]
+setpos -980.401367 2954.619629 641.875732;setang 11.931078 -18.171848 0.000000
+[/code]2) This is best observed on bm_c2a5a (in fact, I&#39;m not sure if it visibly affects any other locations in the game) - with the crossbow equipped, the real-time water reflections in the 3D Skybox go all sorts of berserk. It almost looks to me like they&#39;re using the same render source as the crossbow&#39;s scope?
+
+[img=&#39;https://i.imgur.com/ib6Acze.jpg&#39;,none,640][/img] [img=&#39;https://i.imgur.com/hUrmd8T.jpg&#39;,none,640][/img]
+
+Turning off 3D Skybox rendering shows that the irregularities are isolated to the 3D skybox water. Maybe this is related to the skybox scale bug with the crossbow while scoped in?</description>
+    
+    <lastBuildDate>Tue, 08 Mar 2016 20:16:58 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/bug-floating-prop-in-surface-tension-buggy-skybox-water-reflections/14704.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>[BUG] Floating prop in Surface Tension, buggy skybox water reflections</title>
+        <dc:creator><![CDATA[KyuuGryphon]]></dc:creator>
+        <description><![CDATA[
+            <p>Sorry if either of these are duplicates, I haven’t seen them mentioned. Anyways!</p>
+<ol>
+<li>In bm_c2a5b, just outside the control room for the storm access hatch that leads to the cliff, there’s a military cot prop that’s floating just above the ground:</li>
+</ol>
+<p><img alt=""><br>
+status:</p>
+<p>[code]hostname: Black Mesa<br>
+version : 100004/24 100004 insecure<br>
+map     : bm_c2a5b at: -980 x, 2954 y, 641 z<br>
+tags    :<br>
+players : 1 humans, 0 bots (1 max)<br>
+edicts  : 728 used of 2048 max</p>
+<h1>userid name                uniqueid            connected ping loss state  adr</h1>
+<h1>3 “KyuuGryphon”       STEAM_ID_PENDING    34:10       17    0 active loopback[/code]getpos:</h1>
+<p><code>
+setpos -980.401367 2954.619629 641.875732;setang 11.931078 -18.171848 0.000000
+</code>2) This is best observed on bm_c2a5a (in fact, I’m not sure if it visibly affects any other locations in the game) - with the crossbow equipped, the real-time water reflections in the 3D Skybox go all sorts of berserk. It almost looks to me like they’re using the same render source as the crossbow’s scope?</p>
+<p><img alt=""> <img alt=""></p>
+<p>Turning off 3D Skybox rendering shows that the irregularities are isolated to the 3D skybox water. Maybe this is related to the skybox scale bug with the crossbow while scoped in?</p>
+          <p><a href="https://leakfree.org/t/bug-floating-prop-in-surface-tension-buggy-skybox-water-reflections/14704/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bug-floating-prop-in-surface-tension-buggy-skybox-water-reflections/14704/1</link>
+        <pubDate>Tue, 08 Mar 2016 20:16:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14704-1</guid>
+        <source url="https://leakfree.org/t/bug-floating-prop-in-surface-tension-buggy-skybox-water-reflections/14704.rss">[BUG] Floating prop in Surface Tension, buggy skybox water reflections</source>
+      </item>
+  </channel>
+</rss>

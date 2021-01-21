@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/an-undertow-is-born-the-story-of-undertow/13750 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:33:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>An Undertow Is Born: The Story of Undertow - Developer Logs - Leakfree</title>
+    <meta name="description" content="Bringing a map that’s been played over and over again since 1998 into the modern era is a dangerous business. In this  rambly post I’ll be sharing my experience carrying the weight of fifteen years of fond memories and n&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="13750.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;An Undertow Is Born: The Story of Undertow&#39;" href="13750.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/an-undertow-is-born-the-story-of-undertow/13750" />
+<meta name="twitter:url" content="https://leakfree.org/t/an-undertow-is-born-the-story-of-undertow/13750" />
+<meta property="og:title" content="An Undertow Is Born: The Story of Undertow" />
+<meta name="twitter:title" content="An Undertow Is Born: The Story of Undertow" />
+<meta property="og:description" content="Bringing a map that’s been played over and over again since 1998 into the modern era is a dangerous business. In this  rambly post I’ll be sharing my experience carrying the weight of fifteen years of fond memories and nostalgic familiarity attached to the original Undertow, under the constant threat of becoming that evil monster who ruined my favorite thing and must never be forgiven.[/size]  TIME TAKES ITS TOLL[/size]  [/size]  Undertow was originally released in 1998, long before anyone start..." />
+<meta name="twitter:description" content="Bringing a map that’s been played over and over again since 1998 into the modern era is a dangerous business. In this  rambly post I’ll be sharing my experience carrying the weight of fifteen years of fond memories and nostalgic familiarity attached to the original Undertow, under the constant threat of becoming that evil monster who ruined my favorite thing and must never be forgiven.[/size]  TIME TAKES ITS TOLL[/size]  [/size]  Undertow was originally released in 1998, long before anyone start..." />
+<meta property="article:published_time" content="2015-04-12T04:39:50+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="13750.html">An Undertow Is Born: The Story of Undertow</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/6.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa Archive</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/developer-logs/15.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Developer Logs</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/JordanFanaris.html'><span itemprop='name'>JordanFanaris</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13750.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-04-12T04:39:50Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:18:04Z' class='post-time'>
+                August 11, 2020, 11:18am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Bringing a map that’s been played over and over again since 1998 into the modern era is a dangerous business. In this  rambly post I’ll be sharing my experience carrying the weight of fifteen years of fond memories and nostalgic familiarity attached to the original Undertow, under the constant threat of becoming <span class="bbcode-i">that evil monster who ruined my favorite thing and must never be forgiven.</span>[/size]</p>
+<p><span class="bbcode-b">TIME TAKES ITS TOLL[/size]</span><br>
+[/size]</p>
+<p>Undertow was originally released in 1998, long before anyone started churning out online multiplayer shooters that outsell James Cameron films. As such, FPS level design wasn’t an established craft yet, and nobody <span class="bbcode-i">really</span> knew what they were doing. Matters were only made worse by how little manpower and time went into the original Half Life’s multiplayer mode. Valve was like two dozen dudes sleeping in tents at the base camp of the Mt. Everest of Cash Dollars that they would spend the next 15 years scaling. Subtransit, Boot Camp, Crossfire, Undertow, and Snark Pit were all made by the same designer in a very short period of time. The result was maps that were interesting and unusual by modern standards, since they didn’t follow the “conventional wisdom” that most level designers pick up nowadays, but often very crude and deeply flawed. Our first step when remaking a multiplayer map is to make a “one-to-one” version, which is completely identical to the original, and test it out to see how well it’s held up. So when I first got permission to start on Undertow, that’s exactly what I did.[/size]</p>
+<p><img alt=""><br>
+<span class="bbcode-i">                                                                                                   One (1) Undertow, in its original habitat</span><br>
+[align=center][/align]Unfortunately, it was garbage. Undertow’s layout, with its flat, empty hallways and sometimes confusing rooms, had not aged well. The reception from our testers was pretty universally negative, both from those who played the original game and those who hadn’t. Later on we got a full server of people and played the original in Half Life, and even in its original context a lot of people just found it boring. Running around barren halls shooting at your friends was revolutionary fifteen years ago, but today people expect more varied and interesting spaces to play in. I saw this as a great chance to take some creative liberties and make something new, a proper redo instead of a direct port with some pretty paint slapped over it. So I started from scratch.[/size]</p>
+<p><span class="bbcode-b">WHAT MAKES AN UNDERTOW?[/size]</span></p>
+<p>The first challenge I faced with my “remake” was answering two questions:[/size]</p>
+<ol>
+<li>Why isn’t this map fun?[/size]</li>
+<li>What makes this map Undertow? In other words: What should I keep to make the map recognizably Undertow, while changing up everything else to make the map fun?[/size]<br>
+The first question was easier than the second. The layout was extremely dated and felt very rushed. I got the feeling that there was a concrete idea for the river, and for the big rooms where it started and ended, but the rest of the map consisted of a bunch of flat, boring gray hallways quickly thrown together to connect those spaces:</li>
+</ol>
+<p>[/size]<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/uN7olBO.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/uN7olBO.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">800×450</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<span class="bbcode-i">                                Four (4) Boring Undertow Hallways, in Half Life</span></p>
+<p>These kinds of spaces just aren’t very fun to play in. In addition to being boring to look at, there’s nowhere to run, jump, and hide. Fun gameplay in a modern game requires more variety, different heights let players move strategically to gain the upper hand, little nooks and crannies and side rooms make fights less predictable and add a lot of tactical options, especially when you’re being chased down by a better-equipped player. Every fight in these halls has players shooting and moving straight ahead, without any way to take advantage of the environment. The ideal Undertow would strip away as much of this bland, cramped space as possible in favor of the much more enjoyable big, open spaces that the hallways connect, which leads me to the answer to the second question:</p>
+<p><img alt=""><br>
+<span class="bbcode-i">                                         One (1) Undertow, Simplified</span><br>
+[/size]<br>
+[/size]<span class="bbcode-b">AN UNDERTOW IS BORN[/size]</span></p>
+<p>The most important and fun areas of Undertow are the three main open areas: the 3-level atrium in the middle (“<span class="bbcode-b">Mid</span>”), the room where the river originates from the big vat where the gluon gun lives (“<span class="bbcode-b">Vat Room</span>”), and the underground sewer room where the river dumps the players (“<span class="bbcode-b">Sewer</span>”). The new Undertow would keep the concepts of those three areas intact, as well as their locations relative to one another, but the new versions would be redesigned from the ground up to be fun, complex places to fight in and explore. The connecting hallway routes would be rerouted <span class="bbcode-i">through</span> mid and/or turned into bigger interior spaces to get rid of the bland corridors and dump more players into the open areas.[/size]</p>
+<p><img alt=""><br>
+<span class="bbcode-i">One (1) Undertow Mid, Old</span></p>
+<p><img alt=""><br>
+<span class="bbcode-i">One (1) Undertow Mid, First Revision</span><br>
+<span class="bbcode-b">[/size]</span><br>
+<span class="bbcode-b">AN UNDERTOW HAS A SOLID CORE[/size]</span></p>
+<p>Mid was the first area I remade, and the most important part of the layout. All paths converge here; players should be able to choose from a number of paths here, to get wherever they want. My biggest goal with Mid was to create an interesting combat space with lots of possible paths, since this is where all the players converge from the other rooms. I also wanted to connect the second-floor areas both to each other and to the ground floor; the old upstairs areas were dead-end hallways with only one entrance and a window to shoot out of, which made them hard to clear out and encouraged players to camp up there for ages. Giving the players lots of freedom of movement was important. This layout has lots of interconnected loops, so players can plan out paths to “patrol,” restocking on weapons and searching for enemies. The player will never come to a dead end then have to backtrack to get out.[/size]</p>
+<p>[/size]<img alt=""><br>
+<span class="bbcode-i"> One (1) Undertow Mid, in Beta</span></p>
+<p>In the end I turned the upstairs areas into buildings with direct connections to the first floor, and connected them with bridges over the river. This made the upstairs positions a lot harder to camp, since enemies could come from many directions, and made the upstairs much more accessible and feel much less isolated from the rest of the map. I also “broke” the hallway that wrapped around mid, preventing players from completely bypassing the outdoor space. This area got a whole bunch of weapon pickups added in, since it’s now a major combat area. The side hallways have been turned into fairly spacious building interiors with irregularly-shaped rooms and lots of big doors and windows opening into mid, so they feel more like extensions of mid than isolated hallways. Mid as a whole was received very positively by playtesters and hasn’t been changed much since the first version.[/size]</p>
+        </div>
+
+        <meta itemprop='headline' content='An Undertow Is Born: The Story of Undertow'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/JordanFanaris.html'><span itemprop='name'>JordanFanaris</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13750.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-04-12T04:40:28Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:18:05Z' class='post-time'>
+                August 11, 2020, 11:18am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><img alt=""><br>
+<span class="bbcode-i">One (1) Vat Room, Source Of All Water, In Its Earliest Form</span></p>
+<p><span class="bbcode-b">AN UNDERTOW STORES ALL ITS WATER IN ONE VAT[/size]</span></p>
+<p>The Vat Room was probably the most flawed of the three major rooms; it was super blocky and navigating it was frustrating, since it was full of dead ends and twisty stairways. My first major revisions made it easier to get across the river, made it more apparent how to get to the back of the room and onto the vat, and added some different height levels to create a king-of-the-hill type gameplay around the vat. The revolving slab of concrete that opened/closed the top of the vat was replaced by a spinning fan with missing blades, so the player could see down into the vat where the gluon gun lives.</p>
+<p>But this was a flawed solution and enormously frustrating for a long time. The room was too long; people would walk in from the side entrances, fight in the front of the room a little bit, then either run back out or jump into the river. The back of the room was hardly ever used at all, and very few people ever went into the vat to get the gluon gun. Even when I shortened the room, it still wasn’t very fun to play in. The solution I ended up using was a little more elaborate and took a ton of iterations:</p>
+<p>[/size]<img alt=""><br>
+<img alt=""><br>
+<span class="bbcode-i">Two (2) Vat Rooms, Source of All Water, in Beta</span><br>
+[/size]<br>
+<span class="bbcode-b">AN UNDERTOW’S SPINNERS NEVER STOP[/size]</span></p>
+<p>The final version combined most of the isolated spaces alongside the vat into walkways in the same big open space. I rounded off the back of the room so navigation would literally revolve around the vat instead of using tricky staircases and isolated side rooms. I made the vat much taller and gave it a large pedestal with lots of narrow side walkways about halfway up its height. I added ladders and bridges to the side paths, so players could try to get to the vat, now the dominant high ground in the area, from any part of the room. This also made the river much easier to access. The back path is shorter and more direct, and leads to the crossbow and a suit charger on the back wall, so players have an incentive to go around instead of climbing the vat, where they’re a sitting duck for anyone in the room to shoot up at, especially with explosives because of the low ceiling.</p>
+<p>Another big problem that was only solved very late in Undertow’s development was players never going into the vat. To solve this I opened up the top of the vat and made the whole lid one huge spinning component with two big, moving openings. With the new vat so much easier to climb onto and jump down into, players are much more likely to actually go inside it and try to get the huge cache of loot behind the spinning underwater trap. I added water to the bottom of the vat, and replaced the old button-activated, one-way, exit-only door with half a dozen little underwater side chutes that players can swim through in either direction. The whole room has a very interesting configuration of paths and height levels and I finally got my king-of-the-hill fights on top of the huge vat.[/size]</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/Fi7f6Ab.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/Fi7f6Ab.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1600×900</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<span class="bbcode-i">One (1) Sewer, in Half Life</span>[/size]</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/yJWlmGu.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/yJWlmGu.jpg" alt="" width="690" height="387"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1366×768</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<span class="bbcode-i">One (1) Sewer, Revised</span>[/size]</p>
+<p><span class="bbcode-b">AN UNDERTOW NEEDS ITS PRECIOUS FLUIDS[/size]</span></p>
+<p>The sewer was by far the most difficult and time-consuming of the three main areas, because of its untapped potential and silly flooding gimmick. The original room was a really neat idea: a bunch of different-height blocky structures cutting into a huge room with an exit at the very top and a rising pool of water at the bottom. But in practice the structures were laid out in a confusing way and there weren’t a lot of paths to run around and <span class="bbcode-i">stay </span>in the sewer. Most players just fell in through the waterfall and then went straight to the exit, and the flooding was often just frustrating since drowning killed you so slowly. I replaced the water with a pool of dangerous, scary green slime, which would slowly rise and flood the room when someone pressed the button at the top, forcing anyone caught at the bottom to run back up the precarious, twisty stairwells cut into the sides of the huge pit.[/size]</p>
+<p>But everyone hated the slime flood. It was annoying and disappointing to be killed by, and it made the room really boring while it was active, since all that was left above-slime was a flat shelf of concrete. So I tried going back to the roots and using regular water. This wasn’t popular either; people rarely even bothered flooding the room, since it made it harder to shoot down at enemies, and when they did it was more likely to elicit groans than the feelings of childish joy we should all get from plunging our friends into a flooding sewer and then shooting bees at them until they die. After tweaking the flood speed, duration, recharge, and other variables for eons, I listened to the urgings of everyone who tested the map and got rid of the flooding mechanic entirely. This was a super scary and painful decision, since the flood was such a huge part of the original’s charm. But it ended up causing so many problems it wasn’t worth it; moving water in the Source Engine looks terrible, and I couldn’t have any spawns in the pit of the sewer because it’s poor form to let players spawn at the bottom of a pool of deadly acid.[/size]</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/gmiXUOR.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/gmiXUOR.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1280×720</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/asQ2ANU.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/asQ2ANU.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1280×720</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<span class="bbcode-i">Two (2) Sewers, in Beta</span>[/size]</p>
+<p><span class="bbcode-b">AN UNDERTOW’S UNDERCARRIAGE IS WET, NOT DROWNING[/size]</span></p>
+<p>So I ripped the whole flood mechanic out entirely, and got to turning the area into the raddest combat area who ever lived. I loaded up the bottom floor with weapons and ammo, to encourage people to hang around on the staircases and balconies and shoot down into the water. I added in an underwater tunnel for players to hide in after they get dumped by the river, and a hidden rear ladder accessible from the water. There’s lots of different paths up and down the various “shelves” cut into the sides of the pit, which creates awesome gameplay where everyone tries to maintain the higher ground and bomb anyone below them. There’s also a new elevator leading to a new, second tunnel that connects the Sewer to Mid. This was to make it easier to go back and forth between the Sewer and Mid, since the original only had one route out, which was very long and set off to the side. The end result was a combat space so rad it probably does kickflips in its sleep and doesn’t even ask for its parent permission before going online. It’s got rockets, ladders, high balconies, a long jump, deep pools, and a freight elevator scattered around all over the place. This is one of my favorite combat spaces across all of our maps, so hopefully you guys will forgive me for ruining the venerated flood button, whose passing will forever be mourned until someone just edits it back in and puts it on the workshop, you monsters.[/size]</p>
+        </div>
+
+        <meta itemprop='headline' content='An Undertow Is Born: The Story of Undertow'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13750.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-04-12T05:13:03Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:18:05Z' class='post-time'>
+                August 11, 2020, 11:18am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Undertow I think is one of the maps I’ve never played more than a few times, so much that I hardly even remember the flood mechanic. I’m glad I’m not alone on the “it’s horrible to play” front.</p>
+<p>All the levels of “verticality” you’ve added make this map look like a blast. This area in particular <span class="bbcode-i">jumps out</span> at me that makes me wanna try your version.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/nXZ3c3U.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/nXZ3c3U.png" alt="" width="690" height="172"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">768×192</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>That just looks like a lot of fun, trying to get across and still watch your ass.<br>
+How busy is the sewer area during play? It seems like the type of area that everyone would want to be in at once.</p>
+        </div>
+
+        <meta itemprop='headline' content='An Undertow Is Born: The Story of Undertow'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/omegalucas.html'><span itemprop='name'>omegalucas</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13750.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-04-12T11:53:18Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:26:03Z' class='post-time'>
+                November 25, 2018,  4:26am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Awesome job on these. I love these behind the scenes dev blogs.  <img src="../../images/emoji/twitter/smileyc164.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"><br>
+And now I’m dreaming you guys will someday take the time to write a “Raising the Bar” on the development of the mod.</p>
+<p>A man can dream xD</p>
+        </div>
+
+        <meta itemprop='headline' content='An Undertow Is Born: The Story of Undertow'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dotard.html'><span itemprop='name'>Dotard</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13750.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-04-12T15:05:52Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:26:03Z' class='post-time'>
+                November 25, 2018,  4:26am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The map is finished now I suppose?</p>
+        </div>
+
+        <meta itemprop='headline' content='An Undertow Is Born: The Story of Undertow'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13750.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-04-12T15:35:31Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:26:03Z' class='post-time'>
+                November 25, 2018,  4:26am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Undertow is a great map now and a very firm favourite. Definitely the best TDM map in our game, most would agree.</p>
+<p>Crypt - the flood room is amazing fun, it’s got that great element of ordered, multi-tiered chaos. Jordan really balanced the flow of combat well. All 3 main play spaces see equal use, not just the flood room. But the flood room is everyone’s favourite!</p>
+        </div>
+
+        <meta itemprop='headline' content='An Undertow Is Born: The Story of Undertow'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Connerc97.html'><span itemprop='name'>Connerc97</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13750.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-04-12T15:36:38Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:26:03Z' class='post-time'>
+                November 25, 2018,  4:26am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>To Dotard<br>
+Unless the big white words BETA DEVELOPMENT SHOT lied to me, I don’t think so.</p>
+        </div>
+
+        <meta itemprop='headline' content='An Undertow Is Born: The Story of Undertow'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Swaggless.html'><span itemprop='name'>Swaggless</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13750.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-04-12T16:30:42Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:26:03Z' class='post-time'>
+                November 25, 2018,  4:26am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Great read! Thanks for doing this. Maybe it’s a basic part of level design, but I really like how each area sort of has it’s own purpose and incentivizes different game-play, like 3 maps in one. Very cool!</p>
+        </div>
+
+        <meta itemprop='headline' content='An Undertow Is Born: The Story of Undertow'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dotard.html'><span itemprop='name'>Dotard</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13750.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-04-12T16:31:17Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:26:03Z' class='post-time'>
+                November 25, 2018,  4:26am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Something is technically beta until it releases. Also most of those shots are from early development, my question was more if the final iteration is “locked in” and no major changes are planned from what they have now to release.</p>
+        </div>
+
+        <meta itemprop='headline' content='An Undertow Is Born: The Story of Undertow'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/JordanFanaris.html'><span itemprop='name'>JordanFanaris</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13750.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-04-12T19:16:21Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:26:03Z' class='post-time'>
+                November 25, 2018,  4:26am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>These are <span class="bbcode-i">pretty close </span>to final screenshots, but there have been some minor changes since they were taken and there could be more between now and launch.</p>
+        </div>
+
+        <meta itemprop='headline' content='An Undertow Is Born: The Story of Undertow'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Johnwalter.html'><span itemprop='name'>Johnwalter</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13750.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-04-12T20:09:43Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:26:04Z' class='post-time'>
+                November 25, 2018,  4:26am
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>What a beautiful map!<br>
+Fantastic work!</p>
+        </div>
+
+        <meta itemprop='headline' content='An Undertow Is Born: The Story of Undertow'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/KyuuGryphon.html'><span itemprop='name'>KyuuGryphon</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13750.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-04-12T21:47:49Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:26:04Z' class='post-time'>
+                November 25, 2018,  4:26am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="JordanFanaris">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/j/7ba0ec/40.png" class="avatar"> JordanFanaris:</div>
+<blockquote>
+<p>These are <span class="bbcode-i">pretty close </span>to final screenshots, but there have been some minor changes since they were taken and there could be more between now and launch.</p>
+</blockquote>
+</aside>
+<p>If these are “pretty close” to final, does that mean Retail’s coming out soon?  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:">  [s][sub]i’m kidding, don’t kill me[/sub]</p>
+<p>[/size][/s]<br>
+Seriously though, Undertow is looking incredible. It’s really cool to see how the map goes from the blockout phase to detailed. I’m also curious as to how you’ve managed to make the flowing water work, considering how limited water is in Source at times.</p>
+        </div>
+
+        <meta itemprop='headline' content='An Undertow Is Born: The Story of Undertow'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13750.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-04-12T22:28:10Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:26:04Z' class='post-time'>
+                November 25, 2018,  4:26am
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<p>Undertow is a great map now and a very firm favourite. Definitely the best TDM map in our game, most would agree.</p>
+<p>Crypt - the flood room is amazing fun, it’s got that great element of ordered, multi-tiered chaos. Jordan really balanced the flow of combat well. All 3 main play spaces see equal use, not just the flood room. But the flood room is everyone’s favourite!</p>
+</blockquote>
+</aside>
+<p>It is hands down my favourite TDM map.</p>
+        </div>
+
+        <meta itemprop='headline' content='An Undertow Is Born: The Story of Undertow'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Narfin.html'><span itemprop='name'>Narfin</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13750.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-04-21T04:50:50Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:26:24Z' class='post-time'>
+                November 25, 2018,  4:26am
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>RIP flood button  <img src="../../images/emoji/twitter/frowningc164.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+<p>But I guess if <span class="bbcode-i">every</span> playtester said to get rid of it, it needed to go.  Can’t wait to try out this map, Jordan. Undertow was always one of my favorites!</p>
+<p>Quick question: Do any of the hallways have conveyor belts? Those are one of the memorable features of the level for me.</p>
+        </div>
+
+        <meta itemprop='headline' content='An Undertow Is Born: The Story of Undertow'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/an-undertow-is-born-the-story-of-undertow/13750 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:33:06 GMT -->
+</html>

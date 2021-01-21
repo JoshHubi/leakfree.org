@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>editing the cfg to rebalance damage and ammo values</title>
+    <link>https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625</link>
+    <description>I was interested by the idea of tweaking the difficulty of certain enemies by going into the cfg and simply changing a number.  specifically, I wanted to lower human grunt weapon damage while keeping the game balanced towards the current standard of high challenge, in a way that kept it at an even level at a consistent basis.  this is all very simple, as long as you can open the cfg file (I use notepad++) but I had a harder time with the key aspect I had in mind from the start: altering the value of the ammo.
+
+I was able to change the clip size of the mp5 by going into the scripts and altering the value in the weapon_mp5 file which is a simple txt, but it had the unintended effect of making every mp5 in the game drop 50 rounds instead of the original 30, which is way way too much to ever use.  after a few minutes (actually 2 hours) of reading I eventually found a method provided by the valve wiki for editing the value of the ammo count provided by an enemy weapon drop.  put this in underneath the max clip size (which I have already changed to 50 to make it more like the original half life)
+
+	default_clip	&quot;25&quot;
+
+making sure to use tab to align the text so it fits neatly between the other lines.  now dropped enemy mp5s will only provide whatever the value of the number is between quotes, you can raise it or lower it to whatever you want.
+
+[b]now you might be trying this out for yourself and wondering why it&#39;s not working.  I spent the first few hours wondering that myself, and as it turns out it is because the value is based on some other setting for the moment [u]until you change maps or restart a chapter.[/u][/b]  until then, it seems to be going by a previously loaded cfg or values set in the save file or something.  this is one of my only attempts at ever modding anything for half life, so if you know better please feel free to point this out.  and if you know as little about modding as I do, maybe this information can help you.
+
+as for actually lowering the damage of enemy humans armed with mp5s, it seems that the value is tied to the power of the npc security guards (barneys/barnies) as well.  this is found in the skill.cfg file in BMS/cfg folder, in this line:
+// AI WEAPONS	
+sk_npc_dmg_9mm						&quot;4&quot;
+
+4 is the damage per shot for every npc equipped with a 9mm weapon, either the mp5 or glock pistol.  however, the human marines have uncanny accuracy and a greatly increased rate of fire compared to the same enemies in half life 1, so a quick burst at close range from a single marine can burn down your armor and health.  because of this, I reduced the value to 2, but again this has the effect of making friendly npcs weaker (I think).
+
+next time I start a new game, I intent to use the console to drop a 357 into my inventory near the start to offset the increased zombie health and decreased barney damage.  this is done with the console command:
+give weapon_357
+but you can find the other commands for other weapons over the internet easily.
+
+if anyone else has been experimenting with the cfgs or other stats in the game, I would like to hear about it.  for anyone who is not yet aware though: [b]make sure to back up your original cfg if you intend to edit it.[/b]</description>
+    
+    <lastBuildDate>Sat, 28 Sep 2013 01:36:41 +0000</lastBuildDate>
+    <category>Black Mesa</category>
+    <atom:link href="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>editing the cfg to rebalance damage and ammo values</title>
+        <dc:creator><![CDATA[RHYS4190]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Mr.Francis">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/m/50afbb/40.png" class="avatar"> Mr.Francis:</div>
+<blockquote>
+<p>This doesn’t seem to work for me. I’ve opened skill.cfg and changed the values under “// MAX AMMO” so that they are the same as the ammo values in HL. I then start a new game in BMS, and when I pick up my weapons, the reserve ammo for each weapon doesn’t follow my changes. For example, in skill.cfg the revolver ammo is changed to 36, but ingame it only goes up to 18. The same happens for every weapon.</p>
+<p>What’s wrong?</p>
+</blockquote>
+</aside>
+<p>same thing is happening to me what I worked out is when you edit the folder with not pad/ it saving it as a text doc so it not replacing the CFG folder and also the game is not recognising it at all</p>
+<p>I really don’t know how these people got there editing to work this guy or girl made a mod that modifys the damage values so maybe download that and if your still not happy/ you may be able to mod there mod of this mod : ) that what im trying to do now good luck</p>
+          <p><a href="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/12</link>
+        <pubDate>Sat, 28 Sep 2013 01:36:41 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10625-12</guid>
+        <source url="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625.rss">editing the cfg to rebalance damage and ammo values</source>
+      </item>
+      <item>
+        <title>editing the cfg to rebalance damage and ammo values</title>
+        <dc:creator><![CDATA[BendyBread]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="bur">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/b/87869e/40.png" class="avatar"> bur:</div>
+<blockquote>
+<p>Just add those commands in the cfg in the same way as the commands that are already there, it should work if I’m not mistaken.</p>
+</blockquote>
+</aside>
+<p>Just put them in under marines incase. Working perfectly, thank you.  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/11</link>
+        <pubDate>Sat, 24 Nov 2012 12:36:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10625-11</guid>
+        <source url="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625.rss">editing the cfg to rebalance damage and ammo values</source>
+      </item>
+      <item>
+        <title>editing the cfg to rebalance damage and ammo values</title>
+        <dc:creator><![CDATA[bur]]></dc:creator>
+        <description><![CDATA[
+            <p>Just add those commands in the cfg in the same way as the commands that are already there, it should work if I’m not mistaken.</p>
+          <p><a href="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/10</link>
+        <pubDate>Sat, 24 Nov 2012 12:30:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10625-10</guid>
+        <source url="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625.rss">editing the cfg to rebalance damage and ammo values</source>
+      </item>
+      <item>
+        <title>editing the cfg to rebalance damage and ammo values</title>
+        <dc:creator><![CDATA[Problematic_A-hole]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="BendyBread">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/bendybread/40/4457_2.png" class="avatar"> BendyBread:</div>
+<blockquote>
+<p>Is there a way to increase the MP5 do 8 damage, but leave the Glock at 6? I can do the ammo capacity and clip capacity fine, but the damage itself I’m clueless.<br>
+If it’s not possible then never mind.  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>Also I know this isn’t on the topic of ammo, but how do I slow down the Vort attack time by just a smidgen, or perhaps decrease the reaction time of the HECU? I’m so bad at this kind of stuff.</p>
+<p>I know in this thread - <a href="https://forums.blackmesasource.com/showthread.php?t=13545&amp;page=2" data-bbcode="true" rel="nofollow noopener">https://forums.blackmesasource.com/showthread.php?t=13545&amp;page=2</a> , they say the convars, but I’m unsure how to use them (I cant find them in my skill.cfg).</p>
+</blockquote>
+</aside>
+<p>Convars are console commands, you won’t find them in the cfg<br>
+And no, it’s not possible as far as I’m concerned</p>
+          <p><a href="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/9</link>
+        <pubDate>Sat, 24 Nov 2012 10:23:30 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10625-9</guid>
+        <source url="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625.rss">editing the cfg to rebalance damage and ammo values</source>
+      </item>
+      <item>
+        <title>editing the cfg to rebalance damage and ammo values</title>
+        <dc:creator><![CDATA[BendyBread]]></dc:creator>
+        <description><![CDATA[
+            <p>Is there a way to increase the MP5 do 8 damage, but leave the Glock at 6? I can do the ammo capacity and clip capacity fine, but the damage itself I’m clueless.<br>
+If it’s not possible then never mind.  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>Also I know this isn’t on the topic of ammo, but how do I slow down the Vort attack time by just a smidgen, or perhaps decrease the reaction time of the HECU? I’m so bad at this kind of stuff.</p>
+<p>I know in this thread - <a href="https://forums.blackmesasource.com/showthread.php?t=13545&amp;page=2" data-bbcode="true" rel="nofollow noopener">https://forums.blackmesasource.com/showthread.php?t=13545&amp;page=2</a> , they say the convars, but I’m unsure how to use them (I cant find them in my skill.cfg).</p>
+          <p><a href="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/8</link>
+        <pubDate>Sat, 24 Nov 2012 09:36:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10625-8</guid>
+        <source url="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625.rss">editing the cfg to rebalance damage and ammo values</source>
+      </item>
+      <item>
+        <title>editing the cfg to rebalance damage and ammo values</title>
+        <dc:creator><![CDATA[Chickenprotector]]></dc:creator>
+        <description><![CDATA[
+            <p>Leave the quotes around the values.</p>
+          <p><a href="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/7</link>
+        <pubDate>Mon, 24 Sep 2012 22:42:26 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10625-7</guid>
+        <source url="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625.rss">editing the cfg to rebalance damage and ammo values</source>
+      </item>
+      <item>
+        <title>editing the cfg to rebalance damage and ammo values</title>
+        <dc:creator><![CDATA[Mr.Francis]]></dc:creator>
+        <description><![CDATA[
+            <p>This doesn’t seem to work for me. I’ve opened skill.cfg and changed the values under “// MAX AMMO” so that they are the same as the ammo values in HL. I then start a new game in BMS, and when I pick up my weapons, the reserve ammo for each weapon doesn’t follow my changes. For example, in skill.cfg the revolver ammo is changed to 36, but ingame it only goes up to 18. The same happens for every weapon.</p>
+<p>What’s wrong?</p>
+          <p><a href="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/6</link>
+        <pubDate>Mon, 24 Sep 2012 22:21:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10625-6</guid>
+        <source url="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625.rss">editing the cfg to rebalance damage and ammo values</source>
+      </item>
+      <item>
+        <title>editing the cfg to rebalance damage and ammo values</title>
+        <dc:creator><![CDATA[Phoenix911]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="ac3d">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/a/22d042/40.png" class="avatar"> ac3d:</div>
+<blockquote>
+<p>It’s in Skill.cfg under //Ammo, change the 9mm capacity to whatever you want.</p>
+</blockquote>
+</aside>
+<p>Thank you  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/5</link>
+        <pubDate>Thu, 20 Sep 2012 21:49:06 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10625-5</guid>
+        <source url="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625.rss">editing the cfg to rebalance damage and ammo values</source>
+      </item>
+      <item>
+        <title>editing the cfg to rebalance damage and ammo values</title>
+        <dc:creator><![CDATA[ac3d]]></dc:creator>
+        <description><![CDATA[
+            <p>It’s in Skill.cfg under //Ammo, change the 9mm capacity to whatever you want.</p>
+          <p><a href="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/4</link>
+        <pubDate>Wed, 19 Sep 2012 15:20:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10625-4</guid>
+        <source url="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625.rss">editing the cfg to rebalance damage and ammo values</source>
+      </item>
+      <item>
+        <title>editing the cfg to rebalance damage and ammo values</title>
+        <dc:creator><![CDATA[Phoenix911]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for the help with your post however I would like to know how to in-cress the max ammo you can carry if possible, I don’t care for clip size. (reloading in a fire fight just gives more intense action)<br>
+150 rounds 9mm is just pointless the MP5 chews the ammo up.<br>
+I would like to in-cress to like 300.<br>
+Also max ammo for the muzzle grenade where do you change that would love to up that to 4 or 5, I enjoy playing on hard but with the lack of ammo and the increased health and armour the enemy’s have it gets quite annoying.<br>
+I do not want to tamper with damage the weapons do.</p>
+          <p><a href="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/3</link>
+        <pubDate>Wed, 19 Sep 2012 13:13:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10625-3</guid>
+        <source url="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625.rss">editing the cfg to rebalance damage and ammo values</source>
+      </item>
+      <item>
+        <title>editing the cfg to rebalance damage and ammo values</title>
+        <dc:creator><![CDATA[Shockwave_S08]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Hisoj">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/h/e9c0ed/40.png" class="avatar"> Hisoj:</div>
+<blockquote>
+<p>if anyone else has been experimenting with the cfgs or other stats in the game, I would like to hear about it.  for anyone who is not yet aware though: <span class="bbcode-b">make sure to back up your original cfg if you intend to edit it.</span></p>
+</blockquote>
+</aside>
+<p>I modified my skill.cfg and weapon_mp5.txt to change all ammunition values to their original HL1 counterparts.<br>
+Note: When carrying 10 MP5 Grenades, the grenade count meter nearly clips through the 9mm clip icon.</p>
+<p>Here’s the full text of both, should you want to apply this yourself…</p>
+<p><span class="bbcode-b">BMS\cfg\Skill.CFG</span></p>
+<p>[code]ai_force_serverside_ragdoll				“1”<br>
+ai_readiness_decay						“10”</p>
+<p>//=--------------------------------------------------<br>
+// GamePlay<br>
+//=--------------------------------------------------<br>
+bms_normal_jump_vertical_speed				“160”<br>
+bms_normal_jump_crouch_vertical_speed		“160”<br>
+bms_double_jump_vertical_speed				“200”<br>
+bms_airboost_jump_vertical_speed			“80”<br>
+bms_airboost_jump_forward_speed				“360”<br>
+bms_airboost_jump_original_speed_mod		“0.25”<br>
+bms_long_jump_vertical_speed				“150”<br>
+bms_long_jump_horizontal_speed				“460”<br>
+bms_long_jump_delay							“1”</p>
+<p>player_airtimer								“15”<br>
+player_drown_dmg_intial						“5”<br>
+player_drown_dmg_step						“2”<br>
+player_throwforce							“2250”</p>
+<p>//=--------------------------------------------------<br>
+// Items<br>
+//=--------------------------------------------------<br>
+sk_battery							“15”<br>
+sk_healthkit						“25”</p>
+<p>//=--------------------------------------------------<br>
+// WEAPONS<br>
+//=--------------------------------------------------</p>
+<p>// PLAYER WEAPONS<br>
+sk_plr_dmg_crowbar					“10”<br>
+sk_plr_dmg_9mm						“6”<br>
+sk_plr_dmg_357						“50”<br>
+sk_plr_dmg_buckshot					“6”<br>
+sk_plr_dmg_grenade_mp5				“100”<br>
+sk_plr_dmg_grenade_rpg				“125”<br>
+sk_plr_dmg_bolt						“75”<br>
+sk_plr_dmg_energy					“15”<br>
+sk_plr_dmg_grenade_frag				“100”<br>
+sk_plr_dmg_grenade_satchel			“100”<br>
+sk_plr_dmg_snark					“8”<br>
+sk_plr_dmg_grenade_tripmine			“100”<br>
+sk_plr_dmg_grenade_hornet			“13”</p>
+<p>// AI WEAPONS	<br>
+sk_npc_dmg_9mm						“4”<br>
+sk_npc_dmg_357						“15”<br>
+sk_npc_dmg_buckshot					“3”<br>
+sk_npc_dmg_grenade_rpg				“75”<br>
+sk_npc_dmg_grenade_frag				“50”<br>
+sk_npc_dmg_snark					“5”<br>
+sk_npc_dmg_grenade_hornet			“4”</p>
+<p>// MAX AMMO<br>
+sk_max_9mm							“250” //original was 150<br>
+sk_max_357							“36” //original was 18<br>
+sk_max_buckshot						“125” //original was 64<br>
+sk_max_grenade_mp5					“10” //original was 3<br>
+sk_max_grenade_rpg					“5”<br>
+sk_max_bolt							“50” //original was 10(!?)<br>
+sk_max_energy						“100”<br>
+sk_max_grenade_frag					“10”<br>
+sk_max_grenade_satchel				“5”<br>
+sk_max_snark						“15”<br>
+sk_max_grenade_tripmine				“5”<br>
+sk_max_grenade_hornet				“8”</p>
+<p>// AMMO Pickup<br>
+sk_item_ammo_357_pickup				“12”<br>
+sk_item_ammo_crossbow_pickup			“10”<br>
+sk_item_ammo_energy_pickup			“20”<br>
+sk_item_ammo_glock_pickup			“17”<br>
+sk_item_ammo_mp5_pickup				“50” //original was 30<br>
+sk_item_ammo_shotgun_pickup			“8”<br>
+sk_item_grenade_mp5_pickup			“1”<br>
+sk_item_grenade_rpg_pickup			“1”</p>
+<p>//RPG<br>
+sk_plr_grenade_rpg_airspeed			“5000”<br>
+sk_npc_grenade_rpg_airspeed			“2500”<br>
+sk_grenade_rpg_precision			“1.0”<br>
+sk_grenade_rpg_health				“15”</p>
+<p>//MISC/GRENADES<br>
+sk_grenade_lin_resistance			“0.2”<br>
+sk_grenade_ang_resistance			“0.2”</p>
+<p>//HORNET OPTIONS<br>
+sk_grenade_hornet_search_radius		“512”<br>
+sk_grenade_hornet_airspeed			“1200”<br>
+sk_grenade_hornet_npc_precision		“0.1”<br>
+sk_grenade_hornet_plr_precision		“0.15”<br>
+sk_grenade_hornet_global_lifetime	“5”<br>
+sk_grenade_hornet_hit_lifetime		“1”<br>
+sk_grenade_hornet_autoaim_scale		“10”<br>
+sk_grenade_hornet_noise_magnitude	“45”<br>
+sk_grenade_hornet_noise_speed		“5”<br>
+sk_grenade_hornet_noise_gaussian	“50”</p>
+<p>//TAU OPTIONS<br>
+sk_tau_charge_max_velocity			“500”<br>
+sk_tau_beam_undercharged_dmg		“20”<br>
+sk_tau_beam_charged_dmg				“200”<br>
+sk_tau_beam_penetration_bias		“0.9”<br>
+sk_tau_beam_penetration_depth		“48”</p>
+<p>//GLUON OPTIONS<br>
+sk_gluon_consumption_rate		“2”</p>
+<p>//TOW<br>
+sk_plr_dmg_grenade_tow				“150”<br>
+sk_npc_dmg_grenade_tow				“150”<br>
+sk_grenade_tow_airspeed				“1500”<br>
+sk_grenade_tow_precision			“1”</p>
+<p>//=--------------------------------------------------<br>
+// AI<br>
+//=--------------------------------------------------</p>
+<p>sk_npc_head							“2”<br>
+sk_npc_chest						“1”<br>
+sk_npc_stomach						“1”<br>
+sk_npc_arm							“0.8”<br>
+sk_npc_leg							“0.8”<br>
+sk_npc_ricochet						“0.8” // scaled with the other modifiers!</p>
+<p>//HUMAN SCIENTIST<br>
+sk_human_scientist_health			“35”<br>
+sk_human_scientist_heal_amount		“30”<br>
+sk_human_scientist_heal_interval	“60”</p>
+<p>//HUMAN SECURITY<br>
+sk_human_security_health			“40”</p>
+<p>//HUMAN MARINES<br>
+npc_marines_crouch					“1”<br>
+npc_marines_crouch_delay			“5”<br>
+npc_marines_crouch_min_dist			“360”<br>
+npc_marines_crouch_min_health		“15”<br>
+npc_marines_melee_dmg				“20”<br>
+sk_human_commander_health			“50”<br>
+sk_human_grenadier_health			“50”<br>
+sk_human_grunt_health				“50”<br>
+sk_human_medic_health				“50”<br>
+sk_human_medic_health_amount		“25”</p>
+<p>//ZOMBIES SCIENTIST<br>
+sk_zombie_scientist_health				“40”<br>
+sk_zombie_scientist_melee_range			“75”<br>
+sk_zombie_scientist_bullet_dmg_scale	“1”<br>
+sk_zombie_scientist_357_dmg_scale		“1”<br>
+sk_zombie_scientist_buckshot_dmg_scale	“1”<br>
+sk_zombie_scientist_blunt_dmg_scale		“1”</p>
+<p>//ZOMBIES SECURITY<br>
+sk_zombie_security_health				“50”<br>
+sk_zombie_security_melee_range			“75”<br>
+sk_zombie_security_bullet_dmg_scale		“1”<br>
+sk_zombie_security_357_dmg_scale		“1”<br>
+sk_zombie_security_buckshot_dmg_scale	“1”<br>
+sk_zombie_security_blunt_dmg_scale		“1”</p>
+<p>//ZOMBIE GENERAL<br>
+sk_zombie_dmg_one_slash				“15”<br>
+sk_zombie_dmg_both_slash			“30”</p>
+<p>//HEADCRAB<br>
+sk_headcrab_health					“10”<br>
+sk_headcrab_melee_dmg				“5”<br>
+sk_headcrab_min_jump_dist			“28”<br>
+sk_headcrab_max_jump_dist			“256”</p>
+<p>//ALIEN SLAVE<br>
+sk_alien_slave_health				“38”<br>
+sk_alien_slave_357_damage_scale		“1”<br>
+sk_alien_slave_zap_cone				“0.5” // cos( 35 )<br>
+sk_alien_slave_dmg_zap				“10”<br>
+sk_alien_slave_dmg_claw				“10”<br>
+sk_alien_slave_claw_range			“75”<br>
+sk_alien_slave_dispel_dmg			“25”<br>
+sk_alien_slave_dispel_force			“450”<br>
+sk_alien_slave_dispel_forcez		“256”<br>
+sk_alien_slave_dispel_range			“192”<br>
+sk_alien_slave_dispel_time			“6”<br>
+sk_alien_slave_bullet_dmg_scale		“1”<br>
+sk_alien_slave_357_dmg_scale		“1”<br>
+sk_alien_slave_buckshot_dmg_scale	“1”</p>
+<p>//BULLSQUID<br>
+sk_bullsquid_health					“60”<br>
+sk_bullsquid_whip_dmg				“35”<br>
+sk_bullsquid_whip_range				“135”<br>
+sk_bullsquid_whip_force				“450”<br>
+sk_bullsquid_bite_dmg				“25”<br>
+sk_bullsquid_bite_range				“76”<br>
+sk_bullsquid_spit_amount			“9”<br>
+sk_bullsquid_spit_range				“2048”<br>
+sk_bullsquid_spit_speed				“792”<br>
+sk_bullsquid_spit_dmg				“4”<br>
+sk_bullsquid_spit_radius			“96”<br>
+sk_bullsquid_bullet_dmg_scale		“0.35”<br>
+sk_bullsquid_buckshot_dmg_scale		“0.75”<br>
+sk_bullsquid_357_dmg_scale			“0.75”<br>
+sk_bullsquid_turn_rate				“15”</p>
+<p>//Ichthyosaur<br>
+sk_ichthyosaur_health				“100”<br>
+sk_ichthyosaur_melee_dmg			“15”<br>
+sk_ichthyosaur_max_linear_speed		“600”<br>
+sk_ichthyosaur_max_linear_accel_f	“512”<br>
+sk_ichthyosaur_max_linear_accel_r	“256”<br>
+sk_ichthyosaur_max_linear_accel_u	“256”</p>
+<p>//Gargantua<br>
+sk_gargantua_melee_dmg						“30”<br>
+sk_gargantua_flame_dmg						“2”<br>
+sk_gargantua_flame_dmg_falloff_perc_dist	“64”<br>
+sk_gargantua_flame_dmg_falloff_perc			“0.1”</p>
+<p>sk_alien_grunt_health				“90”<br>
+sk_alien_grunt_hornet_min_range		“256”<br>
+sk_alien_grunt_hornet_max_range		“2048”<br>
+sk_alien_grunt_melee_range			“75”<br>
+sk_alien_grunt_melee_jump_range		“166”<br>
+sk_alien_grunt_melee_dmg			“25”<br>
+sk_alien_grunt_front_dmg_scale		“0.8”<br>
+sk_alien_grunt_turn_speed			“30”<br>
+sk_alien_grunt_rage_threshold		“5”<br>
+sk_alien_grunt_rage_reset_delay		“10”</p>
+<p>// Alien Controller<br>
+sk_controller_health					“60”<br>
+sk_controller_max_linear_speed			“300”<br>
+sk_controller_max_linear_accel_f		“350”<br>
+sk_controller_max_linear_accel_r		“350”<br>
+sk_controller_max_linear_accel_u		“600”<br>
+sk_controller_throw_next_attack			“8”<br>
+sk_controller_lift_duration				“2.5”<br>
+sk_controller_min_small_eballs			“6”<br>
+sk_controller_max_small_eballs			“8”<br>
+sk_controller_max_large_eballs			“2”<br>
+sk_grenade_energy_dmg					“4”<br>
+sk_grenade_energy_dmg_radius			“128”<br>
+sk_grenade_energy_airspeed				“650”<br>
+sk_grenade_energy_precision				“0.001”<br>
+sk_grenade_energy_large_dmg				“25”<br>
+sk_grenade_energy_large_dmg_radius		“128”<br>
+sk_grenade_energy_large_airspeed		“450”<br>
+sk_grenade_energy_large_precision		“0.1”</p>
+<p>//Hassassin<br>
+sk_human_assassin_pistol_damage			“1”<br>
+sk_human_assassin_pistol_spread			“0.04362”<br>
+sk_human_assassin_pistol_burstinterval	“0.2”<br>
+sk_human_assassin_pistol_burstcount		“8”<br>
+sk_human_assassin_pistol_restinterval	“2”<br>
+sk_human_assassin_health				“50”<br>
+sk_human_assassin_melee_range			“75”<br>
+sk_human_assassin_melee_damage			“10”<br>
+sk_human_assassin_jump_rise				“300”<br>
+sk_human_assassin_jump_distance			“400”<br>
+sk_human_assassin_jump_drop				“756”<br>
+sk_human_assassin_flip_hratio			“256”<br>
+sk_human_assassin_decloak_damage		“4”<br>
+sk_human_assassin_decloak_flip			“3”<br>
+sk_human_assassin_decloak_melee			“3”<br>
+sk_human_assassin_decloak_shoot			“0.5”<br>
+sk_human_assassin_force_cloak			“0”<br>
+sk_human_assassin_pistol_range			“512”</p>
+<p>//Turrets<br>
+sk_sentry_ceiling_health				“50”<br>
+Sk_sentry_ceiling_motorspeed			“350”<br>
+sk_sentry_ceiling_scan_pitch			“22.5”<br>
+sk_sentry_ground_health					“40”<br>
+sk_sentry_ground_motorspeed				“350”<br>
+sk_dmg_sentry							“4”<br>
+sk_max_sentry							“50”</p>
+<p>//Abrams<br>
+sk_abrams_maingun_muzzle_damage			“60”<br>
+sk_abrams_maingun_muzzle_radius			“486”<br>
+sk_abrams_maingun_reload_time			“0.75”<br>
+sk_abrams_maingun_reset_time			“2”<br>
+sk_abrams_maingun_turn_speed_combat		“2”<br>
+sk_abrams_maingun_turn_speed_idle		“1”<br>
+sk_abrams_miniturret_burst_shots		“30”<br>
+sk_abrams_miniturret_burst_interval		“0.01”<br>
+sk_abrams_miniturret_rest_interval		“5”<br>
+sk_abrams_miniturret_turn_speed			“2”<br>
+sk_abrams_miniturret_damage				“4”<br>
+sk_abrams_body_ground_speed				“128”<br>
+sk_abrams_body_turn_speed				“10”<br>
+sk_abrams_health_stages					“99”<br>
+sk_grenade_abrams_shell_dmg				“30”<br>
+sk_grenade_abrams_shell_radius			“256”<br>
+sk_grenade_abrams_shell_airspeed		“3500”</p>
+<p>//LAV<br>
+sk_lav_health							“200”<br>
+sk_lav_cal_radius						“128”<br>
+sk_lav_cal_base_damage					“1”<br>
+sk_lav_cal_radius_damage				“4”<br>
+sk_lav_cal_fire_rate					“0.4”<br>
+sk_lav_aim_speed						“2.5”<br>
+sk_lav_ground_speed						“128”<br>
+sk_lav_turn_speed						“5”</p>
+<p>//Apache<br>
+sk_apache_health						“250”<br>
+sk_npc_dmg_grenade_apache_rpg			“25”<br>
+sk_npc_radius_grenade_apache_rpg		“256”<br>
+sk_grenade_apache_rpg_airspeed			“7500”<br>
+sk_grenade_apache_rpg_precision			“0.001”<br>
+sk_apache_fire_cone						“20”<br>
+sk_apache_resttime						“2”<br>
+sk_apache_chargetime					“2”<br>
+sk_apache_burst_count_max				“40”<br>
+sk_apache_burst_count_min				“30”<br>
+sk_apache_burst_hit_max					“5”<br>
+sk_apache_burst_hit_min					“1”<br>
+sk_apache_burst_interval				“5”<br>
+sk_apache_rocket_resttime				“16”<br>
+sk_apache_rocket_resttime_nominigun		“8”<br>
+sk_apache_rocket_barrage_count			“8”<br>
+sk_apache_rocket_barrage_resttime		“4”<br>
+sk_apache_rocket_barrage_bursttime		“0.1”<br>
+sk_apache_boss_max_stages				“3”<br>
+sk_apache_boss_stage_0_health			“75” // minigun ( defined via map input )<br>
+sk_apache_boss_stage_1_health			“75” // minigun + rockets ( defined via map input )<br>
+sk_apache_boss_stage_2_health			“75” // minigun + beserk rockets ( defined via map input )<br>
+sk_apache_boss_stage_3_health			“75” // not used</p>
+<p>//Barnacle<br>
+sk_barnacle_health						“35”<br>
+sk_barnacle_bullet_dmg_scale			“1”<br>
+sk_barnacle_357_dmg_scale				“1”<br>
+sk_barnacle_buckshot_dmg_scale			“1”<br>
+sk_barnacle_blunt_dmg_scale				“1”</p>
+<p>//Houndeye<br>
+sk_houndeye_health						“50”<br>
+sk_houndeye_blast_dmg					“20”<br>
+sk_houndeye_blast_force					“450”<br>
+sk_houndeye_punch_angle					“10”<br>
+sk_houndeye_blast_radius				“156”<br>
+sk_houndeye_bullet_dmg_scale			“1”<br>
+sk_houndeye_357_dmg_scale				“1”<br>
+sk_houndeye_buckshot_dmg_scale			“1”<br>
+sk_houndeye_blunt_dmg_scale				“1”</p>
+<p>//Osprey<br>
+sk_osprey_health						“300”</p>
+<p>//Snark Hive<br>
+sv_snark_hive_health					“10”<br>
+sv_snark_hive_count						“4”</p>
+<p>//Sniper<br>
+sk_plr_dmg_sniper_round					“20”<br>
+sk_npc_dmg_sniper_round					“100”<br>
+sk_max_sniper_round						“30”</p>
+<p>//Mines<br>
+sk_mine_damage							“25”<br>
+sk_mine_bounds_xy						“24” // 128 units ( -64 min and 64 max )<br>
+sk_mine_bounds_z						“64” // 128 units ( -64 min and 64 max )<br>
+sk_mine_damage_radius					“128”</p>
+<p>//Mortar<br>
+sk_grenade_mortar_dmg					“15”<br>
+sk_grenade_mortar_range					“400”<br>
+sk_grenade_mortar_shakeduration			“1.5”<br>
+sk_grenade_mortar_shakeradius			“640”</p>
+<p>// Surgery Bot<br>
+sk_prop_surgerybot_force				“400”<br>
+sk_prop_plr_damage						“55”</p>
+<p>[/code]</p>
+<p><span class="bbcode-b">BMS\scripts\weapon_mp5.txt</span></p>
+<p>[code]WeaponData<br>
+{<br>
+printname	“Mp5”<br>
+bucket		“2”<br>
+bucket_position	“0”<br>
+clip_size	“50” //orginal was 30<br>
+item_flags	“0”<br>
+playermodel	“models/weapons/w_mp5.mdl”<br>
+primary_ammo	“9mm”<br>
+secondary_ammo	“grenade_mp5”<br>
+viewmodel	“models/weapons/v_mp5.mdl”<br>
+weight		“3”<br>
+anim_prefix	“mp5”</p>
+<pre><code>SoundData
+{
+	double_shot	"weapon_mp5.Double"
+	reload_npc	"weapon_mp5.Reload_NPC"
+	empty		"weapon_mp5.Empty"
+	single_shot	"weapon_mp5.Single"
+	single_shot_npc	"weapon_mp5.Single_NPC"
+}
+</code></pre>
+<p>}[/code]</p>
+          <p><a href="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/2</link>
+        <pubDate>Tue, 18 Sep 2012 01:14:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10625-2</guid>
+        <source url="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625.rss">editing the cfg to rebalance damage and ammo values</source>
+      </item>
+      <item>
+        <title>editing the cfg to rebalance damage and ammo values</title>
+        <dc:creator><![CDATA[Hisoj]]></dc:creator>
+        <description><![CDATA[
+            <p>I was interested by the idea of tweaking the difficulty of certain enemies by going into the cfg and simply changing a number.  specifically, I wanted to lower human grunt weapon damage while keeping the game balanced towards the current standard of high challenge, in a way that kept it at an even level at a consistent basis.  this is all very simple, as long as you can open the cfg file (I use notepad++) but I had a harder time with the key aspect I had in mind from the start: altering the value of the ammo.</p>
+<p>I was able to change the clip size of the mp5 by going into the scripts and altering the value in the weapon_mp5 file which is a simple txt, but it had the unintended effect of making every mp5 in the game drop 50 rounds instead of the original 30, which is way way too much to ever use.  after a few minutes (actually 2 hours) of reading I eventually found a method provided by the valve wiki for editing the value of the ammo count provided by an enemy weapon drop.  put this in underneath the max clip size (which I have already changed to 50 to make it more like the original half life)</p>
+<pre><code>default_clip	"25"
+</code></pre>
+<p>making sure to use tab to align the text so it fits neatly between the other lines.  now dropped enemy mp5s will only provide whatever the value of the number is between quotes, you can raise it or lower it to whatever you want.</p>
+<p><span class="bbcode-b">now you might be trying this out for yourself and wondering why it’s not working.  I spent the first few hours wondering that myself, and as it turns out it is because the value is based on some other setting for the moment <span class="bbcode-u">until you change maps or restart a chapter.</span></span>  until then, it seems to be going by a previously loaded cfg or values set in the save file or something.  this is one of my only attempts at ever modding anything for half life, so if you know better please feel free to point this out.  and if you know as little about modding as I do, maybe this information can help you.</p>
+<p>as for actually lowering the damage of enemy humans armed with mp5s, it seems that the value is tied to the power of the npc security guards (barneys/barnies) as well.  this is found in the skill.cfg file in BMS/cfg folder, in this line:<br>
+// AI WEAPONS	<br>
+sk_npc_dmg_9mm						“4”</p>
+<p>4 is the damage per shot for every npc equipped with a 9mm weapon, either the mp5 or glock pistol.  however, the human marines have uncanny accuracy and a greatly increased rate of fire compared to the same enemies in half life 1, so a quick burst at close range from a single marine can burn down your armor and health.  because of this, I reduced the value to 2, but again this has the effect of making friendly npcs weaker (I think).</p>
+<p>next time I start a new game, I intent to use the console to drop a 357 into my inventory near the start to offset the increased zombie health and decreased barney damage.  this is done with the console command:<br>
+give weapon_357<br>
+but you can find the other commands for other weapons over the internet easily.</p>
+<p>if anyone else has been experimenting with the cfgs or other stats in the game, I would like to hear about it.  for anyone who is not yet aware though: <span class="bbcode-b">make sure to back up your original cfg if you intend to edit it.</span></p>
+          <p><a href="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625/1</link>
+        <pubDate>Mon, 17 Sep 2012 20:48:02 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10625-1</guid>
+        <source url="https://leakfree.org/t/editing-the-cfg-to-rebalance-damage-and-ammo-values/10625.rss">editing the cfg to rebalance damage and ammo values</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>How to reduce/fix stuttering and performance!</title>
+    <link>https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919</link>
+    <description>Hello all,
+
+I hope it&#39;s ok to post this hehe  :wink: 
+Some people are not able to play BMS without stuttering?
+I was one of them haha. I do have a reasonable graphics card (2011)
+but my system is kinda outdated (2006-2007) so have had stuttering problems which bothered me.
+Some people might have the same problem so im here to post a 
+solution that might help reducing or fixing the stuttering completly (in my case almost completly).
+
+In your BMS folder (in my case
+C:\ProgramFiles\Steam\steamapps\sourcemods\BMS)
+there is a [b]map[/b] called &quot;cfg&quot; and in that map is a [b]file[/b].
+The file is called &quot;autoexec.cfg&quot; which u can open with Windows notepad or Word.
+In there i&#39;ve made a few changes fixing most stuttering  :slight_smile: .
+When opening with notepad type the following commands, it should look like this:
+
+exec config.cfg
+//exec threading.cfg
+
+cl_forcepreload 1
+ai_expression_optimization 1
+cl_detaildist 700
+cl_detailfade 800
+lod_TransitionDist 600
+r_lod 0
+cl_ragdoll_collide 1
+cl_smooth 0
+snd_mixahead 0.2
+
+note: the &quot;mem_max_heapsize&quot; should be like 1/3 of your ram, i got 2GB so for me its like:
+mem_max_heapsize 787288
+
+when u have a multi-core processor this can help, otherwise do not use:
+snd_mix_async 1
+
+This option seem to give some people problems but it&#39;s supposed to increase performance:
+r_fastzreject 1
+
+
+For more commands and more explanation of the commands and cfg. files
+see source. 
+Source: [url=&#39;https://www.tweakguides.com/HL2_7.html&#39;]https://www.tweakguides.com/HL2_7.html[/url]
+
+There are some more tweaks which i used but these need to be inserted in Steam into the Black Mesa &quot;game launch options&quot; (right click game in libary and choose properties, as explained in the link above):
+-heapsize 787288 -dxlevel 90 (the dxlevel is for Windows XP users) 
+
+Of course this won&#39;t work for everyone but it worked for me.
+If it doesn&#39;t work or its making it worse then just edit again in notepad
+and delete the commands.
+
+I hope this will help some people out, Be free to post feedback here.
+This mod is so great! Thanks again to the devs! They made this possible!
+So far the mod has been AWESOME! 
+ps. chapter 4 reached so far</description>
+    
+    <lastBuildDate>Sun, 18 Aug 2013 13:55:23 +0000</lastBuildDate>
+    <category>In-game Issues (Mod)</category>
+    <atom:link href="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>How to reduce/fix stuttering and performance!</title>
+        <dc:creator><![CDATA[Dragunov2]]></dc:creator>
+        <description><![CDATA[
+            <p>Possible to implement this to the official release?</p>
+          <p><a href="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/13</link>
+        <pubDate>Sun, 18 Aug 2013 13:55:23 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9919-13</guid>
+        <source url="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919.rss">How to reduce/fix stuttering and performance!</source>
+      </item>
+      <item>
+        <title>How to reduce/fix stuttering and performance!</title>
+        <dc:creator><![CDATA[sersoft]]></dc:creator>
+        <description><![CDATA[
+            <p>next time read the whole thread not just the first post before applying a “fix”</p>
+          <p><a href="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/12</link>
+        <pubDate>Sat, 17 Aug 2013 19:13:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9919-12</guid>
+        <source url="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919.rss">How to reduce/fix stuttering and performance!</source>
+      </item>
+      <item>
+        <title>How to reduce/fix stuttering and performance!</title>
+        <dc:creator><![CDATA[abertain]]></dc:creator>
+        <description><![CDATA[
+            <p>I did this… caused me to lag out super bad so I reverted the changes but the lag persists</p>
+          <p><a href="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/11</link>
+        <pubDate>Sat, 17 Aug 2013 02:38:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9919-11</guid>
+        <source url="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919.rss">How to reduce/fix stuttering and performance!</source>
+      </item>
+      <item>
+        <title>How to reduce/fix stuttering and performance!</title>
+        <dc:creator><![CDATA[miklkit]]></dc:creator>
+        <description><![CDATA[
+            <p>I tried this and it seems to help slightly.</p>
+<p>About the r_lod 0, I saw no difference either way.</p>
+          <p><a href="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/10</link>
+        <pubDate>Sat, 05 Jan 2013 00:42:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9919-10</guid>
+        <source url="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919.rss">How to reduce/fix stuttering and performance!</source>
+      </item>
+      <item>
+        <title>How to reduce/fix stuttering and performance!</title>
+        <dc:creator><![CDATA[Whitestar]]></dc:creator>
+        <description><![CDATA[
+            <p>When using Crossfire the game would stutter and micro-stutter like mad. When I disabled it it was much much smoother. There is the occasional jerk/stutter (both visual and audio), for example when getting to a new area or sometimes when firing a weapon. But mostly it’s very smooth now.</p>
+<p>I seem to recall that same occasional stuttering in HL2 in the beginning. But then they fixed it.</p>
+<p>By the way, I have a Radeon HD 5970.</p>
+          <p><a href="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/9</link>
+        <pubDate>Wed, 02 Jan 2013 14:07:33 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9919-9</guid>
+        <source url="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919.rss">How to reduce/fix stuttering and performance!</source>
+      </item>
+      <item>
+        <title>How to reduce/fix stuttering and performance!</title>
+        <dc:creator><![CDATA[IBeMad]]></dc:creator>
+        <description><![CDATA[
+            <p>I really really hope you’re aware that r_lod 0 will actually <em>decrease</em> performance, since that actually disables the entire model LOD system, while r_lod -1 is the default (lod enabled). Positive values for r_lod will pick an LOD that is &lt;r_lod value&gt; higher than the default (aka will decrease model polys and lower fidelity, but increase speed).</p>
+          <p><a href="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/8</link>
+        <pubDate>Tue, 01 Jan 2013 06:05:14 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9919-8</guid>
+        <source url="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919.rss">How to reduce/fix stuttering and performance!</source>
+      </item>
+      <item>
+        <title>How to reduce/fix stuttering and performance!</title>
+        <dc:creator><![CDATA[Nelus86]]></dc:creator>
+        <description><![CDATA[
+            <p>Hey glad it helped for some of u guys,<br>
+and lexa thanks for the information, very useful  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"><br>
+I have been experimenting with some tweaks and if that helps ill post them.</p>
+          <p><a href="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/7</link>
+        <pubDate>Sun, 04 Nov 2012 21:57:45 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9919-7</guid>
+        <source url="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919.rss">How to reduce/fix stuttering and performance!</source>
+      </item>
+      <item>
+        <title>How to reduce/fix stuttering and performance!</title>
+        <dc:creator><![CDATA[hellstorm102]]></dc:creator>
+        <description><![CDATA[
+            <p>worked for me!<br>
+GTX 560ti<br>
+quad core<br>
+8gb ram</p>
+<p>smooth like butter now</p>
+          <p><a href="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/6</link>
+        <pubDate>Mon, 17 Sep 2012 03:04:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9919-6</guid>
+        <source url="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919.rss">How to reduce/fix stuttering and performance!</source>
+      </item>
+      <item>
+        <title>How to reduce/fix stuttering and performance!</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Nelus86">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/n/71c47a/40.png" class="avatar"> Nelus86:</div>
+<blockquote>
+<p>note: the “mem_max_heapsize” should be like 1/3 of your ram, i got 2GB so for me its like:<br>
+mem_max_heapsize 787288</p>
+</blockquote>
+</aside>
+<p>There’s no general rule for engine max heap size to be 1/3 of the ram available on the system. First of all, BMS uses Source SDK 2007 as the engine and it’s 32bit. Yeah, hl2.exe for it had been linked with “large address aware” linker flag so it could allocate more than 2GB of RAM for its needs but going anywhere higher than 3GB could cause troubles with the engine crashing on malloc() call. Thus people with 64bit systems and 16Gb RAM shouldn’t blindly use 16/3~=5GB here as it would only cause troubles. General rule of thumb for max heap size is to use maximum possible amount but not more than 3GB. To get the value of the “maximum possible amount” for your system close all the programs running in the background (including web-browser with dozens of tabs open and apps hiding in your system tray), open up Task Manager by pressing CTRL+SHIFT+ESC and take a look onto Performance -&gt; Physical Memory. There would be an “Available/Allocatable” and “Free” values there. It’s safe to use most of the “Available” pool as long as you leave about 512-1Gb of free memory for filesystem caching needs. Typical safe max heap size value for the system with 2Gb of RAM would be as low as ~512MB, for 4GB it’s OK to have it around 2GB and for systems with more memory 3GB would be the right choice.</p>
+<aside class="quote no-group" data-username="Nelus86">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/n/71c47a/40.png" class="avatar"> Nelus86:</div>
+<blockquote>
+<p>This option seem to give some people problems but it’s supposed to increase performance:<br>
+r_fastzreject 1</p>
+</blockquote>
+</aside>
+<p>This one enables and extra depth-only rendering pass before doing actual rendering. It could conserve GPU fillrate a bit in case your GPU supports so-called “early z-test” (most nowdays GPUs are) but it could also cause slight slowdown in fillrate-constrained situations caused by alpha-blended effects like smoke clouds. I.e. it would help to get a bit more performace when there are not so many transparent objects on the scene but would cause small slowdown when most costly to render objects on the scene are semi-transparent. Use with care, do some benchmarks.</p>
+<aside class="quote no-group" data-username="Nelus86">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/n/71c47a/40.png" class="avatar"> Nelus86:</div>
+<blockquote>
+<p>-heapsize 787288 -dxlevel 90 (the dxlevel is for Windows XP users)</p>
+</blockquote>
+</aside>
+<p>Specifying heapsize here has the same effect as using max_heap_size cvar, there’s no need of extra duplication. Either specify it here (which is considered to be deprecated for the Source engine and had been removed in 2009 version used for Portal II) or use the cvar.</p>
+<p><span class="bbcode-b">Concerning dxlevel</span> - I had been posting this on steam forums and keep posting it on BMS forums: <span class="bbcode-b">never ever leave “-dxlevel” switch in the command line parameters of the source engine for a permanent use. IT IS THE ONE-TIME-USE STICKY SWITCH.</span> It tells the engine to switch into using different render path utilizing features offered by the given version of the Direct3D API and causes most of the render-related cvars and output resolution to be reset to defaults. This switch by no means is limited to WinXP - it works just the same on Vista, Seven, 8 and even under Linux/Wine. Before using this switch one should check if he or she needs to use it by going into in-game advanced gfx settings dialog and looking at the “Software DirectX version” field. BMS requires dxlevel to be 90+. Source engine as of version 2009 recognizes the following dxlevels: 80, 81, 90, 95, 98. 80/81 selects now-deprecated DirectX8 D3D api with SM1.0. BMS wouldn’t work properly with this dxlevel. 90 selects DirectX 9 D3D with SM 2.0, 95 selects SM 3.0 and 98 selects DirectX 10-capable hardware access through DirectX 9 API a.k.a. SM 4.0. More details here:<br>
+<a href="https://developer.valvesoftware.com/wiki/Command_Line_Options" data-bbcode="true" rel="nofollow noopener">https://developer.valvesoftware.com/wiki/Command_Line_Options</a><br>
+<a href="https://developer.valvesoftware.com/wiki/Mat_dxlevel" data-bbcode="true" rel="nofollow noopener">https://developer.valvesoftware.com/wiki/Mat_dxlevel</a></p>
+<p>Once again: do not leave “-dxlevel” sitting around in your commandline parameters. Use it once if you need it and then remove it as soon as you confirmed that the engine had switched into using proper dxlevel.</p>
+          <p><a href="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/5</link>
+        <pubDate>Mon, 17 Sep 2012 01:59:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9919-5</guid>
+        <source url="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919.rss">How to reduce/fix stuttering and performance!</source>
+      </item>
+      <item>
+        <title>How to reduce/fix stuttering and performance!</title>
+        <dc:creator><![CDATA[Packergal55]]></dc:creator>
+        <description><![CDATA[
+            <p>Cockroach, I just did your tweak and am going to see if it helps. Will get back to you on the results. I appreciate all help. But tell me, if I do the multi core processor I am assuming that I put the command in the same notepad as with the above commands.</p>
+<p>Ok dude, so far so good! Got through the tram without stuttering and looks like things are smoothing out. So much better than it was. Thank you for your help here. Will keep you posted as to how this fix is going! No stutter yet!  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>[COLOR=‘Red’]Mod note: Removed two posts needlessly quoting the entire OP, and merged double posts.</p>
+<p>Cheers!</p>
+<p>-Max</p>
+          <p><a href="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/4</link>
+        <pubDate>Sun, 16 Sep 2012 23:50:16 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9919-4</guid>
+        <source url="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919.rss">How to reduce/fix stuttering and performance!</source>
+      </item>
+      <item>
+        <title>How to reduce/fix stuttering and performance!</title>
+        <dc:creator><![CDATA[Kiingy]]></dc:creator>
+        <description><![CDATA[
+            <p>[COLOR=‘PaleGreen’]This should probably be moved to <a href="https://forums.blackmesasource.com/forumdisplay.php?f=58" data-bbcode="true" rel="nofollow noopener">this forum</a>.</p>
+          <p><a href="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/3</link>
+        <pubDate>Sat, 15 Sep 2012 18:15:06 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9919-3</guid>
+        <source url="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919.rss">How to reduce/fix stuttering and performance!</source>
+      </item>
+      <item>
+        <title>How to reduce/fix stuttering and performance!</title>
+        <dc:creator><![CDATA[083]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank’s a lot! I’ll try this later.</p>
+          <p><a href="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/2</link>
+        <pubDate>Sat, 15 Sep 2012 17:59:19 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9919-2</guid>
+        <source url="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919.rss">How to reduce/fix stuttering and performance!</source>
+      </item>
+      <item>
+        <title>How to reduce/fix stuttering and performance!</title>
+        <dc:creator><![CDATA[Nelus86]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello all,</p>
+<p>I hope it’s ok to post this hehe  <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"><br>
+Some people are not able to play BMS without stuttering?<br>
+I was one of them haha. I do have a reasonable graphics card (2011)<br>
+but my system is kinda outdated (2006-2007) so have had stuttering problems which bothered me.<br>
+Some people might have the same problem so im here to post a<br>
+solution that might help reducing or fixing the stuttering completly (in my case almost completly).</p>
+<p>In your BMS folder (in my case<br>
+C:\ProgramFiles\Steam\steamapps\sourcemods\BMS)<br>
+there is a <span class="bbcode-b">map</span> called “cfg” and in that map is a <span class="bbcode-b">file</span>.<br>
+The file is called “autoexec.cfg” which u can open with Windows notepad or Word.<br>
+In there i’ve made a few changes fixing most stuttering  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"> .<br>
+When opening with notepad type the following commands, it should look like this:</p>
+<p>exec config.cfg<br>
+//exec threading.cfg</p>
+<p>cl_forcepreload 1<br>
+ai_expression_optimization 1<br>
+cl_detaildist 700<br>
+cl_detailfade 800<br>
+lod_TransitionDist 600<br>
+r_lod 0<br>
+cl_ragdoll_collide 1<br>
+cl_smooth 0<br>
+snd_mixahead 0.2</p>
+<p>note: the “mem_max_heapsize” should be like 1/3 of your ram, i got 2GB so for me its like:<br>
+mem_max_heapsize 787288</p>
+<p>when u have a multi-core processor this can help, otherwise do not use:<br>
+snd_mix_async 1</p>
+<p>This option seem to give some people problems but it’s supposed to increase performance:<br>
+r_fastzreject 1</p>
+<p>For more commands and more explanation of the commands and cfg. files<br>
+see source.<br>
+Source: <a href="https://www.tweakguides.com/HL2_7.html" data-bbcode="true" rel="nofollow noopener">https://www.tweakguides.com/HL2_7.html</a></p>
+<p>There are some more tweaks which i used but these need to be inserted in Steam into the Black Mesa “game launch options” (right click game in libary and choose properties, as explained in the link above):<br>
+-heapsize 787288 -dxlevel 90 (the dxlevel is for Windows XP users)</p>
+<p>Of course this won’t work for everyone but it worked for me.<br>
+If it doesn’t work or its making it worse then just edit again in notepad<br>
+and delete the commands.</p>
+<p>I hope this will help some people out, Be free to post feedback here.<br>
+This mod is so great! Thanks again to the devs! They made this possible!<br>
+So far the mod has been AWESOME!<br>
+ps. chapter 4 reached so far</p>
+          <p><a href="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919/1</link>
+        <pubDate>Sat, 15 Sep 2012 17:24:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9919-1</guid>
+        <source url="https://leakfree.org/t/how-to-reduce-fix-stuttering-and-performance/9919.rss">How to reduce/fix stuttering and performance!</source>
+      </item>
+  </channel>
+</rss>

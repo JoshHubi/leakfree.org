@@ -1,0 +1,936 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Learning BASIC next school year</title>
+    <link>https://leakfree.org/t/learning-basic-next-school-year/3834</link>
+    <description>Hello everyone, next school year, I&#39;m going to learn BASIC (Programing language) in school. Is there anything important I should know beforehand?</description>
+    
+    <lastBuildDate>Sun, 25 Apr 2010 05:38:14 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/learning-basic-next-school-year/3834.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[geekofalltrades]]></dc:creator>
+        <description><![CDATA[
+            <p>I dunno, right now I have a program that is segfaulting for no apparent reason.  It’s making me want to hit ducklings with a meat mallet.</p>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/24">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/24</link>
+        <pubDate>Sun, 25 Apr 2010 05:38:14 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-24</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[Dillxn]]></dc:creator>
+        <description><![CDATA[
+            <p>How is C++ a pain in the ass? I disagree whole-heartedly, my friend.</p>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/23">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/23</link>
+        <pubDate>Thu, 22 Apr 2010 16:41:51 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-23</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[Shadi]]></dc:creator>
+        <description><![CDATA[
+            <p>at least Basic is much easier than C++ which is pain in the ass  <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/22">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/22</link>
+        <pubDate>Thu, 22 Apr 2010 12:18:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-22</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[Cameron_D]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Dillxn">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/d/9f8e36/40.png" class="avatar"> Dillxn:</div>
+<blockquote>
+<p>I think we can all agree that C++ is where it’s at  <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+</blockquote>
+</aside>
+<p>bscly.</p>
+<p>[code]//========= Copyright © 1996-2005, Valve Corporation, All rights reserved. ============//<br>
+//<br>
+// Purpose:<br>
+//<br>
+// $NoKeywords: $<br>
+//=============================================================================//<br>
+<span class="hashtag">#include</span> “cbase.h”<br>
+<span class="hashtag">#include</span> “gamemovement.h”<br>
+<span class="hashtag">#include</span> “in_buttons.h”<br>
+<span class="hashtag">#include</span> &lt;stdarg.h&gt;<br>
+<span class="hashtag">#include</span> “movevars_shared.h”<br>
+<span class="hashtag">#include</span> “engine/IEngineTrace.h”<br>
+<span class="hashtag">#include</span> “SoundEmitterSystem/isoundemittersystembase.h”<br>
+<span class="hashtag">#include</span> “decals.h”<br>
+<span class="hashtag">#include</span> “coordsize.h”<br>
+<span class="hashtag">#include</span> “rumble_shared.h”</p>
+<p><span class="hashtag">#if</span> defined(HL2_DLL) || defined(HL2_CLIENT_DLL)<br>
+<span class="hashtag">#include</span> “hl_movedata.h”<br>
+<span class="hashtag">#endif</span></p>
+<p>// memdbgon must be the last include file in a .cpp file!!!<br>
+<span class="hashtag">#include</span> “tier0/memdbgon.h”</p>
+<p><span class="hashtag">#define</span>    STOP_EPSILON        0.1<br>
+<span class="hashtag">#define</span>    MAX_CLIP_PLANES        5</p>
+<p><span class="hashtag">#include</span> “filesystem.h”<br>
+<span class="hashtag">#include</span> &lt;stdarg.h&gt;</p>
+<p>extern IFileSystem *filesystem;</p>
+<p><span class="hashtag">#ifndef</span> CLIENT_DLL<br>
+<span class="hashtag">#include</span> “env_player_surface_trigger.h”<br>
+static ConVar dispcoll_drawplane( “dispcoll_drawplane”, “0” );<br>
+<span class="hashtag">#endif</span></p>
+<p>// tickcount currently isn’t set during prediction, although gpGlobals-&gt;curtime and<br>
+// gpGlobals-&gt;frametime are. We should probably set tickcount (to player-&gt;m_nTickBase),<br>
+// but we’re REALLY close to shipping, so we can change that later and people can use<br>
+// player-&gt;CurrentCommandNumber() in the meantime.<br>
+<span class="hashtag">#define</span> tickcount USE_PLAYER_CURRENT_COMMAND_NUMBER__INSTEAD_OF_TICKCOUNT</p>
+<p><span class="hashtag">#if</span> defined( HL2_DLL )<br>
+ConVar xc_uncrouch_on_jump( “xc_uncrouch_on_jump”, “1”, FCVAR_ARCHIVE, “Uncrouch when jump occurs” );<br>
+<span class="hashtag">#endif</span></p>
+<p><span class="hashtag">#if</span> defined( HL2_DLL ) || defined( HL2_CLIENT_DLL )<br>
+ConVar player_limit_jump_speed( “player_limit_jump_speed”, “1”, FCVAR_REPLICATED );<br>
+<span class="hashtag">#endif</span></p>
+<p>ConVar cl_enable_bunnyhop( “cl_enable_bunnyhop”, “0”, FCVAR_ARCHIVE );</p>
+<p>// option_duck_method is a carrier convar. Its sole purpose is to serve an easy-to-flip<br>
+// convar which is ONLY set by the X360 controller menu to tell us which way to bind the<br>
+// duck controls. Its value is meaningless anytime we don’t have the options window open.<br>
+ConVar option_duck_method(“option_duck_method”, “1”, FCVAR_REPLICATED|FCVAR_ARCHIVE );// 0 = HOLD to duck, 1 = Duck is a toggle</p>
+<p>// [MD] I’ll remove this eventually. For now, I want the ability to A/B the optimizations.<br>
+bool g_bMovementOptimizations = true;</p>
+<p>// Roughly how often we want to update the info about the ground surface we’re on.<br>
+// We don’t need to do this very often.<br>
+<span class="hashtag">#define</span> CATEGORIZE_GROUND_SURFACE_INTERVAL            0.3f<br>
+<span class="hashtag">#define</span> CATEGORIZE_GROUND_SURFACE_TICK_INTERVAL   ( (int)( CATEGORIZE_GROUND_SURFACE_INTERVAL / TICK_INTERVAL ) )</p>
+<p><span class="hashtag">#define</span> CHECK_STUCK_INTERVAL            1.0f<br>
+<span class="hashtag">#define</span> CHECK_STUCK_TICK_INTERVAL        ( (int)( CHECK_STUCK_INTERVAL / TICK_INTERVAL ) )</p>
+<p><span class="hashtag">#define</span> CHECK_STUCK_INTERVAL_SP            0.2f<br>
+<span class="hashtag">#define</span> CHECK_STUCK_TICK_INTERVAL_SP    ( (int)( CHECK_STUCK_INTERVAL_SP / TICK_INTERVAL ) )</p>
+<p><span class="hashtag">#define</span> CHECK_LADDER_INTERVAL            0.2f<br>
+<span class="hashtag">#define</span> CHECK_LADDER_TICK_INTERVAL        ( (int)( CHECK_LADDER_INTERVAL / TICK_INTERVAL ) )</p>
+<p><span class="hashtag">#define</span>    NUM_CROUCH_HINTS    3</p>
+<p>extern IGameMovement *g_pGameMovement;</p>
+<p><span class="hashtag">#if</span> defined( PLAYER_GETTING_STUCK_TESTING )</p>
+<p>// If you ever get stuck walking around, then you can run this code to find the code which would leave the player in a bad spot<br>
+void CMoveData::SetAbsOrigin( const Vector &amp;vec )<br>
+{<br>
+CGameMovement *gm = dynamic_cast&lt; CGameMovement * &gt;( g_pGameMovement );<br>
+if ( gm &amp;&amp; gm-&gt;GetMoveData() &amp;&amp;<br>
+gm-&gt;player &amp;&amp;<br>
+gm-&gt;player-&gt;entindex() == 1 &amp;&amp;<br>
+gm-&gt;player-&gt;GetMoveType() == MOVETYPE_WALK )<br>
+{<br>
+trace_t pm;<br>
+gm-&gt;TracePlayerBBox( vec, vec, gm-&gt;PlayerSolidMask(), COLLISION_GROUP_PLAYER_MOVEMENT, pm );<br>
+if ( pm.startsolid || pm.allsolid || pm.fraction != 1.0f )<br>
+{<br>
+Msg( “Player will become stuck at %f %f %f\n”, VectorExpand( vec ) );<br>
+}<br>
+}</p>
+<pre><code>m_vecAbsOrigin = vec;
+</code></pre>
+<p>}</p>
+<p><span class="hashtag">#endif</span></p>
+<p>// See shareddefs.h<br>
+<span class="hashtag">#if</span> PREDICTION_ERROR_CHECK_LEVEL &gt; 0</p>
+<p>static ConVar diffcheck( “diffcheck”, “0”, FCVAR_REPLICATED );</p>
+<p>class IDiffMgr<br>
+{<br>
+public:<br>
+virtual void StartCommand( bool bServer, int nCommandNumber ) = 0;<br>
+virtual void AddToDiff( bool bServer, int nCommandNumber, char const *string ) = 0;<br>
+virtual void Validate( bool bServer, int nCommandNumber ) = 0;<br>
+};</p>
+<p>static IDiffMgr *g_pDiffMgr = NULL;</p>
+<p>class CDiffStr<br>
+{<br>
+public:<br>
+CDiffStr()<br>
+{<br>
+m_str[ 0 ] = 0;<br>
+}</p>
+<pre><code>CDiffStr( char const *str )
+{
+    Q_strncpy( m_str, str, sizeof( m_str ) );
+}
+
+CDiffStr( const CDiffStr &amp;src )
+{
+    Q_strncpy( m_str, src.m_str, sizeof( m_str ) );
+}
+
+char const *String()
+{
+    return m_str;
+}
+</code></pre>
+<p>private:</p>
+<pre><code>char m_str[ 128 ];
+</code></pre>
+<p>};</p>
+<p>// Per tick data<br>
+class CDiffInfo<br>
+{<br>
+public:<br>
+CDiffInfo() : m_nCommandNumber( 0 ) {}<br>
+CDiffInfo( const CDiffInfo&amp; src )<br>
+{<br>
+m_nCommandNumber = src.m_nCommandNumber;<br>
+for ( int i = 0; i &lt; src.m_Lines.Count(); ++i )<br>
+{<br>
+m_Lines.AddToTail( src.m_Lines[ i ] );<br>
+}<br>
+}</p>
+<pre><code>static bool Less( const CDiffInfo&amp; lhs, const CDiffInfo&amp; rhs )
+{
+    return lhs.m_nCommandNumber &lt; rhs.m_nCommandNumber;
+}
+int                            m_nCommandNumber;
+CUtlVector&lt; CDiffStr &gt;    m_Lines;
+bool                        m_bChecked;
+</code></pre>
+<p>};</p>
+<p>class CDiffManager : public IDiffMgr<br>
+{<br>
+public:<br>
+CDiffManager() :<br>
+m_Client( 0, 0, CDiffInfo::Less ),<br>
+m_Server( 0, 0, CDiffInfo::Less ),<br>
+m_flLastSpew( -1.0f )<br>
+{<br>
+g_pDiffMgr = this;<br>
+}</p>
+<pre><code>virtual void StartCommand( bool bServer, int nCommandNumber )
+{
+</code></pre>
+<p><span class="hashtag">#if</span> defined( CLIENT_DLL )</p>
+<pre><code>    if ( !diffcheck.GetInt() )
+        return;
+
+    g_pDiffMgr = reinterpret_cast&lt; IDiffMgr * &gt;( diffcheck.GetInt() );
+    g_pDiffMgr-&gt;StartCommand( bServer, nCommandNumber );
+    return;
+</code></pre>
+<p><span class="hashtag">#endif</span></p>
+<pre><code>    // Msg( "%s Startcommand %d\n", bServer ? "sv" : "cl", nCommandNumber );
+
+    diffcheck.SetValue( reinterpret_cast&lt; int &gt;( this ) );
+
+    Assert( CBaseEntity::IsServer() );
+
+    CUtlRBTree&lt; CDiffInfo, int &gt;&amp; rb = bServer ? m_Server : m_Client;
+
+    CDiffInfo search;
+    search.m_nCommandNumber = nCommandNumber;
+    int idx = rb.Find( search );
+    if ( idx == rb.InvalidIndex() )
+    {
+        idx = rb.Insert( search );
+    }
+
+    CDiffInfo *slot = &amp;rb[ idx ];
+    slot-&gt;m_Lines.RemoveAll();
+}
+
+virtual void AddToDiff( bool bServer, int nCommandNumber, char const *string )
+{
+</code></pre>
+<p><span class="hashtag">#if</span> defined( CLIENT_DLL )</p>
+<pre><code>    if ( !diffcheck.GetInt() )
+        return;
+
+    g_pDiffMgr = reinterpret_cast&lt; IDiffMgr * &gt;( diffcheck.GetInt() );
+    g_pDiffMgr-&gt;AddToDiff( bServer, nCommandNumber, string );
+    return;
+</code></pre>
+<p><span class="hashtag">#endif</span><br>
+Assert( CBaseEntity::IsServer() );</p>
+<pre><code>    // Msg( "%s Add %d %s\n", bServer ? "sv" : "cl", nCommandNumber, string );
+
+    CUtlRBTree&lt; CDiffInfo, int &gt;&amp; rb = bServer ? m_Server : m_Client;
+
+    CDiffInfo search;
+    search.m_nCommandNumber = nCommandNumber;
+    int idx = rb.Find( search );
+    if ( idx == rb.InvalidIndex() )
+    {
+        Assert( 0 );
+        idx = rb.Insert( search );
+    }
+
+    CDiffInfo *slot = &amp;rb[ idx ];
+    CDiffStr line( string );
+    slot-&gt;m_Lines.AddToTail( line );
+}
+
+enum EMismatched
+{
+    DIFFCHECK_NOTREADY = 0,
+    DIFFCHECK_MATCHED,
+    DIFFCHECK_DIFFERS
+};
+
+bool ClientRecordExists( int cmd )
+{
+    CDiffInfo clsearch;
+    clsearch.m_nCommandNumber = cmd;
+    int clidx = m_Client.Find( clsearch );
+    return m_Client.IsValidIndex( clidx );
+}
+
+EMismatched IsMismatched( int svidx )
+{
+    CDiffInfo *serverslot = &amp;m_Server[ svidx ];
+
+    // Now find the client version of this one
+    CDiffInfo clsearch;
+    clsearch.m_nCommandNumber = serverslot-&gt;m_nCommandNumber;
+    int clidx = m_Client.Find( clsearch );
+    if ( clidx == m_Client.InvalidIndex() )
+        return DIFFCHECK_NOTREADY;
+
+    // Now compare them
+    CDiffInfo *clientslot = &amp;m_Client[ clidx ];
+
+    bool bSpew = false;
+    if ( serverslot-&gt;m_Lines.Count() !=
+        clientslot-&gt;m_Lines.Count() )
+    {
+        return DIFFCHECK_DIFFERS;
+    }
+
+    int maxSlot = max( serverslot-&gt;m_Lines.Count(), clientslot-&gt;m_Lines.Count() );
+    if ( !bSpew )
+    {
+        for ( int i = 0; i &lt; maxSlot; ++i )
+        {
+            CDiffStr *sv = NULL;
+            CDiffStr *cl = NULL;
+            if ( i &lt; serverslot-&gt;m_Lines.Count() )
+            {
+                sv = &amp;serverslot-&gt;m_Lines[ i ];
+            }
+            if ( i &lt; clientslot-&gt;m_Lines.Count() )
+            {
+                cl = &amp;clientslot-&gt;m_Lines[ i ];
+            }
+
+            if ( Q_stricmp( sv ? sv-&gt;String() : "(missing)", cl ? cl-&gt;String() : "(missing)" ) )
+            {
+                return DIFFCHECK_DIFFERS;
+            }
+        }
+    }
+
+    return DIFFCHECK_MATCHED;
+}
+
+virtual void Validate( bool bServer, int nCommandNumber )
+{
+</code></pre>
+<p><span class="hashtag">#if</span> defined( CLIENT_DLL )</p>
+<pre><code>    if ( !diffcheck.GetInt() )
+        return;
+
+    g_pDiffMgr = reinterpret_cast&lt; IDiffMgr * &gt;( diffcheck.GetInt() );
+    g_pDiffMgr-&gt;Validate( bServer, nCommandNumber );
+    return;
+</code></pre>
+<p><span class="hashtag">#endif</span><br>
+Assert( CBaseEntity::IsServer() );</p>
+<pre><code>    // Only do this on the client
+    if ( !bServer )
+        return;
+
+    // Find the last server command number
+    if ( m_Server.Count() &lt;= 0 )
+        return;
+
+    int svidx = m_Server.LastInorder();
+    EMismatched eMisMatched = IsMismatched( svidx );
+    if ( eMisMatched == DIFFCHECK_NOTREADY )
+    {
+        return;
+    }
+
+    if ( eMisMatched == DIFFCHECK_DIFFERS )
+    {
+        CUtlVector&lt; int &gt; vecPrev;
+
+        int nCur = svidx;
+        do
+        {
+            int prev = m_Server.PrevInorder( nCur );
+            if ( m_Server.IsValidIndex( prev ) &amp;&amp;
+                ClientRecordExists( m_Server[ prev ].m_nCommandNumber ) )
+            {
+                //SpewRecords( "prev", prev );
+                vecPrev.AddToHead( prev );
+            }
+            else
+            {
+                break;
+            }
+
+            nCur = prev;
+        } while ( vecPrev.Count() &lt; 10 );
+
+        Msg( "-----\n" );
+
+        for ( int p = 0; p &lt; vecPrev.Count(); ++p )
+        {
+            SpewRecords( "prev", vecPrev[ p ] );
+        }
+
+        SpewRecords( "bad ", svidx );
+    }
+}
+
+void SpewRecords( char const *prefix, int svidx )
+{
+    CDiffInfo *serverslot = &amp;m_Server[ svidx ];
+
+    // Now find the client version of this one
+    CDiffInfo clsearch;
+    clsearch.m_nCommandNumber = serverslot-&gt;m_nCommandNumber;
+    int clidx = m_Client.Find( clsearch );
+    if ( clidx == m_Client.InvalidIndex() )
+        return;
+
+    // Now compare them
+    CDiffInfo *clientslot = &amp;m_Client[ clidx ];
+
+    int maxSlot = max( serverslot-&gt;m_Lines.Count(), clientslot-&gt;m_Lines.Count() );
+
+    for ( int i = 0; i &lt; maxSlot; ++i )
+    {
+        char const *sv = "(missing)";
+        char const *cl = "(missing)";
+
+        if ( i &lt; serverslot-&gt;m_Lines.Count() )
+        {
+            sv = serverslot-&gt;m_Lines[ i ].String();
+        }
+        if ( i &lt; clientslot-&gt;m_Lines.Count() )
+        {
+            cl = clientslot-&gt;m_Lines[ i ].String();
+        }
+
+        bool bDiffers = Q_stricmp( sv, cl ) ? true : false;
+
+        Msg( "%s%s%d:  sv[%50.50s] cl[%50.50s]\n",
+            prefix,
+            bDiffers ? "+++" : "   ",
+            serverslot-&gt;m_nCommandNumber,
+            sv,
+            cl );
+    }
+}
+</code></pre>
+<p>private:</p>
+<pre><code>CUtlRBTree&lt; CDiffInfo, int &gt;    m_Server;
+CUtlRBTree&lt; CDiffInfo, int &gt;    m_Client;
+float                            m_flLastSpew;
+</code></pre>
+<p>};</p>
+<p>static CDiffManager g_DiffMgr;</p>
+<p>void DiffPrint( bool bServer, int nCommandNumber, char const *fmt, … )<br>
+{<br>
+// Only track stuff for local player<br>
+CBasePlayer *pPlayer = CBaseEntity::GetPredictionPlayer();<br>
+if ( pPlayer &amp;&amp; pPlayer-&gt;entindex() != 1 )<br>
+{<br>
+return;<br>
+}</p>
+<pre><code>va_list        argptr;
+char        string[1024];
+va_start (argptr,fmt);
+int len = Q_vsnprintf(string, sizeof( string ), fmt,argptr);
+va_end (argptr);
+
+if ( g_pDiffMgr )
+{
+    // Strip any \n at the end that the user accidently put int
+    if ( len &gt; 0 &amp;&amp; string[ len -1 ] == '\n' )
+    {
+        string[ len - 1 ] = 0;
+    }
+    
+    g_pDiffMgr-&gt;AddToDiff( bServer, nCommandNumber, string );
+}
+</code></pre>
+<p>}</p>
+<p>void _CheckV( int tick, char const *ctx, const Vector &amp;vel )<br>
+{<br>
+DiffPrint( CBaseEntity::IsServer(), tick, “%20.20s %f %f %f”, ctx, vel.x, vel.y, vel.z );<br>
+}</p>
+<p><span class="hashtag">#define</span> CheckV( tick, ctx, vel ) _CheckV( tick, ctx, vel );</p>
+<p>static void StartCommand( bool bServer, int nCommandNumber )<br>
+{<br>
+// Only track stuff for local player<br>
+CBasePlayer *pPlayer = CBaseEntity::GetPredictionPlayer();<br>
+if ( pPlayer &amp;&amp; pPlayer-&gt;entindex() != 1 )<br>
+{<br>
+return;<br>
+}</p>
+<pre><code>if ( g_pDiffMgr )
+{
+    g_pDiffMgr-&gt;StartCommand( bServer, nCommandNumber );
+}
+</code></pre>
+<p>}</p>
+<p>static void Validate( bool bServer, int nCommandNumber )<br>
+{<br>
+// Only track stuff for local player<br>
+CBasePlayer *pPlayer = CBaseEntity::GetPredictionPlayer();<br>
+if ( pPlayer &amp;&amp; pPlayer-&gt;entindex() != 1 )<br>
+{<br>
+return;<br>
+}</p>
+<pre><code>if ( g_pDiffMgr )
+{
+    g_pDiffMgr-&gt;Validate( bServer, nCommandNumber );
+}
+</code></pre>
+<p>}</p>
+<p>void CGameMovement: <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"> iffPrint( char const *fmt, … )<br>
+{<br>
+if ( !player )<br>
+return;</p>
+<pre><code>va_list        argptr;
+char        string[1024];
+va_start (argptr,fmt);
+Q_vsnprintf(string, sizeof( string ), fmt,argptr);
+va_end (argptr);
+
+: :D iffPrint( CBaseEntity::IsServer(), player-&gt;CurrentCommandNumber(), "%s", string );
+</code></pre>
+<p>}</p>
+<p><span class="hashtag">#else</span><br>
+static void DiffPrint( bool bServer, int nCommandNumber, char const *fmt, … )<br>
+{<br>
+// Nothing<br>
+}<br>
+static void StartCommand( bool bServer, int nCommandNumber )<br>
+{<br>
+}</p>
+<p>static void Validate( bool bServer, int nCommandNumber )<br>
+{<br>
+}</p>
+<p><span class="hashtag">#define</span> CheckV( tick, ctx, vel )</p>
+<p>void CGameMovement: <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"> iffPrint( char const *fmt, … )<br>
+{<br>
+}</p>
+<p><span class="hashtag">#endif</span> // !PREDICTION_ERROR_CHECK_LEVEL</p>
+<p><span class="hashtag">#ifndef</span> _XBOX<br>
+void COM_Log( char *pszFile, char *fmt, …)<br>
+{<br>
+va_list        argptr;<br>
+char        string[1024];<br>
+FileHandle_t fp;<br>
+char *pfilename;</p>
+<pre><code>if ( !pszFile )
+{
+    pfilename = "hllog.txt";
+}
+else
+{
+    pfilename = pszFile;
+}
+va_start (argptr,fmt);
+Q_vsnprintf(string, sizeof( string ), fmt,argptr);
+va_end (argptr);
+
+fp = filesystem-&gt;Open( pfilename, "a+t");
+if (fp)
+{
+    filesystem-&gt;FPrintf(fp, "%s", string);
+    filesystem-&gt;Close(fp);
+}
+</code></pre>
+<p>}<br>
+<span class="hashtag">#endif</span></p>
+<p><span class="hashtag">#ifndef</span> CLIENT_DLL<br>
+//-----------------------------------------------------------------------------<br>
+// Purpose: Debug - draw the displacement collision plane.<br>
+//-----------------------------------------------------------------------------<br>
+void DrawDispCollPlane( CBaseTrace *pTrace )<br>
+{<br>
+float flLength = 30.0f;</p>
+<pre><code>// Create a basis, based on the impact normal.
+int nMajorAxis = 0;
+Vector vecBasisU, vecBasisV, vecNormal;
+vecNormal = pTrace-&gt;plane.normal;
+float flAxisValue = vecNormal[0];
+if ( fabs( vecNormal[1] ) &gt; fabs( flAxisValue ) ) { nMajorAxis = 1; flAxisValue = vecNormal[1]; }
+if ( fabs( vecNormal[2] ) &gt; fabs( flAxisValue ) ) { nMajorAxis = 2; }
+if ( ( nMajorAxis == 1 ) || ( nMajorAxis == 2 ) )
+{
+    vecBasisU.Init( 1.0f, 0.0f, 0.0f );
+}
+else
+{
+    vecBasisU.Init( 0.0f, 1.0f, 0.0f );
+}
+
+vecBasisV = vecNormal.Cross( vecBasisU );
+VectorNormalize( vecBasisV );
+
+vecBasisU = vecBasisV.Cross( vecNormal );
+VectorNormalize( vecBasisU );
+
+// Create the impact point.  Push off the surface a bit.
+Vector vecImpactPoint = pTrace-&gt;startpos + pTrace-&gt;fraction * ( pTrace-&gt;endpos - pTrace-&gt;startpos );
+vecImpactPoint += vecNormal;
+
+// Generate a quad to represent the plane.
+Vector vecPlanePoints[4];
+vecPlanePoints[0] = vecImpactPoint + ( vecBasisU * -flLength ) + ( vecBasisV * -flLength );
+vecPlanePoints[1] = vecImpactPoint + ( vecBasisU * -flLength ) + ( vecBasisV * flLength );
+vecPlanePoints[2] = vecImpactPoint + ( vecBasisU * flLength ) + ( vecBasisV * flLength );
+vecPlanePoints[3] = vecImpactPoint + ( vecBasisU * flLength ) + ( vecBasisV * -flLength );
+</code></pre>
+<p><span class="hashtag">#if</span> 0<br>
+// Test facing.<br>
+Vector vecEdges[2];<br>
+vecEdges[0] = vecPlanePoints[1] - vecPlanePoints[0];<br>
+vecEdges[1] = vecPlanePoints[2] - vecPlanePoints[0];<br>
+Vector vecCross = vecEdges[0].Cross( vecEdges[1] );<br>
+if ( vecCross.Dot( vecNormal ) &lt; 0.0f )<br>
+{<br>
+// Reverse winding.<br>
+}<br>
+<span class="hashtag">#endif</span></p>
+<pre><code>// Draw the plane.
+NDebugOverlay::Triangle( vecPlanePoints[0], vecPlanePoints[1], vecPlanePoints[2], 125, 125, 125, 125, false, 5.0f );
+NDebugOverlay::Triangle( vecPlanePoints[0], vecPlanePoints[2], vecPlanePoints[3], 125, 125, 125, 125, false, 5.0f );
+
+NDebugOverlay::Line( vecPlanePoints[0], vecPlanePoints[1], 255, 255, 255, false, 5.0f );
+NDebugOverlay::Line( vecPlanePoints[1], vecPlanePoints[2], 255, 255, 255, false, 5.0f );
+NDebugOverlay::Line( vecPlanePoints[2], vecPlanePoints[3], 255, 255, 255, false, 5.0f );
+NDebugOverlay::Line( vecPlanePoints[3], vecPlanePoints[0], 255, 255, 255, false, 5.0f );
+
+// Draw the normal.
+NDebugOverlay::Line( vecImpactPoint, vecImpactPoint + ( vecNormal * flLength ), 255, 0, 0, false, 5.0f );
+</code></pre>
+<p>}<br>
+<span class="hashtag">#endif</span></p>
+<p>//-----------------------------------------------------------------------------<br>
+// Purpose: Constructs GameMovement interface<br>
+//-----------------------------------------------------------------------------<br>
+CGameMovement::CGameMovement( void )<br>
+{<br>
+m_nOldWaterLevel    = WL_NotInWater;<br>
+m_flWaterEntryTime    = 0;<br>
+m_nOnLadder            = 0;</p>
+<pre><code>mv                    = NULL;
+
+memset( m_flStuckCheckTime, 0, sizeof(m_flStuckCheckTime) );
+</code></pre>
+<p>}</p>
+<p>WHY DID YOU READ ALL THIS!?!?!?!?!?!<br>
+Anyhow, its part of the HL2 movement engine.[/code]</p>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/21">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/21</link>
+        <pubDate>Thu, 22 Apr 2010 06:49:10 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-21</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[sudpuzzer]]></dc:creator>
+        <description><![CDATA[
+            <p>I started programming with a nifty ‘game’ made by Interplay called Learn to Program BASIC. Basically, it had this little dude that had a cd for a head explain everything about variables and loops and the basic stuff like that, and it even had the Hello World tutorial thrown in there. Unfortunately, programs could only be run inside the editor, no executables or fullscreen stuff could be done. Still, it was an excellent learning tool, it told you all the stuff you did wrong and such.</p>
+<p>After that, I moved on to darkBasic, which is still BASIC I suppose, but it’s quite a bit more advanced. It uses the same pseudo language as BASIC, but it has all sorts of 3D capability (primitives, models, textures, lights, camera, etc.). It was a huge step up. I don’t have much experience with other editors, but darkBasic Professional had a massive syntax library describing what all the commands do and how to use them, as well as the editor highlighting variable names, subroutine names, numerical values, and commands all in different colors. It also made a list of all your current variables and their values / strings. Pretty decent. Simple .exe creation too</p>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/20</link>
+        <pubDate>Thu, 22 Apr 2010 04:08:50 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-20</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[Firebringer]]></dc:creator>
+        <description><![CDATA[
+            <p>Well I’ve never learned a programing language before, and I needed something to fill up my school schedule, and BASIC was available. Besides, after I finish basic, I’ll probably move onto C++.</p>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/19</link>
+        <pubDate>Thu, 22 Apr 2010 01:15:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-19</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[Dillxn]]></dc:creator>
+        <description><![CDATA[
+            <p>I think we can all agree that C++ is where it’s at  <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/18</link>
+        <pubDate>Thu, 22 Apr 2010 00:08:22 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-18</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[geekofalltrades]]></dc:creator>
+        <description><![CDATA[
+            <p>Ooooh, <span class="bbcode-i">BASIC.</span>  Scary, scary… you’re basically screwed, dude; keep an eye on your ass and note the point at which it tears you a new one.</p>
+<p>In all seriousness, why?  Do yourself a favor and learn C++.</p>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/17</link>
+        <pubDate>Thu, 22 Apr 2010 00:01:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-17</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[Cameron_D]]></dc:creator>
+        <description><![CDATA[
+            <p>I program all my HTML/CSS and PHP in wordpad.<br>
+Loading up an editor with syntax highlighting takes too long (Yes, it’s only a few seconds, but wordpad takes &lt;1 second to open)</p>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/16</link>
+        <pubDate>Wed, 21 Apr 2010 23:11:40 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-16</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[Katana]]></dc:creator>
+        <description><![CDATA[
+            <p>I admit I’m sort of a novice programmer, but I honestly wonder how people program in environments without intellisense, like plain text editors.</p>
+<p>Text editor:</p>
+<p>ConnectionObj co = new ConnectionObj();<br>
+co.IsRebuffed = True;<br>
+co.Initialize(params, “Initializing…”);</p>
+<p>Hey Katana, it should be connectionObj, not co.<br>
+Oh.<br>
+Find&gt;Replace ‘co’ with ‘connectionObj’</p>
+<p>Also, it’s ‘isRebuffed’ not ‘IsRebuffed’.<br>
+Oh.</p>
+<p>Visual Studio: [what I actually type]</p>
+<p>Conn-[press down, enter] co = new [down,enter];<br>
+co.is[down a few times, enter] = Tr[enter];<br>
+co.In<a title="Initializing...">enter</a>;</p>
+<p>Hey Katana, it should be connectionObj.<br>
+Oh. Okay. (right-click any instance, Refactor-&gt;Rename, only affects scope instances)</p>
+<p>For the record, the Visual Studio environment is mostly free through the Express versions, plus anyone who has touched a school with their pinky finger at some point in their life can probably get a free version either through their school or Microsoft’s many academic programs.</p>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/15</link>
+        <pubDate>Wed, 21 Apr 2010 22:50:07 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-15</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[Hyperbyte]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Dillxn">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/d/9f8e36/40.png" class="avatar"> Dillxn:</div>
+<blockquote>
+<p>I’m totally not a M$ fan but I do think their VisualBasic language (esp with the .Net framework) is quite beneficial as a teaching language… makes me wonder why they would opt for vanilla BASIC.</p>
+</blockquote>
+</aside>
+<p>Because it’s good to learn to program in the most simple way possible.  If you need to teach someone what a variable is, and how executing a program ‘walks’ through each line of code, you really don’t need all kinds of objects &amp; events to confuse people. <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>For me it was very beneficial to learn about variables, ‘if’ statements, ‘for’ loops, ‘while’ loops, etc. <span class="bbcode-i">before</span> I moved on to programming in a graphical environment.  I learned programming in AmigaBASIC and then moved on to QBASIC and finally to Visual Basic.  I think that’s a great way to go.</p>
+<p>By the way, after that I also learned to program in Pascal &amp; Delphi and took an extended course in OOP C++.  And after learning all this, I’ve settled on writing webapplications in PHP and most likely I’ll look for a completely different job alltogether in the near future (oh the irony!). <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/14</link>
+        <pubDate>Wed, 21 Apr 2010 07:56:49 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-14</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[Cameron_D]]></dc:creator>
+        <description><![CDATA[
+            <p>qBasic is the shit!<br>
+I still have my OOOOLLLLDDDDD laptop somewhere (50mb HDD, few Mhz processor 4mb RAM or something like that) which I used to use all the time for qBasic.</p>
+<p>Visual basic is simple, it is like programming in English</p>
+<pre><code class="lang-auto">If BlackMesaReleased = True Then
+ DownloadBlackMesa()
+End If</code></pre>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/13</link>
+        <pubDate>Wed, 21 Apr 2010 06:14:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-13</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[Katana]]></dc:creator>
+        <description><![CDATA[
+            <p>One thing that’s more of an intellisense-friendly (suggests things to you) coding language, though even more useless than BASIC, is called SmallBasic.</p>
+<p><a href="https://msdn.microsoft.com/en-us/beginner/ff384126.aspx" data-bbcode="true" rel="nofollow noopener">https://msdn.microsoft.com/en-us/beginner/ff384126.aspx</a></p>
+<p>Some pretty similar concepts to BASIC, but when you start typing it will suggest things to add in and stay syntactically correct, as well as providing a little description of what each thing does. So far the most advanced thing I’ve seen from Small BASIC is a painting program, so don’t expect anything huge.</p>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/12</link>
+        <pubDate>Tue, 20 Apr 2010 23:52:06 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-12</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[Dillxn]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m totally not a M$ fan but I do think their VisualBasic language (esp with the .Net framework) is quite beneficial as a teaching language… makes me wonder why they would opt for vanilla BASIC.</p>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/11</link>
+        <pubDate>Tue, 20 Apr 2010 03:43:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-11</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[FireTime]]></dc:creator>
+        <description><![CDATA[
+            <p>It can be, but not a very big one for most people. For some one who doesn’t know how to program at all, I could see it being beneficial. For most people who consider them advanced computer users, you might get 1 or 2 things out of it.</p>
+<p>ALSO what flavor of basic? Most schools use qBasic, (if it is make sure your program uses the sound command for debugging)</p>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/10</link>
+        <pubDate>Tue, 20 Apr 2010 03:03:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-10</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[felcon]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="felipedomaul">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/f/ba8739/40.png" class="avatar"> felipedomaul:</div>
+<blockquote>
+<p>ha,i’m hilarious</p>
+</blockquote>
+</aside>
+<p>You are the most hilarious person ever.</p>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/9</link>
+        <pubDate>Mon, 19 Apr 2010 00:00:48 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-9</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[Firebringer]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks! Also, is it true that BASIC is kind of like a stepping stone for other programing languages?</p>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/8</link>
+        <pubDate>Sun, 18 Apr 2010 23:00:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-8</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[Drew]]></dc:creator>
+        <description><![CDATA[
+            <p>Nothing really needed to know before hand. It wouldn’t hurt to read up on it now, so you’ll be well prepared for next year!<br>
+Make sure your math and logic skills are pretty good. They’ll teach you a lot though.</p>
+<p>Oh, and compared to other languages it’s… Basic and easy. lol</p>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/7</link>
+        <pubDate>Sun, 18 Apr 2010 22:14:00 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-7</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[Firebringer]]></dc:creator>
+        <description><![CDATA[
+            <p>Boooo… <em>throws tomatoes</em></p>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/6</link>
+        <pubDate>Sun, 18 Apr 2010 21:44:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-6</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[felipedomaul]]></dc:creator>
+        <description><![CDATA[
+            <p>i bet after you learn BASIC you’ll learn ADVANCED<br>
+ha,i’m hilarious</p>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/5</link>
+        <pubDate>Sun, 18 Apr 2010 21:32:16 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-5</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[DellBoy321]]></dc:creator>
+        <description><![CDATA[
+            <p>It’s all in the name.</p>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/4</link>
+        <pubDate>Sun, 18 Apr 2010 19:21:41 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-4</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[pfannkuchen_gesicht]]></dc:creator>
+        <description><![CDATA[
+            <p>well, it’s a pretty basic and easy programming language</p>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/3</link>
+        <pubDate>Sun, 18 Apr 2010 19:00:16 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-3</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[felcon]]></dc:creator>
+        <description><![CDATA[
+            <p>I think they’ll tell ya soon enough.</p>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/2</link>
+        <pubDate>Sun, 18 Apr 2010 18:43:24 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-2</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+      <item>
+        <title>Learning BASIC next school year</title>
+        <dc:creator><![CDATA[Firebringer]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello everyone, next school year, I’m going to learn BASIC (Programing language) in school. Is there anything important I should know beforehand?</p>
+          <p><a href="https://leakfree.org/t/learning-basic-next-school-year/3834/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/learning-basic-next-school-year/3834/1</link>
+        <pubDate>Sun, 18 Apr 2010 18:21:31 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3834-1</guid>
+        <source url="https://leakfree.org/t/learning-basic-next-school-year/3834.rss">Learning BASIC next school year</source>
+      </item>
+  </channel>
+</rss>

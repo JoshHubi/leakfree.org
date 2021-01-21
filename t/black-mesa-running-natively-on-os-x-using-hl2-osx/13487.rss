@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Black Mesa running natively on OS X using hl2_osx</title>
+    <link>https://leakfree.org/t/black-mesa-running-natively-on-os-x-using-hl2-osx/13487</link>
+    <description>[b]Wanna see Black Mesa Source running natively on OS X?[/b][/SIZE] ^_^
+I played around a bit yesterday evening and got Black Mesa &quot;kind of&quot; running natively on Mac OS X Mountain Lion (10.9.4) using the [b]hl2_osx[/b] launcher *:
+
+![](upload://w1PFgRfx4ivlbSGTTiQzaOfpBOW.jpeg) ![](upload://ziHH6moCMBKyHBK3VbsHlyFtBl3.jpeg) ![](upload://e18mMjdbJxmpBqHpBwIMDTgqecV.jpeg)
+
+imgur Gallery with all pics: [url=&#39;https://imgur.com/gallery/FCyxQ/&#39;]https://imgur.com/gallery/FCyxQ/[/url][/SIZE]
+
+[i]* This was neither hacking nor porting, but just putting files in the right place and getting required contents using SteamPipes. But many things weren&#39;t right, as resources have been loaded from the original Half-Life 2 instead of Black Mesa&#39;s content. So it&#39;s more a fun proof of concept, rather than a playable version! Or to put it differently: it&#39;s HL2 with Black Mesa Menu and Maps at the moment.[/i]
+
+[b]Guide and documentation[/b][/SIZE]
+
+1. Pre-requisite: Install the &quot;Source SDK Base 2013 Singleplayer&quot; within Steam (from Library &gt; Tools)
+1. Pre-requisite: Download the [url=&#39;https://www.moddb.com/mods/black-mesa/downloads&#39;]BMS Zip-File from moddb[/url]
+
+
+
+1. Move the &quot;Black Mesa&quot; mod folder to
+[code]
+~/Library/Application Support/Steam/SteamApps/sourcemods/
+[/code]
+1. Rename the mod&#39;s folder to &quot;bms&quot; (previously &quot;Black Mesa&quot;)
+1. Open Terminal.app and &quot;cd&quot; into the BMS directory
+[code]
+$ cd ~/Library/Application\ Support/Steam/SteamApps/sourcemods/bms/
+[/code]
+1. Open Black Mesa&#39;s &quot;/gameinfo.txt&quot; with vim/pico/TextEditor (or any similiar)
+1. In the &quot;SearchPaths { }&quot; section, add the following lines just after &quot;Game episodic&quot; (kudos to [url=&#39;https://lambdageneration.com/modding/source/fixing-half-life-2-and-portal-mods-on-steampipe-a-quick-guide/&#39;]lambdageneration.com[/url]):
+			[code]
+			game sourcetest
+			game+mod |gameinfo_path|.
+			platform |gameinfo_path|.
+			game_lv hl2/hl2_lv.vpk
+			game+mod ep2/ep2_english.vpk
+			game+mod ep2/ep2_pak.vpk
+			game |all_source_engine_paths|episodic/ep1_english.vpk
+			game |all_source_engine_paths|episodic/ep1_pak.vpk
+			game |all_source_engine_paths|hl2/hl2_english.vpk
+			game |all_source_engine_paths|hl2/hl2_pak.vpk
+			game |all_source_engine_paths|hl2/hl2_textures.vpk
+			game |all_source_engine_paths|hl2/hl2_sound_vo_english.vpk
+			game |all_source_engine_paths|hl2/hl2_sound_misc.vpk
+			game |all_source_engine_paths|hl2/hl2_misc.vpk
+			platform |all_source_engine_paths|platform/platform_misc.vpk
+			mod+mod_write+default_write_path |gameinfo_path|.
+			game+game_write |gameinfo_path|.
+			gamebin sourcetest/bin
+			game |all_source_engine_paths|episodic
+			game |all_source_engine_paths|hl2
+			platform |all_source_engine_paths|platform
+[/code]
+1. Save the updated &quot;gameinfo.txt&quot;
+1. Place a symbolic link (alias) to the BMS directory inside the Source SDK Base 2013 folder:
+[code]
+$ ln -s ~/Library/Application\ Support/Steam/SteamApps/sourcemods/bms ~/Library/Application\ Support/Steam/SteamApps/common/Source\ SDK\ Base\ 2013\ Singleplayer/bms
+[/code]
+1. [b]Time to launch the game![/b] In Terminal type the following command:
+[code]
+$ ../../common/Source\ SDK\ Base\ 2013\ Singleplayer/hl2.sh -game bms -dev -debug -novid -console -allowdebug -window -h 720 -w 1280
+[/code]
+(for a reference of all valid command line arguments see [url=&#39;https://developer.valvesoftware.com/wiki/Command_Line_Options&#39;]developer.valvesoftware.com[/url])
+1. If you did everything right, hl2_osx should load and let you play  :slight_smile: 
+
+
+[b]Issues[/b][/SIZE]
+A) [b]SOLVED[/b] [s]Sadly the whole thing was a one time success (so far) - because when I quit the game and tried to relaunch it, it always crashed the hl2_osx utility with the following error (see also attached txt-files)[/s]
+[quote]
+&quot;Could not load library client. Try restarting. If that doesn’t work, verify the cache.&quot;
+[/quote]
+[b]FIX:[/b] i pointed the Steampipe to a wrong gamebin folder. If used with &quot;episodic/bin&quot; the game launches again!
+
+B ) Many resources in the game are not from BMS, but from the original Half-Life 2, because of the Steampipe directives. So a lot of stuff doesn&#39;t work, like...
+
+* triggered events or such
+* e.g. the Health Charging stations look like from HL2
+* the suit&#39;s HUD is not displayed
+* weapons have to be spawn manually (give weapon_xy)
+* minor sound issues
+* and much much more for sure, I just played around like 10 minutes
+* [url=&#39;https://forums.blackmesasource.com/showthread.php?t=18861&#39;]...but hey, the water was there!![/url]  :smiley: 
+
+
+[b]Next Steps[/b][/SIZE]
+
+1. [b]DONE![/b] Well first of all, I&#39;d be more than happy to get the game running a second time.
+So I will try to investigate what causes the crashes (eg. cache) and verify different command line arguments to use.
+1. It be great to load some more resources from BMS instead of HL2. Once point #1 is fixed, this will be the next thing to approach (as I cannot verify it when the game is not running at all, of course).
+
+
+
+[b]Looking forward for some feedbacks and inputs from the community.[/b]
+&lt;a class=&#39;attachment&#39; href=&#39;/uploads/default/original/2X/5/5e0e299bd0cf7815eb28a55599f8f884aaf5d96f.txt&#39;&gt;hl2_osx-output-dump.txt&lt;/a&gt; (1.61 KB)
+&lt;a class=&#39;attachment&#39; href=&#39;/uploads/default/original/2X/3/329dd6a3d62a19722b294ddf1b1fd3634a58e66f.txt&#39;&gt;hl2_osx-terminaldump.txt&lt;/a&gt; (1.52 KB)</description>
+    
+    <lastBuildDate>Tue, 23 Sep 2014 20:16:10 +0000</lastBuildDate>
+    <category>Black Mesa</category>
+    <atom:link href="https://leakfree.org/t/black-mesa-running-natively-on-os-x-using-hl2-osx/13487.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Black Mesa running natively on OS X using hl2_osx</title>
+        <dc:creator><![CDATA[swizzinex]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="lightninrod4">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/f04885/40.png" class="avatar"> lightninrod4:</div>
+<blockquote>
+<p>it proboly wont work due to black mesa content was made to use source 2007</p>
+</blockquote>
+</aside>
+<p>I decided using the Source SDK 2013 because I read here on the forums that people got it to work on 2013. Might have been a bit misleading…<br>
+But as this is more like a fun thing to play around with, I’ll give it a shot on the 2007 Source base to see, if it makes any difference.</p>
+<aside class="quote no-group" data-username="lightninrod4">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/f04885/40.png" class="avatar"> lightninrod4:</div>
+<blockquote>
+<p>you should have much more sucsess using the source 2013 version of black mesa when its finshed in lets say 2 years</p>
+</blockquote>
+</aside>
+<p>haha definitely  <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:">  I mean… the Devs could just release the Source of the version that is available since it’s release and let the community handle enhancements on this base. Beside that they could still work on a better version they put on Stream and add additional, purchase-only contents to make money or so. But I guess they have their reasons and we just don’t see the full picture.  <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+          <p><a href="https://leakfree.org/t/black-mesa-running-natively-on-os-x-using-hl2-osx/13487/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-running-natively-on-os-x-using-hl2-osx/13487/5</link>
+        <pubDate>Tue, 23 Sep 2014 20:16:10 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13487-5</guid>
+        <source url="https://leakfree.org/t/black-mesa-running-natively-on-os-x-using-hl2-osx/13487.rss">Black Mesa running natively on OS X using hl2_osx</source>
+      </item>
+      <item>
+        <title>Black Mesa running natively on OS X using hl2_osx</title>
+        <dc:creator><![CDATA[Swaggless]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="lightninrod4">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/f04885/40.png" class="avatar"> lightninrod4:</div>
+<blockquote>
+<p>it proboly wont work due to black mesa content was made to use source 2007 you should have much more sucsess using the source 2013 version of black mesa when its finshed in lets say 2 years</p>
+</blockquote>
+</aside>
+<p>GOSH, I hope it isn’t 2 more years… I remember almost a year ago when they said the Steam version would be out “soon”… :fffuuu:</p>
+<p>I’m banking on either next summer, or this holiday season…</p>
+<p>But I guess this is off topic… Glad you were able to get it to work! I sure hope someone gets a Linux version out the door for the Steam Machines…</p>
+          <p><a href="https://leakfree.org/t/black-mesa-running-natively-on-os-x-using-hl2-osx/13487/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-running-natively-on-os-x-using-hl2-osx/13487/4</link>
+        <pubDate>Tue, 23 Sep 2014 17:44:36 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13487-4</guid>
+        <source url="https://leakfree.org/t/black-mesa-running-natively-on-os-x-using-hl2-osx/13487.rss">Black Mesa running natively on OS X using hl2_osx</source>
+      </item>
+      <item>
+        <title>Black Mesa running natively on OS X using hl2_osx</title>
+        <dc:creator><![CDATA[lightninrod4]]></dc:creator>
+        <description><![CDATA[
+            <p>it proboly wont work due to black mesa content was made to use source 2007 you should have much more sucsess using the source 2013 version of black mesa when its finshed in lets say 2 years</p>
+          <p><a href="https://leakfree.org/t/black-mesa-running-natively-on-os-x-using-hl2-osx/13487/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-running-natively-on-os-x-using-hl2-osx/13487/3</link>
+        <pubDate>Mon, 22 Sep 2014 21:12:00 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13487-3</guid>
+        <source url="https://leakfree.org/t/black-mesa-running-natively-on-os-x-using-hl2-osx/13487.rss">Black Mesa running natively on OS X using hl2_osx</source>
+      </item>
+      <item>
+        <title>Black Mesa running natively on OS X using hl2_osx</title>
+        <dc:creator><![CDATA[swizzinex]]></dc:creator>
+        <description><![CDATA[
+            <p>Is anybody here familiar with the Steampipes for SearchPaths inside the “gameinfo.txt”?</p>
+<p>I can’t get the game to load any BMS-resources (models, materials, sounds, etc.), the game will always only load the original hl2-resources. I don’t know whether it’s the priority of searchpaths I used or simply the wrong commands… This is what I use so far:</p>
+<p><font face="Arial Black">Folder structure</font></p>
+<pre><code class="lang-auto">Steam/
+	SteamApps/
+		common/ &lt;-- this is where |all_source_engine_paths| should point to
+			Source SDK Base 2013 Singleplayer/
+				[...]
+		sourcemods/
+			bms/ &lt;-- this is where |gameinfo_path| should point to
+				gameinfo.txt
+				[...]</code></pre>
+<p><font face="Arial Black">SearchPaths {} in BMS’ gameinfo.text:</font></p>
+<pre><code class="lang-auto">SearchPaths
+{
+	Game |gameinfo_path|.
+	Game ep2
+	Game episodic
+	Game hl2
+	// Starting next line, custom added SearchPaths:
+	game sourcetest
+	game+mod |gameinfo_path|.
+	platform |gameinfo_path|.
+	game_lv hl2/hl2_lv.vpk
+	game+mod ep2/ep2_english.vpk
+	game+mod ep2/ep2_pak.vpk
+	game |all_source_engine_paths|episodic/ep1_english.vpk
+	game |all_source_engine_paths|episodic/ep1_pak.vpk
+	game |all_source_engine_paths|hl2/hl2_english.vpk
+	game |all_source_engine_paths|hl2/hl2_pak.vpk
+	game |all_source_engine_paths|hl2/hl2_textures.vpk
+	game |all_source_engine_paths|hl2/hl2_sound_vo_english.vpk
+	game |all_source_engine_paths|hl2/hl2_sound_misc.vpk
+	game |all_source_engine_paths|hl2/hl2_misc.vpk
+	platform |all_source_engine_paths|platform/platform_misc.vpk
+	mod+mod_write+default_write_path |gameinfo_path|.
+	game+game_write |gameinfo_path|.
+	gamebin sourcetest/bin
+	game |all_source_engine_paths|episodic
+	game |all_source_engine_paths|hl2
+	platform |all_source_engine_paths|platform
+}</code></pre>
+<p><font face="Arial Black">Documentation used</font><br>
+Links I read, but still don’t really understand what I am doing wrong:</p>
+<ol>
+<li><a href="https://developer.valvesoftware.com/wiki/Gameinfo.txt" data-bbcode="true" rel="nofollow noopener">https://developer.valvesoftware.com/wiki/Gameinfo.txt</a></li>
+<li><a href="https://github.com/ValveSoftware/source-sdk-2013/blob/master/sp/game/mod_episodic/gameinfo.txt" data-bbcode="true" rel="nofollow noopener">https://github.com/ValveSoftware/source-sdk-2013/blob/master/sp/game/mod_episodic/gameinfo.txt</a></li>
+<li><a href="https://forums.steampowered.com/forums/showthread.php?t=1767184" data-bbcode="true" rel="nofollow noopener">https://forums.steampowered.com/forums/showthread.php?t=1767184</a></li>
+<li><a href="https://developer.valvesoftware.com/wiki/IFileSystem" data-bbcode="true" rel="nofollow noopener">https://developer.valvesoftware.com/wiki/IFileSystem</a></li>
+</ol>
+<p><span class="bbcode-b">Any help and Inputs appreciated!</span></p>
+          <p><a href="https://leakfree.org/t/black-mesa-running-natively-on-os-x-using-hl2-osx/13487/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-running-natively-on-os-x-using-hl2-osx/13487/2</link>
+        <pubDate>Sat, 20 Sep 2014 17:50:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13487-2</guid>
+        <source url="https://leakfree.org/t/black-mesa-running-natively-on-os-x-using-hl2-osx/13487.rss">Black Mesa running natively on OS X using hl2_osx</source>
+      </item>
+      <item>
+        <title>Black Mesa running natively on OS X using hl2_osx</title>
+        <dc:creator><![CDATA[swizzinex]]></dc:creator>
+        <description><![CDATA[
+            <p><span class="bbcode-b">Wanna see Black Mesa Source running natively on OS X?</span>[/SIZE] <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"><br>
+I played around a bit yesterday evening and got Black Mesa “kind of” running natively on Mac OS X Mountain Lion (10.9.4) using the <span class="bbcode-b">hl2_osx</span> launcher *:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/3X/e/0/e07a9ebd203d9ce1165ef793a8834146277f41d2.jpeg" data-download-href="https://leakfree.org/uploads/default/e07a9ebd203d9ce1165ef793a8834146277f41d2" title=""><img src="https://leakfree.org/uploads/default/optimized/3X/e/0/e07a9ebd203d9ce1165ef793a8834146277f41d2_2_690x388.jpeg" alt="" data-base62-sha1="w1PFgRfx4ivlbSGTTiQzaOfpBOW" width="690" height="388" srcset="https://leakfree.org/uploads/default/optimized/3X/e/0/e07a9ebd203d9ce1165ef793a8834146277f41d2_2_690x388.jpeg, https://leakfree.org/uploads/default/optimized/3X/e/0/e07a9ebd203d9ce1165ef793a8834146277f41d2_2_1035x582.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/3X/e/0/e07a9ebd203d9ce1165ef793a8834146277f41d2_2_1380x776.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/3X/e/0/e07a9ebd203d9ce1165ef793a8834146277f41d2_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080 567 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div> <div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/3X/f/7/f7695f6a4ccf18f12bd734fbda2d7deadb5de6d5.jpeg" data-download-href="https://leakfree.org/uploads/default/f7695f6a4ccf18f12bd734fbda2d7deadb5de6d5" title=""><img src="https://leakfree.org/uploads/default/optimized/3X/f/7/f7695f6a4ccf18f12bd734fbda2d7deadb5de6d5_2_690x388.jpeg" alt="" data-base62-sha1="ziHH6moCMBKyHBK3VbsHlyFtBl3" width="690" height="388" srcset="https://leakfree.org/uploads/default/optimized/3X/f/7/f7695f6a4ccf18f12bd734fbda2d7deadb5de6d5_2_690x388.jpeg, https://leakfree.org/uploads/default/optimized/3X/f/7/f7695f6a4ccf18f12bd734fbda2d7deadb5de6d5_2_1035x582.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/3X/f/7/f7695f6a4ccf18f12bd734fbda2d7deadb5de6d5_2_1380x776.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/3X/f/7/f7695f6a4ccf18f12bd734fbda2d7deadb5de6d5_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080 611 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div> <div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/3X/6/2/623f47810a69cf40cb234902e77ac6e14580b269.jpeg" data-download-href="https://leakfree.org/uploads/default/623f47810a69cf40cb234902e77ac6e14580b269" title=""><img src="https://leakfree.org/uploads/default/optimized/3X/6/2/623f47810a69cf40cb234902e77ac6e14580b269_2_690x423.jpeg" alt="" data-base62-sha1="e18mMjdbJxmpBqHpBwIMDTgqecV" width="690" height="423" srcset="https://leakfree.org/uploads/default/optimized/3X/6/2/623f47810a69cf40cb234902e77ac6e14580b269_2_690x423.jpeg, https://leakfree.org/uploads/default/optimized/3X/6/2/623f47810a69cf40cb234902e77ac6e14580b269_2_1035x634.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/3X/6/2/623f47810a69cf40cb234902e77ac6e14580b269_2_1380x846.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/3X/6/2/623f47810a69cf40cb234902e77ac6e14580b269_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1394×856 215 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>imgur Gallery with all pics: <a href="https://imgur.com/gallery/FCyxQ/" data-bbcode="true" rel="nofollow noopener">https://imgur.com/gallery/FCyxQ/</a>[/SIZE]</p>
+<p><span class="bbcode-i">* This was neither hacking nor porting, but just putting files in the right place and getting required contents using SteamPipes. But many things weren’t right, as resources have been loaded from the original Half-Life 2 instead of Black Mesa’s content. So it’s more a fun proof of concept, rather than a playable version! Or to put it differently: it’s HL2 with Black Mesa Menu and Maps at the moment.</span></p>
+<p><span class="bbcode-b">Guide and documentation</span>[/SIZE]</p>
+<ol>
+<li>
+<p>Pre-requisite: Install the “Source SDK Base 2013 Singleplayer” within Steam (from Library &gt; Tools)</p>
+</li>
+<li>
+<p>Pre-requisite: Download the <a href="https://www.moddb.com/mods/black-mesa/downloads" data-bbcode="true" rel="nofollow noopener">BMS Zip-File from moddb</a></p>
+</li>
+<li>
+<p>Move the “Black Mesa” mod folder to</p>
+</li>
+</ol>
+<pre><code class="lang-auto">~/Library/Application Support/Steam/SteamApps/sourcemods/</code></pre>
+<ol>
+<li>Rename the mod’s folder to “bms” (previously “Black Mesa”)</li>
+<li>Open Terminal.app and “cd” into the BMS directory</li>
+</ol>
+<pre><code class="lang-auto">$ cd ~/Library/Application\ Support/Steam/SteamApps/sourcemods/bms/</code></pre>
+<ol>
+<li>Open Black Mesa’s “/gameinfo.txt” with vim/pico/TextEditor (or any similiar)</li>
+<li>In the “SearchPaths { }” section, add the following lines just after “Game episodic” (kudos to <a href="https://lambdageneration.com/modding/source/fixing-half-life-2-and-portal-mods-on-steampipe-a-quick-guide/" data-bbcode="true" rel="nofollow noopener">lambdageneration.com</a>):<br>
+<code>
+ 		game sourcetest
+ 		game+mod |gameinfo_path|.
+ 		platform |gameinfo_path|.
+ 		game_lv hl2/hl2_lv.vpk
+ 		game+mod ep2/ep2_english.vpk
+ 		game+mod ep2/ep2_pak.vpk
+ 		game |all_source_engine_paths|episodic/ep1_english.vpk
+ 		game |all_source_engine_paths|episodic/ep1_pak.vpk
+ 		game |all_source_engine_paths|hl2/hl2_english.vpk
+ 		game |all_source_engine_paths|hl2/hl2_pak.vpk
+ 		game |all_source_engine_paths|hl2/hl2_textures.vpk
+ 		game |all_source_engine_paths|hl2/hl2_sound_vo_english.vpk
+ 		game |all_source_engine_paths|hl2/hl2_sound_misc.vpk
+ 		game |all_source_engine_paths|hl2/hl2_misc.vpk
+ 		platform |all_source_engine_paths|platform/platform_misc.vpk
+ 		mod+mod_write+default_write_path |gameinfo_path|.
+ 		game+game_write |gameinfo_path|.
+ 		gamebin sourcetest/bin
+ 		game |all_source_engine_paths|episodic
+ 		game |all_source_engine_paths|hl2
+ 		platform |all_source_engine_paths|platform
+</code>
+</li>
+<li>Save the updated “gameinfo.txt”</li>
+<li>Place a symbolic link (alias) to the BMS directory inside the Source SDK Base 2013 folder:</li>
+</ol>
+<pre><code class="lang-auto">$ ln -s ~/Library/Application\ Support/Steam/SteamApps/sourcemods/bms ~/Library/Application\ Support/Steam/SteamApps/common/Source\ SDK\ Base\ 2013\ Singleplayer/bms</code></pre>
+<ol>
+<li>
+<span class="bbcode-b">Time to launch the game!</span> In Terminal type the following command:</li>
+</ol>
+<pre><code class="lang-auto">$ ../../common/Source\ SDK\ Base\ 2013\ Singleplayer/hl2.sh -game bms -dev -debug -novid -console -allowdebug -window -h 720 -w 1280</code></pre>
+<p>(for a reference of all valid command line arguments see <a href="https://developer.valvesoftware.com/wiki/Command_Line_Options" data-bbcode="true" rel="nofollow noopener">developer.valvesoftware.com</a>)</p>
+<ol>
+<li>If you did everything right, hl2_osx should load and let you play  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:">
+</li>
+</ol>
+<p><span class="bbcode-b">Issues</span>[/SIZE]<br>
+A) <span class="bbcode-b">SOLVED</span> <span class="bbcode-s">Sadly the whole thing was a one time success (so far) - because when I quit the game and tried to relaunch it, it always crashed the hl2_osx utility with the following error (see also attached txt-files)</span></p>
+<aside class="quote no-group">
+<blockquote>
+<p>“Could not load library client. Try restarting. If that doesn’t work, verify the cache.”</p>
+</blockquote>
+</aside>
+<p><span class="bbcode-b">FIX:</span> i pointed the Steampipe to a wrong gamebin folder. If used with “episodic/bin” the game launches again!</p>
+<p>B ) Many resources in the game are not from BMS, but from the original Half-Life 2, because of the Steampipe directives. So a lot of stuff doesn’t work, like…</p>
+<ul>
+<li>triggered events or such</li>
+<li>e.g. the Health Charging stations look like from HL2</li>
+<li>the suit’s HUD is not displayed</li>
+<li>weapons have to be spawn manually (give weapon_xy)</li>
+<li>minor sound issues</li>
+<li>and much much more for sure, I just played around like 10 minutes</li>
+<li>
+<a href="https://forums.blackmesasource.com/showthread.php?t=18861" data-bbcode="true" rel="nofollow noopener">…but hey, the water was there!!</a>  <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:">
+</li>
+</ul>
+<p><span class="bbcode-b">Next Steps</span>[/SIZE]</p>
+<ol>
+<li>
+<span class="bbcode-b">DONE!</span> Well first of all, I’d be more than happy to get the game running a second time.<br>
+So I will try to investigate what causes the crashes (eg. cache) and verify different command line arguments to use.</li>
+<li>It be great to load some more resources from BMS instead of HL2. Once point <span class="hashtag">#1</span> is fixed, this will be the next thing to approach (as I cannot verify it when the game is not running at all, of course).</li>
+</ol>
+<p><span class="bbcode-b">Looking forward for some feedbacks and inputs from the community.</span><br>
+<a class="attachment" href="https://leakfree.org/uploads/default/original/2X/5/5e0e299bd0cf7815eb28a55599f8f884aaf5d96f.txt">hl2_osx-output-dump.txt</a> (1.61 KB)<br>
+<a class="attachment" href="https://leakfree.org/uploads/default/original/2X/3/329dd6a3d62a19722b294ddf1b1fd3634a58e66f.txt">hl2_osx-terminaldump.txt</a> (1.52 KB)</p>
+          <p><a href="https://leakfree.org/t/black-mesa-running-natively-on-os-x-using-hl2-osx/13487/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-running-natively-on-os-x-using-hl2-osx/13487/1</link>
+        <pubDate>Sat, 20 Sep 2014 12:02:48 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13487-1</guid>
+        <source url="https://leakfree.org/t/black-mesa-running-natively-on-os-x-using-hl2-osx/13487.rss">Black Mesa running natively on OS X using hl2_osx</source>
+      </item>
+  </channel>
+</rss>

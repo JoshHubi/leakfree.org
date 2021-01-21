@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Blinking white line at startup</title>
+    <link>https://leakfree.org/t/blinking-white-line-at-startup/8915</link>
+    <description>I&#39;m using Windows 7 and every time I restart my computer, it goes to a black screen with a single blinking white line in the top left corner, stays there for about 30 seconds, and then continues with booting. I installed an SSD and one of the things it&#39;s supposed to do is boot quickly but this screen is keeping it from doing that. I searched around and thought it had something to do with the system partition that was on my HDD that I was using as my OS drive before but I deleted it (though I haven&#39;t been able to get rid of the partition entirely, it&#39;s unallocated space) and it&#39;s still doing it. Anyone know how to fix this? Would actually merging the system partition that I deleted into the main drive fix it?</description>
+    
+    <lastBuildDate>Wed, 11 Jul 2012 18:21:17 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/blinking-white-line-at-startup/8915.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Blinking white line at startup</title>
+        <dc:creator><![CDATA[Kairouseki]]></dc:creator>
+        <description><![CDATA[
+            <p>Okay so I got around to trying this. I don’t know if I did something wrong but doing what you said added the Windows installation from my other HDD to the boot manager and didn’t fix the white line thing. There was a repair pop up when I got to the repair screen though, and doing that fixed it. I just had to remove the second OS from the boot screen. This seemed to have fixed it though.</p>
+          <p><a href="https://leakfree.org/t/blinking-white-line-at-startup/8915/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/blinking-white-line-at-startup/8915/3</link>
+        <pubDate>Wed, 11 Jul 2012 18:21:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-8915-3</guid>
+        <source url="https://leakfree.org/t/blinking-white-line-at-startup/8915.rss">Blinking white line at startup</source>
+      </item>
+      <item>
+        <title>Blinking white line at startup</title>
+        <dc:creator><![CDATA[higgsboson]]></dc:creator>
+        <description><![CDATA[
+            <p>This is a common issue often related to the OS being the OEM version, it can be solved by fixing the master boot record and reconfiguring the bootloader. Try this:</p>
+<ol>
+<li>Put the Windows 7 installation disc in the disc drive, and then start your computer.</li>
+<li>Boot from the disc</li>
+<li>Select a language, a time, a currency, a keyboard or an input method, and then click Next.</li>
+<li>Click Repair your computer.</li>
+<li>Click the operating system that you want to repair, and then click Next.</li>
+<li>In the System Recovery Options dialog box, click Command Prompt.</li>
+</ol>
+<p>Type:</p>
+<p>Code: Bootrec.exe /FixMbr<br>
+Code: Bootrec.exe /FixBoot<br>
+Code: Bootrec.exe /RebuildBcd</p>
+<p><em>Press ENTER after each command.</em><br>
+<em>Restart your computer.</em></p>
+          <p><a href="https://leakfree.org/t/blinking-white-line-at-startup/8915/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/blinking-white-line-at-startup/8915/2</link>
+        <pubDate>Thu, 14 Jun 2012 21:42:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-8915-2</guid>
+        <source url="https://leakfree.org/t/blinking-white-line-at-startup/8915.rss">Blinking white line at startup</source>
+      </item>
+      <item>
+        <title>Blinking white line at startup</title>
+        <dc:creator><![CDATA[Kairouseki]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m using Windows 7 and every time I restart my computer, it goes to a black screen with a single blinking white line in the top left corner, stays there for about 30 seconds, and then continues with booting. I installed an SSD and one of the things it’s supposed to do is boot quickly but this screen is keeping it from doing that. I searched around and thought it had something to do with the system partition that was on my HDD that I was using as my OS drive before but I deleted it (though I haven’t been able to get rid of the partition entirely, it’s unallocated space) and it’s still doing it. Anyone know how to fix this? Would actually merging the system partition that I deleted into the main drive fix it?</p>
+          <p><a href="https://leakfree.org/t/blinking-white-line-at-startup/8915/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/blinking-white-line-at-startup/8915/1</link>
+        <pubDate>Thu, 14 Jun 2012 20:33:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-8915-1</guid>
+        <source url="https://leakfree.org/t/blinking-white-line-at-startup/8915.rss">Blinking white line at startup</source>
+      </item>
+  </channel>
+</rss>

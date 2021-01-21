@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Help replacing models [SOLUTION] + HL Decay port project</title>
+    <link>https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200</link>
+    <description>Hi.
+So.
+This is the first time I ever made a post in a forum in my entire life because I could never be bothered and because, usually, someone else would have already done the question and I&#39;d just use that. So I&#39;ll try to make it as clear as possible what the problem and what the project is.
+
+I&#39;m porting all the important stuff (maps, character models and dialog) from Half-Life Decay to Black Mesa. Here are some pictures. ( I&#39;m open to suggestions, btw)
+
+![untitled.jpg|690x500](upload://ca3DwehMbciJE88t7nFcV4QAMsL.jpeg)    ![Capture.PNG|690x500](upload://oCUp0SXhaV9sJTNjOenc5UPrgTa.png)    ![dy_accident1_bms0004.jpg|690x500](upload://xtyOhyU6iAKZqq9Az10h4Ez5FuA.jpeg)
+
+![dy_accident1_bms0003.jpg|690x500](upload://ovPuIFchhHI0A2F6uknqEZyWwOI.jpeg)    ![dy_accident1_bms0002.jpg|690x500](upload://b6s6z6af1bRNqOK9hS5xsQj3QVA.jpeg)
+
+Now here&#39;s the problem:
+
+Adding custom textures/models have been pretty easy except when I try to replace other models. I&#39;ve tried:
+
+- Making an &quot;addons&quot; folder and a &quot;decay&quot; folder with all the custom stuff.
+- Making a &quot;custom&quot; folder and a &quot;decay&quot; folder with all the custom stuff.
+- Making an &quot;addons&quot; folder with a .vpk of my custom stuff.
+- Making a &quot;custom&quot; folder with a .vpk of my custom stuff.
+- Packing all the custom files in the .bsp itself.
+- Placing the custom files in their respective directories. (for example, the hev player model for the scientist team, in the folder bms\models\player)
+
+None of that worked.
+
+The weird thing is, when I placed the models in their right folders, hammer replaced the models accordingly. I had replaced both mp_scientist_hev.mdl and mp_marine.mdl, and they were both replaced by my custom Gina model, as shown in this screenshot. (My Gina model works if I compile it with a different name, like mp_gina, and place it in the world as a prop or a monster_generic.)
+
+[attach=5461,none,1366][/attach]
+
+
+Also, here&#39;s a render of that model, if you&#39;re interested. (Idk why blender bugged her eyes like that, she looks fine ingame.)
+
+[attach=5462,none,960][/attach]
+
+
+
+Thanks in advance.   :slight_smile:
+![dy_accident1_bms0000.jpg|690x500](upload://ocbkUNqw0mlelm64zHCa7kwMd6L.jpeg)
+![dy_accident1_bms0001.jpg|690x500](upload://m8um82iNAZu89FpwO4trdnWpZ0u.jpeg)</description>
+    
+    <lastBuildDate>Thu, 06 Jul 2017 17:35:21 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Help replacing models [SOLUTION] + HL Decay port project</title>
+        <dc:creator><![CDATA[C_H_R_I_S]]></dc:creator>
+        <description><![CDATA[
+            <p>[SOLUTION]</p>
+<p>Ok I managed to make the custom folder work. It’s the same solution Stobing17 gave me but I put it in the wrong place. In your gameinfo.txt search for this:</p>
+<p><span class="spoiler">// Now search loose files.  We’ll set the directory containing the gameinfo.txt file<br>
+// as the first “mod” search path (after any user customizations).  This is also the one<br>
+// that’s used when writing to the “mod” path.<br>
+mod+mod_write+default_write_path|gameinfo_path|.</span></p>
+<p>Then place <span class="bbcode-i">mod+mod_write+default_write_pathbms/custom/*</span> under it. Your mod still needs to be in a .vpk file.</p>
+<p>Thanks for the help. Sorry I took so long to fix this, I feel proper dumb</p>
+          <p><a href="https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200/9</link>
+        <pubDate>Thu, 06 Jul 2017 17:35:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15200-9</guid>
+        <source url="https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200.rss">Help replacing models [SOLUTION] + HL Decay port project</source>
+      </item>
+      <item>
+        <title>Help replacing models [SOLUTION] + HL Decay port project</title>
+        <dc:creator><![CDATA[C_H_R_I_S]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Momocody">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/m/c67d28/40.png" class="avatar"> Momocody:</div>
+<blockquote>
+<p>Hi there, my team is also making a Decay: Source remake in the Source SDK 2013 MP engine. We are making everything from scratch, and as far as I’m aware, there is no possible way to get co-op in BM. On the other hand, we have a working co-op and are currently converting our BM maps to Source SDK 2013.</p>
+</blockquote>
+</aside>
+<p>Well that’s great! I searched all over the internet to know if any one was already working on it but I guess I didnt search enough, no harm though, I can still make it singleplayer.</p>
+<aside class="quote no-group" data-username="Nova Terra">
+<div class="title">
+<div class="quote-controls"></div>
+ Nova Terra:</div>
+<blockquote>
+<p>I would love to play Decay in solo mode since it’s almost impossible to implement coop  into BM.Will we see some scrapped maps from original Decay?Are you going to add new maps or rework some of them?Will we see new dialogues?</p>
+</blockquote>
+</aside>
+<p>Well, now that I know some team is working on it, then I’ll just adapt the maps to be playable in single player. (unless they wanna hire me, in which case, please)</p>
+<aside class="quote no-group" data-username="Admiral Sakai">
+<div class="title">
+<div class="quote-controls"></div>
+ Admiral Sakai:</div>
+<blockquote>
+<p>Hmm. A lot of these areas do in fact have very good design fundamentals, but I’m noticing some of the brushwork is a bit rough. Is this indicative of the final product?</p>
+<p>Also, I’m not sure why you’d want to replace other models. Just add a new model and use that in your map instead.</p>
+<p><span class="bbcode-i">Also</span> also, have you managed to get completely new sounds to actually play in the game? I’ve been struggling with that myself.</p>
+</blockquote>
+</aside>
+<p>The brushwork is mostly placeholders until I make proper models. I’m making the basic shape of the rooms and gameplay first before adding detail. The only reason this map looks finished is because there’s no gameplay in it.</p>
+<p>EDIT:</p>
+<aside class="quote no-group" data-username="Stobing17">
+<div class="title">
+<div class="quote-controls"></div>
+ Stobing17:</div>
+<blockquote>
+<aside class="quote no-group" data-username="C H R I S">
+<div class="title">
+<div class="quote-controls"></div>
+ C H R I S:</div>
+<blockquote>
+<p>Also I’m not sure how to do that?  <img src="https://leakfree.org/images/emoji/twitter/expressionless.png?v=9" title=":expressionless:" class="emoji" alt=":expressionless:"></p>
+<p>EDIT: Like this?</p>
+<p>[spoiler]SearchPaths<br>
+{<br>
+// We search VPK files before ordinary folders, because most files will be found in<br>
+// VPK and we can avoid making thousands of file system calls to attempt to open files<br>
+// in folders where they don’t exist.  (Searching a VPK is much faster than making an operating<br>
+// system call.)</p>
+<p>// Black Mesa VPK files.<br>
+game+mod bms/custom/*<br>
+game+mod bms/bms_textures.vpk<br>
+game+mod bms/bms_materials.vpk<br>
+game+mod bms/bms_models.vpk<br>
+game+mod bms/bms_misc.vpk<br>
+game+mod bms/bms_sounds_misc.vpk<br>
+game+mod bms/bms_sound_vo_english.vpk<br>
+game+mod bms/bms_maps.vpk[/spoiler]</p>
+</blockquote>
+</aside>
+<p>Yep!</p>
+</blockquote>
+</aside>
+<p>Still not working :I</p>
+          <p><a href="https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200/8</link>
+        <pubDate>Tue, 27 Jun 2017 15:48:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15200-8</guid>
+        <source url="https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200.rss">Help replacing models [SOLUTION] + HL Decay port project</source>
+      </item>
+      <item>
+        <title>Help replacing models [SOLUTION] + HL Decay port project</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Hmm. A lot of these areas do in fact have very good design fundamentals, but I’m noticing some of the brushwork is a bit rough. Is this indicative of the final product?</p>
+<p>Also, I’m not sure why you’d want to replace other models. Just add a new model and use that in your map instead.</p>
+<p><span class="bbcode-i">Also</span> also, have you managed to get completely new sounds to actually play in the game? I’ve been struggling with that myself.</p>
+          <p><a href="https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200/7</link>
+        <pubDate>Tue, 27 Jun 2017 14:09:30 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15200-7</guid>
+        <source url="https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200.rss">Help replacing models [SOLUTION] + HL Decay port project</source>
+      </item>
+      <item>
+        <title>Help replacing models [SOLUTION] + HL Decay port project</title>
+        <dc:creator><![CDATA[Nozoki17]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="C H R I S">
+<div class="title">
+<div class="quote-controls"></div>
+ C H R I S:</div>
+<blockquote>
+<p>Thanks!<br>
+Also I’m not sure how to do that?  <img src="https://leakfree.org/images/emoji/twitter/expressionless.png?v=9" title=":expressionless:" class="emoji" alt=":expressionless:"></p>
+<p>EDIT: Like this?</p>
+<p>[spoiler]SearchPaths<br>
+{<br>
+// We search VPK files before ordinary folders, because most files will be found in<br>
+// VPK and we can avoid making thousands of file system calls to attempt to open files<br>
+// in folders where they don’t exist.  (Searching a VPK is much faster than making an operating<br>
+// system call.)</p>
+<p>// Black Mesa VPK files.<br>
+game+mod bms/custom/*<br>
+game+mod bms/bms_textures.vpk<br>
+game+mod bms/bms_materials.vpk<br>
+game+mod bms/bms_models.vpk<br>
+game+mod bms/bms_misc.vpk<br>
+game+mod bms/bms_sounds_misc.vpk<br>
+game+mod bms/bms_sound_vo_english.vpk<br>
+game+mod bms/bms_maps.vpk[/spoiler]</p>
+</blockquote>
+</aside>
+<p>Yep!</p>
+          <p><a href="https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200/6</link>
+        <pubDate>Tue, 27 Jun 2017 09:41:07 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15200-6</guid>
+        <source url="https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200.rss">Help replacing models [SOLUTION] + HL Decay port project</source>
+      </item>
+      <item>
+        <title>Help replacing models [SOLUTION] + HL Decay port project</title>
+        <dc:creator><![CDATA[Nova_Terra]]></dc:creator>
+        <description><![CDATA[
+            <p>I would love to play Decay in solo mode since it’s almost impossible to implement coop  into BM.Will we see some scrapped maps from original Decay?Are you going to add new maps or rework some of them?Will we see new dialogues?</p>
+          <p><a href="https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200/5</link>
+        <pubDate>Tue, 27 Jun 2017 08:01:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15200-5</guid>
+        <source url="https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200.rss">Help replacing models [SOLUTION] + HL Decay port project</source>
+      </item>
+      <item>
+        <title>Help replacing models [SOLUTION] + HL Decay port project</title>
+        <dc:creator><![CDATA[Momocody]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi there, my team is also making a Decay: Source remake in the Source SDK 2013 MP engine. We are making everything from scratch, and as far as I’m aware, there is no possible way to get co-op in BM. On the other hand, we have a working co-op and are currently converting our BM maps to Source SDK 2013.</p>
+          <p><a href="https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200/4</link>
+        <pubDate>Tue, 27 Jun 2017 06:45:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15200-4</guid>
+        <source url="https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200.rss">Help replacing models [SOLUTION] + HL Decay port project</source>
+      </item>
+      <item>
+        <title>Help replacing models [SOLUTION] + HL Decay port project</title>
+        <dc:creator><![CDATA[C_H_R_I_S]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks!<br>
+Also I’m not sure how to do that?  <img src="https://leakfree.org/images/emoji/twitter/expressionless.png?v=9" title=":expressionless:" class="emoji" alt=":expressionless:"></p>
+<p>EDIT: Like this?</p>
+<p>[spoiler]SearchPaths<br>
+{<br>
+// We search VPK files before ordinary folders, because most files will be found in<br>
+// VPK and we can avoid making thousands of file system calls to attempt to open files<br>
+// in folders where they don’t exist.  (Searching a VPK is much faster than making an operating<br>
+// system call.)</p>
+<p>// Black Mesa VPK files.<br>
+game+mod bms/custom/*<br>
+game+mod bms/bms_textures.vpk<br>
+game+mod bms/bms_materials.vpk<br>
+game+mod bms/bms_models.vpk<br>
+game+mod bms/bms_misc.vpk<br>
+game+mod bms/bms_sounds_misc.vpk<br>
+game+mod bms/bms_sound_vo_english.vpk<br>
+game+mod bms/bms_maps.vpk[/spoiler]</p>
+          <p><a href="https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200/3</link>
+        <pubDate>Mon, 26 Jun 2017 21:38:10 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15200-3</guid>
+        <source url="https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200.rss">Help replacing models [SOLUTION] + HL Decay port project</source>
+      </item>
+      <item>
+        <title>Help replacing models [SOLUTION] + HL Decay port project</title>
+        <dc:creator><![CDATA[Nozoki17]]></dc:creator>
+        <description><![CDATA[
+            <p>First of all, I must say that it’s probably one of the nicest source rendition of Decay i’ve seen so far. As for your problem, did you try to add the “custom” folder to the gameinfo.txt? I know that in the past, it caused some issue with non-vpk addons <img src="https://leakfree.org/images/emoji/twitter/confused.png?v=9" title=":confused:" class="emoji" alt=":confused:"></p>
+          <p><a href="https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200/2</link>
+        <pubDate>Mon, 26 Jun 2017 21:03:53 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15200-2</guid>
+        <source url="https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200.rss">Help replacing models [SOLUTION] + HL Decay port project</source>
+      </item>
+      <item>
+        <title>Help replacing models [SOLUTION] + HL Decay port project</title>
+        <dc:creator><![CDATA[C_H_R_I_S]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi.<br>
+So.<br>
+This is the first time I ever made a post in a forum in my entire life because I could never be bothered and because, usually, someone else would have already done the question and I’d just use that. So I’ll try to make it as clear as possible what the problem and what the project is.</p>
+<p>I’m porting all the important stuff (maps, character models and dialog) from Half-Life Decay to Black Mesa. Here are some pictures. ( I’m open to suggestions, btw)</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/5/553d2b1430afa6979eb3ee0e739bf735fb16fc97.jpeg" data-download-href="https://leakfree.org/uploads/default/553d2b1430afa6979eb3ee0e739bf735fb16fc97" title="untitled.jpg"><img src="https://leakfree.org/uploads/default/original/2X/5/553d2b1430afa6979eb3ee0e739bf735fb16fc97.jpeg" alt="untitled.jpg" data-base62-sha1="ca3DwehMbciJE88t7nFcV4QAMsL" width="690" height="500" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/5/553d2b1430afa6979eb3ee0e739bf735fb16fc97_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">untitled.jpg</span><span class="informations">960×540 41.3 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div>    <div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/a/ac9a280913da18c87c7530906fa5e355cac5d834.png" data-download-href="https://leakfree.org/uploads/default/ac9a280913da18c87c7530906fa5e355cac5d834" title="Capture.PNG"><img src="https://leakfree.org/uploads/default/optimized/2X/a/ac9a280913da18c87c7530906fa5e355cac5d834_2_690x500.png" alt="Capture.PNG" data-base62-sha1="oCUp0SXhaV9sJTNjOenc5UPrgTa" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/a/ac9a280913da18c87c7530906fa5e355cac5d834_2_690x500.png, https://leakfree.org/uploads/default/optimized/2X/a/ac9a280913da18c87c7530906fa5e355cac5d834_2_1035x750.png 1.5x, https://leakfree.org/uploads/default/original/2X/a/ac9a280913da18c87c7530906fa5e355cac5d834.png 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/a/ac9a280913da18c87c7530906fa5e355cac5d834_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">Capture.PNG</span><span class="informations">1366×738 473 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div>    <div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/e/ea9f330593f4945992167440ca8f57d3062dc594.jpeg" data-download-href="https://leakfree.org/uploads/default/ea9f330593f4945992167440ca8f57d3062dc594" title="dy_accident1_bms0004.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/e/ea9f330593f4945992167440ca8f57d3062dc594_2_690x500.jpeg" alt="dy_accident1_bms0004.jpg" data-base62-sha1="xtyOhyU6iAKZqq9Az10h4Ez5FuA" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/e/ea9f330593f4945992167440ca8f57d3062dc594_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/e/ea9f330593f4945992167440ca8f57d3062dc594_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/original/2X/e/ea9f330593f4945992167440ca8f57d3062dc594.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/e/ea9f330593f4945992167440ca8f57d3062dc594_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">dy_accident1_bms0004.jpg</span><span class="informations">1366×768 447 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/a/abcd4c2e69a7a71c073ecb93e28edcb71a11eb78.jpeg" data-download-href="https://leakfree.org/uploads/default/abcd4c2e69a7a71c073ecb93e28edcb71a11eb78" title="dy_accident1_bms0003.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/a/abcd4c2e69a7a71c073ecb93e28edcb71a11eb78_2_690x500.jpeg" alt="dy_accident1_bms0003.jpg" data-base62-sha1="ovPuIFchhHI0A2F6uknqEZyWwOI" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/a/abcd4c2e69a7a71c073ecb93e28edcb71a11eb78_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/a/abcd4c2e69a7a71c073ecb93e28edcb71a11eb78_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/original/2X/a/abcd4c2e69a7a71c073ecb93e28edcb71a11eb78.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/a/abcd4c2e69a7a71c073ecb93e28edcb71a11eb78_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">dy_accident1_bms0003.jpg</span><span class="informations">1366×768 378 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div>    <div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/4/4dd2a9674f266f239a6491300a639cc16e8cd1da.jpeg" data-download-href="https://leakfree.org/uploads/default/4dd2a9674f266f239a6491300a639cc16e8cd1da" title="dy_accident1_bms0002.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/4/4dd2a9674f266f239a6491300a639cc16e8cd1da_2_690x500.jpeg" alt="dy_accident1_bms0002.jpg" data-base62-sha1="b6s6z6af1bRNqOK9hS5xsQj3QVA" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/4/4dd2a9674f266f239a6491300a639cc16e8cd1da_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/4/4dd2a9674f266f239a6491300a639cc16e8cd1da_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/original/2X/4/4dd2a9674f266f239a6491300a639cc16e8cd1da.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/4/4dd2a9674f266f239a6491300a639cc16e8cd1da_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">dy_accident1_bms0002.jpg</span><span class="informations">1366×768 315 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Now here’s the problem:</p>
+<p>Adding custom textures/models have been pretty easy except when I try to replace other models. I’ve tried:</p>
+<ul>
+<li>Making an “addons” folder and a “decay” folder with all the custom stuff.</li>
+<li>Making a “custom” folder and a “decay” folder with all the custom stuff.</li>
+<li>Making an “addons” folder with a .vpk of my custom stuff.</li>
+<li>Making a “custom” folder with a .vpk of my custom stuff.</li>
+<li>Packing all the custom files in the .bsp itself.</li>
+<li>Placing the custom files in their respective directories. (for example, the hev player model for the scientist team, in the folder bms\models\player)</li>
+</ul>
+<p>None of that worked.</p>
+<p>The weird thing is, when I placed the models in their right folders, hammer replaced the models accordingly. I had replaced both mp_scientist_hev.mdl and mp_marine.mdl, and they were both replaced by my custom Gina model, as shown in this screenshot. (My Gina model works if I compile it with a different name, like mp_gina, and place it in the world as a prop or a monster_generic.)</p>
+<p>[attach=5461,none,1366][/attach]</p>
+<p>Also, here’s a render of that model, if you’re interested. (Idk why blender bugged her eyes like that, she looks fine ingame.)</p>
+<p>[attach=5462,none,960][/attach]</p>
+<p>Thanks in advance.   <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/a/a994b9f5976ada91f31d4e06daabe6058968cb97.jpeg" data-download-href="https://leakfree.org/uploads/default/a994b9f5976ada91f31d4e06daabe6058968cb97" title="dy_accident1_bms0000.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/a/a994b9f5976ada91f31d4e06daabe6058968cb97_2_690x500.jpeg" alt="dy_accident1_bms0000.jpg" data-base62-sha1="ocbkUNqw0mlelm64zHCa7kwMd6L" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/a/a994b9f5976ada91f31d4e06daabe6058968cb97_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/a/a994b9f5976ada91f31d4e06daabe6058968cb97_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/original/2X/a/a994b9f5976ada91f31d4e06daabe6058968cb97.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/a/a994b9f5976ada91f31d4e06daabe6058968cb97_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">dy_accident1_bms0000.jpg</span><span class="informations">1366×768 383 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/9/9b2580ac3a9d7d6fafdf121104c12b38a9755dca.jpeg" data-download-href="https://leakfree.org/uploads/default/9b2580ac3a9d7d6fafdf121104c12b38a9755dca" title="dy_accident1_bms0001.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/9/9b2580ac3a9d7d6fafdf121104c12b38a9755dca_2_690x500.jpeg" alt="dy_accident1_bms0001.jpg" data-base62-sha1="m8um82iNAZu89FpwO4trdnWpZ0u" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/9/9b2580ac3a9d7d6fafdf121104c12b38a9755dca_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/9/9b2580ac3a9d7d6fafdf121104c12b38a9755dca_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/original/2X/9/9b2580ac3a9d7d6fafdf121104c12b38a9755dca.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/9/9b2580ac3a9d7d6fafdf121104c12b38a9755dca_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">dy_accident1_bms0001.jpg</span><span class="informations">1366×768 328 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+          <p><a href="https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200/1</link>
+        <pubDate>Mon, 26 Jun 2017 18:03:51 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15200-1</guid>
+        <source url="https://leakfree.org/t/help-replacing-models-solution-hl-decay-port-project/15200.rss">Help replacing models [SOLUTION] + HL Decay port project</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>[Glitch (SOLVED)] 1 of 2 Fast Weapon Switch Menu Toggles Broken [UPDATED]</title>
+    <link>https://leakfree.org/t/glitch-solved-1-of-2-fast-weapon-switch-menu-toggles-broken-updated/14012</link>
+    <description>[b]I have solved this myself in the post below. The glitch is quite minor but should be brought to the devs attention.[/b][/size]
+
+On multiple levels, upon attempting to either enable/disable Fast Weapon Switch under:
+
+Pause &gt; Options &gt; Keyboard &gt; Advanced [tab]
+
+The command was not processed. It either was stuck on or stuck off. I was able to change this using the console, however the checkbox did not work.
+The glitch occured here: setpos 160.000000 -112.000000 72.031250;setang 8.315998 77.987869 0.000000
+
+It occured at many other positions, but that was the position I was at when I recorded the bug.
+
+Below are screenshots of the glitch (though you can&#39;t really tell at all using the screenshots, I thought I&#39;d include them anyways) and my gameplay recording. The video makes it very obvious that this glitch exists.
+
+SCREENS:
+
+[url=&#39;https://imgur.com/a/zKsgp&#39;]Screens Album[/url]
+
+VIDEO:
+
+I recorded this glitch as well and have a short video link:
+
+[url=&#39;https://youtu.be/WXS4dotosc4&#39;]YouTube[/url]</description>
+    
+    <lastBuildDate>Sat, 23 May 2015 06:46:46 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/glitch-solved-1-of-2-fast-weapon-switch-menu-toggles-broken-updated/14012.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>[Glitch (SOLVED)] 1 of 2 Fast Weapon Switch Menu Toggles Broken [UPDATED]</title>
+        <dc:creator><![CDATA[d4ngo]]></dc:creator>
+        <description><![CDATA[
+            <p><span class="bbcode-b">There is a TL;DR at bottom of this thread bump. [/size]</span></p>
+<p><span class="bbcode-i">Info: While this glitch is minor (condensed glitch details listed in italics directly under this), the devs should know why it occurs and have it brought to their attention. Sorry if bumping is a rule violation, I solved my own glitch I found and wanted to update the thread and share my discovery.</span></p>
+<p><span class="bbcode-i">This glitch is caused (to my understanding) by the Fast Weapon Switch (FWS) toggle checkbox under Options &gt; Keyboard &gt; Advanced… [tab] (<a href="https://imgur.com/yDChWvz" data-bbcode="true" rel="nofollow noopener">IMG</a>1) reporting an overwrite to config.cfg while not toggling the value in the file; the other FWS toggle checkbox found in Options &gt; Black Mesa (<a href="https://imgur.com/SywKBE3" data-bbcode="true" rel="nofollow noopener">IMG</a>2) successfully toggles the value for FWS in config.cfg. More detail on this below.</span></p>
+<p>I didn’t realize this before, but the toggle can also be found here in the menu:</p>
+<p>Options &gt; Black Mesa</p>
+<p>Toggle Location 1 (listed in original post)  Screenshot: <a href="https://imgur.com/yDChWvz" data-bbcode="true" rel="nofollow noopener">Imgur 1</a><br>
+Toggle Location 2 (NEW to this bump)       Screenshot: <a href="https://imgur.com/SywKBE3" data-bbcode="true" rel="nofollow noopener">Imgur 2</a></p>
+<p>The toggle found in Options &gt; Keyboard &gt; Advanced… [tab] does not write changes to the config (although the console feed says it does), regardless of the other’s value (Options &gt; Black Mesa FWS location set to either on or off).</p>
+<p>Applying a change in the Options menu runs the following code in the Console:</p>
+<p><code>'userconfig.cfg' not present; not executing.
+Host_WriteConfiguration: Wrote cfg/config.cfg
+JOY_AXIS_X: mapped to Turn (absolute)
+JOY_AXIS_Y: mapped to Look (absolute)
+JOY_AXIS_Z: unmapped
+JOY_AXIS_R: mapped to Forward (absolute)
+JOY_AXIS_U: mapped to Side (absolute)
+JOY_AXIS_V: unmapped
+Advanced Joystick settings initialized</code><a href="https://imgur.com/J9EfsLi" data-bbcode="true" rel="nofollow noopener">Console IMAGE Link</a></p>
+<p>(Note: I’m not exactly sure of the default location of userconfig.cfg mentioned here, but I found Steam Community user posts asking , leading me to believe they use config.cfg mentioned in the code also)</p>
+<p>Changes save (by default) to the Black Mesa config file, located here:<br>
+C:\Program Files (x86)\Steam\steamapps\common\Black Mesa\bms\cfg\config.cfg</p>
+<p>I opened the config.cfg file to check for the changes made after applying the toggle in both locations, coming to the conclusion that the Options &gt; Keyboard &gt; Advanced… [tab]  toggle location (screen <a href="https://imgur.com/yDChWvz" data-bbcode="true" rel="nofollow noopener">here</a>) does not actually apply the setting to the config file, while the setting is always applied when using the toggle found in Options &gt; Black Mesa (screen <a href="https://imgur.com/SywKBE3" data-bbcode="true" rel="nofollow noopener">here2</a>).</p>
+<p>The line of text changed in the config.cfg is:<br>
+hud_fastswitch “0”</p>
+<p>Which is located at line 187 for me in the config.cfg file found in the location I listed above. Link to IMAGE of config.cfg open to the line in Notepad++ <a href="https://imgur.com/rkiqAge" data-bbcode="true" rel="nofollow noopener">HERE</a>.</p>
+<p><span class="bbcode-i">Conclusion: I’m unsure if the existence of the userconfig.cfg file mentioned in the console affects this, though I am assuming it might. Either way, it seems one of the FWS toggle writes a change while the other does not. At any rate, a user relying on changes saved to config.cfg such as myself and many others will encounter this small glitch.</span>[/size]</p>
+<p><span class="bbcode-b">tl;dr: Conclusions directly above. Toggle Switch 1</span>[/size] (<a href="https://imgur.com/yDChWvz" data-bbcode="true" rel="nofollow noopener">IMG</a>) <span class="bbcode-b">for Fast Weapon Switch found (Options &gt; Keyboard &gt; Advanced… [tab]) is BROKEN but writes as if it works OK in console; Toggle switch 2</span>[/size] (<a href="https://imgur.com/SywKBE3" data-bbcode="true" rel="nofollow noopener">IMG</a>) <span class="bbcode-b">found (Options &gt; Black Mesa) writes changes perfectly (WORKS FINE) to config.cfg and reports fine to console as well.</span>[/size]</p>
+          <p><a href="https://leakfree.org/t/glitch-solved-1-of-2-fast-weapon-switch-menu-toggles-broken-updated/14012/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/glitch-solved-1-of-2-fast-weapon-switch-menu-toggles-broken-updated/14012/2</link>
+        <pubDate>Sat, 23 May 2015 06:46:46 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14012-2</guid>
+        <source url="https://leakfree.org/t/glitch-solved-1-of-2-fast-weapon-switch-menu-toggles-broken-updated/14012.rss">[Glitch (SOLVED)] 1 of 2 Fast Weapon Switch Menu Toggles Broken [UPDATED]</source>
+      </item>
+      <item>
+        <title>[Glitch (SOLVED)] 1 of 2 Fast Weapon Switch Menu Toggles Broken [UPDATED]</title>
+        <dc:creator><![CDATA[d4ngo]]></dc:creator>
+        <description><![CDATA[
+            <p><span class="bbcode-b">I have solved this myself in the post below. The glitch is quite minor but should be brought to the devs attention.</span>[/size]</p>
+<p>On multiple levels, upon attempting to either enable/disable Fast Weapon Switch under:</p>
+<p>Pause &gt; Options &gt; Keyboard &gt; Advanced [tab]</p>
+<p>The command was not processed. It either was stuck on or stuck off. I was able to change this using the console, however the checkbox did not work.<br>
+The glitch occured here: setpos 160.000000 -112.000000 72.031250;setang 8.315998 77.987869 0.000000</p>
+<p>It occured at many other positions, but that was the position I was at when I recorded the bug.</p>
+<p>Below are screenshots of the glitch (though you can’t really tell at all using the screenshots, I thought I’d include them anyways) and my gameplay recording. The video makes it very obvious that this glitch exists.</p>
+<p>SCREENS:</p>
+<p><a href="https://imgur.com/a/zKsgp" data-bbcode="true" rel="nofollow noopener">Screens Album</a></p>
+<p>VIDEO:</p>
+<p>I recorded this glitch as well and have a short video link:</p>
+<p><a href="https://youtu.be/WXS4dotosc4" data-bbcode="true" rel="nofollow noopener">YouTube</a></p>
+          <p><a href="https://leakfree.org/t/glitch-solved-1-of-2-fast-weapon-switch-menu-toggles-broken-updated/14012/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/glitch-solved-1-of-2-fast-weapon-switch-menu-toggles-broken-updated/14012/1</link>
+        <pubDate>Wed, 13 May 2015 02:32:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14012-1</guid>
+        <source url="https://leakfree.org/t/glitch-solved-1-of-2-fast-weapon-switch-menu-toggles-broken-updated/14012.rss">[Glitch (SOLVED)] 1 of 2 Fast Weapon Switch Menu Toggles Broken [UPDATED]</source>
+      </item>
+  </channel>
+</rss>

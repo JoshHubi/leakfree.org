@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Extreme FPS drops, &quot;Lag Walls&quot; in Linux after switching to Open Beta</title>
+    <link>https://leakfree.org/t/extreme-fps-drops-lag-walls-in-linux-after-switching-to-open-beta/62706</link>
+    <description>I played through the whole game as it currently exists in the main Steam branch with no unfixable, not already documented errors.  After credits scrolled I decided to look up the status of the Xen beta to find out the full play-through had been pushed to the Open Beta branch just the day before!
+
+I had to delete the `glshaders.cfg` file to get the Beta to load.
+
+I noticed the FPS issue at the first Xen title sequence, but the game was totally still playable for a while.  I posted in Discord about it as well:
+
+&gt; I also have the FPS issue, running `Ubuntu 18.04.1` 
+&gt; It seems to be location based.  I first hit the &#39;lag wall&#39; at the same time the chapter text Xen appears on screen, and the music starts.
+&gt; If I keep walking forward when the speed returns everything is fine.  If I go back into the cave I hit the lag wall all over again.  And a third time when I leave the cave again
+
+I dropped my graphics settings to as low as I could get them, and attempted to modify the `mat_queue_mode` setting, but couldn&#39;t figure out where it needed to be set.
+
+Here&#39;s a collection of screenshots I took with `+showbudget_texture` enabled:
+https://imgur.com/a/28XcKr1
+
+Here&#39;s a pastebin of everything in my console: https://pastebin.com/HsTidbBn
+Here&#39;s the status and getpos results:
+
+    ] status
+    hostname: Black Mesa
+    version : 100001/24 100001 insecure
+    map     : bm_c4a1a at: -6382 x, -791 y, 9109 z
+    tags    :
+    players : 1 humans, 0 bots (1 max)
+    edicts  : 2061 used of 4096 max
+    # userid name                uniqueid            connected ping loss state  adr
+    #      3 &quot;No one of consequence&quot; STEAM_ID_PENDING 02:54      15    0 active loopback
+
+    ] getpos
+    setpos -6382.572266 -791.250793 9109.290039;setang -10.877665 82.221359 0.000000
+
+Edit:
+Here&#39;s some info about my system:
+
+    $ uname -a
+    Linux Wheatley 4.18.0-25-generic #26~18.04.1-Ubuntu SMP Thu Jun 27 07:28:31 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+Results for 
+
+    $ sudo lshw &gt; lshw.txt
+https://pastebin.com/9VaHqCFT
+
+Edit 2:
+I noticed I have two Black Mesa folders in `~/.local/share/Steam/steamapps/common/`.  One is `Black Mesa/` and the other is `Black mesa/`.
+`Black Mesa/` is the main folder, while `Black mesa/`&#39;s files all share a timestamp of when I updated to the Beta branch:
+
+    $ ls -al
+    total 44
+    drwxr--r-- 3 aaron aaron  4096 Dec  7 21:42 .
+    drwxr--r-- 3 aaron aaron  4096 Dec  7 21:42 ..
+    -rw-rw-r-- 1 aaron aaron   925 Dec  7 21:42 gamestate.txt
+    -rw-rw-r-- 1 aaron aaron 13179 Dec  7 21:42 glshaders.cfg
+    -rw-rw-r-- 1 aaron aaron  4422 Dec  7 21:42 modelsounds.cache
+    drwxr--r-- 2 aaron aaron  4096 Dec  7 21:42 sound
+    -rw-rw-r-- 1 aaron aaron     0 Dec  7 21:42 stats.txt
+    -rw-rw-r-- 1 aaron aaron     4 Dec  7 21:42 voice_ban.dt
+
+No idea if this is intentional or related, but figured it&#39;s worth noting
+
+Edit 3:
+Ran another test, this time starting the game from CLI, here&#39;s logs:
+https://pastebin.com/Hdz4Rpex
+
+I was running HTOP at the time, the game was making use of multi-threading at first, but after hitting the wall a single core was at 100% and the rest were low util.
+I noticed two `matqueue0` processes pretty high on the CPU usage list when first starting, but they seemed to disappear after the wall.
+
+More system information--
+I don&#39;t believe this is a strict graphics driver issue; the GPU even works on Folding@Home
+But in case it is anyway,
+
+    $ glxinfo | grep OpenGL
+    OpenGL vendor string: NVIDIA Corporation
+    OpenGL renderer string: GeForce GTX 1070 Ti/PCIe/SSE2
+    OpenGL core profile version string: 4.6.0 NVIDIA 430.50
+    OpenGL core profile shading language version string: 4.60 NVIDIA
+    OpenGL core profile context flags: (none)
+    OpenGL core profile profile mask: core profile
+    OpenGL core profile extensions:
+    OpenGL version string: 4.6.0 NVIDIA 430.50
+    OpenGL shading language version string: 4.60 NVIDIA
+    OpenGL context flags: (none)
+    OpenGL profile mask: (none)
+    OpenGL extensions:
+    OpenGL ES profile version string: OpenGL ES 3.2 NVIDIA 430.50
+    OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.20
+    OpenGL ES profile extensions:
+
+Are there other logs that might prove useful?  
+Should I try to capture kernel logs during a test?</description>
+    
+    <lastBuildDate>Wed, 11 Dec 2019 02:08:42 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/extreme-fps-drops-lag-walls-in-linux-after-switching-to-open-beta/62706.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Extreme FPS drops, &quot;Lag Walls&quot; in Linux after switching to Open Beta</title>
+        <dc:creator><![CDATA[ajwilco]]></dc:creator>
+        <description><![CDATA[
+            <p>I played through the whole game as it currently exists in the main Steam branch with no unfixable, not already documented errors.  After credits scrolled I decided to look up the status of the Xen beta to find out the full play-through had been pushed to the Open Beta branch just the day before!</p>
+<p>I had to delete the <code>glshaders.cfg</code> file to get the Beta to load.</p>
+<p>I noticed the FPS issue at the first Xen title sequence, but the game was totally still playable for a while.  I posted in Discord about it as well:</p>
+<blockquote>
+<p>I also have the FPS issue, running <code>Ubuntu 18.04.1</code><br>
+It seems to be location based.  I first hit the ‘lag wall’ at the same time the chapter text Xen appears on screen, and the music starts.<br>
+If I keep walking forward when the speed returns everything is fine.  If I go back into the cave I hit the lag wall all over again.  And a third time when I leave the cave again</p>
+</blockquote>
+<p>I dropped my graphics settings to as low as I could get them, and attempted to modify the <code>mat_queue_mode</code> setting, but couldn’t figure out where it needed to be set.</p>
+<p>Here’s a collection of screenshots I took with <code>+showbudget_texture</code> enabled:<br>
+            <div class="onebox imgur-album">
+              <a href="https://imgur.com/a/28XcKr1" target="_blank" rel="nofollow noopener">
+                <span class="outer-box" style="width:600px">
+                  <span class="inner-box">
+                    <span class="album-title">[Album] Black Mesa Xen Open Beta FPS Lag Wall</span>
+                  </span>
+                </span>
+                <img src="https://leakfree.org/uploads/default/original/2X/1/15c83e34c521d76511035f9c685187e550dc0496.jpeg" title="Black Mesa Xen Open Beta FPS Lag Wall" height="315" width="600">
+              </a>
+            </div>
+</p>
+<p>Here’s a pastebin of everything in my console: <a href="https://pastebin.com/HsTidbBn" rel="nofollow noopener">https://pastebin.com/HsTidbBn</a><br>
+Here’s the status and getpos results:</p>
+<pre><code>] status
+hostname: Black Mesa
+version : 100001/24 100001 insecure
+map     : bm_c4a1a at: -6382 x, -791 y, 9109 z
+tags    :
+players : 1 humans, 0 bots (1 max)
+edicts  : 2061 used of 4096 max
+# userid name                uniqueid            connected ping loss state  adr
+#      3 "No one of consequence" STEAM_ID_PENDING 02:54      15    0 active loopback
+
+] getpos
+setpos -6382.572266 -791.250793 9109.290039;setang -10.877665 82.221359 0.000000
+</code></pre>
+<p>Edit:<br>
+Here’s some info about my system:</p>
+<pre><code>$ uname -a
+Linux Wheatley 4.18.0-25-generic #26~18.04.1-Ubuntu SMP Thu Jun 27 07:28:31 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+</code></pre>
+<p>Results for</p>
+<pre><code>$ sudo lshw &gt; lshw.txt
+</code></pre>
+<p><a href="https://pastebin.com/9VaHqCFT" class="onebox" target="_blank" rel="nofollow noopener">https://pastebin.com/9VaHqCFT</a></p>
+<p>Edit 2:<br>
+I noticed I have two Black Mesa folders in <code>~/.local/share/Steam/steamapps/common/</code>.  One is <code>Black Mesa/</code> and the other is <code>Black mesa/</code>.<br>
+<code>Black Mesa/</code> is the main folder, while <code>Black mesa/</code>'s files all share a timestamp of when I updated to the Beta branch:</p>
+<pre><code>$ ls -al
+total 44
+drwxr--r-- 3 aaron aaron  4096 Dec  7 21:42 .
+drwxr--r-- 3 aaron aaron  4096 Dec  7 21:42 ..
+-rw-rw-r-- 1 aaron aaron   925 Dec  7 21:42 gamestate.txt
+-rw-rw-r-- 1 aaron aaron 13179 Dec  7 21:42 glshaders.cfg
+-rw-rw-r-- 1 aaron aaron  4422 Dec  7 21:42 modelsounds.cache
+drwxr--r-- 2 aaron aaron  4096 Dec  7 21:42 sound
+-rw-rw-r-- 1 aaron aaron     0 Dec  7 21:42 stats.txt
+-rw-rw-r-- 1 aaron aaron     4 Dec  7 21:42 voice_ban.dt
+</code></pre>
+<p>No idea if this is intentional or related, but figured it’s worth noting</p>
+<p>Edit 3:<br>
+Ran another test, this time starting the game from CLI, here’s logs:<br>
+<a href="https://pastebin.com/Hdz4Rpex" class="onebox" target="_blank" rel="nofollow noopener">https://pastebin.com/Hdz4Rpex</a></p>
+<p>I was running HTOP at the time, the game was making use of multi-threading at first, but after hitting the wall a single core was at 100% and the rest were low util.<br>
+I noticed two <code>matqueue0</code> processes pretty high on the CPU usage list when first starting, but they seemed to disappear after the wall.</p>
+<p>More system information–<br>
+I don’t believe this is a strict graphics driver issue; the GPU even works on Folding@Home<br>
+But in case it is anyway,</p>
+<pre><code>$ glxinfo | grep OpenGL
+OpenGL vendor string: NVIDIA Corporation
+OpenGL renderer string: GeForce GTX 1070 Ti/PCIe/SSE2
+OpenGL core profile version string: 4.6.0 NVIDIA 430.50
+OpenGL core profile shading language version string: 4.60 NVIDIA
+OpenGL core profile context flags: (none)
+OpenGL core profile profile mask: core profile
+OpenGL core profile extensions:
+OpenGL version string: 4.6.0 NVIDIA 430.50
+OpenGL shading language version string: 4.60 NVIDIA
+OpenGL context flags: (none)
+OpenGL profile mask: (none)
+OpenGL extensions:
+OpenGL ES profile version string: OpenGL ES 3.2 NVIDIA 430.50
+OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.20
+OpenGL ES profile extensions:
+</code></pre>
+<p>Are there other logs that might prove useful?<br>
+Should I try to capture kernel logs during a test?</p>
+          <p><a href="https://leakfree.org/t/extreme-fps-drops-lag-walls-in-linux-after-switching-to-open-beta/62706/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/extreme-fps-drops-lag-walls-in-linux-after-switching-to-open-beta/62706/1</link>
+        <pubDate>Tue, 10 Dec 2019 04:05:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62706-1</guid>
+        <source url="https://leakfree.org/t/extreme-fps-drops-lag-walls-in-linux-after-switching-to-open-beta/62706.rss">Extreme FPS drops, &quot;Lag Walls&quot; in Linux after switching to Open Beta</source>
+      </item>
+  </channel>
+</rss>

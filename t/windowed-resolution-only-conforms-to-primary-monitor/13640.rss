@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Windowed Resolution Only Conforms to Primary Monitor</title>
+    <link>https://leakfree.org/t/windowed-resolution-only-conforms-to-primary-monitor/13640</link>
+    <description>Hi, I&#39;m running an unconventional triple monitor system with a desktop that spans 4480 x 1024 pixels.  This is on an Nvidia card but it is not supported by Nvidia surround.
+
+Typically I&#39;d run games in windowed mode with a custom resolution to span all 3 monitors, this works in some idTech games, GoldSRC engine, Unreal engine, etc.  GoldSRC even allows you to drag and drop the border of the window.
+
+Black Mesa/Source appears to require the game window resolution to conform to the primary monitor&#39;s resolution.
+
+  If I launch with the parameters -windowed -w 4480 -h 1024, the program closes immediately.  If I launch with an uncommon aspect such as 1x1, as long as it is lower than the primary monitor&#39;s maximum settings, it will run.
+
+Is there any workaround for this?  Thank you in advance for your time.</description>
+    
+    <lastBuildDate>Tue, 13 Jan 2015 04:27:21 +0000</lastBuildDate>
+    <category>Help!</category>
+    <atom:link href="https://leakfree.org/t/windowed-resolution-only-conforms-to-primary-monitor/13640.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Windowed Resolution Only Conforms to Primary Monitor</title>
+        <dc:creator><![CDATA[Psytronic]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve come up with a messy workaround to get this to work in Half Life 2, the same should work with Black Mesa although I have not tested it.  This specific process requires you to be using an Nvidia video card and drivers, although it may be possible with an ATI system.</p>
+<p>First, you must download and run Resize Enabler, as linked here:<br>
+<a href="https://lifehacker.com/325452/resize-any-window-with-resizableenable" data-bbcode="true" rel="nofollow noopener">https://lifehacker.com/325452/resize-any-window-with-resizableenable</a></p>
+<p>This will allow you to resize any window, even those whose dimensions you cannot normally change, including the Half Life 2/Black Mesa window.  Unfortunately, it will not change the resolution of the game’s output, it will only change the aspect.  This means if your resolution is 1024x768, it will remain so only now you can stretch it across however many monitors you’ve got.</p>
+<p>The next step requires you to know the exact combined resolution of the monitors you are using.  In my case, it is 4480 x 1024 (one 4:3 monitor and two 16:10 monitors).</p>
+<p>In the Nvidia Control Panel, you must navigate to Display -&gt; Change Resolution, and select your primary monitor.  You will then press the “Customize” button and here create a resolution that matches the desired span of all of your screens.  In my case, I created a resolution for my primary monitor which is 4480 x 1024.  Obviously, my monitor was not made to function at this resolution, and it will not display properly, but that is inconsequential to this process.</p>
+<p>This is so we can then raise the resolution of the monitor, and then launch the game with command parameters: -w 4480 -h 1024 (substitute your own numbers here)</p>
+<p>You must set this by right-clicking the game on the list in your steam library, choosing Properties in the drop down, and then pressing Set Launch Options.  My launch parameters are:<br>
+-windowed -w 4480 -h 1024</p>
+<p>Okay, now you want to use the windows resolution manager to change your primary monitor’s resolution.  Go to your desktop, right click, press Screen Resolution, and choose your primary monitor.  Drag this window off of your primary monitor, you will need it to be accessible while the monitor is no longer functioning.  Also drag your Steam window off of your primary monitor.</p>
+<p>Using the windows resolution manager, set the primary monitor to the new resolution you created, this will cause it to cease functioning.  Now, through your steam window, launch the game.  It should take a moment to run, but it will only run on your (now non-functioning) primary monitor, and thus you will only hear sounds.</p>
+<p>Wait for the introduction sounds to cease, and now change the monitor back to its normal resolution!</p>
+<p>Now, you will have a game window with the resolution you desire, but not the correct aspect (as it will automatically conform to the size of the primary monitor).  Using the magic of Resize Enabler, drag the borders of the window to conform to your entire desktop.  Make sure you keep the aspect accurate to the desired resolution, or the menus will not interface correctly with the mouse’s position.</p>
+<p>Presto, you should now be running the game across multiple displays, but without any special software such as Eyeinfinity or Nvidiasurround.</p>
+<p>For search engines:</p>
+<p>Source Engine, Half Life 2, Black Mesa, triple monitors, windowed, multiple monitors, workaround, resizable window, Valve</p>
+          <p><a href="https://leakfree.org/t/windowed-resolution-only-conforms-to-primary-monitor/13640/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/windowed-resolution-only-conforms-to-primary-monitor/13640/2</link>
+        <pubDate>Tue, 13 Jan 2015 04:27:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13640-2</guid>
+        <source url="https://leakfree.org/t/windowed-resolution-only-conforms-to-primary-monitor/13640.rss">Windowed Resolution Only Conforms to Primary Monitor</source>
+      </item>
+      <item>
+        <title>Windowed Resolution Only Conforms to Primary Monitor</title>
+        <dc:creator><![CDATA[Psytronic]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi, I’m running an unconventional triple monitor system with a desktop that spans 4480 x 1024 pixels.  This is on an Nvidia card but it is not supported by Nvidia surround.</p>
+<p>Typically I’d run games in windowed mode with a custom resolution to span all 3 monitors, this works in some idTech games, GoldSRC engine, Unreal engine, etc.  GoldSRC even allows you to drag and drop the border of the window.</p>
+<p>Black Mesa/Source appears to require the game window resolution to conform to the primary monitor’s resolution.</p>
+<p>If I launch with the parameters -windowed -w 4480 -h 1024, the program closes immediately.  If I launch with an uncommon aspect such as 1x1, as long as it is lower than the primary monitor’s maximum settings, it will run.</p>
+<p>Is there any workaround for this?  Thank you in advance for your time.</p>
+          <p><a href="https://leakfree.org/t/windowed-resolution-only-conforms-to-primary-monitor/13640/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/windowed-resolution-only-conforms-to-primary-monitor/13640/1</link>
+        <pubDate>Wed, 07 Jan 2015 22:34:33 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13640-1</guid>
+        <source url="https://leakfree.org/t/windowed-resolution-only-conforms-to-primary-monitor/13640.rss">Windowed Resolution Only Conforms to Primary Monitor</source>
+      </item>
+  </channel>
+</rss>

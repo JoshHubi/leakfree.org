@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Background music not playing: figured out the issue</title>
+    <link>https://leakfree.org/t/background-music-not-playing-figured-out-the-issue/15233</link>
+    <description>For me the issue with background music not playing wasn&#39;t fixed by installing the provided vcredist 2013 runtime.
+
+So I was trying to figure which runtime files where actually used and it appears that libogg.dll and libvorbis.dll need MSVCR100.dll.
+
+I&#39;ve compiled ogg and vorbis dlls from source using mingw32 compilers, as they link against msvcrt.dll by default. That fixed it. Or just add the missing runtime files to the bin directory. I think they where from the 2010 vcredist.
+
+By the way there is also libsasl.dll which needs MSVCR80.dll (vcredist 2005 I think).</description>
+    
+    <lastBuildDate>Sun, 13 Aug 2017 15:31:37 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/background-music-not-playing-figured-out-the-issue/15233.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Background music not playing: figured out the issue</title>
+        <dc:creator><![CDATA[djcj]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve attached the MinGW builds of libogg.dll and libvorbis.dll if anyone is interested. I don’t remember what source versions I built them from, probably the latest stable releases.<br>
+<a class="attachment" href="https://leakfree.org/uploads/default/original/2X/1/136fc549171d8a6995d8c749b0cf6018191b7618.zip">libogg_libvorbis_MinGW.zip</a> (102 KB)</p>
+          <p><a href="https://leakfree.org/t/background-music-not-playing-figured-out-the-issue/15233/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/background-music-not-playing-figured-out-the-issue/15233/6</link>
+        <pubDate>Sun, 13 Aug 2017 15:31:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15233-6</guid>
+        <source url="https://leakfree.org/t/background-music-not-playing-figured-out-the-issue/15233.rss">Background music not playing: figured out the issue</source>
+      </item>
+      <item>
+        <title>Background music not playing: figured out the issue</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <p>It was meant towards <a href="https://forums.blackmesasource.com/index.php/User/60550-BlackMesaScience/" data-bbcode="true" rel="nofollow noopener">BlackMesaScience</a> as he was playing On A Rail Uncut.<br>
+But I guess your solution may be fix for it too.</p>
+          <p><a href="https://leakfree.org/t/background-music-not-playing-figured-out-the-issue/15233/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/background-music-not-playing-figured-out-the-issue/15233/5</link>
+        <pubDate>Wed, 26 Jul 2017 00:13:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15233-5</guid>
+        <source url="https://leakfree.org/t/background-music-not-playing-figured-out-the-issue/15233.rss">Background music not playing: figured out the issue</source>
+      </item>
+      <item>
+        <title>Background music not playing: figured out the issue</title>
+        <dc:creator><![CDATA[djcj]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="LordDz">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/d2c977/40.png" class="avatar"> LordDz:</div>
+<blockquote>
+<p>Are the music files custom music that you’re trying to play from a map of your own…<br>
+Or the offical music files?</p>
+<p>Because for some sounds to work in the workshop, you have to input<br>
+snd_restart<br>
+in the console with a point_clientcommand at the startup of the map.</p>
+<p>You can see the console whining about not being able to read some .ogg files, but with the snd_restart this fixes it.<br>
+However it will stop all playing sounds, so you would have manually play looping sounds (ambients, vents, machines, etc) after inputting the command.</p>
+</blockquote>
+</aside>
+<p>Was that a reply to me? I’m actually talking about official maps. For example, if you start the chapter Unforseen Consequences, right after leaving the test chamber ambient music is supposed to start. But the console shows errors if MSVCR100.dll is missing. When I use the libogg and libvorbis that I’ve compiled from source (linked against MSVCRT.dll) everything works.</p>
+<p>When I once reported the same issue (long time ago) I was told to install the vcredist 2013 that’s bundled with Black Mesa. Dunno why that fixed it at that time, but the last time it didn’t, so I tracked down all the dependencies and figured out that MSVCR100.dll from the 2010 (?) redist was required. I was doing this in “Bash on Ubuntu on Windows” using the command <span class="bbcode-i">objdump -x “some-dll.dll” 2&gt;/dev/null | sed -nr ‘s|.<em>DLL Name: (.</em>).*|\1|p’</span></p>
+<p>To sum it up: only the client and server DLLs require the bundled 2013 redist. bin/libogg.dll and bin/libvorbis.dll require MSVCR100.dll (2010 redist?), bin/libsasl.dll needs MSVCR80.dll (vcredist 2005 or 2008). Other binaries are linked against the default msvcrt.dll. I don’t even know what libsasl.dll is used for.</p>
+          <p><a href="https://leakfree.org/t/background-music-not-playing-figured-out-the-issue/15233/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/background-music-not-playing-figured-out-the-issue/15233/4</link>
+        <pubDate>Tue, 25 Jul 2017 21:16:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15233-4</guid>
+        <source url="https://leakfree.org/t/background-music-not-playing-figured-out-the-issue/15233.rss">Background music not playing: figured out the issue</source>
+      </item>
+      <item>
+        <title>Background music not playing: figured out the issue</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <p>Are the music files custom music that you’re trying to play from a map of your own…<br>
+Or the offical music files?</p>
+<p>Because for some sounds to work in the workshop, you have to input<br>
+snd_restart<br>
+in the console with a point_clientcommand at the startup of the map.</p>
+<p>You can see the console whining about not being able to read some .ogg files, but with the snd_restart this fixes it.<br>
+However it will stop all playing sounds, so you would have manually play looping sounds (ambients, vents, machines, etc) after inputting the command.</p>
+          <p><a href="https://leakfree.org/t/background-music-not-playing-figured-out-the-issue/15233/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/background-music-not-playing-figured-out-the-issue/15233/3</link>
+        <pubDate>Mon, 24 Jul 2017 12:24:19 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15233-3</guid>
+        <source url="https://leakfree.org/t/background-music-not-playing-figured-out-the-issue/15233.rss">Background music not playing: figured out the issue</source>
+      </item>
+      <item>
+        <title>Background music not playing: figured out the issue</title>
+        <dc:creator><![CDATA[BlackMesaScience]]></dc:creator>
+        <description><![CDATA[
+            <p>This really only occurred with my while I was playing On A Rail Uncut, every time I’d load my save, the music wouldn’t play.</p>
+          <p><a href="https://leakfree.org/t/background-music-not-playing-figured-out-the-issue/15233/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/background-music-not-playing-figured-out-the-issue/15233/2</link>
+        <pubDate>Mon, 24 Jul 2017 09:19:16 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15233-2</guid>
+        <source url="https://leakfree.org/t/background-music-not-playing-figured-out-the-issue/15233.rss">Background music not playing: figured out the issue</source>
+      </item>
+      <item>
+        <title>Background music not playing: figured out the issue</title>
+        <dc:creator><![CDATA[djcj]]></dc:creator>
+        <description><![CDATA[
+            <p>For me the issue with background music not playing wasn’t fixed by installing the provided vcredist 2013 runtime.</p>
+<p>So I was trying to figure which runtime files where actually used and it appears that libogg.dll and libvorbis.dll need MSVCR100.dll.</p>
+<p>I’ve compiled ogg and vorbis dlls from source using mingw32 compilers, as they link against msvcrt.dll by default. That fixed it. Or just add the missing runtime files to the bin directory. I think they where from the 2010 vcredist.</p>
+<p>By the way there is also libsasl.dll which needs MSVCR80.dll (vcredist 2005 I think).</p>
+          <p><a href="https://leakfree.org/t/background-music-not-playing-figured-out-the-issue/15233/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/background-music-not-playing-figured-out-the-issue/15233/1</link>
+        <pubDate>Sat, 22 Jul 2017 09:57:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15233-1</guid>
+        <source url="https://leakfree.org/t/background-music-not-playing-figured-out-the-issue/15233.rss">Background music not playing: figured out the issue</source>
+      </item>
+  </channel>
+</rss>

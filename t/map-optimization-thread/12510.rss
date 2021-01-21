@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Map Optimization Thread!</title>
+    <link>https://leakfree.org/t/map-optimization-thread/12510</link>
+    <description>[img]https://imageshack.us/a/img17/6863/gged.jpg[/img]
+Fig. 1. Yeah, I&#39;ve got my work cut out for me.
+
+I figured I&#39;d start a purpose built thread for this because I have a TON of questions about optimizing in Source. My in-progress mod has been long delayed because of Source&#39;s difficulty rendering any kind of open spaces, and as a result I had to totally redesign the entire world map to better cater to Source&#39;s strengths (indoor areas, and outdoor scenes broken up by cliffs and other natural formations to keep entity budget down). 
+
+I&#39;m currently attempting to design a dockyard for the mod, and I am running into some difficulty regarding alignment of buildings and the use of Source&#39;s optimization toolset. 
+
+For those of you unfamiliar with Source Engine optimization (and yes, you would be reading this thread to learn something), I&#39;ll briefly explain what each thing does.
+
+BASIC SOURCE OPTIMIZATION PRIMER (Based on what I know. Feel free to correct me if anything is wrong and I&#39;ll update this.)
+
+---------
+
+[b]NoDraw [/b]textures are effectively telling the game that &quot;nothing texture-wise needs to be drawn here.&quot; This is useful for areas that are &quot;out of bounds&quot; or otherwise inaccessible for players through normal movement. Using these on the other side of walls or floors where the player cannot go is the primary use for NoDraw. No performance cost, 
+
+[b]Hint[/b] textures are effectively a manual method of telling VVIS (the map visibility calculator at compile time) where something can and cannot be drawn. VVIS does a lot of the heavy lifting, but not necessarily the most efficiently. Using Hint effectively can effect your map&#39;s visibility calculation time quite positively with a minimum of in-game performance cost. For instance, in a corridor that bends in a C shape 
+
+----------------
+I  -------------
+I  I
+I  I
+I  I
+I  -------------
+----------------
+
+Can be optimized with hint textures. [url=&#39;https://www.youtube.com/watch?v=Ne59X-e-R9Y&amp;feature=player_detailpage#t=100&#39;]Better example here.[/url] Heck, watch that whole video, it explains all of this a TON better.
+
+[b]Occluders[/b] are effectively free-standing walls that can be built anywhere. At run-time, the game engine must run calculations while the Occluder wall is active to figure out what is and is not being hidden by the func_occluder. This is primarily for areas where there are a lot of props in a specific area that you want to hide when the player can&#39;t see them and an Areaportal is out of the question. Use these with caution, since this is not calculated in compile, it is run dynamically in-game and can therefore actively sabotage performance if overused.
+
+The [b]Far Z Clip[/b] function of [b]env_fog[/b] is another choice for long range visibility culling. This uses a fog effect defined by the mapper to cover the dropping of long distance props and geometry. Silent Hill&#39;s distinctive fog effect evolved from a similar method of optimization due to the first game using the limited memory of the original PlayStation up too fast and the fog had to be used to keep the game from lagging uncontrollably. 
+
+[b]Areaportals[/b] are the pickiest form of optimization but potentially the most powerful. These seal off areas of your map completely between areas. Put one in a door of a building that doesn&#39;t connect back to the outside, and while the door is closed the entire building and everything in it does not draw. This helps the renderer be capable of detailed interiors and exteriors without requiring both to be drawn simultaneously, and is generally a very good tool. However, you have to be VERY careful employing them, because if there is any part of the building that links back to the outside that doesn&#39;t have another portal sealing it off, the map will leak and you&#39;ll have to go back and fix it. Fun fun fun!
+
+Two principal variants of areaportals exist: the standard version, designed to be toggled on and off with inputs or linked to a prop state such as a door, and the &quot;window&quot; version, which uses a brush to fade with. When you get close to a dark interior in HL2 and the scene gradually fades into view? That&#39;s a window areaportal at work.
+
+Also, TextFAM reminded me that even if an areaportal is an always-open portal, it has the effect of culling geometry and props that are drawn through it. So instead of drawing the entire room beyond, it only renders what the player client can see through it. Again, use with caution, because this is dynamically calculated by the engine, and if you have a bunch of portals in the same area it can also cause problems in your compile.
+
+----------
+
+[img]https://imageshack.us/a/img819/6664/yxfd.jpg[/img]
+Fig. 2. First part of my large Dockyard whiteboard mockup. Already trying some ideas with optmization on paper, but it&#39;s harder to visualize top-down because I don&#39;t have the advantage of seeing where I can put the skybox walls to optimize without impeding player freedom.
+
+The Dock map is going to be divided into three main areas- the initial area with a drydock and prisoner induction building, the second area consisting of a warehouse and lots of shipping containers, and the third area, with a full dock crane, secondary warehouse, and crane. The third area should be able to let a sniper take pot shots at the player across any area in view. I could employ the far-Z clip of an env_fog, but I&#39;d like to preserve long range viewpoints if possible because combat is always more interesting when you force the player to consider both range and verticality. One of the better combat sequences in HL2 was the inside of the old factory where the player was being constantly attacked from above, their level, and then subsequently below (right before Forget About Freeman starts, if you&#39;re wondering which map). 
+
+[img]https://imageshack.us/a/img835/5970/5nsy.jpg[/img]
+Fig. 3. - Part 2 of the dockyard. Try to connect both areas in your head and imagine how much of a pain in the ass that will be to both detail properly and optimize to keep a 60fps framerate at Episode Two system requirements. My mod will probably require higher requirements than Ep2, at least in terms of having system overhead to keep these sorts of environments running smoothly.
+
+The primary problem with employing areaportals in my dockyards map is that I intend to design the map in such a way that players can travel freely across the roofs of buildings, shipping containers, and other such building elements. This plays hell with Source&#39;s areaportals because they have to completely seal areas with materials or skybox textures, and areaportals will also stop drawing anything behind them if turned off. Obviously I can use them for building doors and openings, but the amount of windows I intend to have will result in there being easily 20+ areaportals in the warehouse structure at the center of the map. This will be even more hellish if I build blast holes into the layout for natural light (like I plan on doing). 
+
+I plan to use occluders to control visibility in the shipping container maze outside the warehouse, but this only handles props, not brushwork. Areaportals would be impossible here because it&#39;s too open and it wouldn&#39;t seal without massive modifications to skybox walls and level design.
+
+Hint and Skip is rather difficult to use without a clear idea of how VVIS uses the walls. The tutorial on VDC is somewhat in-depth but I&#39;m not sure which side does what, and how many I can safely use.
+
+I&#39;ve learned a ton over the years from this site and many others, and I&#39;d really like a chance to strut my stuff and release something playable. But playable = decent framerate and good looking, and that&#39;s going to be difficult with such open levels. Anyone have any tips I could use, or ideas to modify the layout to make it easier to optimize the area?</description>
+    
+    <lastBuildDate>Thu, 05 Sep 2013 20:17:15 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/map-optimization-thread/12510.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Map Optimization Thread!</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>^ Very useful tip. I will definitely try this.</p>
+          <p><a href="https://leakfree.org/t/map-optimization-thread/12510/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-optimization-thread/12510/9</link>
+        <pubDate>Thu, 05 Sep 2013 20:17:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12510-9</guid>
+        <source url="https://leakfree.org/t/map-optimization-thread/12510.rss">Map Optimization Thread!</source>
+      </item>
+      <item>
+        <title>Map Optimization Thread!</title>
+        <dc:creator><![CDATA[RK1]]></dc:creator>
+        <description><![CDATA[
+            <p>I can see from the diagram that you are already portaling the doors. At the very least, do the same with the windows (with the always-open portals that Text mentioned earlier). And if not that, you can also consider making the windows opaque (like how BM did with ST) so that, since you aren’t seeing anything outside, you can effectively seal off the warehouse and have a lot less stuff drawn.</p>
+<p>I wish I could be more help here, but I’ve only really worked with Hint/Skip, which you already know about.</p>
+<p>One thing I could mention, even though I know it is definitely not the type of optimization you’re looking for right now, is that when you put physics props in, use map_edit after compiling and wc_update_entity to set objects correctly, then set them to start asleep. <a href="https://developer.valvesoftware.com/wiki/Physics_optimization" data-bbcode="true" rel="nofollow noopener">You an read a little bit more about it here.</a></p>
+          <p><a href="https://leakfree.org/t/map-optimization-thread/12510/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-optimization-thread/12510/8</link>
+        <pubDate>Wed, 04 Sep 2013 19:27:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12510-8</guid>
+        <source url="https://leakfree.org/t/map-optimization-thread/12510.rss">Map Optimization Thread!</source>
+      </item>
+      <item>
+        <title>Map Optimization Thread!</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>More optimization stuff. If you guys can read any of this, any suggestions on how to portal this area and still enable walking on the roof?</p>
+<p>(Below is a continuous image from left to right)</p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+          <p><a href="https://leakfree.org/t/map-optimization-thread/12510/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-optimization-thread/12510/7</link>
+        <pubDate>Wed, 04 Sep 2013 18:31:47 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12510-7</guid>
+        <source url="https://leakfree.org/t/map-optimization-thread/12510.rss">Map Optimization Thread!</source>
+      </item>
+      <item>
+        <title>Map Optimization Thread!</title>
+        <dc:creator><![CDATA[Peter_Brev]]></dc:creator>
+        <description><![CDATA[
+            <p>func_viscluster is always powerful but doesn’t mean apply it everywhere.</p>
+<p>Use portal file to see where leafs can see each others.</p>
+<p>Usually used on big open areas with no broken visibility.</p>
+          <p><a href="https://leakfree.org/t/map-optimization-thread/12510/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-optimization-thread/12510/6</link>
+        <pubDate>Fri, 30 Aug 2013 20:50:52 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12510-6</guid>
+        <source url="https://leakfree.org/t/map-optimization-thread/12510.rss">Map Optimization Thread!</source>
+      </item>
+      <item>
+        <title>Map Optimization Thread!</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>I did end up using func_viscluster in one of my maps, cut down on compile times a TON. It doesn’t actually combine everything into one visleaf, it just says “all visleafs touching this volume are automatically assumed to all see each other.”</p>
+          <p><a href="https://leakfree.org/t/map-optimization-thread/12510/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-optimization-thread/12510/5</link>
+        <pubDate>Thu, 29 Aug 2013 15:01:07 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12510-5</guid>
+        <source url="https://leakfree.org/t/map-optimization-thread/12510.rss">Map Optimization Thread!</source>
+      </item>
+      <item>
+        <title>Map Optimization Thread!</title>
+        <dc:creator><![CDATA[Peter_Brev]]></dc:creator>
+        <description><![CDATA[
+            <p>func_viscluster for big open areas with unbroken visibility works good too.</p>
+<p>It tells that visleaves in the volume can see each other.</p>
+          <p><a href="https://leakfree.org/t/map-optimization-thread/12510/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-optimization-thread/12510/4</link>
+        <pubDate>Thu, 29 Aug 2013 09:03:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12510-4</guid>
+        <source url="https://leakfree.org/t/map-optimization-thread/12510.rss">Map Optimization Thread!</source>
+      </item>
+      <item>
+        <title>Map Optimization Thread!</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>I am HORRIBLE with Hint/Skip so thank you for clarifying. I did know that Areaportals cull visibility but I neglected to mention that in the OP. Thanks! Updated the OP.</p>
+          <p><a href="https://leakfree.org/t/map-optimization-thread/12510/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-optimization-thread/12510/3</link>
+        <pubDate>Thu, 29 Aug 2013 01:38:06 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12510-3</guid>
+        <source url="https://leakfree.org/t/map-optimization-thread/12510.rss">Map Optimization Thread!</source>
+      </item>
+      <item>
+        <title>Map Optimization Thread!</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>For large, open outdoor areas - or spaces where visibility blocking isn’t always feasible or cost effective, using prop fade distances is nearly always the best way to get precious frames. Each prop needs to be individually tuned so it’s extremely time consuming, but in large outdoor spaces it’s pretty much the only way to stop framerates from tanking in detailed areas.</p>
+<p>Also, your description of hint/skip is pretty misleading, but maybe that’s just a problem with explanation rather than understanding. Skip doesn’t do anything - the skip texture simply tells the compiler to altogether skip that face when compiling. Faces textured with skip simply don’t make it into the .bsp in any way, shape or form. The hint texture tells VBSP to divide visleafs across that face. This is nigh on impossible to explain adequately without a good understanding of visleaves. Visleafing is ineffective in very open areas, but a good combination of visleafs, areaportals, occluders, and fade distances can really bring framerates up in open areas.</p>
+<p>It’s also worth mentioning that areaportals can really help performance even if they aren’t “closed”. “Closed” referring to when an areaportal is not rendering anything behind it. “Open,” areaportals which you can see through, cull visibility, by only rendering what you can see through the open areaportal, instead of using visleaves. This can really boost performance if used well. For instance, let’s say you’re inside, and you have a huge window leading to a large outdoor area. By default, the entire outdoor area may render while inside, due to the way the visleaves are sectioned. With an open areaportal in that window gap, the engine will only render what you can see based upon your viewcone when looking through that open areaportal. This can bring significant performance gains.</p>
+<p>Hope this has helped. Apologies if I’m just repeating stuff you already understand.</p>
+          <p><a href="https://leakfree.org/t/map-optimization-thread/12510/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-optimization-thread/12510/2</link>
+        <pubDate>Thu, 29 Aug 2013 00:33:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12510-2</guid>
+        <source url="https://leakfree.org/t/map-optimization-thread/12510.rss">Map Optimization Thread!</source>
+      </item>
+      <item>
+        <title>Map Optimization Thread!</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span><br>
+Fig. 1. Yeah, I’ve got my work cut out for me.</p>
+<p>I figured I’d start a purpose built thread for this because I have a TON of questions about optimizing in Source. My in-progress mod has been long delayed because of Source’s difficulty rendering any kind of open spaces, and as a result I had to totally redesign the entire world map to better cater to Source’s strengths (indoor areas, and outdoor scenes broken up by cliffs and other natural formations to keep entity budget down).</p>
+<p>I’m currently attempting to design a dockyard for the mod, and I am running into some difficulty regarding alignment of buildings and the use of Source’s optimization toolset.</p>
+<p>For those of you unfamiliar with Source Engine optimization (and yes, you would be reading this thread to learn something), I’ll briefly explain what each thing does.</p>
+<p>BASIC SOURCE OPTIMIZATION PRIMER (Based on what I know. Feel free to correct me if anything is wrong and I’ll update this.)</p>
+<hr>
+<p><span class="bbcode-b">NoDraw </span>textures are effectively telling the game that “nothing texture-wise needs to be drawn here.” This is useful for areas that are “out of bounds” or otherwise inaccessible for players through normal movement. Using these on the other side of walls or floors where the player cannot go is the primary use for NoDraw. No performance cost,</p>
+<p><span class="bbcode-b">Hint</span> textures are effectively a manual method of telling VVIS (the map visibility calculator at compile time) where something can and cannot be drawn. VVIS does a lot of the heavy lifting, but not necessarily the most efficiently. Using Hint effectively can effect your map’s visibility calculation time quite positively with a minimum of in-game performance cost. For instance, in a corridor that bends in a C shape</p>
+<hr>
+<h2>I  -------------<br>
+I  I<br>
+I  I<br>
+I  I<br>
+I  -------------</h2>
+<p>Can be optimized with hint textures. <a href="https://www.youtube.com/watch?v=Ne59X-e-R9Y&amp;feature=player_detailpage#t=100" data-bbcode="true" rel="nofollow noopener">Better example here.</a> Heck, watch that whole video, it explains all of this a TON better.</p>
+<p><span class="bbcode-b">Occluders</span> are effectively free-standing walls that can be built anywhere. At run-time, the game engine must run calculations while the Occluder wall is active to figure out what is and is not being hidden by the func_occluder. This is primarily for areas where there are a lot of props in a specific area that you want to hide when the player can’t see them and an Areaportal is out of the question. Use these with caution, since this is not calculated in compile, it is run dynamically in-game and can therefore actively sabotage performance if overused.</p>
+<p>The <span class="bbcode-b">Far Z Clip</span> function of <span class="bbcode-b">env_fog</span> is another choice for long range visibility culling. This uses a fog effect defined by the mapper to cover the dropping of long distance props and geometry. Silent Hill’s distinctive fog effect evolved from a similar method of optimization due to the first game using the limited memory of the original PlayStation up too fast and the fog had to be used to keep the game from lagging uncontrollably.</p>
+<p><span class="bbcode-b">Areaportals</span> are the pickiest form of optimization but potentially the most powerful. These seal off areas of your map completely between areas. Put one in a door of a building that doesn’t connect back to the outside, and while the door is closed the entire building and everything in it does not draw. This helps the renderer be capable of detailed interiors and exteriors without requiring both to be drawn simultaneously, and is generally a very good tool. However, you have to be VERY careful employing them, because if there is any part of the building that links back to the outside that doesn’t have another portal sealing it off, the map will leak and you’ll have to go back and fix it. Fun fun fun!</p>
+<p>Two principal variants of areaportals exist: the standard version, designed to be toggled on and off with inputs or linked to a prop state such as a door, and the “window” version, which uses a brush to fade with. When you get close to a dark interior in HL2 and the scene gradually fades into view? That’s a window areaportal at work.</p>
+<p>Also, TextFAM reminded me that even if an areaportal is an always-open portal, it has the effect of culling geometry and props that are drawn through it. So instead of drawing the entire room beyond, it only renders what the player client can see through it. Again, use with caution, because this is dynamically calculated by the engine, and if you have a bunch of portals in the same area it can also cause problems in your compile.</p>
+<hr>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span><br>
+Fig. 2. First part of my large Dockyard whiteboard mockup. Already trying some ideas with optmization on paper, but it’s harder to visualize top-down because I don’t have the advantage of seeing where I can put the skybox walls to optimize without impeding player freedom.</p>
+<p>The Dock map is going to be divided into three main areas- the initial area with a drydock and prisoner induction building, the second area consisting of a warehouse and lots of shipping containers, and the third area, with a full dock crane, secondary warehouse, and crane. The third area should be able to let a sniper take pot shots at the player across any area in view. I could employ the far-Z clip of an env_fog, but I’d like to preserve long range viewpoints if possible because combat is always more interesting when you force the player to consider both range and verticality. One of the better combat sequences in HL2 was the inside of the old factory where the player was being constantly attacked from above, their level, and then subsequently below (right before Forget About Freeman starts, if you’re wondering which map).</p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span><br>
+Fig. 3. - Part 2 of the dockyard. Try to connect both areas in your head and imagine how much of a pain in the ass that will be to both detail properly and optimize to keep a 60fps framerate at Episode Two system requirements. My mod will probably require higher requirements than Ep2, at least in terms of having system overhead to keep these sorts of environments running smoothly.</p>
+<p>The primary problem with employing areaportals in my dockyards map is that I intend to design the map in such a way that players can travel freely across the roofs of buildings, shipping containers, and other such building elements. This plays hell with Source’s areaportals because they have to completely seal areas with materials or skybox textures, and areaportals will also stop drawing anything behind them if turned off. Obviously I can use them for building doors and openings, but the amount of windows I intend to have will result in there being easily 20+ areaportals in the warehouse structure at the center of the map. This will be even more hellish if I build blast holes into the layout for natural light (like I plan on doing).</p>
+<p>I plan to use occluders to control visibility in the shipping container maze outside the warehouse, but this only handles props, not brushwork. Areaportals would be impossible here because it’s too open and it wouldn’t seal without massive modifications to skybox walls and level design.</p>
+<p>Hint and Skip is rather difficult to use without a clear idea of how VVIS uses the walls. The tutorial on VDC is somewhat in-depth but I’m not sure which side does what, and how many I can safely use.</p>
+<p>I’ve learned a ton over the years from this site and many others, and I’d really like a chance to strut my stuff and release something playable. But playable = decent framerate and good looking, and that’s going to be difficult with such open levels. Anyone have any tips I could use, or ideas to modify the layout to make it easier to optimize the area?</p>
+          <p><a href="https://leakfree.org/t/map-optimization-thread/12510/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-optimization-thread/12510/1</link>
+        <pubDate>Wed, 28 Aug 2013 23:11:05 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12510-1</guid>
+        <source url="https://leakfree.org/t/map-optimization-thread/12510.rss">Map Optimization Thread!</source>
+      </item>
+  </channel>
+</rss>

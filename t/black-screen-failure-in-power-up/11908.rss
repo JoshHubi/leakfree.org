@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Black screen failure in Power Up</title>
+    <link>https://leakfree.org/t/black-screen-failure-in-power-up/11908</link>
+    <description>The screen goes black when I try to go past the room where the explosive barrels kill all the Vortigaunts (just before you open the door and climb the ladders in the toxic waste silo within the Power Up chapter). 
+
+However, though the screen goes black, the audio&#39;s still working and the HUD is still visible. Basically, everything but the 3D models and textures still works, but other than the HUD, the screen remains black.
+
+This is what I&#39;ve tried:
+
+-mat_specular [0,1]
+-mem_force_flush [0,1] 
+-mat_fullbright [0,1]
+-mat_hsv [0,1] 
+-mat_softwarelighting [0,1]
+-flush
+-noclip (camera still fails, no matter where I re-enter the map after the door I mentioned earlier)
+-restart (which worked as far as I did the level again and didn&#39;t have the problem until I tried to save it, then I came back with the blank screen right from loading, even though I didn&#39;t save on one. I also tried no-clipping to the end after restart. Didn&#39;t fix it.)
+-Reinstalling
+-Redownloading
+-Updated my graphics card (Intel Q965/Q963 Express Chipset Family)
+
+It seems that even though I can get past this error, eventually the black screen of death returns by the next save&#39;s load.
+
+My friend and I have been playing the hell out of Black Mesa and it&#39;s easily the best HL game in the franchise, so let us know what the issue is here so we can finish the damn thing!
+
+PS: I found the pizza.</description>
+    
+    <lastBuildDate>Sat, 02 Mar 2013 23:33:05 +0000</lastBuildDate>
+    <category>In-game Issues (Mod)</category>
+    <atom:link href="https://leakfree.org/t/black-screen-failure-in-power-up/11908.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Black screen failure in Power Up</title>
+        <dc:creator><![CDATA[ThePizzaExists]]></dc:creator>
+        <description><![CDATA[
+            <p>LEXA</p>
+<p>your directx in the backup folder solution worked like a charm. If I wasn’t broke, I’d pay you. You deserve some recognition, and I hope the developers do just that.</p>
+<p>you’re like 10 kinds of great dude. Thanks!</p>
+          <p><a href="https://leakfree.org/t/black-screen-failure-in-power-up/11908/22">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-screen-failure-in-power-up/11908/22</link>
+        <pubDate>Sat, 02 Mar 2013 23:33:05 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11908-22</guid>
+        <source url="https://leakfree.org/t/black-screen-failure-in-power-up/11908.rss">Black screen failure in Power Up</source>
+      </item>
+      <item>
+        <title>Black screen failure in Power Up</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="ThePizzaExists">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/t/bc79bd/40.png" class="avatar"> ThePizzaExists:</div>
+<blockquote>
+<p>I tried inputing that code into the console, and it had no effect. I’m still experiencing the same glitch.</p>
+<p>Does anyone have a solution to this yet?</p>
+</blockquote>
+</aside>
+<p>Forum search could be your friend. Back in the days the game had been released I had been investigating this bug and had come to a conclusion that with older GPUs like Radeon 9500 (i.e. pre-SM2.0 DX9 hardware) or with some crappy Intel “integrated GPUs” the game fails to render fullscreen noise shader properly resulting in totally black screen. Due to a bug in the game engine (in BMS game server dlls, not in Source engine itself) is it impossible to disable noise shader using console variable - it seems that it is simply ignored by the game. But it was possible to kind-a workaround the problem by messing up with a game shader dlls and definition files. I can’t recall exact details now but you could try reading this thread for a possible solution:<br>
+<a href="https://forums.blackmesasource.com/showthread.php?p=502093#post502093" data-bbcode="true" rel="nofollow noopener">https://forums.blackmesasource.com/showthread.php?p=502093#post502093</a><br>
+<a href="https://forums.blackmesasource.com/showthread.php?p=502137#post502137" data-bbcode="true" rel="nofollow noopener">https://forums.blackmesasource.com/showthread.php?p=502137#post502137</a></p>
+          <p><a href="https://leakfree.org/t/black-screen-failure-in-power-up/11908/21">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-screen-failure-in-power-up/11908/21</link>
+        <pubDate>Sat, 23 Feb 2013 01:07:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11908-21</guid>
+        <source url="https://leakfree.org/t/black-screen-failure-in-power-up/11908.rss">Black screen failure in Power Up</source>
+      </item>
+      <item>
+        <title>Black screen failure in Power Up</title>
+        <dc:creator><![CDATA[ThePizzaExists]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="ysrael214">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/y/9de053/40.png" class="avatar"> ysrael214:</div>
+<blockquote>
+<p>cl_post_process_noise_enable 0</p>
+</blockquote>
+</aside>
+<p>I tried inputing that code into the console, and it had no effect. I’m still experiencing the same glitch.</p>
+<p>Does anyone have a solution to this yet?</p>
+          <p><a href="https://leakfree.org/t/black-screen-failure-in-power-up/11908/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-screen-failure-in-power-up/11908/20</link>
+        <pubDate>Thu, 14 Feb 2013 19:38:38 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11908-20</guid>
+        <source url="https://leakfree.org/t/black-screen-failure-in-power-up/11908.rss">Black screen failure in Power Up</source>
+      </item>
+      <item>
+        <title>Black screen failure in Power Up</title>
+        <dc:creator><![CDATA[ysrael214]]></dc:creator>
+        <description><![CDATA[
+            <p>cl_post_process_noise_enable 0</p>
+          <p><a href="https://leakfree.org/t/black-screen-failure-in-power-up/11908/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-screen-failure-in-power-up/11908/19</link>
+        <pubDate>Mon, 11 Feb 2013 16:16:48 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11908-19</guid>
+        <source url="https://leakfree.org/t/black-screen-failure-in-power-up/11908.rss">Black screen failure in Power Up</source>
+      </item>
+      <item>
+        <title>Black screen failure in Power Up</title>
+        <dc:creator><![CDATA[ThePizzaExists]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Dotard">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/d/d26b3c/40.png" class="avatar"> Dotard:</div>
+<blockquote>
+<p>Unless I’m mistaken, it’s bugged in the released build and can’t be turned off from options menu, only through console command.</p>
+</blockquote>
+</aside>
+<p>How do I go about entering that into the console?</p>
+          <p><a href="https://leakfree.org/t/black-screen-failure-in-power-up/11908/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-screen-failure-in-power-up/11908/18</link>
+        <pubDate>Mon, 11 Feb 2013 16:09:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11908-18</guid>
+        <source url="https://leakfree.org/t/black-screen-failure-in-power-up/11908.rss">Black screen failure in Power Up</source>
+      </item>
+      <item>
+        <title>Black screen failure in Power Up</title>
+        <dc:creator><![CDATA[Dotard]]></dc:creator>
+        <description><![CDATA[
+            <p>Unless I’m mistaken, it’s bugged in the released build and can’t be turned off from options menu, only through console command.</p>
+          <p><a href="https://leakfree.org/t/black-screen-failure-in-power-up/11908/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-screen-failure-in-power-up/11908/17</link>
+        <pubDate>Sun, 10 Feb 2013 16:35:54 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11908-17</guid>
+        <source url="https://leakfree.org/t/black-screen-failure-in-power-up/11908.rss">Black screen failure in Power Up</source>
+      </item>
+      <item>
+        <title>Black screen failure in Power Up</title>
+        <dc:creator><![CDATA[danielsangeo]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="JamesKane">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/j/838e76/40.png" class="avatar"> JamesKane:</div>
+<blockquote>
+<p>The error log shows it is unable to load the post process effects. Specifically in that area the noise shader is used, so try turning it off.</p>
+</blockquote>
+</aside>
+<p>Two prior quotes say that his noise shader was set to off and it was still occurring.</p>
+          <p><a href="https://leakfree.org/t/black-screen-failure-in-power-up/11908/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-screen-failure-in-power-up/11908/16</link>
+        <pubDate>Sun, 10 Feb 2013 14:35:31 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11908-16</guid>
+        <source url="https://leakfree.org/t/black-screen-failure-in-power-up/11908.rss">Black screen failure in Power Up</source>
+      </item>
+      <item>
+        <title>Black screen failure in Power Up</title>
+        <dc:creator><![CDATA[JamesKane]]></dc:creator>
+        <description><![CDATA[
+            <p>The error log shows it is unable to load the post process effects. Specifically in that area the noise shader is used, so try turning it off.</p>
+<aside class="quote no-group" data-username="ysrael214">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/y/9de053/40.png" class="avatar"> ysrael214:</div>
+<blockquote>
+<p>Have you tried updating DirectX to 11?</p>
+</blockquote>
+</aside>
+<p>what? Please post only if you understand the topic at hand not the topics you believe you understand.</p>
+          <p><a href="https://leakfree.org/t/black-screen-failure-in-power-up/11908/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-screen-failure-in-power-up/11908/15</link>
+        <pubDate>Sun, 10 Feb 2013 13:10:14 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11908-15</guid>
+        <source url="https://leakfree.org/t/black-screen-failure-in-power-up/11908.rss">Black screen failure in Power Up</source>
+      </item>
+      <item>
+        <title>Black screen failure in Power Up</title>
+        <dc:creator><![CDATA[ysrael214]]></dc:creator>
+        <description><![CDATA[
+            <p>Have you tried updating DirectX to 11?</p>
+          <p><a href="https://leakfree.org/t/black-screen-failure-in-power-up/11908/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-screen-failure-in-power-up/11908/14</link>
+        <pubDate>Sun, 10 Feb 2013 09:50:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11908-14</guid>
+        <source url="https://leakfree.org/t/black-screen-failure-in-power-up/11908.rss">Black screen failure in Power Up</source>
+      </item>
+      <item>
+        <title>Black screen failure in Power Up</title>
+        <dc:creator><![CDATA[ThePizzaExists]]></dc:creator>
+        <description><![CDATA[
+            <p>CONSOLE.LOG wouldn’t upload, so I did some copypasta. Thanks for the hommie-help.</p>
+<p>CSoundEmitterSystem:  Registered 1018 sounds<br>
+scripts\talker\c1a2_scenes.txt(token 263) : No such criterion ‘IsSci02Stairway_NULL’ for rule ‘SCI02_Farewell’<br>
+scripts\talker\c1a2_scenes.txt(token 267) : No such response ‘SCI02_Farewell’ for rule ‘SCI02_Farewell’<br>
+Discarded rule SCI02_Farewell<br>
+scripts\talker\c2a5_scenes.txt(token 84) : Multiple definitions for criteria ‘IsGRDbundy’<br>
+CResponseSystem:  scripts\talker\response_rules.txt (254 rules, 278 criteria, and 1545 responses)<br>
+maxplayers set to 1<br>
+Heap: 256.00 Mb<br>
+Steam config directory: c:\program files\steam\steamapps\christopherlee63\source sdk base 2007\platform\config<br>
+Parsed 35 text messages<br>
+execing config.cfg<br>
+Sound Initialization: Start<br>
+DS :s tereo speaker configuration detected<br>
+Set primary sound buffer format: yes<br>
+Using secondary sound buffer<br>
+2 channel(s)<br>
+16 bits/sample<br>
+44100 samples/sec<br>
+DirectSound initialized<br>
+Sound Initialization: Finish, Sampling Rate: 44100<br>
+2 CPUs (1 physical), Frequency: 3.0 Ghz,  Features: GenuineIntel SSE SSE2 MMX RDTSC CMOV FCMOV<br>
+execing valve.rc<br>
+execing autoexec.cfg<br>
+execing config.cfg<br>
+Legacy Surround disabled.<br>
+Sound Initialization: Start<br>
+DS :s tereo speaker configuration detected<br>
+Set primary sound buffer format: yes<br>
+Using secondary sound buffer<br>
+2 channel(s)<br>
+16 bits/sample<br>
+44100 samples/sec<br>
+DirectSound initialized<br>
+Sound Initialization: Finish, Sampling Rate: 44100<br>
+exec: couldn’t exec userconfig.cfg<br>
+CTFSteamStats: failed to download stats from Steam, EResult 2<br>
+Loading game from SAVE\half-life-004.sav…<br>
+---- Host_NewGame ----<br>
+Spawn Server: bm_c2a1b<br>
+Error! Variable “$envmap” is multiply defined in material “maps/bm_c2a1b/metal/rusted_yellow_metal_dial_1024_1543_-225”!<br>
+Error! Variable “$envmaptint” is multiply defined in material “maps/bm_c2a1b/metal/rusted_yellow_metal_dial_1024_1543_-225”!<br>
+Error! Flag “$normalmapalphaenvmapmask” is multiply defined in material “maps/bm_c2a1b/metal/rusted_yellow_metal_dial_1024_1543_-225”!<br>
+env_cubemap used on world geometry without rebuilding map. . ignoring: decals/graffiti_diefreeman<br>
+SOLID_VPHYSICS static prop with no vphysics model! (models/props_residue/exhaust_fan_ring.mdl)<br>
+Loading game from //MOD/SAVE/bm_c2a1b.HL1…<br>
+execing skill_manifest.cfg<br>
+execing skill.cfg<br>
+Set Gravity 600.0 (0.250 tolerance)<br>
+PrecacheScriptSound ‘vo\c2a2a\SatelliteLaunch\grd01_idle_physicstorocketscience01.wa’ failed, no such sound script entry<br>
+PrecacheScriptSound ‘vo\c2a2a\SatelliteLaunch\grd01_idle_physicstorocketscience03.wa’ failed, no such sound script entry<br>
+PrecacheScriptSound ‘vo\c2a2a\SatelliteLaunch\grd01_idle_physicstorocketscience02.wa’ failed, no such sound script entry<br>
+PrecacheScriptSound ‘vo\c3a2e\teleportation\sci09_nojump_whatareyouwaitingforman01.w’ failed, no such sound script entry<br>
+PrecacheScriptSound ‘vo\c3a2e\teleportation\sci09_underattack_holdoffthesebeasts01.w’ failed, no such sound script entry<br>
+“materials/effects/models/model_blood_red.vtf”: can’t be found on disk<br>
+PrecacheScriptSound ‘HL2Player.PickupWeapon’ failed, no such sound script entry<br>
+props_blackmesa/health_charger.mdl : material “models/props_blackmesa/,” not found.<br>
+props_junk\crate48x48_gib1.mdl : material “models/props_generic/lambert1” not found.<br>
+Error! Variable “$surfaceprop” is multiply defined in material “models/props_c17/oil_drum_chunks001a”!<br>
+Error! Variable “$detail” is multiply defined in material “models/zombies/zscient_b”!<br>
+Error! Variable “$detailscale” is multiply defined in material “models/zombies/zscient_b”!<br>
+Error! Variable “$detailblendfactor” is multiply defined in material “models/zombies/zscient_b”!<br>
+Error! Variable “$detailblendmode” is multiply defined in material “models/zombies/zscient_b”!<br>
+Error! Variable “$detail” is multiply defined in material “models/zombies/zscient_h”!<br>
+Error! Variable “$detailscale” is multiply defined in material “models/zombies/zscient_h”!<br>
+Error! Variable “$detailblendfactor” is multiply defined in material “models/zombies/zscient_h”!<br>
+Error! Variable “$detailblendmode” is multiply defined in material “models/zombies/zscient_h”!<br>
+PrecacheScriptSound ‘npc_zombie.Swat’ failed, no such sound script entry<br>
+PrecacheScriptSound ‘weapon_frag.Single_NPC’ failed, no such sound script entry<br>
+CResponseSystem:  scripts\talker\announcements_blastpit.txt (1 rules, 1 criteria, and 1 responses)<br>
+Error! Variable “$detail” is multiply defined in material “models/xenians/houndeye/houndeye”!<br>
+Error! Variable “$detailscale” is multiply defined in material “models/xenians/houndeye/houndeye”!<br>
+Error! Variable “$detailblendfactor” is multiply defined in material “models/xenians/houndeye/houndeye”!<br>
+Error! Variable “$detailblendmode” is multiply defined in material “models/xenians/houndeye/houndeye”!<br>
+Error! Variable “$detail” is multiply defined in material “models/xenians/bullsquid/diffuse_2”!<br>
+Error! Variable “$detailscale” is multiply defined in material “models/xenians/bullsquid/diffuse_2”!<br>
+Error! Variable “$detailblendfactor” is multiply defined in material “models/xenians/bullsquid/diffuse_2”!<br>
+Error! Variable “$detailblendmode” is multiply defined in material “models/xenians/bullsquid/diffuse_2”!<br>
+Attempting to precache model, but model name is NULL<br>
+Created class baseline: 42 classes, 8800 bytes.<br>
+Game started<br>
+Missing CD Key from registry, inserting blank key</p>
+<p>Half-Life 2<br>
+Map: bm_c2a1b<br>
+Players: 1 / 1<br>
+Build: 4104<br>
+Server Number: 1</p>
+<p>material “” not found.<br>
+Couldn’t load pixel shader bms_scanlines_ps20<br>
+Initializing renderer…<br>
+Couldn’t load pixel shader bms_postprocess_ps20<br>
+Failed to load models/gibs/humans/brain.mdl!<br>
+Failed to load sound “ambient\tones\tunnel_wind_loop.wav”, file probably missing from disk/repository<br>
+Failed to load sound “ambient\tones\fan2_loop.wav”, file probably missing from disk/repository<br>
+Failed to load sound “ambient\tones\fan2_loop.wav”, file probably missing from disk/repository<br>
+Failed to load sound “ambient\tones\fan2_loop.wav”, file probably missing from disk/repository<br>
+Dropped christopherlee63 from server (Server shutting down)<br>
+Host_WriteConfiguration: Wrote cfg/config.cfg<br>
+CreateEvent: event ‘server_shutdown’ not registered.<br>
+CSoundEmitterSystem:  Registered 1018 sounds<br>
+scripts\talker\c1a2_scenes.txt(token 263) : No such criterion ‘IsSci02Stairway_NULL’ for rule ‘SCI02_Farewell’<br>
+scripts\talker\c1a2_scenes.txt(token 267) : No such response ‘SCI02_Farewell’ for rule ‘SCI02_Farewell’<br>
+Discarded rule SCI02_Farewell<br>
+scripts\talker\c2a5_scenes.txt(token 84) : Multiple definitions for criteria ‘IsGRDbundy’<br>
+CResponseSystem:  scripts\talker\response_rules.txt (254 rules, 278 criteria, and 1545 responses)<br>
+maxplayers set to 1<br>
+Heap: 256.00 Mb<br>
+Steam config directory: c:\program files\steam\steamapps\christopherlee63\source sdk base 2007\platform\config<br>
+Parsed 35 text messages<br>
+execing config.cfg<br>
+Sound Initialization: Start<br>
+DS :s tereo speaker configuration detected<br>
+Set primary sound buffer format: yes<br>
+Using secondary sound buffer<br>
+2 channel(s)<br>
+16 bits/sample<br>
+44100 samples/sec<br>
+DirectSound initialized<br>
+Sound Initialization: Finish, Sampling Rate: 44100<br>
+2 CPUs (1 physical), Frequency: 3.0 Ghz,  Features: GenuineIntel SSE SSE2 MMX RDTSC CMOV FCMOV<br>
+execing valve.rc<br>
+execing autoexec.cfg<br>
+execing config.cfg<br>
+Legacy Surround disabled.<br>
+Sound Initialization: Start<br>
+DS :s tereo speaker configuration detected<br>
+Set primary sound buffer format: yes<br>
+Using secondary sound buffer<br>
+2 channel(s)<br>
+16 bits/sample<br>
+44100 samples/sec<br>
+DirectSound initialized<br>
+Sound Initialization: Finish, Sampling Rate: 44100<br>
+exec: couldn’t exec userconfig.cfg<br>
+CTFSteamStats: failed to download stats from Steam, EResult 2<br>
+Loading game from SAVE\half-life-004.sav…<br>
+---- Host_NewGame ----<br>
+Spawn Server: bm_c2a1b<br>
+Error! Variable “$envmap” is multiply defined in material “maps/bm_c2a1b/metal/rusted_yellow_metal_dial_1024_1543_-225”!<br>
+Error! Variable “$envmaptint” is multiply defined in material “maps/bm_c2a1b/metal/rusted_yellow_metal_dial_1024_1543_-225”!<br>
+Error! Flag “$normalmapalphaenvmapmask” is multiply defined in material “maps/bm_c2a1b/metal/rusted_yellow_metal_dial_1024_1543_-225”!<br>
+env_cubemap used on world geometry without rebuilding map. . ignoring: decals/graffiti_diefreeman<br>
+SOLID_VPHYSICS static prop with no vphysics model! (models/props_residue/exhaust_fan_ring.mdl)<br>
+Loading game from //MOD/SAVE/bm_c2a1b.HL1…<br>
+execing skill_manifest.cfg<br>
+execing skill.cfg<br>
+Set Gravity 600.0 (0.250 tolerance)<br>
+PrecacheScriptSound ‘vo\c2a2a\SatelliteLaunch\grd01_idle_physicstorocketscience01.wa’ failed, no such sound script entry<br>
+PrecacheScriptSound ‘vo\c2a2a\SatelliteLaunch\grd01_idle_physicstorocketscience03.wa’ failed, no such sound script entry<br>
+PrecacheScriptSound ‘vo\c2a2a\SatelliteLaunch\grd01_idle_physicstorocketscience02.wa’ failed, no such sound script entry<br>
+PrecacheScriptSound ‘vo\c3a2e\teleportation\sci09_nojump_whatareyouwaitingforman01.w’ failed, no such sound script entry<br>
+PrecacheScriptSound ‘vo\c3a2e\teleportation\sci09_underattack_holdoffthesebeasts01.w’ failed, no such sound script entry<br>
+“materials/effects/models/model_blood_red.vtf”: can’t be found on disk<br>
+PrecacheScriptSound ‘HL2Player.PickupWeapon’ failed, no such sound script entry<br>
+props_blackmesa/health_charger.mdl : material “models/props_blackmesa/,” not found.<br>
+CSoundEmitterSystem:  Registered 1018 sounds<br>
+scripts\talker\c1a2_scenes.txt(token 263) : No such criterion ‘IsSci02Stairway_NULL’ for rule ‘SCI02_Farewell’<br>
+scripts\talker\c1a2_scenes.txt(token 267) : No such response ‘SCI02_Farewell’ for rule ‘SCI02_Farewell’<br>
+Discarded rule SCI02_Farewell<br>
+scripts\talker\c2a5_scenes.txt(token 84) : Multiple definitions for criteria ‘IsGRDbundy’<br>
+CResponseSystem:  scripts\talker\response_rules.txt (254 rules, 278 criteria, and 1545 responses)<br>
+maxplayers set to 1<br>
+Heap: 256.00 Mb<br>
+Steam config directory: c:\program files\steam\steamapps\christopherlee63\source sdk base 2007\platform\config<br>
+Parsed 35 text messages<br>
+execing config.cfg<br>
+Sound Initialization: Start<br>
+DS :s tereo speaker configuration detected<br>
+Set primary sound buffer format: yes<br>
+Using secondary sound buffer<br>
+2 channel(s)<br>
+16 bits/sample<br>
+44100 samples/sec<br>
+DirectSound initialized<br>
+Sound Initialization: Finish, Sampling Rate: 44100<br>
+2 CPUs (1 physical), Frequency: 3.0 Ghz,  Features: GenuineIntel SSE SSE2 MMX RDTSC CMOV FCMOV<br>
+execing valve.rc<br>
+execing autoexec.cfg<br>
+execing config.cfg<br>
+Legacy Surround disabled.<br>
+Sound Initialization: Start<br>
+DS :s tereo speaker configuration detected<br>
+Set primary sound buffer format: yes<br>
+Using secondary sound buffer<br>
+2 channel(s)<br>
+16 bits/sample<br>
+44100 samples/sec<br>
+DirectSound initialized<br>
+Sound Initialization: Finish, Sampling Rate: 44100<br>
+exec: couldn’t exec userconfig.cfg<br>
+CTFSteamStats: failed to download stats from Steam, EResult 2<br>
+Loading game from SAVE\half-life-004.sav…<br>
+---- Host_NewGame ----<br>
+Spawn Server: bm_c2a1b<br>
+Error! Variable “$envmap” is multiply defined in material “maps/bm_c2a1b/metal/rusted_yellow_metal_dial_1024_1543_-225”!<br>
+Error! Variable “$envmaptint” is multiply defined in material “maps/bm_c2a1b/metal/rusted_yellow_metal_dial_1024_1543_-225”!<br>
+Error! Flag “$normalmapalphaenvmapmask” is multiply defined in material “maps/bm_c2a1b/metal/rusted_yellow_metal_dial_1024_1543_-225”!<br>
+env_cubemap used on world geometry without rebuilding map. . ignoring: decals/graffiti_diefreeman<br>
+SOLID_VPHYSICS static prop with no vphysics model! (models/props_residue/exhaust_fan_ring.mdl)<br>
+Loading game from //MOD/SAVE/bm_c2a1b.HL1…<br>
+execing skill_manifest.cfg<br>
+execing skill.cfg<br>
+Set Gravity 600.0 (0.250 tolerance)<br>
+PrecacheScriptSound ‘vo\c2a2a\SatelliteLaunch\grd01_idle_physicstorocketscience01.wa’ failed, no such sound script entry<br>
+PrecacheScriptSound ‘vo\c2a2a\SatelliteLaunch\grd01_idle_physicstorocketscience03.wa’ failed, no such sound script entry<br>
+PrecacheScriptSound ‘vo\c2a2a\SatelliteLaunch\grd01_idle_physicstorocketscience02.wa’ failed, no such sound script entry<br>
+PrecacheScriptSound ‘vo\c3a2e\teleportation\sci09_nojump_whatareyouwaitingforman01.w’ failed, no such sound script entry<br>
+PrecacheScriptSound ‘vo\c3a2e\teleportation\sci09_underattack_holdoffthesebeasts01.w’ failed, no such sound script entry<br>
+“materials/effects/models/model_blood_red.vtf”: can’t be found on disk<br>
+PrecacheScriptSound ‘HL2Player.PickupWeapon’ failed, no such sound script entry<br>
+props_blackmesa/health_charger.mdl : material “models/props_blackmesa/,” not found.<br>
+props_junk\crate48x48_gib1.mdl : material “models/props_generic/lambert1” not found.<br>
+Error! Variable “$surfaceprop” is multiply defined in material “models/props_c17/oil_drum_chunks001a”!<br>
+Error! Variable “$detail” is multiply defined in material “models/zombies/zscient_b”!<br>
+Error! Variable “$detailscale” is multiply defined in material “models/zombies/zscient_b”!<br>
+Error! Variable “$detailblendfactor” is multiply defined in material “models/zombies/zscient_b”!<br>
+Error! Variable “$detailblendmode” is multiply defined in material “models/zombies/zscient_b”!<br>
+Error! Variable “$detail” is multiply defined in material “models/zombies/zscient_h”!<br>
+Error! Variable “$detailscale” is multiply defined in material “models/zombies/zscient_h”!<br>
+Error! Variable “$detailblendfactor” is multiply defined in material “models/zombies/zscient_h”!<br>
+Error! Variable “$detailblendmode” is multiply defined in material “models/zombies/zscient_h”!<br>
+PrecacheScriptSound ‘npc_zombie.Swat’ failed, no such sound script entry<br>
+PrecacheScriptSound ‘weapon_frag.Single_NPC’ failed, no such sound script entry<br>
+CResponseSystem:  scripts\talker\announcements_blastpit.txt (1 rules, 1 criteria, and 1 responses)<br>
+Error! Variable “$detail” is multiply defined in material “models/xenians/houndeye/houndeye”!<br>
+Error! Variable “$detailscale” is multiply defined in material “models/xenians/houndeye/houndeye”!<br>
+Error! Variable “$detailblendfactor” is multiply defined in material “models/xenians/houndeye/houndeye”!<br>
+Error! Variable “$detailblendmode” is multiply defined in material “models/xenians/houndeye/houndeye”!<br>
+Error! Variable “$detail” is multiply defined in material “models/xenians/bullsquid/diffuse_2”!<br>
+Error! Variable “$detailscale” is multiply defined in material “models/xenians/bullsquid/diffuse_2”!<br>
+Error! Variable “$detailblendfactor” is multiply defined in material “models/xenians/bullsquid/diffuse_2”!<br>
+Error! Variable “$detailblendmode” is multiply defined in material “models/xenians/bullsquid/diffuse_2”!<br>
+Attempting to precache model, but model name is NULL<br>
+Created class baseline: 42 classes, 8800 bytes.<br>
+Game started</p>
+<p>Half-Life 2<br>
+Map: bm_c2a1b<br>
+Players: 1 / 1<br>
+Build: 4104<br>
+Server Number: 1</p>
+<p>material “” not found.<br>
+Couldn’t load pixel shader bms_scanlines_ps20<br>
+Initializing renderer…<br>
+Couldn’t load pixel shader bms_postprocess_ps20<br>
+Failed to load models/gibs/humans/brain.mdl!<br>
+Couldn’t load pixel shader bms_flare_threshold_ps20<br>
+Couldn’t load pixel shader bms_flare_ps20<br>
+Couldn’t load pixel shader bms_flare_modulate_ps20<br>
+Sending full update to Client christopherlee63<br>
+Set Gravity 600.0 (0.250 tolerance)<br>
+Signon traffic “CLIENT”:  incoming 67.806 KB, outgoing 1.188 KB<br>
+Failed to load sound “ambient\tones\tunnel_wind_loop.wav”, file probably missing from disk/repository<br>
+Failed to load sound “ambient\tones\fan2_loop.wav”, file probably missing from disk/repository<br>
+Failed to load sound “ambient\tones\fan2_loop.wav”, file probably missing from disk/repository<br>
+Failed to load sound “ambient\tones\fan2_loop.wav”, file probably missing from disk/repository<br>
+Dynamic Link Error: (info_node_link) unable to form between nodes 380 and 97<br>
+Dynamic Link Error: (info_node_link) unable to form between nodes 379 and 98<br>
+ai_network(.PAVCBaseEntity@@) thinking for 47.69 ms!!!<br>
+Soundscape: c2a1a.generic_corridor<br>
+Redownloading all lightmaps<br>
+R_RedownloadAllLightmaps took 377.562 msec!</p>
+          <p><a href="https://leakfree.org/t/black-screen-failure-in-power-up/11908/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-screen-failure-in-power-up/11908/13</link>
+        <pubDate>Sat, 09 Feb 2013 23:54:51 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11908-13</guid>
+        <source url="https://leakfree.org/t/black-screen-failure-in-power-up/11908.rss">Black screen failure in Power Up</source>
+      </item>
+      <item>
+        <title>Black screen failure in Power Up</title>
+        <dc:creator><![CDATA[Cpl.1nsane]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="ThePizzaExists">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/t/bc79bd/40.png" class="avatar"> ThePizzaExists:</div>
+<blockquote>
+<p>Do you have any ideas yet in terms of solving this glitch?</p>
+</blockquote>
+</aside>
+<p>Could you add “<span class="bbcode-b">-dev -condebug</span>” (without the quite marks) to the Black Mesa launch options in steam. (Right click the BM icon in <span class="bbcode-b">steam &gt; properties &gt; set launch options</span>)</p>
+<p>If you then run the game and play the area in question that is causing your screen to go black it will generate a log file of the console.</p>
+<p>The file will generate to <span class="bbcode-b">\SourceMods\BMS\console.log</span>, this can be opened in notepad or any other text reader. Could you then upload that log file somewhere and link it here so I can have a look.</p>
+<p>Thanks</p>
+          <p><a href="https://leakfree.org/t/black-screen-failure-in-power-up/11908/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-screen-failure-in-power-up/11908/12</link>
+        <pubDate>Thu, 31 Jan 2013 23:26:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11908-12</guid>
+        <source url="https://leakfree.org/t/black-screen-failure-in-power-up/11908.rss">Black screen failure in Power Up</source>
+      </item>
+      <item>
+        <title>Black screen failure in Power Up</title>
+        <dc:creator><![CDATA[M4TT]]></dc:creator>
+        <description><![CDATA[
+            <p>This happened to me before I upgraded my video card. What I did was just skip the entire rest of the chapter and loaded the first chapter of On a Rail. After that it didn’t happen again.</p>
+          <p><a href="https://leakfree.org/t/black-screen-failure-in-power-up/11908/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-screen-failure-in-power-up/11908/11</link>
+        <pubDate>Thu, 31 Jan 2013 23:16:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11908-11</guid>
+        <source url="https://leakfree.org/t/black-screen-failure-in-power-up/11908.rss">Black screen failure in Power Up</source>
+      </item>
+      <item>
+        <title>Black screen failure in Power Up</title>
+        <dc:creator><![CDATA[ThePizzaExists]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Cpl.1nsane">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/cpl.1nsane/40/4631_2.png" class="avatar"> Cpl.1nsane:</div>
+<blockquote>
+<p>Did you have a similar issue when navigating areas of Blast Pit?</p>
+</blockquote>
+</aside>
+<p>Do you have any ideas yet in terms of solving this glitch?</p>
+          <p><a href="https://leakfree.org/t/black-screen-failure-in-power-up/11908/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-screen-failure-in-power-up/11908/10</link>
+        <pubDate>Thu, 31 Jan 2013 16:38:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11908-10</guid>
+        <source url="https://leakfree.org/t/black-screen-failure-in-power-up/11908.rss">Black screen failure in Power Up</source>
+      </item>
+      <item>
+        <title>Black screen failure in Power Up</title>
+        <dc:creator><![CDATA[ThePizzaExists]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Cpl.1nsane">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/cpl.1nsane/40/4631_2.png" class="avatar"> Cpl.1nsane:</div>
+<blockquote>
+<p>Did you have a similar issue when navigating areas of Blast Pit?</p>
+</blockquote>
+</aside>
+<p>No. That specific section of Power Up that I referenced earlier in the thread is the only part where I’ve experience this glitch. I’ve had to stop playing now because it’s persistent. I tried it yesterday, and the same thing happened.  It won’t let up. The screen keeps going black.</p>
+          <p><a href="https://leakfree.org/t/black-screen-failure-in-power-up/11908/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-screen-failure-in-power-up/11908/9</link>
+        <pubDate>Sat, 26 Jan 2013 19:13:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11908-9</guid>
+        <source url="https://leakfree.org/t/black-screen-failure-in-power-up/11908.rss">Black screen failure in Power Up</source>
+      </item>
+      <item>
+        <title>Black screen failure in Power Up</title>
+        <dc:creator><![CDATA[Cpl.1nsane]]></dc:creator>
+        <description><![CDATA[
+            <p>Did you have a similar issue when navigating areas of Blast Pit?</p>
+          <p><a href="https://leakfree.org/t/black-screen-failure-in-power-up/11908/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-screen-failure-in-power-up/11908/8</link>
+        <pubDate>Sat, 26 Jan 2013 11:45:10 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11908-8</guid>
+        <source url="https://leakfree.org/t/black-screen-failure-in-power-up/11908.rss">Black screen failure in Power Up</source>
+      </item>
+      <item>
+        <title>Black screen failure in Power Up</title>
+        <dc:creator><![CDATA[ThePizzaExists]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="danielsangeo">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/danielsangeo/40/4347_2.png" class="avatar"> danielsangeo:</div>
+<blockquote>
+<p>I think it depends on whether the screen is being affected by the noise shader.  Try out disabling the shader to see if that works.</p>
+</blockquote>
+</aside>
+<p>Noise shader wasn’t even on, so do you have any other ideas? I’ve messaged the webmaster about this as well and still have received no response.</p>
+<p>Thank you.</p>
+          <p><a href="https://leakfree.org/t/black-screen-failure-in-power-up/11908/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-screen-failure-in-power-up/11908/7</link>
+        <pubDate>Sat, 26 Jan 2013 01:42:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11908-7</guid>
+        <source url="https://leakfree.org/t/black-screen-failure-in-power-up/11908.rss">Black screen failure in Power Up</source>
+      </item>
+      <item>
+        <title>Black screen failure in Power Up</title>
+        <dc:creator><![CDATA[ThePizzaExists]]></dc:creator>
+        <description><![CDATA[
+            <p>I tried turning off the noise shader, as well as playing with shader options in advanced video settings. None of this fixed the problem.</p>
+<p>I’m still experiencing the black screen of death.</p>
+<aside class="quote no-group" data-username="danielsangeo">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/danielsangeo/40/4347_2.png" class="avatar"> danielsangeo:</div>
+<blockquote>
+<p>I think it depends on whether the screen is being affected by the noise shader.  Try out disabling the shader to see if that works.</p>
+</blockquote>
+</aside>
+          <p><a href="https://leakfree.org/t/black-screen-failure-in-power-up/11908/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-screen-failure-in-power-up/11908/6</link>
+        <pubDate>Wed, 02 Jan 2013 00:18:38 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11908-6</guid>
+        <source url="https://leakfree.org/t/black-screen-failure-in-power-up/11908.rss">Black screen failure in Power Up</source>
+      </item>
+      <item>
+        <title>Black screen failure in Power Up</title>
+        <dc:creator><![CDATA[danielsangeo]]></dc:creator>
+        <description><![CDATA[
+            <p>I think it depends on whether the screen is being affected by the noise shader.  Try out disabling the shader to see if that works.</p>
+          <p><a href="https://leakfree.org/t/black-screen-failure-in-power-up/11908/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-screen-failure-in-power-up/11908/5</link>
+        <pubDate>Tue, 01 Jan 2013 07:13:44 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11908-5</guid>
+        <source url="https://leakfree.org/t/black-screen-failure-in-power-up/11908.rss">Black screen failure in Power Up</source>
+      </item>
+      <item>
+        <title>Black screen failure in Power Up</title>
+        <dc:creator><![CDATA[ThePizzaExists]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="danielsangeo">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/danielsangeo/40/4347_2.png" class="avatar"> danielsangeo:</div>
+<blockquote>
+<p>Try to turn off the noise shader in the “Visual” section.  The toxic waste causes a snowy appearance to partially cover the screen and some video cards can’t handle the shader, so instead of showing the snow, it just goes all black.</p>
+<p>This is the options screen you’re looking for:<br>
+<a href="https://wiki.blackmesasource.com/images/2/24/Gameoptions.png" data-bbcode="true" rel="nofollow noopener">https://wiki.blackmesasource.com/images/2/24/Gameoptions.png</a></p>
+</blockquote>
+</aside>
+<p>Are you sure this is the issue?</p>
+<p>I’ve already come across toxic waste in the game multiple times to get up to the point where it’s malfunctioning, so why would it be a problem in this area of the game in particular?</p>
+<p>Thanks again.</p>
+          <p><a href="https://leakfree.org/t/black-screen-failure-in-power-up/11908/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-screen-failure-in-power-up/11908/4</link>
+        <pubDate>Mon, 31 Dec 2012 00:42:54 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11908-4</guid>
+        <source url="https://leakfree.org/t/black-screen-failure-in-power-up/11908.rss">Black screen failure in Power Up</source>
+      </item>
+      <item>
+        <title>Black screen failure in Power Up</title>
+        <dc:creator><![CDATA[danielsangeo]]></dc:creator>
+        <description><![CDATA[
+            <p>Try to turn off the noise shader in the “Visual” section.  The toxic waste causes a snowy appearance to partially cover the screen and some video cards can’t handle the shader, so instead of showing the snow, it just goes all black.</p>
+<p>This is the options screen you’re looking for:<br>
+<span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+          <p><a href="https://leakfree.org/t/black-screen-failure-in-power-up/11908/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-screen-failure-in-power-up/11908/3</link>
+        <pubDate>Sun, 30 Dec 2012 01:38:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11908-3</guid>
+        <source url="https://leakfree.org/t/black-screen-failure-in-power-up/11908.rss">Black screen failure in Power Up</source>
+      </item>
+      <item>
+        <title>Black screen failure in Power Up</title>
+        <dc:creator><![CDATA[ThePsycho]]></dc:creator>
+        <description><![CDATA[
+            <p>Your Intel onboard graphic card obviously can’t handle the shader used by Black Mesa in the toxic waste part.<br>
+You should get a decent GPU for your PC. Even if you can turn down lots of settings for Source Engine games to run on onboard graphic, it’s not recommended for Black Mesa since many bugs will come with it.</p>
+          <p><a href="https://leakfree.org/t/black-screen-failure-in-power-up/11908/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-screen-failure-in-power-up/11908/2</link>
+        <pubDate>Sun, 30 Dec 2012 00:41:51 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11908-2</guid>
+        <source url="https://leakfree.org/t/black-screen-failure-in-power-up/11908.rss">Black screen failure in Power Up</source>
+      </item>
+      <item>
+        <title>Black screen failure in Power Up</title>
+        <dc:creator><![CDATA[ThePizzaExists]]></dc:creator>
+        <description><![CDATA[
+            <p>The screen goes black when I try to go past the room where the explosive barrels kill all the Vortigaunts (just before you open the door and climb the ladders in the toxic waste silo within the Power Up chapter).</p>
+<p>However, though the screen goes black, the audio’s still working and the HUD is still visible. Basically, everything but the 3D models and textures still works, but other than the HUD, the screen remains black.</p>
+<p>This is what I’ve tried:</p>
+<p>-mat_specular [0,1]<br>
+-mem_force_flush [0,1]<br>
+-mat_fullbright [0,1]<br>
+-mat_hsv [0,1]<br>
+-mat_softwarelighting [0,1]<br>
+-flush<br>
+-noclip (camera still fails, no matter where I re-enter the map after the door I mentioned earlier)<br>
+-restart (which worked as far as I did the level again and didn’t have the problem until I tried to save it, then I came back with the blank screen right from loading, even though I didn’t save on one. I also tried no-clipping to the end after restart. Didn’t fix it.)<br>
+-Reinstalling<br>
+-Redownloading<br>
+-Updated my graphics card (Intel Q965/Q963 Express Chipset Family)</p>
+<p>It seems that even though I can get past this error, eventually the black screen of death returns by the next save’s load.</p>
+<p>My friend and I have been playing the hell out of Black Mesa and it’s easily the best HL game in the franchise, so let us know what the issue is here so we can finish the damn thing!</p>
+<p>PS: I found the pizza.</p>
+          <p><a href="https://leakfree.org/t/black-screen-failure-in-power-up/11908/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-screen-failure-in-power-up/11908/1</link>
+        <pubDate>Fri, 28 Dec 2012 23:21:46 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11908-1</guid>
+        <source url="https://leakfree.org/t/black-screen-failure-in-power-up/11908.rss">Black screen failure in Power Up</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Black Mesa no longer opens under the RadeonSI Mesa stack</title>
+    <link>https://leakfree.org/t/black-mesa-no-longer-opens-under-the-radeonsi-mesa-stack/15160</link>
+    <description>I am on Manjaro linux, Kernel 4.9.22, Mesa 17.0.3-1. Whever I try to start bms.sh this is what happens
+[code]manjaro-pc Black Mesa]$ ./bms.sh libGL
+libGL error: unable to load driver: radeonsi_dri.so
+libGL error: driver pointer missing
+libGL error: failed to load driver: radeonsi
+libGL error: unable to load driver: radeonsi_dri.so
+libGL error: driver pointer missing
+libGL error: failed to load driver: radeonsi
+libGL error: unable to load driver: swrast_dri.so
+libGL error: failed to load driver: swrast
+X Error of failed request:  BadValue (integer parameter out of range for operation)
+  Major opcode of failed request:  155 (GLX)
+  Minor opcode of failed request:  3 (X_GLXCreateContext)
+  Value in failed request:  0x0
+  Serial number of failed request:  102
+  Current serial number in output stream:  103[/code]
+
+If there is any other information I can give to help you solve this let me know, Thanks.</description>
+    
+    <lastBuildDate>Sat, 13 May 2017 20:30:59 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/black-mesa-no-longer-opens-under-the-radeonsi-mesa-stack/15160.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Black Mesa no longer opens under the RadeonSI Mesa stack</title>
+        <dc:creator><![CDATA[Doom]]></dc:creator>
+        <description><![CDATA[
+            <p>Same issue. Blog post about it and finding the problem:<br>
+<a href="https://thomasvanderberg.nl/blog/fixing-black-mesa-linux/" data-bbcode="true" rel="nofollow noopener">https://thomasvanderberg.nl/blog/fixing-black-mesa-linux/</a></p>
+<p><span class="bbcode-b">tldr</span>: If Black Mesa on Steam doesn’t start, and the log says something about missing radeon drivers (like libGL error: unable to load driver: radeonsi_dri.so and some extra text), remove libstdc++.so.6 in your “~/.steam/steam/steamapps/common/Black Mesa/bin/”. It should start normally now. Below is how I found out and fixed it for myself.</p>
+          <p><a href="https://leakfree.org/t/black-mesa-no-longer-opens-under-the-radeonsi-mesa-stack/15160/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-no-longer-opens-under-the-radeonsi-mesa-stack/15160/3</link>
+        <pubDate>Sat, 13 May 2017 20:30:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15160-3</guid>
+        <source url="https://leakfree.org/t/black-mesa-no-longer-opens-under-the-radeonsi-mesa-stack/15160.rss">Black Mesa no longer opens under the RadeonSI Mesa stack</source>
+      </item>
+      <item>
+        <title>Black Mesa no longer opens under the RadeonSI Mesa stack</title>
+        <dc:creator><![CDATA[Disobeyedtoast]]></dc:creator>
+        <description><![CDATA[
+            <p>I figured it out. I had to delete /Black Mesa/bin/libstdc++.so.6 Crowbar pls fix.</p>
+          <p><a href="https://leakfree.org/t/black-mesa-no-longer-opens-under-the-radeonsi-mesa-stack/15160/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-no-longer-opens-under-the-radeonsi-mesa-stack/15160/2</link>
+        <pubDate>Tue, 25 Apr 2017 15:58:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15160-2</guid>
+        <source url="https://leakfree.org/t/black-mesa-no-longer-opens-under-the-radeonsi-mesa-stack/15160.rss">Black Mesa no longer opens under the RadeonSI Mesa stack</source>
+      </item>
+      <item>
+        <title>Black Mesa no longer opens under the RadeonSI Mesa stack</title>
+        <dc:creator><![CDATA[Disobeyedtoast]]></dc:creator>
+        <description><![CDATA[
+            <p>I am on Manjaro linux, Kernel 4.9.22, Mesa 17.0.3-1. Whever I try to start bms.sh this is what happens</p>
+<p><code>manjaro-pc Black Mesa]$ ./bms.sh libGL
+libGL error: unable to load driver: radeonsi_dri.so
+libGL error: driver pointer missing
+libGL error: failed to load driver: radeonsi
+libGL error: unable to load driver: radeonsi_dri.so
+libGL error: driver pointer missing
+libGL error: failed to load driver: radeonsi
+libGL error: unable to load driver: swrast_dri.so
+libGL error: failed to load driver: swrast
+X Error of failed request:  BadValue (integer parameter out of range for operation)
+  Major opcode of failed request:  155 (GLX)
+  Minor opcode of failed request:  3 (X_GLXCreateContext)
+  Value in failed request:  0x0
+  Serial number of failed request:  102
+  Current serial number in output stream:  103</code></p>
+<p>If there is any other information I can give to help you solve this let me know, Thanks.</p>
+          <p><a href="https://leakfree.org/t/black-mesa-no-longer-opens-under-the-radeonsi-mesa-stack/15160/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/black-mesa-no-longer-opens-under-the-radeonsi-mesa-stack/15160/1</link>
+        <pubDate>Sun, 23 Apr 2017 21:58:07 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15160-1</guid>
+        <source url="https://leakfree.org/t/black-mesa-no-longer-opens-under-the-radeonsi-mesa-stack/15160.rss">Black Mesa no longer opens under the RadeonSI Mesa stack</source>
+      </item>
+  </channel>
+</rss>

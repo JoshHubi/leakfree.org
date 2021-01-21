@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Modding: How to add vox-announcer to Lambda Core?</title>
+    <link>https://leakfree.org/t/modding-how-to-add-vox-announcer-to-lambda-core/14460</link>
+    <description>Alright, I´ll just explain everything I´m trying to do here: I made this sound-mod for BMS (retail-version) to make it feel more like original HL and was very simple, just replacing the original sound with a new one and turned it into VPK, and it works. Now I wan´t to make this mod better by adding vox-announcer to LC. This requires Hammer and made some progress with it: I amplified some alarm-sounds, moved one sound to correct place and even added one sound, so I understand something about it. I´ve already edited the vox-lines for LC but I don´t know how to add them into BMS. Also, in AM there seems to be a main vox-announcer (in the lobby) with a clear voice and everywhere else some sort of... satellite speakers (announcer_mimic or something) for it. These satellites make the vox-lines scratcy, how do I make them clear like in the lobby? Thanks!</description>
+    
+    <lastBuildDate>Thu, 26 Nov 2015 15:28:47 +0000</lastBuildDate>
+    <category>Black Mesa</category>
+    <atom:link href="https://leakfree.org/t/modding-how-to-add-vox-announcer-to-lambda-core/14460.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Modding: How to add vox-announcer to Lambda Core?</title>
+        <dc:creator><![CDATA[Kaltsu]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks, cryptic guy! I´ll look into it.</p>
+          <p><a href="https://leakfree.org/t/modding-how-to-add-vox-announcer-to-lambda-core/14460/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/modding-how-to-add-vox-announcer-to-lambda-core/14460/6</link>
+        <pubDate>Thu, 26 Nov 2015 15:28:47 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14460-6</guid>
+        <source url="https://leakfree.org/t/modding-how-to-add-vox-announcer-to-lambda-core/14460.rss">Modding: How to add vox-announcer to Lambda Core?</source>
+      </item>
+      <item>
+        <title>Modding: How to add vox-announcer to Lambda Core?</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>In Hammer, at the top, go to Map&gt;Entity Report. You should be able to do some entity filtering to find something useful.</p>
+          <p><a href="https://leakfree.org/t/modding-how-to-add-vox-announcer-to-lambda-core/14460/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/modding-how-to-add-vox-announcer-to-lambda-core/14460/5</link>
+        <pubDate>Thu, 26 Nov 2015 15:20:49 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14460-5</guid>
+        <source url="https://leakfree.org/t/modding-how-to-add-vox-announcer-to-lambda-core/14460.rss">Modding: How to add vox-announcer to Lambda Core?</source>
+      </item>
+      <item>
+        <title>Modding: How to add vox-announcer to Lambda Core?</title>
+        <dc:creator><![CDATA[Kaltsu]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for replying! Where can I find this EntReport?</p>
+          <p><a href="https://leakfree.org/t/modding-how-to-add-vox-announcer-to-lambda-core/14460/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/modding-how-to-add-vox-announcer-to-lambda-core/14460/4</link>
+        <pubDate>Thu, 26 Nov 2015 14:45:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14460-4</guid>
+        <source url="https://leakfree.org/t/modding-how-to-add-vox-announcer-to-lambda-core/14460.rss">Modding: How to add vox-announcer to Lambda Core?</source>
+      </item>
+      <item>
+        <title>Modding: How to add vox-announcer to Lambda Core?</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>Firstly, the entity you’re probably looking for is ambient_generic, not env_sound. Unless you’re trying to use a soundscape, which it doesn’t seem like, in which case you’d use an env_soundscape.</p>
+<p>Next, yes, you do have to use those BSPs. Those are the entire maps. When the engine looks for a map, it looks for maps\mapname.bsp. Whether the change you make is a small one or huge one, the map on the whole is what the engine is looking for. Continuing, the maps are actually likely to be bigger, since you’d need to build cubemaps in them, and you’re probably using the default Hammer compile instead of the Final one w/ AO.</p>
+<p>I can’t help you with VOX as I haven’t tinkered with it in BM, yet, but it shouldn’t be much harder than using EntReport to find some vox-related ents, and then looking at their I/O. You could try an implementation with ambient_generic, but then you wouldn’t have captions.</p>
+          <p><a href="https://leakfree.org/t/modding-how-to-add-vox-announcer-to-lambda-core/14460/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/modding-how-to-add-vox-announcer-to-lambda-core/14460/3</link>
+        <pubDate>Thu, 26 Nov 2015 13:31:24 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14460-3</guid>
+        <source url="https://leakfree.org/t/modding-how-to-add-vox-announcer-to-lambda-core/14460.rss">Modding: How to add vox-announcer to Lambda Core?</source>
+      </item>
+      <item>
+        <title>Modding: How to add vox-announcer to Lambda Core?</title>
+        <dc:creator><![CDATA[Kaltsu]]></dc:creator>
+        <description><![CDATA[
+            <p>Alright, I guess there would be a lot to clarify with adding the vox- announcer to a map. I´ll put it behind me and maybe I´ll get over it  <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:">  But one thing I can´t get over, is the distortion-effect in AM´s vox-announcer. How can I get rid of it? Please, I´m lost at sea here!</p>
+<p>Another thing: In Hammer, when I change volume in some env_sound or change it´s sound origin or just add env_sound to a map, do I really have to use bsp-files that Hammer creates after running the map? Those bsp´s are very large and it seems a bit overkill just for a few soundchanges.</p>
+          <p><a href="https://leakfree.org/t/modding-how-to-add-vox-announcer-to-lambda-core/14460/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/modding-how-to-add-vox-announcer-to-lambda-core/14460/2</link>
+        <pubDate>Thu, 26 Nov 2015 13:17:54 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14460-2</guid>
+        <source url="https://leakfree.org/t/modding-how-to-add-vox-announcer-to-lambda-core/14460.rss">Modding: How to add vox-announcer to Lambda Core?</source>
+      </item>
+      <item>
+        <title>Modding: How to add vox-announcer to Lambda Core?</title>
+        <dc:creator><![CDATA[Kaltsu]]></dc:creator>
+        <description><![CDATA[
+            <p>Alright, I´ll just explain everything I´m trying to do here: I made this sound-mod for BMS (retail-version) to make it feel more like original HL and was very simple, just replacing the original sound with a new one and turned it into VPK, and it works. Now I wan´t to make this mod better by adding vox-announcer to LC. This requires Hammer and made some progress with it: I amplified some alarm-sounds, moved one sound to correct place and even added one sound, so I understand something about it. I´ve already edited the vox-lines for LC but I don´t know how to add them into BMS. Also, in AM there seems to be a main vox-announcer (in the lobby) with a clear voice and everywhere else some sort of… satellite speakers (announcer_mimic or something) for it. These satellites make the vox-lines scratcy, how do I make them clear like in the lobby? Thanks!</p>
+          <p><a href="https://leakfree.org/t/modding-how-to-add-vox-announcer-to-lambda-core/14460/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/modding-how-to-add-vox-announcer-to-lambda-core/14460/1</link>
+        <pubDate>Thu, 12 Nov 2015 12:20:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14460-1</guid>
+        <source url="https://leakfree.org/t/modding-how-to-add-vox-announcer-to-lambda-core/14460.rss">Modding: How to add vox-announcer to Lambda Core?</source>
+      </item>
+  </channel>
+</rss>

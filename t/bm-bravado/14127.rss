@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>bm_bravado</title>
+    <link>https://leakfree.org/t/bm-bravado/14127</link>
+    <description>Bravado is a new singleplayer map for Black Mesa, now available in the Workshop!
+
+[i]While attempting to escape Black Mesa, Freeman&#39;s tram is halted by a military lockdown at an administrative facility chiselled into the side of a canyon wall. Freeman must restore power to the tram and, along the way, discover what happened to the scientists.[/i]
+
+[url]https://steamcommunity.com/sharedfiles/filedetails/?id=449141574[/url]
+
+Go and check it out and like, fav, comment if you enjoy it.
+
+![bravado4.jpg|690x500](upload://6tPtYNTV2lkDQTBTflznoqi1hY.jpeg)![bravado2.jpg|690x500](upload://9I74HQFJ71eV1qZpM2uvKmYBJOv.jpeg)![bravado1.jpg|690x500](upload://eycmTG4Xb1ZLgRSG9y7XWOUJxlB.jpeg)</description>
+    
+    <lastBuildDate>Wed, 03 Jun 2015 03:27:18 +0000</lastBuildDate>
+    <category>Show Off</category>
+    <atom:link href="https://leakfree.org/t/bm-bravado/14127.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>bm_bravado</title>
+        <dc:creator><![CDATA[Maki]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes, physexplosions can be great for messing up a room.  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>I’ve also heard about the ability to snap a ragdoll to an animation frame, but I’ve never been able to make it work in my previous maps.  The VDC talks about a field called “sequence” which is absent from the FGD and supposedly uses the first frame of the provided animation.  There’s just one problem - it expects an <span class="bbcode-i">integer</span>, not a string.</p>
+<p>That led me to look at prop_ragdoll’s <a href="https://github.com/ValveSoftware/source-sdk-2013/blob/56accfdb9c4abd32ae1dc26b2e4cc87898cf4dc1/sp/src/game/server/physics_prop_ragdoll.cpp" data-bbcode="true" rel="nofollow noopener">code</a>, where the actual name of the variable is m_nOverlaySequence, not sequence. It is an integer. Based on what I had seen there, I was led to believe that while this functionality exists, it’s not exposed to mappers.  I believe that while the variable can be set by mappers, they are not used by the game unless code tells them to do it, and it doesn’t appear to be set up that way by default.  One example of its usage is with npc_barnacle, where it manually sets the ragdoll into the ACT_GESTURE_BARNACLE_STRANGLE animation using this system.</p>
+<p>People can correct me if I’m wrong, but that’s just how I interpret it.  Whether it’s sequence or m_nOverlaySequence, random integers or ACT_ names, I never got it to work in my tests.</p>
+          <p><a href="https://leakfree.org/t/bm-bravado/14127/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bm-bravado/14127/19</link>
+        <pubDate>Wed, 03 Jun 2015 03:27:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14127-19</guid>
+        <source url="https://leakfree.org/t/bm-bravado/14127.rss">bm_bravado</source>
+      </item>
+      <item>
+        <title>bm_bravado</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>I think Stormy mentioned some way to have the ragdoll snap to the first frame of an animation before going all dangly-like, but I don’t recall exactly.</p>
+          <p><a href="https://leakfree.org/t/bm-bravado/14127/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bm-bravado/14127/18</link>
+        <pubDate>Wed, 03 Jun 2015 02:06:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14127-18</guid>
+        <source url="https://leakfree.org/t/bm-bravado/14127.rss">bm_bravado</source>
+      </item>
+      <item>
+        <title>bm_bravado</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>If you want it to look interesting, you could also use env_physexplosion to toss the ragdoll around. That’s how Valve did it in HL2, in the room where Alyx beats up all the Metrocops while Gordon is stunned.</p>
+          <p><a href="https://leakfree.org/t/bm-bravado/14127/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bm-bravado/14127/17</link>
+        <pubDate>Tue, 02 Jun 2015 18:06:40 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14127-17</guid>
+        <source url="https://leakfree.org/t/bm-bravado/14127.rss">bm_bravado</source>
+      </item>
+      <item>
+        <title>bm_bravado</title>
+        <dc:creator><![CDATA[Maki]]></dc:creator>
+        <description><![CDATA[
+            <p>The prop_ragdolls are oriented so they are tilted back against the wall, so when they drop, they go butt first.  I believe there are better ways to do this, like the Hammer update entity, but it’s somewhat reliable for that kind of effect.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/d/d01db5549cb94a7f320b2d7b1c9a0c911fd7bef0.jpeg" data-download-href="https://leakfree.org/uploads/default/d01db5549cb94a7f320b2d7b1c9a0c911fd7bef0" title="ragdolls.jpg"><img src="https://leakfree.org/uploads/default/original/2X/d/d01db5549cb94a7f320b2d7b1c9a0c911fd7bef0.jpeg" alt="ragdolls.jpg" data-base62-sha1="tH4XKeuZJwJ7KQuCkinReHKb6YE" width="690" height="500" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/d/d01db5549cb94a7f320b2d7b1c9a0c911fd7bef0_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">ragdolls.jpg</span><span class="informations">763×806 208 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+          <p><a href="https://leakfree.org/t/bm-bravado/14127/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bm-bravado/14127/16</link>
+        <pubDate>Tue, 02 Jun 2015 15:00:49 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14127-16</guid>
+        <source url="https://leakfree.org/t/bm-bravado/14127.rss">bm_bravado</source>
+      </item>
+      <item>
+        <title>bm_bravado</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p>I always find myself trying to avoid having ragdolls in my maps look like they spawned in the T-pose. I gotta ask, bravado has a lot of bodies sitting against walls like this. Is there any special method you used, or did you just get lucky with the physics engine?<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/5/5883f26e3ce918671bedb90ba5bfd75dff8c09b1.jpeg" data-download-href="https://leakfree.org/uploads/default/5883f26e3ce918671bedb90ba5bfd75dff8c09b1" title="2015-06-02_00001.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/5/5883f26e3ce918671bedb90ba5bfd75dff8c09b1_2_690x500.jpeg" alt="2015-06-02_00001.jpg" data-base62-sha1="cD2IaYfiC3W1VgHtjpCLFrPEK6R" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/5/5883f26e3ce918671bedb90ba5bfd75dff8c09b1_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/5/5883f26e3ce918671bedb90ba5bfd75dff8c09b1_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/5/5883f26e3ce918671bedb90ba5bfd75dff8c09b1_2_1380x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/5/5883f26e3ce918671bedb90ba5bfd75dff8c09b1_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">2015-06-02_00001.jpg</span><span class="informations">1600×900 261 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+          <p><a href="https://leakfree.org/t/bm-bravado/14127/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bm-bravado/14127/15</link>
+        <pubDate>Tue, 02 Jun 2015 14:45:46 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14127-15</guid>
+        <source url="https://leakfree.org/t/bm-bravado/14127.rss">bm_bravado</source>
+      </item>
+      <item>
+        <title>bm_bravado</title>
+        <dc:creator><![CDATA[jambo]]></dc:creator>
+        <description><![CDATA[
+            <p>Played this last night and had a lot of fun.</p>
+<p>I liked the layout, keeping everything hugged in tight to the one area. Smart design.</p>
+<p>Reminded me of the early 00s when there were tonnes of SP mods around for HL1.</p>
+          <p><a href="https://leakfree.org/t/bm-bravado/14127/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bm-bravado/14127/14</link>
+        <pubDate>Mon, 01 Jun 2015 00:50:50 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14127-14</guid>
+        <source url="https://leakfree.org/t/bm-bravado/14127.rss">bm_bravado</source>
+      </item>
+      <item>
+        <title>bm_bravado</title>
+        <dc:creator><![CDATA[Maki]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<p>Hey!</p>
+<p>I just played through this and wanted to say I really enjoyed it, nice work!</p>
+</blockquote>
+</aside>
+<p>Thanks!   <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+          <p><a href="https://leakfree.org/t/bm-bravado/14127/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bm-bravado/14127/13</link>
+        <pubDate>Tue, 26 May 2015 17:40:36 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14127-13</guid>
+        <source url="https://leakfree.org/t/bm-bravado/14127.rss">bm_bravado</source>
+      </item>
+      <item>
+        <title>bm_bravado</title>
+        <dc:creator><![CDATA[Maki]]></dc:creator>
+        <description><![CDATA[
+            <p>Yeah, unfortunately, I never figured out if Black Mesa had its own equivalent of item_dynamic_resupply.  That’s a special “item” in Half-Life 2 that transforms into whatever the player needs most at the time they break the crate containing it.  All the item_crates I found in BM were hardwired to drop specific things (although there was a field that linked to a script somewhere?).</p>
+<p>It’s sort of a two-pronged problem.  For one, without this entity, it’s easy to flood Easy and Normal difficulty with too much health.  With it, you can always give away some throwaway item on lower difficulties.  And secondly, none of the item_crates look good in an office environment (they are conspicuously absent in Office Complex).  It’s actually a testament to how Half-Life 2’s item crate blended into any setting while still standing out.  The giant 48x48 crates in Black Mesa don’t work in an office setting.</p>
+          <p><a href="https://leakfree.org/t/bm-bravado/14127/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bm-bravado/14127/12</link>
+        <pubDate>Tue, 26 May 2015 17:30:46 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14127-12</guid>
+        <source url="https://leakfree.org/t/bm-bravado/14127.rss">bm_bravado</source>
+      </item>
+      <item>
+        <title>bm_bravado</title>
+        <dc:creator><![CDATA[Fr0z3n]]></dc:creator>
+        <description><![CDATA[
+            <p>Hey!</p>
+<p>I just played through this and wanted to say I really enjoyed it, nice work!</p>
+          <p><a href="https://leakfree.org/t/bm-bravado/14127/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bm-bravado/14127/11</link>
+        <pubDate>Tue, 26 May 2015 17:29:10 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14127-11</guid>
+        <source url="https://leakfree.org/t/bm-bravado/14127.rss">bm_bravado</source>
+      </item>
+      <item>
+        <title>bm_bravado</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>[spoiler]Ah yeah, I remember those med kits. I remember picking those up, but my health didn’t last long because low armor plus Hard mode.</p>
+<p>… also, I feel really stupid now for forgetting that grenades are a viable weapon. Whoops.  <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"><br>
+[/spoiler]</p>
+          <p><a href="https://leakfree.org/t/bm-bravado/14127/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bm-bravado/14127/10</link>
+        <pubDate>Tue, 26 May 2015 17:16:19 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14127-10</guid>
+        <source url="https://leakfree.org/t/bm-bravado/14127.rss">bm_bravado</source>
+      </item>
+      <item>
+        <title>bm_bravado</title>
+        <dc:creator><![CDATA[Maki]]></dc:creator>
+        <description><![CDATA[
+            <p>[spoiler]There is a medkit and a battery over in the bathroom near the room where the Houndeyes are.  The Houndeyes are meant to be a trap - you can see them through the window before you encounter the two Zombies near the bathroom.  Because the Houndeyes are sleeping, it is possible to not trigger them at all if you don’t use the Pistol to kill the two Zombies.  If you quietly Crowbar them to death instead, you can then kill the Houndeyes with the Grenades you get from the dead guard.   <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+<p>There is also a medkit to the right of the freezer chamber, just after the Bullsquid.[/spoiler]</p>
+          <p><a href="https://leakfree.org/t/bm-bravado/14127/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bm-bravado/14127/9</link>
+        <pubDate>Tue, 26 May 2015 17:05:27 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14127-9</guid>
+        <source url="https://leakfree.org/t/bm-bravado/14127.rss">bm_bravado</source>
+      </item>
+      <item>
+        <title>bm_bravado</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <div class="spoiler">
+<p>It was the houndeye pack. I thought “oh, houndeyes!” and proceeded to shoot them, but after taking a few blasts, I saw my health was at 15, so I panicked and ran the other way trying to scavenge for health kits (which I couldn’t find). I eventually killed them and the bullsquid without taking any additional damage, fortunately, but it took a while because I had to be as careful as I could not to get one-shotted.</p>
+<p>I probably took a bunch of additional damage before the houndeyes, and didn’t realize that I was running low until the numbers turned red.</p>
+</div>
+          <p><a href="https://leakfree.org/t/bm-bravado/14127/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bm-bravado/14127/8</link>
+        <pubDate>Tue, 26 May 2015 16:06:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14127-8</guid>
+        <source url="https://leakfree.org/t/bm-bravado/14127.rss">bm_bravado</source>
+      </item>
+      <item>
+        <title>bm_bravado</title>
+        <dc:creator><![CDATA[Maki]]></dc:creator>
+        <description><![CDATA[
+            <p>Re: danielsangeo</p>
+<div class="spoiler">
+<p>Nah.  It’s tough to get used to a new visual language when you’re so used to the Half-Life 2 language.  Because I played the series in reverse order, I never understood until later that Half-Life 1 crates contained goodies!  You can imagine why I thought the game was so difficult. &gt;_&gt;</p>
+</div>
+<p>Re: Health kits</p>
+<div class="spoiler">
+<p>There are 3 batteries scattered around, along with 2 health kits.  There are 2 health chargers and 1 HEV charger, which are basically locked off from the player until the return trip.  There are also a few alternate ways to complete battles with minimal damage to yourself. I can explore adding more, but it would be help to know what was the tipping point that brought you to low health in the first place?</p>
+</div>
+          <p><a href="https://leakfree.org/t/bm-bravado/14127/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bm-bravado/14127/7</link>
+        <pubDate>Tue, 26 May 2015 15:52:12 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14127-7</guid>
+        <source url="https://leakfree.org/t/bm-bravado/14127.rss">bm_bravado</source>
+      </item>
+      <item>
+        <title>bm_bravado</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>Excellent piece of level design here. I only have two issues with it:</p>
+<div class="spoiler">
+<ol>
+<li>Either I’m doing something really wrong, or there are way too few health kits on the map (I played on Hard). I took lots of damage before realizing that this map wasn’t nearly as generous with the health and armor goodies as I thought it would be, after which I started being a lot more careful since by then my health had dropped so low that I could practically be one-shotted at any moment. I spent about half the map with about 15 health because the health and armor placement seemed a bit… conservative, to say the least.</li>
+<li>I probably missed out on what would’ve been an interesting HECU battle because I sprinted past what I assume to be their spawn point due to pressure from the Apache. By the time I heard them, they were way behind me.</li>
+</ol>
+</div>
+<p>Great job!</p>
+          <p><a href="https://leakfree.org/t/bm-bravado/14127/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bm-bravado/14127/6</link>
+        <pubDate>Tue, 26 May 2015 07:02:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14127-6</guid>
+        <source url="https://leakfree.org/t/bm-bravado/14127.rss">bm_bravado</source>
+      </item>
+      <item>
+        <title>bm_bravado</title>
+        <dc:creator><![CDATA[danielsangeo]]></dc:creator>
+        <description><![CDATA[
+            <p>[spoiler]Okay, evidently I’m either blind, a dumbass, or not informed.   X/</p>
+<p>I didn’t see this the first time through:<br>
+<a href="https://images.akamai.steamusercontent.com/ugc/540775541815793754/339ACB45166C9F7B0036A6A6E7F4A75F62591710/" data-bbcode="true">https://images.akamai.steamusercontent.com/ugc/540775541815793754/339ACB45166C9F7B0036A6A6E7F4A75F62591710/</a></p>
+<p>I was looking for this kind of crate:<br>
+<a href="https://vignette1.wikia.nocookie.net/half-life/images/6/6b/Ammocrate_rpg.jpg/revision/latest?cb=20090804094921&amp;path-prefix=en" data-bbcode="true">https://vignette1.wikia.nocookie.net/half-life/images/6/6b/Ammocrate_rpg.jpg/revision/latest?cb=20090804094921&amp;path-prefix=en</a></p>
+<p>Apologies.  Great work on this map, then![/spoiler]</p>
+          <p><a href="https://leakfree.org/t/bm-bravado/14127/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bm-bravado/14127/5</link>
+        <pubDate>Tue, 26 May 2015 04:13:54 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14127-5</guid>
+        <source url="https://leakfree.org/t/bm-bravado/14127.rss">bm_bravado</source>
+      </item>
+      <item>
+        <title>bm_bravado</title>
+        <dc:creator><![CDATA[Maki]]></dc:creator>
+        <description><![CDATA[
+            <p>Danielsangeo:</p>
+<p>[spoiler]There is a rocket crate.  However, I am confused by your description.  When you talk about rockets “opposite the main area,” it sounds like you’re talking about where the rocket crate is.  The rocket crate is located behind the big red Secure Access door at the beginning of the level.</p>
+<p>There are only two areas with rockets.  The Security Office when you enter the interior and the big red door.  The big red door has a rocket crate and a couple crates containing the RPG itself, for players that decided to forego or forgot about the Security Office one and ran all the way over here without getting it.[/spoiler]</p>
+          <p><a href="https://leakfree.org/t/bm-bravado/14127/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bm-bravado/14127/4</link>
+        <pubDate>Tue, 26 May 2015 01:19:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14127-4</guid>
+        <source url="https://leakfree.org/t/bm-bravado/14127.rss">bm_bravado</source>
+      </item>
+      <item>
+        <title>bm_bravado</title>
+        <dc:creator><![CDATA[danielsangeo]]></dc:creator>
+        <description><![CDATA[
+            <p>Small map, but I enjoyed it.  Only suggestion I have is in the spoiler:</p>
+<p>[spoiler]When going up against the helicopter at the end, I ran out of rockets because I was a dumbass.  I went all over the place looking for more rockets (I found some in the room opposite the main area, but ran out of those, too) but I couldn’t find any more.  I ended up having to hang out in the canyon area, crouched behind a corrugated metal plate, and lob grenades at the helicopter to defeat it.</p>
+<p>I suggest placing a rocket ammo crate somewhere in the level.[/spoiler]</p>
+          <p><a href="https://leakfree.org/t/bm-bravado/14127/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bm-bravado/14127/3</link>
+        <pubDate>Tue, 26 May 2015 00:09:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14127-3</guid>
+        <source url="https://leakfree.org/t/bm-bravado/14127.rss">bm_bravado</source>
+      </item>
+      <item>
+        <title>bm_bravado</title>
+        <dc:creator><![CDATA[Mr_GameCrazy]]></dc:creator>
+        <description><![CDATA[
+            <p>Nice map.</p>
+          <p><a href="https://leakfree.org/t/bm-bravado/14127/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bm-bravado/14127/2</link>
+        <pubDate>Tue, 26 May 2015 00:01:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14127-2</guid>
+        <source url="https://leakfree.org/t/bm-bravado/14127.rss">bm_bravado</source>
+      </item>
+      <item>
+        <title>bm_bravado</title>
+        <dc:creator><![CDATA[Maki]]></dc:creator>
+        <description><![CDATA[
+            <p>Bravado is a new singleplayer map for Black Mesa, now available in the Workshop!</p>
+<p><span class="bbcode-i">While attempting to escape Black Mesa, Freeman’s tram is halted by a military lockdown at an administrative facility chiselled into the side of a canyon wall. Freeman must restore power to the tram and, along the way, discover what happened to the scientists.</span></p>
+<p><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=449141574" data-bbcode="true" rel="nofollow noopener">https://steamcommunity.com/sharedfiles/filedetails/?id=449141574</a></p>
+<p>Go and check it out and like, fav, comment if you enjoy it.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/0/00bb8d8f49f5f9cbec20c0c83c5f403c0ee9a6ae.jpeg" data-download-href="https://leakfree.org/uploads/default/00bb8d8f49f5f9cbec20c0c83c5f403c0ee9a6ae" title="bravado4.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/0/00bb8d8f49f5f9cbec20c0c83c5f403c0ee9a6ae_2_690x500.jpeg" alt="bravado4.jpg" data-base62-sha1="6tPtYNTV2lkDQTBTflznoqi1hY" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/0/00bb8d8f49f5f9cbec20c0c83c5f403c0ee9a6ae_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/0/00bb8d8f49f5f9cbec20c0c83c5f403c0ee9a6ae_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/0/00bb8d8f49f5f9cbec20c0c83c5f403c0ee9a6ae_2_1380x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/0/00bb8d8f49f5f9cbec20c0c83c5f403c0ee9a6ae_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">bravado4.jpg</span><span class="informations">1920×1080 466 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/4/44102733e0c64283228c97e762368e557f63e4c7.jpeg" data-download-href="https://leakfree.org/uploads/default/44102733e0c64283228c97e762368e557f63e4c7" title="bravado2.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/4/44102733e0c64283228c97e762368e557f63e4c7_2_690x500.jpeg" alt="bravado2.jpg" data-base62-sha1="9I74HQFJ71eV1qZpM2uvKmYBJOv" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/4/44102733e0c64283228c97e762368e557f63e4c7_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/4/44102733e0c64283228c97e762368e557f63e4c7_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/4/44102733e0c64283228c97e762368e557f63e4c7_2_1380x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/4/44102733e0c64283228c97e762368e557f63e4c7_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">bravado2.jpg</span><span class="informations">1920×1080 276 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/6/65fc1c5aa32ddeb6ec23062b239f21ba4dc9f797.jpeg" data-download-href="https://leakfree.org/uploads/default/65fc1c5aa32ddeb6ec23062b239f21ba4dc9f797" title="bravado1.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/6/65fc1c5aa32ddeb6ec23062b239f21ba4dc9f797_2_690x500.jpeg" alt="bravado1.jpg" data-base62-sha1="eycmTG4Xb1ZLgRSG9y7XWOUJxlB" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/6/65fc1c5aa32ddeb6ec23062b239f21ba4dc9f797_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/6/65fc1c5aa32ddeb6ec23062b239f21ba4dc9f797_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/6/65fc1c5aa32ddeb6ec23062b239f21ba4dc9f797_2_1380x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/6/65fc1c5aa32ddeb6ec23062b239f21ba4dc9f797_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">bravado1.jpg</span><span class="informations">1920×1080 587 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+          <p><a href="https://leakfree.org/t/bm-bravado/14127/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bm-bravado/14127/1</link>
+        <pubDate>Mon, 25 May 2015 17:46:27 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14127-1</guid>
+        <source url="https://leakfree.org/t/bm-bravado/14127.rss">bm_bravado</source>
+      </item>
+  </channel>
+</rss>

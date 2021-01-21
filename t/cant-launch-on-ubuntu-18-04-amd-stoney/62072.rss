@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Can&#39;t launch on Ubuntu 18.04 &amp; AMD Stoney</title>
+    <link>https://leakfree.org/t/cant-launch-on-ubuntu-18-04-amd-stoney/62072</link>
+    <description>## The problem
+I downloaded the latest version of Black Mesa on Steam (current content BuildID: 2875662) and when I tried to launch it, nothing happened. The process `blm_linux` was running for ~1 minute and then it stopped and awarded me with a &quot;Wild Blue&quot; trading card.
+
+![obrazek|167x197](upload://s0kHWoe08XGVs4gcuSaNEDXo2vU.png)
+
+I tried running Black Mesa from terminal and I got this error:
+
+    ➜  Black Mesa ./bms.sh             
+    dbus[17813]: arguments to dbus_message_new_method_call() were incorrect, assertion &quot;path != NULL&quot; failed in file ../../../dbus/dbus-message.c line 1362.
+    This is normally a bug in some application using the D-Bus library.
+
+      D-Bus not built with -rdynamic so unable to print a backtrace
+    ./bms.sh: řádek 69: 17813 Neúspěšně ukončen (SIGABRT)        (core dumped [obraz paměti uložen]) ${GAME_DEBUGGER} &quot;${GAMEROOT}&quot;/${GAMEEXE} &quot;$@&quot;
+    ➜  Black Mesa ./bms_linux 
+    dbus[17836]: arguments to dbus_message_new_method_call() were incorrect, assertion &quot;path != NULL&quot; failed in file ../../../dbus/dbus-message.c line 1362.
+    This is normally a bug in some application using the D-Bus library.
+
+      D-Bus not built with -rdynamic so unable to print a backtrace
+    [1]    17836 abort (core dumped)  ./bms_linux
+
+
+[There have been sugestions](https://www.reddit.com/r/linux_gaming/comments/6mefy5/psa_black_mesa_will_not_run_on_amdgpu_unless_you/) that Black Mesa could have problems with AMD graphics cards and the solution would be to remove `libstdc++.so.6` from the game&#39;s `bin` folder. However that was back in 2017. In my current version of the game `libstdc++.so.6` is not even present.
+
+
+
+## Diagnostics
+
+Running `inxi -SGCMx` gave me this output:
+
+    ➜  Black Mesa inxi -SGCMx          
+    System:    Host: m93a-ubuntu-A315 Kernel: 4.15.0-43-generic x86_64 bits: 64 gcc: 7.3.0
+               Desktop: Gnome 3.28.3 (Gtk 3.22.30-1ubuntu1) Distro: Ubuntu 18.04.1 LTS
+    Machine:   Device: laptop System: Acer product: Aspire A315-21 v: V1.02 serial: N/A
+               Mobo: SR model: Squirtle_SR v: V1.02 serial: N/A UEFI [Legacy]: Insyde v: V1.02 date: 05/12/2017
+    CPU:       Dual core AMD A4-9120 RADEON R3 4 COMPUTE CORES 2C+2G (-MCP-) arch: Excavator rev.0 cache: 2048 KB
+               flags: (lm nx sse sse2 sse3 sse4_1 sse4_2 sse4a ssse3 svm) bmips: 8783
+               clock speeds: max: 2200 MHz 1: 1483 MHz 2: 1482 MHz
+    Graphics:  Card: Advanced Micro Devices [AMD/ATI] Stoney [Radeon R2/R3/R4/R5 Graphics] bus-ID: 00:01.0
+               Display Server: x11 (X.Org 1.19.6 ) driver: amdgpu Resolution: 1920x1080@60.05hz
+               OpenGL: renderer: AMD STONEY (DRM 3.23.0 / 4.15.0-43-generic, LLVM 6.0.0)
+               version: 4.5 Mesa 18.0.5 Direct Render: Yes
+
+
+Running `glxinfo | grep OpenGL` gave me this output:
+
+    ➜  Black Mesa glxinfo | grep OpenGL
+    OpenGL vendor string: X.Org
+    OpenGL renderer string: AMD STONEY (DRM 3.23.0 / 4.15.0-43-generic, LLVM 6.0.0)
+    OpenGL core profile version string: 4.5 (Core Profile) Mesa 18.0.5
+    OpenGL core profile shading language version string: 4.50
+    OpenGL core profile context flags: (none)
+    OpenGL core profile profile mask: core profile
+    OpenGL core profile extensions:
+    OpenGL version string: 3.0 Mesa 18.0.5
+    OpenGL shading language version string: 1.30
+    OpenGL context flags: (none)
+    OpenGL extensions:
+    OpenGL ES profile version string: OpenGL ES 3.1 Mesa 18.0.5
+    OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.10
+    OpenGL ES profile extensions:
+
+
+I&#39;m on Ubuntu 18.04.1 x64, AMD® A4-9120 Radeon R3, AMD® Stoney. I have Portal &amp; Half-Life 2 installed, both run fine after I installed some 32bit libraries (list of all 32bit packages installed on my system can be found [here](https://gist.github.com/m93a/c6a63f6f781d7f53142a5b70b850dec4)).</description>
+    
+    <lastBuildDate>Sat, 12 Jan 2019 16:45:37 +0000</lastBuildDate>
+    <category>Help!</category>
+    <atom:link href="https://leakfree.org/t/cant-launch-on-ubuntu-18-04-amd-stoney/62072.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Can&#39;t launch on Ubuntu 18.04 &amp; AMD Stoney</title>
+        <dc:creator><![CDATA[RedEye9]]></dc:creator>
+        <description><![CDATA[
+            <p>That’s too cool. Glad I could point you to a resource that had useful info.<br>
+Lord knows when I switch over to Linux there will be much gnashing of teeth and many tears shed.<img src="https://leakfree.org/images/emoji/twitter/unamused.png?v=9" title=":unamused:" class="emoji" alt=":unamused:"></p>
+          <p><a href="https://leakfree.org/t/cant-launch-on-ubuntu-18-04-amd-stoney/62072/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cant-launch-on-ubuntu-18-04-amd-stoney/62072/5</link>
+        <pubDate>Sat, 12 Jan 2019 16:45:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62072-5</guid>
+        <source url="https://leakfree.org/t/cant-launch-on-ubuntu-18-04-amd-stoney/62072.rss">Can&#39;t launch on Ubuntu 18.04 &amp; AMD Stoney</source>
+      </item>
+      <item>
+        <title>Can&#39;t launch on Ubuntu 18.04 &amp; AMD Stoney</title>
+        <dc:creator><![CDATA[m93a]]></dc:creator>
+        <description><![CDATA[
+            <p>The game is playable now!<br>
+I was able to load the first level, it worked fine until it crashed due to insufficient memory. I’m sure that when I buy more RAM, it will be OK.</p>
+          <p><a href="https://leakfree.org/t/cant-launch-on-ubuntu-18-04-amd-stoney/62072/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cant-launch-on-ubuntu-18-04-amd-stoney/62072/4</link>
+        <pubDate>Sat, 12 Jan 2019 10:53:33 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62072-4</guid>
+        <source url="https://leakfree.org/t/cant-launch-on-ubuntu-18-04-amd-stoney/62072.rss">Can&#39;t launch on Ubuntu 18.04 &amp; AMD Stoney</source>
+      </item>
+      <item>
+        <title>Can&#39;t launch on Ubuntu 18.04 &amp; AMD Stoney</title>
+        <dc:creator><![CDATA[m93a]]></dc:creator>
+        <description><![CDATA[
+            <p>Here’s my progress so far:</p>
+<p>I ran the game with a <code>-dev</code> flag which helped me locate the problem:</p>
+<pre><code>➜  Black Mesa ./bms_linux -dev
+dbus[13875]: arguments to dbus_message_new_method_call() were incorrect, assertion "path != NULL" failed in file ../../../dbus/dbus-message.c line 1362.
+This is normally a bug in some application using the D-Bus library.
+
+SDL video target is 'x11'
+SDL video target is 'x11'
+This system supports the OpenGL extension GL_EXT_framebuffer_object.
+This system supports the OpenGL extension GL_EXT_framebuffer_blit.
+This system supports the OpenGL extension GL_EXT_framebuffer_multisample.
+This system DOES NOT support the OpenGL extension GL_APPLE_fence.
+This system DOES NOT support the OpenGL extension GL_NV_fence.
+This system supports the OpenGL extension GL_ARB_sync.
+This system supports the OpenGL extension GL_EXT_draw_buffers2.
+This system DOES NOT support the OpenGL extension GL_EXT_bindable_uniform.
+This system DOES NOT support the OpenGL extension GL_APPLE_flush_buffer_range.
+This system supports the OpenGL extension GL_ARB_map_buffer_range.
+This system supports the OpenGL extension GL_ARB_vertex_buffer_object.
+This system supports the OpenGL extension GL_ARB_occlusion_query.
+This system DOES NOT support the OpenGL extension GL_APPLE_texture_range.
+This system DOES NOT support the OpenGL extension GL_APPLE_client_storage.
+This system DOES NOT support the OpenGL extension GL_ARB_uniform_buffer.
+This system supports the OpenGL extension GL_ARB_vertex_array_bgra.
+This system supports the OpenGL extension GL_EXT_vertex_array_bgra.
+This system supports the OpenGL extension GL_ARB_framebuffer_object.
+This system DOES NOT support the OpenGL extension GL_GREMEDY_string_marker.
+This system supports the OpenGL extension GL_ARB_debug_output.
+This system DOES NOT support the OpenGL extension GL_EXT_direct_state_access.
+This system DOES NOT support the OpenGL extension GL_NV_bindless_texture.
+This system supports the OpenGL extension GL_AMD_pinned_memory.
+This system supports the OpenGL extension GL_EXT_framebuffer_multisample_blit_scaled.
+This system supports the OpenGL extension GL_EXT_texture_sRGB_decode.
+This system supports the OpenGL extension GL_NVX_gpu_memory_info.
+This system supports the OpenGL extension GL_ATI_meminfo.
+This system supports the OpenGL extension GL_EXT_texture_compression_s3tc.
+This system supports the OpenGL extension GL_EXT_texture_compression_dxt1.
+This system supports the OpenGL extension GL_ANGLE_texture_compression_dxt3.
+This system supports the OpenGL extension GL_ANGLE_texture_compression_dxt5.
+This system supports the OpenGL extension GL_ARB_buffer_storage.
+This system DOES NOT support the OpenGL extension GLX_EXT_swap_control_tear.
+OpenGL: AMD STONEY (DRM 3.23.0 / 4.15.0-43-generic, LLVM 6.0.0) 3.0 Mesa 18.0.5 (3.0.0)
+GL_NV_bindless_texture: DISABLED
+GL_AMD_pinned_memory: DISABLED
+GL_ARB_buffer_storage: AVAILABLE
+GL_EXT_texture_sRGB_decode: AVAILABLE
+ failed to dlopen /home/m93a/.steam/steam/steamapps/common/Black Mesa/bin/engine.so error=libsteam_api.so: sdílený objektový soubor nelze otevřít: Adresář nebo soubor neexistuje
+ failed to dlopen engine.so error=engine.so: sdílený objektový soubor nelze otevřít: Adresář nebo soubor neexistuje
+AppFramework : Unable to load module engine.so!
+Unable to load interface VCvarQuery001 from engine.so, requested from EXE.
+</code></pre>
+<p>This has been <a href="https://steamcommunity.com/app/362890/discussions/1/312265672106829708/" rel="nofollow noopener">already discussed</a> and the solution is to copy <code>libsteam_api.so</code> from the game’s <code>bin</code> folder to <code>/usr/lib</code>.</p>
+<p>Now the game launches and only complains about not having <code>game_shader_dx6.so</code>, <code>game_shader_dx7.so</code> , <code>game_shader_dx8.so</code>, <code>game_shader_dx9.so</code>. It gets past the crowbar logo to the loading screen. At this point the game minimizes several times, complains about invalid colors and then keeps repeating that “shaderapi’s centroid mask (0x0000000C) differs from mask derived from shader name (0x00000000) for shader ps-file”.</p>
+<pre><code>ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+ShaderAPIDX8::CreateD3DTexture: Invalid color format!
+IDirect3DDevice9::CreatePixelShader: shaderapi's centroid mask (0x0000000C) differs from mask derived from shader name (0x00000000) for shader ps-file gbbrush_ps30_togl ps-index 1536 ps-combo 0
+IDirect3DDevice9::CreatePixelShader: shaderapi's centroid mask (0x0000000C) differs from mask derived from shader name (0x00000000) for shader ps-file gbbrush_ps30_togl ps-index 1536 ps-combo 1
+IDirect3DDevice9::CreatePixelShader: shaderapi's centroid mask (0x0000000C) differs from mask derived from shader name (0x00000000) for shader ps-file gbbrush_ps30_togl ps-index 1536 ps-combo 4
+IDirect3DDevice9::CreatePixelShader: shaderapi's centroid mask (0x0000000C) differs from mask derived from shader name (0x00000000) for shader ps-file gbbrush_ps30_togl ps-index 1536 ps-combo 5</code></pre>
+          <p><a href="https://leakfree.org/t/cant-launch-on-ubuntu-18-04-amd-stoney/62072/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cant-launch-on-ubuntu-18-04-amd-stoney/62072/3</link>
+        <pubDate>Sat, 12 Jan 2019 10:24:14 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62072-3</guid>
+        <source url="https://leakfree.org/t/cant-launch-on-ubuntu-18-04-amd-stoney/62072.rss">Can&#39;t launch on Ubuntu 18.04 &amp; AMD Stoney</source>
+      </item>
+      <item>
+        <title>Can&#39;t launch on Ubuntu 18.04 &amp; AMD Stoney</title>
+        <dc:creator><![CDATA[RedEye9]]></dc:creator>
+        <description><![CDATA[
+            <p>Look on the dedicated Linux forum here <a href="https://steamcommunity.com/app/362890/discussions/1/" rel="nofollow noopener">https://steamcommunity.com/app/362890/discussions/1/</a><br>
+and read everything this Crowbar Collective Linux developer posts <a href="https://steamcommunity.com/id/void-995/posthistory/" rel="nofollow noopener">https://steamcommunity.com/id/void-995/posthistory/</a></p>
+          <p><a href="https://leakfree.org/t/cant-launch-on-ubuntu-18-04-amd-stoney/62072/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cant-launch-on-ubuntu-18-04-amd-stoney/62072/2</link>
+        <pubDate>Fri, 11 Jan 2019 21:02:36 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62072-2</guid>
+        <source url="https://leakfree.org/t/cant-launch-on-ubuntu-18-04-amd-stoney/62072.rss">Can&#39;t launch on Ubuntu 18.04 &amp; AMD Stoney</source>
+      </item>
+      <item>
+        <title>Can&#39;t launch on Ubuntu 18.04 &amp; AMD Stoney</title>
+        <dc:creator><![CDATA[m93a]]></dc:creator>
+        <description><![CDATA[
+            <h2>The problem</h2>
+<p>I downloaded the latest version of Black Mesa on Steam (current content BuildID: 2875662) and when I tried to launch it, nothing happened. The process <code>blm_linux</code> was running for ~1 minute and then it stopped and awarded me with a “Wild Blue” trading card.</p>
+<p><img src="https://leakfree.org/uploads/default/original/2X/c/c446896fce8deb262364b1304ea7e7370ac63752.png" alt="obrazek" data-base62-sha1="s0kHWoe08XGVs4gcuSaNEDXo2vU" width="167" height="197"></p>
+<p>I tried running Black Mesa from terminal and I got this error:</p>
+<pre><code>➜  Black Mesa ./bms.sh             
+dbus[17813]: arguments to dbus_message_new_method_call() were incorrect, assertion "path != NULL" failed in file ../../../dbus/dbus-message.c line 1362.
+This is normally a bug in some application using the D-Bus library.
+
+  D-Bus not built with -rdynamic so unable to print a backtrace
+./bms.sh: řádek 69: 17813 Neúspěšně ukončen (SIGABRT)        (core dumped [obraz paměti uložen]) ${GAME_DEBUGGER} "${GAMEROOT}"/${GAMEEXE} "$@"
+➜  Black Mesa ./bms_linux 
+dbus[17836]: arguments to dbus_message_new_method_call() were incorrect, assertion "path != NULL" failed in file ../../../dbus/dbus-message.c line 1362.
+This is normally a bug in some application using the D-Bus library.
+
+  D-Bus not built with -rdynamic so unable to print a backtrace
+[1]    17836 abort (core dumped)  ./bms_linux
+</code></pre>
+<p><a href="https://www.reddit.com/r/linux_gaming/comments/6mefy5/psa_black_mesa_will_not_run_on_amdgpu_unless_you/" rel="nofollow noopener">There have been sugestions</a> that Black Mesa could have problems with AMD graphics cards and the solution would be to remove <code>libstdc++.so.6</code> from the game’s <code>bin</code> folder. However that was back in 2017. In my current version of the game <code>libstdc++.so.6</code> is not even present.</p>
+<h2>Diagnostics</h2>
+<p>Running <code>inxi -SGCMx</code> gave me this output:</p>
+<pre><code>➜  Black Mesa inxi -SGCMx          
+System:    Host: m93a-ubuntu-A315 Kernel: 4.15.0-43-generic x86_64 bits: 64 gcc: 7.3.0
+           Desktop: Gnome 3.28.3 (Gtk 3.22.30-1ubuntu1) Distro: Ubuntu 18.04.1 LTS
+Machine:   Device: laptop System: Acer product: Aspire A315-21 v: V1.02 serial: N/A
+           Mobo: SR model: Squirtle_SR v: V1.02 serial: N/A UEFI [Legacy]: Insyde v: V1.02 date: 05/12/2017
+CPU:       Dual core AMD A4-9120 RADEON R3 4 COMPUTE CORES 2C+2G (-MCP-) arch: Excavator rev.0 cache: 2048 KB
+           flags: (lm nx sse sse2 sse3 sse4_1 sse4_2 sse4a ssse3 svm) bmips: 8783
+           clock speeds: max: 2200 MHz 1: 1483 MHz 2: 1482 MHz
+Graphics:  Card: Advanced Micro Devices [AMD/ATI] Stoney [Radeon R2/R3/R4/R5 Graphics] bus-ID: 00:01.0
+           Display Server: x11 (X.Org 1.19.6 ) driver: amdgpu Resolution: 1920x1080@60.05hz
+           OpenGL: renderer: AMD STONEY (DRM 3.23.0 / 4.15.0-43-generic, LLVM 6.0.0)
+           version: 4.5 Mesa 18.0.5 Direct Render: Yes
+</code></pre>
+<p>Running <code>glxinfo | grep OpenGL</code> gave me this output:</p>
+<pre><code>➜  Black Mesa glxinfo | grep OpenGL
+OpenGL vendor string: X.Org
+OpenGL renderer string: AMD STONEY (DRM 3.23.0 / 4.15.0-43-generic, LLVM 6.0.0)
+OpenGL core profile version string: 4.5 (Core Profile) Mesa 18.0.5
+OpenGL core profile shading language version string: 4.50
+OpenGL core profile context flags: (none)
+OpenGL core profile profile mask: core profile
+OpenGL core profile extensions:
+OpenGL version string: 3.0 Mesa 18.0.5
+OpenGL shading language version string: 1.30
+OpenGL context flags: (none)
+OpenGL extensions:
+OpenGL ES profile version string: OpenGL ES 3.1 Mesa 18.0.5
+OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.10
+OpenGL ES profile extensions:
+</code></pre>
+<p>I’m on Ubuntu 18.04.1 x64, AMD® A4-9120 Radeon R3, AMD® Stoney. I have Portal &amp; Half-Life 2 installed, both run fine after I installed some 32bit libraries (list of all 32bit packages installed on my system can be found <a href="https://gist.github.com/m93a/c6a63f6f781d7f53142a5b70b850dec4" rel="nofollow noopener">here</a>).</p>
+          <p><a href="https://leakfree.org/t/cant-launch-on-ubuntu-18-04-amd-stoney/62072/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/cant-launch-on-ubuntu-18-04-amd-stoney/62072/1</link>
+        <pubDate>Fri, 11 Jan 2019 19:41:51 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62072-1</guid>
+        <source url="https://leakfree.org/t/cant-launch-on-ubuntu-18-04-amd-stoney/62072.rss">Can&#39;t launch on Ubuntu 18.04 &amp; AMD Stoney</source>
+      </item>
+  </channel>
+</rss>

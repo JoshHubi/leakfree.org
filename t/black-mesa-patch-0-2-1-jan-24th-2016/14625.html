@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/black-mesa-patch-0-2-1-jan-24th-2016/14625 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:33:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Black Mesa Patch - 0.2.1 - Jan 24th, 2016 - Patches - Leakfree</title>
+    <meta name="description" content="We’ve released a patch to Black Mesa main client 
+
+Fixed bouncing Bolts from the crossbow in MP
+Fixed a bug in the balanced spawn system
+Fixed Shotgun Collision model
+Fixed various spelling errors and missing .wav files &amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="14625.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Black Mesa Patch - 0.2.1 - Jan 24th, 2016&#39;" href="14625.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/black-mesa-patch-0-2-1-jan-24th-2016/14625" />
+<meta name="twitter:url" content="https://leakfree.org/t/black-mesa-patch-0-2-1-jan-24th-2016/14625" />
+<meta property="og:title" content="Black Mesa Patch - 0.2.1 - Jan 24th, 2016" />
+<meta name="twitter:title" content="Black Mesa Patch - 0.2.1 - Jan 24th, 2016" />
+<meta property="og:description" content="We’ve released a patch to Black Mesa main client   Fixed bouncing Bolts from the crossbow in MP Fixed a bug in the balanced spawn system Fixed Shotgun Collision model Fixed various spelling errors and missing .wav files in dialouges. Fixed the Crossbows lighting origin RPG rocket won’t clip with the rocket when reloading. Dr. Kleiners head and hands are now properly smooth (smoooooth as jazz) Fixed blood not splattering on the MP5 Fixed the where placing 11 satchels crashed the MP server Crossfi..." />
+<meta name="twitter:description" content="We’ve released a patch to Black Mesa main client   Fixed bouncing Bolts from the crossbow in MP Fixed a bug in the balanced spawn system Fixed Shotgun Collision model Fixed various spelling errors and missing .wav files in dialouges. Fixed the Crossbows lighting origin RPG rocket won’t clip with the rocket when reloading. Dr. Kleiners head and hands are now properly smooth (smoooooth as jazz) Fixed blood not splattering on the MP5 Fixed the where placing 11 satchels crashed the MP server Crossfi..." />
+<meta property="article:published_time" content="2016-01-25T01:54:16+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="next" href="146254658.html?page=2">
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="14625.html">Black Mesa Patch - 0.2.1 - Jan 24th, 2016</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/6.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa Archive</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/patches/16.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Patches</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T01:54:16Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:29:08Z' class='post-time'>
+                August 11, 2020, 11:29am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>We’ve released a patch to Black Mesa main client</p>
+<ul>
+<li>Fixed bouncing Bolts from the crossbow in MP</li>
+<li>Fixed a bug in the balanced spawn system</li>
+<li>Fixed Shotgun Collision model</li>
+<li>Fixed various spelling errors and missing .wav files in dialouges.</li>
+<li>Fixed the Crossbows lighting origin</li>
+<li>RPG rocket won’t clip with the rocket when reloading.</li>
+<li>Dr. Kleiners head and hands are now properly smooth (smoooooth as jazz)</li>
+<li>Fixed blood not splattering on the MP5</li>
+<li>Fixed the where placing 11 satchels crashed the MP server</li>
+<li>Crossfire Optimization increased - will run much smoother now.</li>
+<li>Added muzzle flash dynamic light checkbox to options menu.</li>
+<li>Added godrays enable checkbox to the options menu</li>
+<li>Minor optimizations made to netcode.</li>
+<li>Fixed ‘FIX IT DENIZ’ skin on monitor in UC.</li>
+<li>Fixed game_round_win Entity to actually win rounds.</li>
+<li>Polished the workshop tool. (like, it works now, and you can upload thumbnails)</li>
+</ul>
+<p>[list][<em>]All workshop content and addons will now be found/located in the SteamApps/Workshop/Content/362890 folder<br>
+[/</em>:m][/list:u]<span class="bbcode-b">This update may corrupt and break save files. If you’re experience any issues with old loads, please restart the game at the start of that chapter.  You can do that by clicking “New Game” on the main menu, and picking the latest chapter you were on. </span></p>
+<p>Additionally, if you are experiencing issues with missing models or textures in-game, you have a legacy error with mods. If you have subscribed to any mods since launch and are experiencing these issues please do the following steps to fix the issue.</p>
+<ol>
+<li>Unsubscribe from all Black Mesa mods</li>
+<li>Go to ***\SteamApps\workshop\content\362890 (where *** is the location to where your steam games may be)</li>
+<li>Delete all folders within this folder</li>
+<li>Launch Black Mesa, and you should be good to go.<br>
+Once you do this, you should be able to re-subscribe to any and all mods that you want.</li>
+</ol>
+<p>Not sure which mods to download? Why not try <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=608116737" data-bbcode="true" rel="nofollow noopener">On a Rail Uncut - now officially released on the Steam Workshop.</a></p>
+<p>EDIT:<br>
+It is known that the Workshop Addon’s button doesn’t work in the Main Menu (whoops!)</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Kenley.html'><span itemprop='name'>Kenley</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T02:07:49Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:01Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<p>Not sure which mods to download? Why not try On a Rail Uncut - now officially released on the Steam Workshop.</p>
+</blockquote>
+</aside>
+<p><img src="../../images/emoji/twitter/smileyc164.png?v=9" title=":smiley:" class="emoji only-emoji" alt=":smiley:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Taceo.html'><span itemprop='name'>Taceo</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T02:10:25Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:01Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Sweet. Tell the people behind the curtain someone over here said thanks! It may literally be a job now, but I can’t help but still see this stuff as labor done with love. You’ve made something excellent and I can’t wait to remix the final product.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dalek.html'><span itemprop='name'>Dalek</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T02:22:58Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:01Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This seems to have broken my Workshop Addons button.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T02:26:14Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:01Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Dalek">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/d/e5b9ba/40.png" class="avatar"> Dalek:</div>
+<blockquote>
+<p>This seems to have broken my Workshop Addons button and the console is spamming errors about the menu button sounds being missing.</p>
+</blockquote>
+</aside>
+<p>Oops, forgot to mention that bit. We know about it, and are working on it now!</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dalek.html'><span itemprop='name'>Dalek</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T02:32:15Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:02Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Its also not loading non workshop vpks</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T02:38:37Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:02Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Dalek">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/d/e5b9ba/40.png" class="avatar"> Dalek:</div>
+<blockquote>
+<p>Its also not loading non workshop vpks</p>
+</blockquote>
+</aside>
+<p>Could you elaborate a bit more? Where are you placing the .vpks?</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/KevinJRattman.html'><span itemprop='name'>KevinJRattman</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T02:52:37Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:02Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<p>Could you elaborate a bit more? Where are you placing the .vpks?</p>
+</blockquote>
+</aside>
+<p>VPK files in bms\addons folders are not being recognized anymore by the game (issue that had existed since the first Public Beta release). Where do we put our VPKs now?</p>
+<p>Also, could you tell us which console command control the godrays (enable/disable)? I need it for… a reason.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dalek.html'><span itemprop='name'>Dalek</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T03:08:59Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:02Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<aside class="quote no-group" data-username="Dalek">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/d/e5b9ba/40.png" class="avatar"> Dalek:</div>
+<blockquote>
+<p>Its also not loading non workshop vpks</p>
+</blockquote>
+</aside>
+<p>Could you elaborate a bit more? Where are you placing the .vpks?</p>
+</blockquote>
+</aside>
+<aside class="quote no-group" data-username="KevinJRattman">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/k/53a042/40.png" class="avatar"> KevinJRattman:</div>
+<blockquote>
+<aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<p>Could you elaborate a bit more? Where are you placing the .vpks?</p>
+</blockquote>
+</aside>
+<p>VPK files in bms\addons folders are not being recognized anymore by the game (issue that had existed since the first Public Beta release). Where do we put our VPKs now?<br>
+Also, could you tell us which console command control the godrays (enable/disable)? I need it for… a reason.</p>
+</blockquote>
+</aside>
+<p>Same problem with the vpks here</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T03:13:44Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:02Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="KevinJRattman">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/k/53a042/40.png" class="avatar"> KevinJRattman:</div>
+<blockquote>
+<aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<p>Could you elaborate a bit more? Where are you placing the .vpks?</p>
+</blockquote>
+</aside>
+<p>VPK files in bms\addons folders are not being recognized anymore by the game (issue that had existed since the first Public Beta release). Where do we put our VPKs now?<br>
+Also, could you tell us which console command control the godrays (enable/disable)? I need it for… a reason.</p>
+</blockquote>
+</aside>
+<aside class="quote no-group" data-username="Dalek">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/d/e5b9ba/40.png" class="avatar"> Dalek:</div>
+<blockquote>
+<aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<aside class="quote no-group" data-username="Dalek">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/d/e5b9ba/40.png" class="avatar"> Dalek:</div>
+<blockquote>
+<p>Its also not loading non workshop vpks</p>
+</blockquote>
+</aside>
+<p>Could you elaborate a bit more? Where are you placing the .vpks?</p>
+</blockquote>
+</aside>
+<aside class="quote no-group" data-username="KevinJRattman">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/k/53a042/40.png" class="avatar"> KevinJRattman:</div>
+<blockquote>
+<aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<p>Could you elaborate a bit more? Where are you placing the .vpks?</p>
+</blockquote>
+</aside>
+<p>VPK files in bms\addons folders are not being recognized anymore by the game (issue that had existed since the first Public Beta release). Where do we put our VPKs now?Also, could you tell us which console command control the godrays (enable/disable)? I need it for… a reason.</p>
+</blockquote>
+</aside>
+<p>Same problem with the vpks here</p>
+</blockquote>
+</aside>
+<p>That is because the bms/addons folder is now obsolete. .vpk’d workshop content is being looked for in SteamApps/Workshop/Content/362890 in folders with their associated Workshop ID’s.</p>
+<p>I will adjust the notes to reflect this change. Sorry for the confusion.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dalek.html'><span itemprop='name'>Dalek</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T03:18:24Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:02Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>So then how do we load non workshop VPKs?</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/KevinJRattman.html'><span itemprop='name'>KevinJRattman</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T03:19:44Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:02Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<p>That is because the bms/addons folder is now obsolete. .vpk’d workshop content is being looked for in SteamApps/Workshop/Content/362890 in folders with their associated Workshop ID’s.</p>
+<p>I will adjust the notes to reflect this change. Sorry for the confusion.</p>
+</blockquote>
+</aside>
+<p>It’s a problem about non-workshop VPKs, not workshop contents. I tried to put VPKs in content\362890 but it doesn’t work… Also, please help me with the command for godrays?</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T03:41:47Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:29:09Z' class='post-time'>
+                August 11, 2020, 11:29am
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>So I’ve run a couple tests, does the Workshop tool just have trouble with some weird class of addon?<br>
+I was able to successfully upload a small test VPK (15MB of materials) and <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=608162951" data-bbcode="true" rel="nofollow noopener">everything seemed to go alright</a>, but for after trying two separate actual addons (materials &amp; models)  it doesn’t seem to really complete. It gives me the “<span class="bbcode-i">User Content Successfully Uploaded!</span>” message, but upload completion bar locks at 50%, and the <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=608161764" data-bbcode="true" rel="nofollow noopener">Workshop entry is borked</a>.</p>
+<p>Since no one else seems to be having issues, including Text when he uploaded OaRU recently, I’m assuming it’s some strange clientside issue I’m having that’s persisted passed reinstalls/branch switches, in which case I’ll probably just stop submitting to the Workshop as it’s not really worth the additional hassle. Holy run-on sentence.</p>
+<p>On the other hand, kickass that we’ve got some good bugfixes, I do enjoy my shotguns colliding properly and my Kleiners smooth. <img src="../../images/emoji/twitter/thumbsupc164.png?v=9" title=":thumbsup:" class="emoji" alt=":thumbsup:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T03:49:45Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:29:10Z' class='post-time'>
+                August 11, 2020, 11:29am
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Crypt">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/crypt/40/4394_2.png" class="avatar"> Crypt:</div>
+<blockquote>
+<p>So I’ve run a couple tests, does the Workshop tool just have trouble with some weird class of addon?<br>
+I was able to successfully upload a small test VPK (15MB of materials) and <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=608162951" data-bbcode="true" rel="nofollow noopener">everything seemed to go alright</a>, but for after trying two separate actual addons (materials &amp; models)  it doesn’t seem to really complete. It gives me the “<span class="bbcode-i">User Content Successfully Uploaded!</span>” message, but upload completion bar locks at 50%, and the <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=608161764" data-bbcode="true" rel="nofollow noopener">Workshop entry is borked</a>.</p>
+<p>Since no one else seems to be having issues, including Text when he uploaded OaRU recently, I’m assuming it’s some strange clientside issue I’m having that’s persisted passed reinstalls/branch switches, in which case I’ll probably just stop submitting to the Workshop as it’s not really worth the additional hassle. Holy run-on sentence.</p>
+<p>On the other hand, kickass that we’ve got some good bugfixes, I do enjoy my shotguns colliding properly and my Kleiners smooth. <img src="../../images/emoji/twitter/thumbsupc164.png?v=9" title=":thumbsup:" class="emoji" alt=":thumbsup:"></p>
+</blockquote>
+</aside>
+<p>Actually, Chon was having an issue with it making a blank workshop file and that was because he was trying to upload a thumbnail that was 1920x1080 (silly Chon). I would recommend 512x512 or lower if you’re doing thumbnails. Give that a try, and let me know. We did do some work to .vpk stuff… though it’s unrelated to the workshop, it is programming so who knows.</p>
+<aside class="quote no-group" data-username="Dalek">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/d/e5b9ba/40.png" class="avatar"> Dalek:</div>
+<blockquote>
+<p>So then how do we load non workshop VPKs?</p>
+</blockquote>
+</aside>
+<aside class="quote no-group" data-username="KevinJRattman">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/k/53a042/40.png" class="avatar"> KevinJRattman:</div>
+<blockquote>
+<aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<p>That is because the bms/addons folder is now obsolete. .vpk’d workshop content is being looked for in SteamApps/Workshop/Content/362890 in folders with their associated Workshop ID’s.</p>
+<p>I will adjust the notes to reflect this change. Sorry for the confusion.</p>
+</blockquote>
+</aside>
+<p>It’s a problem about non-workshop VPKs, not workshop contents. I tried to put VPKs in content\362890 but it doesn’t work… Also, please help me with the command for godrays?</p>
+</blockquote>
+</aside>
+<p>No, putting them in the folder alone won’t work, they will need a folder with their workshop ID in it to work.<br>
+I don’t actually know if we can do non-workshop vpk’s anymore. Obvious workaround is to upload whatever you want as a workshop item, but keep it hidden so only you can subscribe to it/see, then it’ll work.</p>
+<p>Godray console command: bms_gr_enabled 0/1 (0 is off, 1 is on)</p>
+<p>I’ll check back tomorrow with info on non-workshop .vpk’s.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/KevinJRattman.html'><span itemprop='name'>KevinJRattman</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T04:07:02Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:03Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<p>No, putting them in the folder alone won’t work, they will need a folder with their workshop ID in it to work.<br>
+I don’t actually know if we can do non-workshop vpk’s anymore. Obvious workaround is to upload whatever you want as a workshop item, but keep it hidden so only you can subscribe to it/see, then it’ll work.</p>
+<p>Godray console command: bms_gr_enabled 0/1 (0 is off, 1 is on)</p>
+<p>I’ll check back tomorrow with info on non-workshop .vpk’s.</p>
+</blockquote>
+</aside>
+<p>Thanks so much for reply. I really hope you consider re-add support for non-workshop vpks as it’s very inconvenient to re-upload my work to worshop everytime just for testing purposes. I know you can just use bms folder, but it gets cluttered really fast and I really appreciate sorting my works (I have lots of them) folder by folder, vpk by vpk.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T04:25:19Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:03Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="KevinJRattman">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/k/53a042/40.png" class="avatar"> KevinJRattman:</div>
+<blockquote>
+<aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<p>No, putting them in the folder alone won’t work, they will need a folder with their workshop ID in it to work.<br>
+I don’t actually know if we can do non-workshop vpk’s anymore. Obvious workaround is to upload whatever you want as a workshop item, but keep it hidden so only you can subscribe to it/see, then it’ll work.</p>
+<p>Godray console command: bms_gr_enabled 0/1 (0 is off, 1 is on)</p>
+<p>I’ll check back tomorrow with info on non-workshop .vpk’s.</p>
+</blockquote>
+</aside>
+<p>Thanks so much for reply. I really hope you consider re-add support for non-workshop vpks as it’s very inconvenient to re-upload my work to worshop everytime just for testing purposes. I know you can just use bms folder, but it gets cluttered really fast and I really appreciate sorting my works (I have lots of them) folder by folder, vpk by vpk.</p>
+</blockquote>
+</aside>
+<p>Mmm, thats not something I really considered. The alternative is to just do proper file replacement/conversions. I’ll let you know.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T04:26:07Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:03Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Fr0z3n">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/f1d935/40.png" class="avatar"> Fr0z3n:</div>
+<blockquote>
+<p>I would recommend 512x512 or lower if you’re doing thumbnails. Give that a try, and let me know.</p>
+</blockquote>
+</aside>
+<p>Well, I’ll be damned, that did the trick!</p>
+<p>Anyway, I’ll wait on that non-workshop VPK info. While that feature wouldn’t be a horrible loss, I’ve been abusing the hell out of it for dev stuff.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/RageMaker.html'><span itemprop='name'>RageMaker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T05:04:26Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:03Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Is it still viable to put mods in the custom folder?</p>
+<p>Also, I’m still having problems with the workshop mods. So I subscribe, move the folders so that other one, then un sub?</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/KevinJRattman.html'><span itemprop='name'>KevinJRattman</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T05:25:42Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:03Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#19</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="RageMaker">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/r/e274bd/40.png" class="avatar"> RageMaker:</div>
+<blockquote>
+<p>Is it still viable to put mods in the custom folder?</p>
+<p>Also, I’m still having problems with the workshop mods. So I subscribe, move the folders so that other one, then un sub?</p>
+</blockquote>
+</aside>
+<p>I just tried this: <span class="bbcode-b"><span class="bbcode-i">Yes, it works!</span></span> At least, on my end, that is. This should be a much better workaround than to upload every time I make edits on my (unreleased) mods…</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/haos9cr1.html'><span itemprop='name'>haos9cr1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14625.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/5/5bf949cb62c523dce8d8982aae21b6229d0eae5c.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-01-25T10:05:12Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:45:04Z' class='post-time'>
+                November 25, 2018,  4:45am
+              </time>
+          <span itemprop='position'>#20</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>addons containing the sound still does not work after entering the console “snd_restart” sound starts, but after entering the game again there is no sound, not tested on raspakovanom modes, but if you use a replacement sound “vpk”, this error occurs.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/5/5bf949cb62c523dce8d8982aae21b6229d0eae5c.jpg" data-download-href="https://leakfree.org/uploads/default/5bf949cb62c523dce8d8982aae21b6229d0eae5c" title="2016-01-25_00045.jpg"><img src="../../uploads/default/optimized/2X/5/5bf949cb62c523dce8d8982aae21b6229d0eae5c_2_690x500.jpg" alt="2016-01-25_00045.jpg" data-base62-sha1="d7DxWne9JTuULuXPQsyVFfyEzW4" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/5/5bf949cb62c523dce8d8982aae21b6229d0eae5c_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/5/5bf949cb62c523dce8d8982aae21b6229d0eae5c_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/original/2X/5/5bf949cb62c523dce8d8982aae21b6229d0eae5c.jpeg 2x" data-small-upload="../../uploads/default/optimized/2X/5/5bf949cb62c523dce8d8982aae21b6229d0eae5c_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">2016-01-25_00045.jpg</span><span class="informations">1280×720 219 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/8/89725e26f5d6133c56d0db44892c3fd234eb52f0.jpg" data-download-href="https://leakfree.org/uploads/default/89725e26f5d6133c56d0db44892c3fd234eb52f0" title="2016-01-25_00044.jpg"><img src="../../uploads/default/optimized/2X/8/89725e26f5d6133c56d0db44892c3fd234eb52f0_2_690x500.jpg" alt="2016-01-25_00044.jpg" data-base62-sha1="jBUrBI6Yj0pjMmObIZzGeTK1yF2" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/8/89725e26f5d6133c56d0db44892c3fd234eb52f0_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/8/89725e26f5d6133c56d0db44892c3fd234eb52f0_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/original/2X/8/89725e26f5d6133c56d0db44892c3fd234eb52f0.jpeg 2x" data-small-upload="../../uploads/default/optimized/2X/8/89725e26f5d6133c56d0db44892c3fd234eb52f0_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">2016-01-25_00044.jpg</span><span class="informations">1280×720 240 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/2/2b1593e91c7baf0d74a9237e1e3b1ad9afd048bb.jpg" data-download-href="https://leakfree.org/uploads/default/2b1593e91c7baf0d74a9237e1e3b1ad9afd048bb" title="2016-01-25_00040.jpg"><img src="../../uploads/default/optimized/2X/2/2b1593e91c7baf0d74a9237e1e3b1ad9afd048bb_2_690x500.jpg" alt="2016-01-25_00040.jpg" data-base62-sha1="698LcP5A7jQPW7DWkwpCQXKGZU7" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/2/2b1593e91c7baf0d74a9237e1e3b1ad9afd048bb_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/2/2b1593e91c7baf0d74a9237e1e3b1ad9afd048bb_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/original/2X/2/2b1593e91c7baf0d74a9237e1e3b1ad9afd048bb.jpeg 2x" data-small-upload="../../uploads/default/optimized/2X/2/2b1593e91c7baf0d74a9237e1e3b1ad9afd048bb_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">2016-01-25_00040.jpg</span><span class="informations">1280×720 270 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa Patch - 0.2.1 - Jan 24th, 2016'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="146254658.html?page=2">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/black-mesa-patch-0-2-1-jan-24th-2016/14625 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:33:59 GMT -->
+</html>

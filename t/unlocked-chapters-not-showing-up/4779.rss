@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Unlocked Chapters Not Showing Up</title>
+    <link>https://leakfree.org/t/unlocked-chapters-not-showing-up/4779</link>
+    <description>First off, let&#39;s get the flaming over and done with, I know I&#39;ve been lurking for a long time with only 1 post previously, I &#39;ve just been sitting in the background, reading everyone else&#39;s threads. I haven&#39;t felt the need to post before, because pretty much everything has already been covered.
+
+Now, however, I have a small problem that I&#39;m hoping all you good people will be able to help me with.
+
+I have completed Half-Life 2 and its episodes, and prior to the big Steam Cloud update, I had made a slight alteration to the .config files for the games. This alteration was to the sv_unlocked chapters setting. I had changed these settings because of having to re-install everything after formatting my PC, so that I could &#39;dip into the games&#39;, playing whichever chapter I felt like playing at the time.
+
+Now, however, whenever I try to change these settings, it keeps reverting back to the unlocked chapters corresponding to my save game. (I had forgotten to back-up my save games). My HL2 save game, currently, is at Black Mesa East, just prior to the Combine locating the base. Is there anyway I can unlock the chapters again, without them reverting back to the save game unlocked chapters? Or am I just going to have to play through the games again, to unlock the chapters in my Steam Cloud? I hope this makes sense!</description>
+    
+    <lastBuildDate>Sun, 11 Jul 2010 16:23:39 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/unlocked-chapters-not-showing-up/4779.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Unlocked Chapters Not Showing Up</title>
+        <dc:creator><![CDATA[popsUlfr]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="bruce71">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/b/0ea827/40.png" class="avatar"> bruce71:</div>
+<blockquote>
+<p>but I only put in the sv_unlockedchapters line and left out the sv_cheats line, as I wanted to be able to earn achievements.</p>
+</blockquote>
+</aside>
+<p>Oh, so it’s not considered a cheat? Good to know and no problem  <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+          <p><a href="https://leakfree.org/t/unlocked-chapters-not-showing-up/4779/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/unlocked-chapters-not-showing-up/4779/4</link>
+        <pubDate>Sun, 11 Jul 2010 16:23:39 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-4779-4</guid>
+        <source url="https://leakfree.org/t/unlocked-chapters-not-showing-up/4779.rss">Unlocked Chapters Not Showing Up</source>
+      </item>
+      <item>
+        <title>Unlocked Chapters Not Showing Up</title>
+        <dc:creator><![CDATA[bruce71]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks, I’ll try those suggestions and let you know if I have any joy with them <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>(Edit) Ok, I tried suggestion number 3, as it seemed to be the most promising and, indeed, it was! I added an autoexec.cfg file like you suggested, but I only put in the sv_unlockedchapters line and left out the sv_cheats line, as I wanted to be able to earn achievements.</p>
+<p>I’ve just tried it out and all the chapters are now unlocked, thank you for your help <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"> I’m now going to add the same autoexec.cfg file to the HL2 episodes!</p>
+          <p><a href="https://leakfree.org/t/unlocked-chapters-not-showing-up/4779/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/unlocked-chapters-not-showing-up/4779/3</link>
+        <pubDate>Sun, 11 Jul 2010 15:51:24 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-4779-3</guid>
+        <source url="https://leakfree.org/t/unlocked-chapters-not-showing-up/4779.rss">Unlocked Chapters Not Showing Up</source>
+      </item>
+      <item>
+        <title>Unlocked Chapters Not Showing Up</title>
+        <dc:creator><![CDATA[popsUlfr]]></dc:creator>
+        <description><![CDATA[
+            <p>Ok, let’s see there may be different ways to do this:</p>
+<ol>
+<li>
+<p>Disable STEAM cloud thingy: in STEAM goto “Steam” &gt; “Settings” &gt; “Downloads+cloud” Tab &gt; Uncheck “Enable Steam cloud synchronization for games which support it”<br>
+Then change the command sv_unlockedchapters to 15 (those are all including the credits I think) in your config file. Start up HL2 and see if it works.</p>
+</li>
+<li>
+<p>Force the unlock through the console: append to your launch options “-console” and start the game. You should now see a console window where you can type in “sv_unlockedchapters 15”. Check that the value has changed by calling “sv_unlockedchapters” if not try again by enabling cheats (sv_cheats 1). I don’t remember if it needs cheats enabled and if it gets saved in your config file.</p>
+</li>
+</ol>
+<p>3)autoexec.cfg bruteforce: create a file called “autoexec.cfg” in the same fodler as your “config.cfg”. In it write:</p>
+<pre><code class="lang-auto">sv_cheats 1
+sv_unlockedchapters "15"</code></pre>
+<p>The game automatically looks for that file and executes it. The procedure in 2) might only work until the next level load. This file gets executed at each new level load again. Downside with cheats enabled is you are denied achievements though.</p>
+<ol start="4">
+<li>oh forgot that one: change the sv_unlockedchapters value to 15 in your config.cfg then right-click it &gt; Properties &gt; check “Read-only” &gt; OK. However, I think the game will go postal on it anyway so…</li>
+</ol>
+<p>Well, I hope this can help nonetheless  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/unlocked-chapters-not-showing-up/4779/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/unlocked-chapters-not-showing-up/4779/2</link>
+        <pubDate>Sun, 11 Jul 2010 15:36:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-4779-2</guid>
+        <source url="https://leakfree.org/t/unlocked-chapters-not-showing-up/4779.rss">Unlocked Chapters Not Showing Up</source>
+      </item>
+      <item>
+        <title>Unlocked Chapters Not Showing Up</title>
+        <dc:creator><![CDATA[bruce71]]></dc:creator>
+        <description><![CDATA[
+            <p>First off, let’s get the flaming over and done with, I know I’ve been lurking for a long time with only 1 post previously, I 've just been sitting in the background, reading everyone else’s threads. I haven’t felt the need to post before, because pretty much everything has already been covered.</p>
+<p>Now, however, I have a small problem that I’m hoping all you good people will be able to help me with.</p>
+<p>I have completed Half-Life 2 and its episodes, and prior to the big Steam Cloud update, I had made a slight alteration to the .config files for the games. This alteration was to the sv_unlocked chapters setting. I had changed these settings because of having to re-install everything after formatting my PC, so that I could ‘dip into the games’, playing whichever chapter I felt like playing at the time.</p>
+<p>Now, however, whenever I try to change these settings, it keeps reverting back to the unlocked chapters corresponding to my save game. (I had forgotten to back-up my save games). My HL2 save game, currently, is at Black Mesa East, just prior to the Combine locating the base. Is there anyway I can unlock the chapters again, without them reverting back to the save game unlocked chapters? Or am I just going to have to play through the games again, to unlock the chapters in my Steam Cloud? I hope this makes sense!</p>
+          <p><a href="https://leakfree.org/t/unlocked-chapters-not-showing-up/4779/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/unlocked-chapters-not-showing-up/4779/1</link>
+        <pubDate>Sun, 11 Jul 2010 15:05:33 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-4779-1</guid>
+        <source url="https://leakfree.org/t/unlocked-chapters-not-showing-up/4779.rss">Unlocked Chapters Not Showing Up</source>
+      </item>
+  </channel>
+</rss>

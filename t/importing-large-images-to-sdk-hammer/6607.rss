@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Importing large images to SDK Hammer</title>
+    <link>https://leakfree.org/t/importing-large-images-to-sdk-hammer/6607</link>
+    <description>I assume some of you are experienced mappers with the Source SDK, so you might be able to answer this..  How can I import a large image file, such as a blueprint, into SDK Hammer to model from?  I have an ongoing arch project, and I&#39;d like to model the project within a game engine with an imported blueprint to reference from.  Any ideas?
+
+It sounds like regular textures and materials would distort the blueprint.</description>
+    
+    <lastBuildDate>Sat, 26 Feb 2011 20:31:24 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/importing-large-images-to-sdk-hammer/6607.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Importing large images to SDK Hammer</title>
+        <dc:creator><![CDATA[Combine]]></dc:creator>
+        <description><![CDATA[
+            <p>Works great…thanks for the help.<br>
+btw .skp files associate with Sketchup.</p>
+          <p><a href="https://leakfree.org/t/importing-large-images-to-sdk-hammer/6607/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/importing-large-images-to-sdk-hammer/6607/6</link>
+        <pubDate>Sat, 26 Feb 2011 20:31:24 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6607-6</guid>
+        <source url="https://leakfree.org/t/importing-large-images-to-sdk-hammer/6607.rss">Importing large images to SDK Hammer</source>
+      </item>
+      <item>
+        <title>Importing large images to SDK Hammer</title>
+        <dc:creator><![CDATA[p0rt1r]]></dc:creator>
+        <description><![CDATA[
+            <p>how big is the texture anyways?</p>
+<p>For a start, download vtfedit. install that.<br>
+Open up your blueprint in vtfedit.</p>
+<p>I personally use,<br>
+normal format : BGR888<br>
+alpha format : BGR888<br>
+Texture type : Animated texture.</p>
+<p>The max image resolution as far as im aware is about 4096x4096 which you might use if you were importing a highly detailed model texture. For your use, i think 2048x2048 is the very limit i would go for a mere blueprint. It would have to be a pretty bloody detailed blueprint if it was gonna be that big.</p>
+<p>Make a folder in your textures folder called whatever you want.  Save your blueprint in that.</p>
+<p>Now click tools - create vmt file.</p>
+<p>click on options and select what surface you want it to be (dont matter since nobody will walk on it or shoot it ever)</p>
+<p>Click create and save it in the folder you made. (the same one as the blueprint you saved)</p>
+<p>Your done. Open hammer and slap it on a brush.</p>
+<p>Edit: wtfs a .skp file?</p>
+          <p><a href="https://leakfree.org/t/importing-large-images-to-sdk-hammer/6607/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/importing-large-images-to-sdk-hammer/6607/5</link>
+        <pubDate>Sat, 26 Feb 2011 12:01:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6607-5</guid>
+        <source url="https://leakfree.org/t/importing-large-images-to-sdk-hammer/6607.rss">Importing large images to SDK Hammer</source>
+      </item>
+      <item>
+        <title>Importing large images to SDK Hammer</title>
+        <dc:creator><![CDATA[Combine]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for the answers guys…I actually managed to import a blueprint into Sketchup, with a plugin that can export Sketchup files into .vmt to open in Hammer.  Worked pretty well when I used a test model.  However…I can’t seem to open one of the Sketchup-made .vmt files in Hammer.</p>
+<p>I’d really appreciate it if someone would like to take a look at the file (the .skp or the .vmt) and check what’s wrong.</p>
+          <p><a href="https://leakfree.org/t/importing-large-images-to-sdk-hammer/6607/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/importing-large-images-to-sdk-hammer/6607/4</link>
+        <pubDate>Sat, 26 Feb 2011 08:41:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6607-4</guid>
+        <source url="https://leakfree.org/t/importing-large-images-to-sdk-hammer/6607.rss">Importing large images to SDK Hammer</source>
+      </item>
+      <item>
+        <title>Importing large images to SDK Hammer</title>
+        <dc:creator><![CDATA[Cameron_D]]></dc:creator>
+        <description><![CDATA[
+            <p>Short answer: you can’t.<br>
+Long answer: (as above) Split your blueprint up into 1024x1024 sections, convert each section to a usable texture, then stick that texture onto a 1024x1024 brush and work form there.</p>
+          <p><a href="https://leakfree.org/t/importing-large-images-to-sdk-hammer/6607/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/importing-large-images-to-sdk-hammer/6607/3</link>
+        <pubDate>Thu, 24 Feb 2011 11:35:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6607-3</guid>
+        <source url="https://leakfree.org/t/importing-large-images-to-sdk-hammer/6607.rss">Importing large images to SDK Hammer</source>
+      </item>
+      <item>
+        <title>Importing large images to SDK Hammer</title>
+        <dc:creator><![CDATA[sersoft]]></dc:creator>
+        <description><![CDATA[
+            <p>hammer is not blender, but you could put a bunch of 2d brushes separated into 1024x1024 textures I guess</p>
+          <p><a href="https://leakfree.org/t/importing-large-images-to-sdk-hammer/6607/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/importing-large-images-to-sdk-hammer/6607/2</link>
+        <pubDate>Thu, 24 Feb 2011 05:56:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6607-2</guid>
+        <source url="https://leakfree.org/t/importing-large-images-to-sdk-hammer/6607.rss">Importing large images to SDK Hammer</source>
+      </item>
+      <item>
+        <title>Importing large images to SDK Hammer</title>
+        <dc:creator><![CDATA[Combine]]></dc:creator>
+        <description><![CDATA[
+            <p>I assume some of you are experienced mappers with the Source SDK, so you might be able to answer this…  How can I import a large image file, such as a blueprint, into SDK Hammer to model from?  I have an ongoing arch project, and I’d like to model the project within a game engine with an imported blueprint to reference from.  Any ideas?</p>
+<p>It sounds like regular textures and materials would distort the blueprint.</p>
+          <p><a href="https://leakfree.org/t/importing-large-images-to-sdk-hammer/6607/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/importing-large-images-to-sdk-hammer/6607/1</link>
+        <pubDate>Thu, 24 Feb 2011 05:19:14 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6607-1</guid>
+        <source url="https://leakfree.org/t/importing-large-images-to-sdk-hammer/6607.rss">Importing large images to SDK Hammer</source>
+      </item>
+  </channel>
+</rss>

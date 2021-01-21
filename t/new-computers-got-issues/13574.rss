@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>New computer&#39;s got issues</title>
+    <link>https://leakfree.org/t/new-computers-got-issues/13574</link>
+    <description>My new PC is having a couple weird issues, and I&#39;m wondering if anyone here has any insight.
+
+Here&#39;s the build:
+
+Mobo: Asrock Z97 Extreme4
+PSU: Corsair AX760
+RAM: 8GB G.Skill Ripjaws X @ 1866MHz
+CPU: i5 4690K
+GPU: EVGA nVidia GTX 970 Superclocked
+Sound: ASUS Xonar Essence STX
+
+There are two issues which may or may not be related.  The first is that the PC turns itself on.  This has happened twice now, and the build is less than a week old.
+
+The first time it happened, I had just put the computer to sleep.  The screen went off and the power light started blinking, but none of the fans turned off, which gave me pause.  I stuck around for another ten or fifteen seconds, and the fans turned off, as expected.  I then left the room.  A couple minutes later, I came back in, and the PC had powered itself back on.
+
+The second time it happened was last night.  I was watching some videos in bed, and got up to turn the PC off.  This time it was a full shutdown, not sleep.  The PC powered off, and I got in bed, and a few minutes later, it powered on again.  I shut it down and switched off the PSU just so I wouldn&#39;t have to deal with it again while I was trying to sleep.
+
+The other issue, which might be related, is that the motherboard never seems to completely power down, even when the PC is shut off.  I have a USB microphone plugged into one USB 3.0 port, and it has a red power LED on it.  On my old PC, when I shut off the power, the LED on the microphone would stay on for fifteen seconds or so, then power off.  On the new build, it stays on for much longer.  I can&#39;t verify how long, because I don&#39;t usually sit around and watch it.  Last night, it wasn&#39;t off until I switched off the PSU.  I also supply internet to my PC through a homeplug.  On my old build, after shutting down, the homeplug would go to sleep after five minutes or so: the network and data lights would switch off, and the power light would blink on and off slowly.  On this PC, even when shut off, the homeplug does not go to sleep.  The network and data lights continue flashing as though it&#39;s still delivering data, and the orange light on the PC&#39;s LAN port flashes along with it.
+
+Things I&#39;ve tried:  Wake on LAN.  This setting is disabled in the motherboard BIOS.  The motherboard also has a &quot;dehumidifier&quot; function, where it will turn itself on periodically to run its fans and dehumidify the inside of the PC.  This feature is also turned off in the BIOS.
+
+I&#39;m not really sure where else to look.  Similar issues have been reported with this motherboard, but they all seem to stem either from the dehumidifier or from wake on LAN functions being switched on.  I&#39;d rather not flash the BIOS, because that&#39;s scary as hell.</description>
+    
+    <lastBuildDate>Sun, 30 Nov 2014 21:41:14 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/new-computers-got-issues/13574.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>New computer&#39;s got issues</title>
+        <dc:creator><![CDATA[sudpuzzer]]></dc:creator>
+        <description><![CDATA[
+            <p>If you are doing a full shut down, Windows shouldn’t be requesting a power cycle since it isn’t loaded in the RAM anymore. I think it’s almost definitely a BIOS/mainboard issue. Unfortunately, I don’t have a lot of experience with a UEFI system, my board still runs the old Phoenix BIOS.</p>
+<p>What I do know is that Wake-on-LAN is tough to get working (for my board, anyway). For a WoL signal to turn on your board, the packet needs to be broadcast on the network with the specific MAC address of your Ethernet controller on a specific port. I think it’s very unlikely that you somehow perfectly set up a Wake-on-LAN signal on another machine without realizing it.</p>
+<p>My guess would be some other UEFI function that is waking your board. The only other thing I know of that can wake the board is a wake timer (already mentioned), or the Power Loss resume state function. If this setting is set to “Power On”, the computer will power up after an AC power outage. Maybe this is your problem?</p>
+<p>I also have a setting called Wake on PCI, I guess just make sure all of your “Wake-on-xxx” functions are disabled.</p>
+          <p><a href="https://leakfree.org/t/new-computers-got-issues/13574/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/new-computers-got-issues/13574/12</link>
+        <pubDate>Sun, 30 Nov 2014 21:41:14 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13574-12</guid>
+        <source url="https://leakfree.org/t/new-computers-got-issues/13574.rss">New computer&#39;s got issues</source>
+      </item>
+      <item>
+        <title>New computer&#39;s got issues</title>
+        <dc:creator><![CDATA[geekofalltrades]]></dc:creator>
+        <description><![CDATA[
+            <p>I figured out the USB, at least: there was a “Deep Sleep” setting in the BIOS.  I set it to go to into Deep Sleep in S5, and now my USB peripherals power off when the machine is shut down.  I haven’t had a chance to check yet whether the homeplug also goes to sleep.</p>
+          <p><a href="https://leakfree.org/t/new-computers-got-issues/13574/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/new-computers-got-issues/13574/11</link>
+        <pubDate>Thu, 27 Nov 2014 07:59:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13574-11</guid>
+        <source url="https://leakfree.org/t/new-computers-got-issues/13574.rss">New computer&#39;s got issues</source>
+      </item>
+      <item>
+        <title>New computer&#39;s got issues</title>
+        <dc:creator><![CDATA[Kairouseki]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m pretty sure that this is the board that I have, and if it makes you feel better or worse I haven’t had any of these issues and my board has been working for quite a while with no issue.</p>
+          <p><a href="https://leakfree.org/t/new-computers-got-issues/13574/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/new-computers-got-issues/13574/10</link>
+        <pubDate>Thu, 27 Nov 2014 04:31:14 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13574-10</guid>
+        <source url="https://leakfree.org/t/new-computers-got-issues/13574.rss">New computer&#39;s got issues</source>
+      </item>
+      <item>
+        <title>New computer&#39;s got issues</title>
+        <dc:creator><![CDATA[sersoft]]></dc:creator>
+        <description><![CDATA[
+            <p>To turn off USB devices in sleep you need to check the advanced active power profile options and device manager. Anyway, ASUS is the best, you just can’t go wrong with that.</p>
+          <p><a href="https://leakfree.org/t/new-computers-got-issues/13574/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/new-computers-got-issues/13574/9</link>
+        <pubDate>Thu, 27 Nov 2014 01:40:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13574-9</guid>
+        <source url="https://leakfree.org/t/new-computers-got-issues/13574.rss">New computer&#39;s got issues</source>
+      </item>
+      <item>
+        <title>New computer&#39;s got issues</title>
+        <dc:creator><![CDATA[geekofalltrades]]></dc:creator>
+        <description><![CDATA[
+            <p>I flashed the BIOS on my last board, and it was scary as hell.  There was a period of about five minutes where it wouldn’t start and I thought I’d bricked my board.</p>
+<p>Anyway, Wake On LAN was all disabled in the BIOS, but, but the Intel LAN Driver that I installed from the motherboard driver disk had a bunch of Wake On LAN stuff enabled.  I disabled that, and I’ll see how that affects things.  Hopefully my homeplug will go to sleep.</p>
+<p>Now I just have to figure out this stupid USB-is-always-powered thing, because the red LED on my mic is annoying when I’m trying to sleep and having to unplug it every time I shut off the PC is also annoying.  I thought that it might only be certain USB ports that were always powered, so I swapped the mic to a variety of ports while the PC was shut off, but that LED always comes back on.  There’s absolutely nothing in the BIOS about powered USB or USB charging.  I’ve found some other Asrock users with similar issues, but they all found BIOS settings that fixed it, and I don’t have any of those settings.  I may end up having to contact Asrock.</p>
+<p>In general, it seems like this board was a bad idea.  In doing my research on this issue, I’m finding that there’s a widely-reported issue with this board where after several months it’s prone to bricking if you disconnect its power supply.  I might try to swap it for an ASUS board if Newegg will take a return on this one.</p>
+          <p><a href="https://leakfree.org/t/new-computers-got-issues/13574/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/new-computers-got-issues/13574/8</link>
+        <pubDate>Wed, 26 Nov 2014 18:28:13 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13574-8</guid>
+        <source url="https://leakfree.org/t/new-computers-got-issues/13574.rss">New computer&#39;s got issues</source>
+      </item>
+      <item>
+        <title>New computer&#39;s got issues</title>
+        <dc:creator><![CDATA[Orpheon]]></dc:creator>
+        <description><![CDATA[
+            <p>Hm, never seen this issue before, but it does sound like a motherboard issue. If Windows is freshly installed it shouldn’t have anything enabled to do something like this. If you can’t find any BIOS settings that resolve the issue, I would go ahead with a BIOS flash. While it admittedly may sound a little scary, given all the strong warnings the manufacturers will give you, in reality there’s very little chance it’ll get screwed up unless you’re doing it in a lightning storm or something. I’ve flashed dozens of boards and never had a problem. If you’re still uncertain you could try contacting Asrock’s support and see what they say. If it’s a known issue that they have fixed in a BIOS release then I’m pretty sure you’d be covered in the event of a failure.</p>
+          <p><a href="https://leakfree.org/t/new-computers-got-issues/13574/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/new-computers-got-issues/13574/7</link>
+        <pubDate>Wed, 26 Nov 2014 06:54:51 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13574-7</guid>
+        <source url="https://leakfree.org/t/new-computers-got-issues/13574.rss">New computer&#39;s got issues</source>
+      </item>
+      <item>
+        <title>New computer&#39;s got issues</title>
+        <dc:creator><![CDATA[sersoft]]></dc:creator>
+        <description><![CDATA[
+            <p>in device manager, right click on your keyboard and mouse and uncheck “allow this device to wake the computer”</p>
+<p>if the issue still persists do the same for your ethernet adapter and any other input devices like game controllers</p>
+<p>also your BIOS/EFI might have settings like “enable wake timers” or “wake on LAN” that you could turn off.</p>
+          <p><a href="https://leakfree.org/t/new-computers-got-issues/13574/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/new-computers-got-issues/13574/6</link>
+        <pubDate>Wed, 26 Nov 2014 00:08:10 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13574-6</guid>
+        <source url="https://leakfree.org/t/new-computers-got-issues/13574.rss">New computer&#39;s got issues</source>
+      </item>
+      <item>
+        <title>New computer&#39;s got issues</title>
+        <dc:creator><![CDATA[geekofalltrades]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="LarsBR">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/4491bb/40.png" class="avatar"> LarsBR:</div>
+<blockquote>
+<p>I had this issue with my computer a few years back (when it was brand new). It turned itself on in the middle of night (3 am) and it turned out to be Windows update that was scheduled to do this every nght.</p>
+</blockquote>
+</aside>
+<p>Hmm, mine’s got that same setting.  Still, it definitely wasn’t 3am when it happened.  It was closer to midnight the second time, and the middle of the afternoon the first time.</p>
+<p>I don’t think it’s a coincidence that all of my peripherals seem to stay powered even when the PC is off.  That suggests to me that it’s not actually shut down, but in some sort of sleep state, and that it’s being woken up by things that wouldn’t normally cause it to boot.  But quick boot is disabled, so I don’t know why it would be doing that…</p>
+<p>EDIT: Update: I didn’t switch off the power supply last night.  The homeplug and microphone were on all night.</p>
+          <p><a href="https://leakfree.org/t/new-computers-got-issues/13574/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/new-computers-got-issues/13574/5</link>
+        <pubDate>Tue, 25 Nov 2014 06:38:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13574-5</guid>
+        <source url="https://leakfree.org/t/new-computers-got-issues/13574.rss">New computer&#39;s got issues</source>
+      </item>
+      <item>
+        <title>New computer&#39;s got issues</title>
+        <dc:creator><![CDATA[LarsBR]]></dc:creator>
+        <description><![CDATA[
+            <p>I had this issue with my computer a few years back (when it was brand new). It turned itself on in the middle of night (3 am) and it turned out to be Windows update that was scheduled to do this every nght.</p>
+          <p><a href="https://leakfree.org/t/new-computers-got-issues/13574/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/new-computers-got-issues/13574/4</link>
+        <pubDate>Tue, 25 Nov 2014 06:14:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13574-4</guid>
+        <source url="https://leakfree.org/t/new-computers-got-issues/13574.rss">New computer&#39;s got issues</source>
+      </item>
+      <item>
+        <title>New computer&#39;s got issues</title>
+        <dc:creator><![CDATA[geekofalltrades]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Zageron">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/zageron/40/4483_2.png" class="avatar"> Zageron:</div>
+<blockquote>
+<p>What OS are you using? It sounds like you have scheduled tasks within the operating system that have permission to turn the machine back on to complete them.</p>
+</blockquote>
+</aside>
+<p>Windows 7 Home Premium 64bit.  I didn’t really do anything differently with this Windows install than I’ve done with any other, but I’ll try to double check.</p>
+          <p><a href="https://leakfree.org/t/new-computers-got-issues/13574/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/new-computers-got-issues/13574/3</link>
+        <pubDate>Tue, 25 Nov 2014 04:28:45 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13574-3</guid>
+        <source url="https://leakfree.org/t/new-computers-got-issues/13574.rss">New computer&#39;s got issues</source>
+      </item>
+      <item>
+        <title>New computer&#39;s got issues</title>
+        <dc:creator><![CDATA[Zageron]]></dc:creator>
+        <description><![CDATA[
+            <p>What OS are you using? It sounds like you have scheduled tasks within the operating system that have permission to turn the machine back on to complete them.</p>
+          <p><a href="https://leakfree.org/t/new-computers-got-issues/13574/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/new-computers-got-issues/13574/2</link>
+        <pubDate>Tue, 25 Nov 2014 04:01:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13574-2</guid>
+        <source url="https://leakfree.org/t/new-computers-got-issues/13574.rss">New computer&#39;s got issues</source>
+      </item>
+      <item>
+        <title>New computer&#39;s got issues</title>
+        <dc:creator><![CDATA[geekofalltrades]]></dc:creator>
+        <description><![CDATA[
+            <p>My new PC is having a couple weird issues, and I’m wondering if anyone here has any insight.</p>
+<p>Here’s the build:</p>
+<p>Mobo: Asrock Z97 Extreme4<br>
+PSU: Corsair AX760<br>
+RAM: 8GB G.Skill Ripjaws X @ 1866MHz<br>
+CPU: i5 4690K<br>
+GPU: EVGA nVidia GTX 970 Superclocked<br>
+Sound: ASUS Xonar Essence STX</p>
+<p>There are two issues which may or may not be related.  The first is that the PC turns itself on.  This has happened twice now, and the build is less than a week old.</p>
+<p>The first time it happened, I had just put the computer to sleep.  The screen went off and the power light started blinking, but none of the fans turned off, which gave me pause.  I stuck around for another ten or fifteen seconds, and the fans turned off, as expected.  I then left the room.  A couple minutes later, I came back in, and the PC had powered itself back on.</p>
+<p>The second time it happened was last night.  I was watching some videos in bed, and got up to turn the PC off.  This time it was a full shutdown, not sleep.  The PC powered off, and I got in bed, and a few minutes later, it powered on again.  I shut it down and switched off the PSU just so I wouldn’t have to deal with it again while I was trying to sleep.</p>
+<p>The other issue, which might be related, is that the motherboard never seems to completely power down, even when the PC is shut off.  I have a USB microphone plugged into one USB 3.0 port, and it has a red power LED on it.  On my old PC, when I shut off the power, the LED on the microphone would stay on for fifteen seconds or so, then power off.  On the new build, it stays on for much longer.  I can’t verify how long, because I don’t usually sit around and watch it.  Last night, it wasn’t off until I switched off the PSU.  I also supply internet to my PC through a homeplug.  On my old build, after shutting down, the homeplug would go to sleep after five minutes or so: the network and data lights would switch off, and the power light would blink on and off slowly.  On this PC, even when shut off, the homeplug does not go to sleep.  The network and data lights continue flashing as though it’s still delivering data, and the orange light on the PC’s LAN port flashes along with it.</p>
+<p>Things I’ve tried:  Wake on LAN.  This setting is disabled in the motherboard BIOS.  The motherboard also has a “dehumidifier” function, where it will turn itself on periodically to run its fans and dehumidify the inside of the PC.  This feature is also turned off in the BIOS.</p>
+<p>I’m not really sure where else to look.  Similar issues have been reported with this motherboard, but they all seem to stem either from the dehumidifier or from wake on LAN functions being switched on.  I’d rather not flash the BIOS, because that’s scary as hell.</p>
+          <p><a href="https://leakfree.org/t/new-computers-got-issues/13574/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/new-computers-got-issues/13574/1</link>
+        <pubDate>Tue, 25 Nov 2014 03:06:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13574-1</guid>
+        <source url="https://leakfree.org/t/new-computers-got-issues/13574.rss">New computer&#39;s got issues</source>
+      </item>
+  </channel>
+</rss>

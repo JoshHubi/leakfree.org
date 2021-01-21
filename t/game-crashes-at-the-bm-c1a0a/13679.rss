@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Game crashes at the bm_c1a0a</title>
+    <link>https://leakfree.org/t/game-crashes-at-the-bm-c1a0a/13679</link>
+    <description>Hi,
+I&#39;ve just reinstalled Black Mesa to replay but the game crashes just after I wore the suit and take the lift to go down. The game try to load the new map but crashes. HL2 works fine, the last time I played BlackMesa (maybe a year ago...) it worked fine.
+map; bm_c1a0a, getpos setpos -1343.984863 1635.995361 352.031250;setang 17.413330 73.536987 0.000000. I&#39;m taking the lift to go down. At the bottom the game try to load the new map but crashes.
+
+My pc have a I7 2.8, 6GB RAM, AMD RAdeon 5800 1GB and I use win7 64 SP1 in Italian but hope you can understand..
+This is the error I get on Event viewer:
+Nome dell&#39;applicazione che ha generato l&#39;errore: hl2.exe, versione: 0.0.0.0, timestamp: 0x470c11ae
+Nome del modulo che ha generato l&#39;errore: client.dll, versione: 0.0.0.0, timestamp: 0x504ecc4f
+Codice eccezione: 0xc0000005
+Offset errore 0x00362edd
+ID processo che ha generato l&#39;errore: 0x1f5c
+Ora di avvio dell&#39;applicazione che ha generato l&#39;errore: 0x01d03e61ae5213c2
+Percorso dell&#39;applicazione che ha generato l&#39;errore: C:\Program Files (x86)\Steam\steamapps\common\Source SDK Base 2007\hl2.exe
+Percorso del modulo che ha generato l&#39;errore: c:\program files (x86)\steam\steamapps\sourcemods\bms\bin\client.dll
+
+
+In the folder of Source SDK Base I didn&#39;t find the minidump file. I installed the game on 20.00 PM, the last file updated is on 21.26 PM, the event pasted above is on 21.58 PM
+This is from &quot;gameoverlayrender.log&quot; (Italy is UTC+1):
+Sun Feb 01 20:57:25 2015 UTC - Module file name: C:\Program Files (x86)\Steam\gameoverlayrenderer.dll
+Sun Feb 01 20:57:25 2015 UTC - GameID = 13540830642081628378
+Sun Feb 01 20:57:25 2015 UTC - System page size: 4096
+Sun Feb 01 20:57:25 2015 UTC - Failed loading shell32.dll, not hooking ShellExecute calls
+Sun Feb 01 20:57:25 2015 UTC - Hooking SetCursorPos, GetCursorPos, ShowCursor, and SetCursor
+Sun Feb 01 20:57:25 2015 UTC - System page size: 4096
+Sun Feb 01 20:57:25 2015 UTC - Modules at GameOverlayRenderer.dll attach
+Sun Feb 01 20:57:25 2015 UTC - 01: hl2.exe - (0X00400000 to 0X0041A000)
+Sun Feb 01 20:57:25 2015 UTC - 02: ntdll.dll - (0X77A20000 to 0X77BA0000)
+Sun Feb 01 20:57:25 2015 UTC - 03: kernel32.dll - (0X76FC0000 to 0X770D0000)
+Sun Feb 01 20:57:25 2015 UTC - 04: KERNELBASE.dll - (0X76920000 to 0X76967000)
+Sun Feb 01 20:57:25 2015 UTC - 05: USER32.dll - (0X77110000 to 0X77210000)
+Sun Feb 01 20:57:25 2015 UTC - 06: GDI32.dll - (0X754A0000 to 0X75530000)
+Sun Feb 01 20:57:25 2015 UTC - 07: LPK.dll - (0X779F0000 to 0X779FA000)
+Sun Feb 01 20:57:25 2015 UTC - 08: USP10.dll - (0X77580000 to 0X7761D000)
+Sun Feb 01 20:57:25 2015 UTC - 09: msvcrt.dll - (0X76E70000 to 0X76F1C000)
+Sun Feb 01 20:57:25 2015 UTC - 10: ADVAPI32.dll - (0X77370000 to 0X77410000)
+Sun Feb 01 20:57:25 2015 UTC - 11: sechost.dll - (0X770E0000 to 0X770F9000)
+Sun Feb 01 20:57:25 2015 UTC - 12: RPCRT4.dll - (0X77490000 to 0X77580000)
+Sun Feb 01 20:57:25 2015 UTC - 13: SspiCli.dll - (0X753C0000 to 0X75420000)
+Sun Feb 01 20:57:25 2015 UTC - 14: CRYPTBASE.dll - (0X753B0000 to 0X753BC000)
+Sun Feb 01 20:57:25 2015 UTC - 15: IMM32.DLL - (0X75530000 to 0X75590000)
+Sun Feb 01 20:57:25 2015 UTC - 16: MSCTF.dll - (0X76BE0000 to 0X76CAC000)
+Sun Feb 01 20:57:25 2015 UTC - 17: gameoverlayrenderer.dll - (0X5E140000 to 0X5E28D000)
+Sun Feb 01 20:57:25 2015 UTC - 18: WINMM.dll - (0X60200000 to 0X60232000)
+Sun Feb 01 20:57:25 2015 UTC - 19: ole32.dll - (0X77210000 to 0X7736C000)
+Sun Feb 01 20:57:25 2015 UTC - 20: psapi.dll - (0X76F20000 to 0X76F25000)
+Sun Feb 01 20:57:25 2015 UTC - ----------------------------
+Sun Feb 01 20:57:25 2015 UTC - Found GetModuleHandleEx
+Sun Feb 01 20:57:25 2015 UTC - Game is using D3D9 or D3D9Ex, preparing to hook.
+Sun Feb 01 20:57:25 2015 UTC - hookDirect3DCreate9 called
+Sun Feb 01 20:57:25 2015 UTC - Game is using dinput.dll (dinput7), preparing to hook.
+Sun Feb 01 20:57:25 2015 UTC - DirectInputCreateW hook called
+Sun Feb 01 20:57:25 2015 UTC - Creating IWrapWbemLocator
+Sun Feb 01 20:57:25 2015 UTC - CoCreateInstance hook created WbemLocator interface 13C206B0
+Sun Feb 01 20:57:25 2015 UTC - IWrapWbemLocator 13C206B0 deleting
+Sun Feb 01 20:57:27 2015 UTC - IWrapIDirect3D9::CreateDevice hook called (type: 1, behavior flags: 52!)
+Sun Feb 01 20:57:27 2015 UTC - Creating D3D9 renderer
+Sun Feb 01 20:57:27 2015 UTC - Trying to setup input hook...
+Sun Feb 01 20:57:27 2015 UTC - Set input hook...
+Sun Feb 01 20:58:19 2015 UTC - Releasing all resources for device: 1383EC80
+Sun Feb 01 20:58:19 2015 UTC - Detaching input hook...
+Sun Feb 01 20:58:22 2015 UTC - Trying to setup input hook...
+Sun Feb 01 20:58:22 2015 UTC - Set input hook...
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.
+
+This is gameoverlayUI.exe.log
+Sun Feb 01 20:57:27 2015 UTC - GameOverlay process started: pid: 5060
+Sun Feb 01 20:57:27 2015 UTC - GameOverlay process connecting to: pid: 8028
+Sun Feb 01 20:57:27 2015 UTC - BuildID: 1422054110
+Sun Feb 01 20:57:27 2015 UTC - Steam Path: C:\Program Files (x86)\Steam
+dom feb 01 20:57:36 2015 UTC - Generating new string page texture 2736: 256x256, total string texture memory is 262.14 KB
+dom feb 01 20:57:36 2015 UTC - Generating new string page texture 2737: 128x256, total string texture memory is 393.22 KB
+dom feb 01 20:58:59 2015 UTC - Warning: The game hasn&#39;t rendered a frame from us in over 10 seconds
+dom feb 01 20:59:04 2015 UTC - Detected possibly crashed/killed game, exiting
+dom feb 01 20:59:04 2015 UTC - Shutting down overlay
+Any suggestion?
+Thank you very much, best regards</description>
+    
+    <lastBuildDate>Thu, 05 Feb 2015 19:36:49 +0000</lastBuildDate>
+    <category>In-game Issues (Mod)</category>
+    <atom:link href="https://leakfree.org/t/game-crashes-at-the-bm-c1a0a/13679.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Game crashes at the bm_c1a0a</title>
+        <dc:creator><![CDATA[westmoreland]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you it works fine now. :9</p>
+          <p><a href="https://leakfree.org/t/game-crashes-at-the-bm-c1a0a/13679/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/game-crashes-at-the-bm-c1a0a/13679/6</link>
+        <pubDate>Thu, 05 Feb 2015 19:36:49 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13679-6</guid>
+        <source url="https://leakfree.org/t/game-crashes-at-the-bm-c1a0a/13679.rss">Game crashes at the bm_c1a0a</source>
+      </item>
+      <item>
+        <title>Game crashes at the bm_c1a0a</title>
+        <dc:creator><![CDATA[CPU]]></dc:creator>
+        <description><![CDATA[
+            <p>Type:<br>
+<span class="bbcode-b">map bm_c1a0a</span></p>
+<p>in the developer console.</p>
+<p>To enable the console, set the developer console to enabled in game menu.</p>
+          <p><a href="https://leakfree.org/t/game-crashes-at-the-bm-c1a0a/13679/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/game-crashes-at-the-bm-c1a0a/13679/5</link>
+        <pubDate>Wed, 04 Feb 2015 20:18:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13679-5</guid>
+        <source url="https://leakfree.org/t/game-crashes-at-the-bm-c1a0a/13679.rss">Game crashes at the bm_c1a0a</source>
+      </item>
+      <item>
+        <title>Game crashes at the bm_c1a0a</title>
+        <dc:creator><![CDATA[westmoreland]]></dc:creator>
+        <description><![CDATA[
+            <p>How? i don’t know. Can you explain, please?</p>
+          <p><a href="https://leakfree.org/t/game-crashes-at-the-bm-c1a0a/13679/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/game-crashes-at-the-bm-c1a0a/13679/4</link>
+        <pubDate>Wed, 04 Feb 2015 19:35:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13679-4</guid>
+        <source url="https://leakfree.org/t/game-crashes-at-the-bm-c1a0a/13679.rss">Game crashes at the bm_c1a0a</source>
+      </item>
+      <item>
+        <title>Game crashes at the bm_c1a0a</title>
+        <dc:creator><![CDATA[CatzEyes93]]></dc:creator>
+        <description><![CDATA[
+            <p>why not just reload the beginning of the map yourself?</p>
+          <p><a href="https://leakfree.org/t/game-crashes-at-the-bm-c1a0a/13679/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/game-crashes-at-the-bm-c1a0a/13679/3</link>
+        <pubDate>Tue, 03 Feb 2015 22:14:54 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13679-3</guid>
+        <source url="https://leakfree.org/t/game-crashes-at-the-bm-c1a0a/13679.rss">Game crashes at the bm_c1a0a</source>
+      </item>
+      <item>
+        <title>Game crashes at the bm_c1a0a</title>
+        <dc:creator><![CDATA[westmoreland]]></dc:creator>
+        <description><![CDATA[
+            <p>Can anyone give me a saved game just after the loading of the  map?<br>
+Thank you</p>
+          <p><a href="https://leakfree.org/t/game-crashes-at-the-bm-c1a0a/13679/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/game-crashes-at-the-bm-c1a0a/13679/2</link>
+        <pubDate>Tue, 03 Feb 2015 18:37:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13679-2</guid>
+        <source url="https://leakfree.org/t/game-crashes-at-the-bm-c1a0a/13679.rss">Game crashes at the bm_c1a0a</source>
+      </item>
+      <item>
+        <title>Game crashes at the bm_c1a0a</title>
+        <dc:creator><![CDATA[westmoreland]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi,<br>
+I’ve just reinstalled Black Mesa to replay but the game crashes just after I wore the suit and take the lift to go down. The game try to load the new map but crashes. HL2 works fine, the last time I played BlackMesa (maybe a year ago…) it worked fine.<br>
+map; bm_c1a0a, getpos setpos -1343.984863 1635.995361 352.031250;setang 17.413330 73.536987 0.000000. I’m taking the lift to go down. At the bottom the game try to load the new map but crashes.</p>
+<p>My pc have a I7 2.8, 6GB RAM, AMD RAdeon 5800 1GB and I use win7 64 SP1 in Italian but hope you can understand…<br>
+This is the error I get on Event viewer:<br>
+Nome dell’applicazione che ha generato l’errore: hl2.exe, versione: 0.0.0.0, timestamp: 0x470c11ae<br>
+Nome del modulo che ha generato l’errore: client.dll, versione: 0.0.0.0, timestamp: 0x504ecc4f<br>
+Codice eccezione: 0xc0000005<br>
+Offset errore 0x00362edd<br>
+ID processo che ha generato l’errore: 0x1f5c<br>
+Ora di avvio dell’applicazione che ha generato l’errore: 0x01d03e61ae5213c2<br>
+Percorso dell’applicazione che ha generato l’errore: C:\Program Files (x86)\Steam\steamapps\common\Source SDK Base 2007\hl2.exe<br>
+Percorso del modulo che ha generato l’errore: c:\program files (x86)\steam\steamapps\sourcemods\bms\bin\client.dll</p>
+<p>In the folder of Source SDK Base I didn’t find the minidump file. I installed the game on 20.00 PM, the last file updated is on 21.26 PM, the event pasted above is on 21.58 PM<br>
+This is from “gameoverlayrender.log” (Italy is UTC+1):<br>
+Sun Feb 01 20:57:25 2015 UTC - Module file name: C:\Program Files (x86)\Steam\gameoverlayrenderer.dll<br>
+Sun Feb 01 20:57:25 2015 UTC - GameID = 13540830642081628378<br>
+Sun Feb 01 20:57:25 2015 UTC - System page size: 4096<br>
+Sun Feb 01 20:57:25 2015 UTC - Failed loading shell32.dll, not hooking ShellExecute calls<br>
+Sun Feb 01 20:57:25 2015 UTC - Hooking SetCursorPos, GetCursorPos, ShowCursor, and SetCursor<br>
+Sun Feb 01 20:57:25 2015 UTC - System page size: 4096<br>
+Sun Feb 01 20:57:25 2015 UTC - Modules at GameOverlayRenderer.dll attach<br>
+Sun Feb 01 20:57:25 2015 UTC - 01: hl2.exe - (0X00400000 to 0X0041A000)<br>
+Sun Feb 01 20:57:25 2015 UTC - 02: ntdll.dll - (0X77A20000 to 0X77BA0000)<br>
+Sun Feb 01 20:57:25 2015 UTC - 03: kernel32.dll - (0X76FC0000 to 0X770D0000)<br>
+Sun Feb 01 20:57:25 2015 UTC - 04: KERNELBASE.dll - (0X76920000 to 0X76967000)<br>
+Sun Feb 01 20:57:25 2015 UTC - 05: USER32.dll - (0X77110000 to 0X77210000)<br>
+Sun Feb 01 20:57:25 2015 UTC - 06: GDI32.dll - (0X754A0000 to 0X75530000)<br>
+Sun Feb 01 20:57:25 2015 UTC - 07: LPK.dll - (0X779F0000 to 0X779FA000)<br>
+Sun Feb 01 20:57:25 2015 UTC - 08: USP10.dll - (0X77580000 to 0X7761D000)<br>
+Sun Feb 01 20:57:25 2015 UTC - 09: msvcrt.dll - (0X76E70000 to 0X76F1C000)<br>
+Sun Feb 01 20:57:25 2015 UTC - 10: ADVAPI32.dll - (0X77370000 to 0X77410000)<br>
+Sun Feb 01 20:57:25 2015 UTC - 11: sechost.dll - (0X770E0000 to 0X770F9000)<br>
+Sun Feb 01 20:57:25 2015 UTC - 12: RPCRT4.dll - (0X77490000 to 0X77580000)<br>
+Sun Feb 01 20:57:25 2015 UTC - 13: SspiCli.dll - (0X753C0000 to 0X75420000)<br>
+Sun Feb 01 20:57:25 2015 UTC - 14: CRYPTBASE.dll - (0X753B0000 to 0X753BC000)<br>
+Sun Feb 01 20:57:25 2015 UTC - 15: IMM32.DLL - (0X75530000 to 0X75590000)<br>
+Sun Feb 01 20:57:25 2015 UTC - 16: MSCTF.dll - (0X76BE0000 to 0X76CAC000)<br>
+Sun Feb 01 20:57:25 2015 UTC - 17: gameoverlayrenderer.dll - (0X5E140000 to 0X5E28D000)<br>
+Sun Feb 01 20:57:25 2015 UTC - 18: WINMM.dll - (0X60200000 to 0X60232000)<br>
+Sun Feb 01 20:57:25 2015 UTC - 19: ole32.dll - (0X77210000 to 0X7736C000)<br>
+Sun Feb 01 20:57:25 2015 UTC - 20: psapi.dll - (0X76F20000 to 0X76F25000)<br>
+Sun Feb 01 20:57:25 2015 UTC - ----------------------------<br>
+Sun Feb 01 20:57:25 2015 UTC - Found GetModuleHandleEx<br>
+Sun Feb 01 20:57:25 2015 UTC - Game is using D3D9 or D3D9Ex, preparing to hook.<br>
+Sun Feb 01 20:57:25 2015 UTC - hookDirect3DCreate9 called<br>
+Sun Feb 01 20:57:25 2015 UTC - Game is using dinput.dll (dinput7), preparing to hook.<br>
+Sun Feb 01 20:57:25 2015 UTC - DirectInputCreateW hook called<br>
+Sun Feb 01 20:57:25 2015 UTC - Creating IWrapWbemLocator<br>
+Sun Feb 01 20:57:25 2015 UTC - CoCreateInstance hook created WbemLocator interface 13C206B0<br>
+Sun Feb 01 20:57:25 2015 UTC - IWrapWbemLocator 13C206B0 deleting<br>
+Sun Feb 01 20:57:27 2015 UTC - IWrapIDirect3D9::CreateDevice hook called (type: 1, behavior flags: 52!)<br>
+Sun Feb 01 20:57:27 2015 UTC - Creating D3D9 renderer<br>
+Sun Feb 01 20:57:27 2015 UTC - Trying to setup input hook…<br>
+Sun Feb 01 20:57:27 2015 UTC - Set input hook…<br>
+Sun Feb 01 20:58:19 2015 UTC - Releasing all resources for device: 1383EC80<br>
+Sun Feb 01 20:58:19 2015 UTC - Detaching input hook…<br>
+Sun Feb 01 20:58:22 2015 UTC - Trying to setup input hook…<br>
+Sun Feb 01 20:58:22 2015 UTC - Set input hook…<br>
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.<br>
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.<br>
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.<br>
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.<br>
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.<br>
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.<br>
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.<br>
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.<br>
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.<br>
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.<br>
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.<br>
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.<br>
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.<br>
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.<br>
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.<br>
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.<br>
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.<br>
+Sun Feb 01 20:58:49 2015 UTC - Found a hooked function in now unloaded module, removing from map.</p>
+<p>This is gameoverlayUI.exe.log<br>
+Sun Feb 01 20:57:27 2015 UTC - GameOverlay process started: pid: 5060<br>
+Sun Feb 01 20:57:27 2015 UTC - GameOverlay process connecting to: pid: 8028<br>
+Sun Feb 01 20:57:27 2015 UTC - BuildID: 1422054110<br>
+Sun Feb 01 20:57:27 2015 UTC - Steam Path: C:\Program Files (x86)\Steam<br>
+dom feb 01 20:57:36 2015 UTC - Generating new string page texture 2736: 256x256, total string texture memory is 262.14 KB<br>
+dom feb 01 20:57:36 2015 UTC - Generating new string page texture 2737: 128x256, total string texture memory is 393.22 KB<br>
+dom feb 01 20:58:59 2015 UTC - Warning: The game hasn’t rendered a frame from us in over 10 seconds<br>
+dom feb 01 20:59:04 2015 UTC - Detected possibly crashed/killed game, exiting<br>
+dom feb 01 20:59:04 2015 UTC - Shutting down overlay<br>
+Any suggestion?<br>
+Thank you very much, best regards</p>
+          <p><a href="https://leakfree.org/t/game-crashes-at-the-bm-c1a0a/13679/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/game-crashes-at-the-bm-c1a0a/13679/1</link>
+        <pubDate>Sun, 01 Feb 2015 21:33:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13679-1</guid>
+        <source url="https://leakfree.org/t/game-crashes-at-the-bm-c1a0a/13679.rss">Game crashes at the bm_c1a0a</source>
+      </item>
+  </channel>
+</rss>

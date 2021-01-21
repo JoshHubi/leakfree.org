@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/planning-to-change-the-source-vgui-to-better-fit-black-mesa/11396 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 10:32:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Planning to Change the Source VGUI to better fit Black Mesa - Black Mesa - Leakfree</title>
+    <meta name="description" content="I am planning to change the Source Engine’s VGUI to better suit BM. For example, giving it an icon for the taskbar when minimized, (it still uses the HL2 icon.) removing all of the redundant keyboard settings, like C to &amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="11396.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Planning to Change the Source VGUI to better fit Black Mesa&#39;" href="11396.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/planning-to-change-the-source-vgui-to-better-fit-black-mesa/11396" />
+<meta name="twitter:url" content="https://leakfree.org/t/planning-to-change-the-source-vgui-to-better-fit-black-mesa/11396" />
+<meta property="og:title" content="Planning to Change the Source VGUI to better fit Black Mesa" />
+<meta name="twitter:title" content="Planning to Change the Source VGUI to better fit Black Mesa" />
+<meta property="og:description" content="I am planning to change the Source Engine’s VGUI to better suit BM. For example, giving it an icon for the taskbar when minimized, (it still uses the HL2 icon.) removing all of the redundant keyboard settings, like C to recall squad, because there’s no such thing as squad follow in BM. Or removing the G for Gravity Gun bind, because there’s no Gravity Gun in BM, and making a BM-themed autosave icon. (To replace the HL2 icon on autosaves in the load game/save game menu.) I also might change the U..." />
+<meta name="twitter:description" content="I am planning to change the Source Engine’s VGUI to better suit BM. For example, giving it an icon for the taskbar when minimized, (it still uses the HL2 icon.) removing all of the redundant keyboard settings, like C to recall squad, because there’s no such thing as squad follow in BM. Or removing the G for Gravity Gun bind, because there’s no Gravity Gun in BM, and making a BM-themed autosave icon. (To replace the HL2 icon on autosaves in the load game/save game menu.) I also might change the U..." />
+<meta property="article:published_time" content="2012-10-08T02:15:26+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="next" href="113964658.html?page=2">
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="11396.html">Planning to Change the Source VGUI to better fit Black Mesa</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/7.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>General Development</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/black-mesa/44.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/sourcegamer101.html'><span itemprop='name'>sourcegamer101</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11396.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-10-08T02:15:26Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:43:11Z' class='post-time'>
+                November 25, 2018,  2:43am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I am planning to change the Source Engine’s VGUI to better suit BM. For example, giving it an icon for the taskbar when minimized, (it still uses the HL2 icon.) removing all of the redundant keyboard settings, like C to recall squad, because there’s no such thing as squad follow in BM. Or removing the G for Gravity Gun bind, because there’s no Gravity Gun in BM, and making a BM-themed autosave icon. (To replace the HL2 icon on autosaves in the load game/save game menu.) I also might change the UI color to the legacy green that was in the original HL. All of this I am going to do by editing a series of .RES files, from the 2007 Source Engine binaries.</p>
+<p>I will extract the required .RES files for the the things listed above, as well as the VGUI .TXTs as well. I will edit what needs editing, and put them into the BM folder. The only problem is finding what .RES files effect which VGUI elements. If I can get a experienced person to help me, or a BM dev, I would be grateful.</p>
+<p>EDIT: I’m done with a number of small changes to the UI. Archive available in OP.</p>
+<p>Changes:</p>
+<p>-Took out weapon slot <span class="hashtag">#6</span></p>
+<p>-Removed HL2’s walk function because it doesn’t work</p>
+<p>-Added a custom autosave icon</p>
+<p>-Removed G to get out Gravity Gun</p>
+<p>-Removed C to recall squad</p>
+<p>-Changed the Easy difficulty description from “Enemies are easy to defeat, and the computer helps you aim.” to “Enemies are easy to defeat; your weapons are more effective.” Due to the game already having a toggleable auto-aim option, and really? “The computer helps you aim.”?</p>
+<p>[b]Update: I haven’t gotten around to doing any big UI changes while I was gone, I simply didn’t have the freetime to work on that kind of stuff. However, here’s two new changes:</p>
+<p>[/b]<br>
+-The viewroll slider now functions. [<span class="bbcode-b">NOTE: </span>For some reason, if you set your value then restart the game, it will reset back to the default; 3.5]</p>
+<p>-Removed “Fast Weapon Switch” from the advanced keyboard options because  it doesn’t function, and also because there’s a fast switch  option in the ‘Black Mesa’ tab.<br>
+<a class="attachment" href="../../uploads/default/original/2X/3/BMS.zip_%3b%20filename_%3dUTF-8%27%27BMS.zip">BMS.zip</a> (30.2 KB)</p>
+        </div>
+
+        <meta itemprop='headline' content='Planning to Change the Source VGUI to better fit Black Mesa'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Ronster.html'><span itemprop='name'>Ronster</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11396.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/6/6d5b41052086f1be04b685b5321abbbaf996b40b.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-10-08T07:33:43Z'>
+              <time itemprop='dateModified' datetime='2020-08-12T05:51:35Z' class='post-time'>
+                August 12, 2020,  5:51am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Just an idea but any chance we can have the spinning black mesa logo from screensavers on computers in game as the loading symbol instead of the bar filling</p>
+<p>Also It would be great to have wallpaper loading screens as well</p>
+<p>like these</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/6/6d5b41052086f1be04b685b5321abbbaf996b40b.jpg" data-download-href="https://leakfree.org/uploads/default/6d5b41052086f1be04b685b5321abbbaf996b40b" title=""><img src="../../uploads/default/optimized/2X/6/6d5b41052086f1be04b685b5321abbbaf996b40b_2_690x431.jpg" alt="" data-base62-sha1="fBpypzkYHMldotX7BjgtZ52lAZt" width="690" height="431" srcset="https://leakfree.org/uploads/default/optimized/2X/6/6d5b41052086f1be04b685b5321abbbaf996b40b_2_690x431.jpeg, https://leakfree.org/uploads/default/optimized/2X/6/6d5b41052086f1be04b685b5321abbbaf996b40b_2_1035x646.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/6/6d5b41052086f1be04b685b5321abbbaf996b40b_2_1380x862.jpeg 2x" data-small-upload="../../uploads/default/optimized/2X/6/6d5b41052086f1be04b685b5321abbbaf996b40b_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1200 207 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/3X/9/8/986ac099565cbfa858867f57cff92dfab3f46ba2.jpg" data-download-href="https://leakfree.org/uploads/default/986ac099565cbfa858867f57cff92dfab3f46ba2" title=""><img src="../../uploads/default/optimized/3X/9/8/986ac099565cbfa858867f57cff92dfab3f46ba2_2_666x500.jpg" alt="" data-base62-sha1="lKli3UNlLw2oxngQ0bHbxBiYsQW" width="666" height="500" srcset="https://leakfree.org/uploads/default/optimized/3X/9/8/986ac099565cbfa858867f57cff92dfab3f46ba2_2_666x500.jpeg, https://leakfree.org/uploads/default/original/3X/9/8/986ac099565cbfa858867f57cff92dfab3f46ba2.jpeg 1.5x, https://leakfree.org/uploads/default/original/3X/9/8/986ac099565cbfa858867f57cff92dfab3f46ba2.jpeg 2x" data-small-upload="../../uploads/default/optimized/3X/9/8/986ac099565cbfa858867f57cff92dfab3f46ba2_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">900×675 196 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<p><a href="https://s8.postimage.org/9dwnhf7f9/black_mesa_wallpaper_2.jpg" data-bbcode="true" rel="nofollow noopener">https://s8.postimage.org/9dwnhf7f9/black_mesa_wallpaper_2.jpg</a></p>
+        </div>
+
+        <meta itemprop='headline' content='Planning to Change the Source VGUI to better fit Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bur.html'><span itemprop='name'>bur</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11396.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-10-09T08:03:53Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T09:45:00Z' class='post-time'>
+                August 11, 2020,  9:45am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I did some looking around, it seems that you need scripts\kb_act.lst for the keyboard menu.</p>
+<p>The file I have looks incomplete at first glance though. I might do some testing later.</p>
+<p>Edit: looks like it works. <a href="https://dl.dropbox.com/u/13196946/kb_act.lst" data-bbcode="true" rel="nofollow noopener">Here</a>’s the file. Just put it in the scripts folder and the gravity gun and squad command keybinds should be gone in the options menu.</p>
+        </div>
+
+        <meta itemprop='headline' content='Planning to Change the Source VGUI to better fit Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Ronster.html'><span itemprop='name'>Ronster</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11396.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-10-09T09:46:59Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:43:54Z' class='post-time'>
+                November 25, 2018,  2:43am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Is there actally a shortcut icon that can be used to launch game and display fir game saves…?</p>
+<p>There must be in the txt fike or res for load game save game? Or is it derault icon somewhere in sdk base 2007?</p>
+        </div>
+
+        <meta itemprop='headline' content='Planning to Change the Source VGUI to better fit Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/omegalucas.html'><span itemprop='name'>omegalucas</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11396.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-10-09T10:22:39Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:43:54Z' class='post-time'>
+                November 25, 2018,  2:43am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>What about something that swaps the maps’ names in the load screen for the chapters’ names like in HL2?</p>
+        </div>
+
+        <meta itemprop='headline' content='Planning to Change the Source VGUI to better fit Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/ToT.html'><span itemprop='name'>ToT</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11396.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-10-09T21:12:07Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:44:11Z' class='post-time'>
+                November 25, 2018,  2:44am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>If you can redesign the main menu in Classic Half-Life WON style I will give you 9000 internets.</p>
+        </div>
+
+        <meta itemprop='headline' content='Planning to Change the Source VGUI to better fit Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/sourcegamer101.html'><span itemprop='name'>sourcegamer101</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11396.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-10-10T03:57:05Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T09:45:26Z' class='post-time'>
+                August 11, 2020,  9:45am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="bur">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/b/87869e/40.png" class="avatar"> bur:</div>
+<blockquote>
+<p>I did some looking around, it seems that you need scripts\kb_act.lst for the keyboard menu.</p>
+<p>The file I have looks incomplete at first glance though. I might do some testing later.</p>
+<p>Edit: looks like it works. <a href="https://dl.dropbox.com/u/13196946/kb_act.lst" data-bbcode="true" rel="nofollow noopener">Here</a>’s the file. Just put it in the scripts folder and the gravity gun and squad command keybinds should be gone in the options menu.</p>
+</blockquote>
+</aside>
+<p>Thanks for the guidance.</p>
+<p>I took out:</p>
+<p>“slot6”                    “<span class="hashtag">#Valve_Weapon_Category_6</span>”</p>
+<p>There’s no need for a 6th weapon slot since there’s no 6th slot weapon in BM.</p>
+<p>“impulse 50”            “<span class="hashtag">#Valve_Commander_Mode</span>”</p>
+<p>There’s no squad follow, therefore there’s no need for this.</p>
+<p>“phys_swap”                “<span class="hashtag">#Valve_Gravity_Gun</span>”</p>
+<p>There’s no Gravity Gun in BM, not even if you enter impulse 101. I guess they purged out all of the HL2 weapon scripts, so this option is practically useless.</p>
+<p>“+walk”                 “<span class="hashtag">#Valve_Walk</span>”</p>
+<p>This keyboard option is bugged, it was originally bound to ALT because it was meant for HL2 since Sprint is shift in that game. So if you bind this option to shift, the “Always Run” walk will be non-functional, and the Sprint when you uncheck “Always Run” will be non-functional as well, because HL2’s ALT walk is completely independent to the Always Run walk/sprint.</p>
+<p>If anyone can get me to the file where the names of the functions are defined, for example, in BM, it says:</p>
+<p>SPRINT (Move quickly)                                                                SHIFT</p>
+<p>I want to change it to:</p>
+<p>SPRINT (Move quickly/walk)                                                 SHIFT</p>
+<p>I’ll do some looking for myself as well.</p>
+        </div>
+
+        <meta itemprop='headline' content='Planning to Change the Source VGUI to better fit Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/sourcegamer101.html'><span itemprop='name'>sourcegamer101</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11396.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-10-10T06:03:13Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:44:22Z' class='post-time'>
+                November 25, 2018,  2:44am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Found what I wanted, and I’m done my current set of changes. I’ll tell you what I changed.</p>
+<p>I extracted these lines from the gameui_english.txt file in source 2007 binaries.gcf file.</p>
+<p>“GameUI_EasyDescription”            “Enemies are easy to defeat, and the computer helps you aim.”<br>
+“GameUI_NormalDescription”    “Challenging enemies; your weapons do normal damage.”<br>
+“GameUI_HardDescription”    “Enemies are very tough; your weapons are less effective.”</p>
+<p>I changed the Easy Difficulty header and took out “and the computer helps you aim,” and replaced it with “;your weapons are more effective.” Why did I do that? There is already a toggleable Auto-aim option in the Black Mesa tab, so there is no need for it to be telling you that Auto-aim will be turned on when there’s already a separate option for it. I also changed it to bring it in line with the Normal and Hard difficulty headers. If your weapons are less effective on Hard, then they must be more effective on Easy.</p>
+<p>I also removed some redundant keyboard binds.</p>
+<p>I took out:</p>
+<p>“slot6”                    “<span class="hashtag">#Valve_Weapon_Category_6</span>”</p>
+<p>There’s no need for a 6th weapon slot since there’s no 6th slot weapon in BM.</p>
+<p>“impulse 50”            “<span class="hashtag">#Valve_Commander_Mode</span>”</p>
+<p>There’s no squad follow, therefore there’s no need for this.</p>
+<p>“phys_swap”                “<span class="hashtag">#Valve_Gravity_Gun</span>”</p>
+<p>There’s no Gravity Gun in BM, not even if you enter impulse 101. I guess  they purged out all of the HL2 weapon scripts, so this option is  practically useless.</p>
+<p>“+walk”                 “<span class="hashtag">#Valve_Walk</span>”</p>
+<p>This keyboard option is bugged, it was originally bound to ALT because  it was meant for HL2 since Sprint is shift in that game. So if you bind  this option to shift, the “Always Run” walk will be non-functional, and  the Sprint when you uncheck “Always Run” will be non-functional as well,  because HL2’s ALT walk is completely independent to the Always Run  walk/sprint.</p>
+<p>I also went into the valve_english.txt file and found the keyboard binding descriptions.</p>
+<p>I changed:</p>
+<p>“Valve_Sprint”        "Sprint (Move Quickly)</p>
+<p>To: “Valve_Sprint”        "Sprint (Move Quickly / Walk)</p>
+<p>Because the ALT walk function made specifically for HL2 won’t work in BM, and it will bug out Always Run.</p>
+<p>I also gave the game a taskbar icon. (I didn’t make the icon, the BMS team did.)</p>
+<p>I also have a bonus. I edited the skill.cfg a tiny bit.</p>
+<p>bms_normal_jump_vertical_speed                “210”<br>
+bms_normal_jump_crouch_vertical_speed        “210”</p>
+<p>This is the exact same jump height as the original.</p>
+<p>Changed the long jump module to the same value.</p>
+<p>I also changed the Gluon Gun’s ammo consumption rate. It was way to fast. It drained really quickly, so I changed it from the default “2,” and made it “1.”</p>
+<p>Merge the 3 folders inside “BMS” with your original folders.</p>
+<p>EDIT: Added a custom autosave icon.<br>
+<span class="bbcode-b"><br>
+I WILL DO BIG UI CHANGES LATER.</span>[/SIZE]<br>
+<a class="attachment" href="../../uploads/default/original/2X/8/BMS.zip_%3b%20filename_%3dUTF-8%27%27BMS.zip">BMS.zip</a> (28.4 KB)</p>
+        </div>
+
+        <meta itemprop='headline' content='Planning to Change the Source VGUI to better fit Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Ronster.html'><span itemprop='name'>Ronster</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11396.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-10-10T09:19:19Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:44:23Z' class='post-time'>
+                November 25, 2018,  2:44am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="sourcegamer101">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/sourcegamer101/40/5252_2.jpg" class="avatar"> sourcegamer101:</div>
+<blockquote>
+<p>Found what I wanted, and I’m done my current set of changes. I’ll tell you what I changed.</p>
+<p>I extracted these lines from the gameui_english.txt file in source 2007 binaries.gcf file.</p>
+<p>“GameUI_EasyDescription”            “Enemies are easy to defeat, and the computer helps you aim.”<br>
+“GameUI_NormalDescription”    “Challenging enemies; your weapons do normal damage.”<br>
+“GameUI_HardDescription”    “Enemies are very tough; your weapons are less effective.”</p>
+<p>I changed the Easy Difficulty header and took out “and the computer helps you aim,” and replaced it with “;your weapons are more effective.” Why did I do that? There is already a toggleable Auto-aim option in the Black Mesa tab, so there is no need for it to be telling you that Auto-aim will be turned on when there’s already a separate option for it. I also changed it to bring it in line with the Normal and Hard difficulty headers. If your weapons are less effective on Hard, then they must be more effective on Easy.</p>
+<p>I also removed some redundant keyboard binds.</p>
+<p>I took out:</p>
+<p>“slot6”                    “<span class="hashtag">#Valve_Weapon_Category_6</span>”</p>
+<p>There’s no need for a 6th weapon slot since there’s no 6th slot weapon in BM.</p>
+<p>“impulse 50”            “<span class="hashtag">#Valve_Commander_Mode</span>”</p>
+<p>There’s no squad follow, therefore there’s no need for this.</p>
+<p>“phys_swap”                “<span class="hashtag">#Valve_Gravity_Gun</span>”</p>
+<p>There’s no Gravity Gun in BM, not even if you enter impulse 101. I guess  they purged out all of the HL2 weapon scripts, so this option is  practically useless.</p>
+<p>“+walk”                 “<span class="hashtag">#Valve_Walk</span>”</p>
+<p>This keyboard option is bugged, it was originally bound to ALT because  it was meant for HL2 since Sprint is shift in that game. So if you bind  this option to shift, the “Always Run” walk will be non-functional, and  the Sprint when you uncheck “Always Run” will be non-functional as well,  because HL2’s ALT walk is completely independent to the Always Run  walk/sprint.</p>
+<p>I also went into the valve_english.txt file and found the keyboard binding descriptions.</p>
+<p>I changed:</p>
+<p>“Valve_Sprint”        "Sprint (Move Quickly)</p>
+<p>To: “Valve_Sprint”        "Sprint (Move Quickly / Walk)</p>
+<p>Because the ALT walk function made specifically for HL2 won’t work in BM, and it will bug out Always Run.</p>
+<p>I also gave the game a taskbar icon. (I didn’t make the icon, the BMS team did.)</p>
+<p>I also have a bonus. I edited the skill.cfg a tiny bit.</p>
+<p>bms_normal_jump_vertical_speed                “205”<br>
+bms_normal_jump_crouch_vertical_speed        “205”</p>
+<p>This is the exact same jump height as the original.</p>
+<p>I also changed the Gluon Gun’s ammo consumption rate. It was way to fast. It drained really quickly, so I changed it from the default “2,” and made it “1.”</p>
+<p>Merge the 3 folders inside “BMS” with your original folders.</p>
+<p><span class="bbcode-b">I WILL DO BIG UI CHANGES LATER.</span>[/SIZE]</p>
+</blockquote>
+</aside>
+<p>Interesting stuff… Does it  change the save load icons from Hl2 to the bms shortcut logo?</p>
+<p>I am cueious about why you decided to put skill config changes in?</p>
+<p>I Don’t think you should take the 6th weapon slot out either This is for the m4 and if it was reincluded for any reason it would conflict with the game and updates…</p>
+<p>Regarding skill.cfg the default values are 200 in hl2 i set mine at 190 in bms and this felt about right.</p>
+<p>Look forward to seeing some visual updates to the gui</p>
+        </div>
+
+        <meta itemprop='headline' content='Planning to Change the Source VGUI to better fit Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/sourcegamer101.html'><span itemprop='name'>sourcegamer101</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11396.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-10-10T22:09:38Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:44:38Z' class='post-time'>
+                November 25, 2018,  2:44am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Ronster">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/r/5f9b8f/40.png" class="avatar"> Ronster:</div>
+<blockquote>
+<p>Interesting stuff… Does it  change the save load icons from Hl2 to the bms shortcut logo?</p>
+<p>I am cueious about why you decided to put skill config changes in?</p>
+<p><span class="bbcode-b">[color=Lime]Just as a bonus</span>.</p>
+<p>I Don’t think you should take the 6th weapon slot out either This is for the m4 and if it was reincluded for any reason it would conflict with the game and updates…</p>
+<p><span class="bbcode-b">[color=Lime]If the M4 is ever included, it would make more sense for it to be in the same slot as the SMG.</span></p>
+<p>Regarding skill.cfg the default values are 200 in hl2 i set mine at 190 in bms and this felt about right.</p>
+<p><span class="bbcode-b">[color=Lime]The original jump height in BM is exactly the same as HL2’s.</span></p>
+<p>Look forward to seeing some visual updates to the gui</p>
+</blockquote>
+</aside>
+        </div>
+
+        <meta itemprop='headline' content='Planning to Change the Source VGUI to better fit Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/sersoft.html'><span itemprop='name'>sersoft</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11396.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-10-10T22:35:05Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:44:38Z' class='post-time'>
+                November 25, 2018,  2:44am
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>the m4 is supposed to replace the machine gun anyway</p>
+        </div>
+
+        <meta itemprop='headline' content='Planning to Change the Source VGUI to better fit Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/sourcegamer101.html'><span itemprop='name'>sourcegamer101</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11396.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-10-15T06:28:28Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:46:14Z' class='post-time'>
+                November 25, 2018,  2:46am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Added a custom autosave icon.</p>
+<p>Updated archive in previous post.</p>
+        </div>
+
+        <meta itemprop='headline' content='Planning to Change the Source VGUI to better fit Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Ronster.html'><span itemprop='name'>Ronster</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11396.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-10-15T07:50:48Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T09:46:56Z' class='post-time'>
+                August 11, 2020,  9:46am
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="sourcegamer101">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/sourcegamer101/40/5252_2.jpg" class="avatar"> sourcegamer101:</div>
+<blockquote>
+<p>Added a custom autosave icon.</p>
+<p>Updated archive in previous post.</p>
+</blockquote>
+</aside>
+<p>Good Work will check this out  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>Any thoughts on doing a custom loading screen? or loading screens?</p>
+<p>Also I suggested before the spinning Black Mesa Icon in game on computer screens… Could perhaps use this as opposed to the loading bar filling?</p>
+<p>Just Ideas</p>
+<p>this might help</p>
+<p><a href="https://gamebanana.com/hl2dm/guis/22944" data-bbcode="true" rel="nofollow noopener">https://gamebanana.com/hl2dm/guis/22944</a></p>
+<p>Although better to have a full screen loading pic perhaps</p>
+<p>Also when clicking in steam create desktop shortcut the shortcut works but does not put the logo either… Any chance of fixing this too as a nice touch? Does that require steam integration?</p>
+        </div>
+
+        <meta itemprop='headline' content='Planning to Change the Source VGUI to better fit Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/sourcegamer101.html'><span itemprop='name'>sourcegamer101</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11396.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-10-17T05:27:54Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:47:08Z' class='post-time'>
+                November 25, 2018,  2:47am
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Ronster">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/r/5f9b8f/40.png" class="avatar"> Ronster:</div>
+<blockquote>
+<p>Also when clicking in steam create desktop shortcut the shortcut works but does not put the logo either… Any chance of fixing this too as a nice touch? Does that require steam integration?</p>
+</blockquote>
+</aside>
+<p>There should be a folder within your steam folder called steam. Inside that there will be another folder called games. If you open that folder, there should be a BM icon. If not, download my zip, install the files, then right click on the shortcut and go to it’s properties. You should find an option to change your desktop icon. Find where the icon is located, (BMS &gt; resource &gt; game.ico) and use that icon for your main desktop icon.</p>
+<p>I also made a minor change.</p>
+<p>“Sprint (Move Quickly / Walk)” is now:</p>
+<p>“Sprint/Walk (Move Quickly/Move Slowly)”</p>
+<p>This was to further articulate the setting and make it more clearer since the original walk function from HL2 is bugged.</p>
+<p>Updated the archive in  my previous big post.</p>
+        </div>
+
+        <meta itemprop='headline' content='Planning to Change the Source VGUI to better fit Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bur.html'><span itemprop='name'>bur</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11396.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-10-17T05:40:16Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:47:09Z' class='post-time'>
+                November 25, 2018,  2:47am
+              </time>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>You should add the archive in the OP  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Planning to Change the Source VGUI to better fit Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/sourcegamer101.html'><span itemprop='name'>sourcegamer101</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11396.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-10-17T06:22:16Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:47:09Z' class='post-time'>
+                November 25, 2018,  2:47am
+              </time>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="bur">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/b/87869e/40.png" class="avatar"> bur:</div>
+<blockquote>
+<p>You should add the archive in the OP  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+</blockquote>
+</aside>
+<p>Will do.</p>
+        </div>
+
+        <meta itemprop='headline' content='Planning to Change the Source VGUI to better fit Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bur.html'><span itemprop='name'>bur</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11396.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-10-17T06:35:24Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:47:09Z' class='post-time'>
+                November 25, 2018,  2:47am
+              </time>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Nice work by the way.</p>
+<p>Just one suggestion and one question though:<br>
+What have you changed in bms_english.txt?</p>
+<p>And maybe you should put the default values in comment in the cfg file.</p>
+        </div>
+
+        <meta itemprop='headline' content='Planning to Change the Source VGUI to better fit Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Boncey.html'><span itemprop='name'>Boncey</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11396.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-10-17T08:53:34Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:47:10Z' class='post-time'>
+                November 25, 2018,  2:47am
+              </time>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Are you changing anything in the area of the look of the menus? Or are you making minor unnecessary tweaks.</p>
+        </div>
+
+        <meta itemprop='headline' content='Planning to Change the Source VGUI to better fit Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bur.html'><span itemprop='name'>bur</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11396.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-10-17T09:18:52Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:47:10Z' class='post-time'>
+                November 25, 2018,  2:47am
+              </time>
+          <span itemprop='position'>#19</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The changes made are in the OP  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Planning to Change the Source VGUI to better fit Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/sourcegamer101.html'><span itemprop='name'>sourcegamer101</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11396.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-10-17T23:03:27Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T02:47:22Z' class='post-time'>
+                November 25, 2018,  2:47am
+              </time>
+          <span itemprop='position'>#20</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="bur">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/b/87869e/40.png" class="avatar"> bur:</div>
+<blockquote>
+<p>Nice work by the way.</p>
+<p>Just one suggestion and one question though:<br>
+What have you changed in bms_english.txt?</p>
+<p>And maybe you should put the default values in comment in the cfg file.</p>
+</blockquote>
+</aside>
+<p>I took some strings from gameui_english.txt in the source 2007 binaries, put them into bms_english, and edited it to make more sense.</p>
+<p>The strings I edited and put into bms_english.txt:</p>
+<p>“GameUI_EasyDescription”            “Enemies are easy to defeat; your weapons are more effective.”<br>
+“GameUI_NormalDescription”    “Challenging enemies; your weapons do normal damage.”<br>
+“GameUI_HardDescription”    “Enemies are very tough; your weapons are less effective.”</p>
+<pre><code>                        "Valve_Sprint"        "Sprint/Walk (Move Quickly/Move Slowly)"
+                 }  
+</code></pre>
+<p>}</p>
+        </div>
+
+        <meta itemprop='headline' content='Planning to Change the Source VGUI to better fit Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="113964658.html?page=2">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/planning-to-change-the-source-vgui-to-better-fit-black-mesa/11396 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 10:32:35 GMT -->
+</html>

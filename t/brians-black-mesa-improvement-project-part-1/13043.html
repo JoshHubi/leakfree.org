@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/brians-black-mesa-improvement-project-part-1/13043 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:47:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Brian&#39;s Black Mesa Improvement Project: part 1 - Developer Logs - Leakfree</title>
+    <meta name="description" content="Ok guys were are going to try something new. We have this nice developer update section that has never seen an update. That is going to change. Before we get into what I’m going to show let me lay some ground rules. This&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="13043.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Brian&#39;s Black Mesa Improvement Project: part 1&#39;" href="13043.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/optimized/2X/9/9692c201708fc16e3d6b4cf23eaa735d5fe7d035_2_1024x640.jpeg" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/optimized/2X/9/9692c201708fc16e3d6b4cf23eaa735d5fe7d035_2_1024x640.jpeg" />
+<meta property="og:url" content="https://leakfree.org/t/brians-black-mesa-improvement-project-part-1/13043" />
+<meta name="twitter:url" content="https://leakfree.org/t/brians-black-mesa-improvement-project-part-1/13043" />
+<meta property="og:title" content="Brian&#39;s Black Mesa Improvement Project: part 1" />
+<meta name="twitter:title" content="Brian&#39;s Black Mesa Improvement Project: part 1" />
+<meta property="og:description" content="Ok guys were are going to try something new. We have this nice developer update section that has never seen an update. That is going to change. Before we get into what I’m going to show let me lay some ground rules. This blog hopefully will be on going about every week to 2 weeks. What I am going to show is very recent stuff that is in game. It is ONLY to show what I am working on personally. Work is going on by other team members to make the MP maps and balance that game play, textures are bein..." />
+<meta name="twitter:description" content="Ok guys were are going to try something new. We have this nice developer update section that has never seen an update. That is going to change. Before we get into what I’m going to show let me lay some ground rules. This blog hopefully will be on going about every week to 2 weeks. What I am going to show is very recent stuff that is in game. It is ONLY to show what I am working on personally. Work is going on by other team members to make the MP maps and balance that game play, textures are bein..." />
+<meta property="article:published_time" content="2014-03-02T06:08:52+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="next" href="130434658.html?page=2">
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="13043.html">Brian&#39;s Black Mesa Improvement Project: part 1</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/6.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa Archive</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/developer-logs/15.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Developer Logs</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bkdale86.html'><span itemprop='name'>bkdale86</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13043.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/9/9692c201708fc16e3d6b4cf23eaa735d5fe7d035.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-02T06:08:52Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:58:10Z' class='post-time'>
+                November 25, 2018,  3:58am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Ok guys were are going to try something new. We have this nice developer update section that has never seen an update. That is going to change. Before we get into what I’m going to show let me lay some ground rules. This blog hopefully will be on going about every week to 2 weeks. What I am going to show is very recent stuff that is in game. It is ONLY to show what I am working on personally. Work is going on by other team members to make the MP maps and balance that game play, textures are being added and tweaked and lots of code work is being done. Please don’t ask about that stuff. It won’t be answered and will probably get the thread locked and the blog stopped. This is to talk about what I am doing and nothing else.</p>
+<p>My name is Brian and I’ve been on the team since 2004…from the beginning. I started off doing concept art (the apache and M1 drawings are mine and the artwork published in PC Gamer of ST was mine) and moved on to environmental textures (all the rock textures) and props textures (consoles to name a few). Now I basically do lots of things modeling, textures what ever needs doing. The last year or so of development I spent improving old models and textures plus finishing off things that got added. I redid all the military vehicle textures and remodeled some of them (m35, HUMVEE). And as crazy as it sounds I ran out of time. You wound think with a 10 year dev cycle that wouldn’t have happened but it did. I got to redo most of what I wanted to do. But there was a lot left that I wanted to redo.<br>
+That is where this comes in. I’m calling it Brian’s Black Mesa Improvement Project or BBMIP. Since we now have a bit more time to tweak and polish the SP side this blog will serve as a preview of what to expect in the retail version (art wise). All the improvements will only be in the retail version.</p>
+<p>So since December I have completed 60+ models and they are in game. Most are to replace brush work allowing for more detail and AO to blend in that texture better. LDs started giving me things they wanted modeled and I found things I always wanted to change and it got a tad bit crazy.</p>
+<p>So this first image is basically what I did as a test to see how my idea would work. In case you can’t tell there are 5 new models in “lab 2”. The rest should show the progression through AM and the models that were added. The wall wires being the only prop that was just improved by adding more polys vs being redone from scratch. I hope you enjoy the images. Stay tuned for more.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/9/9692c201708fc16e3d6b4cf23eaa735d5fe7d035.jpg" data-download-href="https://leakfree.org/uploads/default/9692c201708fc16e3d6b4cf23eaa735d5fe7d035" title="5.jpg"><img src="../../uploads/default/original/2X/9/9692c201708fc16e3d6b4cf23eaa735d5fe7d035.jpg" alt="5.jpg" data-base62-sha1="lu22XEJChe7nynWI0UCAmZcIuix" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/9/9692c201708fc16e3d6b4cf23eaa735d5fe7d035_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">5.jpg</span><span class="informations">1144×715 90.5 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/e/e6f334a2f359721d03d8fb6dfd648eeebbe401da.jpg" data-download-href="https://leakfree.org/uploads/default/e6f334a2f359721d03d8fb6dfd648eeebbe401da" title="15.jpg"><img src="../../uploads/default/original/2X/e/e6f334a2f359721d03d8fb6dfd648eeebbe401da.jpg" alt="15.jpg" data-base62-sha1="wX4SNpGhit3fyqY1R1jIv0tyLaO" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/e/e6f334a2f359721d03d8fb6dfd648eeebbe401da_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">15.jpg</span><span class="informations">1276×797 88.4 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/c/c3cf38391378cb813e8ccc2e8e241d30ade30796.jpg" data-download-href="https://leakfree.org/uploads/default/c3cf38391378cb813e8ccc2e8e241d30ade30796" title="2.jpg"><img src="../../uploads/default/original/2X/c/c3cf38391378cb813e8ccc2e8e241d30ade30796.jpg" alt="2.jpg" data-base62-sha1="rWd4vz4GYVN4TVopiXRLcH8Get8" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/c/c3cf38391378cb813e8ccc2e8e241d30ade30796_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">2.jpg</span><span class="informations">1241×776 86.9 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/f/fb055dd4df32477cc94e2ed38b03217ca93d7305.jpg" data-download-href="https://leakfree.org/uploads/default/fb055dd4df32477cc94e2ed38b03217ca93d7305" title="3.jpg"><img src="../../uploads/default/original/2X/f/fb055dd4df32477cc94e2ed38b03217ca93d7305.jpg" alt="3.jpg" data-base62-sha1="zODlfNm9rlsEGcgvnLFH2bIVVHv" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/f/fb055dd4df32477cc94e2ed38b03217ca93d7305_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">3.jpg</span><span class="informations">1155×722 91.5 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/3/315eedd162675246b0c6837f6aa85afa8e23c8ee.jpg" data-download-href="https://leakfree.org/uploads/default/315eedd162675246b0c6837f6aa85afa8e23c8ee" title="4.jpg"><img src="../../uploads/default/original/2X/3/315eedd162675246b0c6837f6aa85afa8e23c8ee.jpg" alt="4.jpg" data-base62-sha1="72KMo21cIFPirnEJC39bBqwIq9U" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/3/315eedd162675246b0c6837f6aa85afa8e23c8ee_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">4.jpg</span><span class="informations">1165×728 90.4 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Brian&#39;s Black Mesa Improvement Project: part 1'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Salk.html'><span itemprop='name'>Salk</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13043.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-02T06:52:12Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:58:10Z' class='post-time'>
+                November 25, 2018,  3:58am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I appreciate this immensely, Brian. I really like all of the images you uploaded. Could you kindly post also screenshots about how those rooms looked before your changes? (I never played Black Mesa).</p>
+<p>Thanks for sharing and please keep your updates coming!</p>
+        </div>
+
+        <meta itemprop='headline' content='Brian&#39;s Black Mesa Improvement Project: part 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Ronster.html'><span itemprop='name'>Ronster</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13043.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-02T07:08:22Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:58:10Z' class='post-time'>
+                November 25, 2018,  3:58am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Looks really nice especially the entrance hall</p>
+        </div>
+
+        <meta itemprop='headline' content='Brian&#39;s Black Mesa Improvement Project: part 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bkdale86.html'><span itemprop='name'>bkdale86</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13043.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/2/2f8883ef3a843f5e563acc356a21f6a9ac77da72.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-02T07:15:59Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:58:12Z' class='post-time'>
+                November 25, 2018,  3:58am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I thought I had deleted the MOD version…but found it so here are the comparison shots.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/2/2f8883ef3a843f5e563acc356a21f6a9ac77da72.jpg" data-download-href="https://leakfree.org/uploads/default/2f8883ef3a843f5e563acc356a21f6a9ac77da72" title="12.jpg"><img src="../../uploads/default/original/2X/2/2f8883ef3a843f5e563acc356a21f6a9ac77da72.jpg" alt="12.jpg" data-base62-sha1="6MuVhCSHgPm5rXEel9GLQe4Xgcy" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/2/2f8883ef3a843f5e563acc356a21f6a9ac77da72_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">12.jpg</span><span class="informations">1133×708 91.8 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/0/096cacf12ec036fc488b3ff2f37a117a3452067d.jpg" data-download-href="https://leakfree.org/uploads/default/096cacf12ec036fc488b3ff2f37a117a3452067d" title="13.jpg"><img src="../../uploads/default/original/2X/0/096cacf12ec036fc488b3ff2f37a117a3452067d.jpg" alt="13.jpg" data-base62-sha1="1ln8hjDvYXY61vYMrWUwSD6VKmV" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/0/096cacf12ec036fc488b3ff2f37a117a3452067d_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">13.jpg</span><span class="informations">1215×759 90.2 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/2/2979bd4bc274ba8ae2ff3b6174eeec7ca9068173.jpg" data-download-href="https://leakfree.org/uploads/default/2979bd4bc274ba8ae2ff3b6174eeec7ca9068173" title="14.jpg"><img src="../../uploads/default/original/2X/2/2979bd4bc274ba8ae2ff3b6174eeec7ca9068173.jpg" alt="14.jpg" data-base62-sha1="5UUoUDico3I08VJ4sSwO0nesE2T" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/2/2979bd4bc274ba8ae2ff3b6174eeec7ca9068173_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">14.jpg</span><span class="informations">1313×821 88.9 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/c/c6c73a04ae013a0078c9f73776d200e01f0fdd58.jpg" data-download-href="https://leakfree.org/uploads/default/c6c73a04ae013a0078c9f73776d200e01f0fdd58" title="15.jpg"><img src="../../uploads/default/original/2X/c/c6c73a04ae013a0078c9f73776d200e01f0fdd58.jpg" alt="15.jpg" data-base62-sha1="smtnzEFx17MYO8eoM3mlOnpkIzu" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/c/c6c73a04ae013a0078c9f73776d200e01f0fdd58_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">15.jpg</span><span class="informations">1137×710 91.6 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/5/571ec04fd0e50cfb34cc13da6d6c8ecfd44887eb.jpg" data-download-href="https://leakfree.org/uploads/default/571ec04fd0e50cfb34cc13da6d6c8ecfd44887eb" title="16.jpg"><img src="../../uploads/default/original/2X/5/571ec04fd0e50cfb34cc13da6d6c8ecfd44887eb.jpg" alt="16.jpg" data-base62-sha1="cqHqihbgLDhiJcZf6OmGAKHCrYT" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/5/571ec04fd0e50cfb34cc13da6d6c8ecfd44887eb_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">16.jpg</span><span class="informations">1160×725 90.7 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Brian&#39;s Black Mesa Improvement Project: part 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bkdale86.html'><span itemprop='name'>bkdale86</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13043.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/5/509d0a55572ab8fa10eab8cae0df62e8a710314f.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-02T07:18:47Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:58:12Z' class='post-time'>
+                November 25, 2018,  3:58am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Forgot this one.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/5/509d0a55572ab8fa10eab8cae0df62e8a710314f.jpg" data-download-href="https://leakfree.org/uploads/default/509d0a55572ab8fa10eab8cae0df62e8a710314f" title="1.jpg"><img src="../../uploads/default/original/2X/5/509d0a55572ab8fa10eab8cae0df62e8a710314f.jpg" alt="1.jpg" data-base62-sha1="bv8EC4sImk3j4cP7sEDI4b2a6jJ" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/5/509d0a55572ab8fa10eab8cae0df62e8a710314f_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">1.jpg</span><span class="informations">1252×783 89.7 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Brian&#39;s Black Mesa Improvement Project: part 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13043.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-02T09:52:10Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:58:13Z' class='post-time'>
+                November 25, 2018,  3:58am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>dem urinals.</p>
+<p>Some interesting changes. I did notice a lot of brush-based bits that would have been better suited as models, I’m glad you’re going to address some of this.  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Brian&#39;s Black Mesa Improvement Project: part 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Mr_Someguy.html'><span itemprop='name'>Mr_Someguy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13043.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-02T09:57:04Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:58:13Z' class='post-time'>
+                November 25, 2018,  3:58am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I like what I see, the little details really make it so much better. I can’t wait to see what else the retail edition holds!</p>
+        </div>
+
+        <meta itemprop='headline' content='Brian&#39;s Black Mesa Improvement Project: part 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Diabolical.html'><span itemprop='name'>Diabolical</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13043.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-02T10:20:40Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:58:13Z' class='post-time'>
+                November 25, 2018,  3:58am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I got to say the improvements of this game looks very nice.  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Brian&#39;s Black Mesa Improvement Project: part 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bur.html'><span itemprop='name'>bur</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13043.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-02T12:29:00Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:58:13Z' class='post-time'>
+                November 25, 2018,  3:58am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m a bit confused, I thought the retail version was going to be the same as the free version except for the engine? Though I guess it might be because of ent limits or something.</p>
+        </div>
+
+        <meta itemprop='headline' content='Brian&#39;s Black Mesa Improvement Project: part 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Mr_GameCrazy.html'><span itemprop='name'>Mr_GameCrazy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13043.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-02T13:55:45Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:58:13Z' class='post-time'>
+                November 25, 2018,  3:58am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I like the improvements as well. Nice job, bkdale86!</p>
+        </div>
+
+        <meta itemprop='headline' content='Brian&#39;s Black Mesa Improvement Project: part 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Joe_chief.html'><span itemprop='name'>Joe_chief</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13043.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-02T14:28:28Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:58:13Z' class='post-time'>
+                November 25, 2018,  3:58am
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hey bkdale, I’m not sure if you’re the one who can answer this but, in the retail version, thakns to the full use of the source engine, aside from adding more brushes, models, etc, in a map, which is what you’re already doing, will some areas be slightly expanded or more areas will be compressed into a single map?</p>
+        </div>
+
+        <meta itemprop='headline' content='Brian&#39;s Black Mesa Improvement Project: part 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Swaggless.html'><span itemprop='name'>Swaggless</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13043.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-02T16:37:36Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:58:14Z' class='post-time'>
+                November 25, 2018,  3:58am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Guys… the Urinals say DAL Systems on them.  <img src="../../images/emoji/twitter/smileyc164.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+<p>By the way, I love the new models, Brian! At first I couldn’t tell the difference, but when I looked at the comparison, I was shocked!</p>
+        </div>
+
+        <meta itemprop='headline' content='Brian&#39;s Black Mesa Improvement Project: part 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bkdale86.html'><span itemprop='name'>bkdale86</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13043.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-02T16:41:50Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:58:14Z' class='post-time'>
+                November 25, 2018,  3:58am
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Joe chief">
+<div class="title">
+<div class="quote-controls"></div>
+ Joe chief:</div>
+<blockquote>
+<p>Hey bkdale, I’m not sure if you’re the one who can answer this but, in the retail version, thakns to the full use of the source engine, aside from adding more brushes, models, etc, in a map, which is what you’re already doing, will some areas be slightly expanded or more areas will be compressed into a single map?</p>
+</blockquote>
+</aside>
+<p>Ok back to the rules I started with I’m only going to answer questions about my models. If you keep asking other questions not related to this thread we will probably not continue with these types of posts or I will just lock it after posting. Not trying to be a dick but I’m limiting the scope of this dev thread to my stuff so it doesn’t get out of hand.</p>
+        </div>
+
+        <meta itemprop='headline' content='Brian&#39;s Black Mesa Improvement Project: part 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bkdale86.html'><span itemprop='name'>bkdale86</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13043.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-02T16:52:38Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:58:14Z' class='post-time'>
+                November 25, 2018,  3:58am
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Swaggless">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/s/a698b9/40.png" class="avatar"> Swaggless:</div>
+<blockquote>
+<p>Guys… the Urinals say DAL Systems on them.  <img src="../../images/emoji/twitter/smileyc164.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+<p>By the way, I love the new models, Brian! At first I couldn’t tell the difference, but when I looked at the comparison, I was shocked!</p>
+</blockquote>
+</aside>
+<p>Yeah lots of the old stuff was quite bad. As to areas that had brushes that would be better as models you are correct. There is one example where it didn’t work. In BP the elevator down from the top area was a prop. I textured it, it was in game for a long time but had lots of issues lighting etc so we removed it and made a propper version that is in currently. All my textures have DALsys on them.</p>
+        </div>
+
+        <meta itemprop='headline' content='Brian&#39;s Black Mesa Improvement Project: part 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bkdale86.html'><span itemprop='name'>bkdale86</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13043.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/5/5bfbba37fd27235658120d0f3419a3aacb73488c.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-02T17:33:49Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:58:15Z' class='post-time'>
+                November 25, 2018,  3:58am
+              </time>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Just to illustrate the differences Swaggless was talking about. My urinal is on the right. Also you can only see the bottoms in the photos, but this is the toilet replacement for the C17 one that we were using.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/5/5bfbba37fd27235658120d0f3419a3aacb73488c.jpg" data-download-href="https://leakfree.org/uploads/default/5bfbba37fd27235658120d0f3419a3aacb73488c" title="17.jpg"><img src="../../uploads/default/original/2X/5/5bfbba37fd27235658120d0f3419a3aacb73488c.jpg" alt="17.jpg" data-base62-sha1="d7ILWCozqQbyBZdk5ZGW7SHuyOE" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/5/5bfbba37fd27235658120d0f3419a3aacb73488c_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">17.jpg</span><span class="informations">1045×1033 49.2 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/7/7a48de47791a5922f0b3c84c9a268dc97c091cea.jpg" data-download-href="https://leakfree.org/uploads/default/7a48de47791a5922f0b3c84c9a268dc97c091cea" title="Untitled_1.jpg"><img src="../../uploads/default/original/2X/7/7a48de47791a5922f0b3c84c9a268dc97c091cea.jpg" alt="Untitled_1.jpg" data-base62-sha1="hrMmZYic7wSF7ESi0DXKZnQhcj8" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/7/7a48de47791a5922f0b3c84c9a268dc97c091cea_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">Untitled_1.jpg</span><span class="informations">1067×1096 32.1 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Brian&#39;s Black Mesa Improvement Project: part 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Maxey.html'><span itemprop='name'>Maxey</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13043.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-02T17:48:50Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:58:15Z' class='post-time'>
+                November 25, 2018,  3:58am
+              </time>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That’s some hot bathroom modelling action.</p>
+        </div>
+
+        <meta itemprop='headline' content='Brian&#39;s Black Mesa Improvement Project: part 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Myth_Alex.html'><span itemprop='name'>Myth_Alex</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13043.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-02T17:51:56Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:58:15Z' class='post-time'>
+                November 25, 2018,  3:58am
+              </time>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Nice work, Brian! Cannot wait to see more improvement pics <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>Sorry to ask this, but what does ‘brush’ / ‘brushes’ / ‘brush work’ mean? (I don’t have modding knowledge) Thank you in advance.</p>
+<p>And by AO you mean Ambient Occlusion?</p>
+        </div>
+
+        <meta itemprop='headline' content='Brian&#39;s Black Mesa Improvement Project: part 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Swaggless.html'><span itemprop='name'>Swaggless</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13043.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-02T18:34:32Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:58:16Z' class='post-time'>
+                November 25, 2018,  3:58am
+              </time>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Myth Alex">
+<div class="title">
+<div class="quote-controls"></div>
+ Myth Alex:</div>
+<blockquote>
+<p>Nice work, Brian! Cannot wait to see more improvement pics <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>Sorry to ask this, but what does ‘brush’ / ‘brushes’ / ‘brush work’ mean? (I don’t have modding knowledge) Thank you in advance.</p>
+</blockquote>
+</aside>
+<p>I know I’m not Brian, but this is what you’re looking for:<br>
+"A brush is a convex 3D shape created with Hammer’s Block Tool. Brushes are used by level designers to define the shape of the world (which defines visibility) and to create brush entities. "</p>
+<p>Essentially textured building blocks that make up the levels. They are typically simple shapes, so models are used for more detailed …details.</p>
+<p><a href="https://developer.valvesoftware.com/wiki/Brush" data-bbcode="true" rel="nofollow noopener">https://developer.valvesoftware.com/wiki/Brush</a></p>
+        </div>
+
+        <meta itemprop='headline' content='Brian&#39;s Black Mesa Improvement Project: part 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bkdale86.html'><span itemprop='name'>bkdale86</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13043.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-02T19:02:50Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:58:16Z' class='post-time'>
+                November 25, 2018,  3:58am
+              </time>
+          <span itemprop='position'>#19</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>What he said. Typically for source brushes light/shadow much better than models but are very simple in comparison. Almost all of the environments in HL1 were brush based. An example of the lighting problems we ran into with models was in the QE lobby desk. I modeled and textured it but with the shadows rendered the way they are we had great shadows everywhere except the desk top. In the end we removed the counter top and just used the lower portion. Load up the model in hlmv and you will see.</p>
+        </div>
+
+        <meta itemprop='headline' content='Brian&#39;s Black Mesa Improvement Project: part 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/subatomic.html'><span itemprop='name'>subatomic</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13043.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-02T19:26:28Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:58:16Z' class='post-time'>
+                November 25, 2018,  3:58am
+              </time>
+          <span itemprop='position'>#20</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Great work, bkdale86! These details just help sell the world all the more. And thanks for doing an update blog. It’s a great way to help us cope with the wait!</p>
+        </div>
+
+        <meta itemprop='headline' content='Brian&#39;s Black Mesa Improvement Project: part 1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="130434658.html?page=2">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/brians-black-mesa-improvement-project-part-1/13043 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:47:40 GMT -->
+</html>

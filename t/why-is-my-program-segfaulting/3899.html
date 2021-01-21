@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/why-is-my-program-segfaulting/3899 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 13:38:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>WHY IS MY PROGRAM SEGFAULTING - Help and Support - Leakfree</title>
+    <meta name="description" content="I’m writing a program in my free time (nerd much?) using C++ and the Qt libraries.  Eventually, it’ll display user-created flashcards, and be able to judge whether the user is answering the questions correctly.  But I ha&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="3899.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;WHY IS MY PROGRAM SEGFAULTING&#39;" href="3899.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/why-is-my-program-segfaulting/3899" />
+<meta name="twitter:url" content="https://leakfree.org/t/why-is-my-program-segfaulting/3899" />
+<meta property="og:title" content="WHY IS MY PROGRAM SEGFAULTING" />
+<meta name="twitter:title" content="WHY IS MY PROGRAM SEGFAULTING" />
+<meta property="og:description" content="I’m writing a program in my free time (nerd much?) using C++ and the Qt libraries.  Eventually, it’ll display user-created flashcards, and be able to judge whether the user is answering the questions correctly.  But I haven’t gotten as far as implementing the GUI with Qt yet, because I CAN’T GET THE MOST RUDIMENTARY CODE TO STOP SEGFAULTING.  gdb (a debugger) tells me that the problem is in a function called mountFile.  First, some background: the flashcards are accessed via a class called Stack..." />
+<meta name="twitter:description" content="I’m writing a program in my free time (nerd much?) using C++ and the Qt libraries.  Eventually, it’ll display user-created flashcards, and be able to judge whether the user is answering the questions correctly.  But I haven’t gotten as far as implementing the GUI with Qt yet, because I CAN’T GET THE MOST RUDIMENTARY CODE TO STOP SEGFAULTING.  gdb (a debugger) tells me that the problem is in a function called mountFile.  First, some background: the flashcards are accessed via a class called Stack..." />
+<meta property="article:published_time" content="2010-04-25T05:21:16+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="3899.html">WHY IS MY PROGRAM SEGFAULTING</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/technology-and-gaming/19.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #8C6238'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Technology and Gaming</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/technology-and-gaming/help-and-support/39.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #808281'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Help and Support</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/geekofalltrades.html'><span itemprop='name'>geekofalltrades</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3899.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-04-25T05:21:16Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T20:57:07Z' class='post-time'>
+                November 24, 2018,  8:57pm
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m writing a program in my free time (nerd much?) using C++ and the Qt libraries.  Eventually, it’ll display user-created flashcards, and be able to judge whether the user is answering the questions correctly.  But I haven’t gotten as far as implementing the GUI with Qt yet, because I CAN’T GET THE MOST RUDIMENTARY CODE TO STOP SEGFAULTING.  gdb (a debugger) tells me that the problem is in a function called mountFile.</p>
+<p>First, some background: the flashcards are accessed via a class called Stack, which is a stack of flashcards.  It has, among other things, an array of fifty Cards, as follows:</p>
+<pre><code> Card _cards[50];
+</code></pre>
+<p>which the constructor initializes to blank cards.  Each card has an array of twenty Answers:</p>
+<pre><code> Answer _answers[20];
+</code></pre>
+<p>which are also initially blank.  Class Stack is a friend of class Card and of class Answer, and class Card is a friend of class Answer.</p>
+<p>The mountFile function reads in information from a text file containing the name of the stack, the number of cards in the stack, and the contents of each card in the stack.  It is prototyped in Stack.h as:</p>
+<pre><code> bool mountFile(const char*);
+</code></pre>
+<p>The boolean it returns is a status value that will eventually represent whether or not the file was mounted successfully, although it hasn’t been implemented yet.  Now, here’s mountFile as written in Stack.cpp (wall 'o code coming your way):</p>
+<p>[code]bool Stack :: mountFile(const char* filename)<br>
+{<br>
+//Variables<br>
+char	line[100];	//Stores a whole line of the input file<br>
+int	i, j, k,	//Loop control variables<br>
+groupNum;	//The current ambiguity group number<br>
+bool	secondLine = false,	//Boolean determining whether a given line is the second line of a card<br>
+inGroup = false,	//Boolean determining whether or not to write to an amgiguity group<br>
+success = true;		//Boolean returning true if the file was successfully mounted; false otherwise</p>
+<pre><code>//Initialize line[]
+for(i = 0; i &lt; 100; ++i) {
+	line[i] = '\0';
+}
+
+i = -1;	//Initialize i for later use
+j = 0;	//Initialize j
+groupNum = 0;	//Initialize
+
+//Use line to copy the filename, then declare and open the input file
+strcpy(line, filename);
+ifstream infile(line, ifstream :: in);
+
+//Clean line
+for(i = 0; i &lt; 100; ++i) {
+	line[i] = '\0';
+}
+
+//Read the first line of the input file. It contains the name of the stack
+infile.getline(_name, 50);
+
+//Read the second line of the input file. It contains the number of cards
+infile.getline(line, 100);
+_numCards = atoi(line);	//Convert the number read to an int
+line[0] = '\0';			//Clean the line array
+line[1] = '\0';
+
+//Begin reading in the rest of the file
+while (infile.eof() != true) {
+	//Read in the next line of data
+	infile.getline(line, 100);
+
+	//Determine what to do with this line
+	//If the line reads "#NEWCARD", this signifies the start of a new card
+	//i is incremented for access to this card's place in _cards
+	if (strcmp(line, "#NEWCARD") == 0) {	
+		++i;
+		j = 0;		//Reset j (the number of answers on each card)
+</code></pre>
+<p>/<em>DEBUG</em>/		_cards[i]._cardNumber = i + 1;<br>
+//_cards[i].setCardNumber(i + 1);	//Number the new card<br>
+secondLine = true;	//The next line will be the second line of the card<br>
+//The second line contains the question on the card<br>
+} else if (secondLine == true) {<br>
+_cards[i].setQuestion(line);	//Write the question on the card<br>
+secondLine = false;	//The next line will not be the second line<br>
+//The remaining lines of the card contain questions, some grouped into ambiguity groups<br>
+} else {<br>
+//The “@” symbol signifies the start of an ambiguity group<br>
+if (line[0] == ‘@’) {<br>
+inGroup = true;	<br>
+++groupNum;	//Increment the group number<br>
+}<br>
+//The following members of an ambiguity group are preceded by “~”<br>
+//When “~” is absent, the group should no longer be written to<br>
+//If the next line begins with “@”, this signifies the start of a consecutive ambiguity group, and inGroup should not be set to false<br>
+if (line[0] != ‘~’ &amp;&amp; line[0] != ‘@’) {<br>
+inGroup = false;	//Stop writing to an ambiguity group<br>
+}<br>
+//Start writing to the card’s _answers array<br>
+//Write the answer as a member of an ambiguity group<br>
+if (inGroup == true) {<br>
+_cards[i].getAnswer(j).setIsAmbiguous(true);<br>
+_cards[i].getAnswer(j).setAmbGroup(groupNum);<br>
+_cards[i].getAnswer(j).setText(line);	//Place the text from the file in the answer array<br>
+//Write the answer as not being a member of an ambiguity group<br>
+} else {<br>
+_cards[i].getAnswer(j).setText(line);	//Place the text from the file in the answer array<br>
+}</p>
+<pre><code>		_cards[i].setNumAnswers(_cards[i].getNumAnswers() + 1);	//Increment the number of answers on this card by 1
+		++j;	//Increment j for access to the next answer space
+	}
+
+	//Clean the line array
+	for(k = 0; k &lt; 100; ++k) {
+		line[k] = '\0';
+	}
+
+	
+}
+
+return success;
+</code></pre>
+<p>}[/code]</p>
+<p>All of the relevant libraries for string functions and filestream functions have been included.  I’m compiling the code with g++ on a machine running Fedora, and it isn’t generating any compiler errors or warnings.  And I can’t for the life of me figure out what’s wrong with this function.</p>
+        </div>
+
+        <meta itemprop='headline' content='WHY IS MY PROGRAM SEGFAULTING'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Cameron_D.html'><span itemprop='name'>Cameron_D</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3899.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-04-25T05:39:34Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T03:45:10Z' class='post-time'>
+                August 11, 2020,  3:45am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>urdoinitrong bscly</p>
+<p>Also</p>
+<aside class="quote no-group" data-username="geekofalltrades">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/g/c2a13f/40.png" class="avatar"> geekofalltrades:</div>
+<blockquote>
+<p>EDIT: <a href="https://img179.imageshack.us/img179/6794/mountfile.png" data-bbcode="true" rel="nofollow noopener">Here is a screencap of the code in vi, because the forum is a bitch and removed all the tabs, thus making the code illegible. :hmph:</a></p>
+</blockquote>
+</aside>
+<p>Put it inside [code ][ /code] tags</p>
+        </div>
+
+        <meta itemprop='headline' content='WHY IS MY PROGRAM SEGFAULTING'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/papernick.html'><span itemprop='name'>papernick</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3899.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-04-25T16:09:46Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T20:57:18Z' class='post-time'>
+                November 24, 2018,  8:57pm
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>you clearly aren’t a geek of <span class="bbcode-i">all</span> trades.</p>
+        </div>
+
+        <meta itemprop='headline' content='WHY IS MY PROGRAM SEGFAULTING'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Solokiller.html'><span itemprop='name'>Solokiller</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3899.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2010-04-25T17:24:55Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T20:57:20Z' class='post-time'>
+                November 24, 2018,  8:57pm
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>You might want to check if the file is open or not after the open method is called.</p>
+        </div>
+
+        <meta itemprop='headline' content='WHY IS MY PROGRAM SEGFAULTING'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/why-is-my-program-segfaulting/3899 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 13:38:05 GMT -->
+</html>

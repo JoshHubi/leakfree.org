@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>[ADDON/CFG Replacement] For those of you who think the game isn&#39;t tough enough</title>
+    <link>https://leakfree.org/t/addon-cfg-replacement-for-those-of-you-who-think-the-game-isnt-tough-enough/11217</link>
+    <description>Think Black Mesa’s too easy? I’m gonna post my skill.cfg so those of you who want more out of it can play it with this customized .cfg file. On a further note, this is meant for players who are extremely experienced at FPS, if you aren’t good with fps DO NOT plug this in. 
+
+[color=RED]***WARNING***[/size] I’ve played through this several times and tweeked it to just how I want it, if you don’t like it, you can tweek the ammunition values, etc. to your own specifications. I’m not responsible for any rage you may harbor to the NPCs or otherwise. You WILL get your ass handed to you in several instances, I can promise you that.
+
+While this is really tailored to myself, I’m sure the rest of you can enjoy it as much as I have. Like I stated many times, the difficulty is insane now. If you want to play this on hard, then good luck to you, you&#39;ll be just as easy to kill as the entities are when you swap it to easy.
+
+The list below is simply a change log of everything I did to the .cfg file. If you wish to download it already and skip reading, just get it [url=&#39;https://www.mediafire.com/?e4i4zzd7c42fd62&#39;]here[/url]. I would highly recommend reading it though, so you can know what you’re getting into. The NPCs are not bullet sponges unless you aim somewhere else besides the head.
+
+[u][b]General[/b][/u]:
+* Damage modifiers for body parts are universally as follows:
+[quote]
+Head: 3
+Ricochet: 0.6
+Everything else: 1
+[/quote]
+* Flashlight power is now no longer infinite… you can still “sprint” (run) forever.
+* Weapon Damage, they are as follows, the damage (where valid) applies to NPC’s weapons as well – in addition, their damage also matches default values, where valid or otherwise noted. The slash is just a divider between the entity getting hit with a [b]single[/b] round from said weapon.
+[quote]
+Crowbar: 40/whack
+9mm (Glock/MP5): 8/round
+Buckshot pellet: 9/pellet
+.357: 75/round
+Crossbow: 100/bolt
+Snarks: 8/bite
+Hornet (hivehand): 10/round; precision matches the players
+Tripmine/Satchel: 150 (per half-life)
+Gulon: 20/energy spent (consumption rate cut in half – ammo’s cut to 60 ffs. Had to be done)
+Tau: 35/shot; 350/max charge
+RPG: Precision &amp; speed matches the players
+TOW: 225/missile
+[/quote]
+* Weapon Ammunition amount changes are as follows:
+[quote]
+RPG: Reduced to 3
+Buckshot: Increased to what’s actually in the box; 20 per pickup (holding values are the exact same)
+Bolt: Capacity doubled (20); ammunition pickup reduced to 5
+Energy (Uranium): reduced to 60
+Frag Grenade: Halved (5)
+Satchel: reduced to 3
+Tripmine: reduced to 2
+Snark: reduced to 10
+Hornet: Increased capacity to 24
+[/quote]
+[u][b]NPC’s[/b][/u]:
+* Security
+[quote]
+Hitpoints raised to 120
+[/quote]
+* Scientists
+[quote]
+Hitpoints raised to 100
+[/quote]
+* Marines
+[quote]
+Hitpoints raised as follows:
+Commander: 150
+Regular/Grenadier: 140
+Medic: 120
+Melee damage increased to 40/whack
+Medic heals 70 hitpoints rather than the base value (to compensate)
+Crouch dist increased to 1024 units (about 4 times the original value); min health reduced to 50 for when they can’t crouch anymore
+[/quote]
+* Zombie
+[quote]
+Hitpoints increased to 80, melee range, etc. Remains the same (zombie security get a 0.2 damage reduction from bullets, etc.)
+One melee is 25, double-handed is 50
+[/quote]
+* Headcrab
+[quote]
+Hitpoints raised to 30
+Melee does 10/hit
+[/quote]
+* Vort/Alien Slave:
+[quote]
+Hitpoints raised to 90
+Ranged attack damage is 50/zap, get into cover quick or keep your ass moving… they can be lethal in an engagement
+Melee is 15/hit
+[/quote]
+* Bullsquid
+[quote]
+Hitpoints raised to 160
+Bite damage raised to 35, whip raised to 65
+Spit increased to 6 per glob (9 globs in total)
+Damage take scale is 0.65 on all weapons (2 shotgun shells to the face is usually enough to take care of one if you get most of them on the head)
+[/quote]
+* Ichthyosaur
+[quote]
+Hitpoints raised to 600 (4-6 shells on the head is enough to take one out)
+Their melee will instantly kill you… so be cautious (it’s supposed to be 75/hit)
+[/quote]
+* Gargantua
+[quote]
+Fire damage raised to 10 per frame (or whatever the rate is, they’ll chew through you pretty quickly if they get close)
+Melee is an instant kill
+[/quote]
+* Alien Grunt – these guys are the bullet sponges...
+[quote]
+Hitpoints raised to 210; with modifiers about 2 MP5 mags, or 6 or so shells at point-blank or close range – basically I chucked 2 MP5 ‘nades at one, it still survived about 10 rounds from my MP5…
+They’ll use their hivehand at any range (even in melee, so if you plan on crowbarring them to death, make sure you have enough health/armor to absorb some damage)
+Melee damage increased to 70/hit, range is increased to 94
+Charge range slightly increased (256 from 166)
+“rage threshold” – AkA how many failed charges before it gives up and just aims for a few melees… the amount is 2
+Anything to the chest area from the front gets halved. *cough* aim for the fucking head or back… if you can *cough*
+[/quote]
+* Alien Controller
+[quote]
+Hitpoints raised to 160
+Movment speed increased to 800 on all axis (400 for those appropriate); in other words, doubled
+Damage per energy ball raised to 5 (or lowered, I dunno which at this point); speed increased to 1000 units, 4-8 random throw range
+[/quote]
+* Human Assassins – while quite challenging to deal with before, they’re a HELL of a lot tougher and smarter.
+[quote]
+Health increased to 120
+Pistol damage increased to 8 per round as per the glock the player uses; Range is 2048 (basically when they spot you)
+Burst count (how many rounds they fire before stopping) is increased to 34 (17*2)
+Melee damage is 50/kick, range is unchanged
+Force cloak is on, they WILL use their cloaking abilities on any difficulty.
+[/quote]
+* Turrets
+[quote]
+Ceiling turret health raised to 150, sentries are half that (75)
+The damage per bullet is 15
+Hacked Sentry spray is 30 before shutting down – Keep in mind they will keep shooting at you regardless
+[/quote]
+* M1 Abrams
+[quote]
+Muzzle Damage increased to 100
+Turret Damage is 15 per round
+Shell does 300 damage (shot to the face will kill you instantly)
+Stage health increased to 400
+[/quote]
+* LAV
+[quote]
+Hitpoints raised to 600
+Bullet damage (on contact with an entity or the player) is increased to 20; 25 on an explosion
+[/quote]
+* Apache
+[quote]
+Damage/radius/speed is the same as the players, precision is twice that of the players (be sure to take cover or else you’ll die instantly…)
+Hitpoints increased to 600 (200 per stage in the canyon)
+[/quote]
+* Barnacle
+[quote]
+Health increased to 80
+[/quote]
+* Houndeye
+[quote]
+Blast Damage increased to 100 – charged attack, it’s reasonable
+Hitpoints raised to 60
+[/quote]
+* Osprey
+[quote]
+Hitpoints raised to 900
+[/quote]
+*  Sniper
+[quote]
+Damage is 100 per bullet (to any entity)
+[/quote]
+* Mines
+[quote]
+Damage raised to 100
+[/quote]
+* Mortar
+[quote]
+Damage raised to 250 per shell
+[/quote]
+* Surgury Bot in QE
+[quote]
+Insta kill to the player
+[/quote]
+Now that you&#39;re done reading the wall of text, [url=&#39;https://www.mediafire.com/?e4i4zzd7c42fd62&#39;]fetch and enjoy[/url].</description>
+    
+    <lastBuildDate>Sun, 30 Sep 2012 09:45:29 +0000</lastBuildDate>
+    <category>Black Mesa</category>
+    <atom:link href="https://leakfree.org/t/addon-cfg-replacement-for-those-of-you-who-think-the-game-isnt-tough-enough/11217.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>[ADDON/CFG Replacement] For those of you who think the game isn&#39;t tough enough</title>
+        <dc:creator><![CDATA[SiCaRiO]]></dc:creator>
+        <description><![CDATA[
+            <p>I love it, except for the Alien grunt part. Shouldt the “soft” parts (the ones not protected by armor) be their weakpoints and not just the head?.</p>
+          <p><a href="https://leakfree.org/t/addon-cfg-replacement-for-those-of-you-who-think-the-game-isnt-tough-enough/11217/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/addon-cfg-replacement-for-those-of-you-who-think-the-game-isnt-tough-enough/11217/2</link>
+        <pubDate>Sun, 30 Sep 2012 09:45:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11217-2</guid>
+        <source url="https://leakfree.org/t/addon-cfg-replacement-for-those-of-you-who-think-the-game-isnt-tough-enough/11217.rss">[ADDON/CFG Replacement] For those of you who think the game isn&#39;t tough enough</source>
+      </item>
+      <item>
+        <title>[ADDON/CFG Replacement] For those of you who think the game isn&#39;t tough enough</title>
+        <dc:creator><![CDATA[Chickenprotector]]></dc:creator>
+        <description><![CDATA[
+            <p>Think Black Mesa’s too easy? I’m gonna post my skill.cfg so those of you who want more out of it can play it with this customized .cfg file. On a further note, this is meant for players who are extremely experienced at FPS, if you aren’t good with fps DO NOT plug this in.</p>
+<p>[color=RED]<em><strong>WARNING</strong></em>[/size] I’ve played through this several times and tweeked it to just how I want it, if you don’t like it, you can tweek the ammunition values, etc. to your own specifications. I’m not responsible for any rage you may harbor to the NPCs or otherwise. You WILL get your ass handed to you in several instances, I can promise you that.</p>
+<p>While this is really tailored to myself, I’m sure the rest of you can enjoy it as much as I have. Like I stated many times, the difficulty is insane now. If you want to play this on hard, then good luck to you, you’ll be just as easy to kill as the entities are when you swap it to easy.</p>
+<p>The list below is simply a change log of everything I did to the .cfg file. If you wish to download it already and skip reading, just get it <a href="https://www.mediafire.com/?e4i4zzd7c42fd62" data-bbcode="true" rel="nofollow noopener">here</a>. I would highly recommend reading it though, so you can know what you’re getting into. The NPCs are not bullet sponges unless you aim somewhere else besides the head.</p>
+<p><span class="bbcode-u"><span class="bbcode-b">General</span></span>:</p>
+<ul>
+<li>Damage modifiers for body parts are universally as follows:</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Head: 3<br>
+Ricochet: 0.6<br>
+Everything else: 1</p>
+</blockquote>
+</aside>
+<ul>
+<li>Flashlight power is now no longer infinite… you can still “sprint” (run) forever.</li>
+<li>Weapon Damage, they are as follows, the damage (where valid) applies to NPC’s weapons as well – in addition, their damage also matches default values, where valid or otherwise noted. The slash is just a divider between the entity getting hit with a <span class="bbcode-b">single</span> round from said weapon.</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Crowbar: 40/whack<br>
+9mm (Glock/MP5): 8/round<br>
+Buckshot pellet: 9/pellet<br>
+.357: 75/round<br>
+Crossbow: 100/bolt<br>
+Snarks: 8/bite<br>
+Hornet (hivehand): 10/round; precision matches the players<br>
+Tripmine/Satchel: 150 (per half-life)<br>
+Gulon: 20/energy spent (consumption rate cut in half – ammo’s cut to 60 ffs. Had to be done)<br>
+Tau: 35/shot; 350/max charge<br>
+RPG: Precision &amp; speed matches the players<br>
+TOW: 225/missile</p>
+</blockquote>
+</aside>
+<ul>
+<li>Weapon Ammunition amount changes are as follows:</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>RPG: Reduced to 3<br>
+Buckshot: Increased to what’s actually in the box; 20 per pickup (holding values are the exact same)<br>
+Bolt: Capacity doubled (20); ammunition pickup reduced to 5<br>
+Energy (Uranium): reduced to 60<br>
+Frag Grenade: Halved (5)<br>
+Satchel: reduced to 3<br>
+Tripmine: reduced to 2<br>
+Snark: reduced to 10<br>
+Hornet: Increased capacity to 24</p>
+</blockquote>
+</aside>
+<p><span class="bbcode-u"><span class="bbcode-b">NPC’s</span></span>:</p>
+<ul>
+<li>Security</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Hitpoints raised to 120</p>
+</blockquote>
+</aside>
+<ul>
+<li>Scientists</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Hitpoints raised to 100</p>
+</blockquote>
+</aside>
+<ul>
+<li>Marines</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Hitpoints raised as follows:<br>
+Commander: 150<br>
+Regular/Grenadier: 140<br>
+Medic: 120<br>
+Melee damage increased to 40/whack<br>
+Medic heals 70 hitpoints rather than the base value (to compensate)<br>
+Crouch dist increased to 1024 units (about 4 times the original value); min health reduced to 50 for when they can’t crouch anymore</p>
+</blockquote>
+</aside>
+<ul>
+<li>Zombie</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Hitpoints increased to 80, melee range, etc. Remains the same (zombie security get a 0.2 damage reduction from bullets, etc.)<br>
+One melee is 25, double-handed is 50</p>
+</blockquote>
+</aside>
+<ul>
+<li>Headcrab</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Hitpoints raised to 30<br>
+Melee does 10/hit</p>
+</blockquote>
+</aside>
+<ul>
+<li>Vort/Alien Slave:</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Hitpoints raised to 90<br>
+Ranged attack damage is 50/zap, get into cover quick or keep your ass moving… they can be lethal in an engagement<br>
+Melee is 15/hit</p>
+</blockquote>
+</aside>
+<ul>
+<li>Bullsquid</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Hitpoints raised to 160<br>
+Bite damage raised to 35, whip raised to 65<br>
+Spit increased to 6 per glob (9 globs in total)<br>
+Damage take scale is 0.65 on all weapons (2 shotgun shells to the face is usually enough to take care of one if you get most of them on the head)</p>
+</blockquote>
+</aside>
+<ul>
+<li>Ichthyosaur</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Hitpoints raised to 600 (4-6 shells on the head is enough to take one out)<br>
+Their melee will instantly kill you… so be cautious (it’s supposed to be 75/hit)</p>
+</blockquote>
+</aside>
+<ul>
+<li>Gargantua</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Fire damage raised to 10 per frame (or whatever the rate is, they’ll chew through you pretty quickly if they get close)<br>
+Melee is an instant kill</p>
+</blockquote>
+</aside>
+<ul>
+<li>Alien Grunt – these guys are the bullet sponges…</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Hitpoints raised to 210; with modifiers about 2 MP5 mags, or 6 or so shells at point-blank or close range – basically I chucked 2 MP5 ‘nades at one, it still survived about 10 rounds from my MP5…<br>
+They’ll use their hivehand at any range (even in melee, so if you plan on crowbarring them to death, make sure you have enough health/armor to absorb some damage)<br>
+Melee damage increased to 70/hit, range is increased to 94<br>
+Charge range slightly increased (256 from 166)<br>
+“rage threshold” – AkA how many failed charges before it gives up and just aims for a few melees… the amount is 2<br>
+Anything to the chest area from the front gets halved. <em>cough</em> aim for the fucking head or back… if you can <em>cough</em></p>
+</blockquote>
+</aside>
+<ul>
+<li>Alien Controller</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Hitpoints raised to 160<br>
+Movment speed increased to 800 on all axis (400 for those appropriate); in other words, doubled<br>
+Damage per energy ball raised to 5 (or lowered, I dunno which at this point); speed increased to 1000 units, 4-8 random throw range</p>
+</blockquote>
+</aside>
+<ul>
+<li>Human Assassins – while quite challenging to deal with before, they’re a HELL of a lot tougher and smarter.</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Health increased to 120<br>
+Pistol damage increased to 8 per round as per the glock the player uses; Range is 2048 (basically when they spot you)<br>
+Burst count (how many rounds they fire before stopping) is increased to 34 (17*2)<br>
+Melee damage is 50/kick, range is unchanged<br>
+Force cloak is on, they WILL use their cloaking abilities on any difficulty.</p>
+</blockquote>
+</aside>
+<ul>
+<li>Turrets</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Ceiling turret health raised to 150, sentries are half that (75)<br>
+The damage per bullet is 15<br>
+Hacked Sentry spray is 30 before shutting down – Keep in mind they will keep shooting at you regardless</p>
+</blockquote>
+</aside>
+<ul>
+<li>M1 Abrams</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Muzzle Damage increased to 100<br>
+Turret Damage is 15 per round<br>
+Shell does 300 damage (shot to the face will kill you instantly)<br>
+Stage health increased to 400</p>
+</blockquote>
+</aside>
+<ul>
+<li>LAV</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Hitpoints raised to 600<br>
+Bullet damage (on contact with an entity or the player) is increased to 20; 25 on an explosion</p>
+</blockquote>
+</aside>
+<ul>
+<li>Apache</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Damage/radius/speed is the same as the players, precision is twice that of the players (be sure to take cover or else you’ll die instantly…)<br>
+Hitpoints increased to 600 (200 per stage in the canyon)</p>
+</blockquote>
+</aside>
+<ul>
+<li>Barnacle</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Health increased to 80</p>
+</blockquote>
+</aside>
+<ul>
+<li>Houndeye</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Blast Damage increased to 100 – charged attack, it’s reasonable<br>
+Hitpoints raised to 60</p>
+</blockquote>
+</aside>
+<ul>
+<li>Osprey</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Hitpoints raised to 900</p>
+</blockquote>
+</aside>
+<ul>
+<li>Sniper</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Damage is 100 per bullet (to any entity)</p>
+</blockquote>
+</aside>
+<ul>
+<li>Mines</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Damage raised to 100</p>
+</blockquote>
+</aside>
+<ul>
+<li>Mortar</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Damage raised to 250 per shell</p>
+</blockquote>
+</aside>
+<ul>
+<li>Surgury Bot in QE</li>
+</ul>
+<aside class="quote no-group">
+<blockquote>
+<p>Insta kill to the player</p>
+</blockquote>
+</aside>
+<p>Now that you’re done reading the wall of text, <a href="https://www.mediafire.com/?e4i4zzd7c42fd62" data-bbcode="true" rel="nofollow noopener">fetch and enjoy</a>.</p>
+          <p><a href="https://leakfree.org/t/addon-cfg-replacement-for-those-of-you-who-think-the-game-isnt-tough-enough/11217/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/addon-cfg-replacement-for-those-of-you-who-think-the-game-isnt-tough-enough/11217/1</link>
+        <pubDate>Sun, 30 Sep 2012 02:33:16 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11217-1</guid>
+        <source url="https://leakfree.org/t/addon-cfg-replacement-for-those-of-you-who-think-the-game-isnt-tough-enough/11217.rss">[ADDON/CFG Replacement] For those of you who think the game isn&#39;t tough enough</source>
+      </item>
+  </channel>
+</rss>

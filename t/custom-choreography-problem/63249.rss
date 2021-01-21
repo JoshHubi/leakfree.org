@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Custom choreography problem</title>
+    <link>https://leakfree.org/t/custom-choreography-problem/63249</link>
+    <description>Hello guys,
+
+I made a custom .vcd choreography with Faceposer (the one in SFM).
+Everything works right inside Faceposer : gestures, speech and lipsinc.
+Rebuilding scenes.image seems to works well too.
+
+My next step is to make it works in-game using Hammer.
+For that, i use 3 entities :
+- logic_choreographed_scene (the custom choreography itself)
+- npc_citizen (which plays the custom choreography)
+- func_button (which fire the choreography to be played by the npc_citizen)
+
+BUT, in-game, after compiling my map, and when pressing the button : the choreography doesn&#39;t play.
+Instead i have an error that says that my custom .vcd is missing from scenes.image.
+
+I have tryed many things, and it&#39;s still not working...
+Do you guys have an idea of what&#39;s going on ?
+I know there is a trick or a workaround, but actually i&#39;m stuck.
+
+Any help would be appreciated
+
+Thanks</description>
+    
+    <lastBuildDate>Thu, 21 May 2020 11:41:47 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/custom-choreography-problem/63249.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Custom choreography problem</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m pretty sure that the game won’t load a custom scenes.image if it’s in the loose files, because it checks the vpk archives first. If you haven’t already, try setting up a custom/ folder and putting it there, and if it still won’t load your only choice is going to have to be to make a mod folder in your Black Mesa directory (Next to but not in bms/) and run the game with the switch<code>-game [mod folder name]</code> added to the launch parameters.<br>
+Right now that’s the only workaround I think the community has found for making custom versions of a whole bunch of different files and scripts - hopefully the devs are working on a custom campaign menu for the workshop that will allow us to load custom files more easily.</p>
+<p>EDIT: A while back I made <a href="https://gitlab.com/JeffMODProductions/mod_skeleton_bms" rel="nofollow noopener">a mod skeleton</a> to help people set up/show off the functionality of the -game switch loading; This is only tangentially related to your question but it <strong>does</strong> have working custom choreography if you end up going that route; feel free to download it and use it as a base/reference, though be warned that the one-click-installation on the Steam Workshop doesn’t support this method.</p>
+          <p><a href="https://leakfree.org/t/custom-choreography-problem/63249/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/custom-choreography-problem/63249/3</link>
+        <pubDate>Thu, 21 May 2020 11:37:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-63249-3</guid>
+        <source url="https://leakfree.org/t/custom-choreography-problem/63249.rss">Custom choreography problem</source>
+      </item>
+      <item>
+        <title>Custom choreography problem</title>
+        <dc:creator><![CDATA[freemon]]></dc:creator>
+        <description><![CDATA[
+            <p>Here is the Gameinfo.txt of my mod :</p>
+<pre><code>"GameInfo"
+{
+	type		singleplayer_only
+	
+	FileSystem
+    {
+
+ 	    SteamAppId             220 
+	    ToolsAppId	           211
+		
+        SearchPaths
+	    {
+		game       	"D:\Steam\steamapps\common\Half-Life 2\hl2\"
+		game		|gameinfo_path|. 
+		game		|all_source_engine_paths|ep2
+		game		|all_source_engine_paths|episodic
+		game 		|all_source_engine_paths|hl2
+		platform 	|all_source_engine_paths|platform
+	     }
+      }
+} 
+</code></pre>
+<p>Faceposer (SFM) find my custom choreography and make a proper scenes.image file.<br>
+The problem, the choreography still don’t play in-game. I still have the error that says that my custom .vcd is missing from scenes.image.</p>
+<p>I don’t understand…</p>
+<p>Help please !</p>
+          <p><a href="https://leakfree.org/t/custom-choreography-problem/63249/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/custom-choreography-problem/63249/2</link>
+        <pubDate>Thu, 14 May 2020 23:49:38 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-63249-2</guid>
+        <source url="https://leakfree.org/t/custom-choreography-problem/63249.rss">Custom choreography problem</source>
+      </item>
+      <item>
+        <title>Custom choreography problem</title>
+        <dc:creator><![CDATA[freemon]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello guys,</p>
+<p>I made a custom .vcd choreography with Faceposer (the one in SFM).<br>
+Everything works right inside Faceposer : gestures, speech and lipsinc.<br>
+Rebuilding scenes.image seems to works well too.</p>
+<p>My next step is to make it works in-game using Hammer.<br>
+For that, i use 3 entities :</p>
+<ul>
+<li>logic_choreographed_scene (the custom choreography itself)</li>
+<li>npc_citizen (which plays the custom choreography)</li>
+<li>func_button (which fire the choreography to be played by the npc_citizen)</li>
+</ul>
+<p>BUT, in-game, after compiling my map, and when pressing the button : the choreography doesn’t play.<br>
+Instead i have an error that says that my custom .vcd is missing from scenes.image.</p>
+<p>I have tryed many things, and it’s still not working…<br>
+Do you guys have an idea of what’s going on ?<br>
+I know there is a trick or a workaround, but actually i’m stuck.</p>
+<p>Any help would be appreciated</p>
+<p>Thanks</p>
+          <p><a href="https://leakfree.org/t/custom-choreography-problem/63249/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/custom-choreography-problem/63249/1</link>
+        <pubDate>Tue, 12 May 2020 22:42:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-63249-1</guid>
+        <source url="https://leakfree.org/t/custom-choreography-problem/63249.rss">Custom choreography problem</source>
+      </item>
+  </channel>
+</rss>

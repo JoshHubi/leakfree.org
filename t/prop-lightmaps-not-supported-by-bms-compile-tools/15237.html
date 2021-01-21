@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/prop-lightmaps-not-supported-by-bms-compile-tools/15237 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 11:08:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Prop lightmaps not supported by BM&#39;s compile tools - In-game Issues - Leakfree</title>
+    <meta name="description" content="I don’t know if this is a bug, limitation or a just a missing feature in Black Mesa. 
+Black Mesa’s base.fgd defines settings that enables the ability for lightmaps to be generated for static props. In Hammer, these setti&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="15237.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Prop lightmaps not supported by BM&#39;s compile tools&#39;" href="15237.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/e/ec673388bd515b93bee87f387251a5b9cc0d5045.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/e/ec673388bd515b93bee87f387251a5b9cc0d5045.png" />
+<meta property="og:url" content="https://leakfree.org/t/prop-lightmaps-not-supported-by-bms-compile-tools/15237" />
+<meta name="twitter:url" content="https://leakfree.org/t/prop-lightmaps-not-supported-by-bms-compile-tools/15237" />
+<meta property="og:title" content="Prop lightmaps not supported by BM&#39;s compile tools" />
+<meta name="twitter:title" content="Prop lightmaps not supported by BM&#39;s compile tools" />
+<meta property="og:description" content="I don’t know if this is a bug, limitation or a just a missing feature in Black Mesa.  Black Mesa’s base.fgd defines settings that enables the ability for lightmaps to be generated for static props. In Hammer, these settings are the “Generate (and use) lightmaps for this static prop”, “Lightmap Resolution X” and “Lightmap Resolution Y” in the prop’s properties:   However, these settings have no effect, i.e., Black Mesa’s VBSP will not write the settings to the .BSP, and VRAD will not generate lig..." />
+<meta name="twitter:description" content="I don’t know if this is a bug, limitation or a just a missing feature in Black Mesa.  Black Mesa’s base.fgd defines settings that enables the ability for lightmaps to be generated for static props. In Hammer, these settings are the “Generate (and use) lightmaps for this static prop”, “Lightmap Resolution X” and “Lightmap Resolution Y” in the prop’s properties:   However, these settings have no effect, i.e., Black Mesa’s VBSP will not write the settings to the .BSP, and VRAD will not generate lig..." />
+<meta property="article:published_time" content="2017-07-24T13:56:30+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"QAPage","name":"Prop lightmaps not supported by BM's compile tools","mainEntity":{"@type":"Question","name":"Prop lightmaps not supported by BM's compile tools","text":"I don’t know if this is a bug, limitation or a just a missing feature in Black Mesa.\n\nBlack Mesa’s base.fgd defines settings that enables the ability for lightmaps to be generated for static props. In Hammer, these settings are the “Generate (and use) lightmaps for this static prop”, “Lightmap Resol&hellip;","upvoteCount":0,"answerCount":0,"dateCreated":"2017-07-24T13:56:30.000Z","author":{"@type":"Person","name":"Flavrans"}}}</script>
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="15237.html">Prop lightmaps not supported by BM&#39;s compile tools</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/6.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa Archive</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/in-game-issues/47.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>In-game Issues</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Flavrans.html'><span itemprop='name'>Flavrans</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15237.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/e/ec673388bd515b93bee87f387251a5b9cc0d5045.png">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-07-24T13:56:30Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:06:07Z' class='post-time'>
+                November 25, 2018,  5:06am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I don’t know if this is a bug, limitation or a just a missing feature in Black Mesa.</p>
+<p>Black Mesa’s base.fgd defines settings that enables the ability for lightmaps to be generated for static props. In Hammer, these settings are the “Generate (and use) lightmaps for this static prop”, “Lightmap Resolution X” and “Lightmap Resolution Y” in the prop’s properties:</p>
+<div class="spoiler">
+<p>[attach=5514,none,664][/attach]</p>
+</div>
+<p>However, these settings have no effect, i.e., Black Mesa’s VBSP will not write the settings to the .BSP, and VRAD will not generate lightmaps for the prop.</p>
+<p>Just to illustrate, I’ve created a test map using the bathtub01a.mdl prop with the settings as shown above. This is the testmap compiled using BM’s compile tools and rendered in BM’s engine:</p>
+<div class="spoiler">
+<p>[attach=5515,none,1680][/attach]</p>
+</div>
+<p>This is the same map compiled using HL2DM’s compile tools and rendered in HL2DM’s engine:</p>
+<div class="spoiler">
+<p>[attach=5516,none,1680][/attach]</p>
+</div>
+<p>PS: A completely unrelated issue, note how the fence grating isn’t being anti-aliased in Black Mesa and is full of aliasing artifacts, whereas in HL2DM it’s being anti-aliased, even though I’m using 8x MSAA in both games. I’m running on a GeForce GTX 970 GPU.<br>
+<img src="../../uploads/default/original/2X/e/ec673388bd515b93bee87f387251a5b9cc0d5045.png" alt="prop_lightmaps.png" data-base62-sha1="xJjN1QqilEHCNNeNtfx5jzHqqBD" width="664" height="495"><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/a/ab8f82b4d7f34a8555d59f34c9d942972a27804a.jpg" data-download-href="https://leakfree.org/uploads/default/ab8f82b4d7f34a8555d59f34c9d942972a27804a" title="bm.jpg"><img src="../../uploads/default/optimized/2X/a/ab8f82b4d7f34a8555d59f34c9d942972a27804a_2_690x500.jpg" alt="bm.jpg" data-base62-sha1="otH7hoEL9uenhb3iTypRUMgkc54" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/a/ab8f82b4d7f34a8555d59f34c9d942972a27804a_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/a/ab8f82b4d7f34a8555d59f34c9d942972a27804a_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/a/ab8f82b4d7f34a8555d59f34c9d942972a27804a_2_1380x1000.jpeg 2x" data-small-upload="../../uploads/default/optimized/2X/a/ab8f82b4d7f34a8555d59f34c9d942972a27804a_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">bm.jpg</span><span class="informations">1680×1050 105 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/5/502d8bea35d4c6e553a2467244a21f5040fe282a.jpg" data-download-href="https://leakfree.org/uploads/default/502d8bea35d4c6e553a2467244a21f5040fe282a" title="hl2dm.jpg"><img src="../../uploads/default/optimized/2X/5/502d8bea35d4c6e553a2467244a21f5040fe282a_2_690x500.jpg" alt="hl2dm.jpg" data-base62-sha1="brhMoPwcIIWrcAojtvwCtBvtjC2" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/5/502d8bea35d4c6e553a2467244a21f5040fe282a_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/5/502d8bea35d4c6e553a2467244a21f5040fe282a_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/5/502d8bea35d4c6e553a2467244a21f5040fe282a_2_1380x1000.jpeg 2x" data-small-upload="../../uploads/default/optimized/2X/5/502d8bea35d4c6e553a2467244a21f5040fe282a_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">hl2dm.jpg</span><span class="informations">1680×1050 95.7 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Prop lightmaps not supported by BM&#39;s compile tools'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/LordDz.html'><span itemprop='name'>LordDz</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15237.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-07-24T14:08:13Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:06:07Z' class='post-time'>
+                November 25, 2018,  5:06am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>In all of the SP vmfs, the lightmap resolution (X, Y) is set to 0.<br>
+Dunno but maybe test setting it to that value?</p>
+        </div>
+
+        <meta itemprop='headline' content='Prop lightmaps not supported by BM&#39;s compile tools'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Flavrans.html'><span itemprop='name'>Flavrans</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15237.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-07-24T14:56:51Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:06:07Z' class='post-time'>
+                November 25, 2018,  5:06am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Not in all of the VMF’s. In a quite a few of the VMF’s, lightmap resolution x and y are set to 32, which is the default value as defined in the FGD. But none of the props in all the publicly released VMF’s have “generatelightmaps” set to “1”. So, apparently they don’t use prop lightmaps in the stock maps.</p>
+<p>I’ve also looked at the strings inside BM’s vbsp.exe file, and while it contains the strings for other prop settings, it doesn’t contain the strings “generatelightmaps”, “lightmapsresolutionx” and “lightmapsresolutiony”, which suggests these settings aren’t being read and processed by BM’s vbps.exe. In contrast, I did find the lightmap settings strings in HL2DM’s vbsp.exe.</p>
+        </div>
+
+        <meta itemprop='headline' content='Prop lightmaps not supported by BM&#39;s compile tools'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/jadebenn.html'><span itemprop='name'>jadebenn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15237.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-11-22T02:07:09Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:07:59Z' class='post-time'>
+                November 25, 2018,  5:07am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Any update on this? Are prop lightmaps still borked?</p>
+        </div>
+
+        <meta itemprop='headline' content='Prop lightmaps not supported by BM&#39;s compile tools'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/prop-lightmaps-not-supported-by-bms-compile-tools/15237 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 11:08:59 GMT -->
+</html>

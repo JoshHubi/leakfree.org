@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Source Engine water Blur effect possible?</title>
+    <link>https://leakfree.org/t/source-engine-water-blur-effect-possible/5288</link>
+    <description>Hi, I&#39;m working on a small MOD, and there&#39;s one thing I was wondering, how hard would it be to add a blur, so that when you&#39;re under water everything is blurred? Would it be possible? I don&#39;t mind having to code it in, but I don&#39;t understand much C++, so I&#39;d need someone to tell me what I&#39;d need to do/change/add, if it&#39;s even possible. Thanks ahead.</description>
+    
+    <lastBuildDate>Mon, 30 Aug 2010 18:28:35 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/source-engine-water-blur-effect-possible/5288.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Source Engine water Blur effect possible?</title>
+        <dc:creator><![CDATA[pfannkuchen_gesicht]]></dc:creator>
+        <description><![CDATA[
+            <p>at line 1127 in c_baseplayer.cpp(clientside) in the function<br>
+void C_BasePlayer::CreateWaterEffects( void )<br>
+find</p>
+<pre><code class="lang-auto">	if ( GetWaterLevel() &lt; 3 )
+	{
+		m_bResampleWaterSurface = true;
+		return;
+	}</code></pre>
+<p>and replace it with</p>
+<pre><code class="lang-auto">	if ( GetWaterLevel() &lt; 3 )
+	{
+		view-&gt;SetScreenOverlayMaterial( NULL );
+		m_bResampleWaterSurface = true;
+		return;
+	}
+	
+	IMaterial *pOverlay = materials-&gt;FindMaterial("effects/wateroverlay", TEXTURE_GROUP_CLIENT_EFFECTS, false);
+	if(!IsErrorMaterial(pOverlay))
+	{
+		view-&gt;SetScreenOverlayMaterial(pOverlay);
+	}</code></pre>
+<p>Note: the function you change is already responsible for water effects, in that function you can add any effect, which should be only active when in water</p>
+<p>but that’s just a simple unoptimized solution, you better move the</p>
+<pre><code class="lang-auto">IMaterial *pOverlay</code></pre>
+<p>into the declaration of C_BasePlayer as public and initialize it in the spawn() function</p>
+<pre><code class="lang-auto">class C_BasePlayer : public C_BaseCombatCharacter
+{
+public:
+...
+IMaterial *pOverlay;
+...
+};</code></pre>
+<pre><code class="lang-auto">void C_BasePlayer::Spawn( void )
+{
+...
+pOverlay = materials-&gt;FindMaterial("effects/wateroverlay", TEXTURE_GROUP_CLIENT_EFFECTS, false);
+...
+}</code></pre>
+          <p><a href="https://leakfree.org/t/source-engine-water-blur-effect-possible/5288/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/source-engine-water-blur-effect-possible/5288/8</link>
+        <pubDate>Mon, 30 Aug 2010 18:28:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-5288-8</guid>
+        <source url="https://leakfree.org/t/source-engine-water-blur-effect-possible/5288.rss">Source Engine water Blur effect possible?</source>
+      </item>
+      <item>
+        <title>Source Engine water Blur effect possible?</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>And where do I check the “water level”, and where do I change/add all this code? It looks like the last one is in the .vmt, but I have no idea for the others. Thanks for the help.</p>
+          <p><a href="https://leakfree.org/t/source-engine-water-blur-effect-possible/5288/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/source-engine-water-blur-effect-possible/5288/7</link>
+        <pubDate>Mon, 30 Aug 2010 18:12:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-5288-7</guid>
+        <source url="https://leakfree.org/t/source-engine-water-blur-effect-possible/5288.rss">Source Engine water Blur effect possible?</source>
+      </item>
+      <item>
+        <title>Source Engine water Blur effect possible?</title>
+        <dc:creator><![CDATA[pfannkuchen_gesicht]]></dc:creator>
+        <description><![CDATA[
+            <p>he doesn’t need a new shader.<br>
+add this to void C_BasePlayer::CreateWaterEffects( void )</p>
+<pre><code class="lang-auto">	if ( GetWaterLevel() &lt; 3 )
+	{
+		view-&gt;SetScreenOverlayMaterial( NULL );
+		m_bResampleWaterSurface = true;
+		return;
+	}
+	
+	IMaterial *pOverlay = materials-&gt;FindMaterial("effects/wateroverlay", TEXTURE_GROUP_CLIENT_EFFECTS, false);
+	if(!IsErrorMaterial(pOverlay))
+	{
+		view-&gt;SetScreenOverlayMaterial(pOverlay);
+	}</code></pre>
+<p>wateroverlay is your material which blurs the image<br>
+something like this:</p>
+<pre><code class="lang-auto">"Refract"
+{
+	"$normalmap" "dev/water_normal"
+	"$dudvmap" "dev/water_dudv"
+	"$refractamount" 0.05
+	"$bluramount" 1.6
+
+	"Proxies"
+	{
+		"AnimatedTexture"
+		{
+			"animatedtexturevar" "$normalmap"
+			"animatedtextureframenumvar" "$bumpframe"
+			"animatedtextureframerate" 30.00
+		}
+	}
+}</code></pre>
+          <p><a href="https://leakfree.org/t/source-engine-water-blur-effect-possible/5288/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/source-engine-water-blur-effect-possible/5288/6</link>
+        <pubDate>Mon, 30 Aug 2010 15:09:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-5288-6</guid>
+        <source url="https://leakfree.org/t/source-engine-water-blur-effect-possible/5288.rss">Source Engine water Blur effect possible?</source>
+      </item>
+      <item>
+        <title>Source Engine water Blur effect possible?</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p><a href="https://developer.valvesoftware.com/wiki/Category:List_of_Shader_Parameters" data-bbcode="true" rel="nofollow noopener">This page MAY help find how to make the shader, I dunno.</a></p>
+          <p><a href="https://leakfree.org/t/source-engine-water-blur-effect-possible/5288/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/source-engine-water-blur-effect-possible/5288/5</link>
+        <pubDate>Mon, 30 Aug 2010 14:43:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-5288-5</guid>
+        <source url="https://leakfree.org/t/source-engine-water-blur-effect-possible/5288.rss">Source Engine water Blur effect possible?</source>
+      </item>
+      <item>
+        <title>Source Engine water Blur effect possible?</title>
+        <dc:creator><![CDATA[pfannkuchen_gesicht]]></dc:creator>
+        <description><![CDATA[
+            <p>you have to check the water level of the player and add a screenoverlay if the waterlevel is 3</p>
+<pre><code class="lang-auto">GetWaterLevel();</code></pre>
+          <p><a href="https://leakfree.org/t/source-engine-water-blur-effect-possible/5288/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/source-engine-water-blur-effect-possible/5288/4</link>
+        <pubDate>Mon, 30 Aug 2010 14:25:31 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-5288-4</guid>
+        <source url="https://leakfree.org/t/source-engine-water-blur-effect-possible/5288.rss">Source Engine water Blur effect possible?</source>
+      </item>
+      <item>
+        <title>Source Engine water Blur effect possible?</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>Well, I’ve looked around on the wiki and havn’t found anything. I’ll keep looking into it though. Thanks for the help.</p>
+          <p><a href="https://leakfree.org/t/source-engine-water-blur-effect-possible/5288/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/source-engine-water-blur-effect-possible/5288/3</link>
+        <pubDate>Mon, 30 Aug 2010 02:16:14 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-5288-3</guid>
+        <source url="https://leakfree.org/t/source-engine-water-blur-effect-possible/5288.rss">Source Engine water Blur effect possible?</source>
+      </item>
+      <item>
+        <title>Source Engine water Blur effect possible?</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p>It should be possible, and I’m a bit miffed that Valve not only hasn’t put that in, but also took out the underwater ambient sound in the HL2 '09 update.</p>
+<p>I dunno what you’d need, but I expect it would be as simple as coding it to overlay a blur &amp; refract shader on the screen when the player goes underwater. (refract because your vision is also distorted underwater) How to make the shader, I dunno, but the Valve wiki probably has a tutorial somewhere.</p>
+          <p><a href="https://leakfree.org/t/source-engine-water-blur-effect-possible/5288/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/source-engine-water-blur-effect-possible/5288/2</link>
+        <pubDate>Fri, 27 Aug 2010 23:17:10 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-5288-2</guid>
+        <source url="https://leakfree.org/t/source-engine-water-blur-effect-possible/5288.rss">Source Engine water Blur effect possible?</source>
+      </item>
+      <item>
+        <title>Source Engine water Blur effect possible?</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi, I’m working on a small MOD, and there’s one thing I was wondering, how hard would it be to add a blur, so that when you’re under water everything is blurred? Would it be possible? I don’t mind having to code it in, but I don’t understand much C++, so I’d need someone to tell me what I’d need to do/change/add, if it’s even possible. Thanks ahead.</p>
+          <p><a href="https://leakfree.org/t/source-engine-water-blur-effect-possible/5288/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/source-engine-water-blur-effect-possible/5288/1</link>
+        <pubDate>Fri, 27 Aug 2010 23:09:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-5288-1</guid>
+        <source url="https://leakfree.org/t/source-engine-water-blur-effect-possible/5288.rss">Source Engine water Blur effect possible?</source>
+      </item>
+  </channel>
+</rss>

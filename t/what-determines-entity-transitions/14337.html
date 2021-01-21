@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/what-determines-entity-transitions/14337 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 10:22:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>What determines entity transitions? - Source 1 - Leakfree</title>
+    <meta name="description" content="Does anyone know what criteria the Source engine uses to determine which entities will be transferred from one level to the next during a transition? I’ve set up an elevator transition (as in bm_c1a1e) from c1a2b to c1a2&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="14337.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;What determines entity transitions?&#39;" href="14337.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/what-determines-entity-transitions/14337" />
+<meta name="twitter:url" content="https://leakfree.org/t/what-determines-entity-transitions/14337" />
+<meta property="og:title" content="What determines entity transitions?" />
+<meta name="twitter:title" content="What determines entity transitions?" />
+<meta property="og:description" content="Does anyone know what criteria the Source engine uses to determine which entities will be transferred from one level to the next during a transition? I’ve set up an elevator transition (as in bm_c1a1e) from c1a2b to c1a2c: when I use it c1a2c becomes filled with physics props and npcs from b, with no readily apparent factor determining what is transitioned and what is not (other than that most of the objects taken were “nearby”). The Valve developer wiki seems pretty poorly documented on this is..." />
+<meta name="twitter:description" content="Does anyone know what criteria the Source engine uses to determine which entities will be transferred from one level to the next during a transition? I’ve set up an elevator transition (as in bm_c1a1e) from c1a2b to c1a2c: when I use it c1a2c becomes filled with physics props and npcs from b, with no readily apparent factor determining what is transitioned and what is not (other than that most of the objects taken were “nearby”). The Valve developer wiki seems pretty poorly documented on this is..." />
+<meta property="article:published_time" content="2015-07-26T13:53:55+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="next" href="143374658.html?page=2">
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="14337.html">What determines entity transitions?</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/7.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>General Development</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/source-1/43.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #ED207B'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Source 1</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14337.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-07-26T13:53:55Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:36:43Z' class='post-time'>
+                November 25, 2018,  4:36am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Does anyone know what criteria the Source engine uses to determine which entities will be transferred from one level to the next during a transition? I’ve set up an elevator transition (as in <span class="bbcode-b">bm_c1a1e</span>) from <span class="bbcode-b">c1a2b</span> to <span class="bbcode-b">c1a2c</span>: when I use it <span class="bbcode-b">c1a2c</span> becomes filled with physics props and npcs from <span class="bbcode-b">b</span>, with no readily apparent factor determining what is transitioned and what is not (other than that most of the objects taken were “nearby”). The Valve developer wiki seems pretty poorly documented on this issue- it describes in general terms how to make a transition, but that’s about it.</p>
+        </div>
+
+        <meta itemprop='headline' content='What determines entity transitions?'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/JeffMOD.html'><span itemprop='name'>JeffMOD</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14337.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-07-26T16:49:53Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:36:44Z' class='post-time'>
+                November 25, 2018,  4:36am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>You can use <a href="https://developer.valvesoftware.com/wiki/Trigger_transition" data-bbcode="true" rel="nofollow noopener">trigger_transition</a> for that. IIRC the game tries to do is based off of PVS or line of sight or something, but adding a trigger_transition over the area visible from the info_landmark will ensure everything in it is carried over.</p>
+        </div>
+
+        <meta itemprop='headline' content='What determines entity transitions?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/dky.tehkingd.html'><span itemprop='name'>dky.tehkingd.u</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14337.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-07-26T18:09:44Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:36:44Z' class='post-time'>
+                November 25, 2018,  4:36am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Great question. Here’s my answer:</p>
+<p>I DON’T BLOODY !@#$% KNOW! &gt;.&lt;</p>
+<p>I’ve been trying to figure this out for ages. It seems almost completely random. I do know that physics props, decals, and NPCs are guaranteed to make the transition. I also know that dynamic props SOMETIMES make the transition. Brush entities will never transition. prop_door_rotating also makes the transition sometimes, although I have no idea when or why.</p>
+<p>Also, the “Global Entity Name” field seems to break <span class="bbcode-i">everything</span> for some inexplicable reason.</p>
+<p>DAMMIT VLAVE</p>
+        </div>
+
+        <meta itemprop='headline' content='What determines entity transitions?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14337.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-07-26T19:54:55Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:36:44Z' class='post-time'>
+                November 25, 2018,  4:36am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Current findings:</p>
+<ul>
+<li>Trigger_transitions are RELATIVELY good at ensuring physics props <span class="bbcode-i">will </span>make it through a transition (have yet to test with other types of entity, but since most other types aren’t very portable I doubt that is a big deal).</li>
+<li>
+<span class="bbcode-b"><span class="bbcode-s">Preventing</span></span><span class="bbcode-s">a specific set of entities (or everything <span class="bbcode-i">but</span> a set of entities) from transitioning is more difficult.</span>
+</li>
+</ul>
+<p>[list][*]<span class="bbcode-s">Pure point entities do not appear to transition.</span></p>
+<ul>
+<li><span class="bbcode-s">Brush entities do not seem to transition.</span></li>
+<li>
+<span class="bbcode-s">Both doors (and other dynamic-like entities with non-mobile models?) and physics objects <span class="bbcode-i">seem</span> to correlate transitioning with PVS visibility. Thus, I am going to be looking at manipulating the PVS system- seeing if occluders, areaportala, and other objects that <span class="bbcode-i">at least in theory </span>prevent visibility can also prevent transitioning.</span><br>
+[/*:m][/list:u]</li>
+<li>If a trigger_transition entity is bound to the transition, any entities <span class="bbcode-i">not</span> within its volume will <span class="bbcode-b">not</span> transition to the new map.</li>
+</ul>
+        </div>
+
+        <meta itemprop='headline' content='What determines entity transitions?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14337.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-07-26T20:59:37Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:36:45Z' class='post-time'>
+                November 25, 2018,  4:36am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>UPDATE: It seems that neither areaportals nor occluders can stop entities from transitioning. Will try to alter visleaves directly- if this does not work I will have to implement the extremely hackish solution of teleporting the player into a different elevator up above the map (or something). However, a <span class="bbcode-i">very</span> similar elevator transition at the end of Unforeseen Consequences works perfectly.</p>
+        </div>
+
+        <meta itemprop='headline' content='What determines entity transitions?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dragunov2.html'><span itemprop='name'>Dragunov2</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14337.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-07-27T10:23:42Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:36:45Z' class='post-time'>
+                November 25, 2018,  4:36am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I carry the hat through the complete game and even if u drop the hat and u move forward (knowing u see the place where the hat is dropped again), u find the hat again, even after saving game, level transitions,…</p>
+<p>So I wonder how they did this aswell!</p>
+        </div>
+
+        <meta itemprop='headline' content='What determines entity transitions?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/dky.tehkingd.html'><span itemprop='name'>dky.tehkingd.u</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14337.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-07-27T14:50:09Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:36:46Z' class='post-time'>
+                November 25, 2018,  4:36am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That’s normal. Source does that pretty much automatically.</p>
+        </div>
+
+        <meta itemprop='headline' content='What determines entity transitions?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14337.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-07-27T15:11:55Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:36:46Z' class='post-time'>
+                November 25, 2018,  4:36am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>At this point, I’ve pretty much thrown up my hands in despair and created an elaborate system of identical elevator cars and trigger_teleports to accomplish the necessary transition in Office Complex. It seems that the engine is <span class="bbcode-i">very</span> aggressive in transitioning entities, and making it not do so is something it has a lot of trouble with.</p>
+        </div>
+
+        <meta itemprop='headline' content='What determines entity transitions?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/dky.tehkingd.html'><span itemprop='name'>dky.tehkingd.u</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14337.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-07-27T15:28:27Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:36:46Z' class='post-time'>
+                November 25, 2018,  4:36am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>How large is your transition trigger?</p>
+        </div>
+
+        <meta itemprop='headline' content='What determines entity transitions?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14337.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-07-27T16:52:20Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:36:46Z' class='post-time'>
+                November 25, 2018,  4:36am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The actual trigger_changelevel is just a little block in a corner of the elevator, controlled by way of the button and the Changelevel input. There is no trigger_transition, as in addition to anything in the elevator a lot of entities outside of it would transition automatically. Adding a trigger-transition over the elevator volume did not help with this.</p>
+        </div>
+
+        <meta itemprop='headline' content='What determines entity transitions?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/dky.tehkingd.html'><span itemprop='name'>dky.tehkingd.u</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14337.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-07-27T17:04:18Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:36:46Z' class='post-time'>
+                November 25, 2018,  4:36am
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Perhaps I’m not understanding something. Why is it necessary for you to transition anything other than what’s in the elevator?</p>
+        </div>
+
+        <meta itemprop='headline' content='What determines entity transitions?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14337.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-07-27T17:39:41Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:36:46Z' class='post-time'>
+                November 25, 2018,  4:36am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Well, that’s exactly my point. I don’t <span class="bbcode-i">want</span> to transition anything but the contents of the elevator. The problem is that a large number of props (as well as a few NPCs and doors) <span class="bbcode-i">outside</span> of the elevator are also transitioning, and I am completely unable to stop them from doing so.</p>
+        </div>
+
+        <meta itemprop='headline' content='What determines entity transitions?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/dky.tehkingd.html'><span itemprop='name'>dky.tehkingd.u</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14337.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-07-27T18:12:17Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:36:47Z' class='post-time'>
+                November 25, 2018,  4:36am
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>What’s the name of your trigger_transition?</p>
+        </div>
+
+        <meta itemprop='headline' content='What determines entity transitions?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14337.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-07-27T18:25:54Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:36:47Z' class='post-time'>
+                November 25, 2018,  4:36am
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Currently there is none, as I have removed it. Previously, it was named identically to the info_landmark the elevator used.</p>
+        </div>
+
+        <meta itemprop='headline' content='What determines entity transitions?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/dky.tehkingd.html'><span itemprop='name'>dky.tehkingd.u</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14337.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-07-27T18:27:57Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:36:47Z' class='post-time'>
+                November 25, 2018,  4:36am
+              </time>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>If it was named identically, then anything outside the trigger should not have transitioned. Also, this sounds very suspicious, because a level change WITHOUT a transition trigger should have simply failed and not worked at all in the first place.</p>
+<p>Are you sure that’s the only transition trigger?</p>
+        </div>
+
+        <meta itemprop='headline' content='What determines entity transitions?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14337.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-07-27T18:38:29Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:36:47Z' class='post-time'>
+                November 25, 2018,  4:36am
+              </time>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Confirmed there are no trigger_transition entities extant on the map. There are multiple trigger_changelevel entities, of course. I <span class="bbcode-i">had</span> a trigger_transition in the elevator previously, but it did not have the intended effect of preventing everything outside of the elevator from transitioning. Given your information, I can only conclude that I missed something then- will retry.</p>
+        </div>
+
+        <meta itemprop='headline' content='What determines entity transitions?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14337.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-07-27T19:02:18Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:36:47Z' class='post-time'>
+                November 25, 2018,  4:36am
+              </time>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That appears to have done it. I’m not sure what was wrong before (the new trigger_transition is as far as I can tell an exact duplicate), but it seems that in disproof of my previous statement, trigger_transitions also prevent any entity <span class="bbcode-i">outside</span> of its volume from transitioning.</p>
+        </div>
+
+        <meta itemprop='headline' content='What determines entity transitions?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14337.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-31T02:30:52Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:55Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Necroposting to add an important caveat in case anyone looks to this for reference: <span class="bbcode-b">the trigger_transition <span class="bbcode-i">must</span> be present in <span class="bbcode-i">both</span> maps in order to prevent pseudorandom entity transitioning.</span> I’ve just discovered that if it exists in one map but not the other (or has a different name, of course), it will <span class="bbcode-i">not</span> demonstrate the above behavior and will instead transition based on the wiggy PVS behavior previously outlined.</p>
+        </div>
+
+        <meta itemprop='headline' content='What determines entity transitions?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Wristwatch4.html'><span itemprop='name'>Wristwatch4</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14337.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-31T04:21:32Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:55Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#19</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Its only Necroposting if the thread in question has been inactive for a period longer than roughly 7 months. Nevertheless, this is good information to have.</p>
+        </div>
+
+        <meta itemprop='headline' content='What determines entity transitions?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/dky.tehkingd.html'><span itemprop='name'>dky.tehkingd.u</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14337.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-08-31T14:51:59Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:37:56Z' class='post-time'>
+                November 25, 2018,  4:37am
+              </time>
+          <span itemprop='position'>#20</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I only consider it necroposting if it’s dropped off  the first page AND you respond to the conversation with no new information as if people hadn’t stopped talking about it.</p>
+<p>Since you have new information to add, I think you’re fine.</p>
+        </div>
+
+        <meta itemprop='headline' content='What determines entity transitions?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="143374658.html?page=2">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/what-determines-entity-transitions/14337 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 10:22:16 GMT -->
+</html>

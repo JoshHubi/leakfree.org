@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Prop lightmaps not supported by BM&#39;s compile tools</title>
+    <link>https://leakfree.org/t/prop-lightmaps-not-supported-by-bms-compile-tools/15237</link>
+    <description>I don&#39;t know if this is a bug, limitation or a just a missing feature in Black Mesa.
+
+Black Mesa&#39;s base.fgd defines settings that enables the ability for lightmaps to be generated for static props. In Hammer, these settings are the &quot;Generate (and use) lightmaps for this static prop&quot;, &quot;Lightmap Resolution X&quot; and &quot;Lightmap Resolution Y&quot; in the prop&#39;s properties:
+
+[spoiler][attach=5514,none,664][/attach][/spoiler]
+However, these settings have no effect, i.e., Black Mesa&#39;s VBSP will not write the settings to the .BSP, and VRAD will not generate lightmaps for the prop.
+
+Just to illustrate, I&#39;ve created a test map using the bathtub01a.mdl prop with the settings as shown above. This is the testmap compiled using BM&#39;s compile tools and rendered in BM&#39;s engine:
+
+[spoiler][attach=5515,none,1680][/attach][/spoiler]
+
+This is the same map compiled using HL2DM&#39;s compile tools and rendered in HL2DM&#39;s engine:
+
+[spoiler][attach=5516,none,1680][/attach][/spoiler]
+
+PS: A completely unrelated issue, note how the fence grating isn&#39;t being anti-aliased in Black Mesa and is full of aliasing artifacts, whereas in HL2DM it&#39;s being anti-aliased, even though I&#39;m using 8x MSAA in both games. I&#39;m running on a GeForce GTX 970 GPU.
+![prop_lightmaps.png|664x495](upload://xJjN1QqilEHCNNeNtfx5jzHqqBD.png)
+![bm.jpg|690x500](upload://otH7hoEL9uenhb3iTypRUMgkc54.jpeg)
+![hl2dm.jpg|690x500](upload://brhMoPwcIIWrcAojtvwCtBvtjC2.jpeg)</description>
+    
+    <lastBuildDate>Wed, 22 Nov 2017 02:07:09 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/prop-lightmaps-not-supported-by-bms-compile-tools/15237.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Prop lightmaps not supported by BM&#39;s compile tools</title>
+        <dc:creator><![CDATA[jadebenn]]></dc:creator>
+        <description><![CDATA[
+            <p>Any update on this? Are prop lightmaps still borked?</p>
+          <p><a href="https://leakfree.org/t/prop-lightmaps-not-supported-by-bms-compile-tools/15237/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/prop-lightmaps-not-supported-by-bms-compile-tools/15237/4</link>
+        <pubDate>Wed, 22 Nov 2017 02:07:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15237-4</guid>
+        <source url="https://leakfree.org/t/prop-lightmaps-not-supported-by-bms-compile-tools/15237.rss">Prop lightmaps not supported by BM&#39;s compile tools</source>
+      </item>
+      <item>
+        <title>Prop lightmaps not supported by BM&#39;s compile tools</title>
+        <dc:creator><![CDATA[Flavrans]]></dc:creator>
+        <description><![CDATA[
+            <p>Not in all of the VMF’s. In a quite a few of the VMF’s, lightmap resolution x and y are set to 32, which is the default value as defined in the FGD. But none of the props in all the publicly released VMF’s have “generatelightmaps” set to “1”. So, apparently they don’t use prop lightmaps in the stock maps.</p>
+<p>I’ve also looked at the strings inside BM’s vbsp.exe file, and while it contains the strings for other prop settings, it doesn’t contain the strings “generatelightmaps”, “lightmapsresolutionx” and “lightmapsresolutiony”, which suggests these settings aren’t being read and processed by BM’s vbps.exe. In contrast, I did find the lightmap settings strings in HL2DM’s vbsp.exe.</p>
+          <p><a href="https://leakfree.org/t/prop-lightmaps-not-supported-by-bms-compile-tools/15237/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/prop-lightmaps-not-supported-by-bms-compile-tools/15237/3</link>
+        <pubDate>Mon, 24 Jul 2017 14:56:51 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15237-3</guid>
+        <source url="https://leakfree.org/t/prop-lightmaps-not-supported-by-bms-compile-tools/15237.rss">Prop lightmaps not supported by BM&#39;s compile tools</source>
+      </item>
+      <item>
+        <title>Prop lightmaps not supported by BM&#39;s compile tools</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <p>In all of the SP vmfs, the lightmap resolution (X, Y) is set to 0.<br>
+Dunno but maybe test setting it to that value?</p>
+          <p><a href="https://leakfree.org/t/prop-lightmaps-not-supported-by-bms-compile-tools/15237/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/prop-lightmaps-not-supported-by-bms-compile-tools/15237/2</link>
+        <pubDate>Mon, 24 Jul 2017 14:08:13 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15237-2</guid>
+        <source url="https://leakfree.org/t/prop-lightmaps-not-supported-by-bms-compile-tools/15237.rss">Prop lightmaps not supported by BM&#39;s compile tools</source>
+      </item>
+      <item>
+        <title>Prop lightmaps not supported by BM&#39;s compile tools</title>
+        <dc:creator><![CDATA[Flavrans]]></dc:creator>
+        <description><![CDATA[
+            <p>I don’t know if this is a bug, limitation or a just a missing feature in Black Mesa.</p>
+<p>Black Mesa’s base.fgd defines settings that enables the ability for lightmaps to be generated for static props. In Hammer, these settings are the “Generate (and use) lightmaps for this static prop”, “Lightmap Resolution X” and “Lightmap Resolution Y” in the prop’s properties:</p>
+<div class="spoiler">
+<p>[attach=5514,none,664][/attach]</p>
+</div>
+<p>However, these settings have no effect, i.e., Black Mesa’s VBSP will not write the settings to the .BSP, and VRAD will not generate lightmaps for the prop.</p>
+<p>Just to illustrate, I’ve created a test map using the bathtub01a.mdl prop with the settings as shown above. This is the testmap compiled using BM’s compile tools and rendered in BM’s engine:</p>
+<div class="spoiler">
+<p>[attach=5515,none,1680][/attach]</p>
+</div>
+<p>This is the same map compiled using HL2DM’s compile tools and rendered in HL2DM’s engine:</p>
+<div class="spoiler">
+<p>[attach=5516,none,1680][/attach]</p>
+</div>
+<p>PS: A completely unrelated issue, note how the fence grating isn’t being anti-aliased in Black Mesa and is full of aliasing artifacts, whereas in HL2DM it’s being anti-aliased, even though I’m using 8x MSAA in both games. I’m running on a GeForce GTX 970 GPU.<br>
+<img src="https://leakfree.org/uploads/default/original/2X/e/ec673388bd515b93bee87f387251a5b9cc0d5045.png" alt="prop_lightmaps.png" data-base62-sha1="xJjN1QqilEHCNNeNtfx5jzHqqBD" width="664" height="495"><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/a/ab8f82b4d7f34a8555d59f34c9d942972a27804a.jpeg" data-download-href="https://leakfree.org/uploads/default/ab8f82b4d7f34a8555d59f34c9d942972a27804a" title="bm.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/a/ab8f82b4d7f34a8555d59f34c9d942972a27804a_2_690x500.jpeg" alt="bm.jpg" data-base62-sha1="otH7hoEL9uenhb3iTypRUMgkc54" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/a/ab8f82b4d7f34a8555d59f34c9d942972a27804a_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/a/ab8f82b4d7f34a8555d59f34c9d942972a27804a_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/a/ab8f82b4d7f34a8555d59f34c9d942972a27804a_2_1380x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/a/ab8f82b4d7f34a8555d59f34c9d942972a27804a_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">bm.jpg</span><span class="informations">1680×1050 105 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/5/502d8bea35d4c6e553a2467244a21f5040fe282a.jpeg" data-download-href="https://leakfree.org/uploads/default/502d8bea35d4c6e553a2467244a21f5040fe282a" title="hl2dm.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/5/502d8bea35d4c6e553a2467244a21f5040fe282a_2_690x500.jpeg" alt="hl2dm.jpg" data-base62-sha1="brhMoPwcIIWrcAojtvwCtBvtjC2" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/5/502d8bea35d4c6e553a2467244a21f5040fe282a_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/5/502d8bea35d4c6e553a2467244a21f5040fe282a_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/5/502d8bea35d4c6e553a2467244a21f5040fe282a_2_1380x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/5/502d8bea35d4c6e553a2467244a21f5040fe282a_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">hl2dm.jpg</span><span class="informations">1680×1050 95.7 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+          <p><a href="https://leakfree.org/t/prop-lightmaps-not-supported-by-bms-compile-tools/15237/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/prop-lightmaps-not-supported-by-bms-compile-tools/15237/1</link>
+        <pubDate>Mon, 24 Jul 2017 13:56:30 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15237-1</guid>
+        <source url="https://leakfree.org/t/prop-lightmaps-not-supported-by-bms-compile-tools/15237.rss">Prop lightmaps not supported by BM&#39;s compile tools</source>
+      </item>
+  </channel>
+</rss>

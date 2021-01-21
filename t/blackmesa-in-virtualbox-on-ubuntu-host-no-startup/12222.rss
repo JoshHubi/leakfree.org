@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>BlackMesa in VirtualBox on Ubuntu host - no startup</title>
+    <link>https://leakfree.org/t/blackmesa-in-virtualbox-on-ubuntu-host-no-startup/12222</link>
+    <description>Hi guys, first of all thanks a lot for your work! As you probably have guessed, I am one of the nostalgia addicts which played Half-Life. However, I&#39;ve tried to install it in VirtualBox, all is well with a DirectX 9.0c on a XP machine. SDK 2007 is installed (and can access it, logo is shown) Steam sees the game, but when I launch it, unfortunately it pops up a black screen and then minimizes and closes.
+
+My guess is maybe the video card since its Virtual Box Oracle emulated one. So far, I&#39;ve given it 128 mb of ram and went for 3rd and 2d support as well as all other futures that are available.
+
+Host specs: core i3 (3 cores reserved for the machine), 4 gb of ram (1.5 gb of ram is reserved for the machine), Intel video card with HD support and [url=&#39;https://www.intel.com/content/www/us/en/architecture-and-technology/hd-graphics/hd-graphics-developer.html&#39;]all that stuff that comes with Intel I3[/url]. Since there is no support for Linux (yet?), I am really trying to run this how I can.
+
+Any ideas? By the way, I don&#39;t have SDK 2006 installed, is that required?
+
+
+Later edit: Well it [url=&#39;https://forums.steampowered.com/forums/showpost.php?p=33012863&amp;postcount=7&#39;]seems[/url] that SDK2006 is required as well in order to play it.
+
+Later:
+Well ... after fully getting 2006 as well, seems that I have the same issue, so this wasn&#39;t necessary to be fully downloaded only left partially as it was from 2007.
+
+I am stuck now. Help! I&#39;ve tried to run it with [code]
++mat_forcehardwaresync 0 -dxlevel 90
+[/code] but still the same issue.
+
+Trying another option and installing Source SDK simple [url=&#39;https://wiki.blackmesasource.com/File:Sdkbase.jpg&#39;]as seen in troubleshooting faq screenshot[/url].
+
+Later edit:
+And so I&#39;ve tried everything, the -window, the -fullscreen, the -dxlevel, all SDK installed, etc. I know the FAQ says it doesn&#39;t get well with Intel HD cards but is really no other way at least to play it at a low reso?</description>
+    
+    <lastBuildDate>Sat, 30 Mar 2013 17:20:28 +0000</lastBuildDate>
+    <category>Help!</category>
+    <atom:link href="https://leakfree.org/t/blackmesa-in-virtualbox-on-ubuntu-host-no-startup/12222.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>BlackMesa in VirtualBox on Ubuntu host - no startup</title>
+        <dc:creator><![CDATA[blackmesauser051019]]></dc:creator>
+        <description><![CDATA[
+            <p>Sorry for double posting, but it seemed to me more clean this way, if it is wrong, please merge with my above reply.</p>
+<p>So I’ve just finished Black Mesa at least this first part until Xen and I enjoyed it very much.</p>
+<p>For those of you which run Intel I3 processor’s <span class="bbcode-i">video card</span> and run it with Wineprefixes but encounter crashes this is my story:</p>
+<ol>
+<li>
+<p>Game detects High settings as default and recommended, obviously, this isn’t the case, so you will play several levels with those settings but you will encounter one of the following: a) game crashes often when Loading between stages ; b) game crashes in certain scenarios where you do something (shoot, bomb etc.) and a monster is spawning or you are moving fast the pointer etc.  - try to lower the settings to Medium when it gets worse and you encounter very often the situation</p>
+</li>
+<li>
+<p>After playing with recommended settings, I’ve always launched with +fps_max 66 the game, moreover, I didn’t had any issues turning on flashlight and getting crashes or anything similar, however, in certain scenarios it will crash very bad in which you cannot recover, for example, you cannot even switch to another terminal emulator screen (CTRL + ALT + F6/7/8 for Ubuntu 12.04.2 LTS), from now on I’ve ran it with -window and configured my launch bar and windows bar (the top and above) to autohide then I specified the resolution for the window and it was almost like playing in full screen</p>
+</li>
+<li>
+<p>From a specific level, I would get very often crashes, from stuff like just changing the weapons and then shoot, or just moving the mouse to an area to which it was more graphic consuming (lots of stuff, like flames etc.), this is the point where I started to play at Low settings, especially the Shadows settings</p>
+</li>
+<li>
+<p>When you quick save and try to load from a saved game you will get crashes with different messages, like cannot allocate certain amount of bytes memory etc. even if the stage where you load is just a passage so nothing big which requires a lot of resources to load - this problem was solved for me with Low settings</p>
+</li>
+<li>
+<p>You get crashes a day after or whatever when you try to load  the game, what I noticed was that the settings were reset to default and got High settings again, lower them again to what was before and you should be set.</p>
+</li>
+<li>
+<p>Sometimes, the crashes make your screen flash, or do weird stuff, in this case most probably (at least in 95% of my cases) compiz had crashed and if you try to spawn it (<span class="bbcode-i">compiz &amp;</span>) in terminal you will get a Segmentation fault with core being dumped, in this case I have bad news: reboot <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"> sometimes logging out and logging in again worked, but rare. The happy cases where when it was just crashing without any error or message and could just open it again normally and load it from last saved game.</p>
+</li>
+</ol>
+<p>This is pretty much it, my advice is to save very very often! F6 is your friend.</p>
+<p>All the best! And thanks again to the developers and everybody who worked on the game, very good work!</p>
+          <p><a href="https://leakfree.org/t/blackmesa-in-virtualbox-on-ubuntu-host-no-startup/12222/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/blackmesa-in-virtualbox-on-ubuntu-host-no-startup/12222/4</link>
+        <pubDate>Sat, 30 Mar 2013 17:20:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12222-4</guid>
+        <source url="https://leakfree.org/t/blackmesa-in-virtualbox-on-ubuntu-host-no-startup/12222.rss">BlackMesa in VirtualBox on Ubuntu host - no startup</source>
+      </item>
+      <item>
+        <title>BlackMesa in VirtualBox on Ubuntu host - no startup</title>
+        <dc:creator><![CDATA[blackmesauser051019]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="johnyo">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/j/a9a28c/40.png" class="avatar"> johnyo:</div>
+<blockquote>
+<p>I assume you have tried running it in Wine, right?</p>
+</blockquote>
+</aside>
+<p>Hi! Thanks for your time to make a post. Yes indeed, I’ve tried to run it in wine, when trying to install the SDK it prompted me with “Your OS is not supported” or something like that.</p>
+<aside class="quote no-group" data-username="johnyo">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/j/a9a28c/40.png" class="avatar"> johnyo:</div>
+<blockquote>
+<p>Also, I’ve read of some really hackish way to do a GPU pass-through (eject it from host and let the VM use it exclusively) but that was a discrete card and the setup was a nightmare, requiring a second GPU or SSHing into the host when the GPU is ejected.</p>
+</blockquote>
+</aside>
+<p>I will do some research on this.</p>
+<aside class="quote no-group" data-username="johnyo">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/j/a9a28c/40.png" class="avatar"> johnyo:</div>
+<blockquote>
+<p>Just install XP on a 5Gb partition and you’re good.</p>
+</blockquote>
+</aside>
+<p>This thread is about an XP machine in VM which is the guest and is on a Ubuntu 12.04.2 LTS host.</p>
+<p>Any further ideas maybe the more simplistic way (if there is one) to not get into complex stuff like GPU sharing and such?</p>
+<p>Later edit: I will try with steam from winetricks and maybe this will do it, I will return with feedback.</p>
+<p>I am feeling like a fool now. I followed <a href="https://www.youtube.com/watch?v=ECZsP70Peaw" data-bbcode="true" rel="nofollow noopener">this</a> YouTube video tutorial and encountered the sha sum problem with SteamInstaller.msi to which I found a solution <a href="https://portingteam.com/topic/8546-wine-wont-install-steam-via-winetricks/" data-bbcode="true" rel="nofollow noopener">here</a>. It is getting SDK right now.</p>
+<p>It works <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"> kind of slow for High settings (Source stress test confirmed), well I’m glad I didn’t waste several days on this. So hopefully is fine now.</p>
+<p>Thanks for everything!</p>
+          <p><a href="https://leakfree.org/t/blackmesa-in-virtualbox-on-ubuntu-host-no-startup/12222/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/blackmesa-in-virtualbox-on-ubuntu-host-no-startup/12222/3</link>
+        <pubDate>Mon, 25 Mar 2013 18:34:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12222-3</guid>
+        <source url="https://leakfree.org/t/blackmesa-in-virtualbox-on-ubuntu-host-no-startup/12222.rss">BlackMesa in VirtualBox on Ubuntu host - no startup</source>
+      </item>
+      <item>
+        <title>BlackMesa in VirtualBox on Ubuntu host - no startup</title>
+        <dc:creator><![CDATA[johnyo]]></dc:creator>
+        <description><![CDATA[
+            <p>I assume you have tried running it in Wine, right?</p>
+<p>Also, I’ve read of some really hackish way to do a GPU pass-through (eject it from host and let the VM use it exclusively) but that was a discrete card and the setup was a nightmare, requiring a second GPU or SSHing into the host when the GPU is ejected.</p>
+<p>Just install XP on a 5Gb partition and you’re good.</p>
+          <p><a href="https://leakfree.org/t/blackmesa-in-virtualbox-on-ubuntu-host-no-startup/12222/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/blackmesa-in-virtualbox-on-ubuntu-host-no-startup/12222/2</link>
+        <pubDate>Mon, 25 Mar 2013 17:55:39 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12222-2</guid>
+        <source url="https://leakfree.org/t/blackmesa-in-virtualbox-on-ubuntu-host-no-startup/12222.rss">BlackMesa in VirtualBox on Ubuntu host - no startup</source>
+      </item>
+      <item>
+        <title>BlackMesa in VirtualBox on Ubuntu host - no startup</title>
+        <dc:creator><![CDATA[blackmesauser051019]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi guys, first of all thanks a lot for your work! As you probably have guessed, I am one of the nostalgia addicts which played Half-Life. However, I’ve tried to install it in VirtualBox, all is well with a DirectX 9.0c on a XP machine. SDK 2007 is installed (and can access it, logo is shown) Steam sees the game, but when I launch it, unfortunately it pops up a black screen and then minimizes and closes.</p>
+<p>My guess is maybe the video card since its Virtual Box Oracle emulated one. So far, I’ve given it 128 mb of ram and went for 3rd and 2d support as well as all other futures that are available.</p>
+<p>Host specs: core i3 (3 cores reserved for the machine), 4 gb of ram (1.5 gb of ram is reserved for the machine), Intel video card with HD support and <a href="https://www.intel.com/content/www/us/en/architecture-and-technology/hd-graphics/hd-graphics-developer.html" data-bbcode="true" rel="nofollow noopener">all that stuff that comes with Intel I3</a>. Since there is no support for Linux (yet?), I am really trying to run this how I can.</p>
+<p>Any ideas? By the way, I don’t have SDK 2006 installed, is that required?</p>
+<p>Later edit: Well it <a href="https://forums.steampowered.com/forums/showpost.php?p=33012863&amp;postcount=7" data-bbcode="true" rel="nofollow noopener">seems</a> that SDK2006 is required as well in order to play it.</p>
+<p>Later:<br>
+Well … after fully getting 2006 as well, seems that I have the same issue, so this wasn’t necessary to be fully downloaded only left partially as it was from 2007.</p>
+<p>I am stuck now. Help! I’ve tried to run it with <code>
++mat_forcehardwaresync 0 -dxlevel 90
+</code> but still the same issue.</p>
+<p>Trying another option and installing Source SDK simple <a href="https://wiki.blackmesasource.com/File:Sdkbase.jpg" data-bbcode="true" rel="nofollow noopener">as seen in troubleshooting faq screenshot</a>.</p>
+<p>Later edit:<br>
+And so I’ve tried everything, the -window, the -fullscreen, the -dxlevel, all SDK installed, etc. I know the FAQ says it doesn’t get well with Intel HD cards but is really no other way at least to play it at a low reso?</p>
+          <p><a href="https://leakfree.org/t/blackmesa-in-virtualbox-on-ubuntu-host-no-startup/12222/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/blackmesa-in-virtualbox-on-ubuntu-host-no-startup/12222/1</link>
+        <pubDate>Sun, 24 Mar 2013 18:42:53 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12222-1</guid>
+        <source url="https://leakfree.org/t/blackmesa-in-virtualbox-on-ubuntu-host-no-startup/12222.rss">BlackMesa in VirtualBox on Ubuntu host - no startup</source>
+      </item>
+  </channel>
+</rss>

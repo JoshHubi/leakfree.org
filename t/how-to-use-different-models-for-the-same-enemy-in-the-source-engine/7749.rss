@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>How to use different models for the same enemy in the Source engine</title>
+    <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749</link>
+    <description>I&#39;ve been wondering, because I&#39;ve seen it been done before, how some HL2 mods have used varying different textures or models altogether for the same enemy type so the enemies you face look different. Like say I wanted a the headcrab zombie to look a certain way in one part of the game, but in another, have them look completely different. How would I do that?
+
+But not only that, say I wanted the same enemy to look variously different on the different models in the same area, how would that work?</description>
+    
+    <lastBuildDate>Mon, 29 Aug 2011 18:52:30 +0000</lastBuildDate>
+    <category>Technology and Gaming</category>
+    <atom:link href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[Kaweebo]]></dc:creator>
+        <description><![CDATA[
+            <p>Well I guess it’s time to learn code then. Goddamnit. Thanks for your help guys!</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/27">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/27</link>
+        <pubDate>Mon, 29 Aug 2011 18:52:30 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-27</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[FeisEater]]></dc:creator>
+        <description><![CDATA[
+            <p>Read this to have different textures:<br>
+<a href="https://developer.valvesoftware.com/wiki/Texturegroup" data-bbcode="true" rel="nofollow noopener">https://developer.valvesoftware.com/wiki/Texturegroup</a><br>
+and this for different models:<br>
+<a href="https://developer.valvesoftware.com/wiki/Bodygroup" data-bbcode="true" rel="nofollow noopener">https://developer.valvesoftware.com/wiki/Bodygroup</a><br>
+With bodygroups you can not only replace the whole model on loading an enemy, but also have parts of the model to be assigned at random (sometimes a zombie has a healthy left arm, sometimes no arm, sometimes a decaying arm etc.)</p>
+<p>Unfortunately you do indeed have to learn to code as you need a source code of HL2 to implement the system. You may also examine how Valve implemented the mechanic with npc_citizens, as they coded something quite different for that.</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/26">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/26</link>
+        <pubDate>Mon, 29 Aug 2011 18:37:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-26</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[Keresh]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Kaweebo">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/k/a88e57/40.png" class="avatar"> Kaweebo:</div>
+<blockquote>
+<p>Fuck. That’s what I fearing. I guess I’ll try it, but, if you know how to use multiple textures that’d be cool.</p>
+</blockquote>
+</aside>
+<p>You have to decompile the model, add the info about the new textures(location, names, how many) in the variables file. That file should be a regular text file, if I remember correctly. It’ll show up after you decompile the model. After you’ve done all that (and made proper textures) you compile the model again. And that’s it.</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/25">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/25</link>
+        <pubDate>Mon, 29 Aug 2011 18:03:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-25</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[geekofalltrades]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Asharil">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/a/f4b2a3/40.png" class="avatar"> Asharil:</div>
+<blockquote>
+<p>The whole Route Kanal in HL2 was riddled with Labsuit-Zombies, strange considering that any civvies encountered en-route, be they dead or alive, were never sporting lab gear.</p>
+</blockquote>
+</aside>
+<p>Those zombies are actually wearing a white shirt and jeans, like the rebels do when they’re not in their full rebel body armor getup.  <div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/3X/6/2/624cd693c89b6a5f99df5c9c1bd1228a92cd0cc2.jpeg" data-download-href="https://leakfree.org/uploads/default/624cd693c89b6a5f99df5c9c1bd1228a92cd0cc2" title=""><img src="https://leakfree.org/uploads/default/optimized/3X/6/2/624cd693c89b6a5f99df5c9c1bd1228a92cd0cc2_2_690x498.jpeg" alt="" data-base62-sha1="e1BpRBOvnLiWPbmTKKjefZSWdEK" width="690" height="498" srcset="https://leakfree.org/uploads/default/optimized/3X/6/2/624cd693c89b6a5f99df5c9c1bd1228a92cd0cc2_2_690x498.jpeg, https://leakfree.org/uploads/default/optimized/3X/6/2/624cd693c89b6a5f99df5c9c1bd1228a92cd0cc2_2_1035x747.jpeg 1.5x, https://leakfree.org/uploads/default/original/3X/6/2/624cd693c89b6a5f99df5c9c1bd1228a92cd0cc2.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/3X/6/2/624cd693c89b6a5f99df5c9c1bd1228a92cd0cc2_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1052×760 307 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<aside class="quote no-group" data-username="doomyshadowsquirrels">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/d/e36b37/40.png" class="avatar"> doomyshadowsquirrels:</div>
+<blockquote>
+<p>Metrocop zombies have bullet-proof vests and would unbalance gameplay. They’d have to be used seldomly.</p>
+</blockquote>
+</aside>
+<p>Not to mention that they’d mess with the visual distinction among zombies.  CP zombies would make it that much harder to pick a much more dangerous Zombine out of a group.</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/24">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/24</link>
+        <pubDate>Mon, 29 Aug 2011 16:43:26 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-24</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[Kaweebo]]></dc:creator>
+        <description><![CDATA[
+            <p>Fuck. That’s what I fearing. I guess I’ll try it, but, if you know how to use multiple textures that’d be cool.</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/23">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/23</link>
+        <pubDate>Mon, 29 Aug 2011 15:04:48 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-23</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[Keresh]]></dc:creator>
+        <description><![CDATA[
+            <p>You can really change how the same model looks with good textures, but if you want to add a new model then you gotta start learning how to code.</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/22">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/22</link>
+        <pubDate>Mon, 29 Aug 2011 14:54:05 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-22</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[Kaweebo]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="CTID">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/ctid/40/4984_2.png" class="avatar"> CTID:</div>
+<blockquote>
+<p>by the way you guys mean Gonome, I hope, and not Gonarch. Gonarch is the mother headcrab that you kill at the end of HL 1.<br>
+also Gonome = not canon etc.</p>
+</blockquote>
+</aside>
+<p>I always get those names mixed up. &gt;.&lt; It is neither canon or non-canon though. Valve has never specifically stated that OP4 was non-canon, but I think it is so I’m treating it as such. This is just my opinion however. Either way, even if OP4 was considered non-canon down the line, I think the Gonome would still be considered the ‘next phase’ of headcrab latching. But after doomy’s comment I’m starting to think a gonome may be a bad idea for what I’m trying.</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/21">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/21</link>
+        <pubDate>Mon, 29 Aug 2011 14:43:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-21</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[mankyman6]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="doomyshadowsquirrels">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/d/e36b37/40.png" class="avatar"> doomyshadowsquirrels:</div>
+<blockquote>
+<p>Also, I’m wondering about what Valve could do with Elite zombies. They have enhanced brain implants, could produce an exciting new HL3 enemy.</p>
+</blockquote>
+</aside>
+<p>I think the Elites’ brains are nothing but computers now. I believe headcrabbing them would be an impossibility.</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/20</link>
+        <pubDate>Mon, 29 Aug 2011 12:04:38 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-20</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[doomyshadowsquirrels]]></dc:creator>
+        <description><![CDATA[
+            <p>Metrocop zombies have bullet-proof vests and would unbalance gameplay. They’d have to be used seldomly.</p>
+<p>Any zombie varying from the traditional headcrab+weak human would just become too convoluted. A couple of tasteful outfit variations and skin tone is where it’s at.</p>
+<p>Also, I’m wondering about what Valve could do with Elite zombies. They have enhanced brain implants, could produce an exciting new HL3 enemy.</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/19</link>
+        <pubDate>Mon, 29 Aug 2011 08:27:26 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-19</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[Orpheon]]></dc:creator>
+        <description><![CDATA[
+            <p>I don’t have much knowledge of game development, but it seems like you’d have to have to make a number of enemy types that all use the zombie’s base AI and attributes, and then assign each one a different model/skin, and then go through the game and replace the normal zombie spawns with your new ones. Unless there is an actual way to spawn the same enemy with different models/skins, which I don’t know, maybe there is.</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/18</link>
+        <pubDate>Mon, 29 Aug 2011 08:02:05 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-18</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[CTID]]></dc:creator>
+        <description><![CDATA[
+            <p>by the way you guys mean Gonome, I hope, and not Gonarch. Gonarch is the mother headcrab that you kill at the end of HL</p>
+<p>also Gonome = not canon etc.</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/17</link>
+        <pubDate>Mon, 29 Aug 2011 07:21:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-17</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[Asharil]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve been wanting this for ages.<br>
+Like, since HL1.</p>
+<p>Always the same white lab-coat zombies seems a bit… weird considering the surroundings where you encounter zombies.</p>
+<p>The whole Route Kanal in HL2 was riddled with Labsuit-Zombies, strange considering that any civvies encountered en-route, be they dead or alive, were never sporting lab gear. Just a few Bluesuit-, Casualsuit- and MetroCop-Zombies would’ve been nice.</p>
+<p>As for a transition Gonarch form. I think it would be something akin to the Poison-Zombie; hunched over even further with the arms now reaching the ground. The abdomen ripped open with biomass/a sack starting to bulge out.</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/16</link>
+        <pubDate>Mon, 29 Aug 2011 07:17:40 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-16</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[doomyshadowsquirrels]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Kaweebo">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/k/a88e57/40.png" class="avatar"> Kaweebo:</div>
+<blockquote>
+<p>It’s my dream too, don’t worry.  <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:">  There’s already a City 17 model on filefront so that’s cool. Actually I wanted to take it further and use different types of models in the same area. Like make one with a ripped off shirt, or another transitioning into a Gonarch (I THINK that’s the name) something like that, but I did want to use the vanilla HL2 models along with those. But I wanted them in the same area. If it gets too involved I’ll probably just stick with your idea of just having the same models in the same area, but different ones in the next.</p>
+</blockquote>
+</aside>
+<p>Well, this is basically ideal, IMO:</p>
+<p>According to the area, zombies are picked from a category of model+skin variants. (Whiteshirts, Blueshirts, Rebels) Within those categories, there are diverse models (certain clothing bits ripped off, bloodiness, dirtiness, gender and skin colour possibly)</p>
+<p>It could also potentially work for other npcs, like pre and post-Uprising Combine soldiers and Synths, worn from battle.</p>
+<p>Also, a transitioning gonarch may not be the best idea. The exact nature of Gonarchs and their development are unknown.</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/15</link>
+        <pubDate>Mon, 29 Aug 2011 07:13:36 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-15</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[Acinonyx_Jubatus]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="doomyshadowsquirrels">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/d/e36b37/40.png" class="avatar"> doomyshadowsquirrels:</div>
+<blockquote>
+<p>A zombie diversity mod would be radical for HL2 itself. Blue civies zombies in City 17, vanilla whiteshirts in the outlands and ravenholm, with rebel zombies during the upsrising and underground… I’m daydreaming, sorry.</p>
+</blockquote>
+</aside>
+<p>…and zombified metrocops and Combine Elites in episodes 1 &amp; 2? You’re not the only one who’s always wanted something like this.  <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/14</link>
+        <pubDate>Mon, 29 Aug 2011 05:52:30 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-14</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[Kaweebo]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve got basic knowledge, but I wanted to expand on it. So, like I said, if anyone can give me an answer I’d really appreciate it.</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/13</link>
+        <pubDate>Mon, 29 Aug 2011 03:42:49 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-13</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[doomyshadowsquirrels]]></dc:creator>
+        <description><![CDATA[
+            <p>My heart is elated at the thought. But unfortunately I don’t know shit about any of this ‘mod-ding’ tomfoolery.</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/12</link>
+        <pubDate>Mon, 29 Aug 2011 03:41:02 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-12</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[Kaweebo]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="doomyshadowsquirrels">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/d/e36b37/40.png" class="avatar"> doomyshadowsquirrels:</div>
+<blockquote>
+<p>A zombie diversity mod would be radical for HL2 itself. Blue civies zombies in City 17, vanilla whiteshirts in the outlands and ravenholm, with rebel zombies during the upsrising and underground… I’m daydreaming, sorry.</p>
+</blockquote>
+</aside>
+<p>It’s my dream too, don’t worry.  <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:">  There’s already a City 17 model on filefront so that’s cool. Actually I wanted to take it further and use different types of models in the same area. Like make one with a ripped off shirt, or another transitioning into a Gonarch (I THINK that’s the name) something like that, but I did want to use the vanilla HL2 models along with those. But I wanted them in the same area. If it gets too involved I’ll probably just stick with your idea of just having the same models in the same area, but different ones in the next.</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/11</link>
+        <pubDate>Mon, 29 Aug 2011 03:34:16 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-11</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[doomyshadowsquirrels]]></dc:creator>
+        <description><![CDATA[
+            <p>A zombie diversity mod would be radical for HL2 itself. Blue civies zombies in City 17, vanilla whiteshirts in the outlands and ravenholm, with rebel zombies during the upsrising and underground… I’m daydreaming, sorry.</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/10</link>
+        <pubDate>Mon, 29 Aug 2011 02:59:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-10</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[Kaweebo]]></dc:creator>
+        <description><![CDATA[
+            <p>Well that’s what I’m asking an explanation for. The ‘in addition’. part. Switching out models is easy, all you do is replace and add files where needed. If you try adding more stuff though it doesn’t work. I’m trying to find out how one does that ‘in addition’.</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/9</link>
+        <pubDate>Mon, 29 Aug 2011 02:47:54 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-9</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[CTID]]></dc:creator>
+        <description><![CDATA[
+            <p>I would’ve thought that you just use a separate model and use that instead of/in addition to the other, but what do I know.</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/8</link>
+        <pubDate>Mon, 29 Aug 2011 02:42:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-8</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[Kaweebo]]></dc:creator>
+        <description><![CDATA[
+            <p>Like that yeah. Not so much the face creation as that’s a whole other thing but I see what you’re talking about. Just something that changes the model type in the same area, and different areas. Is it some kind of script you have to use? (Or maybe I know nothing about scripts)</p>
+<p>And yes, I’m trying to get into the modding scene but I don’t want to be half assed about it. It’s something like a zombie mod, I got the idea from playing the HL2 mod 1187. In that mod there are several different zombies in different clothes and they don’t look alike. (aside from the parasite sucking off of their heads of course  <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"> ) I wanted to try something similar, but I needed to know how to do it. I figured SOMEONE here could help me.</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/7</link>
+        <pubDate>Mon, 29 Aug 2011 02:33:19 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-7</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[russilker]]></dc:creator>
+        <description><![CDATA[
+            <p>Wouldn’t that just be different models then</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/6</link>
+        <pubDate>Mon, 29 Aug 2011 02:33:06 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-6</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[doomyshadowsquirrels]]></dc:creator>
+        <description><![CDATA[
+            <p>Out of curiousity, would you perchance be planning such a HL2 zombie diversity mod? Because I would love that.</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/5</link>
+        <pubDate>Mon, 29 Aug 2011 02:32:54 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-5</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[lithium.bb]]></dc:creator>
+        <description><![CDATA[
+            <p>Something like how HL2 uses different models for different rebels, i suppose?</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/4</link>
+        <pubDate>Mon, 29 Aug 2011 01:56:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-4</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+      <item>
+        <title>How to use different models for the same enemy in the Source engine</title>
+        <dc:creator><![CDATA[Imonfire]]></dc:creator>
+        <description><![CDATA[
+            <p>I bet some of the devs here know, because their face system kinda does that.</p>
+          <p><a href="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749/3</link>
+        <pubDate>Mon, 29 Aug 2011 01:36:22 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-7749-3</guid>
+        <source url="https://leakfree.org/t/how-to-use-different-models-for-the-same-enemy-in-the-source-engine/7749.rss">How to use different models for the same enemy in the Source engine</source>
+      </item>
+  </channel>
+</rss>

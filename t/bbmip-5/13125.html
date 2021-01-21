@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/bbmip-5/13125 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:47:41 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>BBMIP:5 - Developer Logs - Leakfree</title>
+    <meta name="description" content="We left off last week with some changes to UC. When you get to map C there is a frozen area. This like all the other labs got a make over. The first picture is from the mod release. All the cabinets in this lab were repl&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="13125.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;BBMIP:5&#39;" href="13125.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/optimized/2X/4/4fe16e79863ca482907ce703e08efc9a46b5e5cd_2_1024x640.jpeg" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/optimized/2X/4/4fe16e79863ca482907ce703e08efc9a46b5e5cd_2_1024x640.jpeg" />
+<meta property="og:url" content="https://leakfree.org/t/bbmip-5/13125" />
+<meta name="twitter:url" content="https://leakfree.org/t/bbmip-5/13125" />
+<meta property="og:title" content="BBMIP:5" />
+<meta name="twitter:title" content="BBMIP:5" />
+<meta property="og:description" content="We left off last week with some changes to UC. When you get to map C there is a frozen area. This like all the other labs got a make over. The first picture is from the mod release. All the cabinets in this lab were replaced like before. Also the window frames were replaced and match all 15 of the others in AM/UC. The large white tank props in there also got a texture cleanup and all the pipes on it were redone.The next section will go into detail about a specific area and the prop modeling and ..." />
+<meta name="twitter:description" content="We left off last week with some changes to UC. When you get to map C there is a frozen area. This like all the other labs got a make over. The first picture is from the mod release. All the cabinets in this lab were replaced like before. Also the window frames were replaced and match all 15 of the others in AM/UC. The large white tank props in there also got a texture cleanup and all the pipes on it were redone.The next section will go into detail about a specific area and the prop modeling and ..." />
+<meta property="article:published_time" content="2014-03-29T19:58:15+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="next" href="131254658.html?page=2">
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="13125.html">BBMIP:5</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/6.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa Archive</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/developer-logs/15.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Developer Logs</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bkdale86.html'><span itemprop='name'>bkdale86</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13125.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/4/4fe16e79863ca482907ce703e08efc9a46b5e5cd.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-29T19:58:15Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:30Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>We left off last week with some changes to UC. When you get to map C there is a frozen area. This like all the other labs got a make over. The first picture is from the mod release. All the cabinets in this lab were replaced like before. Also the window frames were replaced and match all 15 of the others in AM/UC. The large white tank props in there also got a texture cleanup and all the pipes on it were redone.The next section will go into detail about a specific area and the prop modeling and texturing for it.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/4/4fe16e79863ca482907ce703e08efc9a46b5e5cd.jpg" data-download-href="https://leakfree.org/uploads/default/4fe16e79863ca482907ce703e08efc9a46b5e5cd" title="2014-03-24_00004.jpg"><img src="../../uploads/default/original/2X/4/4fe16e79863ca482907ce703e08efc9a46b5e5cd.jpg" alt="2014-03-24_00004.jpg" data-base62-sha1="boEHI57ToeGnmPDItuthaSRK8Dr" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/4/4fe16e79863ca482907ce703e08efc9a46b5e5cd_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">2014-03-24_00004.jpg</span><span class="informations">1377×861 83.7 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/7/74f617d7663b12c98bf4b8935b2d624a705d4717.jpg" data-download-href="https://leakfree.org/uploads/default/74f617d7663b12c98bf4b8935b2d624a705d4717" title="Untitled_3.jpg"><img src="../../uploads/default/original/2X/7/74f617d7663b12c98bf4b8935b2d624a705d4717.jpg" alt="Untitled_3.jpg" data-base62-sha1="gGGDB3xiyqaHfvcu6sRmVIoQlSf" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/7/74f617d7663b12c98bf4b8935b2d624a705d4717_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">Untitled_3.jpg</span><span class="informations">1209×794 28.9 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/4/48c2b2e5e92302fe255562c3f082bb5bdeab8294.jpg" data-download-href="https://leakfree.org/uploads/default/48c2b2e5e92302fe255562c3f082bb5bdeab8294" title="221140_screenshots_2014-01-11_00004.jpg"><img src="../../uploads/default/original/2X/4/48c2b2e5e92302fe255562c3f082bb5bdeab8294.jpg" alt="221140_screenshots_2014-01-11_00004.jpg" data-base62-sha1="anFw7QQ4roD5j9mPfND1fbT1Wqo" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/4/48c2b2e5e92302fe255562c3f082bb5bdeab8294_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">221140_screenshots_2014-01-11_00004.jpg</span><span class="informations">1189×743 90.1 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/6/6f1e36607d1e9cb7028f273c89c902500899140e.jpg" data-download-href="https://leakfree.org/uploads/default/6f1e36607d1e9cb7028f273c89c902500899140e" title="2014-03-24_00002.jpg"><img src="../../uploads/default/original/2X/6/6f1e36607d1e9cb7028f273c89c902500899140e.jpg" alt="2014-03-24_00002.jpg" data-base62-sha1="fQZJcjkziNhbxQIQfghKLnHGqL4" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/6/6f1e36607d1e9cb7028f273c89c902500899140e_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">2014-03-24_00002.jpg</span><span class="informations">1409×881 82.1 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/8/80217d16f32349809cb6c1ba2c95856708334491.jpg" data-download-href="https://leakfree.org/uploads/default/80217d16f32349809cb6c1ba2c95856708334491" title="2014-03-25_00002.jpg"><img src="../../uploads/default/original/2X/8/80217d16f32349809cb6c1ba2c95856708334491.jpg" alt="2014-03-25_00002.jpg" data-base62-sha1="ihuRE8jxcLmCrfOXYL3Aogg7Etz" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/8/80217d16f32349809cb6c1ba2c95856708334491_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">2014-03-25_00002.jpg</span><span class="informations">1423×890 79.4 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP:5'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bkdale86.html'><span itemprop='name'>bkdale86</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13125.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/4/41eafaeeecd8336649f9080a8accbccedadac2a3.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-29T20:11:05Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:31Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Moving on to the next area where the houndeye jumps out of the window. The large vats in this area always bugged me. So the model replacement is very simple. The pipe connections were include to match up with the brushwork. I ran into trouble with the texturing. My plan was to model a section of the lower tank and have it be just slightly larger than the tank. The reason I wanted to do it that was to get a nice feathery look to the edge of the frost then just blend it in using transparency. By doing it as a separate UV I could go bigger to match our frost overlays. It didn’t quite work. I ran into z figthing in all the programs I use to view them ( pics 1 and 2). Also the resolution on the frost while good would need to be 2048 to just get a fine enough edge in the alpha layer to be better than the brush/decals that they were to replace. So that was scraped and I just when with a bigger all in one texture without any tranparency (3). The last model is the Vat that goes in the room with the Gman. This is just with the AO applied.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/4/41eafaeeecd8336649f9080a8accbccedadac2a3.jpg" data-download-href="https://leakfree.org/uploads/default/41eafaeeecd8336649f9080a8accbccedadac2a3" title="9.jpg"><img src="../../uploads/default/original/2X/4/41eafaeeecd8336649f9080a8accbccedadac2a3.jpg" alt="9.jpg" data-base62-sha1="9p8tEN0TPKwlwjgvvBpgJyLjKaD" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/4/41eafaeeecd8336649f9080a8accbccedadac2a3_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">9.jpg</span><span class="informations">1149×1078 69.6 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/f/f52d5a573695d74ddc188328f88a95fd7507e809.jpg" data-download-href="https://leakfree.org/uploads/default/f52d5a573695d74ddc188328f88a95fd7507e809" title="10.jpg"><img src="../../uploads/default/original/2X/f/f52d5a573695d74ddc188328f88a95fd7507e809.jpg" alt="10.jpg" data-base62-sha1="yYW9cot797uvOncYrSlvw2OJ9c5" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/f/f52d5a573695d74ddc188328f88a95fd7507e809_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">10.jpg</span><span class="informations">1149×1078 74.8 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/5/5ef2a852970b3d55787550d399880df8afbb8832.jpg" data-download-href="https://leakfree.org/uploads/default/5ef2a852970b3d55787550d399880df8afbb8832" title="11.jpg"><img src="../../uploads/default/original/2X/5/5ef2a852970b3d55787550d399880df8afbb8832.jpg" alt="11.jpg" data-base62-sha1="dxWLXuhcabrwLtozMl0u0bSf6iS" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/5/5ef2a852970b3d55787550d399880df8afbb8832_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">11.jpg</span><span class="informations">1035×1006 60.9 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/4/4b0dc60bd3618a7a26fc14d241e18bada0c5953c.jpg" data-download-href="https://leakfree.org/uploads/default/4b0dc60bd3618a7a26fc14d241e18bada0c5953c" title="31.jpg"><img src="../../uploads/default/original/2X/4/4b0dc60bd3618a7a26fc14d241e18bada0c5953c.jpg" alt="31.jpg" data-base62-sha1="aHXjQywes9wrGIVX1lufDt0UxR2" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/4/4b0dc60bd3618a7a26fc14d241e18bada0c5953c_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">31.jpg</span><span class="informations">825×745 33.8 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP:5'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bkdale86.html'><span itemprop='name'>bkdale86</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13125.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/4/41b5041ef653f4754f8c63608e62fbe3f3ede6a1.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-29T20:12:38Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:33Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>So the final results are shown here in these before and after pictures.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/4/41b5041ef653f4754f8c63608e62fbe3f3ede6a1.jpg" data-download-href="https://leakfree.org/uploads/default/41b5041ef653f4754f8c63608e62fbe3f3ede6a1" title="2014-03-24_00006.jpg"><img src="../../uploads/default/original/2X/4/41b5041ef653f4754f8c63608e62fbe3f3ede6a1.jpg" alt="2014-03-24_00006.jpg" data-base62-sha1="9ngRmPOGCcI6gh2IDtof4dFCUPD" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/4/41b5041ef653f4754f8c63608e62fbe3f3ede6a1_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">2014-03-24_00006.jpg</span><span class="informations">1304×815 88 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/3/364412784423c40249a5768ab3b8f1683652528a.jpg" data-download-href="https://leakfree.org/uploads/default/364412784423c40249a5768ab3b8f1683652528a" title="2014_02_05_00010.jpg"><img src="../../uploads/default/original/2X/3/364412784423c40249a5768ab3b8f1683652528a.jpg" alt="2014_02_05_00010.jpg" data-base62-sha1="7K3CTn2bdHyazFe7g6fju6elkrU" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/3/364412784423c40249a5768ab3b8f1683652528a_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">2014_02_05_00010.jpg</span><span class="informations">1307×817 87.1 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/6/698f6576286de5c6445566e1f2a62610341781b7.jpg" data-download-href="https://leakfree.org/uploads/default/698f6576286de5c6445566e1f2a62610341781b7" title="2014-03-24_00007.jpg"><img src="../../uploads/default/original/2X/6/698f6576286de5c6445566e1f2a62610341781b7.jpg" alt="2014-03-24_00007.jpg" data-base62-sha1="f3Pmip0rS0FJkWSNW3SHNcdZA8f" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/6/698f6576286de5c6445566e1f2a62610341781b7_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">2014-03-24_00007.jpg</span><span class="informations">1616×1010 75.4 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/9/96f78f2b68bd14b93b50c1442dd11b59c75a5cd7.jpg" data-download-href="https://leakfree.org/uploads/default/96f78f2b68bd14b93b50c1442dd11b59c75a5cd7" title="2014_02_05_00011.jpg"><img src="../../uploads/default/original/2X/9/96f78f2b68bd14b93b50c1442dd11b59c75a5cd7.jpg" alt="2014_02_05_00011.jpg" data-base62-sha1="lxw0R9t2l1sltSu5bYMLSbUChQb" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/9/96f78f2b68bd14b93b50c1442dd11b59c75a5cd7_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">2014_02_05_00011.jpg</span><span class="informations">1496×935 79.2 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/d/d6c0a3bf3e34dc844387f8fc1bc5c8316e694211.jpg" data-download-href="https://leakfree.org/uploads/default/d6c0a3bf3e34dc844387f8fc1bc5c8316e694211" title="2014_02_05_00012.jpg"><img src="../../uploads/default/original/2X/d/d6c0a3bf3e34dc844387f8fc1bc5c8316e694211.jpg" alt="2014_02_05_00012.jpg" data-base62-sha1="uDMUffSRBCAt6QzhE5J3LrevjFf" width="690" height="500" data-small-upload="../../uploads/default/optimized/2X/d/d6c0a3bf3e34dc844387f8fc1bc5c8316e694211_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">2014_02_05_00012.jpg</span><span class="informations">1394×871 83.3 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP:5'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Knidrew.html'><span itemprop='name'>Knidrew</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13125.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-29T20:41:37Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:33Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Wow. The shot of the room the houndeye is introduced in really showcases the quality of the retail version. Definitely worth whatever it will cost.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP:5'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bur.html'><span itemprop='name'>bur</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13125.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-29T20:43:26Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:33Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>nice, looks much better</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP:5'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Mr_GameCrazy.html'><span itemprop='name'>Mr_GameCrazy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13125.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-29T21:00:33Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:33Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Nice improvements.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP:5'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Deathmonkey7.html'><span itemprop='name'>Deathmonkey7</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13125.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-29T21:07:45Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:33Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m glad some efforts are being made to make this area a little more clear. The first time I played this area I had no idea what relation the valves had to the frozen door, and I spent quite some time trying to figure it out.</p>
+<p>Great work bk!</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP:5'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Cpl.html'><span itemprop='name'>Cpl.1nsane</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13125.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-29T21:26:22Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:34Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Deathmonkey7">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/deathmonkey7/40/5247_2.png" class="avatar"> Deathmonkey7:</div>
+<blockquote>
+<p>I’m glad some efforts are being made to make this area a little more clear. The first time I played this area I had no idea what relation the valves had to the frozen door, and I spent quite some time trying to figure it out.</p>
+<p>Great work bk!</p>
+</blockquote>
+</aside>
+<p>It became apparent to me after watching <span class="bbcode-i"><span class="bbcode-b">many</span></span> playthroughs of that section that the puzzle wasn’t as clear to players as I had hoped. With the help of one of our other texture/model artists I had some signs and a few bits made to hopefully make the whole puzzle clearer.</p>
+<p>Perhaps I shall write something up about it in more detail at some point.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP:5'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13125.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-29T22:26:03Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:34Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Oh, please do! I love reading that type of stuff.</p>
+<p>And wow, the model cabinets actually do look far better now that I can see a comparison very, very close up. Dem snowtanks is p. hawt, too. Nice work as expected.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP:5'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/imadoofus.html'><span itemprop='name'>imadoofus</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13125.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-30T00:03:45Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T10:52:56Z' class='post-time'>
+                August 11, 2020, 10:52am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP:5'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Swaggless.html'><span itemprop='name'>Swaggless</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13125.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-30T03:49:18Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:36Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Looking good, man! I loved how the cold areas inn Black Mesa actually LOOK cold! Many games never quite did that for me.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP:5'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bur.html'><span itemprop='name'>bur</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13125.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-30T04:35:25Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:36Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Really can’t wait for the Steam version, wonder if I’ll manage to hold on until Xen releases (or until some sort of mod is created which fulfils all my desires :3)</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP:5'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Salk.html'><span itemprop='name'>Salk</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13125.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-30T05:23:27Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:36Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Really juicy update, this one!</p>
+<p>And what remarkable improvements over the older models. Very well done, bkdale86. Thanks for sharing.</p>
+<p>And thanks for trying and making the puzzle a little less obscure, Cpl.1nsane.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP:5'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Ronster.html'><span itemprop='name'>Ronster</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13125.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-30T05:38:04Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:36Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="bkdale86">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/b/ccd318/40.png" class="avatar"> bkdale86:</div>
+<blockquote>
+<p>So the final results are shown here in these before and after pictures.</p>
+</blockquote>
+</aside>
+<p>Don’t lose the red lights on the panel… Unless they are just flicking on and off.</p>
+<p>All looks really good I like the liquid nitrogen and freezer areas too.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP:5'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Morloc.html'><span itemprop='name'>Morloc</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13125.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-30T16:19:12Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:38Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Those new frosty tanks look great! Cant remember but is there a breath particle effect added to gordon in those areas?</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP:5'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/hxcguitarist.html'><span itemprop='name'>hxcguitarist</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13125.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-30T18:41:23Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:39Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I really enjoy viewing the updates to the textures and models! Keep them coming!</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP:5'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/RK1.html'><span itemprop='name'>RK1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13125.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-31T14:37:11Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:48Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Loving the new cooling reserve box looking things! Looking forward to see what else you have up your sleeve!</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP:5'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bkdale86.html'><span itemprop='name'>bkdale86</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13125.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-31T16:05:29Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:49Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Morloc">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/m/cab0a1/40.png" class="avatar"> Morloc:</div>
+<blockquote>
+<p>Those new frosty tanks look great! Cant remember but is there a breath particle effect added to gordon in those areas?</p>
+</blockquote>
+</aside>
+<p>No there isn’t.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP:5'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Chrillen.html'><span itemprop='name'>Chrillen</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13125.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-31T16:54:19Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:49Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#19</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>How distracting that would be.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP:5'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13125.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-31T17:02:13Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:49Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#20</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I actually did a quick test, it’s not so bad. Granted, it requires a bit of extra work that is soooo not worth it, but it’s doable, and not horrible.</p>
+        </div>
+
+        <meta itemprop='headline' content='BBMIP:5'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="131254658.html?page=2">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/bbmip-5/13125 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:47:48 GMT -->
+</html>

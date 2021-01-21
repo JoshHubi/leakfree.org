@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Options not saving properly</title>
+    <link>https://leakfree.org/t/options-not-saving-properly/14077</link>
+    <description>Black Mesa: Steam Content Build ID 614303 (Can&#39;t find a version number, so that&#39;ll have to do for now)
+
+Menu options reset after every time the menu loads:
+
+glow_outline_effect_enable &quot;0&quot; (resets to default: &quot;1&quot;)
+sk_autoaim_mode &quot;0&quot; (resets to default: &quot;1&quot;)
+
+In layman&#39;s terms, the &quot;enable autoaim&quot; and &quot;enable HUD post process&quot; options don&#39;t persist after a game session is ended; they always reset to the default settings.  I tried editing the config.cfg file to no avail, and tried adding the commands above into the &quot;autoexec.cfg&quot; file as well.
+
+Suggestion: Disable help texts.  cl_showhelp &quot;0&quot;&#39;s entry in config.cfg has the same issue; it resets to 1 automatically.</description>
+    
+    <lastBuildDate>Sat, 23 May 2015 07:56:19 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/options-not-saving-properly/14077.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Options not saving properly</title>
+        <dc:creator><![CDATA[d4ngo]]></dc:creator>
+        <description><![CDATA[
+            <p>Your finds I believe may be in the same vein as the glitch I <a href="https://forums.blackmesasource.com/index.php/Thread/28113-Glitch-SOLVED-1-of-2-Fast-Weapon-Switch-Menu-Toggles-Broken-UPDATED/" data-bbcode="true" rel="nofollow noopener">found</a> (and ended up solving myself).</p>
+<p>Changes applied in the menu prompt this code to run:<br>
+‘userconfig.cfg’ not present; not executing.<br>
+Host_WriteConfiguration: Wrote cfg/config.cfg</p>
+<p>I believe each option change, level load, and possibly other causes in-game make the game reload a default version of config.cfg. This is only a theory for why this happens, but I aside from that I think I might have a fix for you.</p>
+<p>Try making the changes you want to the config, then make it read-only. I checked a few of the other .cfg files and I’m thinking it might work. There was no execute command in config.cfg to run other cfg files or any cfg files that reference userconfig.cfg so I wonder if that is hardcoded into the game? My theory is that is why the config.cfg changes are able to be overwritten so easily while in-game, but I’m not totally sure.</p>
+<p>Hopefully if the devs get a chance to answer questions about these smaller issues we’ll figure out what the deal is. Good luck!</p>
+          <p><a href="https://leakfree.org/t/options-not-saving-properly/14077/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/options-not-saving-properly/14077/2</link>
+        <pubDate>Sat, 23 May 2015 07:56:19 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14077-2</guid>
+        <source url="https://leakfree.org/t/options-not-saving-properly/14077.rss">Options not saving properly</source>
+      </item>
+      <item>
+        <title>Options not saving properly</title>
+        <dc:creator><![CDATA[Barking_Sands]]></dc:creator>
+        <description><![CDATA[
+            <p>Black Mesa: Steam Content Build ID 614303 (Can’t find a version number, so that’ll have to do for now)</p>
+<p>Menu options reset after every time the menu loads:</p>
+<p>glow_outline_effect_enable “0” (resets to default: “1”)<br>
+sk_autoaim_mode “0” (resets to default: “1”)</p>
+<p>In layman’s terms, the “enable autoaim” and “enable HUD post process” options don’t persist after a game session is ended; they always reset to the default settings.  I tried editing the config.cfg file to no avail, and tried adding the commands above into the “autoexec.cfg” file as well.</p>
+<p>Suggestion: Disable help texts.  cl_showhelp “0”'s entry in config.cfg has the same issue; it resets to 1 automatically.</p>
+          <p><a href="https://leakfree.org/t/options-not-saving-properly/14077/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/options-not-saving-properly/14077/1</link>
+        <pubDate>Mon, 18 May 2015 07:16:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14077-1</guid>
+        <source url="https://leakfree.org/t/options-not-saving-properly/14077.rss">Options not saving properly</source>
+      </item>
+  </channel>
+</rss>

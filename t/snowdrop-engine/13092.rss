@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Snowdrop Engine</title>
+    <link>https://leakfree.org/t/snowdrop-engine/13092</link>
+    <description>Massive showcased their new engine and it seems to be really awesome (and the game looks pretty).
+
+[url]https://www.polygon.com/2014/3/19/5524924/the-division-video-snowdrop-game-engine[/url]</description>
+    
+    <lastBuildDate>Thu, 20 Mar 2014 04:13:00 +0000</lastBuildDate>
+    <category>Technology and Gaming</category>
+    <atom:link href="https://leakfree.org/t/snowdrop-engine/13092.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Snowdrop Engine</title>
+        <dc:creator><![CDATA[Kairouseki]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="k3nny1550">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/k3nny1550/40/4952_2.png" class="avatar"> k3nny1550:</div>
+<blockquote>
+<p>Mod tools. PLZ, Ubisoft. Don’t leave modders out in the cold.</p>
+</blockquote>
+</aside>
+<p>Mod tools cut in on DLC profits though. Can’t be having that.</p>
+          <p><a href="https://leakfree.org/t/snowdrop-engine/13092/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/snowdrop-engine/13092/14</link>
+        <pubDate>Thu, 20 Mar 2014 04:13:00 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13092-14</guid>
+        <source url="https://leakfree.org/t/snowdrop-engine/13092.rss">Snowdrop Engine</source>
+      </item>
+      <item>
+        <title>Snowdrop Engine</title>
+        <dc:creator><![CDATA[Mr_GameCrazy]]></dc:creator>
+        <description><![CDATA[
+            <p>Nice game engine!</p>
+          <p><a href="https://leakfree.org/t/snowdrop-engine/13092/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/snowdrop-engine/13092/13</link>
+        <pubDate>Thu, 20 Mar 2014 04:12:02 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13092-13</guid>
+        <source url="https://leakfree.org/t/snowdrop-engine/13092.rss">Snowdrop Engine</source>
+      </item>
+      <item>
+        <title>Snowdrop Engine</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>Mod tools. PLZ, Ubisoft. Don’t leave modders out in the cold.</p>
+          <p><a href="https://leakfree.org/t/snowdrop-engine/13092/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/snowdrop-engine/13092/12</link>
+        <pubDate>Thu, 20 Mar 2014 04:05:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13092-12</guid>
+        <source url="https://leakfree.org/t/snowdrop-engine/13092.rss">Snowdrop Engine</source>
+      </item>
+      <item>
+        <title>Snowdrop Engine</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>Looking at the little bits of level design they showed - especially the building creation - I really, really, <span class="bbcode-i">really</span> wanna try the engine out.</p>
+          <p><a href="https://leakfree.org/t/snowdrop-engine/13092/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/snowdrop-engine/13092/11</link>
+        <pubDate>Thu, 20 Mar 2014 02:30:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13092-11</guid>
+        <source url="https://leakfree.org/t/snowdrop-engine/13092.rss">Snowdrop Engine</source>
+      </item>
+      <item>
+        <title>Snowdrop Engine</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>If I’m making a game, I want to be able to spend hours actually, y’know, <span class="bbcode-i">making the game</span> rather than <span class="bbcode-i">trying to figure out why I can’t make my game</span>.</p>
+<p>For example, if I’m a coder and I want to send the message “Hello, world!” to the player, I want to be able to write this in 3 seconds:</p>
+<aside class="quote no-group">
+<blockquote>
+<p>send_msg_to_player_screen(“Hello, world!”)</p>
+</blockquote>
+</aside>
+<p>Instead of writing this for 20 minutes:</p>
+<aside class="quote no-group">
+<blockquote>
+<p>class HelloWorldMessageSender implements MessageSender {<br>
+private static final String MSG_STRING = “Hello, world!”;<br>
+public void SendHelloWorldMessage() throws FailedMessageException {<br>
+MessageFactory msgFactory = new MessageFactory();<br>
+msgFactory.putString(MSG_STRING);<br>
+Message msg = msgFactory.generateNewMessageFromString();<br>
+Client client = Game.getClient();<br>
+MessageRenderer msgRenderer = new MessageRenderer(client.getScreen());<br>
+TextObject text = msgRenderer.render();<br>
+if (text != TextObject.failedTextRender &amp;&amp; text != null) {<br>
+client.getScreen().pushToDisplayStack(text.toPixelArray(640, 380));<br>
+}<br>
+else {<br>
+throw new FailedMessageException();<br>
+}<br>
+}<br>
+}</p>
+</blockquote>
+</aside>
+<p>… and then spending the next six hours trying to figure out why it doesn’t work.</p>
+<p>That said, the engine looks really nice! Some of it reminds me a little of CryEngine, actually (like the logical flowchart stuff). It looks easier to deal with too!</p>
+          <p><a href="https://leakfree.org/t/snowdrop-engine/13092/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/snowdrop-engine/13092/10</link>
+        <pubDate>Thu, 20 Mar 2014 01:48:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13092-10</guid>
+        <source url="https://leakfree.org/t/snowdrop-engine/13092.rss">Snowdrop Engine</source>
+      </item>
+      <item>
+        <title>Snowdrop Engine</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Pyro">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/p/71e660/40.png" class="avatar"> Pyro:</div>
+<blockquote>
+<p>On the contrary, the easier an engine is to work with it, the more you can do with it, since you need to dedicate less time and energy to any one task.</p>
+</blockquote>
+</aside>
+<p>Plus the easier an engine is to work with, the larger the potential audience and thus more likely to get higher quality work from it. Making something difficult to use just so you can say it’s hard sounds backwards.</p>
+          <p><a href="https://leakfree.org/t/snowdrop-engine/13092/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/snowdrop-engine/13092/9</link>
+        <pubDate>Thu, 20 Mar 2014 01:14:44 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13092-9</guid>
+        <source url="https://leakfree.org/t/snowdrop-engine/13092.rss">Snowdrop Engine</source>
+      </item>
+      <item>
+        <title>Snowdrop Engine</title>
+        <dc:creator><![CDATA[Maxey]]></dc:creator>
+        <description><![CDATA[
+            <p>That engine seems to be giving Frostbite 3 a run for its money. Swedes are just godlike at programming engines, it seems.</p>
+          <p><a href="https://leakfree.org/t/snowdrop-engine/13092/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/snowdrop-engine/13092/8</link>
+        <pubDate>Thu, 20 Mar 2014 00:06:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13092-8</guid>
+        <source url="https://leakfree.org/t/snowdrop-engine/13092.rss">Snowdrop Engine</source>
+      </item>
+      <item>
+        <title>Snowdrop Engine</title>
+        <dc:creator><![CDATA[Kairouseki]]></dc:creator>
+        <description><![CDATA[
+            <p>Specialized engines work well occasionally though. UE is like the “jack of all trades master of none” engine which generally makes it easy to work with but isn’t suitable for every single game ever. Sometimes you have to make your own engine if you want your game(s) to be really good at one or a few things. And often you can’t just add that kind of stuff in on top of the engine or you get stuff like Source where its limitations are still obvious. Or even UE3 to a lesser extent.</p>
+          <p><a href="https://leakfree.org/t/snowdrop-engine/13092/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/snowdrop-engine/13092/7</link>
+        <pubDate>Wed, 19 Mar 2014 20:59:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13092-7</guid>
+        <source url="https://leakfree.org/t/snowdrop-engine/13092.rss">Snowdrop Engine</source>
+      </item>
+      <item>
+        <title>Snowdrop Engine</title>
+        <dc:creator><![CDATA[garrthbarrttinn]]></dc:creator>
+        <description><![CDATA[
+            <p>Damn that looks sexy. I really wish the game development sphere weren’t so fragmented. It’d be nice to see separate developers working together on/with the same engine. UE has been great for that, lets hope Snowdrop picks up a following too and we get less single series undeveloped engines. The part where he was making and resizing a building was really really cool. What is usually enormous quantities of work he was doing in seconds by dragging his mouse.</p>
+          <p><a href="https://leakfree.org/t/snowdrop-engine/13092/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/snowdrop-engine/13092/6</link>
+        <pubDate>Wed, 19 Mar 2014 20:23:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13092-6</guid>
+        <source url="https://leakfree.org/t/snowdrop-engine/13092.rss">Snowdrop Engine</source>
+      </item>
+      <item>
+        <title>Snowdrop Engine</title>
+        <dc:creator><![CDATA[RK1]]></dc:creator>
+        <description><![CDATA[
+            <p>^</p>
+<p>I found myself really intrigued watching the portions of the video that involved level design, because it looked so incredibly easy. I know I could make a whole lot of stuff with that kind of tools!</p>
+          <p><a href="https://leakfree.org/t/snowdrop-engine/13092/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/snowdrop-engine/13092/5</link>
+        <pubDate>Wed, 19 Mar 2014 19:55:51 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13092-5</guid>
+        <source url="https://leakfree.org/t/snowdrop-engine/13092.rss">Snowdrop Engine</source>
+      </item>
+      <item>
+        <title>Snowdrop Engine</title>
+        <dc:creator><![CDATA[papernick]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Ibanez">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/i/a4c791/40.png" class="avatar"> Ibanez:</div>
+<blockquote>
+<p>good things take hard work.</p>
+</blockquote>
+</aside>
+<p>Sure, but with an engine that’s easy to work with you can allocate more time to work on the game design instead of having to deal with hours of frustration (e.g: the Source SDK).</p>
+          <p><a href="https://leakfree.org/t/snowdrop-engine/13092/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/snowdrop-engine/13092/4</link>
+        <pubDate>Wed, 19 Mar 2014 19:30:24 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13092-4</guid>
+        <source url="https://leakfree.org/t/snowdrop-engine/13092.rss">Snowdrop Engine</source>
+      </item>
+      <item>
+        <title>Snowdrop Engine</title>
+        <dc:creator><![CDATA[Pyroclase]]></dc:creator>
+        <description><![CDATA[
+            <p>On the contrary, the easier an engine is to work with it, the more you can do with it, since you need to dedicate less time and energy to any one task.</p>
+          <p><a href="https://leakfree.org/t/snowdrop-engine/13092/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/snowdrop-engine/13092/3</link>
+        <pubDate>Wed, 19 Mar 2014 19:17:50 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13092-3</guid>
+        <source url="https://leakfree.org/t/snowdrop-engine/13092.rss">Snowdrop Engine</source>
+      </item>
+      <item>
+        <title>Snowdrop Engine</title>
+        <dc:creator><![CDATA[Ibanez]]></dc:creator>
+        <description><![CDATA[
+            <p>its pretty, but im tired of hearing game developers talk about how easy and fun to use their new engine is.</p>
+<p>if you want to make something good with it, it shouldn’t <span class="bbcode-i">be</span> easy or fun. good things take hard work.</p>
+          <p><a href="https://leakfree.org/t/snowdrop-engine/13092/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/snowdrop-engine/13092/2</link>
+        <pubDate>Wed, 19 Mar 2014 18:27:52 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13092-2</guid>
+        <source url="https://leakfree.org/t/snowdrop-engine/13092.rss">Snowdrop Engine</source>
+      </item>
+      <item>
+        <title>Snowdrop Engine</title>
+        <dc:creator><![CDATA[papernick]]></dc:creator>
+        <description><![CDATA[
+            <p>Massive showcased their new engine and it seems to be really awesome (and the game looks pretty).</p>
+<p><a href="https://www.polygon.com/2014/3/19/5524924/the-division-video-snowdrop-game-engine" data-bbcode="true" rel="nofollow noopener">https://www.polygon.com/2014/3/19/5524924/the-division-video-snowdrop-game-engine</a></p>
+          <p><a href="https://leakfree.org/t/snowdrop-engine/13092/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/snowdrop-engine/13092/1</link>
+        <pubDate>Wed, 19 Mar 2014 17:55:36 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13092-1</guid>
+        <source url="https://leakfree.org/t/snowdrop-engine/13092.rss">Snowdrop Engine</source>
+      </item>
+  </channel>
+</rss>

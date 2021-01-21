@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/bms-tower-defense/11828 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 10:33:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>BMS Tower Defense - Source 1 - Leakfree</title>
+    <meta name="description" content="Hey guys! 
+I started playing around with AI scripting in BMS a few days ago. These little experiments evolved into a brand new game mode! It’s been through a number of revisions, and I now feel it’s ready for a public re&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="11828.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;BMS Tower Defense&#39;" href="11828.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/3X/1/c/1c51cf189f7feaf77934683e82d2b0b397e0334d.jpeg" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/3X/1/c/1c51cf189f7feaf77934683e82d2b0b397e0334d.jpeg" />
+<meta property="og:url" content="https://leakfree.org/t/bms-tower-defense/11828" />
+<meta name="twitter:url" content="https://leakfree.org/t/bms-tower-defense/11828" />
+<meta property="og:title" content="BMS Tower Defense" />
+<meta name="twitter:title" content="BMS Tower Defense" />
+<meta property="og:description" content="Hey guys!  I started playing around with AI scripting in BMS a few days ago. These little experiments evolved into a brand new game mode! It’s been through a number of revisions, and I now feel it’s ready for a public release.  The basic idea is that you defend yourself against 10 waves of enemies (hgrunts, agrunts, aslaves, etc) while also protecting an objective. For each wave you defeat, you’re given a battery inside your spawn.  The battery is used to unlock features of the map (health\suit ..." />
+<meta name="twitter:description" content="Hey guys!  I started playing around with AI scripting in BMS a few days ago. These little experiments evolved into a brand new game mode! It’s been through a number of revisions, and I now feel it’s ready for a public release.  The basic idea is that you defend yourself against 10 waves of enemies (hgrunts, agrunts, aslaves, etc) while also protecting an objective. For each wave you defeat, you’re given a battery inside your spawn.  The battery is used to unlock features of the map (health\suit ..." />
+<meta property="article:published_time" content="2012-12-10T02:06:21+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="next" href="118284658.html?page=2">
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="11828.html">BMS Tower Defense</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/7.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>General Development</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/source-1/43.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #ED207B'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Source 1</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/lucas93.html'><span itemprop='name'>lucas93</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11828.html">
+
+            <link itemprop="image" href="../../uploads/default/original/3X/1/c/1c51cf189f7feaf77934683e82d2b0b397e0334d.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-12-10T02:06:21Z'>
+              <time itemprop='dateModified' datetime='2020-08-12T06:31:17Z' class='post-time'>
+                August 12, 2020,  6:31am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hey guys!</p>
+<p>I started playing around with AI scripting in BMS a few days ago. These little experiments evolved into a brand new game mode! It’s been through a number of revisions, and I now feel it’s ready for a public release.</p>
+<p>The basic idea is that you defend yourself against 10 waves of enemies (hgrunts, agrunts, aslaves, etc) while also protecting an objective. For each wave you defeat, you’re given a battery inside your spawn.<br>
+The battery is used to unlock features of the map (health\suit chargers, sentry turrets and weapon crates) by placing it in empty battery containers around the map (signified by a grey box).</p>
+<p>The map is just dev textured, but the map is more about the gameplay concept than it is about the art.</p>
+<p>NOTE: Play with sv_cheats set to 1, there’s a little surprise after each wave.</p>
+<p>LINK: <a href="https://www.gamefront.com/files/22729664/defense.zip" data-bbcode="true" rel="nofollow noopener">https://www.gamefront.com/files/22729664/defense.zip</a></p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/3X/1/c/1c51cf189f7feaf77934683e82d2b0b397e0334d.jpg" data-download-href="https://leakfree.org/uploads/default/1c51cf189f7feaf77934683e82d2b0b397e0334d" title=""><img src="../../uploads/default/original/3X/1/c/1c51cf189f7feaf77934683e82d2b0b397e0334d.jpg" alt="" data-base62-sha1="42wDVQBGDNepOc05Dnk53n6zzNX" width="690" height="388" data-small-upload="../../uploads/default/optimized/3X/1/c/1c51cf189f7feaf77934683e82d2b0b397e0334d_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1024×576 50.1 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/3X/9/2/929ab1e4ad2928a4ab744e23c11f9e9c7930b0bc.jpg" data-download-href="https://leakfree.org/uploads/default/929ab1e4ad2928a4ab744e23c11f9e9c7930b0bc" title=""><img src="../../uploads/default/original/3X/9/2/929ab1e4ad2928a4ab744e23c11f9e9c7930b0bc.jpg" alt="" data-base62-sha1="kUV8RzWjsylfbQxZVWTQ5nniw8c" width="690" height="388" data-small-upload="../../uploads/default/optimized/3X/9/2/929ab1e4ad2928a4ab744e23c11f9e9c7930b0bc_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1024×576 78.5 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/3X/7/5/75d5e3f348e12069167859d5c9053dd9ec0922dd.jpg" data-download-href="https://leakfree.org/uploads/default/75d5e3f348e12069167859d5c9053dd9ec0922dd" title=""><img src="../../uploads/default/original/3X/7/5/75d5e3f348e12069167859d5c9053dd9ec0922dd.jpg" alt="" data-base62-sha1="gOq7zEj2FytKngMMHr9emLTFzPL" width="690" height="388" data-small-upload="../../uploads/default/optimized/3X/7/5/75d5e3f348e12069167859d5c9053dd9ec0922dd_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1024×576 50.3 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='BMS Tower Defense'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dotard.html'><span itemprop='name'>Dotard</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11828.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-12-10T02:44:28Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:01:23Z' class='post-time'>
+                November 25, 2018,  3:01am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Sounds fun I guess, thanks <img src="../../images/emoji/twitter/expressionlessc164.png?v=9" title=":expressionless:" class="emoji" alt=":expressionless:"></p>
+        </div>
+
+        <meta itemprop='headline' content='BMS Tower Defense'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Problematic_A-hole.html'><span itemprop='name'>Problematic_A-hole</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11828.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-12-10T03:01:40Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:01:23Z' class='post-time'>
+                November 25, 2018,  3:01am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This is for multiplayer, right?<br>
+If it is, call it BM Co-Op</p>
+        </div>
+
+        <meta itemprop='headline' content='BMS Tower Defense'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/lucas93.html'><span itemprop='name'>lucas93</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11828.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-12-10T04:29:55Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:01:25Z' class='post-time'>
+                November 25, 2018,  3:01am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yeah, the idea is for a cooperative game type</p>
+        </div>
+
+        <meta itemprop='headline' content='BMS Tower Defense'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bur.html'><span itemprop='name'>bur</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11828.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-12-10T06:46:55Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:01:26Z' class='post-time'>
+                November 25, 2018,  3:01am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Always loved TD in WC3, curious to see how this plays out.</p>
+        </div>
+
+        <meta itemprop='headline' content='BMS Tower Defense'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11828.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-12-10T09:45:52Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:01:26Z' class='post-time'>
+                November 25, 2018,  3:01am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Soon as I get my PC running I’ll check it out, sounds interesting. In the mean time, anyone else try it, yet?</p>
+        </div>
+
+        <meta itemprop='headline' content='BMS Tower Defense'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/D3lta.html'><span itemprop='name'>D3lta</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11828.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2012-12-11T09:20:45Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:01:44Z' class='post-time'>
+                November 25, 2018,  3:01am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’ll upload a video of it today.<br>
+Fun gamemode though, I only wish there were more waves.</p>
+        </div>
+
+        <meta itemprop='headline' content='BMS Tower Defense'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/your-name-here.html'><span itemprop='name'>your-name-here</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11828.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2013-03-07T02:47:50Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:18:31Z' class='post-time'>
+                November 25, 2018,  3:18am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Bumping this. I played this yesterday and it was ridiculously fun! I highly encourage everyone to play it.</p>
+        </div>
+
+        <meta itemprop='headline' content='BMS Tower Defense'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11828.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2013-03-07T03:27:56Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:18:32Z' class='post-time'>
+                November 25, 2018,  3:18am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Oh yeah! I forgot to try this! Good job, OP. Much more fun than I anticipated. Your weapon unlocking system is really creative, too.</p>
+<p>This actually has quite some potential. Just thinking about what would happen if some good level designers started utilizing this concept.</p>
+        </div>
+
+        <meta itemprop='headline' content='BMS Tower Defense'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Rudeboy.html'><span itemprop='name'>Rudeboy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11828.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2013-07-02T07:12:53Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:32:08Z' class='post-time'>
+                November 25, 2018,  3:32am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Its wonderfull,<br>
+Keep it up man,Bester luck to you.</p>
+<p>Rudeboy</p>
+        </div>
+
+        <meta itemprop='headline' content='BMS Tower Defense'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/LordSkunk_707.html'><span itemprop='name'>LordSkunk_707</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11828.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2013-07-02T08:11:29Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:32:08Z' class='post-time'>
+                November 25, 2018,  3:32am
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Short and sweet, I really enjoyed it. It certainly has a lot of potential, and could be made into something a whole lot more awesome. I got a little confused after unlocking multiple crates to determine which was which, but that was my only complaint gameplay wise. With a little fine tuning and some excellent map design, this is a really fun gamemode.</p>
+        </div>
+
+        <meta itemprop='headline' content='BMS Tower Defense'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/ntgd.html'><span itemprop='name'>ntgd</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11828.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-01-05T15:35:37Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:52:43Z' class='post-time'>
+                November 25, 2018,  3:52am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>please can someone reupload this map</p>
+        </div>
+
+        <meta itemprop='headline' content='BMS Tower Defense'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Kenley.html'><span itemprop='name'>Kenley</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11828.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-01-05T16:24:49Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:52:44Z' class='post-time'>
+                November 25, 2018,  3:52am
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>What’s wrong?  The download in the OP works fine for me.</p>
+        </div>
+
+        <meta itemprop='headline' content='BMS Tower Defense'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/ntgd.html'><span itemprop='name'>ntgd</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11828.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-01-05T16:42:16Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T10:46:19Z' class='post-time'>
+                August 11, 2020, 10:46am
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I can’t download from gamefront because of their rules: <a href="https://www.gamefront.com/file-hosting-faq/" data-bbcode="true" rel="nofollow noopener">https://www.gamefront.com/file-hosting-faq/</a></p>
+        </div>
+
+        <meta itemprop='headline' content='BMS Tower Defense'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/papernick.html'><span itemprop='name'>papernick</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11828.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-01-05T18:26:46Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:52:44Z' class='post-time'>
+                November 25, 2018,  3:52am
+              </time>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Google “proxy”</p>
+        </div>
+
+        <meta itemprop='headline' content='BMS Tower Defense'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11828.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-01-05T18:35:16Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:52:44Z' class='post-time'>
+                November 25, 2018,  3:52am
+              </time>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a href="https://www.mediafire.com/?pbr1o7iwtk2rgeq" data-bbcode="true" rel="nofollow noopener"><span class="bbcode-i">OR</span> I can just upload it.</a></p>
+        </div>
+
+        <meta itemprop='headline' content='BMS Tower Defense'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/CPU.html'><span itemprop='name'>CPU</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11828.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-01-05T18:36:02Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:52:45Z' class='post-time'>
+                November 25, 2018,  3:52am
+              </time>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="ntgd">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/n/ebca7d/40.png" class="avatar"> ntgd:</div>
+<blockquote>
+<p>please can someone reupload this map</p>
+</blockquote>
+</aside>
+<p>The link is in the very first post.</p>
+        </div>
+
+        <meta itemprop='headline' content='BMS Tower Defense'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/ntgd.html'><span itemprop='name'>ntgd</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11828.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-01-05T18:40:05Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:52:45Z' class='post-time'>
+                November 25, 2018,  3:52am
+              </time>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>sure, thanks  <img src="../../images/emoji/twitter/winkc164.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+        </div>
+
+        <meta itemprop='headline' content='BMS Tower Defense'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Deathmonkey7.html'><span itemprop='name'>Deathmonkey7</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11828.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-01-05T18:46:56Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:52:45Z' class='post-time'>
+                November 25, 2018,  3:52am
+              </time>
+          <span itemprop='position'>#19</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Anyone else notice he has a Devloper title now? I wonder if that means this will become an official game mode of BMDM?</p>
+        </div>
+
+        <meta itemprop='headline' content='BMS Tower Defense'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11828.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-01-05T18:57:36Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:52:45Z' class='post-time'>
+                November 25, 2018,  3:52am
+              </time>
+          <span itemprop='position'>#20</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I was just wondering something similar. It’s not impossible, and it was quite a fun map. A full gamemode on it could be enjoyable.</p>
+        </div>
+
+        <meta itemprop='headline' content='BMS Tower Defense'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="118284658.html?page=2">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/bms-tower-defense/11828 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 10:33:37 GMT -->
+</html>

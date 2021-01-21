@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Tutorial - Ingame Light Editor</title>
+    <link>https://leakfree.org/t/tutorial-ingame-light-editor/15315</link>
+    <description>ello Guys, Since a lot of people were asking how to implement new lights I have uploaded some of our internal tutorial/test maps on [url=&#39;https://www.dropbox.com/s/vu928yw5jw39b7i/tut_nextgen_lights_optimised.vmf?dl=0&#39;]Dropbox[/url].
+I would recommend checking out tut_nextgen_lights_optimised.vmf since it contains a lot of examples in a single map. Then you can check one of those specialized example/test maps too.
+Please note that these maps are not the most optimized version of maps and they were just created to test/demo specific bugs/features.
+
+To help us configure new lights in a faster way we have implemented Ingame Light Editor. Here&#39;s a quick tutorial/documentation from our internal forums -
+
+
+In game Light Editor - a Convar based system for easily selecting new Light entities and edit their properties via convar. (Whenever alex get free from UI he will look into UI for editor and even saving to vmf if its easy)
+
+Here&#39;s the overall workflow -
+
+1) [b]le_editor_selection_mode_enabled[/b] - Enable Light Editor selection mode. It will show you xyz axis and a box around light entity in your cross hair.
+[ATTACHMENT NOT FOUND]
+
+2) [b]le_editor_selection_lock[/b] - Lock your selection.
+
+3) Opon locking its properties will be mapped to convars starting with [b]le_light_[/b] and [b]le_gr_[/b] . You can use these convars to modify different light properties and copy paste them to hammer later on.
+
+[ATTACHMENT NOT FOUND][ATTACHMENT NOT FOUND]
+
+4) [b]le_editor_selection_clear[/b] - Once you are done with a selected light and if you want to clear selection you can use this convar. Once selection is reset all the helper meshes (box/sphere) will also disappear.
+
+
+
+[b]List of Convars [/b]
+
+(Each of these le_light_* convar should have helpful descriptions but still in case someone needs more info feel free to ask questions.)
+
+[b]Editor Convars[/b]
+
+[b]le_editor_selection_mode_enabled [/b]- Toggles New Light selection mode. When it is on, the bounding box, pivot and debugging text is displayed for whatever LIGHT the player is looking at.
+[b]le_editor_selection_lock[/b] - Locks the selected light and exits selection mode
+[b]le_editor_print_selected_light_details[/b] - print the details of selected light
+[b]le_editor_selection_clear [/b]- Clears Light Selection
+
+
+[b]Editor config Convars[/b]
+
+[b]le_config_selected_sphere_size [/b]- Size of sphere shown around selected Light
+[b]le_config_selection_box_size[/b] - Size of box that appears during selection mode
+
+
+[b]Light Properties Convars[/b]
+
+le_light_Pos
+le_light_Col
+etc
+
+le_gr_radius
+le_gr_col_rays
+etc
+[quote=&quot;Chetan&quot;]
+[b]NOTE - You cannot change Light Type (static/stationary/dynamic) at runtime. You cannot shadow shadowmap LOD at runtime. You cannot change cookie texture at runtime. Also You cannot change Light GodraysMode at runtime. I may add support for this in near future after an optimization pass on engine.[/b]
+
+[b]I might add a convar to add lights at runtime too once above things are done but at the moment you can achieve that via ent_create.[/b]
+[/quote]
+
+[quote=&quot;Chetan&quot;]
+NOTE - Another important thing for people who don&#39;t know this - sometimes in source engine convars are not processed unless we resume the game so some of the above convars wont take effect unless you go back into game from console. But again if you gents bind selection convars to shortcut keys there&#39;s no need to open console anyways.
+[/quote]</description>
+    
+    <lastBuildDate>Mon, 13 Aug 2018 14:45:54 +0000</lastBuildDate>
+    <category>Developer Logs</category>
+    <atom:link href="https://leakfree.org/t/tutorial-ingame-light-editor/15315.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Tutorial - Ingame Light Editor</title>
+        <dc:creator><![CDATA[Tuc0]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for explanation. I had quite large opened area in my test map, so that could be the reason I didn’t noticed -extrasky light bounces.</p>
+          <p><a href="https://leakfree.org/t/tutorial-ingame-light-editor/15315/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-ingame-light-editor/15315/15</link>
+        <pubDate>Mon, 13 Aug 2018 14:45:54 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15315-15</guid>
+        <source url="https://leakfree.org/t/tutorial-ingame-light-editor/15315.rss">Tutorial - Ingame Light Editor</source>
+      </item>
+      <item>
+        <title>Tutorial - Ingame Light Editor</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>-realskylightscale scales the amount of light from the skybox generated by the image based lighting by x times. 2 would double the brightness, for example.</p>
+<p>-extrasky increases the number of light bounces calculated from the environment light. I believe the default is -32 when you’re using the -final switch in the compiler. So you need values of 64 or 128 to have a noticeable effect. Dramatically increases compile times.</p>
+          <p><a href="https://leakfree.org/t/tutorial-ingame-light-editor/15315/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-ingame-light-editor/15315/14</link>
+        <pubDate>Mon, 13 Aug 2018 13:59:22 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15315-14</guid>
+        <source url="https://leakfree.org/t/tutorial-ingame-light-editor/15315.rss">Tutorial - Ingame Light Editor</source>
+      </item>
+      <item>
+        <title>Tutorial - Ingame Light Editor</title>
+        <dc:creator><![CDATA[Tuc0]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for reply, working fine now.</p>
+<p>Got few questions about parameters:</p>
+<p>-realskylightscale “x”      Does this key have same effect as 4th value for “Ambient” key? (modifying amount of light)<br>
+-extrasky “x”                     I have tried various values for this parameter, but I can’t recognize any effect in lighting. What                                                            exactly  does  this parameter affect?</p>
+          <p><a href="https://leakfree.org/t/tutorial-ingame-light-editor/15315/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-ingame-light-editor/15315/13</link>
+        <pubDate>Mon, 13 Aug 2018 13:01:10 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15315-13</guid>
+        <source url="https://leakfree.org/t/tutorial-ingame-light-editor/15315.rss">Tutorial - Ingame Light Editor</source>
+      </item>
+      <item>
+        <title>Tutorial - Ingame Light Editor</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>Compile the map with the switch -realskylight in VRAD.</p>
+          <p><a href="https://leakfree.org/t/tutorial-ingame-light-editor/15315/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-ingame-light-editor/15315/12</link>
+        <pubDate>Sun, 12 Aug 2018 19:23:31 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15315-12</guid>
+        <source url="https://leakfree.org/t/tutorial-ingame-light-editor/15315.rss">Tutorial - Ingame Light Editor</source>
+      </item>
+      <item>
+        <title>Tutorial - Ingame Light Editor</title>
+        <dc:creator><![CDATA[Tuc0]]></dc:creator>
+        <description><![CDATA[
+            <p>Is the “<span class="bbcode-b">Image Based Ambient Lighting</span>” functional? How can I set it to use ambient light from skybox texture?</p>
+          <p><a href="https://leakfree.org/t/tutorial-ingame-light-editor/15315/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-ingame-light-editor/15315/11</link>
+        <pubDate>Sat, 11 Aug 2018 19:52:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15315-11</guid>
+        <source url="https://leakfree.org/t/tutorial-ingame-light-editor/15315.rss">Tutorial - Ingame Light Editor</source>
+      </item>
+      <item>
+        <title>Tutorial - Ingame Light Editor</title>
+        <dc:creator><![CDATA[chetanjags]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Admiral Sakai">
+<div class="title">
+<div class="quote-controls"></div>
+ Admiral Sakai:</div>
+<blockquote>
+<p>How exactly is the ‘static’ light option supposed to function?  It seems to just prevent the light in question from illuminating anything in the map.</p>
+</blockquote>
+</aside>
+<p>Sorry for late reply.</p>
+<p>So Static Light should illuminate anything object brush/prop static or dynamic but this light can’t move or change position or even change its angles.<br>
+If you turn on shadows for these lights then the shadows will be casted only for static geometry like brushes and/or static props. In other words only brushes and static props will block the light.</p>
+<p>If you are facing a specific issue in a map or situation, you can post screenshot of both light settings in hammer and how it looks in game on insane or very high (Its a good habit to use insane or devonly batch files for gfx settings during development , if your PC can handle it). In case required I wont mind checking out vmf either if I can compile it in &lt;= 5 mins.</p>
+<p>I would love to answer any questions regarding any new engine upgrade (or get answers from other members as required) and help you guys out in any way possible. I know these features are new to source so they might take sometime for getting used to.<br>
+Sorry for later reply. I don’t really check the forums that often and I dont think email notifications are working on this website ( I will message our web team to confirm this &amp; sort it out ).<br>
+In case you guys are waiting for important info and I dont reply in 1-2 days feel free to post it on steam forums or reaching out on steam chat.</p>
+          <p><a href="https://leakfree.org/t/tutorial-ingame-light-editor/15315/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-ingame-light-editor/15315/10</link>
+        <pubDate>Wed, 14 Feb 2018 06:37:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15315-10</guid>
+        <source url="https://leakfree.org/t/tutorial-ingame-light-editor/15315.rss">Tutorial - Ingame Light Editor</source>
+      </item>
+      <item>
+        <title>Tutorial - Ingame Light Editor</title>
+        <dc:creator><![CDATA[CatzEyes93]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for the heads up. Just curious… what company answered?</p>
+          <p><a href="https://leakfree.org/t/tutorial-ingame-light-editor/15315/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-ingame-light-editor/15315/9</link>
+        <pubDate>Thu, 25 Jan 2018 14:44:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15315-9</guid>
+        <source url="https://leakfree.org/t/tutorial-ingame-light-editor/15315.rss">Tutorial - Ingame Light Editor</source>
+      </item>
+      <item>
+        <title>Tutorial - Ingame Light Editor</title>
+        <dc:creator><![CDATA[drgibbles]]></dc:creator>
+        <description><![CDATA[
+            <p>Just wanted to pass this along, the phone number listed on <a href="http://BMRF.US" rel="nofollow noopener">BMRF.US</a> has been reassigned to a different company.  I called this morning and a lady answered,  she was baffled when I asked if this was BMRF.  Then she asked what number, she said she just got this number for a funding company.</p>
+          <p><a href="https://leakfree.org/t/tutorial-ingame-light-editor/15315/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-ingame-light-editor/15315/8</link>
+        <pubDate>Tue, 23 Jan 2018 14:27:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15315-8</guid>
+        <source url="https://leakfree.org/t/tutorial-ingame-light-editor/15315.rss">Tutorial - Ingame Light Editor</source>
+      </item>
+      <item>
+        <title>Tutorial - Ingame Light Editor</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>How exactly is the ‘static’ light option supposed to function?  It seems to just prevent the light in question from illuminating anything in the map.</p>
+          <p><a href="https://leakfree.org/t/tutorial-ingame-light-editor/15315/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-ingame-light-editor/15315/7</link>
+        <pubDate>Mon, 15 Jan 2018 16:38:36 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15315-7</guid>
+        <source url="https://leakfree.org/t/tutorial-ingame-light-editor/15315.rss">Tutorial - Ingame Light Editor</source>
+      </item>
+      <item>
+        <title>Tutorial - Ingame Light Editor</title>
+        <dc:creator><![CDATA[chetanjags]]></dc:creator>
+        <description><![CDATA[
+            <p>Godrays aren’t supported for spot lights. This may change in future.</p>
+<p>There’s a limit of 48 shadowmaps per map per LOD. (total 144 shadowmaps per map)</p>
+<p>There’s a perf cost for these shadowmaps Dynamic &gt; Stationary &gt; static.</p>
+<p>Keeping shadows on by default in FGD might not be a good idea depending on map and surroundings of lights etc.</p>
+          <p><a href="https://leakfree.org/t/tutorial-ingame-light-editor/15315/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-ingame-light-editor/15315/6</link>
+        <pubDate>Thu, 28 Dec 2017 18:47:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15315-6</guid>
+        <source url="https://leakfree.org/t/tutorial-ingame-light-editor/15315.rss">Tutorial - Ingame Light Editor</source>
+      </item>
+      <item>
+        <title>Tutorial - Ingame Light Editor</title>
+        <dc:creator><![CDATA[jadebenn]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="JeffMOD">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/jeffmod/40/4333_2.png" class="avatar"> JeffMOD:</div>
+<blockquote>
+<p>Is it intentional that the newLight_spot entity doesn’t have any Godray options, or did that just get left out of the FGD? Also, how big of a hit on performance do the shadow maps take? I’ve been considering modifying my copy of the FGD to make that “on” by default.</p>
+</blockquote>
+</aside>
+<p><span class="bbcode-s">I can’t speak to your other questions, but there is a godray toggle on the lights, even if it’s not present in the FGD. I know this because I was using EntSpy to copy them from c2a2a into one of my previously-compiled maps. Although I can’t say whether or not the keyvalue functions, it’s definitely there.</span><br>
+<span class="bbcode-s"></span><br>
+<span class="bbcode-s">There are two keyvalues in particular that seem to control godrays. The first is EnableGodRays, which is a boolean set to either 0 or 1. This one’s pretty self-explanatory. The second keyvalue is LightnGodRayMode which is also a boolean. I believe this keyvalue controls whether the light just emits godrays or if it actually emits light as well. So it’s probably best to keep that set to zero.</span></p>
+<p>EDIT: Ninja’d.</p>
+          <p><a href="https://leakfree.org/t/tutorial-ingame-light-editor/15315/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-ingame-light-editor/15315/5</link>
+        <pubDate>Wed, 27 Dec 2017 22:52:24 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15315-5</guid>
+        <source url="https://leakfree.org/t/tutorial-ingame-light-editor/15315.rss">Tutorial - Ingame Light Editor</source>
+      </item>
+      <item>
+        <title>Tutorial - Ingame Light Editor</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>Spot lights do not support godrays. There’s some fancy schmancy programming reason for this, but basically it destroys performance.</p>
+<p>The shadow maps do impact performance, and there is a pretty hard limit on the number allowed in the map (I think it’s like…60, but each point light will take up 6). Do not have them on unless they add significantly to the scene.</p>
+          <p><a href="https://leakfree.org/t/tutorial-ingame-light-editor/15315/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-ingame-light-editor/15315/4</link>
+        <pubDate>Wed, 27 Dec 2017 22:45:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15315-4</guid>
+        <source url="https://leakfree.org/t/tutorial-ingame-light-editor/15315.rss">Tutorial - Ingame Light Editor</source>
+      </item>
+      <item>
+        <title>Tutorial - Ingame Light Editor</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p>Is it intentional that the newLight_spot entity doesn’t have any Godray options, or did that just get left out of the FGD? Also, how big of a hit on performance do the shadow maps take? I’ve been considering modifying my copy of the FGD to make that “on” by default.</p>
+          <p><a href="https://leakfree.org/t/tutorial-ingame-light-editor/15315/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-ingame-light-editor/15315/3</link>
+        <pubDate>Wed, 27 Dec 2017 22:31:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15315-3</guid>
+        <source url="https://leakfree.org/t/tutorial-ingame-light-editor/15315.rss">Tutorial - Ingame Light Editor</source>
+      </item>
+      <item>
+        <title>Tutorial - Ingame Light Editor</title>
+        <dc:creator><![CDATA[Dmx6]]></dc:creator>
+        <description><![CDATA[
+            <p>Is it me, or are the images not working? Anyway very big thanks for the Tutorial.</p>
+          <p><a href="https://leakfree.org/t/tutorial-ingame-light-editor/15315/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-ingame-light-editor/15315/2</link>
+        <pubDate>Wed, 27 Dec 2017 15:43:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15315-2</guid>
+        <source url="https://leakfree.org/t/tutorial-ingame-light-editor/15315.rss">Tutorial - Ingame Light Editor</source>
+      </item>
+      <item>
+        <title>Tutorial - Ingame Light Editor</title>
+        <dc:creator><![CDATA[chetanjags]]></dc:creator>
+        <description><![CDATA[
+            <p>ello Guys, Since a lot of people were asking how to implement new lights I have uploaded some of our internal tutorial/test maps on <a href="https://www.dropbox.com/s/vu928yw5jw39b7i/tut_nextgen_lights_optimised.vmf?dl=0" data-bbcode="true">Dropbox</a>.<br>
+I would recommend checking out tut_nextgen_lights_optimised.vmf since it contains a lot of examples in a single map. Then you can check one of those specialized example/test maps too.<br>
+Please note that these maps are not the most optimized version of maps and they were just created to test/demo specific bugs/features.</p>
+<p>To help us configure new lights in a faster way we have implemented Ingame Light Editor. Here’s a quick tutorial/documentation from our internal forums -</p>
+<p>In game Light Editor - a Convar based system for easily selecting new Light entities and edit their properties via convar. (Whenever alex get free from UI he will look into UI for editor and even saving to vmf if its easy)</p>
+<p>Here’s the overall workflow -</p>
+<ol>
+<li>
+<p><span class="bbcode-b">le_editor_selection_mode_enabled</span> - Enable Light Editor selection mode. It will show you xyz axis and a box around light entity in your cross hair.<br>
+[ATTACHMENT NOT FOUND]</p>
+</li>
+<li>
+<p><span class="bbcode-b">le_editor_selection_lock</span> - Lock your selection.</p>
+</li>
+<li>
+<p>Opon locking its properties will be mapped to convars starting with <span class="bbcode-b">le_light_</span> and <span class="bbcode-b">le_gr_</span> . You can use these convars to modify different light properties and copy paste them to hammer later on.</p>
+</li>
+</ol>
+<p>[ATTACHMENT NOT FOUND][ATTACHMENT NOT FOUND]</p>
+<ol start="4">
+<li>
+<span class="bbcode-b">le_editor_selection_clear</span> - Once you are done with a selected light and if you want to clear selection you can use this convar. Once selection is reset all the helper meshes (box/sphere) will also disappear.</li>
+</ol>
+<p><span class="bbcode-b">List of Convars </span></p>
+<p>(Each of these le_light_* convar should have helpful descriptions but still in case someone needs more info feel free to ask questions.)</p>
+<p><span class="bbcode-b">Editor Convars</span></p>
+<p><span class="bbcode-b">le_editor_selection_mode_enabled </span>- Toggles New Light selection mode. When it is on, the bounding box, pivot and debugging text is displayed for whatever LIGHT the player is looking at.<br>
+<span class="bbcode-b">le_editor_selection_lock</span> - Locks the selected light and exits selection mode<br>
+<span class="bbcode-b">le_editor_print_selected_light_details</span> - print the details of selected light<br>
+<span class="bbcode-b">le_editor_selection_clear </span>- Clears Light Selection</p>
+<p><span class="bbcode-b">Editor config Convars</span></p>
+<p><span class="bbcode-b">le_config_selected_sphere_size </span>- Size of sphere shown around selected Light<br>
+<span class="bbcode-b">le_config_selection_box_size</span> - Size of box that appears during selection mode</p>
+<p><span class="bbcode-b">Light Properties Convars</span></p>
+<p>le_light_Pos<br>
+le_light_Col<br>
+etc</p>
+<p>le_gr_radius<br>
+le_gr_col_rays<br>
+etc</p>
+<aside class="quote no-group" data-username="Chetan">
+<div class="title">
+<div class="quote-controls"></div>
+ Chetan:</div>
+<blockquote>
+<p><span class="bbcode-b">NOTE - You cannot change Light Type (static/stationary/dynamic) at runtime. You cannot shadow shadowmap LOD at runtime. You cannot change cookie texture at runtime. Also You cannot change Light GodraysMode at runtime. I may add support for this in near future after an optimization pass on engine.</span></p>
+<p><span class="bbcode-b">I might add a convar to add lights at runtime too once above things are done but at the moment you can achieve that via ent_create.</span></p>
+</blockquote>
+</aside>
+<aside class="quote no-group" data-username="Chetan">
+<div class="title">
+<div class="quote-controls"></div>
+ Chetan:</div>
+<blockquote>
+<p>NOTE - Another important thing for people who don’t know this - sometimes in source engine convars are not processed unless we resume the game so some of the above convars wont take effect unless you go back into game from console. But again if you gents bind selection convars to shortcut keys there’s no need to open console anyways.</p>
+</blockquote>
+</aside>
+          <p><a href="https://leakfree.org/t/tutorial-ingame-light-editor/15315/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-ingame-light-editor/15315/1</link>
+        <pubDate>Tue, 26 Dec 2017 18:55:50 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15315-1</guid>
+        <source url="https://leakfree.org/t/tutorial-ingame-light-editor/15315.rss">Tutorial - Ingame Light Editor</source>
+      </item>
+  </channel>
+</rss>

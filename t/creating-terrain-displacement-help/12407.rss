@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Creating Terrain/Displacement help?</title>
+    <link>https://leakfree.org/t/creating-terrain-displacement-help/12407</link>
+    <description>Agh, I&#39;m not sure what to call this. Anyways.
+
+I understand how displacements and the like work in Source engine, to an extent. I know how to create and manipulate them and all that jazz.
+
+Thing is, I&#39;ve never really been able to figure out how to make natural-looking terrain using displacements. My attempts usually end up looking too square, or just otherwise not looking right.
+
+I&#39;m wondering, does anyone have any tips on creating realistic-looking terrain or a link to a tutorial or anything? I&#39;m thinking of terrain along the lines of what Black Mesa has, or like in Left 4 Dead&#39;s forest levels or something.</description>
+    
+    <lastBuildDate>Mon, 22 Jul 2013 21:04:49 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/creating-terrain-displacement-help/12407.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Creating Terrain/Displacement help?</title>
+        <dc:creator><![CDATA[KyuuGryphon]]></dc:creator>
+        <description><![CDATA[
+            <p>Ohhhh, I think I get it now. So basically, each displacement is its own one-unit-thick brush, as opposed to one brush having multiple displacements on it?</p>
+<p>Derp, that makes sense now. Awesome, thanks you too!</p>
+          <p><a href="https://leakfree.org/t/creating-terrain-displacement-help/12407/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/creating-terrain-displacement-help/12407/5</link>
+        <pubDate>Mon, 22 Jul 2013 21:04:49 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12407-5</guid>
+        <source url="https://leakfree.org/t/creating-terrain-displacement-help/12407.rss">Creating Terrain/Displacement help?</source>
+      </item>
+      <item>
+        <title>Creating Terrain/Displacement help?</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="ThunderDash">
+<div class="title">
+<div class="quote-controls"></div>
+ ThunderDash:</div>
+<blockquote>
+<p>I’m not entirely sure I follow what you mean in the first bit, 'cause I’m a moron… Do you think you could explain in a bit more detail or provide an image or something?  <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+</blockquote>
+</aside>
+<p>Jeffmod hit the nail right on the head.</p>
+<p>Rather than making the cliff one giant solid block, they construct it out of 1 unit thick brushes, so that it’s “hollow”. That’s the easiest way to think about it. Make sure they overlap so that they share an edge, otherwise you can’t sew them and your displacement will have seams. This gives you much better control over the shape of the individual triangles and makes sewing the displacements together a lot easier. Generally speaking, the rough “shape” of the cliffs/rocks they want is constructed by warping the brushes using the vertex tool first, which gives a much cleaner looking displacement than using the displacement tool to distort a flat one.</p>
+<p>If you’re really confused, just decompile a Black Mesa map and look at how they do it. It really is the best way to learn, by looking at it yourself and figuring it out on your own terms!</p>
+          <p><a href="https://leakfree.org/t/creating-terrain-displacement-help/12407/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/creating-terrain-displacement-help/12407/4</link>
+        <pubDate>Mon, 22 Jul 2013 17:31:19 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12407-4</guid>
+        <source url="https://leakfree.org/t/creating-terrain-displacement-help/12407.rss">Creating Terrain/Displacement help?</source>
+      </item>
+      <item>
+        <title>Creating Terrain/Displacement help?</title>
+        <dc:creator><![CDATA[KyuuGryphon]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m not entirely sure I follow what you mean in the first bit, 'cause I’m a moron… Do you think you could explain in a bit more detail or provide an image or something?  <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+          <p><a href="https://leakfree.org/t/creating-terrain-displacement-help/12407/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/creating-terrain-displacement-help/12407/3</link>
+        <pubDate>Mon, 22 Jul 2013 16:50:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12407-3</guid>
+        <source url="https://leakfree.org/t/creating-terrain-displacement-help/12407.rss">Creating Terrain/Displacement help?</source>
+      </item>
+      <item>
+        <title>Creating Terrain/Displacement help?</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p>Well, what BM does for the most part is block out the general shape of the terrain using brushwork, usually 1-unit thick planes that intersect on angles so the faces that are going to be displacements share an edge (which, of course, allows sewing) That’s how they get the mesas and cliffs blocked out, anyway.</p>
+<p>As for ground work, my best advice would be to just make liberal (but careful) use of the smooth tool and keep the displacements on the smaller side - if it’s a big patch of ground, subdivide it with the clip tool.</p>
+<p>Of course, I’m not an expert on displacements by any means, so I’ll step back and hope someone with more experience comes along.</p>
+          <p><a href="https://leakfree.org/t/creating-terrain-displacement-help/12407/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/creating-terrain-displacement-help/12407/2</link>
+        <pubDate>Mon, 22 Jul 2013 12:36:13 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12407-2</guid>
+        <source url="https://leakfree.org/t/creating-terrain-displacement-help/12407.rss">Creating Terrain/Displacement help?</source>
+      </item>
+      <item>
+        <title>Creating Terrain/Displacement help?</title>
+        <dc:creator><![CDATA[KyuuGryphon]]></dc:creator>
+        <description><![CDATA[
+            <p>Agh, I’m not sure what to call this. Anyways.</p>
+<p>I understand how displacements and the like work in Source engine, to an extent. I know how to create and manipulate them and all that jazz.</p>
+<p>Thing is, I’ve never really been able to figure out how to make natural-looking terrain using displacements. My attempts usually end up looking too square, or just otherwise not looking right.</p>
+<p>I’m wondering, does anyone have any tips on creating realistic-looking terrain or a link to a tutorial or anything? I’m thinking of terrain along the lines of what Black Mesa has, or like in Left 4 Dead’s forest levels or something.</p>
+          <p><a href="https://leakfree.org/t/creating-terrain-displacement-help/12407/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/creating-terrain-displacement-help/12407/1</link>
+        <pubDate>Mon, 22 Jul 2013 01:07:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12407-1</guid>
+        <source url="https://leakfree.org/t/creating-terrain-displacement-help/12407.rss">Creating Terrain/Displacement help?</source>
+      </item>
+  </channel>
+</rss>

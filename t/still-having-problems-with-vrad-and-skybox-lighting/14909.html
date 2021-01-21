@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/still-having-problems-with-vrad-and-skybox-lighting/14909 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:56:29 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Still having problems with VRAD and skybox lighting - Source 1 - Leakfree</title>
+    <meta name="description" content="I made a thread about this before, but it’s pretty old, and just reviving an old thread that looks solved won’t help me much. 
+Basically, whenever I try to use a light_environment to create skybox lighting in my maps, th&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="14909.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Still having problems with VRAD and skybox lighting&#39;" href="14909.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/still-having-problems-with-vrad-and-skybox-lighting/14909" />
+<meta name="twitter:url" content="https://leakfree.org/t/still-having-problems-with-vrad-and-skybox-lighting/14909" />
+<meta property="og:title" content="Still having problems with VRAD and skybox lighting" />
+<meta name="twitter:title" content="Still having problems with VRAD and skybox lighting" />
+<meta property="og:description" content="I made a thread about this before, but it’s pretty old, and just reviving an old thread that looks solved won’t help me much.  Basically, whenever I try to use a light_environment to create skybox lighting in my maps, the ambient light turns into choppy, blobby squares, and I have no idea why.  To give an example, this is Black Mesa’s c2a4g map, where you get the Tau Cannon.     And this is the same room, in the same map, when I recompiled it from the mapsrc folder.     There are only two ways I..." />
+<meta name="twitter:description" content="I made a thread about this before, but it’s pretty old, and just reviving an old thread that looks solved won’t help me much.  Basically, whenever I try to use a light_environment to create skybox lighting in my maps, the ambient light turns into choppy, blobby squares, and I have no idea why.  To give an example, this is Black Mesa’s c2a4g map, where you get the Tau Cannon.     And this is the same room, in the same map, when I recompiled it from the mapsrc folder.     There are only two ways I..." />
+<meta property="article:published_time" content="2016-08-18T04:02:21+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="14909.html">Still having problems with VRAD and skybox lighting</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/7.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>General Development</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/general-development/source-1/43.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #ED207B'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Source 1</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crawfish.html'><span itemprop='name'>Crawfish</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14909.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-08-18T04:02:21Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T20:18:19Z' class='post-time'>
+                August 11, 2020,  8:18pm
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I made a thread about this before, but it’s pretty old, and just reviving an old thread that looks solved won’t help me much.</p>
+<p>Basically, whenever I try to use a light_environment to create skybox lighting in my maps, the ambient light turns into choppy, blobby squares, and I have no idea why.</p>
+<p>To give an example, this is Black Mesa’s c2a4g map, where you get the Tau Cannon.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://image.prntscr.com/image/ddd0d9b94b7f4965bbd6f88ea48fd956.png" title="" rel="nofollow noopener"><img src="https://image.prntscr.com/image/ddd0d9b94b7f4965bbd6f88ea48fd956.png" alt="" width="690" height="387"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1602×900</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>And this is the same room, in the same map, when I recompiled it from the mapsrc folder.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://image.prntscr.com/image/01e7dc628fa04eca882e3357693985e8.png" title="" rel="nofollow noopener"><img src="https://image.prntscr.com/image/01e7dc628fa04eca882e3357693985e8.png" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1600×900</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>There are only two ways I’ve been able to get it to stop. To either set the light_environment’s ambient to all black, which makes the lighting look really flat and bad, or to use -final, which makes compiling take a crapton of time.</p>
+<p>Is there any way to make the lighting look anything close to normal without using -final? I just want my skybox light to look alright before the map is finished so I have an idea of what it’s supposed to look like.</p>
+<p>I’ve tried running both Hammer and VRAD in compatibility mode for multiple versions of Windows (I’m on Windows 10 Pro), and I’ve also tried redownloading VRAD, but nothing changes.<br>
+This happens on all engine branches, no matter what game the map is in.<br>
+Fingers crossed this isn’t normal or else mapping is gonna be a hell of a lot more painful.</p>
+        </div>
+
+        <meta itemprop='headline' content='Still having problems with VRAD and skybox lighting'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/_I-M_Taz.html'><span itemprop='name'>_I-M_Taz</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14909.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-08-18T06:48:22Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:54:46Z' class='post-time'>
+                November 25, 2018,  4:54am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>what cmd line options do you use with VRAD ?</p>
+        </div>
+
+        <meta itemprop='headline' content='Still having problems with VRAD and skybox lighting'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crawfish.html'><span itemprop='name'>Crawfish</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14909.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-08-18T22:28:14Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:54:47Z' class='post-time'>
+                November 25, 2018,  4:54am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>On most compiles I use -low -both -game $gamedir $path$file.</p>
+        </div>
+
+        <meta itemprop='headline' content='Still having problems with VRAD and skybox lighting'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/dky.tehkingd.html'><span itemprop='name'>dky.tehkingd.u</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14909.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-08-19T02:26:56Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:54:47Z' class='post-time'>
+                November 25, 2018,  4:54am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Have you tried -StaticPropPolys?</p>
+        </div>
+
+        <meta itemprop='headline' content='Still having problems with VRAD and skybox lighting'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14909.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-08-19T03:27:32Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:54:47Z' class='post-time'>
+                November 25, 2018,  4:54am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Don’t compile with -both. Use -HDR. This will half your VRAD compile times, and none of the BMS maps are compiled with LDR lighting information anyway. So there’s no point. I would also suggest using an external compiler, like VBCT, Compilepal, or even your own batch scripts. Hammer’s compiler sucks big time.</p>
+<p>You should pretty much always use -final, along with -staticproppolys, -textureshadows and -staticproplighting. You’re not really testing and tweaking the lighting properly without these switches. Yes it lengthens the compile times significantly but that’s the price you have to pay on this engine to get things perfect. For making broad tweaks to the lighting, a compile with just -HDR should be sufficient.</p>
+<p>A potential cause of the issue with your version of that map might be that you’re compiling without the -cascadeshadows switch. I think that map has CSM (but I might be wrong). Compiling a CSM map without the CSM switch can cause some weird issues.</p>
+        </div>
+
+        <meta itemprop='headline' content='Still having problems with VRAD and skybox lighting'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crawfish.html'><span itemprop='name'>Crawfish</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14909.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-08-19T03:44:38Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:54:47Z' class='post-time'>
+                November 25, 2018,  4:54am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Damn, that’s a lot of info to sink in. Thanks though!</p>
+<p>What exactly are the benefits to third party compile tools? I’ve been recommended them a lot, but I’m really not certain it’s worth it for me, since I really only map in hammer for fun and never really make anything original (And also the one time I tried to get a third party compiler, my antivirus went absolute insane).</p>
+<p>I can see why all those commands would be necessary for perfecting the lighting itself, but really, I mostly just want the lighting to be smooth while I’m working on geometry and other stuff. That way it’s not so distracting when I’m getting other things just right.<br>
+I don’t think it’s a model problem, because like I said in my old thread, it happens on even the simplest map with sky lighting, even when there aren’t even any entities, save for the light_environment and info_player_start.</p>
+<p>I did, however, find out that I can make it a lot better if I set -extrasky to 8. It takes a lot longer to compile though.</p>
+        </div>
+
+        <meta itemprop='headline' content='Still having problems with VRAD and skybox lighting'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/dky.tehkingd.html'><span itemprop='name'>dky.tehkingd.u</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14909.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-08-19T06:36:52Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:54:47Z' class='post-time'>
+                November 25, 2018,  4:54am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>For one thing, Hammer stops being a potato when you compile using an external tool. External tools also tend to have more features that Hammer’s built-in tools either don’t have, or just have a terrible interface for doing. The specifics depend on which compile tool you use.</p>
+<p>If your antivirus keeps acting up, you can add it to your whitelist. Unless you’re ultra-paranoid, in which case you probably have bigger problems to worry about. Probably.</p>
+<p>As for not caring about lighting while you’re working on other things, that’s generally what Fullbright compiles are for.</p>
+        </div>
+
+        <meta itemprop='headline' content='Still having problems with VRAD and skybox lighting'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crawfish.html'><span itemprop='name'>Crawfish</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14909.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-08-20T03:45:23Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:54:48Z' class='post-time'>
+                November 25, 2018,  4:54am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Fullbright is a lot more distracting than even bad lighting, I absolutely can’t stand that.</p>
+<p>But thank you, I’ll keep everything else in mind.</p>
+        </div>
+
+        <meta itemprop='headline' content='Still having problems with VRAD and skybox lighting'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14909.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-08-20T04:26:34Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:54:48Z' class='post-time'>
+                November 25, 2018,  4:54am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Fullbright compiles are a ridiculous time saver, it’s not about whether you can “stand” them or not, or if they’re “distracting”. If you’re not using fullbright compiles for most things, you’re literally doing nothing except costing yourself <span class="bbcode-b">A LOT</span> of time.</p>
+<p>Of course nobody can stand fullbright compiles, they look like utter garbage. But if I’m tweaking an AI sequence or a scripted event, or even just the general design/aesthetic of an area, I don’t need lighting to test that out in game. It accomplishes nothing except adding 20 minutes to my compile time, which also has the negative side effect of making small tweaks prohibitive. If I had to compile the STU maps with lighting every single time I was trying to perfect the timings on the scripting, it would have literally added <span class="bbcode-i">months</span> to development. Or removed a significant amount of quality from the end product. The vent drop sequence, for example? I probably compiled that…100 times minimum. I would never have had the patience for that in a million years, if I weren’t using fullbright.</p>
+<p>The only time you ever need to include lighting, is for when you actually…need the lighting. Such as when you’re tweaking the lighting or when you’re getting a build ready to test or ship. And, as I said before, when you do need the lighting? Do it properly! Use all the relevant settings and final parameters otherwise you’re not properly testing the lighting. The only time you should ever do “quick” lighting compiles (by which I mean using only the -HDR switch and nothing else, please never use -fast VRAD, it’s never worth it), is when you’re getting the broad strokes of lighting tweaked for an area.</p>
+<p>You shouldn’t really need lighting for 80% of your compiles. If that’s a personal preference of yours, that’s fine and cool, but it is a personal preference which accomplishes nothing but costing you time. Time which could be better invested elsewhere, or spent actually improving the maps themselves!</p>
+<p>And as DKY said, please just try and use an external compiler. Compilepal took me about 5 minutes to set up for BMS and it makes the compiling experience ridiculously smoother.</p>
+        </div>
+
+        <meta itemprop='headline' content='Still having problems with VRAD and skybox lighting'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/dky.tehkingd.html'><span itemprop='name'>dky.tehkingd.u</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14909.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-08-20T05:34:04Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:54:48Z' class='post-time'>
+                November 25, 2018,  4:54am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>If I know that my map already has visibility and lighting information embedded in the BSP, a trick I like to use is to run “entities only” compiles when working on entities and any non-aesthetic, non-brushwork tasks. Takes no more than three seconds, and preserves lighting information without having to go through a fullbright compile. Or when I know that I’m only tweaking light entity settings and nothing else (and I know that visibility information is already embedded in the BSP), I will sometimes use “entities only” combined with skipping VIS, which shaves off (admittedly not much) compile time. Works great when using an external compile tool like HTCT, which lets you switch between these configurations on the fly.</p>
+<p>Of course, it goes without saying that if you’re not well-versed in the Source map compile process, or if you’re not completely aware of the state of your BSP at all times, you shouldn’t attempt any of that.</p>
+<p>Another (much simpler) thing that you can (and <span class="bbcode-i">really should</span>) do is to heavily use the cordon tool whenever your work only encompasses a specific area. This heavily cuts down on your compile times while letting you work on what’s important. Plus, it clears your 2D views in Hammer so you don’t have to tear your hair out when your map starts to really sprawl.</p>
+        </div>
+
+        <meta itemprop='headline' content='Still having problems with VRAD and skybox lighting'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crawfish.html'><span itemprop='name'>Crawfish</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14909.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-08-20T06:26:13Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:54:48Z' class='post-time'>
+                November 25, 2018,  4:54am
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>For what it’s worth, I offset the excess compiling time by doing unrelated stuff on my other monitor.<br>
+But that all does make sense. My bad if I’m a bit stubborn with stuff like that.</p>
+<p>I mention it pretty much every time I talk about Hammer, but I really just map for fun. Most of what I do is recreating areas from other games, or changing an area from a Source game to look like I want. Never anything to release. I’m no good at actual original level design, hell I can’t even design a Portal puzzle.<br>
+That’s why I find it difficult to bother with a lot of the more complicated stuff. A lot of it assumes you’re making a large-scale project with the intent to release, and all that.</p>
+<p>Once again, thanks for all the help! Working in a decade-old engine definitely has its downsides. Can’t wait until we get an actual useful release of Source 2.</p>
+        </div>
+
+        <meta itemprop='headline' content='Still having problems with VRAD and skybox lighting'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/LordDz.html'><span itemprop='name'>LordDz</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14909.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-08-20T14:25:20Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:54:49Z' class='post-time'>
+                November 25, 2018,  4:54am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Also, make sure you open up Black Mesa and then Hammer.</p>
+<p>That way you can compile (check the “don’t run game”), load up the map in bms, see if shit is good or not, disconnect in console,<br>
+tweaks things in hammer and then load up the map.</p>
+<p>Instead of starting  bms everytime you want to check something out.<br>
+Found out a friend did a compile and started the game everytime he compiled… Cheez julis.</p>
+        </div>
+
+        <meta itemprop='headline' content='Still having problems with VRAD and skybox lighting'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/dky.tehkingd.html'><span itemprop='name'>dky.tehkingd.u</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14909.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-08-20T19:03:06Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:54:49Z' class='post-time'>
+                November 25, 2018,  4:54am
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Or don’t even use “disconnect”. Use “restart”, which resets/reloads the entire map and respawns you at the player start.</p>
+<p>I actually have a key bound to the “restart” command. Very convenient.</p>
+        </div>
+
+        <meta itemprop='headline' content='Still having problems with VRAD and skybox lighting'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crawfish.html'><span itemprop='name'>Crawfish</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14909.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-08-20T19:59:26Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:54:49Z' class='post-time'>
+                November 25, 2018,  4:54am
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’ve always used the -hijack command, but it doesn’t always seem to work.</p>
+        </div>
+
+        <meta itemprop='headline' content='Still having problems with VRAD and skybox lighting'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crawfish.html'><span itemprop='name'>Crawfish</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14909.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2016-08-22T04:32:16Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:54:52Z' class='post-time'>
+                November 25, 2018,  4:54am
+              </time>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Okay, I haven’t been trying them for long yet, but let me just say, I’m absolutely in love with fullbright compiles and the cordon tool now! I <span class="bbcode-i">highly</span> underestimated how helpful they are.<br>
+I haven’t gotten to trying another compiler yet though, I’ll make sure to get one before I start working again.</p>
+<p>Can’t thank you enough!</p>
+        </div>
+
+        <meta itemprop='headline' content='Still having problems with VRAD and skybox lighting'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/still-having-problems-with-vrad-and-skybox-lighting/14909 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:56:30 GMT -->
+</html>

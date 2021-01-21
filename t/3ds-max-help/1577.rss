@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>3ds Max help</title>
+    <link>https://leakfree.org/t/3ds-max-help/1577</link>
+    <description>Ok so I&#39;m just considering this with anyone who has 3ds max and some sort of exporter. Can some one export my two models I have that I need to get done for Garthbartin for hammer. I&#39;m pressed on time with work and school and normally I would look this up on how to do this. All I have is the .MAX so if some one would be so kind to tell me what I need to give them in order to be put as a static prop in a map. Garth should also be able to help explain this. I know that the model has to be exported as a SMD and the textures as VTF so if someone could help me out much would be appreciated. Thank you.</description>
+    
+    <lastBuildDate>Thu, 08 Oct 2009 11:16:58 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/3ds-max-help/1577.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>3ds Max help</title>
+        <dc:creator><![CDATA[RabidMonkey]]></dc:creator>
+        <description><![CDATA[
+            <p>The pipeline for getting models from your 3D app of choice (in this case, Max) into Source is rather complicated at first but once you get the hang of it it’s dead simple. I won’t compile them for you but I will give you a run through of the steps so that you can learn how to compile your own models and don’t have to pick through random information on the internet.</p>
+<p>First you need to get your models into a format that the model compiling utility understands, SMD. Export your models from Max with the SMD exporter. You need to export a two things for a static prop - the mesh for the model, and a physics mesh for collision detection. Make sure you are exporting the elements separately (I build them in the same MAX file and then use ‘export selected’.) Also make sure that the model has a texture applied with the exact same name as the texture you will place in your game mod directory (in this example, [COLOR=‘DarkOrange’]your_texture), and that the collision mesh is also textured (texture name doesn’t matter here) and is smoothed properly. Generally for simple props with a single collision hull, you will want every face on the collision mesh to be in a single smoothing group. So, you will end up with two model files, [COLOR=‘RoyalBlue’]your_model.smd, the base mesh, and [COLOR=‘RoyalBlue’]your_model_phys.smd, the collision mesh.</p>
+<p>After you have exported your models, you need to compile them, just like maps. Source uses a small utility called ‘studiomdl’ in the sourcesdk/bin folder to compile models. But you can’t just drag and drop your SMDs on to the program; you have to write a script so the compiler knows how to setup your model for game usage - telling it where the textures are located, whether it is physics or static, etc. This script is called a QC file and since the syntax and commands for it are somewhat confusing at first, I have provided an example below for static props (with comments)</p>
+<pre><code class="lang-auto">// this is the desired name and path, mod-relative within models dir, for your compiled model
+$modelname "props_dir\your_model.mdl"
+
+// this is the SMD mesh for your model
+$model "Body" "your_model.smd"
+
+// this is where the model will look for it's materials, mod-relative within materials dir
+$cdmaterials "models\props_dir\"
+
+// this is the model's surface property
+$surfaceprop "metal"
+
+// this is a dummy animation that defines the idle sequence for your model
+$sequence idle "your_model.smd" loop fps 10.00
+
+// this tells the compiler that your model is a static prop
+$staticprop
+
+// this defines the collision model information
+$collisionmodel "your_model_phys.smd" 
+{
+	$mass 1000.00
+}</code></pre>
+<p>Copy the stuff above into Notepad, adjust the file names and paths as necessary to reflect your model, and save it as [COLOR=‘SeaGreen’]your_model.qc. So now you have four files, two SMDs and a QC that references both of them, and a VTF materal file, and you are ready to compile. Make sure to run the SDK before you compile, select the game you want to compile for, and run a tool (Hammer or HLMV should do) so that the tool will output the compiled model in the right game directory. Now you can just drag and drop the QC file onto the studiomdl EXE, but it will close after the compile finishes, so you won’t know if there are errors, if it compiled into the right place, etc. You’ll want to open up a command-line window (or if you know how, you can write a batch file for this) and type these two lines:</p>
+<p><code>cd %sourcesdk%\bin\orangebox\bin
+studiomdl "X:\path_to_your_model_qc\your_model.qc"
+</code></p>
+<p>If all goes well it will run through compiling the various models quickly. Now you have the model compiled, but if you were to load it up right away you would probably see it covered in a pink and black, missing texture checkerboard. To ‘install’ your texture simply place it in the directory you defined in the QC file, and make sure it has a corresponding VMT (material definition) file. The model actually calls the VMT file and -NOT- the VTF, so you need to have both. I have provided a sample VMT file for model materials below as well, which you should just edit and save in Notepad as [COLOR=‘DarkOrange’]your_texture.vmt (same name as the texture you applied to the model.)</p>
+<p><code>"VertexLitGeneric"
+{
+	"$baseTexture" "models\props_dir\your_texture"
+	"$model" "1"
+}
+</code></p>
+<p>If there are problems with the compile, it will display in red or yellow text in the command prompt during the compile. Any such errors are pretty self-explanatory…most problems for me seem to arise from the collision mesh.</p>
+<p>Hope this helps.</p>
+          <p><a href="https://leakfree.org/t/3ds-max-help/1577/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/3ds-max-help/1577/3</link>
+        <pubDate>Thu, 08 Oct 2009 11:16:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1577-3</guid>
+        <source url="https://leakfree.org/t/3ds-max-help/1577.rss">3ds Max help</source>
+      </item>
+      <item>
+        <title>3ds Max help</title>
+        <dc:creator><![CDATA[garrthbarrttinn]]></dc:creator>
+        <description><![CDATA[
+            <p>Help him D*mmit.</p>
+          <p><a href="https://leakfree.org/t/3ds-max-help/1577/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/3ds-max-help/1577/2</link>
+        <pubDate>Thu, 08 Oct 2009 03:59:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1577-2</guid>
+        <source url="https://leakfree.org/t/3ds-max-help/1577.rss">3ds Max help</source>
+      </item>
+      <item>
+        <title>3ds Max help</title>
+        <dc:creator><![CDATA[Rossman]]></dc:creator>
+        <description><![CDATA[
+            <p>Ok so I’m just considering this with anyone who has 3ds max and some sort of exporter. Can some one export my two models I have that I need to get done for Garthbartin for hammer. I’m pressed on time with work and school and normally I would look this up on how to do this. All I have is the .MAX so if some one would be so kind to tell me what I need to give them in order to be put as a static prop in a map. Garth should also be able to help explain this. I know that the model has to be exported as a SMD and the textures as VTF so if someone could help me out much would be appreciated. Thank you.</p>
+          <p><a href="https://leakfree.org/t/3ds-max-help/1577/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/3ds-max-help/1577/1</link>
+        <pubDate>Tue, 06 Oct 2009 03:52:19 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1577-1</guid>
+        <source url="https://leakfree.org/t/3ds-max-help/1577.rss">3ds Max help</source>
+      </item>
+  </channel>
+</rss>

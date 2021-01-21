@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>VBSP Crashes</title>
+    <link>https://leakfree.org/t/vbsp-crashes/2658</link>
+    <description>Hey, I was furthering development of [url=&#39;https://forums.blackmesasource.com/showthread.php?t=2509&#39;]my [noparse]DoD:S[/noparse] map[/url] and now VBSP crashes and therefore I can&#39;t compile.
+
+This is the output just before it crashes:
+[quote]
+** Executing...
+** Command: &quot;c:\program files\steam\steamapps\driecke\sourcesdk\bin\orangebox\bin\vbsp.exe&quot;
+** Parameters: -game &quot;c:\program files\steam\steamapps\driecke\day of defeat source\dod&quot; &quot;C:\Program Files\Steam\steamapps\driecke\sourcesdk_content\dod\mapsrc\dod_citysplit_a_3_9&quot;
+
+Valve Software - vbsp.exe (May 19 2009)
+2 threads
+materialPath: c:\program files\steam\steamapps\driecke\day of defeat source\dod\materials
+Loading C:\Program Files\Steam\steamapps\driecke\sourcesdk_content\dod\mapsrc\dod_citysplit_a_3_9.vmf
+Can&#39;t find surfaceprop wet for material STONE/BLENDCOBBLEDIRT002A, using default
+Patching WVT material: maps/dod_citysplit_a_3_9/nature/blendcobbledirt001_wvt_patch
+Patching WVT material: maps/dod_citysplit_a_3_9/stone/blendcobblegrass002a_wvt_patch
+Patching WVT material: maps/dod_citysplit_a_3_9/stone/blendcobbledirt001a_argentan_wvt_patch
+Patching WVT material: maps/dod_citysplit_a_3_9/nature/anzio_grass_blend_wvt_patch
+Patching WVT material: maps/dod_citysplit_a_3_9/ground/flash_ground_blend_wvt_patch
+Patching WVT material: maps/dod_citysplit_a_3_9/nature/argentan_blendrubbledirt_wvt_patch
+Patching WVT material: maps/dod_citysplit_a_3_9/stone/blendcobbledirt002a_wvt_patch
+Patching WVT material: maps/dod_citysplit_a_3_9/rubble/blend_donner_rubble1_dirtfloor013a_wvt_patch
+fixing up env_cubemap materials on brush sides...
+env_cubemap pointing at deleted brushside near (-14, -628, 142)
+ProcessBlock_Thread: 0...1...2...3...4...5...6...7...8...9...10 (2)
+ProcessBlock_Thread: 0...1...2...3...4...5...6...7...8...9...10 (1)
+Processing areas...done (0)
+Building Faces...done (1)
+Chop Details...done (0)
+Find Visible Detail Sides...done (0)
+Merging details...done (0)
+FixTjuncs...
+PruneNodes...
+WriteBSP...
+NODRAW on terrain surface!
+NODRAW on terrain surface!
+NODRAW on terrain surface!
+NODRAW on terrain surface!
+NODRAW on terrain surface!
+NODRAW on terrain surface!
+NODRAW on terrain surface!
+NODRAW on terrain surface!
+NODRAW on terrain surface!
+NODRAW on terrain surface!
+NODRAW on terrain surface!
+NODRAW on terrain surface!
+NODRAW on terrain surface!
+NODRAW on terrain surface!
+NODRAW on terrain surface!
+NODRAW on terrain surface!
+NODRAW on terrain surface!
+done (1)
+writing C:\Program Files\Steam\steamapps\driecke\sourcesdk_content\dod\mapsrc\dod_citysplit_a_3_9.prt...Building visibility clusters...
+done (0)
+Creating default LDR cubemaps for env_cubemap using skybox materials:
+   skybox/sky_dod_01_hdr*.vmt
+ ! Run buildcubemaps in the engine to get the correct cube maps.
+Creating default HDR cubemaps for env_cubemap using skybox materials:
+   skybox/sky_dod_01_hdr*.vmt
+ ! Run buildcubemaps in the engine to get the correct cube maps.
+[/quote]
+Evidently some cubemap(s) are messed up and I have several NODRAW textures on displacements... which I don&#39;t know how to find because they&#39;re eluding me.
+
+But other than those two reasons I&#39;m clueless as to why it&#39;d crash...
+
+If anyone can help me I&#39;d be greatly appreciative!
+
+Thanks!</description>
+    
+    <lastBuildDate>Sun, 17 Jan 2010 19:36:58 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/vbsp-crashes/2658.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>VBSP Crashes</title>
+        <dc:creator><![CDATA[Dillxn]]></dc:creator>
+        <description><![CDATA[
+            <p>Well I found the problem. I had a playerclip displacement and it was pretty elaborate. So I redid that and made it much more efficient and VBSP runs just fine now. Thanks guys!</p>
+          <p><a href="https://leakfree.org/t/vbsp-crashes/2658/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/vbsp-crashes/2658/4</link>
+        <pubDate>Sun, 17 Jan 2010 19:36:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-2658-4</guid>
+        <source url="https://leakfree.org/t/vbsp-crashes/2658.rss">VBSP Crashes</source>
+      </item>
+      <item>
+        <title>VBSP Crashes</title>
+        <dc:creator><![CDATA[Cameron_D]]></dc:creator>
+        <description><![CDATA[
+            <p>Visgroups are are a really useful feature. You can make custom ones too (Select any entitys or brushes and you can set their visgroup in their properties.</p>
+<p>Have you put the compile log through the interlopers compile log checker?<br>
+<a href="https://www.interlopers.net/errors/" data-bbcode="true" rel="nofollow noopener">https://www.interlopers.net/errors/</a></p>
+          <p><a href="https://leakfree.org/t/vbsp-crashes/2658/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/vbsp-crashes/2658/3</link>
+        <pubDate>Sun, 17 Jan 2010 09:22:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-2658-3</guid>
+        <source url="https://leakfree.org/t/vbsp-crashes/2658.rss">VBSP Crashes</source>
+      </item>
+      <item>
+        <title>VBSP Crashes</title>
+        <dc:creator><![CDATA[Dillxn]]></dc:creator>
+        <description><![CDATA[
+            <p>Wow, thanks! I didn’t even realize what that ‘vis groups’ pane was for until now :retard:</p>
+<p>Ok well thanks to that suggestion I successfully got rid of all the nodraw displacements but sadly it still won’t compile <img src="https://leakfree.org/images/emoji/twitter/confused.png?v=9" title=":confused:" class="emoji" alt=":confused:"> it’s crashing at the same place. I might load up one of my backups and see if I can find where it changed that it wouldn’t compile anymore.</p>
+          <p><a href="https://leakfree.org/t/vbsp-crashes/2658/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/vbsp-crashes/2658/2</link>
+        <pubDate>Sun, 17 Jan 2010 07:16:52 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-2658-2</guid>
+        <source url="https://leakfree.org/t/vbsp-crashes/2658.rss">VBSP Crashes</source>
+      </item>
+      <item>
+        <title>VBSP Crashes</title>
+        <dc:creator><![CDATA[Dillxn]]></dc:creator>
+        <description><![CDATA[
+            <p>Hey, I was furthering development of <a href="https://forums.blackmesasource.com/showthread.php?t=2509" data-bbcode="true" rel="nofollow noopener">my [noparse]DoD:S[/noparse] map</a> and now VBSP crashes and therefore I can’t compile.</p>
+<p>This is the output just before it crashes:</p>
+<aside class="quote no-group">
+<blockquote>
+<p>** Executing…<br>
+** Command: “c:\program files\steam\steamapps\driecke\sourcesdk\bin\orangebox\bin\vbsp.exe”<br>
+** Parameters: -game “c:\program files\steam\steamapps\driecke\day of defeat source\dod” “C:\Program Files\Steam\steamapps\driecke\sourcesdk_content\dod\mapsrc\dod_citysplit_a_3_9”</p>
+<p>Valve Software - vbsp.exe (May 19 2009)<br>
+2 threads<br>
+materialPath: c:\program files\steam\steamapps\driecke\day of defeat source\dod\materials<br>
+Loading C:\Program Files\Steam\steamapps\driecke\sourcesdk_content\dod\mapsrc\dod_citysplit_a_3_9.vmf<br>
+Can’t find surfaceprop wet for material STONE/BLENDCOBBLEDIRT002A, using default<br>
+Patching WVT material: maps/dod_citysplit_a_3_9/nature/blendcobbledirt001_wvt_patch<br>
+Patching WVT material: maps/dod_citysplit_a_3_9/stone/blendcobblegrass002a_wvt_patch<br>
+Patching WVT material: maps/dod_citysplit_a_3_9/stone/blendcobbledirt001a_argentan_wvt_patch<br>
+Patching WVT material: maps/dod_citysplit_a_3_9/nature/anzio_grass_blend_wvt_patch<br>
+Patching WVT material: maps/dod_citysplit_a_3_9/ground/flash_ground_blend_wvt_patch<br>
+Patching WVT material: maps/dod_citysplit_a_3_9/nature/argentan_blendrubbledirt_wvt_patch<br>
+Patching WVT material: maps/dod_citysplit_a_3_9/stone/blendcobbledirt002a_wvt_patch<br>
+Patching WVT material: maps/dod_citysplit_a_3_9/rubble/blend_donner_rubble1_dirtfloor013a_wvt_patch<br>
+fixing up env_cubemap materials on brush sides…<br>
+env_cubemap pointing at deleted brushside near (-14, -628, 142)<br>
+ProcessBlock_Thread: 0…1…2…3…4…5…6…7…8…9…10 (2)<br>
+ProcessBlock_Thread: 0…1…2…3…4…5…6…7…8…9…10 (1)<br>
+Processing areas…done (0)<br>
+Building Faces…done (1)<br>
+Chop Details…done (0)<br>
+Find Visible Detail Sides…done (0)<br>
+Merging details…done (0)<br>
+FixTjuncs…<br>
+PruneNodes…<br>
+WriteBSP…<br>
+NODRAW on terrain surface!<br>
+NODRAW on terrain surface!<br>
+NODRAW on terrain surface!<br>
+NODRAW on terrain surface!<br>
+NODRAW on terrain surface!<br>
+NODRAW on terrain surface!<br>
+NODRAW on terrain surface!<br>
+NODRAW on terrain surface!<br>
+NODRAW on terrain surface!<br>
+NODRAW on terrain surface!<br>
+NODRAW on terrain surface!<br>
+NODRAW on terrain surface!<br>
+NODRAW on terrain surface!<br>
+NODRAW on terrain surface!<br>
+NODRAW on terrain surface!<br>
+NODRAW on terrain surface!<br>
+NODRAW on terrain surface!<br>
+done (1)<br>
+writing C:\Program Files\Steam\steamapps\driecke\sourcesdk_content\dod\mapsrc\dod_citysplit_a_3_9.prt…Building visibility clusters…<br>
+done (0)<br>
+Creating default LDR cubemaps for env_cubemap using skybox materials:<br>
+skybox/sky_dod_01_hdr*.vmt<br>
+! Run buildcubemaps in the engine to get the correct cube maps.<br>
+Creating default HDR cubemaps for env_cubemap using skybox materials:<br>
+skybox/sky_dod_01_hdr*.vmt<br>
+! Run buildcubemaps in the engine to get the correct cube maps.</p>
+</blockquote>
+</aside>
+<p>Evidently some cubemap(s) are messed up and I have several NODRAW textures on displacements… which I don’t know how to find because they’re eluding me.</p>
+<p>But other than those two reasons I’m clueless as to why it’d crash…</p>
+<p>If anyone can help me I’d be greatly appreciative!</p>
+<p>Thanks!</p>
+          <p><a href="https://leakfree.org/t/vbsp-crashes/2658/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/vbsp-crashes/2658/1</link>
+        <pubDate>Sun, 17 Jan 2010 06:56:00 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-2658-1</guid>
+        <source url="https://leakfree.org/t/vbsp-crashes/2658.rss">VBSP Crashes</source>
+      </item>
+  </channel>
+</rss>

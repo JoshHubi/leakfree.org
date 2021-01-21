@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>The &quot;Everything in SDK 2013 is Broken&quot; Thread</title>
+    <link>https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383</link>
+    <description>It seems like Half Life 2&#39;s overall engine is suddenly totally borked. All the player physics are completely messed up. Jumping feels like a Halo game now because it&#39;s floaty, and player movement is substantially slower despite the enemies moving at normal pace. 
+
+All of my custom maps are having cubemap problems and skybox errors up the wazoo, even when not using SDK base 2013. This happens in Episode Two now, too. The vanilla maps look okay, but still have the strange new movement physics. Anyone else having these problems? Or have you all made the sensible move to not update until Valve un-fucks everything?
+
+EDIT: Episode One is also borked the same way with regards to player physics.</description>
+    
+    <lastBuildDate>Wed, 07 Aug 2013 05:35:02 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>The &quot;Everything in SDK 2013 is Broken&quot; Thread</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks! I’ll give this a try.</p>
+          <p><a href="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/20</link>
+        <pubDate>Wed, 07 Aug 2013 05:35:02 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12383-20</guid>
+        <source url="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383.rss">The &quot;Everything in SDK 2013 is Broken&quot; Thread</source>
+      </item>
+      <item>
+        <title>The &quot;Everything in SDK 2013 is Broken&quot; Thread</title>
+        <dc:creator><![CDATA[d9001]]></dc:creator>
+        <description><![CDATA[
+            <p>The problem with the odd movement is actually a console variable that somehow keeps getting set to 1. The convar is sv_alternateticks, and typing “sv_alternateticks 0” in the console fixes the problem. I honestly don’t know what exactly it’s for, but I put a little work in to figuring out why it’s getting set to true. According to baseentity_shared.cpp (where it was defined), it is in fact supposed to be set to 0 by default, which most likely means that something like a config file is messing it up. I searched through the config files, and the only instance of “sv_alternateticks” is in a file that seems to set default graphics settings based on the name of the graphics chip and DirectX version. It only seems to have it set to “1” on DirectX 8.0 and below. I remember there being an issue with Source SDK 2013 defaulting to the wrong version of DirectX, and I don’t know if it’s related.</p>
+<p><span class="bbcode-b">TL;DR/Conclusion:</span> Making an autoexec.cfg with “sv_alternateticks 0” in it seems to be a good hold-me-over for the funky movement issue.</p>
+          <p><a href="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/19</link>
+        <pubDate>Tue, 30 Jul 2013 23:58:38 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12383-19</guid>
+        <source url="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383.rss">The &quot;Everything in SDK 2013 is Broken&quot; Thread</source>
+      </item>
+      <item>
+        <title>The &quot;Everything in SDK 2013 is Broken&quot; Thread</title>
+        <dc:creator><![CDATA[D3lta]]></dc:creator>
+        <description><![CDATA[
+            <p>I guess we just wait until Valve unfucks every bug…</p>
+          <p><a href="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/18</link>
+        <pubDate>Tue, 30 Jul 2013 23:12:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12383-18</guid>
+        <source url="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383.rss">The &quot;Everything in SDK 2013 is Broken&quot; Thread</source>
+      </item>
+      <item>
+        <title>The &quot;Everything in SDK 2013 is Broken&quot; Thread</title>
+        <dc:creator><![CDATA[Dragunov2]]></dc:creator>
+        <description><![CDATA[
+            <p>Are those new bugs in this new version forwarded to Valve?</p>
+          <p><a href="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/17</link>
+        <pubDate>Mon, 29 Jul 2013 23:24:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12383-17</guid>
+        <source url="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383.rss">The &quot;Everything in SDK 2013 is Broken&quot; Thread</source>
+      </item>
+      <item>
+        <title>The &quot;Everything in SDK 2013 is Broken&quot; Thread</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>I guess we should retrograde. I had some un-Steam Pipe’d backups, but they might have gotten the update fuck.</p>
+<p>EDIT: Wait a minute- why are my movement things back to normal now? Running Ep2 off my external SSD might have done the trick. The tools are on my laptop, so I’d probably have to manually copy over the files. I guess I could build/compile on my laptop, send the map to my desktop, and test there, but this is going to be a royal pain in the ass.</p>
+          <p><a href="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/16</link>
+        <pubDate>Mon, 29 Jul 2013 19:12:49 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12383-16</guid>
+        <source url="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383.rss">The &quot;Everything in SDK 2013 is Broken&quot; Thread</source>
+      </item>
+      <item>
+        <title>The &quot;Everything in SDK 2013 is Broken&quot; Thread</title>
+        <dc:creator><![CDATA[afterwars]]></dc:creator>
+        <description><![CDATA[
+            <p>Still broken for me in general.</p>
+<p>On the new Hammer Editor with Source SDK 2013, custom mods cannot use the VGUI Model Browser, as it causes Hammer to close, which is a total pain in the ass!</p>
+<p>Apparently Cubemaps are also screwed too.</p>
+<p>Just when you thought Mapping on the Source Engine wasn’t faffy enough!</p>
+          <p><a href="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/15</link>
+        <pubDate>Sun, 28 Jul 2013 23:35:00 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12383-15</guid>
+        <source url="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383.rss">The &quot;Everything in SDK 2013 is Broken&quot; Thread</source>
+      </item>
+      <item>
+        <title>The &quot;Everything in SDK 2013 is Broken&quot; Thread</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>I already uninstalled the thing. They still have to fix the vanilla games.</p>
+          <p><a href="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/14</link>
+        <pubDate>Fri, 19 Jul 2013 02:08:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12383-14</guid>
+        <source url="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383.rss">The &quot;Everything in SDK 2013 is Broken&quot; Thread</source>
+      </item>
+      <item>
+        <title>The &quot;Everything in SDK 2013 is Broken&quot; Thread</title>
+        <dc:creator><![CDATA[Dragunov2]]></dc:creator>
+        <description><![CDATA[
+            <p>Well, received updates voor Source SDK 2013 SP and MP</p>
+<p>So I guess fixes are added…</p>
+          <p><a href="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/13</link>
+        <pubDate>Thu, 18 Jul 2013 21:07:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12383-13</guid>
+        <source url="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383.rss">The &quot;Everything in SDK 2013 is Broken&quot; Thread</source>
+      </item>
+      <item>
+        <title>The &quot;Everything in SDK 2013 is Broken&quot; Thread</title>
+        <dc:creator><![CDATA[Kaminski]]></dc:creator>
+        <description><![CDATA[
+            <p>This seems to be affecting even Half-Life: Source. Puzzling.</p>
+          <p><a href="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/12</link>
+        <pubDate>Wed, 17 Jul 2013 10:46:01 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12383-12</guid>
+        <source url="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383.rss">The &quot;Everything in SDK 2013 is Broken&quot; Thread</source>
+      </item>
+      <item>
+        <title>The &quot;Everything in SDK 2013 is Broken&quot; Thread</title>
+        <dc:creator><![CDATA[bur]]></dc:creator>
+        <description><![CDATA[
+            <p>I wonder if they’re gonna fix it this time. IIRC last time they broke a bunch of stuff it never got fixed.</p>
+          <p><a href="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/11</link>
+        <pubDate>Wed, 17 Jul 2013 10:31:40 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12383-11</guid>
+        <source url="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383.rss">The &quot;Everything in SDK 2013 is Broken&quot; Thread</source>
+      </item>
+      <item>
+        <title>The &quot;Everything in SDK 2013 is Broken&quot; Thread</title>
+        <dc:creator><![CDATA[Mr_Someguy]]></dc:creator>
+        <description><![CDATA[
+            <p>HL2 based games freeze up on me after ~2 - 25 minutes of gameplay (generally around 10). This started after the Steampipe update.</p>
+          <p><a href="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/10</link>
+        <pubDate>Wed, 17 Jul 2013 10:02:41 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12383-10</guid>
+        <source url="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383.rss">The &quot;Everything in SDK 2013 is Broken&quot; Thread</source>
+      </item>
+      <item>
+        <title>The &quot;Everything in SDK 2013 is Broken&quot; Thread</title>
+        <dc:creator><![CDATA[BendyBread]]></dc:creator>
+        <description><![CDATA[
+            <p>Yeah, BM seems to work fine, which is great.</p>
+<p>Still sucks, wanted to finish playing Ep 1 and 2 again with developer commentary. :’(</p>
+          <p><a href="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/9</link>
+        <pubDate>Wed, 17 Jul 2013 09:48:01 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12383-9</guid>
+        <source url="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383.rss">The &quot;Everything in SDK 2013 is Broken&quot; Thread</source>
+      </item>
+      <item>
+        <title>The &quot;Everything in SDK 2013 is Broken&quot; Thread</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>Assuredly the BM devs have planned for this contingency. Besides, the mod still runs on Source '07, so BM should still be playable.</p>
+          <p><a href="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/8</link>
+        <pubDate>Wed, 17 Jul 2013 01:46:45 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12383-8</guid>
+        <source url="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383.rss">The &quot;Everything in SDK 2013 is Broken&quot; Thread</source>
+      </item>
+      <item>
+        <title>The &quot;Everything in SDK 2013 is Broken&quot; Thread</title>
+        <dc:creator><![CDATA[Dr_Zoidcrab]]></dc:creator>
+        <description><![CDATA[
+            <p>July 9th steam update is causing source engine games to freeze on startup for a lot of people, the steam ingame overlay is also broken although it appears(often multiple times) in the processes in taskmanager.</p>
+          <p><a href="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/7</link>
+        <pubDate>Wed, 17 Jul 2013 00:04:33 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12383-7</guid>
+        <source url="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383.rss">The &quot;Everything in SDK 2013 is Broken&quot; Thread</source>
+      </item>
+      <item>
+        <title>The &quot;Everything in SDK 2013 is Broken&quot; Thread</title>
+        <dc:creator><![CDATA[sersoft]]></dc:creator>
+        <description><![CDATA[
+            <p>that’s why I have all source games (including BM) steamless on my laptop (I do own them on Steam)</p>
+<p>no surprise updates</p>
+          <p><a href="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/6</link>
+        <pubDate>Tue, 16 Jul 2013 17:07:19 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12383-6</guid>
+        <source url="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383.rss">The &quot;Everything in SDK 2013 is Broken&quot; Thread</source>
+      </item>
+      <item>
+        <title>The &quot;Everything in SDK 2013 is Broken&quot; Thread</title>
+        <dc:creator><![CDATA[BendyBread]]></dc:creator>
+        <description><![CDATA[
+            <p>Great. So as of today, I’ve been hit by the lovely “floaty jump and slippery floor run” issue. Sigh.</p>
+          <p><a href="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/5</link>
+        <pubDate>Tue, 16 Jul 2013 02:56:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12383-5</guid>
+        <source url="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383.rss">The &quot;Everything in SDK 2013 is Broken&quot; Thread</source>
+      </item>
+      <item>
+        <title>The &quot;Everything in SDK 2013 is Broken&quot; Thread</title>
+        <dc:creator><![CDATA[Mr_Someguy]]></dc:creator>
+        <description><![CDATA[
+            <p>The new engine seems more hardware intensive, I’m getting crashes trying to run my games now.</p>
+<p>(no, my hardware isn’t that bad, it’s just summer and my vents are dusty as shit but I have nothing to clean them with)</p>
+          <p><a href="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/4</link>
+        <pubDate>Sun, 14 Jul 2013 04:13:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12383-4</guid>
+        <source url="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383.rss">The &quot;Everything in SDK 2013 is Broken&quot; Thread</source>
+      </item>
+      <item>
+        <title>The &quot;Everything in SDK 2013 is Broken&quot; Thread</title>
+        <dc:creator><![CDATA[BendyBread]]></dc:creator>
+        <description><![CDATA[
+            <p>I think I’ve updated (I don’t know, I don’t really pay attention often), but my HL2, Ep1 and Ep 2 both seem to work perfectly. Physics are fine, movements, speeds, etc are fine.</p>
+<p>On another note: I am getting a stutter-y thing every few minutes which is annoying, and I haven’t gotten it before.<br>
+I turned everything down to lowest to try and see if it was my computer not coping with the graphics (which wouldn’t make sense anyway because running BM on medium to high and it runs perfectly), but still happens, so no idea if that’s just random crap or if its 2013 SDK.</p>
+          <p><a href="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/3</link>
+        <pubDate>Sun, 14 Jul 2013 03:12:54 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12383-3</guid>
+        <source url="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383.rss">The &quot;Everything in SDK 2013 is Broken&quot; Thread</source>
+      </item>
+      <item>
+        <title>The &quot;Everything in SDK 2013 is Broken&quot; Thread</title>
+        <dc:creator><![CDATA[RK1]]></dc:creator>
+        <description><![CDATA[
+            <p>I haven’t really been experiencing these in games problems, but I suppose that’s probably because I’ve been working with extremely simple maps since just a little bit before the update.</p>
+<p>Having to use hammer now though is suddenly a bit more annoying though.</p>
+          <p><a href="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/2</link>
+        <pubDate>Sat, 13 Jul 2013 22:05:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12383-2</guid>
+        <source url="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383.rss">The &quot;Everything in SDK 2013 is Broken&quot; Thread</source>
+      </item>
+      <item>
+        <title>The &quot;Everything in SDK 2013 is Broken&quot; Thread</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>It seems like Half Life 2’s overall engine is suddenly totally borked. All the player physics are completely messed up. Jumping feels like a Halo game now because it’s floaty, and player movement is substantially slower despite the enemies moving at normal pace.</p>
+<p>All of my custom maps are having cubemap problems and skybox errors up the wazoo, even when not using SDK base 2013. This happens in Episode Two now, too. The vanilla maps look okay, but still have the strange new movement physics. Anyone else having these problems? Or have you all made the sensible move to not update until Valve un-fucks everything?</p>
+<p>EDIT: Episode One is also borked the same way with regards to player physics.</p>
+          <p><a href="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383/1</link>
+        <pubDate>Sat, 13 Jul 2013 21:11:36 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12383-1</guid>
+        <source url="https://leakfree.org/t/the-everything-in-sdk-2013-is-broken-thread/12383.rss">The &quot;Everything in SDK 2013 is Broken&quot; Thread</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>VRAD: 100% reproducible crash on a very normal map (update: not 100%)</title>
+    <link>https://leakfree.org/t/vrad-100-reproducible-crash-on-a-very-normal-map-update-not-100/62334</link>
+    <description>Hello BM team,
+I have a test case here that I&#39;ve already reduced as much as possible by deleting everything I could without the crash stopping.
+It&#39;s a little maze map:
+![maze|690x405](upload://yPO38FExTcEOCNvwsz7saC9PiaJ.jpeg) 
+There&#39;s nothing special about the map - no especially big brushes or anything off the grid or something like that.
+It&#39;s just that if I remove any brush or add a new brush, and make sure that&#39;s the only difference in the textual VMF file (just a few lines for one brush are changed), vrad stops crashing reliably, and if I use the version with the precise brush count I have, vrad crashes reliably. It looks like I&#39;ve hit some kind of magic value internally with a brush count, or with derived information such as the approximate area of faces or visleafs.
+
+I&#39;m compiling with the default release settings:
+BSP Normal, VIS Normal, RAD Final
+
+I have put the archive containing the crashing and a working VMF here:
+https://mega.nz/#!PjZQAQwK!z4taZwpKJaWMi0FRNuBwG9hLwMbw295f-LJ2zcyfia8
+
+Regards,
+Shrinker/Hai</description>
+    
+    <lastBuildDate>Fri, 21 Jun 2019 22:29:57 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/vrad-100-reproducible-crash-on-a-very-normal-map-update-not-100/62334.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>VRAD: 100% reproducible crash on a very normal map (update: not 100%)</title>
+        <dc:creator><![CDATA[Shrinker]]></dc:creator>
+        <description><![CDATA[
+            <p>Argh!!<br>
+Well on the one hand I am glad it doesn’t crash for you because it means the map could be compiled as it is. On the other hand I am worried because then this turns into a not so easy to reproduce crash error. <img src="https://leakfree.org/images/emoji/twitter/expressionless.png?v=9" title=":expressionless:" class="emoji" alt=":expressionless:"></p>
+<p>But the two faces with misaligned texture vectors you’ve discovered – Those shouldn’t exist! You’ve just found a bug in my level generator or one of the scripts, and that’s a thing I can investigate and fix! \o/<br>
+(unfortunately, adjusting the texture projection settings there didn’t have an influence on my crash, but still)</p>
+<p>The brush IDs themselves seem to have no effect at all. Face IDs on the other hand could be trageted by entities such as the cubemap probe.</p>
+<p>*update a few hours later: This has no impact on the vrad crash, but i’ve found and fixed the bug in my generator. Phew.</p>
+          <p><a href="https://leakfree.org/t/vrad-100-reproducible-crash-on-a-very-normal-map-update-not-100/62334/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/vrad-100-reproducible-crash-on-a-very-normal-map-update-not-100/62334/3</link>
+        <pubDate>Fri, 21 Jun 2019 15:40:40 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62334-3</guid>
+        <source url="https://leakfree.org/t/vrad-100-reproducible-crash-on-a-very-normal-map-update-not-100/62334.rss">VRAD: 100% reproducible crash on a very normal map (update: not 100%)</source>
+      </item>
+      <item>
+        <title>VRAD: 100% reproducible crash on a very normal map (update: not 100%)</title>
+        <dc:creator><![CDATA[sea.level.rises]]></dc:creator>
+        <description><![CDATA[
+            <p><strong>I was able to compile your _crash map without error</strong> using your compile settings as described, but I may have found a bug in Hammer.</p>
+<p>The brush adjacent to the additional brush added to _nocrash is brush <span class="hashtag">#33</span> (selected in image below), but the number reported by Hammer’s “Show Selected Brush Number” reports that this is brush <span class="hashtag">#32</span> (see image below); the VMF also lists this as “id” “33”.</p>
+<p>In a possibly unrelated matter, there are two (unexposed) brush faces on the map with erroneous texture alignment (select Map -&gt; Check for Problems and look at all sides of the affected brushes).</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/4/470f8dba66be6ce78b9b912520535bcef80338f6.png" data-download-href="https://leakfree.org/uploads/default/470f8dba66be6ce78b9b912520535bcef80338f6" title="brush_33"><img src="https://leakfree.org/uploads/default/optimized/2X/4/470f8dba66be6ce78b9b912520535bcef80338f6_2_690x388.png" alt="brush_33" data-base62-sha1="a8DdSDspzGIbjeCPqaVT1vsN6Em" width="690" height="388" srcset="https://leakfree.org/uploads/default/optimized/2X/4/470f8dba66be6ce78b9b912520535bcef80338f6_2_690x388.png, https://leakfree.org/uploads/default/original/2X/4/470f8dba66be6ce78b9b912520535bcef80338f6.png 1.5x, https://leakfree.org/uploads/default/original/2X/4/470f8dba66be6ce78b9b912520535bcef80338f6.png 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/4/470f8dba66be6ce78b9b912520535bcef80338f6_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">brush_33</span><span class="informations">1033×582 657 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+          <p><a href="https://leakfree.org/t/vrad-100-reproducible-crash-on-a-very-normal-map-update-not-100/62334/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/vrad-100-reproducible-crash-on-a-very-normal-map-update-not-100/62334/2</link>
+        <pubDate>Fri, 21 Jun 2019 15:02:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62334-2</guid>
+        <source url="https://leakfree.org/t/vrad-100-reproducible-crash-on-a-very-normal-map-update-not-100/62334.rss">VRAD: 100% reproducible crash on a very normal map (update: not 100%)</source>
+      </item>
+      <item>
+        <title>VRAD: 100% reproducible crash on a very normal map (update: not 100%)</title>
+        <dc:creator><![CDATA[Shrinker]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello BM team,<br>
+I have a test case here that I’ve already reduced as much as possible by deleting everything I could without the crash stopping.<br>
+It’s a little maze map:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/f/f42520f1e3b49241844dbb0e35b9d63cd3bc4999.jpeg" data-download-href="https://leakfree.org/uploads/default/f42520f1e3b49241844dbb0e35b9d63cd3bc4999" title="maze"><img src="https://leakfree.org/uploads/default/optimized/2X/f/f42520f1e3b49241844dbb0e35b9d63cd3bc4999_2_690x405.jpeg" alt="maze" data-base62-sha1="yPO38FExTcEOCNvwsz7saC9PiaJ" width="690" height="405" srcset="https://leakfree.org/uploads/default/optimized/2X/f/f42520f1e3b49241844dbb0e35b9d63cd3bc4999_2_690x405.jpeg, https://leakfree.org/uploads/default/original/2X/f/f42520f1e3b49241844dbb0e35b9d63cd3bc4999.jpeg 1.5x, https://leakfree.org/uploads/default/original/2X/f/f42520f1e3b49241844dbb0e35b9d63cd3bc4999.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/f/f42520f1e3b49241844dbb0e35b9d63cd3bc4999_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">maze</span><span class="informations">969×570 220 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+There’s nothing special about the map - no especially big brushes or anything off the grid or something like that.<br>
+It’s just that if I remove any brush or add a new brush, and make sure that’s the only difference in the textual VMF file (just a few lines for one brush are changed), vrad stops crashing reliably, and if I use the version with the precise brush count I have, vrad crashes reliably. It looks like I’ve hit some kind of magic value internally with a brush count, or with derived information such as the approximate area of faces or visleafs.</p>
+<p>I’m compiling with the default release settings:<br>
+BSP Normal, VIS Normal, RAD Final</p>
+<p>I have put the archive containing the crashing and a working VMF here:<br>
+<a href="https://mega.nz/#!PjZQAQwK!z4taZwpKJaWMi0FRNuBwG9hLwMbw295f-LJ2zcyfia8" class="onebox" target="_blank" rel="nofollow noopener">https://mega.nz/#!PjZQAQwK!z4taZwpKJaWMi0FRNuBwG9hLwMbw295f-LJ2zcyfia8</a></p>
+<p>Regards,<br>
+Shrinker/Hai</p>
+          <p><a href="https://leakfree.org/t/vrad-100-reproducible-crash-on-a-very-normal-map-update-not-100/62334/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/vrad-100-reproducible-crash-on-a-very-normal-map-update-not-100/62334/1</link>
+        <pubDate>Fri, 21 Jun 2019 13:34:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62334-1</guid>
+        <source url="https://leakfree.org/t/vrad-100-reproducible-crash-on-a-very-normal-map-update-not-100/62334.rss">VRAD: 100% reproducible crash on a very normal map (update: not 100%)</source>
+      </item>
+  </channel>
+</rss>

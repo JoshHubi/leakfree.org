@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>[Tutorial]Osprey and rapelling grunts</title>
+    <link>https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535</link>
+    <description>Using the Osprey needs some extra entities to work properly. Here is how it is done:
+
+1. Create a large outdoor map. The osprey needs lots of space to function properly.
+
+2. Put in the npc_osprey. 
+Name: osprey
+Name of template NPC 1: osprey_grunt1
+Name of template NPC 2: osprey_grunt2
+Name of template NPC 3: osprey_grunt3
+Name of template NPC 4: osprey_grunt4
+
+The osprey can reinforce up to 8 grunts. For this tutorial we&#39;ll limit it to 4 grunts.
+
+3. Create 9 path_tracks. Name them &quot;osprey_m1&quot; up to &quot;osprey_m9&quot;. Do [b]not[/b] use &quot;Next Stop Target&quot; in this case. We&#39;re going to connect the paths together with the Output. Go to &quot;osprey_m1&quot; and enter the Output:
+OnPass &gt; osprey &gt; FlyToSpecificTrackViaPath &gt; osprey_m2
+
+Using that output, connect m1 to m2, m2 to m3, etc. m9 should connect back to m1. Set up the paths in a circle like so:
+
+[img]https://www.deved-portal.com/hezus/up/tutorials/osprey1.jpg[/img]
+
+4. Now pick 1 path to serve as your entry point and one path to be the drop-off point, where the grunts rappel down. In my example the [COLOR=&#39;SeaGreen&#39;]green circle (osprey_m5) is the [COLOR=&#39;SeaGreen&#39;]entry point. Ideally this point should be out of the player&#39;s view. The [COLOR=&#39;Red&#39;]red circle (osprey_m1) the [COLOR=&#39;Red&#39;]drop-off point. Make sure this point is a bit lower than the other points, so the osprey makes a small descent when approaching.
+
+You&#39;ll need to tell the osprey which points is the [COLOR=&#39;SeaGreen&#39;]entry point and which is the [COLOR=&#39;Red&#39;]drop-off point. Go into the npc_osprey and enter this into it&#39;s output:
+OnReadyToMoveDeployZone &gt; osprey_m5 &gt; FireUser1
+OnReadyToRetreat &gt; osprey_m1 &gt; FireUser1
+
+Go to your [COLOR=&#39;SeaGreen&#39;]entry path (osprey_m5) and change the &quot;OnPass&quot; output to &quot;OnUser1&quot;. Also add: 
+OnPass &gt; osprey &gt; WaitHereTillReady
+
+Go to your [COLOR=&#39;red&#39;]drop-off path (osprey_m1) and change  &quot;OnPass&quot; output to &quot;OnUser1&quot;. Also add:
+OnPass &gt; osprey&gt; BeginRappellingGrunts
+
+5. Time to set up the grunts. Create a npc_human_grunt:
+name: osprey_grunt1
+squad name: grunt_squad
+Tag Flags: Fall to the Ground, Template NPC.
+
+In the same fashion create osprey_grunt2, osprey_grunt3 and osprey_grunt4. You can use npc_human_commander and npc_human_medic for some variation.
+
+6. Compile the map and wait for the osprey to drop the grunts. When you kill 2 out of 4 grunts, the osprey will return and reinforce the squad. The sequence works, but after rappelling the grunts just stand around. We want them take up tactical positions after insertion. Here is how that is done:
+
+7. At the drop-off point, create an assault_rallypoint. 
+Name: osprey_grunt1_rally
+Assault point: osprey_grunt1_assault
+Urgent: Yes
+
+Also create an assault_assaultpoint.
+Name: osprey_grunt1_assault
+Allow Diversion: Yes
+Diversion Proximity: 512
+Attack Tolerance: Medium (6).
+
+Find &quot;osprey_grunt1&quot; and enter this in his Output field:
+OnRappelTouchdown &gt; !self &gt; Assault &gt; osprey_grunt1_rally
+
+(Note that !self is displayed red. Ignore that error)
+
+Do the same for the other 3 grunts. Each grunt should have his own !self output, rallypoint and assaultpoint. So osprey_grunt2 goes to osprey_grunt2_rally and osprey_grunt2_assault, etc. 
+
+Now set up some static objects and drag the assaultpoints there. You can set the grunts to Force Crouch behind the objects if you want. Make sure their line of movement is clear so grunts don&#39;t bump into eachother. Also add some info_nodes or info_hints for AI navigation.  It could look like this:
+
+[img]https://www.deved-portal.com/hezus/up/tutorials/osprey2.jpg[/img]
+
+8. All done! Compile and watch the action!  :slight_smile:  
+
+#### UPDATE ### 
+The osprey will keep dropping grunts untill it is destroyed. If you want it to retreat after dropping a certain number of grunts, you can set up the following sequence (this is not included in the example VMF):
+
+9. Create a new path_track called &quot;osprey_retreat&quot;. Put it somewhere where you want the osprey to retreat to. Preferably there where players can no longer see it. In the Output enter:
+OnPass &gt; osprey &gt; Kill. 
+
+This will make the osprey disappear once it hits this path_track.
+
+10. Add a math_counter:
+Name: osprey_grunt_counter
+Maximum Legal Value: 10
+
+This will trigger once 10 grunts have spawned. In it&#39;s Output add:
+OnHitMax &gt; osprey &gt; FlyToSpecificTrackViaPath &gt; osprey_retreat
+
+11. In all grunt templates (osprey_grunt1 to 4) add the following output:
+OnRappelTouchdown &gt; osprey_grunt_counter &gt; Add &gt; 1 
+
+And you&#39;re done. Every time a grunt rappels down, it add 1 point to the math_counter. Once it hits 10 points, it will trigger the Ospreys retreat. 
+
+Example VMF can be downloaded [url=&#39;https://www.deved-portal.com/hezus/up/tutorials/osprey_tutorial.zip&#39;]here[/url].</description>
+    
+    <lastBuildDate>Fri, 26 Oct 2012 17:09:55 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>[Tutorial]Osprey and rapelling grunts</title>
+        <dc:creator><![CDATA[Hezus]]></dc:creator>
+        <description><![CDATA[
+            <p>Tutorial updated as per Dr. Maxwell’s request.</p>
+          <p><a href="https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535/8</link>
+        <pubDate>Fri, 26 Oct 2012 17:09:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11535-8</guid>
+        <source url="https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535.rss">[Tutorial]Osprey and rapelling grunts</source>
+      </item>
+      <item>
+        <title>[Tutorial]Osprey and rapelling grunts</title>
+        <dc:creator><![CDATA[Hezus]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Keresh">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/k/85f322/40.png" class="avatar"> Keresh:</div>
+<blockquote>
+<p>Actually, this is being looked into.</p>
+</blockquote>
+</aside>
+<p>That would be awesome  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:">  A forum for mapping related questions, guides, tutorials and show-off threads would be really nice. You can be sure a lot of Source and older Goldsource mappers will try making singeplayer and multiplayer maps with your content.</p>
+<p>I’ve moderated mapping forums for years, so if you need any help or suggestions, let me know!</p>
+          <p><a href="https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535/7</link>
+        <pubDate>Mon, 22 Oct 2012 18:55:19 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11535-7</guid>
+        <source url="https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535.rss">[Tutorial]Osprey and rapelling grunts</source>
+      </item>
+      <item>
+        <title>[Tutorial]Osprey and rapelling grunts</title>
+        <dc:creator><![CDATA[Keresh]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Hezus">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/h/7ba0ec/40.png" class="avatar"> Hezus:</div>
+<blockquote>
+<p>Thanks!</p>
+<p>Not sure about where to put mapping tutorials. I’ve send a PM to a moderator a while ago about creating a mapping forum, but never got any reply.</p>
+</blockquote>
+</aside>
+<p>Actually, this is being looked into.</p>
+          <p><a href="https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535/6</link>
+        <pubDate>Mon, 22 Oct 2012 11:18:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11535-6</guid>
+        <source url="https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535.rss">[Tutorial]Osprey and rapelling grunts</source>
+      </item>
+      <item>
+        <title>[Tutorial]Osprey and rapelling grunts</title>
+        <dc:creator><![CDATA[Hezus]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Dr. Maxwell">
+<div class="title">
+<div class="quote-controls"></div>
+ Dr. Maxwell:</div>
+<blockquote>
+<p>Why would you <em>want</em> an infinite-grunt-osprey, though?  I thought that that was one of the things people disliked about BM’s Surface Tension.</p>
+</blockquote>
+</aside>
+<p>Because that is how the gameplay mechanic was meant to work. The Osprey will keep dropping grunts into the area, so if the player wants to beat the map he has to cut off the source, aka take that motha down.</p>
+<p>If you want the Osprey to only drop a limited amount of grunts you can set up a math_counter. I’ll add that to the tutorial later.</p>
+          <p><a href="https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535/5</link>
+        <pubDate>Mon, 22 Oct 2012 08:16:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11535-5</guid>
+        <source url="https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535.rss">[Tutorial]Osprey and rapelling grunts</source>
+      </item>
+      <item>
+        <title>[Tutorial]Osprey and rapelling grunts</title>
+        <dc:creator><![CDATA[Dr_Maxwell]]></dc:creator>
+        <description><![CDATA[
+            <p>Why would you <em>want</em> an infinite-grunt-osprey, though?  I thought that that was one of the things people disliked about BM’s Surface Tension.</p>
+          <p><a href="https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535/4</link>
+        <pubDate>Mon, 22 Oct 2012 07:24:12 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11535-4</guid>
+        <source url="https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535.rss">[Tutorial]Osprey and rapelling grunts</source>
+      </item>
+      <item>
+        <title>[Tutorial]Osprey and rapelling grunts</title>
+        <dc:creator><![CDATA[Hezus]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks!</p>
+<p>Not sure about where to put mapping tutorials. I’ve send a PM to a moderator a while ago about creating a mapping forum, but never got any reply.</p>
+          <p><a href="https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535/3</link>
+        <pubDate>Sun, 21 Oct 2012 19:41:27 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11535-3</guid>
+        <source url="https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535.rss">[Tutorial]Osprey and rapelling grunts</source>
+      </item>
+      <item>
+        <title>[Tutorial]Osprey and rapelling grunts</title>
+        <dc:creator><![CDATA[Pyroclase]]></dc:creator>
+        <description><![CDATA[
+            <p>Awesome tutorial.</p>
+<p>Shouldn’t this be in help and support or something, though?</p>
+          <p><a href="https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535/2</link>
+        <pubDate>Sun, 21 Oct 2012 19:24:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11535-2</guid>
+        <source url="https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535.rss">[Tutorial]Osprey and rapelling grunts</source>
+      </item>
+      <item>
+        <title>[Tutorial]Osprey and rapelling grunts</title>
+        <dc:creator><![CDATA[Hezus]]></dc:creator>
+        <description><![CDATA[
+            <p>Using the Osprey needs some extra entities to work properly. Here is how it is done:</p>
+<ol>
+<li>
+<p>Create a large outdoor map. The osprey needs lots of space to function properly.</p>
+</li>
+<li>
+<p>Put in the npc_osprey.<br>
+Name: osprey<br>
+Name of template NPC 1: osprey_grunt1<br>
+Name of template NPC 2: osprey_grunt2<br>
+Name of template NPC 3: osprey_grunt3<br>
+Name of template NPC 4: osprey_grunt4</p>
+</li>
+</ol>
+<p>The osprey can reinforce up to 8 grunts. For this tutorial we’ll limit it to 4 grunts.</p>
+<ol start="3">
+<li>Create 9 path_tracks. Name them “osprey_m1” up to “osprey_m9”. Do <span class="bbcode-b">not</span> use “Next Stop Target” in this case. We’re going to connect the paths together with the Output. Go to “osprey_m1” and enter the Output:<br>
+OnPass &gt; osprey &gt; FlyToSpecificTrackViaPath &gt; osprey_m2</li>
+</ol>
+<p>Using that output, connect m1 to m2, m2 to m3, etc. m9 should connect back to m1. Set up the paths in a circle like so:</p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<ol start="4">
+<li>Now pick 1 path to serve as your entry point and one path to be the drop-off point, where the grunts rappel down. In my example the [COLOR=‘SeaGreen’]green circle (osprey_m5) is the [COLOR=‘SeaGreen’]entry point. Ideally this point should be out of the player’s view. The [COLOR=‘Red’]red circle (osprey_m1) the [COLOR=‘Red’]drop-off point. Make sure this point is a bit lower than the other points, so the osprey makes a small descent when approaching.</li>
+</ol>
+<p>You’ll need to tell the osprey which points is the [COLOR=‘SeaGreen’]entry point and which is the [COLOR=‘Red’]drop-off point. Go into the npc_osprey and enter this into it’s output:<br>
+OnReadyToMoveDeployZone &gt; osprey_m5 &gt; FireUser1<br>
+OnReadyToRetreat &gt; osprey_m1 &gt; FireUser1</p>
+<p>Go to your [COLOR=‘SeaGreen’]entry path (osprey_m5) and change the “OnPass” output to “OnUser1”. Also add:<br>
+OnPass &gt; osprey &gt; WaitHereTillReady</p>
+<p>Go to your [COLOR=‘red’]drop-off path (osprey_m1) and change  “OnPass” output to “OnUser1”. Also add:<br>
+OnPass &gt; osprey&gt; BeginRappellingGrunts</p>
+<ol start="5">
+<li>Time to set up the grunts. Create a npc_human_grunt:<br>
+name: osprey_grunt1<br>
+squad name: grunt_squad<br>
+Tag Flags: Fall to the Ground, Template NPC.</li>
+</ol>
+<p>In the same fashion create osprey_grunt2, osprey_grunt3 and osprey_grunt4. You can use npc_human_commander and npc_human_medic for some variation.</p>
+<ol start="6">
+<li>
+<p>Compile the map and wait for the osprey to drop the grunts. When you kill 2 out of 4 grunts, the osprey will return and reinforce the squad. The sequence works, but after rappelling the grunts just stand around. We want them take up tactical positions after insertion. Here is how that is done:</p>
+</li>
+<li>
+<p>At the drop-off point, create an assault_rallypoint.<br>
+Name: osprey_grunt1_rally<br>
+Assault point: osprey_grunt1_assault<br>
+Urgent: Yes</p>
+</li>
+</ol>
+<p>Also create an assault_assaultpoint.<br>
+Name: osprey_grunt1_assault<br>
+Allow Diversion: Yes<br>
+Diversion Proximity: 512<br>
+Attack Tolerance: Medium (6).</p>
+<p>Find “osprey_grunt1” and enter this in his Output field:<br>
+OnRappelTouchdown &gt; !self &gt; Assault &gt; osprey_grunt1_rally</p>
+<p>(Note that !self is displayed red. Ignore that error)</p>
+<p>Do the same for the other 3 grunts. Each grunt should have his own !self output, rallypoint and assaultpoint. So osprey_grunt2 goes to osprey_grunt2_rally and osprey_grunt2_assault, etc.</p>
+<p>Now set up some static objects and drag the assaultpoints there. You can set the grunts to Force Crouch behind the objects if you want. Make sure their line of movement is clear so grunts don’t bump into eachother. Also add some info_nodes or info_hints for AI navigation.  It could look like this:</p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<ol start="8">
+<li>All done! Compile and watch the action!  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:">
+</li>
+</ol>
+<h4>UPDATE</h4>
+<p>The osprey will keep dropping grunts untill it is destroyed. If you want it to retreat after dropping a certain number of grunts, you can set up the following sequence (this is not included in the example VMF):</p>
+<ol start="9">
+<li>Create a new path_track called “osprey_retreat”. Put it somewhere where you want the osprey to retreat to. Preferably there where players can no longer see it. In the Output enter:<br>
+OnPass &gt; osprey &gt; Kill.</li>
+</ol>
+<p>This will make the osprey disappear once it hits this path_track.</p>
+<ol start="10">
+<li>Add a math_counter:<br>
+Name: osprey_grunt_counter<br>
+Maximum Legal Value: 10</li>
+</ol>
+<p>This will trigger once 10 grunts have spawned. In it’s Output add:<br>
+OnHitMax &gt; osprey &gt; FlyToSpecificTrackViaPath &gt; osprey_retreat</p>
+<ol start="11">
+<li>In all grunt templates (osprey_grunt1 to 4) add the following output:<br>
+OnRappelTouchdown &gt; osprey_grunt_counter &gt; Add &gt; 1</li>
+</ol>
+<p>And you’re done. Every time a grunt rappels down, it add 1 point to the math_counter. Once it hits 10 points, it will trigger the Ospreys retreat.</p>
+<p>Example VMF can be downloaded <a href="https://www.deved-portal.com/hezus/up/tutorials/osprey_tutorial.zip" data-bbcode="true" rel="nofollow noopener">here</a>.</p>
+          <p><a href="https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535/1</link>
+        <pubDate>Sun, 21 Oct 2012 14:20:12 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11535-1</guid>
+        <source url="https://leakfree.org/t/tutorial-osprey-and-rapelling-grunts/11535.rss">[Tutorial]Osprey and rapelling grunts</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Various Sound-related Bugs</title>
+    <link>https://leakfree.org/t/various-sound-related-bugs/14490</link>
+    <description>(For single-player)
+
+Several audio effects never play in-game:
+* [b]Regular player [/b]death sound (i.e, the HEV sound effects when the player dies from anything).
+* [b]Falling death [/b]sound effect.  The player instead incorrectly makes a normal falling damage sound when dying from falling (Player.FallDamage plays instead of Player.FallGib).
+* [b]Player underwater [/b]sound effect.  When the player is submerged in water, Player.AmbientUnderWater doesn&#39;t play.
+* [b]Zombie death [/b]sound[b].  [/b]Zombie hurt sound often plays upon its death.
+Other audio bug(s):
+* [b]Health charger and suit charger deny[/b] sounds playing twice in rapid succession.  Whenever the player uses a suit charger or health charger, and either [b](1). empties the charger[/b] or [b](2). fills up their health/suit power[/b], the charger device will play the &quot;deny&quot; sound effect twice instead of once.
+* [b]Crashing console sound effect[/b] continues playing after the first time the console topples over.  In [b]bm_c1a1a[/b], a laser cuts through a computer console, causing it to fall over and make a sound.  The laser moves away, but it eventually returns and cuts through the same spot where the console used to be.  [i]Each time the laser cuts through the same spot where the console used to be, the sound of  the console crashing down occurs again, even though it had already fallen. [/i] Screenshot: [url]https://steamcommunity.com/sharedfiles/filedetails/?id=569896908[/url].
+* [b]Tram movement start sound [/b]plays twice instead of once at a particular point in Black Mesa Inbound.  At the start of [b]bm_c0a0c[/b], the tram plays its start sound effect (tram1_stop2) twice successively.
+* [b]Metal grate floor footstep sounds [/b]not playing on a particular piece of metal grate floor.  When stepping on this floor (in [b]bm_c1a0a[/b]), the typical metal grate footstep sounds don&#39;t play like they do in instances of stepping on all other metal grate floors in the game.  Strangely enough, this &quot;bug&quot; only happens for the player; when scientists step on this floor, it appropriately makes metal grate sounds.  Screenshot: [url]https://steamcommunity.com/sharedfiles/filedetails/?id=569896894[/url].
+* [b]Menu rollover sound effect [/b]is triggered by rolling over any menu items with the mouse cursor, [i]but it doesn&#39;t actually play until the game is unpaused[/i].  Many instances of the sound can be buffered through repeated rollovers while the game is paused, causing all of the buffered instances to play (sounding like one loud instance) at the same time once the player leaves the menu.  This bug only happens when there is a resumable game.
+* [b]Hydroelectric plant (dam) fight music[/b] only plays when the player initiates the scripted fight with the marines (which begins with the opening of the generator room door) by standing at the entrance of the dam.  If the player starts the scripted fight by getting the attention/shooting at the marines patrolling on the dam without first walking up to the dam&#39;s entrance, [i]the music never plays[/i].
+Several soundscape issues exist:
+* [b]Map: bm_c2a4h.  Soundscape: c2a4h.outside[/b].  Soundscape node placed inside of a truck and cannot be triggered.  As a result, when the player walks from out of the nearby tunnel, the indoor &quot;tunnelish&quot; soundscape ambience will continue playing outdoors.  Screenshot: [url]https://steamcommunity.com/sharedfiles/filedetails/?id=440886908[/url].
+* [b]Map: bm_c1a1b.  Soundscape: c1a1b.frozenlab[/b].  Multiple-entrance room (frozen laboratory) can only have its soundscape triggered by entering through one of its entrances--a large window.  Entering through the door (on right side of screenshot) won&#39;t ever cause the soundscape (c1a1b.frozenlab) to activate.  Screenshot: [url]https://steamcommunity.com/sharedfiles/filedetails/?id=568889055[/url].
+* [b]Map: bm_c2a3a. Soundscapes: All underwater soundscape nodes.[/b]  All soundscape nodes placed underwater don&#39;t trigger.  Screenshot (one example): [url]https://steamcommunity.com/sharedfiles/filedetails/?id=568941992[/url].
+* [b]Map: bm_c2a3b. Soundscapes: Pair underwater.[/b]  A pair of underwater soundscape nodes don&#39;t trigger in this map as well.  Right after the room with two ichthyosaurs.
+* [b]Map: bm_c3a2b+c. Soundscapes: Underwater soundscape nodes.[/b] All soundscape nodes placed in coolant don&#39;t trigger. Screenshot (one example): [url]https://steamcommunity.com/sharedfiles/filedetails/?id=568971742[/url]
+* [b]Map: bm_c1a4a. Soundscape: c1a4a.elevator_shaft: [/b] After triggering this soundscape node, it seems to be impossible to trigger any of the other soundscape nodes in the level.
+* [b]Map: bm_c2a5c. Soundscapes: c2a5c.cliffside_walkways and c2a5c.cliffside_shack:[/b] After triggering the soundscape node in the shack, the only way to reactivate the outdoor walkways node is by walking out the door of the shack.  If the player goes through the window, the walkways soundscape is never triggered (leaving the indoor ambience still playing).  Screenshot: [url]https://steamcommunity.com/sharedfiles/filedetails/?id=575989409[/url] (Note: the yellow line between me and the node indicates that the particular soundscape node is active; I&#39;m standing outside the shack; the broken window on the right-hand side of the shack)</description>
+    
+    <lastBuildDate>Sat, 05 Dec 2015 06:22:42 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/various-sound-related-bugs/14490.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Various Sound-related Bugs</title>
+        <dc:creator><![CDATA[Shask]]></dc:creator>
+        <description><![CDATA[
+            <p>(For single-player)</p>
+<p>Several audio effects never play in-game:</p>
+<ul>
+<li>
+<span class="bbcode-b">Regular player </span>death sound (i.e, the HEV sound effects when the player dies from anything).</li>
+<li>
+<span class="bbcode-b">Falling death </span>sound effect.  The player instead incorrectly makes a normal falling damage sound when dying from falling (Player.FallDamage plays instead of Player.FallGib).</li>
+<li>
+<span class="bbcode-b">Player underwater </span>sound effect.  When the player is submerged in water, Player.AmbientUnderWater doesn’t play.</li>
+<li>
+<span class="bbcode-b">Zombie death </span>sound<span class="bbcode-b">.  </span>Zombie hurt sound often plays upon its death.<br>
+Other audio bug(s):</li>
+<li>
+<span class="bbcode-b">Health charger and suit charger deny</span> sounds playing twice in rapid succession.  Whenever the player uses a suit charger or health charger, and either <a>b</a>. empties the charger[/b] or <a>b</a>. fills up their health/suit power[/b], the charger device will play the “deny” sound effect twice instead of once.</li>
+<li>
+<span class="bbcode-b">Crashing console sound effect</span> continues playing after the first time the console topples over.  In <span class="bbcode-b">bm_c1a1a</span>, a laser cuts through a computer console, causing it to fall over and make a sound.  The laser moves away, but it eventually returns and cuts through the same spot where the console used to be.  <span class="bbcode-i">Each time the laser cuts through the same spot where the console used to be, the sound of  the console crashing down occurs again, even though it had already fallen. </span> Screenshot: <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=569896908" data-bbcode="true" rel="nofollow noopener">https://steamcommunity.com/sharedfiles/filedetails/?id=569896908</a>.</li>
+<li>
+<span class="bbcode-b">Tram movement start sound </span>plays twice instead of once at a particular point in Black Mesa Inbound.  At the start of <span class="bbcode-b">bm_c0a0c</span>, the tram plays its start sound effect (tram1_stop2) twice successively.</li>
+<li>
+<span class="bbcode-b">Metal grate floor footstep sounds </span>not playing on a particular piece of metal grate floor.  When stepping on this floor (in <span class="bbcode-b">bm_c1a0a</span>), the typical metal grate footstep sounds don’t play like they do in instances of stepping on all other metal grate floors in the game.  Strangely enough, this “bug” only happens for the player; when scientists step on this floor, it appropriately makes metal grate sounds.  Screenshot: <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=569896894" data-bbcode="true" rel="nofollow noopener">https://steamcommunity.com/sharedfiles/filedetails/?id=569896894</a>.</li>
+<li>
+<span class="bbcode-b">Menu rollover sound effect </span>is triggered by rolling over any menu items with the mouse cursor, <span class="bbcode-i">but it doesn’t actually play until the game is unpaused</span>.  Many instances of the sound can be buffered through repeated rollovers while the game is paused, causing all of the buffered instances to play (sounding like one loud instance) at the same time once the player leaves the menu.  This bug only happens when there is a resumable game.</li>
+<li>
+<span class="bbcode-b">Hydroelectric plant (dam) fight music</span> only plays when the player initiates the scripted fight with the marines (which begins with the opening of the generator room door) by standing at the entrance of the dam.  If the player starts the scripted fight by getting the attention/shooting at the marines patrolling on the dam without first walking up to the dam’s entrance, <span class="bbcode-i">the music never plays</span>.<br>
+Several soundscape issues exist:</li>
+<li>
+<span class="bbcode-b">Map: bm_c2a4h.  Soundscape: c2a4h.outside</span>.  Soundscape node placed inside of a truck and cannot be triggered.  As a result, when the player walks from out of the nearby tunnel, the indoor “tunnelish” soundscape ambience will continue playing outdoors.  Screenshot: <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=440886908" data-bbcode="true" rel="nofollow noopener">https://steamcommunity.com/sharedfiles/filedetails/?id=440886908</a>.</li>
+<li>
+<span class="bbcode-b">Map: bm_c1a1b.  Soundscape: c1a1b.frozenlab</span>.  Multiple-entrance room (frozen laboratory) can only have its soundscape triggered by entering through one of its entrances–a large window.  Entering through the door (on right side of screenshot) won’t ever cause the soundscape (c1a1b.frozenlab) to activate.  Screenshot: <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=568889055" data-bbcode="true" rel="nofollow noopener">https://steamcommunity.com/sharedfiles/filedetails/?id=568889055</a>.</li>
+<li>
+<span class="bbcode-b">Map: bm_c2a3a. Soundscapes: All underwater soundscape nodes.</span>  All soundscape nodes placed underwater don’t trigger.  Screenshot (one example): <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=568941992" data-bbcode="true" rel="nofollow noopener">https://steamcommunity.com/sharedfiles/filedetails/?id=568941992</a>.</li>
+<li>
+<span class="bbcode-b">Map: bm_c2a3b. Soundscapes: Pair underwater.</span>  A pair of underwater soundscape nodes don’t trigger in this map as well.  Right after the room with two ichthyosaurs.</li>
+<li>
+<span class="bbcode-b">Map: bm_c3a2b+c. Soundscapes: Underwater soundscape nodes.</span> All soundscape nodes placed in coolant don’t trigger. Screenshot (one example): <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=568971742" data-bbcode="true" rel="nofollow noopener">https://steamcommunity.com/sharedfiles/filedetails/?id=568971742</a>
+</li>
+<li>
+<span class="bbcode-b">Map: bm_c1a4a. Soundscape: c1a4a.elevator_shaft: </span> After triggering this soundscape node, it seems to be impossible to trigger any of the other soundscape nodes in the level.</li>
+<li>
+<span class="bbcode-b">Map: bm_c2a5c. Soundscapes: c2a5c.cliffside_walkways and c2a5c.cliffside_shack:</span> After triggering the soundscape node in the shack, the only way to reactivate the outdoor walkways node is by walking out the door of the shack.  If the player goes through the window, the walkways soundscape is never triggered (leaving the indoor ambience still playing).  Screenshot: <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=575989409" data-bbcode="true" rel="nofollow noopener">https://steamcommunity.com/sharedfiles/filedetails/?id=575989409</a> (Note: the yellow line between me and the node indicates that the particular soundscape node is active; I’m standing outside the shack; the broken window on the right-hand side of the shack)</li>
+</ul>
+          <p><a href="https://leakfree.org/t/various-sound-related-bugs/14490/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/various-sound-related-bugs/14490/1</link>
+        <pubDate>Sat, 05 Dec 2015 06:22:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14490-1</guid>
+        <source url="https://leakfree.org/t/various-sound-related-bugs/14490.rss">Various Sound-related Bugs</source>
+      </item>
+  </channel>
+</rss>

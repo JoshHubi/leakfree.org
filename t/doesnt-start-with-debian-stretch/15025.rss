@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Doesn&#39;t start with Debian Stretch</title>
+    <link>https://leakfree.org/t/doesnt-start-with-debian-stretch/15025</link>
+    <description>When I try to start the game nothing is happening, no start-up screen, no error message, nothing.
+I already tried upgrading to beta but this doesn&#39;t change anything.
+
+[code]uname -srvmo  
+Linux 4.8.0-1-amd64 #1 SMP Debian 4.8.7-1 (2016-11-13) x86_64 GNU/Linux[/code]
+
+[code]glxinfo | grep OpenGL
+OpenGL vendor string: Intel Open Source Technology Center
+OpenGL renderer string: Mesa DRI Intel(R) Ivybridge Mobile 
+OpenGL core profile version string: 3.3 (Core Profile) Mesa 13.0.2
+OpenGL core profile shading language version string: 3.30
+OpenGL core profile context flags: (none)
+OpenGL core profile profile mask: core profile
+OpenGL core profile extensions:
+OpenGL version string: 3.0 Mesa 13.0.2
+OpenGL shading language version string: 1.30
+OpenGL context flags: (none)
+OpenGL extensions:
+OpenGL ES profile version string: OpenGL ES 3.0 Mesa 13.0.2
+OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.00
+OpenGL ES profile extensions:[/code]Do you have any ideas? Places to look for logs?</description>
+    
+    <lastBuildDate>Wed, 14 Dec 2016 22:37:40 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/doesnt-start-with-debian-stretch/15025.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Doesn&#39;t start with Debian Stretch</title>
+        <dc:creator><![CDATA[djcj]]></dc:creator>
+        <description><![CDATA[
+            <p>Remove libstdc++.so.6 from Black Mesa’s bin directory and try it again (should be $HOME/.local/share/Steam/steamapps/common/Black Mesa/bin or something like that).<br>
+Seriously devs, don’t distribute that library.</p>
+          <p><a href="https://leakfree.org/t/doesnt-start-with-debian-stretch/15025/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/doesnt-start-with-debian-stretch/15025/5</link>
+        <pubDate>Wed, 14 Dec 2016 22:37:40 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15025-5</guid>
+        <source url="https://leakfree.org/t/doesnt-start-with-debian-stretch/15025.rss">Doesn&#39;t start with Debian Stretch</source>
+      </item>
+      <item>
+        <title>Doesn&#39;t start with Debian Stretch</title>
+        <dc:creator><![CDATA[ItsMeOnly]]></dc:creator>
+        <description><![CDATA[
+            <p>To me it looks like there’s some (older) libGL that is failing to load the Intel DRI module. Anyway, just to let you know, BMS does actually start on Sarge, but I’m using nvidia drivers at the moment.</p>
+<p>some roque LD64_LIBRARY_PATH, LD_LIBRARY_PATH perhaps?</p>
+          <p><a href="https://leakfree.org/t/doesnt-start-with-debian-stretch/15025/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/doesnt-start-with-debian-stretch/15025/4</link>
+        <pubDate>Mon, 12 Dec 2016 18:34:24 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15025-4</guid>
+        <source url="https://leakfree.org/t/doesnt-start-with-debian-stretch/15025.rss">Doesn&#39;t start with Debian Stretch</source>
+      </item>
+      <item>
+        <title>Doesn&#39;t start with Debian Stretch</title>
+        <dc:creator><![CDATA[mdosch]]></dc:creator>
+        <description><![CDATA[
+            <p>Actually I wasn’t aware of being able to choose sub-forums on the right although I’m using steam for years now so I never had a look in the Linux sub-forum.<br>
+Thank you for pointing this out. I submitted a post there and hopefully it’ll lead to a solution. Running the shell-script mentioned there shows that there is something not working well:</p>
+<p><code>./bms.sh 
+libGL error: unable to load driver: i965_dri.so
+libGL error: driver pointer missing
+libGL error: failed to load driver: i965
+libGL error: unable to load driver: i965_dri.so
+libGL error: driver pointer missing
+libGL error: failed to load driver: i965
+libGL error: unable to load driver: swrast_dri.so
+libGL error: failed to load driver: swrast
+X Error of failed request:  BadValue (integer parameter out of range for operation)
+  Major opcode of failed request:  155 (GLX)
+  Minor opcode of failed request:  3 (X_GLXCreateContext)
+  Value in failed request:  0x0
+  Serial number of failed request:  97
+  Current serial number in output stream:  98</code></p>
+          <p><a href="https://leakfree.org/t/doesnt-start-with-debian-stretch/15025/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/doesnt-start-with-debian-stretch/15025/3</link>
+        <pubDate>Thu, 08 Dec 2016 22:11:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15025-3</guid>
+        <source url="https://leakfree.org/t/doesnt-start-with-debian-stretch/15025.rss">Doesn&#39;t start with Debian Stretch</source>
+      </item>
+      <item>
+        <title>Doesn&#39;t start with Debian Stretch</title>
+        <dc:creator><![CDATA[RedEye]]></dc:creator>
+        <description><![CDATA[
+            <p>Have you looked in the linux sub-forum here, <a href="https://steamcommunity.com/app/362890/discussions/1/" data-bbcode="true" rel="nofollow noopener">https://steamcommunity.com/app/362890/discussions/1/</a></p>
+<p>or read this thread<br>
+<a href="https://steamcommunity.com/app/362890/discussions/0/312265327168384714/" data-bbcode="true" rel="nofollow noopener">https://steamcommunity.com/app/362890/discussions/0/312265327168384714/</a></p>
+          <p><a href="https://leakfree.org/t/doesnt-start-with-debian-stretch/15025/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/doesnt-start-with-debian-stretch/15025/2</link>
+        <pubDate>Thu, 08 Dec 2016 20:45:02 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15025-2</guid>
+        <source url="https://leakfree.org/t/doesnt-start-with-debian-stretch/15025.rss">Doesn&#39;t start with Debian Stretch</source>
+      </item>
+      <item>
+        <title>Doesn&#39;t start with Debian Stretch</title>
+        <dc:creator><![CDATA[mdosch]]></dc:creator>
+        <description><![CDATA[
+            <p>When I try to start the game nothing is happening, no start-up screen, no error message, nothing.<br>
+I already tried upgrading to beta but this doesn’t change anything.</p>
+<p><code>uname -srvmo  
+Linux 4.8.0-1-amd64 #1 SMP Debian 4.8.7-1 (2016-11-13) x86_64 GNU/Linux</code></p>
+<p><code>glxinfo | grep OpenGL
+OpenGL vendor string: Intel Open Source Technology Center
+OpenGL renderer string: Mesa DRI Intel(R) Ivybridge Mobile 
+OpenGL core profile version string: 3.3 (Core Profile) Mesa 13.0.2
+OpenGL core profile shading language version string: 3.30
+OpenGL core profile context flags: (none)
+OpenGL core profile profile mask: core profile
+OpenGL core profile extensions:
+OpenGL version string: 3.0 Mesa 13.0.2
+OpenGL shading language version string: 1.30
+OpenGL context flags: (none)
+OpenGL extensions:
+OpenGL ES profile version string: OpenGL ES 3.0 Mesa 13.0.2
+OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.00
+OpenGL ES profile extensions:</code>Do you have any ideas? Places to look for logs?</p>
+          <p><a href="https://leakfree.org/t/doesnt-start-with-debian-stretch/15025/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/doesnt-start-with-debian-stretch/15025/1</link>
+        <pubDate>Thu, 08 Dec 2016 18:43:14 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15025-1</guid>
+        <source url="https://leakfree.org/t/doesnt-start-with-debian-stretch/15025.rss">Doesn&#39;t start with Debian Stretch</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>WHY IS MY PROGRAM SEGFAULTING</title>
+    <link>https://leakfree.org/t/why-is-my-program-segfaulting/3899</link>
+    <description>I&#39;m writing a program in my free time (nerd much?) using C++ and the Qt libraries.  Eventually, it&#39;ll display user-created flashcards, and be able to judge whether the user is answering the questions correctly.  But I haven&#39;t gotten as far as implementing the GUI with Qt yet, because I CAN&#39;T GET THE MOST RUDIMENTARY CODE TO STOP SEGFAULTING.  gdb (a debugger) tells me that the problem is in a function called mountFile.  
+
+First, some background: the flashcards are accessed via a class called Stack, which is a stack of flashcards.  It has, among other things, an array of fifty Cards, as follows:
+
+     Card _cards[50];
+
+which the constructor initializes to blank cards.  Each card has an array of twenty Answers:
+
+     Answer _answers[20];
+
+which are also initially blank.  Class Stack is a friend of class Card and of class Answer, and class Card is a friend of class Answer.
+
+The mountFile function reads in information from a text file containing the name of the stack, the number of cards in the stack, and the contents of each card in the stack.  It is prototyped in Stack.h as:
+
+     bool mountFile(const char*);
+
+The boolean it returns is a status value that will eventually represent whether or not the file was mounted successfully, although it hasn&#39;t been implemented yet.  Now, here&#39;s mountFile as written in Stack.cpp (wall &#39;o code coming your way):
+
+[code]bool Stack :: mountFile(const char* filename)
+{
+	//Variables
+	char	line[100];	//Stores a whole line of the input file
+	int	i, j, k,	//Loop control variables
+		groupNum;	//The current ambiguity group number
+	bool	secondLine = false,	//Boolean determining whether a given line is the second line of a card
+		inGroup = false,	//Boolean determining whether or not to write to an amgiguity group
+		success = true;		//Boolean returning true if the file was successfully mounted; false otherwise
+
+	//Initialize line[]
+	for(i = 0; i &lt; 100; ++i) {
+		line[i] = &#39;\0&#39;;
+	}
+
+	i = -1;	//Initialize i for later use
+	j = 0;	//Initialize j
+	groupNum = 0;	//Initialize
+
+	//Use line to copy the filename, then declare and open the input file
+	strcpy(line, filename);
+	ifstream infile(line, ifstream :: in);
+
+	//Clean line
+	for(i = 0; i &lt; 100; ++i) {
+		line[i] = &#39;\0&#39;;
+	}
+
+	//Read the first line of the input file. It contains the name of the stack
+	infile.getline(_name, 50);
+
+	//Read the second line of the input file. It contains the number of cards
+	infile.getline(line, 100);
+	_numCards = atoi(line);	//Convert the number read to an int
+	line[0] = &#39;\0&#39;;			//Clean the line array
+	line[1] = &#39;\0&#39;;
+
+	//Begin reading in the rest of the file
+	while (infile.eof() != true) {
+		//Read in the next line of data
+		infile.getline(line, 100);
+
+		//Determine what to do with this line
+		//If the line reads &quot;#NEWCARD&quot;, this signifies the start of a new card
+		//i is incremented for access to this card&#39;s place in _cards
+		if (strcmp(line, &quot;#NEWCARD&quot;) == 0) {	
+			++i;
+			j = 0;		//Reset j (the number of answers on each card)
+/*DEBUG*/		_cards[i]._cardNumber = i + 1;
+			//_cards[i].setCardNumber(i + 1);	//Number the new card
+			secondLine = true;	//The next line will be the second line of the card
+		//The second line contains the question on the card
+		} else if (secondLine == true) {
+			_cards[i].setQuestion(line);	//Write the question on the card
+			secondLine = false;	//The next line will not be the second line
+		//The remaining lines of the card contain questions, some grouped into ambiguity groups
+		} else {
+			//The &quot;@&quot; symbol signifies the start of an ambiguity group
+			if (line[0] == &#39;@&#39;) {
+				inGroup = true;	
+				++groupNum;	//Increment the group number
+			}
+			//The following members of an ambiguity group are preceded by &quot;~&quot;
+			//When &quot;~&quot; is absent, the group should no longer be written to
+			//If the next line begins with &quot;@&quot;, this signifies the start of a consecutive ambiguity group, and inGroup should not be set to false
+			if (line[0] != &#39;~&#39; &amp;&amp; line[0] != &#39;@&#39;) {
+				inGroup = false;	//Stop writing to an ambiguity group
+			}
+			//Start writing to the card&#39;s _answers array
+			//Write the answer as a member of an ambiguity group
+			if (inGroup == true) {
+				_cards[i].getAnswer(j).setIsAmbiguous(true);
+				_cards[i].getAnswer(j).setAmbGroup(groupNum);
+				_cards[i].getAnswer(j).setText(line);	//Place the text from the file in the answer array
+			//Write the answer as not being a member of an ambiguity group
+			} else {
+				_cards[i].getAnswer(j).setText(line);	//Place the text from the file in the answer array
+			}
+
+			_cards[i].setNumAnswers(_cards[i].getNumAnswers() + 1);	//Increment the number of answers on this card by 1
+			++j;	//Increment j for access to the next answer space
+		}
+
+		//Clean the line array
+		for(k = 0; k &lt; 100; ++k) {
+			line[k] = &#39;\0&#39;;
+		}
+
+		
+	}
+
+	return success;
+}[/code]
+
+All of the relevant libraries for string functions and filestream functions have been included.  I&#39;m compiling the code with g++ on a machine running Fedora, and it isn&#39;t generating any compiler errors or warnings.  And I can&#39;t for the life of me figure out what&#39;s wrong with this function.</description>
+    
+    <lastBuildDate>Sun, 25 Apr 2010 17:24:55 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/why-is-my-program-segfaulting/3899.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>WHY IS MY PROGRAM SEGFAULTING</title>
+        <dc:creator><![CDATA[Solokiller]]></dc:creator>
+        <description><![CDATA[
+            <p>You might want to check if the file is open or not after the open method is called.</p>
+          <p><a href="https://leakfree.org/t/why-is-my-program-segfaulting/3899/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/why-is-my-program-segfaulting/3899/4</link>
+        <pubDate>Sun, 25 Apr 2010 17:24:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3899-4</guid>
+        <source url="https://leakfree.org/t/why-is-my-program-segfaulting/3899.rss">WHY IS MY PROGRAM SEGFAULTING</source>
+      </item>
+      <item>
+        <title>WHY IS MY PROGRAM SEGFAULTING</title>
+        <dc:creator><![CDATA[papernick]]></dc:creator>
+        <description><![CDATA[
+            <p>you clearly aren’t a geek of <span class="bbcode-i">all</span> trades.</p>
+          <p><a href="https://leakfree.org/t/why-is-my-program-segfaulting/3899/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/why-is-my-program-segfaulting/3899/3</link>
+        <pubDate>Sun, 25 Apr 2010 16:09:46 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3899-3</guid>
+        <source url="https://leakfree.org/t/why-is-my-program-segfaulting/3899.rss">WHY IS MY PROGRAM SEGFAULTING</source>
+      </item>
+      <item>
+        <title>WHY IS MY PROGRAM SEGFAULTING</title>
+        <dc:creator><![CDATA[Cameron_D]]></dc:creator>
+        <description><![CDATA[
+            <p>urdoinitrong bscly</p>
+<p>Also</p>
+<aside class="quote no-group" data-username="geekofalltrades">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/g/c2a13f/40.png" class="avatar"> geekofalltrades:</div>
+<blockquote>
+<p>EDIT: <a href="https://img179.imageshack.us/img179/6794/mountfile.png" data-bbcode="true" rel="nofollow noopener">Here is a screencap of the code in vi, because the forum is a bitch and removed all the tabs, thus making the code illegible. :hmph:</a></p>
+</blockquote>
+</aside>
+<p>Put it inside [code ][ /code] tags</p>
+          <p><a href="https://leakfree.org/t/why-is-my-program-segfaulting/3899/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/why-is-my-program-segfaulting/3899/2</link>
+        <pubDate>Sun, 25 Apr 2010 05:39:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3899-2</guid>
+        <source url="https://leakfree.org/t/why-is-my-program-segfaulting/3899.rss">WHY IS MY PROGRAM SEGFAULTING</source>
+      </item>
+      <item>
+        <title>WHY IS MY PROGRAM SEGFAULTING</title>
+        <dc:creator><![CDATA[geekofalltrades]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m writing a program in my free time (nerd much?) using C++ and the Qt libraries.  Eventually, it’ll display user-created flashcards, and be able to judge whether the user is answering the questions correctly.  But I haven’t gotten as far as implementing the GUI with Qt yet, because I CAN’T GET THE MOST RUDIMENTARY CODE TO STOP SEGFAULTING.  gdb (a debugger) tells me that the problem is in a function called mountFile.</p>
+<p>First, some background: the flashcards are accessed via a class called Stack, which is a stack of flashcards.  It has, among other things, an array of fifty Cards, as follows:</p>
+<pre><code> Card _cards[50];
+</code></pre>
+<p>which the constructor initializes to blank cards.  Each card has an array of twenty Answers:</p>
+<pre><code> Answer _answers[20];
+</code></pre>
+<p>which are also initially blank.  Class Stack is a friend of class Card and of class Answer, and class Card is a friend of class Answer.</p>
+<p>The mountFile function reads in information from a text file containing the name of the stack, the number of cards in the stack, and the contents of each card in the stack.  It is prototyped in Stack.h as:</p>
+<pre><code> bool mountFile(const char*);
+</code></pre>
+<p>The boolean it returns is a status value that will eventually represent whether or not the file was mounted successfully, although it hasn’t been implemented yet.  Now, here’s mountFile as written in Stack.cpp (wall 'o code coming your way):</p>
+<p>[code]bool Stack :: mountFile(const char* filename)<br>
+{<br>
+//Variables<br>
+char	line[100];	//Stores a whole line of the input file<br>
+int	i, j, k,	//Loop control variables<br>
+groupNum;	//The current ambiguity group number<br>
+bool	secondLine = false,	//Boolean determining whether a given line is the second line of a card<br>
+inGroup = false,	//Boolean determining whether or not to write to an amgiguity group<br>
+success = true;		//Boolean returning true if the file was successfully mounted; false otherwise</p>
+<pre><code>//Initialize line[]
+for(i = 0; i &lt; 100; ++i) {
+	line[i] = '\0';
+}
+
+i = -1;	//Initialize i for later use
+j = 0;	//Initialize j
+groupNum = 0;	//Initialize
+
+//Use line to copy the filename, then declare and open the input file
+strcpy(line, filename);
+ifstream infile(line, ifstream :: in);
+
+//Clean line
+for(i = 0; i &lt; 100; ++i) {
+	line[i] = '\0';
+}
+
+//Read the first line of the input file. It contains the name of the stack
+infile.getline(_name, 50);
+
+//Read the second line of the input file. It contains the number of cards
+infile.getline(line, 100);
+_numCards = atoi(line);	//Convert the number read to an int
+line[0] = '\0';			//Clean the line array
+line[1] = '\0';
+
+//Begin reading in the rest of the file
+while (infile.eof() != true) {
+	//Read in the next line of data
+	infile.getline(line, 100);
+
+	//Determine what to do with this line
+	//If the line reads "#NEWCARD", this signifies the start of a new card
+	//i is incremented for access to this card's place in _cards
+	if (strcmp(line, "#NEWCARD") == 0) {	
+		++i;
+		j = 0;		//Reset j (the number of answers on each card)
+</code></pre>
+<p>/<em>DEBUG</em>/		_cards[i]._cardNumber = i + 1;<br>
+//_cards[i].setCardNumber(i + 1);	//Number the new card<br>
+secondLine = true;	//The next line will be the second line of the card<br>
+//The second line contains the question on the card<br>
+} else if (secondLine == true) {<br>
+_cards[i].setQuestion(line);	//Write the question on the card<br>
+secondLine = false;	//The next line will not be the second line<br>
+//The remaining lines of the card contain questions, some grouped into ambiguity groups<br>
+} else {<br>
+//The “@” symbol signifies the start of an ambiguity group<br>
+if (line[0] == ‘@’) {<br>
+inGroup = true;	<br>
+++groupNum;	//Increment the group number<br>
+}<br>
+//The following members of an ambiguity group are preceded by “~”<br>
+//When “~” is absent, the group should no longer be written to<br>
+//If the next line begins with “@”, this signifies the start of a consecutive ambiguity group, and inGroup should not be set to false<br>
+if (line[0] != ‘~’ &amp;&amp; line[0] != ‘@’) {<br>
+inGroup = false;	//Stop writing to an ambiguity group<br>
+}<br>
+//Start writing to the card’s _answers array<br>
+//Write the answer as a member of an ambiguity group<br>
+if (inGroup == true) {<br>
+_cards[i].getAnswer(j).setIsAmbiguous(true);<br>
+_cards[i].getAnswer(j).setAmbGroup(groupNum);<br>
+_cards[i].getAnswer(j).setText(line);	//Place the text from the file in the answer array<br>
+//Write the answer as not being a member of an ambiguity group<br>
+} else {<br>
+_cards[i].getAnswer(j).setText(line);	//Place the text from the file in the answer array<br>
+}</p>
+<pre><code>		_cards[i].setNumAnswers(_cards[i].getNumAnswers() + 1);	//Increment the number of answers on this card by 1
+		++j;	//Increment j for access to the next answer space
+	}
+
+	//Clean the line array
+	for(k = 0; k &lt; 100; ++k) {
+		line[k] = '\0';
+	}
+
+	
+}
+
+return success;
+</code></pre>
+<p>}[/code]</p>
+<p>All of the relevant libraries for string functions and filestream functions have been included.  I’m compiling the code with g++ on a machine running Fedora, and it isn’t generating any compiler errors or warnings.  And I can’t for the life of me figure out what’s wrong with this function.</p>
+          <p><a href="https://leakfree.org/t/why-is-my-program-segfaulting/3899/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/why-is-my-program-segfaulting/3899/1</link>
+        <pubDate>Sun, 25 Apr 2010 05:21:16 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-3899-1</guid>
+        <source url="https://leakfree.org/t/why-is-my-program-segfaulting/3899.rss">WHY IS MY PROGRAM SEGFAULTING</source>
+      </item>
+  </channel>
+</rss>

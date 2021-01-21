@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Constant Light With Sharp Falloff</title>
+    <link>https://leakfree.org/t/constant-light-with-sharp-falloff/15307</link>
+    <description>I am trying to configure some lights that have constant or near-constant attenuation up to a certain radius, but then fall off abruptly (this would dramatically help with the &#39;lighting pileup&#39; problems that have been dogging me since Day 1 of BMPD). It is possible to set up something similar using the 50% and 100% falloff distance values with the &#39;hard falloff&#39; option set...
+
+[img]https://steamuserimages-a.akamaihd.net/ugc/879755598705262357/9838B427EB91BF08489DD3A7017D71A8DEF97488/[/img]
+
+but every setting I&#39;ve tried for the 50% falloff distance (the 100% falloff value determines the &#39;stop&#39; radius, which I want to configure arbitrarily in about the 200-500 range) results in quadratic-like attenuation (there&#39;s a real constant light on the right side of the above image, for comparison).
+
+For a while I thought that the &#39;maximum distance&#39; parameter controlled this and it was broken only in the most recent version of the engine (and that it would be fixed in the Xengine Update), but now I find that it is seemingly nonfunctional in all versions of the engine. Not quite sure what to do from here.</description>
+    
+    <lastBuildDate>Sat, 09 Dec 2017 23:22:12 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/constant-light-with-sharp-falloff/15307.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Constant Light With Sharp Falloff</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Really digging the new lights as applied to Questionable Ethics; this room is very <span class="bbcode-i">very</span> bright but I wanted to sort of set up a really cold, sterile feeling in the dissection labs and have most of the lighting contrast come from blue-versus-white color differences:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/879755879949836457/1D64E43A5CA109812679FE9FE14CA3A4F5351F75/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/879755879949836457/1D64E43A5CA109812679FE9FE14CA3A4F5351F75/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/879755879949836668/74081700EAC37398671A37CAF149297E18E061A6/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/879755879949836668/74081700EAC37398671A37CAF149297E18E061A6/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Also found the r_ambientlightingonly console command, which doesn’t fix the problems with the props completely but does blank out the lightmaps (which are what renders wrong) and leaves a secondary lighting method so they don’t go completely black.</p>
+          <p><a href="https://leakfree.org/t/constant-light-with-sharp-falloff/15307/21">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/constant-light-with-sharp-falloff/15307/21</link>
+        <pubDate>Sat, 09 Dec 2017 23:22:12 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15307-21</guid>
+        <source url="https://leakfree.org/t/constant-light-with-sharp-falloff/15307.rss">Constant Light With Sharp Falloff</source>
+      </item>
+      <item>
+        <title>Constant Light With Sharp Falloff</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>It’s a combination of the lightmap density of the floors being low and many of the props having their shadows disabled, which is actually inherited from the canon map (although it’s less noticeable there because the map itself is so dark). I’ll probably fix it when the static props themselves aren’t such a giant pile of horrible.</p>
+<p>The color is <span class="bbcode-i">about</span> as good as it’s going to get on the current engine build, although once Black Mesa adds more support for color correction I may go back and tweak it. The <span class="bbcode-i">textures </span>are actually my own, as the canonical ones do not work well when taken out of that dark environment, and I may tweak their coloring as well (I’m particularly dissatisfied with the ceiling tiles, which look way too uniform and don’t really show well the occasional darker tile that’s on the canon texture).</p>
+          <p><a href="https://leakfree.org/t/constant-light-with-sharp-falloff/15307/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/constant-light-with-sharp-falloff/15307/20</link>
+        <pubDate>Thu, 07 Dec 2017 15:14:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15307-20</guid>
+        <source url="https://leakfree.org/t/constant-light-with-sharp-falloff/15307.rss">Constant Light With Sharp Falloff</source>
+      </item>
+      <item>
+        <title>Constant Light With Sharp Falloff</title>
+        <dc:creator><![CDATA[jadebenn]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Admiral Sakai">
+<div class="title">
+<div class="quote-controls"></div>
+ Admiral Sakai:</div>
+<blockquote>
+<p>It’s <a href="https://forums.blackmesasource.com/index.php/Thread/30784-Lack-of-a-Bumpmap-Causes-Props-To-Light-Weirdly/" data-bbcode="true" rel="nofollow noopener">going to be fixed in the Xengine Update</a> so I’m not really going out of my way to deal with it.</p>
+</blockquote>
+</aside>
+<p>Oh, okay. That makes sense. Overall, that picture is a massive improvement. Bright enough to be plausible, but not enough to wash everything out. I assume you’re still working on the color, so I won’t comment on that.</p>
+<p>I am confused as to why there still appears to be no shadows cast on the floor by props. I assumed it was the constant light washing everything out in the first picture, but that shouldn’t be the case here.</p>
+          <p><a href="https://leakfree.org/t/constant-light-with-sharp-falloff/15307/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/constant-light-with-sharp-falloff/15307/19</link>
+        <pubDate>Thu, 07 Dec 2017 07:20:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15307-19</guid>
+        <source url="https://leakfree.org/t/constant-light-with-sharp-falloff/15307.rss">Constant Light With Sharp Falloff</source>
+      </item>
+      <item>
+        <title>Constant Light With Sharp Falloff</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>It’s <a href="https://forums.blackmesasource.com/index.php/Thread/30784-Lack-of-a-Bumpmap-Causes-Props-To-Light-Weirdly/" data-bbcode="true" rel="nofollow noopener">going to be fixed in the Xengine Update</a> so I’m not really going out of my way to deal with it.</p>
+          <p><a href="https://leakfree.org/t/constant-light-with-sharp-falloff/15307/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/constant-light-with-sharp-falloff/15307/18</link>
+        <pubDate>Thu, 07 Dec 2017 03:56:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15307-18</guid>
+        <source url="https://leakfree.org/t/constant-light-with-sharp-falloff/15307.rss">Constant Light With Sharp Falloff</source>
+      </item>
+      <item>
+        <title>Constant Light With Sharp Falloff</title>
+        <dc:creator><![CDATA[jadebenn]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Admiral Sakai">
+<div class="title">
+<div class="quote-controls"></div>
+ Admiral Sakai:</div>
+<blockquote>
+<p>I deliberately disabled prop lighting because things like the billboards light <span class="bbcode-i">waaaay</span> too brightly.</p>
+</blockquote>
+</aside>
+<p>You could probably fix that by attaching the billboard to a lighting origin placed in a slightly dimmer room.</p>
+          <p><a href="https://leakfree.org/t/constant-light-with-sharp-falloff/15307/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/constant-light-with-sharp-falloff/15307/17</link>
+        <pubDate>Thu, 07 Dec 2017 03:43:49 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15307-17</guid>
+        <source url="https://leakfree.org/t/constant-light-with-sharp-falloff/15307.rss">Constant Light With Sharp Falloff</source>
+      </item>
+      <item>
+        <title>Constant Light With Sharp Falloff</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>I deliberately disabled prop lighting because things like the billboards light <span class="bbcode-i">waaaay</span> too brightly.</p>
+          <p><a href="https://leakfree.org/t/constant-light-with-sharp-falloff/15307/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/constant-light-with-sharp-falloff/15307/16</link>
+        <pubDate>Thu, 07 Dec 2017 03:37:27 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15307-16</guid>
+        <source url="https://leakfree.org/t/constant-light-with-sharp-falloff/15307.rss">Constant Light With Sharp Falloff</source>
+      </item>
+      <item>
+        <title>Constant Light With Sharp Falloff</title>
+        <dc:creator><![CDATA[jadebenn]]></dc:creator>
+        <description><![CDATA[
+            <p>I wonder why you’re not getting prop lighting. You should at least be getting point lighting, if not vertex.</p>
+<p>Are you compiling with -staticproplighting?</p>
+          <p><a href="https://leakfree.org/t/constant-light-with-sharp-falloff/15307/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/constant-light-with-sharp-falloff/15307/15</link>
+        <pubDate>Thu, 07 Dec 2017 03:27:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15307-15</guid>
+        <source url="https://leakfree.org/t/constant-light-with-sharp-falloff/15307.rss">Constant Light With Sharp Falloff</source>
+      </item>
+      <item>
+        <title>Constant Light With Sharp Falloff</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Keep in mind that these are a work in progress and there are a lot of things in Black Mesa currently that <span class="bbcode-i">just don’t light properly</span>, but it should give you some idea of what I’m going for:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/879755598709005106/234429C0FCEC6235296D2EC86B7BCD13C4475B27/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/879755598709005106/234429C0FCEC6235296D2EC86B7BCD13C4475B27/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/879755598709004962/BF28F938B8EFF7F8BB34EE32162281A1B3E766D4/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/879755598709004962/BF28F938B8EFF7F8BB34EE32162281A1B3E766D4/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/879755598709004782/DB962E91D073BFB89C5F125497D8CE912E85F247/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/879755598709004782/DB962E91D073BFB89C5F125497D8CE912E85F247/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+          <p><a href="https://leakfree.org/t/constant-light-with-sharp-falloff/15307/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/constant-light-with-sharp-falloff/15307/14</link>
+        <pubDate>Thu, 07 Dec 2017 03:10:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15307-14</guid>
+        <source url="https://leakfree.org/t/constant-light-with-sharp-falloff/15307.rss">Constant Light With Sharp Falloff</source>
+      </item>
+      <item>
+        <title>Constant Light With Sharp Falloff</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Pretty sure it only happens for named lights.</p>
+<p><a href="https://forums.blackmesasource.com/index.php/User/45637-jadebenn/" data-bbcode="true" rel="nofollow noopener">@jadebenn</a>, I think you’ve hit the nail on the head as far as what the problem was with my earlier attempts at these maps; currently I am shooting for a kind of a happy medium where most areas are bright enough to be a pleasant workplace (unless they’re, like, a maintenance closet or something), but there’s still a clear falloff as one gets further and further away from the actual light sources. I’ve switched to the “more, smaller lights” paradigm and it seems to be working pretty well so far; it’s difficult to work on these maps ATM though because decals, NPCs, and props are all currently very broken in how they light relative to world geometry and the engine fixes involved are IIRC wrapped up in the December Xen update. I’ll be posting screenshots with a good amount of the glitchy stuff removed soon, however.</p>
+          <p><a href="https://leakfree.org/t/constant-light-with-sharp-falloff/15307/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/constant-light-with-sharp-falloff/15307/13</link>
+        <pubDate>Thu, 07 Dec 2017 01:49:47 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15307-13</guid>
+        <source url="https://leakfree.org/t/constant-light-with-sharp-falloff/15307.rss">Constant Light With Sharp Falloff</source>
+      </item>
+      <item>
+        <title>Constant Light With Sharp Falloff</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <p>If you add more focused light sources, won’t you have a higher chance of running into the lovely “TOO MANY LIGHT SOURCES ON BRUSH” compile error?<br>
+Or does that only happen for named lights?</p>
+          <p><a href="https://leakfree.org/t/constant-light-with-sharp-falloff/15307/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/constant-light-with-sharp-falloff/15307/12</link>
+        <pubDate>Thu, 07 Dec 2017 01:14:46 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15307-12</guid>
+        <source url="https://leakfree.org/t/constant-light-with-sharp-falloff/15307.rss">Constant Light With Sharp Falloff</source>
+      </item>
+      <item>
+        <title>Constant Light With Sharp Falloff</title>
+        <dc:creator><![CDATA[jadebenn]]></dc:creator>
+        <description><![CDATA[
+            <p><a href="https://forums.blackmesasource.com/index.php/User/57844-Admiral-Sakai/" data-bbcode="true" rel="nofollow noopener">@Admiral Sakai</a> I believe the reason you’re having so much trouble with lighting is that you’re using it in ways it was never designed to be used.</p>
+<p>Let me explain. Like all game lights, Source lights aren’t very realistic. They don’t behave as real lights do. We can work around this with clever usage of point lights and spotlights, but the fact remains that these lights don’t work realistically, and you’re making a lot of unnecessary work for yourself by trying to make them do so.</p>
+<p>I’ll bring up a picture from one of your threads to illustrate this point:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://images.akamai.steamusercontent.com/ugc/90474193444020671/208432E967D03AB7E4C0AADE6E704092E43D4ABB/" title="" rel="nofollow noopener"><img src="https://images.akamai.steamusercontent.com/ugc/90474193444020671/208432E967D03AB7E4C0AADE6E704092E43D4ABB/" alt="" width="690" height="431"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1680×1050</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+Now, this <span class="bbcode-i">is </span>close to realistic office lighting. There are very few shadows, and the whole place is brightly lit. But there’s two problems here. One: the near constant lighting washes everything else out. Notice how flat everything looks with so few shadows? That’s because they help our brains perceive depth. In addition, the usage of constant light has all-but-completely eliminated the shadows of static props; creating a rather unrealistic looking floor. Notice how the floor underneath the desks isn’t even slightly dimmer than that of the floor around it? Indeed, the only shadows I can see here are the extremely dark dynamic shadows cast by physics props, which contrast <span class="bbcode-i">very sharply</span> with the lack of shadows anywhere else.</p>
+<p>Two: that’s not how it’s done by the devs in their pre-disaster area of Sector C.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/Y2VP5ye.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/Y2VP5ye.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+Notice the shadows, how dim the room is overall. In real life, this lighting would be a pain to work in: it’s way too dim to see well, but it’s what they went with because it looks much better.</p>
+<p>On a more technical note, you’d probably achieve better results by placing a higher density of more focused light sources rather than your current setup of that makes large use of a few constant light sources.</p>
+          <p><a href="https://leakfree.org/t/constant-light-with-sharp-falloff/15307/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/constant-light-with-sharp-falloff/15307/11</link>
+        <pubDate>Thu, 07 Dec 2017 00:23:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15307-11</guid>
+        <source url="https://leakfree.org/t/constant-light-with-sharp-falloff/15307.rss">Constant Light With Sharp Falloff</source>
+      </item>
+      <item>
+        <title>Constant Light With Sharp Falloff</title>
+        <dc:creator><![CDATA[ESToomere]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Admiral Sakai">
+<div class="title">
+<div class="quote-controls"></div>
+ Admiral Sakai:</div>
+<blockquote>
+<p>No, I just didn’t see it because it was tiny compared to the others.</p>
+<p>Using the settings provided I get something with a significantly brighter ‘center’ and dimmer corners than the constant, which is what I’m trying to avoid:</p>
+<p><img src="https://steamuserimages-a.akamaihd.net/ugc/879755598707666117/D51268A0F0C2288155EE84AB6A0284E39912A66B/" alt="" width="690" height="388"></p>
+</blockquote>
+</aside>
+<p>Yeah, but that’s just down to the size of the room, because this looks like the one on the right:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://dl.dropbox.com/s/5b10deeqpvnw35s/bms_hf1.png?dl=0" title="" rel="nofollow noopener"><img src="https://dl.dropbox.com/s/5b10deeqpvnw35s/bms_hf1.png?dl=0" alt="" width="690" height="387"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1366×768</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+          <p><a href="https://leakfree.org/t/constant-light-with-sharp-falloff/15307/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/constant-light-with-sharp-falloff/15307/10</link>
+        <pubDate>Wed, 06 Dec 2017 20:00:49 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15307-10</guid>
+        <source url="https://leakfree.org/t/constant-light-with-sharp-falloff/15307.rss">Constant Light With Sharp Falloff</source>
+      </item>
+      <item>
+        <title>Constant Light With Sharp Falloff</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>No, I just didn’t see it because it was tiny compared to the others.</p>
+<p>Using the settings provided I get something with a significantly brighter ‘center’ and dimmer corners than the constant, which is what I’m trying to avoid:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/879755598707666117/D51268A0F0C2288155EE84AB6A0284E39912A66B/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/879755598707666117/D51268A0F0C2288155EE84AB6A0284E39912A66B/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+          <p><a href="https://leakfree.org/t/constant-light-with-sharp-falloff/15307/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/constant-light-with-sharp-falloff/15307/9</link>
+        <pubDate>Wed, 06 Dec 2017 19:32:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15307-9</guid>
+        <source url="https://leakfree.org/t/constant-light-with-sharp-falloff/15307.rss">Constant Light With Sharp Falloff</source>
+      </item>
+      <item>
+        <title>Constant Light With Sharp Falloff</title>
+        <dc:creator><![CDATA[ESToomere]]></dc:creator>
+        <description><![CDATA[
+            <p>Did you just… completely ignore my post?</p>
+          <p><a href="https://leakfree.org/t/constant-light-with-sharp-falloff/15307/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/constant-light-with-sharp-falloff/15307/8</link>
+        <pubDate>Wed, 06 Dec 2017 19:18:25 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15307-8</guid>
+        <source url="https://leakfree.org/t/constant-light-with-sharp-falloff/15307.rss">Constant Light With Sharp Falloff</source>
+      </item>
+      <item>
+        <title>Constant Light With Sharp Falloff</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>That, sadly, causes the hard falloff to be pushed out to the larger 50% distance. Making the 50% and 100% distances nearly equal just results in very severe artifacts, most commonly a very bright ‘ring’ around pitch blackness.</p>
+          <p><a href="https://leakfree.org/t/constant-light-with-sharp-falloff/15307/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/constant-light-with-sharp-falloff/15307/7</link>
+        <pubDate>Wed, 06 Dec 2017 16:43:40 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15307-7</guid>
+        <source url="https://leakfree.org/t/constant-light-with-sharp-falloff/15307.rss">Constant Light With Sharp Falloff</source>
+      </item>
+      <item>
+        <title>Constant Light With Sharp Falloff</title>
+        <dc:creator><![CDATA[raw_bean]]></dc:creator>
+        <description><![CDATA[
+            <p>Try a normal brightness but an enormously large 50% falloff distance instead. Much bigger than your 100% distance, if it will let you.</p>
+          <p><a href="https://leakfree.org/t/constant-light-with-sharp-falloff/15307/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/constant-light-with-sharp-falloff/15307/6</link>
+        <pubDate>Wed, 06 Dec 2017 16:29:38 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15307-6</guid>
+        <source url="https://leakfree.org/t/constant-light-with-sharp-falloff/15307.rss">Constant Light With Sharp Falloff</source>
+      </item>
+      <item>
+        <title>Constant Light With Sharp Falloff</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>UPDATE: These lights cause some <span class="bbcode-i">very</span> strange artifacts on props and NPCs at various locations where they either are close to the light or close to its falloff:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/879755598707056668/3FFAD8BCAF5D113579C91C315EFFAFA496F63B85/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/879755598707056668/3FFAD8BCAF5D113579C91C315EFFAFA496F63B85/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>This <span class="bbcode-i">might</span> get fixed in the Xengine update, but until I know more I’m really not sure if this is the right way to proceed.</p>
+          <p><a href="https://leakfree.org/t/constant-light-with-sharp-falloff/15307/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/constant-light-with-sharp-falloff/15307/5</link>
+        <pubDate>Wed, 06 Dec 2017 16:10:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15307-5</guid>
+        <source url="https://leakfree.org/t/constant-light-with-sharp-falloff/15307.rss">Constant Light With Sharp Falloff</source>
+      </item>
+      <item>
+        <title>Constant Light With Sharp Falloff</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="raw_bean">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/r/439d5e/40.png" class="avatar"> raw_bean:</div>
+<blockquote>
+<p>I’m no mapper, but have you tried setting the 50% distance to (or near) 0? Or to (or near) the same distance as the 100% falloff?</p>
+</blockquote>
+</aside>
+<p>This actually seems to have done the trick.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/879755598706985792/71747146F4C42B03CA946F1ADFCDFE7FE36F4BEB/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/879755598706985792/71747146F4C42B03CA946F1ADFCDFE7FE36F4BEB/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>There is the one undesirable property that the light in question must be made extremely bright (in the hundreds of thousands or even millions, the one shown here has a 50% falloff dist of 0.01 and a brightness of 500000) and I can see these being kind of hard to work with, but overall I think I am on the right track.</p>
+<p>I remember experimenting with similar lights much earlier on, but that was with a bunch of other factors that may have made them unsuitable.</p>
+          <p><a href="https://leakfree.org/t/constant-light-with-sharp-falloff/15307/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/constant-light-with-sharp-falloff/15307/4</link>
+        <pubDate>Wed, 06 Dec 2017 15:50:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15307-4</guid>
+        <source url="https://leakfree.org/t/constant-light-with-sharp-falloff/15307.rss">Constant Light With Sharp Falloff</source>
+      </item>
+      <item>
+        <title>Constant Light With Sharp Falloff</title>
+        <dc:creator><![CDATA[ESToomere]]></dc:creator>
+        <description><![CDATA[
+            <p>Works fine for me:</p>
+<p><span class="spoiler"><div class="lightbox-wrapper"><a class="lightbox" href="https://dl.dropbox.com/s/ra0ao0h9wjo3y2z/hardfalloff.png?dl=0" title="" rel="nofollow noopener"><img src="https://dl.dropbox.com/s/ra0ao0h9wjo3y2z/hardfalloff.png?dl=0" alt="" width="690" height="365"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1343×712</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<img src="https://dl.dropbox.com/s/22372gpqyr4la56/hardfalloff_altenter.PNG?dl=0" alt="" width="657" height="491"><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://dl.dropbox.com/s/iwhcmbuu5hhj5i5/hardfalloff_hammer.png?dl=0" title="" rel="nofollow noopener"><img src="https://dl.dropbox.com/s/iwhcmbuu5hhj5i5/hardfalloff_hammer.png?dl=0" alt="" width="690" height="397"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1147×660</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></span></p>
+          <p><a href="https://leakfree.org/t/constant-light-with-sharp-falloff/15307/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/constant-light-with-sharp-falloff/15307/3</link>
+        <pubDate>Wed, 06 Dec 2017 13:04:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15307-3</guid>
+        <source url="https://leakfree.org/t/constant-light-with-sharp-falloff/15307.rss">Constant Light With Sharp Falloff</source>
+      </item>
+      <item>
+        <title>Constant Light With Sharp Falloff</title>
+        <dc:creator><![CDATA[raw_bean]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m no mapper, but have you tried setting the 50% distance to (or near) 0? Or to (or near) the same distance as the 100% falloff?</p>
+<p>EDIT: For that matter, what happens if you set the 50% falloff level to be greater (maybe even significantly greater) than the 100% falloff value? Maybe the 50% distance is setting a literal half-life (  <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:">  ) for a geometric curve of attenuating light levels, but the 100% distance and hard falloff option override that to zero at that distance.</p>
+          <p><a href="https://leakfree.org/t/constant-light-with-sharp-falloff/15307/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/constant-light-with-sharp-falloff/15307/2</link>
+        <pubDate>Wed, 06 Dec 2017 11:07:30 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15307-2</guid>
+        <source url="https://leakfree.org/t/constant-light-with-sharp-falloff/15307.rss">Constant Light With Sharp Falloff</source>
+      </item>
+      <item>
+        <title>Constant Light With Sharp Falloff</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>I am trying to configure some lights that have constant or near-constant attenuation up to a certain radius, but then fall off abruptly (this would dramatically help with the ‘lighting pileup’ problems that have been dogging me since Day 1 of BMPD). It is possible to set up something similar using the 50% and 100% falloff distance values with the ‘hard falloff’ option set…</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://steamuserimages-a.akamaihd.net/ugc/879755598705262357/9838B427EB91BF08489DD3A7017D71A8DEF97488/" title="" rel="nofollow noopener"><img src="https://steamuserimages-a.akamaihd.net/ugc/879755598705262357/9838B427EB91BF08489DD3A7017D71A8DEF97488/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>but every setting I’ve tried for the 50% falloff distance (the 100% falloff value determines the ‘stop’ radius, which I want to configure arbitrarily in about the 200-500 range) results in quadratic-like attenuation (there’s a real constant light on the right side of the above image, for comparison).</p>
+<p>For a while I thought that the ‘maximum distance’ parameter controlled this and it was broken only in the most recent version of the engine (and that it would be fixed in the Xengine Update), but now I find that it is seemingly nonfunctional in all versions of the engine. Not quite sure what to do from here.</p>
+          <p><a href="https://leakfree.org/t/constant-light-with-sharp-falloff/15307/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/constant-light-with-sharp-falloff/15307/1</link>
+        <pubDate>Wed, 06 Dec 2017 05:46:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15307-1</guid>
+        <source url="https://leakfree.org/t/constant-light-with-sharp-falloff/15307.rss">Constant Light With Sharp Falloff</source>
+      </item>
+  </channel>
+</rss>

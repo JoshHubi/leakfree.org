@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/patch-0-0-2/14082 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:34:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Patch 0.0.2 - Patches - Leakfree</title>
+    <meta name="description" content="The new patch is released! Introducing Black Mesa 0.0.2! 
+This is a much larger patch than the last one. We hope that this patch has resolved most of the serious performance issues and stuttering in multiplayer. See the &amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="14082.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Patch 0.0.2&#39;" href="14082.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/patch-0-0-2/14082" />
+<meta name="twitter:url" content="https://leakfree.org/t/patch-0-0-2/14082" />
+<meta property="og:title" content="Patch 0.0.2" />
+<meta name="twitter:title" content="Patch 0.0.2" />
+<meta property="og:description" content="The new patch is released! Introducing Black Mesa 0.0.2!  This is a much larger patch than the last one. We hope that this patch has resolved most of the serious performance issues and stuttering in multiplayer. See the full changelog below:   Reminder  Please be sure to restart your Steam client and download the latest update. Running a dedicated server? Please be sure to run an update to bring your build up to date. Players running on the new client version will not be able to connect to out o..." />
+<meta name="twitter:description" content="The new patch is released! Introducing Black Mesa 0.0.2!  This is a much larger patch than the last one. We hope that this patch has resolved most of the serious performance issues and stuttering in multiplayer. See the full changelog below:   Reminder  Please be sure to restart your Steam client and download the latest update. Running a dedicated server? Please be sure to run an update to bring your build up to date. Players running on the new client version will not be able to connect to out o..." />
+<meta property="article:published_time" content="2015-05-19T01:41:27+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="next" href="140824658.html?page=2">
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="14082.html">Patch 0.0.2</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/6.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa Archive</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/patches/16.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Patches</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14082.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-19T01:41:27Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:31:58Z' class='post-time'>
+                November 25, 2018,  4:31am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The new patch is released! Introducing Black Mesa <span class="bbcode-b">0.0.2!</span></p>
+<p>This is a much larger patch than the last one. We hope that this patch has resolved most of the serious performance issues and stuttering in multiplayer. See the full changelog below:</p>
+<aside class="quote no-group">
+<blockquote>
+<p><span class="bbcode-u"><span class="bbcode-b">PROGRAMMING CHANGES</span></span>[/size]</p>
+<ul>
+<li>Performance fixes: Dynamic lights removed from muzzle flashes and explosions. These were causing stuttering and performance issues in MP, which should now be fixed. Dynamic light options removed from menu as they no longer do anything.</li>
+<li>Loading screens: Our flashy loading screen system now works properly for MP on secured servers (the majority of servers). Previously they only worked on unsecured and listen servers. Also made some updates to the loading screens’ appearance to make them a bit nicer.</li>
+<li>Spawn system: Fixed all players penetrating each other to death over a single spawn point during round resets.</li>
+<li>Chat box exploit: Fixed a recently discovered bug which affects all Source games and allows players to execute commands on all players using the chat box, potentially crashing the server.</li>
+<li>Tripmine hitbox: Doubled the size of the Tripmine hitbox to make it easier to shoot.</li>
+</ul>
+<p><span class="bbcode-u"><span class="bbcode-b">BALANCE CHANGES</span></span>[/size]</p>
+<p><span class="bbcode-u"><span class="bbcode-b">WEAPON TWEAKS</span></span></p>
+<p><span class="bbcode-b">Crowbar</span></p>
+<ul>
+<li>Crowbar range reduced from 76 to 40.</li>
+<li>Crowbar force reduced from 20 to 13.</li>
+<li>Crowbar attack speed on hit (singleplayer) reduced from 0.2 to 0.25 (is now 4 hits per second instead of 5 - is now the same as 2012 mod release).</li>
+<li>Fixed weird recoil issue where if hitting the same spot repeatedly, the player’s view would drift to the right.</li>
+</ul>
+<p><span class="bbcode-b">Glock</span></p>
+<ul>
+<li>Glock singleplayer damage reduced from 9 to 8 (to maintain 9mm parity with MP5).</li>
+</ul>
+<p><span class="bbcode-b">MP5</span></p>
+<ul>
+<li>MP5 spread (cone of fire) increased from 1 1 0 to 1.75 1.75 0.</li>
+<li>MP5 horizontal recoil increased by factor of 1.75.</li>
+<li>MP5 singleplayer damage reduced from 9 to 8.</li>
+</ul>
+<p><span class="bbcode-b">Shotgun</span></p>
+<ul>
+<li>Shotgun singleplayer damage per shot increased from 6 (48 total) to 7 (56 total).</li>
+<li>NPC Shotgun damage increased from 15 to 20.</li>
+</ul>
+<p><span class="bbcode-u"><span class="bbcode-b">DIFFICULTY TWEAKS</span></span></p>
+<ul>
+<li>Enemy damage multiplier for hard difficulty increased from 1.5 to 1.75. Hard difficulty just got harder!</li>
+</ul>
+<p><span class="bbcode-u"><span class="bbcode-b">ENEMY TWEAKS</span></span></p>
+<p><span class="bbcode-b">Alien Grunt</span></p>
+<ul>
+<li>Agrunt health increased from 96 to 120.</li>
+<li>Agrunt Hivehand minimum range decreased from 256 to 128 (they are more inclined to use their Hivehand in close range, now).</li>
+<li>Agrunt Hivehand max range increased from 2048 to 4096 (they are more inclined to use their Hivehand at long range, now).</li>
+<li>Agrunt Hivehand usage increased and strengthened significantly:</li>
+</ul>
+<p>[list][*]Hivehand minimum burst size (minimum random number of bees fired per burst) increased from 3 to 5.</p>
+<ul>
+<li>Hivehand maximum burst size (maximum random number of bees fired per burst) increased from 5 to 8.</li>
+<li>Hivehand minimum rest interval (minimum random time between bursts) decreased from 2 to 1.</li>
+<li>Hivehand maximum rest interval (maximum random time between bursts) decreased from 6 to 3.<br>
+[/*:m][/list:u]<br>
+<span class="bbcode-b">Alien Slave</span>
+</li>
+<li>Aslave health increased from 60 to 70.</li>
+<li>Aslave zap damage increased from 20 to 30.</li>
+<li>Aslave zap cone increased from 0.6 (roughly 50 degrees) to -0.70710677928 (135 degrees). They are now significantly more accurate when firing at you now.</li>
+</ul>
+<p><span class="bbcode-b">Apache</span></p>
+<ul>
+<li>Apache rest time (rest time between bursts) increased from 2 to 3.</li>
+<li>Apache charge time (how long it takes to charge a burst) increased from 2 to 3.</li>
+<li>Apache max burst count (maximum random number of shots fired per burst) decreased from 40 to 30.</li>
+<li>Apache min burst count (minimum random number of shots fired per burst) decreased from 30 to 20.</li>
+<li>Apache burst hit max (how many times maximum he will hit you before he stops his burst) decreased from 5 to 4.</li>
+</ul>
+<p><span class="bbcode-b">Assassins</span></p>
+<ul>
+<li>Assassin damage bug fixed. Damage is now 5 (used to be 12!)</li>
+</ul>
+<p><span class="bbcode-b">Ichtyosaur</span></p>
+<ul>
+<li>Ichtyosaur health increased from 260 to 310.</li>
+</ul>
+<p><span class="bbcode-b">LAV</span></p>
+<ul>
+<li>LAV damage increased from 5 to 8.</li>
+</ul>
+<p><span class="bbcode-b">Marines/Human Grunt</span></p>
+<ul>
+<li>All Hgrunt healths increased by 10.</li>
+</ul>
+<p>[list][*]Commanders: Health from 60 to 70.</p>
+<ul>
+<li>Grenadiers: Health from 50 to 60.</li>
+<li>Grunts: Health from 50 to 60.</li>
+<li>Medics: Health from 40 to 50.<br>
+[/<em>:m][</em>]The amount a medic can heal a fellow marine was increased from 25 to 30.[/<em>:m]<br>
+[</em>]Increased Marine accuracy very slightly by reducing their spread from 6 6 0 to 5 5 0.[/*:m][/list:u]</li>
+</ul>
+<p><span class="bbcode-u"><span class="bbcode-b">MAP CHANGES</span></span>[/size]</p>
+<p><span class="bbcode-u"><span class="bbcode-b">SINGLEPLAYER TWEAKS</span></span></p>
+<p><span class="bbcode-b">Anomalous Materials</span></p>
+<p><span class="bbcode-u">Map A (bm_c1a0a)</span></p>
+<ul>
+<li>Players should no longer get stuck in Freeman’s locker.</li>
+</ul>
+<p><span class="bbcode-b">Unforeseen Consequences</span></p>
+<p><span class="bbcode-u">Map A (bm_c1a1a)</span></p>
+<ul>
+<li>Kleiner now correctly looks at the headcrab that portals in after the dialogue with Eli.</li>
+<li>Laser hallway beams now deal the correct damage.</li>
+</ul>
+<p><span class="bbcode-u">Map B (bm_c1a1b)</span></p>
+<ul>
+<li>Players should no longer get stuck in Freeman’s locker.</li>
+</ul>
+<p><span class="bbcode-u">Map C (bm_c1a1c)</span></p>
+<ul>
+<li>Fixed visible nodraw area.</li>
+</ul>
+<p><span class="bbcode-u">Map D (bm_c1a1d)</span></p>
+<ul>
+<li>Fixed headcrabs falling &amp; dying on the headcrab lift fight.</li>
+</ul>
+<p><span class="bbcode-u">Map E (bm_c1a1e)</span></p>
+<ul>
+<li>Fixed autosave loop on the crate jumping puzzle.</li>
+</ul>
+<p><span class="bbcode-b">Office Complex</span></p>
+<p><span class="bbcode-u">Map A (bm_c1a2a)</span></p>
+<ul>
+<li>Fixed visible nodraw area</li>
+</ul>
+<p><span class="bbcode-b">We’ve Got Hostiles</span></p>
+<p><span class="bbcode-u">Map A (bm_c1a3a)</span></p>
+<ul>
+<li>Fixed inconsistency between the ‘We’ve Got Hostiles’ &amp; ‘Blast Pit’ transition areas.</li>
+<li>Added visible glow to silo door button to indicate it is usable if the scientist is killed.</li>
+</ul>
+<p><span class="bbcode-b">Blast Pit</span></p>
+<p><span class="bbcode-u">Map A (bm_c1a4a)</span></p>
+<ul>
+<li>Fixed inconsistency between the ‘We’ve Got Hostiles’ &amp; ‘Blast Pit’ transition areas.</li>
+</ul>
+<p><span class="bbcode-u">Map C (bm_c1a4c)</span></p>
+<ul>
+<li>Fixed mysterious hat disappearing after fan puzzle.</li>
+</ul>
+<p><span class="bbcode-u">Map E (bm_c1a4e)</span></p>
+<ul>
+<li>Made adjustments to suspended pipe to fix the player getting stuck while trying to jump.</li>
+</ul>
+<p><span class="bbcode-b">Power Up</span></p>
+<p><span class="bbcode-u">Map A (bm_c2a1a)</span></p>
+<ul>
+<li>Made control room guard a non vital ally after the the train is on the turn table.</li>
+<li>Repositioned the shotgun and ammo in the control room to be more visible.</li>
+<li>Corrected I/O that prevented the train from correctly passing the last guard checkpoint under certain conditions.</li>
+</ul>
+<p><span class="bbcode-b">Apprehension</span></p>
+<p><span class="bbcode-u">Map A (bm_c2a3a)</span></p>
+<ul>
+<li>Fixed control room scientist scene so it plays correctly.</li>
+</ul>
+<p><span class="bbcode-b">Surface Tension</span></p>
+<p><span class="bbcode-u">Map E (bm_c2a5e)</span></p>
+<ul>
+<li>The outside tripmines now pose more of a threat to the player.</li>
+<li>Modified the Sniper and Guard/Scientist scene to account for different player actions.</li>
+</ul>
+<p><span class="bbcode-u">Map F (bm_c2a5f)</span></p>
+<ul>
+<li>Fixed fires not doing damage to the player.</li>
+</ul>
+<p><span class="bbcode-b">Forget About Freeman</span></p>
+<p><span class="bbcode-u">Map A (bm_c3a1a)</span></p>
+<ul>
+<li>Fixed Vortigaunts blocking the doorway after the initial guard scene.</li>
+</ul>
+<p><span class="bbcode-u"><span class="bbcode-b">MULTIPLAYER TWEAKS</span></span></p>
+<ul>
+<li>Weapon canisters dropped by players now use their HL1 behaviour - they drop the weapon + ammo that the player was using when they died. Previously they just gave you all the ammo the dead player was carrying.</li>
+<li>Respawn time for all suit battery pickups increased from 15 to 30.</li>
+<li>Respawn time for all chargers (health and suit) increased from 15 to 30.</li>
+<li>Capacity of suit chargers reduced from 75 to 50.</li>
+<li>Doubled the speed at which you place Tripmines in MP, to make them a more useful quick weapon.</li>
+</ul>
+<p><span class="bbcode-b">Subtransit</span></p>
+<ul>
+<li>Subtransit train is replaced with THE DREADNOUGHT. THE DREADNOUGHT is one lead tram and 2 flatbed trams connected together, with a 50 Cal turret on the front and back. Some known issues with THE DREADNOUGHT:</li>
+<li>50 Cals don’t work until the tram moves once.</li>
+<li>Using the front MG vs switching the tram can be slightly annoying at times.</li>
+<li>You slide a bit around when using the 50 Cals while moving.</li>
+<li>Subtransit weapon layout reworked:</li>
+</ul>
+<p>[list][*]There are now two long jumps. One on either side of the map’s tram track in the dead ends.</p>
+<ul>
+<li>Gluon is now in a spot only accessible by long jump.</li>
+<li>Added the 357 back to the top middle arch suspended walkway.</li>
+<li>Added a few shotguns.</li>
+<li>Added rpg ammo to the top of the suspended large metal crate.</li>
+<li>Added crossbow to lower hallway under suspended metal crate.<br>
+[/*:m][/list:u]</li>
+</ul>
+<p><span class="bbcode-b">Stalkyard</span></p>
+<ul>
+<li>Increased red light brightness in vents.</li>
+<li>Added a light in a dark corner in the large courtyard.</li>
+</ul>
+<p><span class="bbcode-b">Undertow</span></p>
+<ul>
+<li>Undertow weapon layout tweaked:</li>
+</ul>
+<p>[list][*]Moved the vat room Crossbow to the suspended grate inside the vat.</p>
+<ul>
+<li>Added a light to the spinning vat piece, near the Gluon.</li>
+<li>RPG in the river is now above the water, so it can be seen by players.<br>
+[/*:m][/list:u]</li>
+</ul>
+<p><span class="bbcode-b">Lambdabunker</span></p>
+<ul>
+<li>Lambdabunker weapon layout tweaked:</li>
+</ul>
+<p>[list][<em>]The ladder bridge to suspended grate is now a Hivehand pickup rather than 2 Snarks.<br>
+[/</em>:m][/list:u]</p>
+<p><span class="bbcode-b">Bounce</span></p>
+<ul>
+<li>Performance: Several performance fixes to improve the FPS on the map:</li>
+</ul>
+<p>[list][*]Replaced mine rail track, sleepers and fixings with one static model (improve performance).</p>
+<ul>
+<li>Changed some models to static props.</li>
+<li>Made all ropes static (not effected by wind).</li>
+<li>Added hint brushes in tunnel below main shack.</li>
+<li>Added an occluder to main shack.</li>
+<li>Reduced chance for detail sprites on some paths.</li>
+<li>Corrected draw distances on some models.</li>
+<li>Tram lights are now static props.<br>
+[/<em>:m][</em>]Realigned textures on some displacements.[/<em>:m]<br>
+[</em>]Moved shotgun in hivehand area due to clipping issues.[/<em>:m]<br>
+[</em>]Made railing in hivehand area solid.[/<em>:m]<br>
+[</em>]Made railing in central builing solid.[/<em>:m]<br>
+[</em>]Increased clipping around bouncepad_02 near main shack.[/<em>:m]<br>
+[</em>]Increased lighting in sewers from main dam.[/<em>:m]<br>
+[</em>]Increased lighting near secure access door.[/<em>:m]<br>
+[</em>]Moved bouncepad_03 away from displacements to aid access.[/<em>:m]<br>
+[</em>]Moved 2 healthpacks near sewer entrance.[/<em>:m]<br>
+[</em>]Cave paintings have more paint splash.[/*:m][/list:u]</li>
+</ul>
+<p><span class="bbcode-u"><span class="bbcode-b">MODEL CHANGES</span></span>[/size]</p>
+<ul>
+<li>Changed the world models for the RPG and Tau to reflect their new viewmodels.</li>
+<li>Updated the Hummvee to use proper specular and normal maps. Fixed lighting errors on it and improved its look significantly.</li>
+<li>Fixed bad collision on some M35 (truck) variants, where players would get stuck inside them.</li>
+<li>Updated the blast door model used in Surface Tension.</li>
+<li>Fixed some of the pipe corner props so they are properly made of metal, insead of plastic.</li>
+<li>Fixed the model properties on the Lambda Door to make it metal instead of plastic.</li>
+<li>New models for the MP5 grenade and RPG ammo. Both should be more visible and unique looking now.</li>
+</ul>
+<p><span class="bbcode-u"><span class="bbcode-b">SDK CHANGES</span></span>[/size]</p>
+<ul>
+<li>Updated the modelviewer images for the new weapons (the old ones were extremely out of date).</li>
+</ul>
+</blockquote>
+</aside>
+<p><span class="bbcode-u"><span class="bbcode-b">Reminder</span></span></p>
+<p>Please be sure to restart your <span class="bbcode-b">Steam</span> client and download the latest update. <span class="bbcode-b">Running a dedicated server?</span> Please be sure to run an update to bring your build up to date. Players running on the new client version will not be able to connect to out of date servers. As always, be sure to report any issues you find in our discussion forums and thank you again for the support.</p>
+        </div>
+
+        <meta itemprop='headline' content='Patch 0.0.2'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/KyuuGryphon.html'><span itemprop='name'>KyuuGryphon</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14082.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-19T01:46:56Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:31:58Z' class='post-time'>
+                November 25, 2018,  4:31am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Will save files from the previous version of the game still work properly on the new patch?</p>
+        </div>
+
+        <meta itemprop='headline' content='Patch 0.0.2'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Fr0z3n.html'><span itemprop='name'>Fr0z3n</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14082.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-19T01:49:42Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:31:58Z' class='post-time'>
+                November 25, 2018,  4:31am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="KyuuGryphon">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/k/2bfe46/40.png" class="avatar"> KyuuGryphon:</div>
+<blockquote>
+<p>Will save files from the previous version of the game still work properly on the new patch?</p>
+</blockquote>
+</aside>
+<p>Yes.</p>
+<p>Also: Holy patch notes batman.</p>
+        </div>
+
+        <meta itemprop='headline' content='Patch 0.0.2'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/BlackStamp.html'><span itemprop='name'>BlackStamp</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14082.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-19T01:53:04Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:31:58Z' class='post-time'>
+                November 25, 2018,  4:31am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I am ready to hop in and test the update… Who else is coming?</p>
+        </div>
+
+        <meta itemprop='headline' content='Patch 0.0.2'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/JeffMOD.html'><span itemprop='name'>JeffMOD</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14082.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-19T02:06:48Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:20:48Z' class='post-time'>
+                August 11, 2020, 11:20am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<p>Spawn system: Fixed all players penetrating each other to death over a single spawn point during round resets.</p>
+</blockquote>
+</aside>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://vignette1.wikia.nocookie.net/half-life/images/4/46/Mr_Friendly_model.jpg/revision/latest?cb=20090328045942&amp;path-prefix=en" title="" rel="nofollow noopener"><img src="https://vignette1.wikia.nocookie.net/half-life/images/4/46/Mr_Friendly_model.jpg/revision/latest?cb=20090328045942&amp;path-prefix=en" alt="" width="626" height="499"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">694×554</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Also, sad to hear about the removal of dynamic lights on muzzleflashes and explosions. I suppose it was necessary for performance on servers, but any chance we can get the option of bringing it back for singleplayer?</p>
+        </div>
+
+        <meta itemprop='headline' content='Patch 0.0.2'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/JohnnyMcLarr4.html'><span itemprop='name'>JohnnyMcLarr4</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14082.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-19T02:07:50Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:31:58Z' class='post-time'>
+                November 25, 2018,  4:31am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>OMG this is just 0.02 patch release, its already a lot of stuff have been changes and updated. I have a question</p>
+<ol>
+<li>can you make the sniper in SP killable using grenades???</li>
+<li>Crossbow in MP, please remove the explosion bolts, player easily get killed by only 2-3 shot without scope.</li>
+</ol>
+        </div>
+
+        <meta itemprop='headline' content='Patch 0.0.2'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/MyBack.html'><span itemprop='name'>MyBack</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14082.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-19T02:08:56Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:31:59Z' class='post-time'>
+                November 25, 2018,  4:31am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for all the fixes and support to the community.</p>
+<p>Loving the DREADNOUGHT on subtransit! I can’t wait to try the improved hard mode as well.</p>
+<p>Keep up the great work as always! I’ll be looking forward to the next patch and some more user-created workshop content.</p>
+        </div>
+
+        <meta itemprop='headline' content='Patch 0.0.2'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/george3x.html'><span itemprop='name'>george3x</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14082.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-19T02:16:25Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:31:59Z' class='post-time'>
+                November 25, 2018,  4:31am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Please FIX the AI failure after quick load…</p>
+        </div>
+
+        <meta itemprop='headline' content='Patch 0.0.2'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/natedgreat3.html'><span itemprop='name'>natedgreat3</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14082.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-19T02:38:22Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:31:59Z' class='post-time'>
+                November 25, 2018,  4:31am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="JeffMOD">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/jeffmod/40/4333_2.png" class="avatar"> JeffMOD:</div>
+<blockquote>
+<p>Also, sad to hear about the removal of dynamic lights on muzzleflashes and explosions. I suppose it was necessary for performance on servers, but any chance we can get the option of bringing it back for singleplayer?</p>
+</blockquote>
+</aside>
+<p>This is more of a temporary measure until we can take a closer look at the issue.  If we can fix the underlying performance problem then we’ll probably bring the option back.</p>
+        </div>
+
+        <meta itemprop='headline' content='Patch 0.0.2'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dr.html'><span itemprop='name'>Dr.Cola</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14082.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-19T02:42:41Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:31:59Z' class='post-time'>
+                November 25, 2018,  4:31am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>You guys forgot to update the loading screen for subtransit, it still shows the old tram</p>
+        </div>
+
+        <meta itemprop='headline' content='Patch 0.0.2'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/fsdajkl.html'><span itemprop='name'>fsdajkl</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14082.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-19T02:50:04Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:31:59Z' class='post-time'>
+                November 25, 2018,  4:31am
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="natedgreat3">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/n/47e85d/40.png" class="avatar"> natedgreat3:</div>
+<blockquote>
+<p>This is more of a temporary measure until we can take a closer look at the issue.  If we can fix the underlying performance problem then we’ll probably bring the option back.</p>
+</blockquote>
+</aside>
+<p>Just so you guys know I don’t think dynamic light muzzle flash was working on my system, I haven’t seen anyone else mention that problem.</p>
+        </div>
+
+        <meta itemprop='headline' content='Patch 0.0.2'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/jadebenn.html'><span itemprop='name'>jadebenn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14082.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-19T03:24:11Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:20:48Z' class='post-time'>
+                August 11, 2020, 11:20am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><span class="bbcode-i">Coming soon to a facility near you…</span></p>
+<p><span class="bbcode-i"><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/UAPrcP0.png" title="" rel="nofollow noopener"><img src="https://i.imgur.com/UAPrcP0.png" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></span></p>
+<p>Choo choo motherfucker.</p>
+        </div>
+
+        <meta itemprop='headline' content='Patch 0.0.2'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Nevermore2790.html'><span itemprop='name'>Nevermore2790</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14082.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-19T03:54:12Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:20:49Z' class='post-time'>
+                August 11, 2020, 11:20am
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="jadebenn">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/j/aeb1de/40.png" class="avatar"> jadebenn:</div>
+<blockquote>
+<p><span class="bbcode-i">Coming soon to a facility near you…</span></p>
+<p><span class="bbcode-i"><img src="https://i.imgur.com/UAPrcP0.png" alt="" width="690" height="388"></span></p>
+<p>Choo choo motherfucker.</p>
+</blockquote>
+</aside>
+<p>Nice one buddy! XD</p>
+        </div>
+
+        <meta itemprop='headline' content='Patch 0.0.2'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/ParryHotter.html'><span itemprop='name'>ParryHotter</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14082.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-19T03:56:33Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:31:59Z' class='post-time'>
+                November 25, 2018,  4:31am
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Right after uploading patch 0.0.2 and restarting Steam I am unable to load into my saved progress via the map in “Surface Tension” where you have to avoid the many trip mines. I have several saved points into that specific map but it doesn’t matter where I am. When those save points load for that specific map the trip mines are set off automatically. Therefor every load takes me to an explosion with white everywhere. I’m wondering if there were any unintentional changes that causes the trip mines to go off.</p>
+<p>My only option is to go back to another saved map (without the trip mine hell) and replay to that point. Unfortunately that save point is the helicopter duel. As I am playing on hard difficulty I find this to be somewhat taxing.</p>
+<p>I thought I’d bring it up incase I’m not the only one spawning into a white abyss over and over again. Maybe those save points got corrupted somehow but I’m no expert. Any suggestions are helpful.</p>
+        </div>
+
+        <meta itemprop='headline' content='Patch 0.0.2'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Adam-Bomb.html'><span itemprop='name'>Adam-Bomb</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14082.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-19T05:45:00Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:32:00Z' class='post-time'>
+                November 25, 2018,  4:32am
+              </time>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>ParryHotter can you post your save file up for us to check out?</p>
+        </div>
+
+        <meta itemprop='headline' content='Patch 0.0.2'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/crowbAr11.html'><span itemprop='name'>crowbAr11</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14082.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-19T05:53:17Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:32:00Z' class='post-time'>
+                November 25, 2018,  4:32am
+              </time>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>just wanted to say that this is a great patch! I especially like the changes to enemies in singleplayer (I also made a ranty post about that in the steam discussions  <img src="../../images/emoji/twitter/winkc164.png?v=9" title=":wink:" class="emoji" alt=":wink:">  and I really like that people drop their weapons now and not all their ammo.<br>
+I played Black Mesa Singleplayer after steam release already (my third playthrough in total), but because of this patch I immediately want to start a new playthrough (especially because “Hard” is harder now!)<br>
+I’m surprised that Gluon wasn’t nerfed. I mean I think the Gluon is good right now (It is supposed to be the best weapon right), but so many people on servers cry about it. In my opinion people just have the wrong expectations when playing this game, because they played too many other shooters, they need to learn when to fight a player and when to flee. I hope when you nerf Gluon you won’t break it, but you have the data you know what you are doing  <img src="../../images/emoji/twitter/smileyc164.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+<p>Still waiting for Surface Tension and On a Rail Uncut  <img src="../../images/emoji/twitter/frowningc164.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Patch 0.0.2'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/MrChocodemon.html'><span itemprop='name'>MrChocodemon</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14082.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-19T07:36:15Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:32:00Z' class='post-time'>
+                November 25, 2018,  4:32am
+              </time>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I really like the singleplayer rebalance, but I’m already missing my dynamic lights on muzzles.<br>
+Those gave a lot of immersion and now shooting feels flat.</p>
+        </div>
+
+        <meta itemprop='headline' content='Patch 0.0.2'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/phaeton_nz.html'><span itemprop='name'>phaeton_nz</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14082.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-19T07:41:18Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:32:00Z' class='post-time'>
+                November 25, 2018,  4:32am
+              </time>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>awesome, thanks!</p>
+        </div>
+
+        <meta itemprop='headline' content='Patch 0.0.2'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Zageron.html'><span itemprop='name'>Zageron</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14082.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-19T08:07:57Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:32:00Z' class='post-time'>
+                November 25, 2018,  4:32am
+              </time>
+          <span itemprop='position'>#19</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Impressive patch! Nice work.  <img src="../../images/emoji/twitter/smileyc164.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Patch 0.0.2'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/AvoidPaypal.html'><span itemprop='name'>AvoidPaypal</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="14082.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2015-05-19T08:20:21Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:32:00Z' class='post-time'>
+                November 25, 2018,  4:32am
+              </time>
+          <span itemprop='position'>#20</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Problem for Linux dedicated server[/size]</p>
+<p>Me and a fellow server owner are not able to get our servers up and running on Linux, Debian for me, Ubuntu for him after this update.</p>
+<p>Executing server map config file<br>
+Initializing Steam libraries for secure Internet server<br>
+[S_API FAIL] SteamAPI_Init() failed; SteamAPI_IsSteamRunning() failed.<br>
+dlopen failed trying to load:<br>
+steamclient.so<br>
+with error:<br>
+steamclient.so: cannot open shared object file: No such file or directory<br>
+[S_API FAIL] SteamAPI_Init() failed; unable to locate a running instance of Steam, or a local steamclient.so.</p>
+<hr>
+<hr>
+<ul>
+<li>Unable to load Steam support library.*</li>
+<li>Unable to load Steam support library.*</li>
+<li>This server will operate in LAN mode only.*</li>
+<li>This server will operate in LAN mode only.*</li>
+</ul>
+<hr>
+<hr>
+<p>We are getting this, of course we’ve set sv_lan 0 but makes no difference, please take a look at this immediately.</p>
+<p>Edit: A quick note i’d like to add, please test your updates before release, don’t do what Valve does.</p>
+<p>Edit2: As of now, i have not seen any Linux server that works in Black Mesa, the only servers that are running properly right now are on Windows.</p>
+        </div>
+
+        <meta itemprop='headline' content='Patch 0.0.2'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="140824658.html?page=2">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/patch-0-0-2/14082 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:34:05 GMT -->
+</html>

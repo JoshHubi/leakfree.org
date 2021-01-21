@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>The Trials and Tribulations of LifeCam Software</title>
+    <link>https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529</link>
+    <description>So, I&#39;m having this issue with my webcam, a Microsoft LifeCam HD-5000.  Whenever I try to open the LifeCam software, it crashes.
+
+I look in the Windows Event Viewer and see this:
+[quote]
+Faulting application name: LifeCam.exe, version: 3.60.253.0, time stamp: 0x4cfea77f
+Faulting module name: LcProxy.ax, version: 3.20.240.0, time stamp: 0x4b60cce6
+Exception code: 0xc0000005
+Fault offset: 0x0003b147
+Faulting process id: 0x12a0
+Faulting application start time: 0x01cea92f45cf9c50
+Faulting application path: C:\Program Files (x86)\Microsoft LifeCam\LifeCam.exe
+Faulting module path: C:\Windows\SysWOW64\LcProxy.ax
+Report Id: 8a8e8450-1522-11e3-9852-90e6baa5622b
+[/quote]
+I have tried to search through Microsoft&#39;s laughably named &quot;Support&quot; section and could not find anything.  I&#39;ve tried looking through Microsoft&#39;s forums, still nada.
+
+I was hoping that someone here could figure out, based on the Event Viewer log, at least a starting point to find out what&#39;s going wrong here; I&#39;ve been working on this almost all day and I&#39;m completely frustrated right now.
+
+Any pointers you might have would be GREATLY appreciated.
+
+(No, dissing Microsoft is not helpful, nor is suggesting I buy a different brand of webcam.)</description>
+    
+    <lastBuildDate>Wed, 18 Sep 2013 18:32:42 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>The Trials and Tribulations of LifeCam Software</title>
+        <dc:creator><![CDATA[sersoft]]></dc:creator>
+        <description><![CDATA[
+            <p>You’re welcome.</p>
+          <p><a href="https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529/11</link>
+        <pubDate>Wed, 18 Sep 2013 18:32:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12529-11</guid>
+        <source url="https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529.rss">The Trials and Tribulations of LifeCam Software</source>
+      </item>
+      <item>
+        <title>The Trials and Tribulations of LifeCam Software</title>
+        <dc:creator><![CDATA[danielsangeo]]></dc:creator>
+        <description><![CDATA[
+            <p>Here’s what I did to “solve” the problem because, beyond rolling back, nothing worked.</p>
+<p>I uninstalled LifeCam software and found that doing that made my LifeCam work in other programs.  So, I left it uninstalled and then used another piece of software (ManyCam which is what the online school uses) and that allows me to use all the needed functionality of the webcam.</p>
+<p>So, I’m going to say that this is “solved”.</p>
+          <p><a href="https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529/10</link>
+        <pubDate>Wed, 18 Sep 2013 07:26:39 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12529-10</guid>
+        <source url="https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529.rss">The Trials and Tribulations of LifeCam Software</source>
+      </item>
+      <item>
+        <title>The Trials and Tribulations of LifeCam Software</title>
+        <dc:creator><![CDATA[CPU]]></dc:creator>
+        <description><![CDATA[
+            <p>Uninstall <span class="bbcode-u">ALL</span> cam software and hardware, including current ones and ESPECIALLY all previous cam software that has ever been used in the past. Use the particular programs uninstaller rather than just deleting folders.</p>
+<p>Check your MS uninstaller list to verify you no longer have any other cam software installed.</p>
+<p>Reboot</p>
+<p>Run registry cleaner.</p>
+<p>Reboot</p>
+<p>Install your camera hardware and Lifecam software and nothing else.</p>
+<p>Test to verify it’s working properly.</p>
+<p>Install additional cam software that you wish to use verifying they work after each installation</p>
+          <p><a href="https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529/9</link>
+        <pubDate>Tue, 17 Sep 2013 17:51:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12529-9</guid>
+        <source url="https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529.rss">The Trials and Tribulations of LifeCam Software</source>
+      </item>
+      <item>
+        <title>The Trials and Tribulations of LifeCam Software</title>
+        <dc:creator><![CDATA[CPU]]></dc:creator>
+        <description><![CDATA[
+            <p>Roll back anyway. A program such as Kaspersky AntiVirus can overwrite the registry with it’s device control filter and cause the program to not function correctly. The error could be from pointers being incorrect.</p>
+<p>Oddly enough, the WOW64 folder is for 32-bit applications even though it’s labeled 64.</p>
+<p>Added 9/7:<br>
+You have the program loaded in C:\Program Files (x86) and that LcProxy.ax is in C:\Windows\SysWOW64\LcProxy.ax. These are 32-bit locations rather than 64-bit locations.</p>
+<p>Your issue may be that you are attempting to run a 64-bit ap but that the program itself is attempting to link to 32-bit files. That would cause the issue you are experiencing.</p>
+<p>You need to uninstall the software and drivers <span class="bbcode-u">completely </span>(including ALL registry entries) restart your computer and then clean your registry.</p>
+<p>Next, reinstall the hardware/software and make sure you select the 64-bit version for both the path, if asked, and the program.</p>
+          <p><a href="https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529/8</link>
+        <pubDate>Wed, 04 Sep 2013 20:41:36 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12529-8</guid>
+        <source url="https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529.rss">The Trials and Tribulations of LifeCam Software</source>
+      </item>
+      <item>
+        <title>The Trials and Tribulations of LifeCam Software</title>
+        <dc:creator><![CDATA[Mr_GameCrazy]]></dc:creator>
+        <description><![CDATA[
+            <p>Have you tried updating the driver for your webcam?</p>
+          <p><a href="https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529/7</link>
+        <pubDate>Wed, 04 Sep 2013 20:39:25 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12529-7</guid>
+        <source url="https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529.rss">The Trials and Tribulations of LifeCam Software</source>
+      </item>
+      <item>
+        <title>The Trials and Tribulations of LifeCam Software</title>
+        <dc:creator><![CDATA[danielsangeo]]></dc:creator>
+        <description><![CDATA[
+            <p>I don’t think it’s the software, to be honest.  I have used LifeCam in the past and it worked fine until one day I could not pull up the properties dialog (it would appear then disappear immediately).  And then a few days later, anything that tried to access the camera would crash, whether it’s the LifeCam software or even something like a video editing program.  Here’s an example of a crash when trying to capture from the webcam via Sony Vegas:</p>
+<aside class="quote no-group">
+<blockquote>
+<p>Faulting application name: VidCap60.EXE, version: 6.0.0.1000, time stamp: 0x473b36dd<br>
+Faulting module name: LcProxy.ax, version: 3.20.240.0, time stamp: 0x4b60cce6<br>
+Exception code: 0xc0000005<br>
+Fault offset: 0x0003b147<br>
+Faulting process id: 0xcd0<br>
+Faulting application start time: 0x01cea9abafa88610<br>
+Faulting application path: C:\Program Files\Sony\Vegas Pro 10.0\VidCap60.EXE<br>
+Faulting module path: C:\Windows\SysWOW64\LcProxy.ax<br>
+Report Id: f07b8de0-159e-11e3-adad-90e6baa5622b</p>
+</blockquote>
+</aside>
+<p>As you can see, in both instances, it is LcProxy.ax that is reporting (but not necessarily <span class="bbcode-i">causing</span>) the error.</p>
+<p>I’m not sure if rolling back to a time when it did work would do any good for two reasons: It could happen again in which case, I’d be back to where I am now, or that the rolling back just wouldn’t help.</p>
+<p>I would like to figure out what’s going on here so I don’t continue having this problem.  I have a support question in over at the Microsoft support forums since yesterday but no one has responded yet.</p>
+<p>P.S.: I’m using Windows 7 Home Premium 64-bit if that’s of any help.</p>
+          <p><a href="https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529/6</link>
+        <pubDate>Wed, 04 Sep 2013 20:15:30 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12529-6</guid>
+        <source url="https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529.rss">The Trials and Tribulations of LifeCam Software</source>
+      </item>
+      <item>
+        <title>The Trials and Tribulations of LifeCam Software</title>
+        <dc:creator><![CDATA[CPU]]></dc:creator>
+        <description><![CDATA[
+            <p>Is this the first time you’ve tried to use the program or is this something that has worked before but isn’t now?</p>
+          <p><a href="https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529/5</link>
+        <pubDate>Wed, 04 Sep 2013 18:43:02 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12529-5</guid>
+        <source url="https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529.rss">The Trials and Tribulations of LifeCam Software</source>
+      </item>
+      <item>
+        <title>The Trials and Tribulations of LifeCam Software</title>
+        <dc:creator><![CDATA[sersoft]]></dc:creator>
+        <description><![CDATA[
+            <p>solution: don’t use microsoft lifecam software</p>
+          <p><a href="https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529/4</link>
+        <pubDate>Wed, 04 Sep 2013 18:42:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12529-4</guid>
+        <source url="https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529.rss">The Trials and Tribulations of LifeCam Software</source>
+      </item>
+      <item>
+        <title>The Trials and Tribulations of LifeCam Software</title>
+        <dc:creator><![CDATA[danielsangeo]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks, but I’m hoping for an answer to my question here.</p>
+          <p><a href="https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529/3</link>
+        <pubDate>Wed, 04 Sep 2013 18:04:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12529-3</guid>
+        <source url="https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529.rss">The Trials and Tribulations of LifeCam Software</source>
+      </item>
+      <item>
+        <title>The Trials and Tribulations of LifeCam Software</title>
+        <dc:creator><![CDATA[Dadster]]></dc:creator>
+        <description><![CDATA[
+            <p>Like the new avatar, danielsangeo.</p>
+          <p><a href="https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529/2</link>
+        <pubDate>Wed, 04 Sep 2013 08:20:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12529-2</guid>
+        <source url="https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529.rss">The Trials and Tribulations of LifeCam Software</source>
+      </item>
+      <item>
+        <title>The Trials and Tribulations of LifeCam Software</title>
+        <dc:creator><![CDATA[danielsangeo]]></dc:creator>
+        <description><![CDATA[
+            <p>So, I’m having this issue with my webcam, a Microsoft LifeCam HD-5000.  Whenever I try to open the LifeCam software, it crashes.</p>
+<p>I look in the Windows Event Viewer and see this:</p>
+<aside class="quote no-group">
+<blockquote>
+<p>Faulting application name: LifeCam.exe, version: 3.60.253.0, time stamp: 0x4cfea77f<br>
+Faulting module name: LcProxy.ax, version: 3.20.240.0, time stamp: 0x4b60cce6<br>
+Exception code: 0xc0000005<br>
+Fault offset: 0x0003b147<br>
+Faulting process id: 0x12a0<br>
+Faulting application start time: 0x01cea92f45cf9c50<br>
+Faulting application path: C:\Program Files (x86)\Microsoft LifeCam\LifeCam.exe<br>
+Faulting module path: C:\Windows\SysWOW64\LcProxy.ax<br>
+Report Id: 8a8e8450-1522-11e3-9852-90e6baa5622b</p>
+</blockquote>
+</aside>
+<p>I have tried to search through Microsoft’s laughably named “Support” section and could not find anything.  I’ve tried looking through Microsoft’s forums, still nada.</p>
+<p>I was hoping that someone here could figure out, based on the Event Viewer log, at least a starting point to find out what’s going wrong here; I’ve been working on this almost all day and I’m completely frustrated right now.</p>
+<p>Any pointers you might have would be GREATLY appreciated.</p>
+<p>(No, dissing Microsoft is not helpful, nor is suggesting I buy a different brand of webcam.)</p>
+          <p><a href="https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529/1</link>
+        <pubDate>Wed, 04 Sep 2013 05:34:44 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12529-1</guid>
+        <source url="https://leakfree.org/t/the-trials-and-tribulations-of-lifecam-software/12529.rss">The Trials and Tribulations of LifeCam Software</source>
+      </item>
+  </channel>
+</rss>

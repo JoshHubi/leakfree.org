@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 11:43:17 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Creating a RAID 5 array with 2 disks - Help and Support - Leakfree</title>
+    <meta name="description" content="I know RAID 5 is meant for 3+ drives, but I have data on one of the disk that I can’t backup anywhere else… 
+So I want to setup the array with 2 fresh drives, copy the data from the other disk to the array, then add that&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="7433.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Creating a RAID 5 array with 2 disks&#39;" href="7433.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433" />
+<meta name="twitter:url" content="https://leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433" />
+<meta property="og:title" content="Creating a RAID 5 array with 2 disks" />
+<meta name="twitter:title" content="Creating a RAID 5 array with 2 disks" />
+<meta property="og:description" content="I know RAID 5 is meant for 3+ drives, but I have data on one of the disk that I can’t backup anywhere else…  So I want to setup the array with 2 fresh drives, copy the data from the other disk to the array, then add that disk to the array.  This guy got a clear answer on how to do this on Linux, but would it also work on Win7? My Googling skills only got me running in circles…  😦" />
+<meta name="twitter:description" content="I know RAID 5 is meant for 3+ drives, but I have data on one of the disk that I can’t backup anywhere else…  So I want to setup the array with 2 fresh drives, copy the data from the other disk to the array, then add that disk to the array.  This guy got a clear answer on how to do this on Linux, but would it also work on Win7? My Googling skills only got me running in circles…  😦" />
+<meta property="article:published_time" content="2011-06-29T23:25:09+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="7433.html">Creating a RAID 5 array with 2 disks</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/technology-and-gaming/19.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #8C6238'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Technology and Gaming</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/technology-and-gaming/help-and-support/39.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #808281'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Help and Support</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Samapico.html'><span itemprop='name'>Samapico</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7433.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-06-29T23:25:09Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T07:13:45Z' class='post-time'>
+                August 11, 2020,  7:13am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I know RAID 5 is meant for 3+ drives, but I have data on one of the disk that I can’t backup anywhere else…<br>
+So I want to setup the array with 2 fresh drives, copy the data from the other disk to the array, then add that disk to the array.<br>
+<a href="https://ubuntuforums.org/showthread.php?t=670147" data-bbcode="true" rel="nofollow noopener">This guy</a> got a clear answer on how to do this on Linux, but would it also work on Win7? My Googling skills only got me running in circles…  <img src="../../images/emoji/twitter/frowningc164.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Creating a RAID 5 array with 2 disks'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/BaTz281.html'><span itemprop='name'>BaTz281</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7433.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-06-30T03:15:35Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T00:30:59Z' class='post-time'>
+                November 25, 2018, 12:30am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>When you say you can’t back it up anywhere else - why is that?  Can’t you build a fresh array of 3 drives, then add the data from the fourth [existing] drive?  Since that seems the most obvious answer, I presume something is preventing you from doing so, but I figured I’d play devil’s advocate.</p>
+<p>EDIT: Couldn’t you also build a RAID 1 with 2 drives, add the data from the third, then migrate to a RAID 5?  My brief Googling says this ability may vary depending on your RAID controller.</p>
+<p>EDIT2: More Googling says that RAID conversions seem to work best for Linux.  Hmmm…</p>
+        </div>
+
+        <meta itemprop='headline' content='Creating a RAID 5 array with 2 disks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Samapico.html'><span itemprop='name'>Samapico</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7433.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-07-03T14:02:58Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T00:31:45Z' class='post-time'>
+                November 25, 2018, 12:31am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Well… it’s kind of a puzzle…</p>
+<p>I have 2 computers,</p>
+<p>Machine 1: 1TB drive (~75% full)<br>
+Machine 2: 1.5TB drive (~66% full)</p>
+<p>Only machine 1 supports RAID, so I need to swap the data on these 2 drives, then add 2x 1.5TB in machine 1 to form a 3 disks array.<br>
+There’s about 600GB of movies currently on machine 2 that I’ll want to move to the RAID array, otherwise the current data on the 1.5TB won’t fit on 1TB anyway.</p>
+<p>I do have an external HDD on the network with about 200GB free… this could be just enough of a buffer to save me.</p>
+        </div>
+
+        <meta itemprop='headline' content='Creating a RAID 5 array with 2 disks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Samapico.html'><span itemprop='name'>Samapico</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7433.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-07-03T18:36:48Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T00:31:47Z' class='post-time'>
+                November 25, 2018, 12:31am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I think I’ll just go get myself another 500GB HD or something… that will allow me to keep the 1TB on Machine 1, thus saving me some painful data swaps…<br>
+I think it will be worth the investment.</p>
+<p>Edit: bleh… doublepost</p>
+<p>The end-result will be pretty overkill… but oh well…<br>
+Machine1: 60GB SSD + 1TB WD Caviar Black + 3TB (3x 1.5TB WD Caviar Green in RAID 5)<br>
+Machine2: 750GB WD Caviar Green</p>
+<p>Almost 5TB of storage in total <img src="../../images/emoji/twitter/confusedc164.png?v=9" title=":confused:" class="emoji" alt=":confused:"></p>
+<p>Guess I’ll have to keep downloading stuff… thank god for unlimited interwebz.</p>
+        </div>
+
+        <meta itemprop='headline' content='Creating a RAID 5 array with 2 disks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/wheybags.html'><span itemprop='name'>wheybags</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7433.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-07-04T16:21:20Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T00:32:00Z' class='post-time'>
+                November 25, 2018, 12:32am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Samapico">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/s/839c29/40.png" class="avatar"> Samapico:</div>
+<blockquote>
+<p>I think I’ll just go get myself another 500GB HD or something… that will allow me to keep the 1TB on Machine 1, thus saving me some painful data swaps…<br>
+I think it will be worth the investment.</p>
+<p>Edit: bleh… doublepost</p>
+<p>The end-result will be pretty overkill… but oh well…<br>
+Machine1: 60GB SSD + 1TB WD Caviar Black + 3TB (3x 1.5[COLOR=‘Red’]GB[/SIZE] WD Caviar Green in RAID 5)<br>
+Machine2: 750GB WD Caviar Green</p>
+<p>Almost 5TB of storage in total <img src="../../images/emoji/twitter/confusedc164.png?v=9" title=":confused:" class="emoji" alt=":confused:"></p>
+<p>Guess I’ll have to keep downloading stuff… thank god for unlimited interwebz.</p>
+</blockquote>
+</aside>
+<p>That should be Terabytes, right?</p>
+        </div>
+
+        <meta itemprop='headline' content='Creating a RAID 5 array with 2 disks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Samapico.html'><span itemprop='name'>Samapico</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7433.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-07-04T19:23:34Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T00:32:03Z' class='post-time'>
+                November 25, 2018, 12:32am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Indeed… fixed  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Creating a RAID 5 array with 2 disks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Samapico.html'><span itemprop='name'>Samapico</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7433.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-07-08T12:55:03Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T07:15:57Z' class='post-time'>
+                August 11, 2020,  7:15am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Ok… so I’ll keep this thread to avoid some spammage.</p>
+<p>I received my drives, hooked them up in my PC, started the thing.<br>
+Turns out my BIOS and OS only use 4 out of the 6 SATA ports in ‘IDE’ mode (the “Integrated Peripherals - OnChip SATA” setting in the BIOS).</p>
+<p>I need 5 of them (6 when I reconnect my DVD drive… waiting for my shipment of SATA cables), so I try AHCI. It detects all 6 ports and the disks on them. But it gives a quick BSOD-like screen when Windows loads and restarts immediatly, so I found this:<br>
+<a href="https://www.tomshardware.com/forum/257792-30-vista-boot-pick-ahci-sata-mode" data-bbcode="true" rel="nofollow noopener">https://www.tomshardware.com/forum/257792-30-vista-boot-pick-ahci-sata-mode</a><br>
+Edited some registry key to enable AHCI, and I could boot in AHCI fine.</p>
+<p>However, the disk manager in Win7 still had the ‘Create RAID 5 volume’ option greyed out… So I actually need to set the “Integrated Peripherals - OnChip SATA” to “RAID”. I do that, configure the RAID array just fine, but then I get another quick BSOD when Windows load.<br>
+What do I need to do to boot properly with the RAID setting on?</p>
+<p>My motherboard is a <a href="https://www.newegg.ca/Product/Product.aspx?Item=N82E16813130236" data-bbcode="true" rel="nofollow noopener">MSI NF980-G65 AM3 NVIDIA nForce 980a SLI</a>, if that can be of any help…<br>
+On a side note, I couldn’t find anything about 2 of the SATA ports not being activated by default on that motherboard… I find that quite surprising.</p>
+        </div>
+
+        <meta itemprop='headline' content='Creating a RAID 5 array with 2 disks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/BaTz281.html'><span itemprop='name'>BaTz281</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7433.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-07-08T19:55:32Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T00:32:56Z' class='post-time'>
+                November 25, 2018, 12:32am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Windows is VERY finicky about the SATA/IDE mode, and usually you cannot change it once the OS has been installed (though you can gamble with the registry hack, like you mentioned).  Thus, once AHCI came out, it was advised to change the mode to AHCI before installing Windows (however, I’ve encountered some errors where Windows 7 doesn’t have a particular motherboard’s chipset drivers on the disk, so you actually need to do the old “Press F6 to load drivers” trick and then load the drivers from another disk in order for it to recognize AHCI).</p>
+<p>That said, I’m not quite sure what needs to happen in this situation, though it may still be driver related - does Windows recognize the RAID controller and array?  I’m sorry if you mentioned this, but is the RAID your OS drive, or just storage?  Or rather, are you trying to turn your OS drive into a RAID setup?  Where did you “configure the RAID array just fine” - in the BIOS RAID utility, or in disk management?</p>
+<p>As for your disabled SATA ports, are they on the same controller?  I know I’ve had motherboards that have a total of 8 ports, but 6 are managed by the south bridge and the other 2 by a third party (VIA, Marvell, etc) controller.  You may need to enable that controller specifically so you can access those ports (unless you’re saying that those 2 will only operate in IDE mode?)</p>
+<p>Sorry if I’ve misinterpreted any of this, I’m at work and trying to focus on too much at once  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Creating a RAID 5 array with 2 disks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Samapico.html'><span itemprop='name'>Samapico</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7433.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-07-10T22:06:03Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T00:33:23Z' class='post-time'>
+                November 25, 2018, 12:33am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I “configured the RAID array just fine” in the BIOS, and the array is only for storage.</p>
+<p>For the disabled ports, the 2 missing ports are actually not functional only in IDE mode. In AHCI and RAID modes, they are properly detected. So that kind of becomes a non-issue, but I just find it weird…</p>
+<aside class="quote no-group">
+<blockquote>
+<p>does Windows recognize the RAID controller and array?</p>
+</blockquote>
+</aside>
+<p>Well, in ‘RAID’ mode I can’t load Windows, and in ‘AHCI’ mode, there’s nothing in the device manager that mentions RAID. It has something along the lines of ‘Standard AHCI 1.0 Serial ATA Controller’. Is there some other place I should check?</p>
+<p>From what I understand, I just need the RAID drivers then? Are these supposed to be found on my motherboard’s driver disk or something? There are RAID drivers on there… but the autorun setup thingy won’t allow me to select it, it’s greyed out… probably because I’d need to have ‘RAID’ selected in the BIOS?<br>
+…Oh, so I’d need to install them during the boot or something…</p>
+        </div>
+
+        <meta itemprop='headline' content='Creating a RAID 5 array with 2 disks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Vol7ron.html'><span itemprop='name'>Vol7ron</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7433.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-07-11T00:27:14Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T00:33:23Z' class='post-time'>
+                November 25, 2018, 12:33am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>It is because you created a software RAID instead of a Hardware RAID.  With software RAID, the OS helps in the managing of the array where as with Hardware, well , the RAID card does all the work.  Hardware RAID cards are quite expensive, but would allow you to boot of the array.  Unless I have drastically missed something in all my years with working with RAID array’s, you can not have 2 drives for a RAID 5, you must have 5.  It simply won’t work.</p>
+        </div>
+
+        <meta itemprop='headline' content='Creating a RAID 5 array with 2 disks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Samapico.html'><span itemprop='name'>Samapico</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7433.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-07-11T02:48:32Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T00:33:25Z' class='post-time'>
+                November 25, 2018, 12:33am
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I ended up reinstalling Win7 with ‘RAID’ enabled so that the proper drivers get installed… worked like a charm.</p>
+<p>Conclusion of this topic: If you’re planning to do any kind of RAID in any kind of distant future, enable it before you install Windows, it will save you lots of trouble.</p>
+        </div>
+
+        <meta itemprop='headline' content='Creating a RAID 5 array with 2 disks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/BaTz281.html'><span itemprop='name'>BaTz281</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7433.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-07-11T12:09:10Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T00:33:30Z' class='post-time'>
+                November 25, 2018, 12:33am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Glad to hear  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Creating a RAID 5 array with 2 disks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Samapico.html'><span itemprop='name'>Samapico</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7433.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-07-12T01:08:02Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T07:16:46Z' class='post-time'>
+                August 11, 2020,  7:16am
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Holy shit…</p>
+<p>I was getting write speeds around 10-12MB/s on the array, and I thought I just had to deal with it cause RAID 5 was supposed to be quite slow on the writes, and WD’s Caviar Green drives are not built for performance…</p>
+<p>But then I stumbled on this:</p>
+<p><a href="https://forums.storagereview.com/index.php/topic/25786-how-to-achieve-superb-write-speeds-with-nforce-onboard-raid5/page__st__60__gopid__270191#entry270191" data-bbcode="true" rel="nofollow noopener">https://forums.storagereview.com/index.php/topic/25786-how-to-achieve-superb-write-speeds-with-nforce-onboard-raid5/page__st__60__gopid__270191#entry270191</a></p>
+<p>So I set my stripe size to 32k,<br>
+partition cluster size to 64k,<br>
+made sure the partition was aligned properly,</p>
+<p>and guess what… I get write speeds between <span class="bbcode-b">90</span> and <span class="bbcode-b">110 </span>MB/s now!!!</p>
+<p>Edit: After a couple of GB’s it drops to 75 MB/s, but still… that’s a huge improvement.</p>
+        </div>
+
+        <meta itemprop='headline' content='Creating a RAID 5 array with 2 disks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/BaTz281.html'><span itemprop='name'>BaTz281</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7433.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2011-07-12T12:31:33Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T00:33:42Z' class='post-time'>
+                November 25, 2018, 12:33am
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yeah you will see burst speeds in the low 100s, but average should be 60-85ish, I’d say.  This varies based on file size of course - large files usually copy faster than multiple small files.  But that was a good find - the power of Google  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Creating a RAID 5 array with 2 disks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/creating-a-raid-5-array-with-2-disks/7433 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 11:43:18 GMT -->
+</html>

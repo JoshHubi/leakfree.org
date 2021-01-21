@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Invisible Materials in BM2015 Hammer</title>
+    <link>https://leakfree.org/t/invisible-materials-in-bm2015-hammer/15153</link>
+    <description>Wow, it&#39;s been a while since I&#39;ve been here. Er, hi! ^^; Anyways.
+
+Back in March of last year, [url=&#39;https://forums.blackmesasource.com/index.php/Thread/28900-Black-Mesa-Mod-Work-in-Progress-Showoff-Thread/?postID=619214#post619214&#39;]I showed off a few screenshots[/url] of an OaR mod that I was working on as a way to familiarize myself with single-player Source mapping. While I [i]did[/i] get the blockouts of the new areas all finished, I didn&#39;t do a particularly good job of keeping things clean in Hammer. On top of that, with the second map, I&#39;m pretty sure I basically just retextured parts of the blockout and called it a day, resulting in a very boring looking level in some areas.
+
+Since then, I&#39;ve definitely learned a lot about using Hammer effectively, mostly via mucking around (and in a few cases, re-creating) with some of the early leaked HL2 maps. I don&#39;t recall exactly what prompted it, but I ended up taking another look at my OaR mod, and ended up getting inspired to work on it again. Having said that, between the fact that I was much less skilled/disciplined at the time (I&#39;ve since started using visgroups almost religiously, for example) and the fact that it had been literally months since I&#39;d touched the .vmf&#39;s, I figured the best approach would be to start from the very beginning and do things [i]properly[/i]. Plan the layout in advance, block it out, make sure it plays well, etc.
+
+To that end, though, I&#39;ve run into a... very strange issue with BM 2015&#39;s Hammer - namely, many of the materials simply don&#39;t render in the 3D view. At first, I thought the .vmf was corrupted somehow and a bunch of the geometry was lost, but nope, a handful of textures simply do not appear, even when the brushes are selected. A screenshot to demonstrate, from bm_c1a2c:
+
+[img=&#39;https://i.imgur.com/Kp25Bog.png&#39;,none,663][/img]
+
+This is the first time I&#39;ve ever seen anything like this, and I&#39;ve got no idea how to fix it. I&#39;ve tried completely reinstalling BM (i.e. deleting the entire common/Black Mesa directory) as well as verifying the game cache, but the problem persists. As you can probably guess, navigating the 3D view like this is nigh-on impossible.
+
+This isn&#39;t a case of the &quot;Render Nodraw&quot; option being unchecked - this occurs both with and without it active, and it&#39;s happening to more than just nodraw faces, anyways. Of the Hammer versions I&#39;ve used recently (HL2EP2, GMod, L4D, and BM), only Black Mesa&#39;s has this problem.
+
+Anyone have any idea how to go about fixing this? Thanks.  ^^</description>
+    
+    <lastBuildDate>Sun, 16 Apr 2017 15:46:24 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/invisible-materials-in-bm2015-hammer/15153.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Invisible Materials in BM2015 Hammer</title>
+        <dc:creator><![CDATA[KyuuGryphon]]></dc:creator>
+        <description><![CDATA[
+            <p>Yup, that did the trick. Thanks, guys!  ^^</p>
+          <p><a href="https://leakfree.org/t/invisible-materials-in-bm2015-hammer/15153/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/invisible-materials-in-bm2015-hammer/15153/4</link>
+        <pubDate>Sun, 16 Apr 2017 15:46:24 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15153-4</guid>
+        <source url="https://leakfree.org/t/invisible-materials-in-bm2015-hammer/15153.rss">Invisible Materials in BM2015 Hammer</source>
+      </item>
+      <item>
+        <title>Invisible Materials in BM2015 Hammer</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>The shaded view doesn’t work properly, make sure it’s just set to textured rather than textured shaded. Alternatively, this problem can happen (and it has happened to me) because you’re using a laptop and Hammer is trying to use your integrated video chip rather than your graphics card. If that’s happening, you need to use your GPU control panel to force Hammer to use the GPU.</p>
+<p>The Xen update will bring with it a lot of nice little Hammer updates. The shaded view will work properly on the Xen branch.</p>
+          <p><a href="https://leakfree.org/t/invisible-materials-in-bm2015-hammer/15153/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/invisible-materials-in-bm2015-hammer/15153/3</link>
+        <pubDate>Sun, 16 Apr 2017 09:27:39 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15153-3</guid>
+        <source url="https://leakfree.org/t/invisible-materials-in-bm2015-hammer/15153.rss">Invisible Materials in BM2015 Hammer</source>
+      </item>
+      <item>
+        <title>Invisible Materials in BM2015 Hammer</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <p>What is your camera settings set to? (Left top corner in the 3D view port, click on camera).</p>
+<p>Is it perhaps set to 3D shaded Textured Polygons? That would hide the nodraw texture regardless of the nodraw setting.<br>
+Set it to 3D textured in case it’s not.</p>
+          <p><a href="https://leakfree.org/t/invisible-materials-in-bm2015-hammer/15153/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/invisible-materials-in-bm2015-hammer/15153/2</link>
+        <pubDate>Sun, 16 Apr 2017 07:50:05 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15153-2</guid>
+        <source url="https://leakfree.org/t/invisible-materials-in-bm2015-hammer/15153.rss">Invisible Materials in BM2015 Hammer</source>
+      </item>
+      <item>
+        <title>Invisible Materials in BM2015 Hammer</title>
+        <dc:creator><![CDATA[KyuuGryphon]]></dc:creator>
+        <description><![CDATA[
+            <p>Wow, it’s been a while since I’ve been here. Er, hi! ^^; Anyways.</p>
+<p>Back in March of last year, <a href="https://forums.blackmesasource.com/index.php/Thread/28900-Black-Mesa-Mod-Work-in-Progress-Showoff-Thread/?postID=619214#post619214" data-bbcode="true" rel="nofollow noopener">I showed off a few screenshots</a> of an OaR mod that I was working on as a way to familiarize myself with single-player Source mapping. While I <span class="bbcode-i">did</span> get the blockouts of the new areas all finished, I didn’t do a particularly good job of keeping things clean in Hammer. On top of that, with the second map, I’m pretty sure I basically just retextured parts of the blockout and called it a day, resulting in a very boring looking level in some areas.</p>
+<p>Since then, I’ve definitely learned a lot about using Hammer effectively, mostly via mucking around (and in a few cases, re-creating) with some of the early leaked HL2 maps. I don’t recall exactly what prompted it, but I ended up taking another look at my OaR mod, and ended up getting inspired to work on it again. Having said that, between the fact that I was much less skilled/disciplined at the time (I’ve since started using visgroups almost religiously, for example) and the fact that it had been literally months since I’d touched the .vmf’s, I figured the best approach would be to start from the very beginning and do things <span class="bbcode-i">properly</span>. Plan the layout in advance, block it out, make sure it plays well, etc.</p>
+<p>To that end, though, I’ve run into a… very strange issue with BM 2015’s Hammer - namely, many of the materials simply don’t render in the 3D view. At first, I thought the .vmf was corrupted somehow and a bunch of the geometry was lost, but nope, a handful of textures simply do not appear, even when the brushes are selected. A screenshot to demonstrate, from bm_c1a2c:</p>
+<p><img alt=""></p>
+<p>This is the first time I’ve ever seen anything like this, and I’ve got no idea how to fix it. I’ve tried completely reinstalling BM (i.e. deleting the entire common/Black Mesa directory) as well as verifying the game cache, but the problem persists. As you can probably guess, navigating the 3D view like this is nigh-on impossible.</p>
+<p>This isn’t a case of the “Render Nodraw” option being unchecked - this occurs both with and without it active, and it’s happening to more than just nodraw faces, anyways. Of the Hammer versions I’ve used recently (HL2EP2, GMod, L4D, and BM), only Black Mesa’s has this problem.</p>
+<p>Anyone have any idea how to go about fixing this? Thanks.  ^^</p>
+          <p><a href="https://leakfree.org/t/invisible-materials-in-bm2015-hammer/15153/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/invisible-materials-in-bm2015-hammer/15153/1</link>
+        <pubDate>Sun, 16 Apr 2017 06:19:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15153-1</guid>
+        <source url="https://leakfree.org/t/invisible-materials-in-bm2015-hammer/15153.rss">Invisible Materials in BM2015 Hammer</source>
+      </item>
+  </channel>
+</rss>

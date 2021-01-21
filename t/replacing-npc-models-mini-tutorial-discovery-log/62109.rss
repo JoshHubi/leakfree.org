@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Replacing NPC Models - Mini-Tutorial &amp; Discovery Log</title>
+    <link>https://leakfree.org/t/replacing-npc-models-mini-tutorial-discovery-log/62109</link>
+    <description>![20190123145124_1|690x388](upload://tIy3LQmAP2LV2yFZuDVnuZb8ctD.jpeg) 
+
+This Xen-bloodied guard is the first thing I&#39;ve done with a technique I&#39;ve just discovered for replacing the character models on NPCs by keyvalue- i.e., using values settable on an NPC-by-NPC basis in the hammer editor.
+
+Those of you familiar with Black Mesa modding will be aware that this can already be done with the character manifest, a script file that the game consults and, if it finds a name matching the NPC in the map, will give the NPC features as described in the entry in the file. This is used to set hair, glasses, face shapes, etc., and can in fact set the body model of the NPC. In the vanilla game this is mostly just used to switch between the normal (clean) and &#39;hurt&#39; (bloody) models for scientists and security guards, but you can put any model you want in there and have, for instance, an entity that is programmatically a security guard and will use a guard&#39;s AI and dialogue, but looks like a Marine and has a Marine&#39;s animations- or a completely custom model you made yourself. Azure Sheep uses this functionality to make its &#39;maintenance worker&#39; and &#39;Barniel&#39; NPCs by putting a custom model over a security guard or a security model over a female scientist, respectively.
+
+The problem is that the character manifest does not integrate well with the Workshop mod download system and cannot just reference multiple files the way, say, a map list can. This means you have to manually install mods which modify it, and additionally multiple mods which do so must be manually merged in a text editor else they will overwrite each other. This is not a problem for Azure Sheep which uses its own executable to launch and (I _think_!) inserts a separate game path entirely, but for a plug-and-play mod like pre-disaster is just not workable.
+
+However, there is a work-around that allows the model an NPC uses to be specified in the Hammer editor _within a specific map_. This will _override_ the default model of the NPC and also any model specified in the character manifest. All you need to do is turn off the &quot;smart-edit&quot; option in the NPC&#39;s properties window and add a key with the name &quot;model&quot; and the value &quot;/path/to/your/model&quot;- for instance, the guard above has models/humans/guard_xend.mdl, which is just the guard_hurt model with a different texture where the red blood has been turned yellow. That&#39;s really all there is to it.
+
+A few things I am still looking into:
+
+* I think the Hammer editor will in many circumstances fail to preserve the added model keyvalue over things like changing the entity class. This is kind of annoying but I don&#39;t think will occur super-commonly so I am tempted to just live with it. Might be possible to add this keyvalue more formally by modifying the game&#39;s FGD.
+* One thing to look out for is that not all models have the same animations, and sometimes the NPC you&#39;ve changed the model of will try to programmatically call an animation its new model doesn&#39;t have. I remember there being problems specifically with security guards and soldiers having different run animations and thus being unable to move. I haven&#39;t tested this but in theory if you make a new model with animations that have the same names the NPC will work properly. Since many NPCs have the same skeleton to them it may even be possible to directly copy animation files while making the model.
+* I am not sure how character-manifest-defined bodygroup elements (hair, glasses, face flex, etc) react when the model of the NPC is changed, or if it is possible to change elements from either the old or new model by adding some other keyvalues in Hammer.
+* It is actually possible to change NPC models semi-dynamically in the game engine by firing the &quot;addoutput&quot; input at them with a new &quot;model /path/to/model&quot; parameter. However, this requires the game to be saved and reloaded to take effect, so I do not think it&#39;ll find much use. It&#39;s _possible_ the engine can be commanded to update those models and only those models in a timely manner through, say, a console command, but I doubt it.
+
+
+On the other hand, though, this has opened up a number of new directions for Black Mesa modding to take:
+* **It will now be possible to add construction worker, office worker, and other NPCs to Pre-Disaster maps, as well as &#39;Otis&#39; model security guards if someone ever makes a model for them. This was possible before, but only by using the compatibility-breaking overrides to the character manifest.**
+* If I can get the animation issues ironed out (or just have them standing still) I can now add friendly Marine NPCs to high-security areas of the facility who will respond like security guards when talked to.
+* It is now possible to add fully-functional office worker, construction worker, and other models to canon BM maps just by editing the maps themselves- this means that incompatibility issues will only arise if another mod edits _those specific maps_, not any other mod trying to edit any other elements of the character manifest.
+* Opposing Force remake authors can now make HECU NPCs who will follow the player like guards would, and Black-Ops NPCs who are reskinned Marines. This was possible before, but not in a workshop-compatible 
+* Similarly, this simplifies somewhat the modifications that would be required to add female versions of guard or Marine NPCs and makes them workshop-supportable. However such NPCs would still have the male combat/idle dialogue. I _think_ it might be possible to use response contexts and custom soundscape files to replace dialogue wholesale, but I don&#39;t know for sure.</description>
+    
+    <lastBuildDate>Mon, 28 Jan 2019 18:24:09 +0000</lastBuildDate>
+    <category>General Development</category>
+    <atom:link href="https://leakfree.org/t/replacing-npc-models-mini-tutorial-discovery-log/62109.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Replacing NPC Models - Mini-Tutorial &amp; Discovery Log</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Discovered a slight limitation: for this trick to work, NPCs must be given a name corresponding to an entry in the character manifest file which does <em>not</em> specify its own model line- a character manifest entry with a model, or no name at all, or a name that doesn’t correspond to any character_manifest entry, will not work. So until I can find out more, it would be a good idea to check the character manifest for any NPCs you are planning to remodel and make sure they do not have a model specified.</p>
+          <p><a href="https://leakfree.org/t/replacing-npc-models-mini-tutorial-discovery-log/62109/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/replacing-npc-models-mini-tutorial-discovery-log/62109/3</link>
+        <pubDate>Mon, 28 Jan 2019 18:24:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62109-3</guid>
+        <source url="https://leakfree.org/t/replacing-npc-models-mini-tutorial-discovery-log/62109.rss">Replacing NPC Models - Mini-Tutorial &amp; Discovery Log</source>
+      </item>
+      <item>
+        <title>Replacing NPC Models - Mini-Tutorial &amp; Discovery Log</title>
+        <dc:creator><![CDATA[darkone]]></dc:creator>
+        <description><![CDATA[
+            <p>Zen blood covered guards… why isn’t that something in the base game, I mean hunter in the lambda lab would seem more like a bad ass if they where covered in blood and looked like they have been through hell.</p>
+<p>Maybe with a bloody and shot vest on the ground, them not having their vest.</p>
+<p>Think that was the name of that guard.</p>
+          <p><a href="https://leakfree.org/t/replacing-npc-models-mini-tutorial-discovery-log/62109/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/replacing-npc-models-mini-tutorial-discovery-log/62109/2</link>
+        <pubDate>Thu, 24 Jan 2019 01:34:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62109-2</guid>
+        <source url="https://leakfree.org/t/replacing-npc-models-mini-tutorial-discovery-log/62109.rss">Replacing NPC Models - Mini-Tutorial &amp; Discovery Log</source>
+      </item>
+      <item>
+        <title>Replacing NPC Models - Mini-Tutorial &amp; Discovery Log</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/d/d0483a45db940fcc543dcbe038100e555db1af2d.jpeg" data-download-href="https://leakfree.org/uploads/default/d0483a45db940fcc543dcbe038100e555db1af2d" title="20190123145124_1"><img src="https://leakfree.org/uploads/default/optimized/2X/d/d0483a45db940fcc543dcbe038100e555db1af2d_2_690x388.jpeg" alt="20190123145124_1" data-base62-sha1="tIy3LQmAP2LV2yFZuDVnuZb8ctD" width="690" height="388" srcset="https://leakfree.org/uploads/default/optimized/2X/d/d0483a45db940fcc543dcbe038100e555db1af2d_2_690x388.jpeg, https://leakfree.org/uploads/default/optimized/2X/d/d0483a45db940fcc543dcbe038100e555db1af2d_2_1035x582.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/d/d0483a45db940fcc543dcbe038100e555db1af2d_2_1380x776.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/d/d0483a45db940fcc543dcbe038100e555db1af2d_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">20190123145124_1</span><span class="informations">1920×1080 351 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>This Xen-bloodied guard is the first thing I’ve done with a technique I’ve just discovered for replacing the character models on NPCs by keyvalue- i.e., using values settable on an NPC-by-NPC basis in the hammer editor.</p>
+<p>Those of you familiar with Black Mesa modding will be aware that this can already be done with the character manifest, a script file that the game consults and, if it finds a name matching the NPC in the map, will give the NPC features as described in the entry in the file. This is used to set hair, glasses, face shapes, etc., and can in fact set the body model of the NPC. In the vanilla game this is mostly just used to switch between the normal (clean) and ‘hurt’ (bloody) models for scientists and security guards, but you can put any model you want in there and have, for instance, an entity that is programmatically a security guard and will use a guard’s AI and dialogue, but looks like a Marine and has a Marine’s animations- or a completely custom model you made yourself. Azure Sheep uses this functionality to make its ‘maintenance worker’ and ‘Barniel’ NPCs by putting a custom model over a security guard or a security model over a female scientist, respectively.</p>
+<p>The problem is that the character manifest does not integrate well with the Workshop mod download system and cannot just reference multiple files the way, say, a map list can. This means you have to manually install mods which modify it, and additionally multiple mods which do so must be manually merged in a text editor else they will overwrite each other. This is not a problem for Azure Sheep which uses its own executable to launch and (I <em>think</em>!) inserts a separate game path entirely, but for a plug-and-play mod like pre-disaster is just not workable.</p>
+<p>However, there is a work-around that allows the model an NPC uses to be specified in the Hammer editor <em>within a specific map</em>. This will <em>override</em> the default model of the NPC and also any model specified in the character manifest. All you need to do is turn off the “smart-edit” option in the NPC’s properties window and add a key with the name “model” and the value “/path/to/your/model”- for instance, the guard above has models/humans/guard_xend.mdl, which is just the guard_hurt model with a different texture where the red blood has been turned yellow. That’s really all there is to it.</p>
+<p>A few things I am still looking into:</p>
+<ul>
+<li>I think the Hammer editor will in many circumstances fail to preserve the added model keyvalue over things like changing the entity class. This is kind of annoying but I don’t think will occur super-commonly so I am tempted to just live with it. Might be possible to add this keyvalue more formally by modifying the game’s FGD.</li>
+<li>One thing to look out for is that not all models have the same animations, and sometimes the NPC you’ve changed the model of will try to programmatically call an animation its new model doesn’t have. I remember there being problems specifically with security guards and soldiers having different run animations and thus being unable to move. I haven’t tested this but in theory if you make a new model with animations that have the same names the NPC will work properly. Since many NPCs have the same skeleton to them it may even be possible to directly copy animation files while making the model.</li>
+<li>I am not sure how character-manifest-defined bodygroup elements (hair, glasses, face flex, etc) react when the model of the NPC is changed, or if it is possible to change elements from either the old or new model by adding some other keyvalues in Hammer.</li>
+<li>It is actually possible to change NPC models semi-dynamically in the game engine by firing the “addoutput” input at them with a new “model /path/to/model” parameter. However, this requires the game to be saved and reloaded to take effect, so I do not think it’ll find much use. It’s <em>possible</em> the engine can be commanded to update those models and only those models in a timely manner through, say, a console command, but I doubt it.</li>
+</ul>
+<p>On the other hand, though, this has opened up a number of new directions for Black Mesa modding to take:</p>
+<ul>
+<li><strong>It will now be possible to add construction worker, office worker, and other NPCs to Pre-Disaster maps, as well as ‘Otis’ model security guards if someone ever makes a model for them. This was possible before, but only by using the compatibility-breaking overrides to the character manifest.</strong></li>
+<li>If I can get the animation issues ironed out (or just have them standing still) I can now add friendly Marine NPCs to high-security areas of the facility who will respond like security guards when talked to.</li>
+<li>It is now possible to add fully-functional office worker, construction worker, and other models to canon BM maps just by editing the maps themselves- this means that incompatibility issues will only arise if another mod edits <em>those specific maps</em>, not any other mod trying to edit any other elements of the character manifest.</li>
+<li>Opposing Force remake authors can now make HECU NPCs who will follow the player like guards would, and Black-Ops NPCs who are reskinned Marines. This was possible before, but not in a workshop-compatible</li>
+<li>Similarly, this simplifies somewhat the modifications that would be required to add female versions of guard or Marine NPCs and makes them workshop-supportable. However such NPCs would still have the male combat/idle dialogue. I <em>think</em> it might be possible to use response contexts and custom soundscape files to replace dialogue wholesale, but I don’t know for sure.</li>
+</ul>
+          <p><a href="https://leakfree.org/t/replacing-npc-models-mini-tutorial-discovery-log/62109/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/replacing-npc-models-mini-tutorial-discovery-log/62109/1</link>
+        <pubDate>Wed, 23 Jan 2019 23:52:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62109-1</guid>
+        <source url="https://leakfree.org/t/replacing-npc-models-mini-tutorial-discovery-log/62109.rss">Replacing NPC Models - Mini-Tutorial &amp; Discovery Log</source>
+      </item>
+  </channel>
+</rss>

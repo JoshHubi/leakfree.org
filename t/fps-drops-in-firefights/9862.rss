@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>FPS drops in firefights</title>
+    <link>https://leakfree.org/t/fps-drops-in-firefights/9862</link>
+    <description>The game runs smoothly for the most part, but whenever there are more than 2 or so marines or even one bullsquid shooting at me, my framerate dips. I have a quad core Phenom II, I should be able to run this game smoothly right? Not sure what the problem is.</description>
+    
+    <lastBuildDate>Sat, 15 Sep 2012 21:15:57 +0000</lastBuildDate>
+    <category>In-game Issues (Mod)</category>
+    <atom:link href="https://leakfree.org/t/fps-drops-in-firefights/9862.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>FPS drops in firefights</title>
+        <dc:creator><![CDATA[lexa2]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="TheElderTrolls™">
+<div class="title">
+<div class="quote-controls"></div>
+ TheElderTrolls™:</div>
+<blockquote>
+<p>This could be a possible fix for your issue: <a href="https://forums.blackmesasource.com/showthread.php?t=12660" data-bbcode="true" rel="nofollow noopener">https://forums.blackmesasource.com/showthread.php?t=12660</a><br>
+Multi-core rendering was implemented in the 2009 sdk that wasn’t(as far as I know) released.<br>
+This forces the game to use multiple cores instead of one.</p>
+</blockquote>
+</aside>
+<p>Well, yeah, by setting process affinity you could force Windows threads scheduler to ping-pong the game over the various CPU cores but it could cause even more lag compared to what it was when the game had been sitting on one thread. CPU context switches - which essentially happen when the scheduler moves a thread from one CPU core to another - are not a cheap thing. A lot of cycles are wasted on it. Setting affinity couldn’t auto-magically rewrite the game engine to use multithreaded rendering techniques. A fact that some people see an improvement when the game is ping-ponged over CPU cores is that the GPU driver is a miltithreaded thing and by chance (i.e. by an unfortunate coincidence that could be called a “bug”) OS schedurer decided to place both the game and the GPU driver processing thread on the same core. Thus it might be reasonable not to blindly follow the advice posted at the link above but rather to set affinity to use only two or three cores for hl2.exe. That way chances are that you won’t get game threads ping-pong over various cores while having more chances for GPU driver to be scheduled to run on some other “free from work” core.</p>
+          <p><a href="https://leakfree.org/t/fps-drops-in-firefights/9862/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fps-drops-in-firefights/9862/4</link>
+        <pubDate>Sat, 15 Sep 2012 21:15:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9862-4</guid>
+        <source url="https://leakfree.org/t/fps-drops-in-firefights/9862.rss">FPS drops in firefights</source>
+      </item>
+      <item>
+        <title>FPS drops in firefights</title>
+        <dc:creator><![CDATA[TheElderTrolls]]></dc:creator>
+        <description><![CDATA[
+            <p>This could be a possible fix for your issue: <a href="https://forums.blackmesasource.com/showthread.php?t=12660" data-bbcode="true" rel="nofollow noopener">https://forums.blackmesasource.com/showthread.php?t=12660</a><br>
+Multi-core rendering was implemented in the 2009 sdk that wasn’t(as far as I know) released.<br>
+This forces the game to use multiple cores instead of one.</p>
+          <p><a href="https://leakfree.org/t/fps-drops-in-firefights/9862/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fps-drops-in-firefights/9862/3</link>
+        <pubDate>Sat, 15 Sep 2012 14:09:30 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9862-3</guid>
+        <source url="https://leakfree.org/t/fps-drops-in-firefights/9862.rss">FPS drops in firefights</source>
+      </item>
+      <item>
+        <title>FPS drops in firefights</title>
+        <dc:creator><![CDATA[qabRieL]]></dc:creator>
+        <description><![CDATA[
+            <p>I think it’s normal.</p>
+          <p><a href="https://leakfree.org/t/fps-drops-in-firefights/9862/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fps-drops-in-firefights/9862/2</link>
+        <pubDate>Sat, 15 Sep 2012 14:07:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9862-2</guid>
+        <source url="https://leakfree.org/t/fps-drops-in-firefights/9862.rss">FPS drops in firefights</source>
+      </item>
+      <item>
+        <title>FPS drops in firefights</title>
+        <dc:creator><![CDATA[MadTree]]></dc:creator>
+        <description><![CDATA[
+            <p>The game runs smoothly for the most part, but whenever there are more than 2 or so marines or even one bullsquid shooting at me, my framerate dips. I have a quad core Phenom II, I should be able to run this game smoothly right? Not sure what the problem is.</p>
+          <p><a href="https://leakfree.org/t/fps-drops-in-firefights/9862/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fps-drops-in-firefights/9862/1</link>
+        <pubDate>Sat, 15 Sep 2012 13:53:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-9862-1</guid>
+        <source url="https://leakfree.org/t/fps-drops-in-firefights/9862.rss">FPS drops in firefights</source>
+      </item>
+  </channel>
+</rss>

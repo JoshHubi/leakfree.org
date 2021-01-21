@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Installing Black Mesa and/or resolving minor technical issues that might crop up</title>
+    <link>https://leakfree.org/t/installing-black-mesa-and-or-resolving-minor-technical-issues-that-might-crop-up/10438</link>
+    <description>I keep seeing a lot of clutter around the forums, primarily complaints about AI or trying to install the game. So in an effort to address some of the issues and letting the developers work, I’ll post this. I’m only going to go slightly in depth about some issues. This is for small things and things that can be easily fixed. 
+
+
+
+
+
+*  [b]Help! I can’t install Black Mesa![/b]
+
+First of all, [b][u]make sure that you have all of the proper components (.7z/.exe, torrent, what have you)[/b][/u] and that those files themselves are not corrupt.
+
+
+After this, [b][i]make sure you have the Source SDK Base 2007 installed[/b][/i][/size]. You can install the SDK Base by simply right-clicking on Steams Icon at the task bar and then clicking Libraries. 
+
+Then at the top left of the window that is opened there is a search bar and a drop down menu that will by default show “ALL GAMES” click on that, then click on tools, you can find it under there, once you find it, just install it like any other Steam-based game.
+
+
+
+* [b]I think the AI reacts too quickly to my presence[/b]
+The AI is controlled by some hardcoded values, along with some convars, to make them more manageable, simply put these in your Skill.cfg:
+ai_reaction_delay_alert &quot;0.3&quot; (default is 0.1) – when aware of a target in the area (be you or another NPC)
+ai_reaction_delay_idle &quot;0.75&quot; (default is 0.3) – to initiate combat
+[b] you can find the skill.cfg under …\Steam\Steamapps\Sourcemods\BMS\cfg[/b]
+
+This will increase the time it takes for the [i][b]universal (that means everything)[/b][/i] AI to recognize you as a threat. It also slows down their processing capabilities, and makes them slightly slower in their decision process. This also gives you a little more time to get into cover when dealing with vorts and the like.
+
+
+
+* [b]I keep having to jump+crouch each time I encounter a trip mine or wire [/b]
+
+
+Instead of lowering the gravity, boost the vertical &amp; forward jump speed in the skill.cfg. 
+[code]bms_normal_jump_vertical_speed				&quot;160&quot;
+bms_normal_jump_crouch_vertical_speed		&quot;160&quot;
+bms_double_jump_vertical_speed				&quot;200&quot;
+bms_airboost_jump_vertical_speed			&quot;80&quot;
+bms_airboost_jump_forward_speed				&quot;360&quot;
+bms_airboost_jump_original_speed_mod		&quot;0.25&quot;
+bms_long_jump_vertical_speed				&quot;150&quot;
+bms_long_jump_horizontal_speed				&quot;460&quot;
+bms_long_jump_delay							&quot;1&quot;[/code]
+
+
+It will take a little while to find the butter zone for the values, but have fun figuring that one out. I haven’t played with those, and I have no intention to. If you find a butter zone for yourself, post it and I’ll add those.
+
+
+
+* [b]My crosshairs keep poofing[/b]
+Simply open your console again and type “cl_drawhud 0” then repeat the same command and set it to 1. It will show back up and you can play as normal. No idea what causes the visual bug, don’t care, it’s an easy temp/bandaid fix.
+
+
+
+* [b]Reserved[/b]
+
+
+If you come across any more issues, post it and I’ll look to add it to the main post. I made this primarily in an effort to reduce the clutter on the forums so the moderators (and as a result the development team) can focus more on the bugs that they didn&#39;t find and reduce the clutter.</description>
+    
+    <lastBuildDate>Mon, 17 Sep 2012 08:50:29 +0000</lastBuildDate>
+    <category>Help!</category>
+    <atom:link href="https://leakfree.org/t/installing-black-mesa-and-or-resolving-minor-technical-issues-that-might-crop-up/10438.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Installing Black Mesa and/or resolving minor technical issues that might crop up</title>
+        <dc:creator><![CDATA[Vanzetti]]></dc:creator>
+        <description><![CDATA[
+            <p>200 works fine for me.</p>
+<p>bms_normal_jump_vertical_speed			“200”<br>
+bms_normal_jump_crouch_vertical_speed		“200”</p>
+<p>This script lets you auto crouch-jump:</p>
+<p>bind “space” “+crouchjump”<br>
+alias +crouchjump “+jump; wait 5; duckON”<br>
+alias -crouchjump “wait 5; duckOFF; -jump”<br>
+alias duckON “+duck”<br>
+alias duckOFF “-duck”</p>
+<p>//fix jump from crouch state<br>
+bind “ctrl” “+normalduck”<br>
+bind “c” “+normalduck”<br>
+alias +normalduck “+duck; alias duckON; alias duckOFF”<br>
+alias -normalduck “-duck; alias duckON +duck; alias duckOFF -duck”</p>
+          <p><a href="https://leakfree.org/t/installing-black-mesa-and-or-resolving-minor-technical-issues-that-might-crop-up/10438/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/installing-black-mesa-and-or-resolving-minor-technical-issues-that-might-crop-up/10438/2</link>
+        <pubDate>Mon, 17 Sep 2012 08:50:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10438-2</guid>
+        <source url="https://leakfree.org/t/installing-black-mesa-and-or-resolving-minor-technical-issues-that-might-crop-up/10438.rss">Installing Black Mesa and/or resolving minor technical issues that might crop up</source>
+      </item>
+      <item>
+        <title>Installing Black Mesa and/or resolving minor technical issues that might crop up</title>
+        <dc:creator><![CDATA[Chickenprotector]]></dc:creator>
+        <description><![CDATA[
+            <p>I keep seeing a lot of clutter around the forums, primarily complaints about AI or trying to install the game. So in an effort to address some of the issues and letting the developers work, I’ll post this. I’m only going to go slightly in depth about some issues. This is for small things and things that can be easily fixed.</p>
+<ul>
+<li><span class="bbcode-b">Help! I can’t install Black Mesa!</span></li>
+</ul>
+<p>First of all, <span class="bbcode-b">[u]make sure that you have all of the proper components (.7z/.exe, torrent, what have you)</span>[/u] and that those files themselves are not corrupt.</p>
+<p>After this, <span class="bbcode-b">[i]make sure you have the Source SDK Base 2007 installed</span>[/i][/size]. You can install the SDK Base by simply right-clicking on Steams Icon at the task bar and then clicking Libraries.</p>
+<p>Then at the top left of the window that is opened there is a search bar and a drop down menu that will by default show “ALL GAMES” click on that, then click on tools, you can find it under there, once you find it, just install it like any other Steam-based game.</p>
+<ul>
+<li>
+<span class="bbcode-b">I think the AI reacts too quickly to my presence</span><br>
+The AI is controlled by some hardcoded values, along with some convars, to make them more manageable, simply put these in your Skill.cfg:<br>
+ai_reaction_delay_alert “0.3” (default is 0.1) – when aware of a target in the area (be you or another NPC)<br>
+ai_reaction_delay_idle “0.75” (default is 0.3) – to initiate combat<br>
+<span class="bbcode-b"> you can find the skill.cfg under …\Steam\Steamapps\Sourcemods\BMS\cfg</span>
+</li>
+</ul>
+<p>This will increase the time it takes for the <span class="bbcode-i"><span class="bbcode-b">universal (that means everything)</span></span> AI to recognize you as a threat. It also slows down their processing capabilities, and makes them slightly slower in their decision process. This also gives you a little more time to get into cover when dealing with vorts and the like.</p>
+<ul>
+<li><span class="bbcode-b">I keep having to jump+crouch each time I encounter a trip mine or wire </span></li>
+</ul>
+<p>Instead of lowering the gravity, boost the vertical &amp; forward jump speed in the skill.cfg.</p>
+<p><code>bms_normal_jump_vertical_speed				"160"
+bms_normal_jump_crouch_vertical_speed		"160"
+bms_double_jump_vertical_speed				"200"
+bms_airboost_jump_vertical_speed			"80"
+bms_airboost_jump_forward_speed				"360"
+bms_airboost_jump_original_speed_mod		"0.25"
+bms_long_jump_vertical_speed				"150"
+bms_long_jump_horizontal_speed				"460"
+bms_long_jump_delay							"1"</code></p>
+<p>It will take a little while to find the butter zone for the values, but have fun figuring that one out. I haven’t played with those, and I have no intention to. If you find a butter zone for yourself, post it and I’ll add those.</p>
+<ul>
+<li>
+<p><span class="bbcode-b">My crosshairs keep poofing</span><br>
+Simply open your console again and type “cl_drawhud 0” then repeat the same command and set it to 1. It will show back up and you can play as normal. No idea what causes the visual bug, don’t care, it’s an easy temp/bandaid fix.</p>
+</li>
+<li>
+<p><span class="bbcode-b">Reserved</span></p>
+</li>
+</ul>
+<p>If you come across any more issues, post it and I’ll look to add it to the main post. I made this primarily in an effort to reduce the clutter on the forums so the moderators (and as a result the development team) can focus more on the bugs that they didn’t find and reduce the clutter.</p>
+          <p><a href="https://leakfree.org/t/installing-black-mesa-and-or-resolving-minor-technical-issues-that-might-crop-up/10438/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/installing-black-mesa-and-or-resolving-minor-technical-issues-that-might-crop-up/10438/1</link>
+        <pubDate>Mon, 17 Sep 2012 00:36:07 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10438-1</guid>
+        <source url="https://leakfree.org/t/installing-black-mesa-and-or-resolving-minor-technical-issues-that-might-crop-up/10438.rss">Installing Black Mesa and/or resolving minor technical issues that might crop up</source>
+      </item>
+  </channel>
+</rss>

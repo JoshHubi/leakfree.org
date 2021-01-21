@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>trigger_teleport not working</title>
+    <link>https://leakfree.org/t/trigger-teleport-not-working/14926</link>
+    <description>Hi all,
+
+I&#39;ve been working on an elevator that uses a simple trigger_teleport not long after the player hits the button, which teleports them to the top floor/bottom floor.
+
+Trouble is, for some reason it just won&#39;t teleport the player. The destination is set, &quot;clients&quot; is ticked and I&#39;ve tried using a point_teleport as well. No luck.
+
+Is there something I&#39;m missing?</description>
+    
+    <lastBuildDate>Wed, 28 Sep 2016 20:09:01 +0000</lastBuildDate>
+    <category>Black Mesa</category>
+    <atom:link href="https://leakfree.org/t/trigger-teleport-not-working/14926.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>trigger_teleport not working</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <p>You could use a point_teleport with Entity to teleport set to !player<br>
+I think it preserves the angles.</p>
+          <p><a href="https://leakfree.org/t/trigger-teleport-not-working/14926/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/trigger-teleport-not-working/14926/6</link>
+        <pubDate>Wed, 28 Sep 2016 20:09:01 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14926-6</guid>
+        <source url="https://leakfree.org/t/trigger-teleport-not-working/14926.rss">trigger_teleport not working</source>
+      </item>
+      <item>
+        <title>trigger_teleport not working</title>
+        <dc:creator><![CDATA[ArcHammer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="LordDz">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/d2c977/40.png" class="avatar"> LordDz:</div>
+<blockquote>
+<p>I cut this one out from one of my maps, it works for me.<br>
+<a href="https://dl.dropboxusercontent.com/u/7315285/Maps/BlackMesa/test_elevator_teleport.7z" data-bbcode="true" rel="nofollow noopener">https://dl.dropboxusercontent.com/u/7315285/Maps/BlackMesa/test_elevator_teleport.7z</a></p>
+</blockquote>
+</aside>
+<p>Ok, so I figured out why my version wasn’t working.<br>
+I ticked ‘preserve angles even when a local landmark is not specified’ in my trigger, and it only worked when I unticked that as you had shown in your example.<br>
+Now I need to figure out the ‘local destination landmark’ string to preserve the position and angle the player was in when they were teleported.</p>
+          <p><a href="https://leakfree.org/t/trigger-teleport-not-working/14926/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/trigger-teleport-not-working/14926/5</link>
+        <pubDate>Wed, 28 Sep 2016 15:07:25 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14926-5</guid>
+        <source url="https://leakfree.org/t/trigger-teleport-not-working/14926.rss">trigger_teleport not working</source>
+      </item>
+      <item>
+        <title>trigger_teleport not working</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <p>I cut this one out from one of my maps, it works for me.<br>
+<a href="https://dl.dropboxusercontent.com/u/7315285/Maps/BlackMesa/test_elevator_teleport.7z" data-bbcode="true" rel="nofollow noopener">https://dl.dropboxusercontent.com/u/7315285/Maps/BlackMesa/test_elevator_teleport.7z</a></p>
+          <p><a href="https://leakfree.org/t/trigger-teleport-not-working/14926/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/trigger-teleport-not-working/14926/4</link>
+        <pubDate>Wed, 28 Sep 2016 10:41:47 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14926-4</guid>
+        <source url="https://leakfree.org/t/trigger-teleport-not-working/14926.rss">trigger_teleport not working</source>
+      </item>
+      <item>
+        <title>trigger_teleport not working</title>
+        <dc:creator><![CDATA[ArcHammer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="LordDz">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/d2c977/40.png" class="avatar"> LordDz:</div>
+<blockquote>
+<p>Well if it has has the flags set to client, a  <a href="https://developer.valvesoftware.com/wiki/Info_teleport_destination" data-bbcode="true" rel="nofollow noopener">info_teleport_destination</a> set to the destination and the brush textured with the trigger texture (shouldn’t matter, but w/e).</p>
+<p>Things to check:<br>
+Is it enabled?<br>
+Is the player inside the brush when they press the button?</p>
+<p>Try remaking the brush if it’s an invalid brush that gets removed on compiling?</p>
+</blockquote>
+</aside>
+<p>The brush fills the whole elevator, starts disabled, and upon pressing a button it enables it after a delay. And I used an info_teleport_destination first thing too.<br>
+Only thing I can think of is if it’s an invalid brush, so I’ll remake it.</p>
+<p>Edit: Still doesn’t work… strange.</p>
+          <p><a href="https://leakfree.org/t/trigger-teleport-not-working/14926/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/trigger-teleport-not-working/14926/3</link>
+        <pubDate>Tue, 27 Sep 2016 16:01:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14926-3</guid>
+        <source url="https://leakfree.org/t/trigger-teleport-not-working/14926.rss">trigger_teleport not working</source>
+      </item>
+      <item>
+        <title>trigger_teleport not working</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <p>Well if it has has the flags set to client, a  <a href="https://developer.valvesoftware.com/wiki/Info_teleport_destination" data-bbcode="true" rel="nofollow noopener">info_teleport_destination</a> set to the destination and the brush textured with the trigger texture (shouldn’t matter, but w/e).</p>
+<p>Things to check:<br>
+Is it enabled?<br>
+Is the player inside the brush when they press the button?</p>
+<p>Try remaking the brush if it’s an invalid brush that gets removed on compiling?</p>
+          <p><a href="https://leakfree.org/t/trigger-teleport-not-working/14926/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/trigger-teleport-not-working/14926/2</link>
+        <pubDate>Tue, 27 Sep 2016 11:01:49 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14926-2</guid>
+        <source url="https://leakfree.org/t/trigger-teleport-not-working/14926.rss">trigger_teleport not working</source>
+      </item>
+      <item>
+        <title>trigger_teleport not working</title>
+        <dc:creator><![CDATA[ArcHammer]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi all,</p>
+<p>I’ve been working on an elevator that uses a simple trigger_teleport not long after the player hits the button, which teleports them to the top floor/bottom floor.</p>
+<p>Trouble is, for some reason it just won’t teleport the player. The destination is set, “clients” is ticked and I’ve tried using a point_teleport as well. No luck.</p>
+<p>Is there something I’m missing?</p>
+          <p><a href="https://leakfree.org/t/trigger-teleport-not-working/14926/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/trigger-teleport-not-working/14926/1</link>
+        <pubDate>Tue, 27 Sep 2016 10:30:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14926-1</guid>
+        <source url="https://leakfree.org/t/trigger-teleport-not-working/14926.rss">trigger_teleport not working</source>
+      </item>
+  </channel>
+</rss>

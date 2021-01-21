@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>HTML/CSS/JS/ASP/PHP/SQL help/coding thread.</title>
+    <link>https://leakfree.org/t/html-css-js-asp-php-sql-help-coding-thread/6609</link>
+    <description>I saw that nobody had done this except for the programming thread (which was centered at programs not websites) so I decided that this would prove as a useful thread for some. So this is a thread where you can post all website coding related discussions and &quot;help needed&quot; etc.
+
+EDIT: Huge thanks to Flatline and Hyperbyte for helping me out.</description>
+    
+    <lastBuildDate>Thu, 24 Feb 2011 14:31:18 +0000</lastBuildDate>
+    <category>Technology and Gaming</category>
+    <atom:link href="https://leakfree.org/t/html-css-js-asp-php-sql-help-coding-thread/6609.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>HTML/CSS/JS/ASP/PHP/SQL help/coding thread.</title>
+        <dc:creator><![CDATA[Hyperbyte]]></dc:creator>
+        <description><![CDATA[
+            <pre><code class="lang-auto">
+$con = mysql_connect($mysql_host, $mysql_user, $mysql_password);
+if (!$con)
+  die('Could not connect: ' . mysql_error());
+
+$fname = mysql_real_escape_string($_POST['fname']);
+$lname = mysql_real_escape_string($_POST['lname']);
+$age = mysql_real_escape_string($_POST['age']);
+
+mysql_select_db($mysql_database, $con);
+mysql_query("INSERT INTO Persons (fname, lname, age) VALUES ('$fname', '$lname', '$age')");
+mysql_close($con);
+ </code></pre>
+<p>I think that’s it.  Please learn <a href="https://php.net/manual/en/language.types.string.php" data-bbcode="true" rel="nofollow noopener">what the difference is between ’ and "</a>, when you should which one, and especially <a href="https://www.php.net/manual/en/language.variables.basics.php" data-bbcode="true" rel="nofollow noopener">when you shouldn’t use either of them</a>.  Also learn <a href="https://php.net/manual/en/security.database.sql-injection.php" data-bbcode="true" rel="nofollow noopener">how to prevent SQL injections with mysql_real_escape_string</a>.</p>
+<p>Good luck!</p>
+          <p><a href="https://leakfree.org/t/html-css-js-asp-php-sql-help-coding-thread/6609/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/html-css-js-asp-php-sql-help-coding-thread/6609/3</link>
+        <pubDate>Thu, 24 Feb 2011 14:31:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6609-3</guid>
+        <source url="https://leakfree.org/t/html-css-js-asp-php-sql-help-coding-thread/6609.rss">HTML/CSS/JS/ASP/PHP/SQL help/coding thread.</source>
+      </item>
+      <item>
+        <title>HTML/CSS/JS/ASP/PHP/SQL help/coding thread.</title>
+        <dc:creator><![CDATA[Flatline]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Sk3tch">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/s/3bc359/40.png" class="avatar"> Sk3tch:</div>
+<blockquote>
+<p>I saw that nobody had done this except for the programming thread (which was centered at programs not websites) so I decided that this would prove as a useful thread for some. So this is a thread where you can post all website coding related discussions and “help needed” etc.</p>
+<p>So as a n00b coder I have begun learning PHP and SQL. I have a free test website where I did a test page. I have a problem with my SQL query page.<br>
+So I have an index page with a form.</p>
+<p>[code]</p>
+
+
+<h2>What's your name and age?</h2>
+
+First name: 
+Last name: 
+Age: 
+
+
+
+ [/code]
+<p>Then there is the form action page, welcome.php which I included only the PHP part because it’s causing the problem.</p>
+<pre><code class="lang-auto">
+$con = "mysql_connect("$mysql_host","$mysql_user","$mysql_password");
+if (!$con)
+  {
+  die('Could not connect: ' . mysql_error());
+  }"
+mysql_select_db("$mysql_database", $con);
+mysql_query("INSERT INTO Persons (fname, lname, age)
+VALUES ('$_POST['fname']', '$_POST['lname']', '$_POST['age']')");
+mysql_close($con);
+ </code></pre>
+<p>So as I said, I have a error with my SQL query. When I come to the page, it says “Parse error: syntax error, unexpected T_VARIABLE in /home/*/public_html/welcome.php on line 9”<br>
+Whats wrong with my code?</p>
+</blockquote>
+</aside>
+<p>Try changing the double quotes in your POST variables to single quotes as the double quotes are not being escaped and probably causing problems. It’s been a while since I did PHP so I could be wrong.</p>
+          <p><a href="https://leakfree.org/t/html-css-js-asp-php-sql-help-coding-thread/6609/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/html-css-js-asp-php-sql-help-coding-thread/6609/2</link>
+        <pubDate>Thu, 24 Feb 2011 13:07:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6609-2</guid>
+        <source url="https://leakfree.org/t/html-css-js-asp-php-sql-help-coding-thread/6609.rss">HTML/CSS/JS/ASP/PHP/SQL help/coding thread.</source>
+      </item>
+      <item>
+        <title>HTML/CSS/JS/ASP/PHP/SQL help/coding thread.</title>
+        <dc:creator><![CDATA[Sk3tch]]></dc:creator>
+        <description><![CDATA[
+            <p>I saw that nobody had done this except for the programming thread (which was centered at programs not websites) so I decided that this would prove as a useful thread for some. So this is a thread where you can post all website coding related discussions and “help needed” etc.</p>
+<p>EDIT: Huge thanks to Flatline and Hyperbyte for helping me out.</p>
+          <p><a href="https://leakfree.org/t/html-css-js-asp-php-sql-help-coding-thread/6609/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/html-css-js-asp-php-sql-help-coding-thread/6609/1</link>
+        <pubDate>Thu, 24 Feb 2011 11:32:18 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-6609-1</guid>
+        <source url="https://leakfree.org/t/html-css-js-asp-php-sql-help-coding-thread/6609.rss">HTML/CSS/JS/ASP/PHP/SQL help/coding thread.</source>
+      </item>
+  </channel>
+</rss>

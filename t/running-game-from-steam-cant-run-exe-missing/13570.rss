@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Running game from steam. Can&#39;t run, Exe missing.</title>
+    <link>https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570</link>
+    <description>Well hello, I&#39;ve created this account a few minutes ago just to find help about my problem.
+Let me set it up for you a bit.
+
+I have played this game for many hours before. I&#39;ve downloaded the game from one of the mirrors provided in this web, ran the installer and all that. I could play it.
+Now that I return to steam after a while, when I want to launch the game it says &quot;Cannot launch the game, exe missing&quot; (Or something similar, steam in spanish)
+
+Now, what happens? I don&#39;t know. 
+
+-I have the game installed in D :\Steam\SteamApps\sourcemods\BMS
+-I HAVE SOURCE SDK BASE 2007 (If not, how could have i played it before?)
+-I don&#39;t have ANY of the &quot;programs that interfere with steam&quot;
+
+I have done all the steps that steam says if this issue happens, being: Deleting appcache folder, restarting steam, un-installing programs that interfere with steam, blah blah blah.
+
+I have RE-DOWNLOADED the mod, RE-INSTALLED IT, and stills giving me the error.
+
+Any help please? I am completely lost.</description>
+    
+    <lastBuildDate>Sun, 18 Jan 2015 17:04:56 +0000</lastBuildDate>
+    <category>Help!</category>
+    <atom:link href="https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Running game from steam. Can&#39;t run, Exe missing.</title>
+        <dc:creator><![CDATA[iFlyAllTheTime]]></dc:creator>
+        <description><![CDATA[
+            <p>When I last quit the game after installing the the mod in the source mod folder, I immediately checked steam and Black Mesa still wasn’t there.</p>
+<p>When I started Steam this morning, to my surprise BlackMesa was already in my games library and I was able to play it without any problems.</p>
+<p>Thanks everyone for taking the time to respond to my question. <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>MODERATORS:<br>
+Please close this thread. The problem has been resolved.</p>
+          <p><a href="https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570/11</link>
+        <pubDate>Sun, 18 Jan 2015 17:04:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13570-11</guid>
+        <source url="https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570.rss">Running game from steam. Can&#39;t run, Exe missing.</source>
+      </item>
+      <item>
+        <title>Running game from steam. Can&#39;t run, Exe missing.</title>
+        <dc:creator><![CDATA[iFlyAllTheTime]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Laminaat">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/b4bc9f/40.png" class="avatar"> Laminaat:</div>
+<blockquote>
+<p>First, you understand the problem you’re having correctly! So let’s solve it together.</p>
+<p>In the end you want to see a shortcut link in this folder:<br>
+C:\Program Files (x86)\Steam\SteamApps\sourcemods (I assumed that C:\Program Files (x86)\Steam\ is where you have Steam installed?)<br>
+called BMS<br>
+to<br>
+E:\BMS</p>
+<p>To do this in your case:<br>
+windows key<br>
+type cmd<br>
+right click and open commandprompt as administrator<br>
+type cd C:\Program Files (x86)\Steam\SteamApps\sourcemods<br>
+enter<br>
+type mklink /J “C:\Program Files (x86)\Steam\SteamApps\sourcemods” “E:\BMS”<br>
+enter<br>
+You should get a message that the junction is created successfully<br>
+You can check by looking in C:\Program Files (x86)\Steam\SteamApps\sourcemods if it is indeed there.<br>
+If you double click on it you should end up in E:\BMS<br>
+Now reboot and/or restart Steam and then you should be able to find Black Mesa in your game list.<br>
+You can remove that shortcut you made in C:, keep your PC nice and clean  <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+</blockquote>
+</aside>
+<aside class="quote no-group" data-username="jadebenn">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/j/aeb1de/40.png" class="avatar"> jadebenn:</div>
+<blockquote>
+<p>Frankly, there’s a MUCH easier solution to this problem.</p>
+<ol>
+<li>Make a shortcut to steam.exe</li>
+<li>Rename the shortcut to whatever you want (such as “Black Mesa”) and right click the shortcut and open the shortcut properties</li>
+<li>Under the target field, add this after the file location: <code>
+-applaunch 218 -game "&lt;YOUR BMS DIRECTORY HERE&gt;"
+</code> (make sure to lave the quotes)</li>
+<li>Save the shortcut changes by pressing “okay” or “apply”</li>
+<li>And now clicking the shortcut will open Black Mesa!</li>
+</ol>
+</blockquote>
+</aside>
+<p>I was away from the internet last few hours. So I figured I’ll reinstall it in the default directory (sourcemod). Played for a little bit.<br>
+I’ll definitely give both these methods a try and report back.<br>
+Thanks again for taking the time to answer.</p>
+          <p><a href="https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570/10</link>
+        <pubDate>Sun, 18 Jan 2015 06:05:14 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13570-10</guid>
+        <source url="https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570.rss">Running game from steam. Can&#39;t run, Exe missing.</source>
+      </item>
+      <item>
+        <title>Running game from steam. Can&#39;t run, Exe missing.</title>
+        <dc:creator><![CDATA[jadebenn]]></dc:creator>
+        <description><![CDATA[
+            <p>Frankly, there’s a MUCH easier solution to this problem.</p>
+<ol>
+<li>Make a shortcut to steam.exe</li>
+<li>Rename the shortcut to whatever you want (such as “Black Mesa”) and right click the shortcut and open the shortcut properties</li>
+<li>Under the target field, add this after the file location: <code>
+-applaunch 218 -game "&lt;YOUR BMS DIRECTORY HERE&gt;"
+</code> (make sure to lave the quotes)</li>
+<li>Save the shortcut changes by pressing “okay” or “apply”</li>
+<li>And now clicking the shortcut will open Black Mesa!</li>
+</ol>
+          <p><a href="https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570/9</link>
+        <pubDate>Sat, 17 Jan 2015 20:05:01 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13570-9</guid>
+        <source url="https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570.rss">Running game from steam. Can&#39;t run, Exe missing.</source>
+      </item>
+      <item>
+        <title>Running game from steam. Can&#39;t run, Exe missing.</title>
+        <dc:creator><![CDATA[Laminaat]]></dc:creator>
+        <description><![CDATA[
+            <p>First, you understand the problem you’re having correctly! So let’s solve it together.</p>
+<p>In the end you want to see a shortcut link in this folder:<br>
+C:\Program Files (x86)\Steam\SteamApps\sourcemods (I assumed that C:\Program Files (x86)\Steam\ is where you have Steam installed?)<br>
+called BMS<br>
+to<br>
+E:\BMS</p>
+<p>To do this in your case:<br>
+windows key<br>
+type cmd<br>
+right click and open commandprompt as administrator<br>
+type cd C:\Program Files (x86)\Steam\SteamApps\sourcemods<br>
+enter<br>
+type mklink /J “C:\Program Files (x86)\Steam\SteamApps\sourcemods” “E:\BMS”<br>
+enter<br>
+You should get a message that the junction is created successfully<br>
+You can check by looking in C:\Program Files (x86)\Steam\SteamApps\sourcemods if it is indeed there.<br>
+If you double click on it you should end up in E:\BMS<br>
+Now reboot and/or restart Steam and then you should be able to find Black Mesa in your game list.<br>
+You can remove that shortcut you made in C:, keep your PC nice and clean  <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+          <p><a href="https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570/8</link>
+        <pubDate>Sat, 17 Jan 2015 09:48:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13570-8</guid>
+        <source url="https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570.rss">Running game from steam. Can&#39;t run, Exe missing.</source>
+      </item>
+      <item>
+        <title>Running game from steam. Can&#39;t run, Exe missing.</title>
+        <dc:creator><![CDATA[iFlyAllTheTime]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Laminaat">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/b4bc9f/40.png" class="avatar"> Laminaat:</div>
+<blockquote>
+<p>I had the same problem just now and since this topic is current I just registered to see if I can help  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"> . The solution is pretty much what Madcat1030 and others said btw, for me. Only thing I did extra was run CMD as administrator and when typing the directories use “” since I had spaces in some of my folder names.</p>
+<p>Yes, junction created is correct, read more about what mklink does here: <a href="https://www.sevenforums.com/tutorials/278262-mklink-create-use-links-windows.html" data-bbcode="true" rel="nofollow noopener">https://www.sevenforums.com/tutorials/278262-mklink-create-use-links-windows.html</a></p>
+<p>After restarting Steam (or a reboot just to be sure) you should be able to find Black Mesa in your library.</p>
+</blockquote>
+</aside>
+<p>Thanks for taking the time to help me out. I really appreciate it.</p>
+<p>However after restarting steam and my PC, I still don’t see black mesa in steam.<br>
+One thing I do see, in my C drive, alongside folders such as Intel, Program Files &amp; Users, there is a shortcut to the BMS folder</p>
+<aside class="quote no-group" data-username="Laminaat">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/b4bc9f/40.png" class="avatar"> Laminaat:</div>
+<blockquote>
+<p>If you can’t find it can you tell us where you have created your directory junction and in which directory you end when clicking it when you go there with the explorer?</p>
+</blockquote>
+</aside>
+<p>I doubt I understand the question entirely; even after reading a little about links on that URL you posted. (Thanks for that btw.)</p>
+<p>Here’s the way I’m interpreting the issue. Please tell me if this is right.</p>
+<p>[i]After downloading BalckMesa and running the installation file, I should have installed the mod in <span class="bbcode-b">C:\Program Files (x86)\Steam\SteamApps\sourcemods</span><br>
+I, on the other hand, installed it in <span class="bbcode-b">E:\BMS</span><br>
+I need to make steam think that the BMS folder is infact in sourcemods folder.</p>
+<p>Now, as danielsangeo and Madcat1030 suggested, after opening the command prompt in the sourcemods folder, I typed in <span class="bbcode-b">mklink /j c:\BMS E:\BMS </span>, which has resulted in that shortcut folder in C:[/i]</p>
+<p>Still no success in finding BlackMesa in steam.<br>
+:’(</p>
+          <p><a href="https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570/7</link>
+        <pubDate>Sat, 17 Jan 2015 01:04:01 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13570-7</guid>
+        <source url="https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570.rss">Running game from steam. Can&#39;t run, Exe missing.</source>
+      </item>
+      <item>
+        <title>Running game from steam. Can&#39;t run, Exe missing.</title>
+        <dc:creator><![CDATA[Laminaat]]></dc:creator>
+        <description><![CDATA[
+            <p>I had the same problem just now and since this topic is current I just registered to see if I can help  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"> . The solution is pretty much what Madcat1030 and others said btw, for me. Only thing I did extra was run CMD as administrator and when typing the directories use “” since I had spaces in some of my folder names.</p>
+<p>Yes, junction created is correct, read more about what mklink does here: <a href="https://www.sevenforums.com/tutorials/278262-mklink-create-use-links-windows.html" data-bbcode="true" rel="nofollow noopener">https://www.sevenforums.com/tutorials/278262-mklink-create-use-links-windows.html</a></p>
+<p>After restarting Steam (or a reboot just to be sure) you should be able to find Black Mesa in your library.</p>
+<p>If you can’t find it can you tell us where you have created your directory junction and in which directory you end when clicking it when you go there with the explorer?</p>
+          <p><a href="https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570/6</link>
+        <pubDate>Fri, 16 Jan 2015 19:19:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13570-6</guid>
+        <source url="https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570.rss">Running game from steam. Can&#39;t run, Exe missing.</source>
+      </item>
+      <item>
+        <title>Running game from steam. Can&#39;t run, Exe missing.</title>
+        <dc:creator><![CDATA[iFlyAllTheTime]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="danielsangeo">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/danielsangeo/40/4347_2.png" class="avatar"> danielsangeo:</div>
+<blockquote>
+<p>Use a full directory path instead of just “BMS”.</p>
+<p>For example:</p>
+<p>When something calls for c:\BMS, it’ll pull e:\BMS</p>
+</blockquote>
+</aside>
+<p>Alright,<br>
+I typed that and this time it said something along the lines of “junction created”</p>
+<p>I then closed the command window and restarted steam.<br>
+Where should I see “BLack Mesa”?</p>
+<p>Am I missing something?</p>
+<p>Sorry for being such a noob, but this is frustrating  <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+          <p><a href="https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570/5</link>
+        <pubDate>Fri, 16 Jan 2015 15:31:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13570-5</guid>
+        <source url="https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570.rss">Running game from steam. Can&#39;t run, Exe missing.</source>
+      </item>
+      <item>
+        <title>Running game from steam. Can&#39;t run, Exe missing.</title>
+        <dc:creator><![CDATA[danielsangeo]]></dc:creator>
+        <description><![CDATA[
+            <p>Use a full directory path instead of just “BMS”.</p>
+<p>For example:</p>
+<aside class="quote no-group">
+<blockquote>
+<p>mklink /j c:\BMS E:\BMS</p>
+</blockquote>
+</aside>
+<p>When something calls for c:\BMS, it’ll pull e:\BMS</p>
+          <p><a href="https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570/4</link>
+        <pubDate>Fri, 16 Jan 2015 08:40:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13570-4</guid>
+        <source url="https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570.rss">Running game from steam. Can&#39;t run, Exe missing.</source>
+      </item>
+      <item>
+        <title>Running game from steam. Can&#39;t run, Exe missing.</title>
+        <dc:creator><![CDATA[iFlyAllTheTime]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="/u/madcat1030">@Madcat1030</a>:<br>
+Would you be kind enough to help me out as well?<br>
+I have steam installed on C: but Black Mesa installed on E:\BMS</p>
+<p>After the installation I played the game and exited the game before entering the test chamber.<br>
+But now that I’m trying to reopen the game, I’m clueless as to how to do that.<br>
+I’ve created this account simply to get this answered.<br>
+Please help!</p>
+<p>EDIT:<br>
+I followed the 4 steps you mentioned in your post<br>
+For step 3, I opened the command prompt window and typed &lt;mklink /J BMS E :\BMS&gt;<br>
+After typing that, I hit enter. It says there is an error in the syntax.<br>
+What am I doing wrong?</p>
+          <p><a href="https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570/3</link>
+        <pubDate>Fri, 16 Jan 2015 04:47:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13570-3</guid>
+        <source url="https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570.rss">Running game from steam. Can&#39;t run, Exe missing.</source>
+      </item>
+      <item>
+        <title>Running game from steam. Can&#39;t run, Exe missing.</title>
+        <dc:creator><![CDATA[Madcat1030]]></dc:creator>
+        <description><![CDATA[
+            <p>BLAH!</p>
+<p>Fixed it.</p>
+<p>Alright, is D :\ the drive with your PRIMARY steam install on it?</p>
+<p>In my case, steam installed to my SSD, but due to limited space, I installed Black Mesa to my regular HDD.  In order to make it work, I had to make a fancy link to the other drive, where Steam is EXPECTING to find all SourceMods.</p>
+<p>If that is the case, here are the instructions:</p>
+<ol>
+<li>Navigate to your primary Hard Drive’s <span class="bbcode-b">…/Steam/SteamApps/SourceMods/</span> folder.</li>
+<li>
+<span class="bbcode-b">Shift+Right Click</span> and select <span class="bbcode-b">Open command window here</span>.</li>
+<li>In the Command Prompt that opens, type the following: <span class="bbcode-b">mklink /J BMS D :\Steam\SteamApps\sourcemods\BMS</span>.</li>
+<li>Restart Steam.  It should show up as Black Mesa now.</li>
+</ol>
+<p>Note: If anybody else runs into this, the path listed in step 3 is tailored specifically based on Jossy’s provided install Directory.  You would use wherever YOU installed BMS to.</p>
+          <p><a href="https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570/2</link>
+        <pubDate>Sat, 22 Nov 2014 17:37:48 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13570-2</guid>
+        <source url="https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570.rss">Running game from steam. Can&#39;t run, Exe missing.</source>
+      </item>
+      <item>
+        <title>Running game from steam. Can&#39;t run, Exe missing.</title>
+        <dc:creator><![CDATA[Jossy]]></dc:creator>
+        <description><![CDATA[
+            <p>Well hello, I’ve created this account a few minutes ago just to find help about my problem.<br>
+Let me set it up for you a bit.</p>
+<p>I have played this game for many hours before. I’ve downloaded the game from one of the mirrors provided in this web, ran the installer and all that. I could play it.<br>
+Now that I return to steam after a while, when I want to launch the game it says “Cannot launch the game, exe missing” (Or something similar, steam in spanish)</p>
+<p>Now, what happens? I don’t know.</p>
+<p>-I have the game installed in D :\Steam\SteamApps\sourcemods\BMS<br>
+-I HAVE SOURCE SDK BASE 2007 (If not, how could have i played it before?)<br>
+-I don’t have ANY of the “programs that interfere with steam”</p>
+<p>I have done all the steps that steam says if this issue happens, being: Deleting appcache folder, restarting steam, un-installing programs that interfere with steam, blah blah blah.</p>
+<p>I have RE-DOWNLOADED the mod, RE-INSTALLED IT, and stills giving me the error.</p>
+<p>Any help please? I am completely lost.</p>
+          <p><a href="https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570/1</link>
+        <pubDate>Sat, 22 Nov 2014 14:07:41 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-13570-1</guid>
+        <source url="https://leakfree.org/t/running-game-from-steam-cant-run-exe-missing/13570.rss">Running game from steam. Can&#39;t run, Exe missing.</source>
+      </item>
+  </channel>
+</rss>

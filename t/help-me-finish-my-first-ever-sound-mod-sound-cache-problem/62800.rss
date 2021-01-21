@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Help me finish my first-ever sound mod (Sound.cache problem?)</title>
+    <link>https://leakfree.org/t/help-me-finish-my-first-ever-sound-mod-sound-cache-problem/62800</link>
+    <description>So I&#39;m not a total newbie; I&#39;ve been doing some form of game development since 1998, but I&#39;ve never done tons of Source modding before so I don&#39;t understand the finer details.
+
+I&#39;ve gotten as far as generating a VPK for my sound mod. That local VPK works in Black Mesa just fine, but when I feed it through the Publishing Tool and try to subscribe to my own mod, suddenly it stops working and the console gets flooded with error messages like
+
+&gt; Cannot figure out which search path sound\npc\alien_slave\vort_bm_alert01.wav came from.  Absolute path is D:\Steam\steamapps\workshop\content\362890\1969844684\Classic Alien Slave Voice.vpk\sound\npc\alien_slave\vort_bm_alert01.wav
+Failed to load sound
+
+Searching these forums suggests I might need to build a soundcache to include with my VPK. Black Mesa seems to automatically generate a soundcache for my VPK after loading it the first time, so I point the Publishing Tool at the folder with the VPK + sound.cache file, but, again, the console is flooded with search path errors when it comes back down off the workshop.
+
+[Another thread from two years ago](https://forums.blackmesasource.com/t/custom-audio-not-playing-in-workshop-ugc/15329) mentions a console command called &quot;snd_buildcache&quot;. So, instead of using the sound.cache file generated for my VPK, I copy all of my sound files in the proper folder structure in to bms and build a cache. 
+
+This leaves me with
+
+&gt; bms\aslave\sound.cache (664kb)
+
+Which was built from
+
+&gt; bms\aslave\sound\npc\alien_slave\ (62 files, 11.7mb)
+
+I repack my VPK, publish it, and yet again, it&#39;s the same story: the local VPK I generated works fine for me, but trying to pull it off the workshop doesn&#39;t work because it&#39;s yelling about search path errors.
+
+What am I missing? 
+
+For reference, here&#39;s my VPK: https://drive.google.com/open?id=1RGveUu4_udRaPQTaqYW5wAf6Txk0JSSn</description>
+    
+    <lastBuildDate>Thu, 16 Jan 2020 08:12:33 +0000</lastBuildDate>
+    <category>Black Mesa</category>
+    <atom:link href="https://leakfree.org/t/help-me-finish-my-first-ever-sound-mod-sound-cache-problem/62800.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Help me finish my first-ever sound mod (Sound.cache problem?)</title>
+        <dc:creator><![CDATA[TheLostSkeleton]]></dc:creator>
+        <description><![CDATA[
+            <p>So after digging around in other people’s (functional) sound mods, I saw that none of them contained soundcaches or manifest lists or anything like that</p>
+<p>Prefacing this, in my original attempt, I tried snd_restart to get my workshop submission to work and for some reason it did not.</p>
+<p>Which is to say… this time it worked? This is just the same sound bug that effects everyone and for some reason I got buried in a weird version where snd_restart didn’t take at first. Maybe it built a bad cache originally? I honestly don’t know.</p>
+<p>Anyway, it’s fine now. Or as fine as it can be.</p>
+          <p><a href="https://leakfree.org/t/help-me-finish-my-first-ever-sound-mod-sound-cache-problem/62800/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/help-me-finish-my-first-ever-sound-mod-sound-cache-problem/62800/2</link>
+        <pubDate>Thu, 16 Jan 2020 08:12:33 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62800-2</guid>
+        <source url="https://leakfree.org/t/help-me-finish-my-first-ever-sound-mod-sound-cache-problem/62800.rss">Help me finish my first-ever sound mod (Sound.cache problem?)</source>
+      </item>
+      <item>
+        <title>Help me finish my first-ever sound mod (Sound.cache problem?)</title>
+        <dc:creator><![CDATA[TheLostSkeleton]]></dc:creator>
+        <description><![CDATA[
+            <p>So I’m not a total newbie; I’ve been doing some form of game development since 1998, but I’ve never done tons of Source modding before so I don’t understand the finer details.</p>
+<p>I’ve gotten as far as generating a VPK for my sound mod. That local VPK works in Black Mesa just fine, but when I feed it through the Publishing Tool and try to subscribe to my own mod, suddenly it stops working and the console gets flooded with error messages like</p>
+<blockquote>
+<p>Cannot figure out which search path sound\npc\alien_slave\vort_bm_alert01.wav came from.  Absolute path is D:\Steam\steamapps\workshop\content\362890\1969844684\Classic Alien Slave Voice.vpk\sound\npc\alien_slave\vort_bm_alert01.wav<br>
+Failed to load sound</p>
+</blockquote>
+<p>Searching these forums suggests I might need to build a soundcache to include with my VPK. Black Mesa seems to automatically generate a soundcache for my VPK after loading it the first time, so I point the Publishing Tool at the folder with the VPK + sound.cache file, but, again, the console is flooded with search path errors when it comes back down off the workshop.</p>
+<p><a href="https://forums.blackmesasource.com/t/custom-audio-not-playing-in-workshop-ugc/15329" rel="nofollow noopener">Another thread from two years ago</a> mentions a console command called “snd_buildcache”. So, instead of using the sound.cache file generated for my VPK, I copy all of my sound files in the proper folder structure in to bms and build a cache.</p>
+<p>This leaves me with</p>
+<blockquote>
+<p>bms\aslave\sound.cache (664kb)</p>
+</blockquote>
+<p>Which was built from</p>
+<blockquote>
+<p>bms\aslave\sound\npc\alien_slave\ (62 files, 11.7mb)</p>
+</blockquote>
+<p>I repack my VPK, publish it, and yet again, it’s the same story: the local VPK I generated works fine for me, but trying to pull it off the workshop doesn’t work because it’s yelling about search path errors.</p>
+<p>What am I missing?</p>
+<p>For reference, here’s my VPK: <a href="https://drive.google.com/open?id=1RGveUu4_udRaPQTaqYW5wAf6Txk0JSSn" rel="nofollow noopener">https://drive.google.com/open?id=1RGveUu4_udRaPQTaqYW5wAf6Txk0JSSn</a></p>
+          <p><a href="https://leakfree.org/t/help-me-finish-my-first-ever-sound-mod-sound-cache-problem/62800/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/help-me-finish-my-first-ever-sound-mod-sound-cache-problem/62800/1</link>
+        <pubDate>Wed, 15 Jan 2020 20:23:40 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62800-1</guid>
+        <source url="https://leakfree.org/t/help-me-finish-my-first-ever-sound-mod-sound-cache-problem/62800.rss">Help me finish my first-ever sound mod (Sound.cache problem?)</source>
+      </item>
+  </channel>
+</rss>

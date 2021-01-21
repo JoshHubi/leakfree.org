@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>[FIX] Walk button</title>
+    <link>https://leakfree.org/t/fix-walk-button/10093</link>
+    <description>Hi,
+
+so i heard you guys are mad about not having walk button. The default command (+walk) doesn&#39;t work, so i figured that it would be nice to bind some commands.
+
+So, you need to add these comands to your config file, or put them one by one in your console.
+
+[code]alias walk_t &quot;walk_on&quot;
+alias walk_on &quot;alias walk_t walk_off; sv_maxspeed 320; developer 1; echo Running enabled; developer 0&quot;
+alias walk_off &quot;alias walk_t walk_on; sv_maxspeed 65; developer 1; echo Walking enabled; developer 0&quot;
+
+bind &quot;ALT&quot; &quot;walk_t&quot;[/code]
+
+After this, you just press ALT to toggle the walking. When you&#39;re done - press it again!</description>
+    
+    <lastBuildDate>Wed, 22 May 2013 17:17:33 +0000</lastBuildDate>
+    <category>In-game Issues (Mod)</category>
+    <atom:link href="https://leakfree.org/t/fix-walk-button/10093.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>[FIX] Walk button</title>
+        <dc:creator><![CDATA[tecknode]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="hajducek">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/h/cc9497/40.png" class="avatar"> hajducek:</div>
+<blockquote>
+<p>Hi,</p>
+<p>so i heard you guys are mad about not having walk button. The default command (+walk) doesn’t work, so i figured that it would be nice to bind some commands.</p>
+<p>So, you need to add these comands to your config file, or put them one by one in your console.</p>
+<p>[code]alias walk_t “walk_on”<br>
+alias walk_on “alias walk_t walk_off; sv_maxspeed 320; developer 1; echo Running enabled; developer 0”<br>
+alias walk_off “alias walk_t walk_on; sv_maxspeed 65; developer 1; echo Walking enabled; developer 0”</p>
+<p>bind “ALT” “walk_t”[/code]</p>
+<p>After this, you just press ALT to toggle the walking. When you’re done - press it again!</p>
+</blockquote>
+</aside>
+<p>You assume we know WHERE the config file we must edit exists, where is it.</p>
+<p>I found a <span class="bbcode-i">config.cfg</span> in <span class="bbcode-b">\Steam\steamapps\sourcemods\BMS\cfg</span><br>
+BUT if I edit it, when I start the game again the “<span class="bbcode-i">walk_t</span>” binding is there, but no <span class="bbcode-i">alias</span> entries and it does NOT work.</p>
+<p>So where is the [i]default.cfg<a>/i</a> I we must edit :meh: AND where do we put the <span class="bbcode-i">alias</span> entries?</p>
+          <p><a href="https://leakfree.org/t/fix-walk-button/10093/21">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-walk-button/10093/21</link>
+        <pubDate>Wed, 22 May 2013 17:17:33 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10093-21</guid>
+        <source url="https://leakfree.org/t/fix-walk-button/10093.rss">[FIX] Walk button</source>
+      </item>
+      <item>
+        <title>[FIX] Walk button</title>
+        <dc:creator><![CDATA[Tenshi07]]></dc:creator>
+        <description><![CDATA[
+            <p>I made myself a solution to the missing sounds for footsteps. Using AutoIt, the script I made suspends the walking for 2 milliseconds, long enough to trigger a walking sound.</p>
+<aside class="quote no-group">
+<blockquote>
+<p><span class="hashtag">#include</span> &lt;Misc.au3&gt;<br>
+<span class="hashtag">#include</span> &lt;array.au3&gt;</p>
+<p>$dll = DllOpen(“user32.dll”)<br>
+Opt(“TrayIconHide”, 1)<br>
+ToolTip(“DEL to Exit! BMS Single”, 1, 1)</p>
+<p>$esc = 0<br>
+$adown = “{altdown}”<br>
+$aup = “{altup}”</p>
+<p>Do<br>
+$mouse = MouseGetPos()<br>
+If _IsPressed(“2E”, $dll) and ($mouse[0] &lt; 1440) Then ; escape<br>
+MsgBox(0,"_IsPressed", “Done!”, 1)<br>
+DllClose($dll)<br>
+Exit<br>
+EndIf</p>
+<pre><code>If _IsPressed("12", $dll) Then
+	Send($aup)
+	Sleep(2)
+	Send($adown)
+	Sleep(550)
+EndIf
+</code></pre>
+<p>Until $esc = 1</p>
+</blockquote>
+</aside>
+<p>Alt key triggers the script to work. Escape key terminates the script. Sleep(550) is used to control how much time there is between the sound produced for a step taken.</p>
+<p>You can use it if you want. I made this as a solution because I found that walking with no footsteps ruins the feel of the game.</p>
+          <p><a href="https://leakfree.org/t/fix-walk-button/10093/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-walk-button/10093/20</link>
+        <pubDate>Fri, 21 Dec 2012 23:12:52 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10093-20</guid>
+        <source url="https://leakfree.org/t/fix-walk-button/10093.rss">[FIX] Walk button</source>
+      </item>
+      <item>
+        <title>[FIX] Walk button</title>
+        <dc:creator><![CDATA[Tenshi07]]></dc:creator>
+        <description><![CDATA[
+            <p>I have found that if you set run to 320, that when you use sprint, then run again, the speed of your character moves back to default 450 after sprint. Then if you walk and run, the run is 320 as you set it. Just keep that in mind if you want your run to go slower than default.</p>
+          <p><a href="https://leakfree.org/t/fix-walk-button/10093/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-walk-button/10093/19</link>
+        <pubDate>Sun, 09 Dec 2012 07:07:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10093-19</guid>
+        <source url="https://leakfree.org/t/fix-walk-button/10093.rss">[FIX] Walk button</source>
+      </item>
+      <item>
+        <title>[FIX] Walk button</title>
+        <dc:creator><![CDATA[funkimunky]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="BLλCK DELTA">
+<div class="title">
+<div class="quote-controls"></div>
+ BLλCK DELTA:</div>
+<blockquote>
+<p>I’ve already told you, and everybody reading the thread, I don’t want to change any other settings from what the default IS. So I would need to know what the default running speed is first then.<br>
+Any answer to my actual question would be welcome.</p>
+</blockquote>
+</aside>
+<p>I found that if you type help commandname<br>
+replaceing the command name with your well commmand name it will tell you what the default should be if its changed.</p>
+<p>I tried help sv_maxspeed and it returned user cheat 450 (def)</p>
+          <p><a href="https://leakfree.org/t/fix-walk-button/10093/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-walk-button/10093/18</link>
+        <pubDate>Fri, 23 Nov 2012 20:19:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10093-18</guid>
+        <source url="https://leakfree.org/t/fix-walk-button/10093.rss">[FIX] Walk button</source>
+      </item>
+      <item>
+        <title>[FIX] Walk button</title>
+        <dc:creator><![CDATA[BL_amp_955_CK_DELTA]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="That Happy Chum">
+<div class="title">
+<div class="quote-controls"></div>
+ That Happy Chum:</div>
+<blockquote>
+<p>Just put them in the autoexec.cfg file, or enter them in the console.</p>
+</blockquote>
+</aside>
+<p>No I can’t JUST put them anywhere, maybe you didn’t read my question before giving me an answer ?</p>
+<p>I’ve already told you, and everybody reading the thread, I don’t want to change any other settings from what the default IS. So I would need to know what the default running speed is first then.</p>
+<p>Secondly in order to put anything in a config one needs to know where it is. Edit&gt; I have found the autoexec.cfg, but still need to know the defualt value of the normal speed in order to know thats not being changed.</p>
+<p>Will these settings stick btw ? It would be inconvenient and probably unnecessary to type them in every time the game starts. If not then is there anyway to make sure of that…?</p>
+<p>Any answer to my actual question would be welcome.</p>
+          <p><a href="https://leakfree.org/t/fix-walk-button/10093/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-walk-button/10093/17</link>
+        <pubDate>Wed, 07 Nov 2012 03:58:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10093-17</guid>
+        <source url="https://leakfree.org/t/fix-walk-button/10093.rss">[FIX] Walk button</source>
+      </item>
+      <item>
+        <title>[FIX] Walk button</title>
+        <dc:creator><![CDATA[joseambrosio1]]></dc:creator>
+        <description><![CDATA[
+            <p>I am worried, I am using these settings to be able to walk past the giant blind plants in the silo, but they still hear me, specialy when I disengage from the ladders, even with “walk key” on. I will have to use cheats to pass this section  <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+          <p><a href="https://leakfree.org/t/fix-walk-button/10093/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-walk-button/10093/16</link>
+        <pubDate>Mon, 05 Nov 2012 21:41:59 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10093-16</guid>
+        <source url="https://leakfree.org/t/fix-walk-button/10093.rss">[FIX] Walk button</source>
+      </item>
+      <item>
+        <title>[FIX] Walk button</title>
+        <dc:creator><![CDATA[That_Happy_Chum]]></dc:creator>
+        <description><![CDATA[
+            <p>Just put them in the autoexec.cfg file, or enter them in the console.</p>
+          <p><a href="https://leakfree.org/t/fix-walk-button/10093/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-walk-button/10093/15</link>
+        <pubDate>Sun, 04 Nov 2012 03:58:16 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10093-15</guid>
+        <source url="https://leakfree.org/t/fix-walk-button/10093.rss">[FIX] Walk button</source>
+      </item>
+      <item>
+        <title>[FIX] Walk button</title>
+        <dc:creator><![CDATA[BL_amp_955_CK_DELTA]]></dc:creator>
+        <description><![CDATA[
+            <p>BUMP !!<br>
+I need walking without changing anything else so I can start to play !</p>
+<p>Come on guys ! (No gay joke)</p>
+          <p><a href="https://leakfree.org/t/fix-walk-button/10093/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-walk-button/10093/14</link>
+        <pubDate>Fri, 02 Nov 2012 14:38:53 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10093-14</guid>
+        <source url="https://leakfree.org/t/fix-walk-button/10093.rss">[FIX] Walk button</source>
+      </item>
+      <item>
+        <title>[FIX] Walk button</title>
+        <dc:creator><![CDATA[BL_amp_955_CK_DELTA]]></dc:creator>
+        <description><![CDATA[
+            <p>But there is no mention of where this config is…</p>
+<p>Also Quite important to know is, what’s the default running\moving speed in the game, before we start changing it around and not knowing what to set it back too if we would want.</p>
+          <p><a href="https://leakfree.org/t/fix-walk-button/10093/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-walk-button/10093/13</link>
+        <pubDate>Thu, 01 Nov 2012 00:38:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10093-13</guid>
+        <source url="https://leakfree.org/t/fix-walk-button/10093.rss">[FIX] Walk button</source>
+      </item>
+      <item>
+        <title>[FIX] Walk button</title>
+        <dc:creator><![CDATA[Cybertrance]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="hajducek">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/h/cc9497/40.png" class="avatar"> hajducek:</div>
+<blockquote>
+<p>Footsteps are heard over sv_maxspeed 100 or something. But i asume if you hear them - enemies hear them too, so there is no point in that…</p>
+</blockquote>
+</aside>
+<p>Is there a way to override that? so that footsteps are played at a lower sv_maxspeed value?</p>
+          <p><a href="https://leakfree.org/t/fix-walk-button/10093/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-walk-button/10093/12</link>
+        <pubDate>Mon, 17 Sep 2012 14:05:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10093-12</guid>
+        <source url="https://leakfree.org/t/fix-walk-button/10093.rss">[FIX] Walk button</source>
+      </item>
+      <item>
+        <title>[FIX] Walk button</title>
+        <dc:creator><![CDATA[nefatheape]]></dc:creator>
+        <description><![CDATA[
+            <p>Just a heads up:</p>
+<p>I had to add the alias code to the autoexec.cfg to make it save after quitting.</p>
+<p>Key bind info saved just fine on its own.</p>
+          <p><a href="https://leakfree.org/t/fix-walk-button/10093/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-walk-button/10093/11</link>
+        <pubDate>Sun, 16 Sep 2012 22:43:33 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10093-11</guid>
+        <source url="https://leakfree.org/t/fix-walk-button/10093.rss">[FIX] Walk button</source>
+      </item>
+      <item>
+        <title>[FIX] Walk button</title>
+        <dc:creator><![CDATA[Hanzales]]></dc:creator>
+        <description><![CDATA[
+            <p>THANKS!!! Immersion improved even more  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/fix-walk-button/10093/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-walk-button/10093/10</link>
+        <pubDate>Sun, 16 Sep 2012 08:25:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10093-10</guid>
+        <source url="https://leakfree.org/t/fix-walk-button/10093.rss">[FIX] Walk button</source>
+      </item>
+      <item>
+        <title>[FIX] Walk button</title>
+        <dc:creator><![CDATA[Rhodenbarr]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for those solutions.</p>
+          <p><a href="https://leakfree.org/t/fix-walk-button/10093/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-walk-button/10093/9</link>
+        <pubDate>Sun, 16 Sep 2012 07:04:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10093-9</guid>
+        <source url="https://leakfree.org/t/fix-walk-button/10093.rss">[FIX] Walk button</source>
+      </item>
+      <item>
+        <title>[FIX] Walk button</title>
+        <dc:creator><![CDATA[geekofalltrades]]></dc:creator>
+        <description><![CDATA[
+            <p>Glad to hear it.  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:">  There was some guesswork there based on my limited knowledge of source scripting.</p>
+          <p><a href="https://leakfree.org/t/fix-walk-button/10093/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-walk-button/10093/8</link>
+        <pubDate>Sun, 16 Sep 2012 06:41:16 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10093-8</guid>
+        <source url="https://leakfree.org/t/fix-walk-button/10093.rss">[FIX] Walk button</source>
+      </item>
+      <item>
+        <title>[FIX] Walk button</title>
+        <dc:creator><![CDATA[nefatheape]]></dc:creator>
+        <description><![CDATA[
+            <p>Sticky request!</p>
+          <p><a href="https://leakfree.org/t/fix-walk-button/10093/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-walk-button/10093/7</link>
+        <pubDate>Sun, 16 Sep 2012 05:28:51 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10093-7</guid>
+        <source url="https://leakfree.org/t/fix-walk-button/10093.rss">[FIX] Walk button</source>
+      </item>
+      <item>
+        <title>[FIX] Walk button</title>
+        <dc:creator><![CDATA[nefatheape]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="geekofalltrades">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/g/c2a13f/40.png" class="avatar"> geekofalltrades:</div>
+<blockquote>
+<p>It might be possible to make this a proper press-and-release key, rather than a toggle, if you do something like this:</p>
+<p>[code]alias +walk “sv_maxspeed 65”<br>
+alias -walk “sv_maxspeed 320”</p>
+<p>bind “ALT” “+walk”[/code]</p>
+<p>…but I can’t be assed to start up Black Mesa and test it out right now.  Maybe I will later tonight.</p>
+</blockquote>
+</aside>
+<p>WORKS!</p>
+<p>This is by <span class="bbcode-b">FAR</span> the best solution I have seen.  It works just like a walk key should.</p>
+<p>The only problem being that it makes you reallllllly slow when you walk+crouch, but just don’t walk when you’re crouched.  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>I found the variables “300” for running and “80” for walking are perfect.</p>
+          <p><a href="https://leakfree.org/t/fix-walk-button/10093/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-walk-button/10093/6</link>
+        <pubDate>Sun, 16 Sep 2012 05:12:40 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10093-6</guid>
+        <source url="https://leakfree.org/t/fix-walk-button/10093.rss">[FIX] Walk button</source>
+      </item>
+      <item>
+        <title>[FIX] Walk button</title>
+        <dc:creator><![CDATA[geekofalltrades]]></dc:creator>
+        <description><![CDATA[
+            <p>It might be possible to make this a proper press-and-release key, rather than a toggle, if you do something like this:</p>
+<p>[code]alias +walk “sv_maxspeed 65”<br>
+alias -walk “sv_maxspeed 320”</p>
+<p>bind “ALT” “+walk”[/code]</p>
+<p>…but I can’t be assed to start up Black Mesa and test it out right now.  Maybe I will later tonight.</p>
+          <p><a href="https://leakfree.org/t/fix-walk-button/10093/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-walk-button/10093/5</link>
+        <pubDate>Sun, 16 Sep 2012 03:18:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10093-5</guid>
+        <source url="https://leakfree.org/t/fix-walk-button/10093.rss">[FIX] Walk button</source>
+      </item>
+      <item>
+        <title>[FIX] Walk button</title>
+        <dc:creator><![CDATA[Mr_Freeman]]></dc:creator>
+        <description><![CDATA[
+            <p>Coolness, thanks for this fix.</p>
+          <p><a href="https://leakfree.org/t/fix-walk-button/10093/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-walk-button/10093/4</link>
+        <pubDate>Sun, 16 Sep 2012 01:55:22 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10093-4</guid>
+        <source url="https://leakfree.org/t/fix-walk-button/10093.rss">[FIX] Walk button</source>
+      </item>
+      <item>
+        <title>[FIX] Walk button</title>
+        <dc:creator><![CDATA[hajducek]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="GalaxySwift">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/g/eb9ed0/40.png" class="avatar"> GalaxySwift:</div>
+<blockquote>
+<p>Cool, it’s working. Why didn’t the devs put this in?<br>
+It feels a bit on the slow side, so I’ll probably increase it’s speed a bit.</p>
+<p>EDIT: There’s no footstep sounds while walking- is there a way to fix that? Is there a way to make it so the Run command overrides it?</p>
+</blockquote>
+</aside>
+<p>Footsteps are heard over sv_maxspeed 100 or something. But i asume if you hear them - enemies hear them too, so there is no point in that. Also, sprint uses “+speed” and “-speed” commands, so it must be hardwritten into the engine. +walk doesn’t work somehow.</p>
+          <p><a href="https://leakfree.org/t/fix-walk-button/10093/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-walk-button/10093/3</link>
+        <pubDate>Sun, 16 Sep 2012 01:49:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10093-3</guid>
+        <source url="https://leakfree.org/t/fix-walk-button/10093.rss">[FIX] Walk button</source>
+      </item>
+      <item>
+        <title>[FIX] Walk button</title>
+        <dc:creator><![CDATA[GalaxySwift]]></dc:creator>
+        <description><![CDATA[
+            <p>Cool, it’s working. Why didn’t the devs put this in?<br>
+It feels a bit on the slow side, so I’ll probably increase it’s speed a bit.</p>
+<p>EDIT: There’s no footstep sounds while walking- is there a way to fix that? Is there a way to make it so the Run command overrides it?</p>
+          <p><a href="https://leakfree.org/t/fix-walk-button/10093/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-walk-button/10093/2</link>
+        <pubDate>Sun, 16 Sep 2012 01:44:10 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10093-2</guid>
+        <source url="https://leakfree.org/t/fix-walk-button/10093.rss">[FIX] Walk button</source>
+      </item>
+      <item>
+        <title>[FIX] Walk button</title>
+        <dc:creator><![CDATA[hajducek]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi,</p>
+<p>so i heard you guys are mad about not having walk button. The default command (+walk) doesn’t work, so i figured that it would be nice to bind some commands.</p>
+<p>So, you need to add these comands to your config file, or put them one by one in your console.</p>
+<p>[code]alias walk_t “walk_on”<br>
+alias walk_on “alias walk_t walk_off; sv_maxspeed 320; developer 1; echo Running enabled; developer 0”<br>
+alias walk_off “alias walk_t walk_on; sv_maxspeed 65; developer 1; echo Walking enabled; developer 0”</p>
+<p>bind “ALT” “walk_t”[/code]</p>
+<p>After this, you just press ALT to toggle the walking. When you’re done - press it again!</p>
+          <p><a href="https://leakfree.org/t/fix-walk-button/10093/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fix-walk-button/10093/1</link>
+        <pubDate>Sun, 16 Sep 2012 01:24:14 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10093-1</guid>
+        <source url="https://leakfree.org/t/fix-walk-button/10093.rss">[FIX] Walk button</source>
+      </item>
+  </channel>
+</rss>

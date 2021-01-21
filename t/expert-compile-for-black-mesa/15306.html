@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/expert-compile-for-black-mesa/15306 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:53:56 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Expert compile for Black Mesa - Help! - Leakfree</title>
+    <meta name="description" content="I was experimenting with texture shadows and ambient occlusion but when I went expert compile it was blank 
+[attach=5583,none,1366][/attach] 
+so I tried to port over the settings from EP2 like so 
+[attach=5582,none,1366]&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="15306.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Expert compile for Black Mesa&#39;" href="15306.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/optimized/2X/c/ce3a38128a03b2351c532d865daf96c8214dc812_2_1024x547.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/optimized/2X/c/ce3a38128a03b2351c532d865daf96c8214dc812_2_1024x547.png" />
+<meta property="og:url" content="https://leakfree.org/t/expert-compile-for-black-mesa/15306" />
+<meta name="twitter:url" content="https://leakfree.org/t/expert-compile-for-black-mesa/15306" />
+<meta property="og:title" content="Expert compile for Black Mesa" />
+<meta name="twitter:title" content="Expert compile for Black Mesa" />
+<meta property="og:description" content="I was experimenting with texture shadows and ambient occlusion but when I went expert compile it was blank  [attach=5583,none,1366][/attach]  so I tried to port over the settings from EP2 like so  [attach=5582,none,1366][/attach]  Any time I try to compile this happens, can someone help me?  [attach=5583,none,1366][/attach]" />
+<meta name="twitter:description" content="I was experimenting with texture shadows and ambient occlusion but when I went expert compile it was blank  [attach=5583,none,1366][/attach]  so I tried to port over the settings from EP2 like so  [attach=5582,none,1366][/attach]  Any time I try to compile this happens, can someone help me?  [attach=5583,none,1366][/attach]" />
+<meta property="article:published_time" content="2017-12-01T21:35:37+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"QAPage","name":"Expert compile for Black Mesa","mainEntity":{"@type":"Question","name":"Expert compile for Black Mesa","text":"I was experimenting with texture shadows and ambient occlusion but when I went expert compile it was blank\n\n[attach=5583,none,1366][/attach]\n\nso I tried to port over the settings from EP2 like so\n\n[attach=5582,none,1366][/attach]\n\nAny time I try to compile this happens, can someone help me?\n\n[attach&hellip;","upvoteCount":0,"answerCount":0,"dateCreated":"2017-12-01T21:35:37.000Z","author":{"@type":"Person","name":"Sbortone"}}}</script>
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="15306.html">Expert compile for Black Mesa</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/6.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa Archive</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/help/12.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Help!</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/PootisMan.html'><span itemprop='name'>PootisMan</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15306.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/c/ce3a38128a03b2351c532d865daf96c8214dc812.png">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-01T21:35:37Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:20Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I was experimenting with texture shadows and ambient occlusion but when I went expert compile it was blank</p>
+<p>[attach=5583,none,1366][/attach]<br>
+so I tried to port over the settings from EP2 like so</p>
+<p>[attach=5582,none,1366][/attach]<br>
+Any time I try to compile this happens, can someone help me?</p>
+<p>[attach=5583,none,1366][/attach]<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/c/ce3a38128a03b2351c532d865daf96c8214dc812.png" data-download-href="https://leakfree.org/uploads/default/ce3a38128a03b2351c532d865daf96c8214dc812" title="hammer.PNG"><img src="../../uploads/default/optimized/2X/c/ce3a38128a03b2351c532d865daf96c8214dc812_2_690x500.png" alt="hammer.PNG" data-base62-sha1="tqn5K0NedBAdCaTDytIcr32zFFo" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/c/ce3a38128a03b2351c532d865daf96c8214dc812_2_690x500.png, https://leakfree.org/uploads/default/optimized/2X/c/ce3a38128a03b2351c532d865daf96c8214dc812_2_1035x750.png 1.5x, https://leakfree.org/uploads/default/original/2X/c/ce3a38128a03b2351c532d865daf96c8214dc812.png 2x" data-small-upload="../../uploads/default/optimized/2X/c/ce3a38128a03b2351c532d865daf96c8214dc812_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">hammer.PNG</span><span class="informations">1366×730 95.7 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/a/afaa07162f17fee647c062cd70b12783f40c3042.png" data-download-href="https://leakfree.org/uploads/default/afaa07162f17fee647c062cd70b12783f40c3042" title="Capture.PNG"><img src="../../uploads/default/optimized/2X/a/afaa07162f17fee647c062cd70b12783f40c3042_2_690x500.png" alt="Capture.PNG" data-base62-sha1="p3ZQ4NrYhCr7T86dsonwnnTGJr4" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/a/afaa07162f17fee647c062cd70b12783f40c3042_2_690x500.png, https://leakfree.org/uploads/default/optimized/2X/a/afaa07162f17fee647c062cd70b12783f40c3042_2_1035x750.png 1.5x, https://leakfree.org/uploads/default/original/2X/a/afaa07162f17fee647c062cd70b12783f40c3042.png 2x" data-small-upload="../../uploads/default/optimized/2X/a/afaa07162f17fee647c062cd70b12783f40c3042_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">Capture.PNG</span><span class="informations">1366×729 96 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/e/ed2fa01fc2b6c2ecbcf0f6f231ec2131a93bec83.png" data-download-href="https://leakfree.org/uploads/default/ed2fa01fc2b6c2ecbcf0f6f231ec2131a93bec83" title="gyju.PNG"><img src="../../uploads/default/optimized/2X/e/ed2fa01fc2b6c2ecbcf0f6f231ec2131a93bec83_2_690x500.png" alt="gyju.PNG" data-base62-sha1="xQfcfFXNUIOCEeNtbouhjElReGT" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/e/ed2fa01fc2b6c2ecbcf0f6f231ec2131a93bec83_2_690x500.png, https://leakfree.org/uploads/default/optimized/2X/e/ed2fa01fc2b6c2ecbcf0f6f231ec2131a93bec83_2_1035x750.png 1.5x, https://leakfree.org/uploads/default/original/2X/e/ed2fa01fc2b6c2ecbcf0f6f231ec2131a93bec83.png 2x" data-small-upload="../../uploads/default/optimized/2X/e/ed2fa01fc2b6c2ecbcf0f6f231ec2131a93bec83_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">gyju.PNG</span><span class="informations">1364×728 58 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Expert compile for Black Mesa'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/jadebenn.html'><span itemprop='name'>jadebenn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15306.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-01T22:40:45Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:20Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hm, that’s interesting. Are you saying that the compile options aren’t saving after compilation?</p>
+<p>Have you tried clicking the edit button next to the dropdown menu and creating a new configuration like ‘HDR Compile’ and putting the settings there? That’s what I do, and I haven’t had problems with the options disappearing.</p>
+<p>Another option would be to use a third party compile helper tool. These are external programs that will run the compilers for you, instead of doing it  through Hammer. These programs have some advantages  over the hammer compile tool; such as not freezing during compilation. I personally don’t use them myself because I have no issues with Hammer’s setup (although I am beginning to reconsider my stance), but this sounds perfect for your situation. I’d recommend the <a href="https://developer.valvesoftware.com/wiki/Hazard_Team_Compile_Tool" data-bbcode="true" rel="nofollow noopener">Hazard Team Compile Tool (HTCT)</a> if you choose to go this route.</p>
+        </div>
+
+        <meta itemprop='headline' content='Expert compile for Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/PootisMan.html'><span itemprop='name'>PootisMan</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15306.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-02T00:15:29Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:20Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Oh never mind I figured it out it was just me being dumb. Thanks for the help anyway, sorry for wasting you time.</p>
+        </div>
+
+        <meta itemprop='headline' content='Expert compile for Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/jadebenn.html'><span itemprop='name'>jadebenn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15306.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-02T00:19:50Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:20Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>For the sake of clarification, what was happening then?</p>
+        </div>
+
+        <meta itemprop='headline' content='Expert compile for Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/PootisMan.html'><span itemprop='name'>PootisMan</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15306.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-02T00:53:59Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:20Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The check-boxes of each exe was not checked. Used to it being checked first time I launched Hammer. Also question does HTCT have the new RAD options exclusive to Black Mesa like Ambient Occlusion or Cascade Shadow Mapping?</p>
+        </div>
+
+        <meta itemprop='headline' content='Expert compile for Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/ESToomere.html'><span itemprop='name'>ESToomere</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15306.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-02T17:38:14Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:21Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="PootisMan">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/p/ba9def/40.png" class="avatar"> PootisMan:</div>
+<blockquote>
+<p>The check-boxes of each exe was not checked. Used to it being checked first time I launched Hammer. Also question does HTCT have the new RAD options exclusive to Black Mesa like Ambient Occlusion or Cascade Shadow Mapping?</p>
+</blockquote>
+</aside>
+<p>Yes, but wait until December engine update, right now only the devs have proper documentation on how to make it work.</p>
+        </div>
+
+        <meta itemprop='headline' content='Expert compile for Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15306.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-03T23:13:50Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:22Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>At the moment you don’t need any special parameters for CSM, just the appropriate entity. It’s also got AO, and I believe you can use custom parameters as well. I’m sure DKY will update with any new parameters after the December update.</p>
+        </div>
+
+        <meta itemprop='headline' content='Expert compile for Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/jadebenn.html'><span itemprop='name'>jadebenn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15306.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-03T23:27:01Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:22Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Crypt">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/crypt/40/4394_2.png" class="avatar"> Crypt:</div>
+<blockquote>
+<p>At the moment you don’t need any special parameters for CSM, just the appropriate entity. It’s also got AO, and I believe you can use chain parameters as well. I’m sure DKY will update with any new parameters after the December update.</p>
+</blockquote>
+</aside>
+<p>I was under the impression you needed to run vrad with the ‘-cascadeshadows’ option? That’s what I’ve been doing.</p>
+        </div>
+
+        <meta itemprop='headline' content='Expert compile for Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15306.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-04T03:35:22Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:22Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Nope, env_cascade_light.</p>
+        </div>
+
+        <meta itemprop='headline' content='Expert compile for Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/jadebenn.html'><span itemprop='name'>jadebenn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15306.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-04T21:17:34Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:22Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Crypt">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/crypt/40/4394_2.png" class="avatar"> Crypt:</div>
+<blockquote>
+<p>Nope, env_cascade_light.</p>
+</blockquote>
+</aside>
+<p>Is -cascadeshadows actually a command then? Or is it just something I somehow made up?</p>
+<aside class="quote no-group" data-username="PootisMan">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/p/ba9def/40.png" class="avatar"> PootisMan:</div>
+<blockquote>
+<p>Also question does HTCT have the new RAD options exclusive to Black Mesa like Ambient Occlusion or Cascade Shadow Mapping?</p>
+</blockquote>
+</aside>
+<p>Not in the default configuration, but it’s pretty trivial to add using the config file. Just scroll to the vrad section and add the lines:</p>
+<p><code>"-ambientocclusion"    "0"
+"-cascadeshadows"    "0"</code>Now that I’ve switched to using HTCT for all my compiles, I can give you my config with this already set up if you’re having trouble.</p>
+<aside class="quote no-group" data-username="ESToomere">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/estoomere/40/4948_2.jpg" class="avatar"> ESToomere:</div>
+<blockquote>
+<p>Yes, but wait until December engine update, right now only the devs have proper documentation on how to make it work.</p>
+</blockquote>
+</aside>
+<p>You can actually compile with AO right now (add the -ambientocclusion command to VRAD), and it’s something I highly recommend doing on your final compile. Be warned though, it <span class="bbcode-b"><span class="bbcode-i">significantly</span></span> increases VRAD compile time. My 1 minute VRAD compile time with all the fancy options enabled (3rd gen i7 for the win) becomes a <span class="bbcode-i">10 minute</span> compile time when I enable AO.</p>
+        </div>
+
+        <meta itemprop='headline' content='Expert compile for Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15306.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-04T21:28:26Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:22Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>10 whole minutes? Haha, that’s kindergarten stuff. Map G of STU takes 2 hours 30 for a VRAD final compile!</p>
+<p>You have to use env_cascade_light AND ALSO -cascadeshadows switch to VRAD. I think there are certain scenarios where you don’t have to use the switch, but I can’t remember what they are anymore. CSM has been entirely rewritten for the Xengine, anyway, so it will all change soon. IIRC on the new version you need only newLight_dir (the dynamic sun entity) and env_cascade_light.</p>
+        </div>
+
+        <meta itemprop='headline' content='Expert compile for Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/jadebenn.html'><span itemprop='name'>jadebenn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15306.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-04T22:54:30Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:22Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<p>10 whole minutes? Haha, that’s kindergarten stuff. Map G of STU takes 2 hours 30 for a VRAD final compile!</p>
+<p>You have to use env_cascade_light AND ALSO -cascadeshadows switch to VRAD. I think there are certain scenarios where you don’t have to use the switch, but I can’t remember what they are anymore. CSM has been entirely rewritten for the Xengine, anyway, so it will all change soon. IIRC on the new version you need only newLight_dir (the dynamic sun entity) and env_cascade_light.</p>
+</blockquote>
+</aside>
+<p>Oh good, I’m not going insane after all: I<span class="bbcode-i"> did</span> hear that somewhere!</p>
+<p>Also, I like the sound of “Xengine.” Rolls right off the tongue!</p>
+        </div>
+
+        <meta itemprop='headline' content='Expert compile for Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15306.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-04T23:04:44Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:22Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<p>I think there are certain scenarios where you don’t have to use the switch</p>
+</blockquote>
+</aside>
+<p>Whatever they are, I’ve accidentally discovered 'em every single time I’ve used CSM.</p>
+        </div>
+
+        <meta itemprop='headline' content='Expert compile for Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/PootisMan.html'><span itemprop='name'>PootisMan</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15306.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-04T23:53:25Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:23Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<p>10 whole minutes? Haha, that’s kindergarten stuff. Map G of STU takes 2 hours 30 for a VRAD final compile!</p>
+<p>You have to use env_cascade_light AND ALSO -cascadeshadows switch to VRAD. I think there are certain scenarios where you don’t have to use the switch, but I can’t remember what they are anymore. CSM has been entirely rewritten for the Xengine, anyway, so it will all change soon. IIRC on the new version you need only newLight_dir (the dynamic sun entity) and env_cascade_light.</p>
+</blockquote>
+</aside>
+<p>Holy crap a dev replied to a thread I made 8o . This makes me happy, all over a dumb question I figured out the answer to later.</p>
+        </div>
+
+        <meta itemprop='headline' content='Expert compile for Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/ESToomere.html'><span itemprop='name'>ESToomere</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15306.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-12-05T08:00:57Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:08:23Z' class='post-time'>
+                November 25, 2018,  5:08am
+              </time>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<p>CSM has been entirely rewritten for the Xengine, anyway, so it will all change soon. IIRC on the new version you need only newLight_dir (the dynamic sun entity) and env_cascade_light.</p>
+</blockquote>
+</aside>
+<p>Called it.</p>
+        </div>
+
+        <meta itemprop='headline' content='Expert compile for Black Mesa'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/expert-compile-for-black-mesa/15306 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:53:59 GMT -->
+</html>

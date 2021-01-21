@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Transparent Texture Shadow</title>
+    <link>https://leakfree.org/t/transparent-texture-shadow/15018</link>
+    <description>Hello,
+
+I&#39;m struggling with Transparent Texture Shadow with the Black Mesa Retail version.
+
+I&#39;d like to achieve this effect with a fence:
+[img]https://www.interlopers.net/images/hl2tutorials/prop_shadows/214v1wj.jpg[/img]
+(Image extracted from the following Interlopers tutorial: [url]https://www.interlopers.net/tutorials/27738[/url])
+
+But it&#39;s simply not working.
+Result I have:
+
+![20161124121700_1.jpg|690x500](upload://rKOQdtnGj3dGOlVIqXxtyZMcwQY.jpeg)
+
+
+I&#39;m using the &#39;models/props_wasteland/interior_fence002c.mdl&#39; model as a prop_static with the property of &#39;Generate (and use) lightmap for this static set as &#39;Yes&#39;. Lightmap  resolution of X and Y set to 2.
+
+Compilation done with:
+-final -StaticPropPolys -StaticPropLighting -TextureShadows -hdr
+
+The lights.rad file contains two lines for this model:
+forcetextureshadow props_wasteland/interior_fence002c.mdl
+forcetextureshadow models/props_wasteland/interior_fence002c.mdl (I added this line with models/ at start)
+
+I&#39;m missing something?
+
+Cheers</description>
+    
+    <lastBuildDate>Fri, 25 Nov 2016 19:02:15 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/transparent-texture-shadow/15018.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Transparent Texture Shadow</title>
+        <dc:creator><![CDATA[grippy]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="dky.tehkingd.u">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/dky.tehkingd.u/40/4377_2.png" class="avatar"> dky.tehkingd.u:</div>
+<blockquote>
+<p>Which HTCT compile preset are you using?</p>
+</blockquote>
+</aside>
+<p>I’m using HC final and changed the -both for -hdr because I don’t need -ldr</p>
+          <p><a href="https://leakfree.org/t/transparent-texture-shadow/15018/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/transparent-texture-shadow/15018/6</link>
+        <pubDate>Fri, 25 Nov 2016 19:02:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15018-6</guid>
+        <source url="https://leakfree.org/t/transparent-texture-shadow/15018.rss">Transparent Texture Shadow</source>
+      </item>
+      <item>
+        <title>Transparent Texture Shadow</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>Which HTCT compile preset are you using?</p>
+          <p><a href="https://leakfree.org/t/transparent-texture-shadow/15018/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/transparent-texture-shadow/15018/5</link>
+        <pubDate>Fri, 25 Nov 2016 16:52:48 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15018-5</guid>
+        <source url="https://leakfree.org/t/transparent-texture-shadow/15018.rss">Transparent Texture Shadow</source>
+      </item>
+      <item>
+        <title>Transparent Texture Shadow</title>
+        <dc:creator><![CDATA[grippy]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for the clarifications on the lightmap setting within a prop_static.<br>
+I never noticed it was possible to cast soft shadows on props.</p>
+<aside class="quote no-group" data-username="JeffMOD">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/jeffmod/40/4333_2.png" class="avatar"> JeffMOD:</div>
+<blockquote>
+<p><span class="bbcode-i">Also</span> shouldn’t prevent the shadows from compiling properly, but the extra line with the models/ won’t work, as it would make the compiler check for “models/models/props_wasteland/interior_frence002c.mdl”. (Unless something has changed with the tools recently)</p>
+</blockquote>
+</aside>
+<p>I removed this extra line which was a desperate attempt to make it work</p>
+<aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<p>That tangent aside, this is likely happening because you haven’t set the lightmap scale on the wall which is RECEIVING the shadow correctly. Select the wall / floor parts which are supposed to be receiving the shadow, go to the texture edit dialog and set the lightmap resolution on those faces to 2. It should now work, given you’re using the -textureshadows VRAD command line switch.</p>
+<p>Hope this helps!</p>
+</blockquote>
+</aside>
+<p>The wall receiving the shadow is already set with a lightmap grid of 2 / 4 so it’s weird.</p>
+<div class="spoiler">
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/vBNkko8.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/vBNkko8.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+</div>
+<p>Another strange example:</p>
+<p>In this screenshot the railing is a func_detail with a texture alpha. I blocked out the whole railing with blocklight texture tool.<br>
+After a compilation with -hdr option:</p>
+<div class="spoiler">
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/vKkVjYD.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/vKkVjYD.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+</div>
+<p>After a compilation with -both -final -StaticPropPolys -StaticPropLighting -TextureShadows :</p>
+<div class="spoiler">
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://i.imgur.com/4AyArBe.jpg" title="" rel="nofollow noopener"><img src="https://i.imgur.com/4AyArBe.jpg" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+</div>
+<p>I’m expecting a weird compilation of the tool I’m using. The compilation is done with the excellent ‘Hazard Team Compile Tool’ Version 0.5.0 BETA.<br>
+I’ll try to make the compilation from Hammer but I need to configure everything first.</p>
+          <p><a href="https://leakfree.org/t/transparent-texture-shadow/15018/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/transparent-texture-shadow/15018/4</link>
+        <pubDate>Fri, 25 Nov 2016 07:38:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15018-4</guid>
+        <source url="https://leakfree.org/t/transparent-texture-shadow/15018.rss">Transparent Texture Shadow</source>
+      </item>
+      <item>
+        <title>Transparent Texture Shadow</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>A few issues here. The lightmap setting shouldn’t be set within the fence model. Turn that off. As Jeff said, that controls lightmaps cast ONTO the prop, which only works under very specific circumstances (the prop has to have unique UVs), and is not needed for this type of prop anyway. Additionally, prop lightmaps are the inverse of regular lightmaps - regular lightmaps are measured in units per luxel (so lower values = higher resolution), whereas prop lightmaps are measured in texture resolution of the lightmap (so higher values = higher resolution). A lightmap value of 2 on a prop would achieve nothing - a 2 pixel lightmap doesn’t really accomplish anything! It has to be 512 or above to have any kind of noticeable effect.</p>
+<p>That tangent aside, this is likely happening because you haven’t set the lightmap scale on the wall which is RECEIVING the shadow correctly. Select the wall / floor parts which are supposed to be receiving the shadow, go to the texture edit dialog and set the lightmap resolution on those faces to 2. It should now work, given you’re using the -textureshadows VRAD command line switch.</p>
+<p>Hope this helps!</p>
+          <p><a href="https://leakfree.org/t/transparent-texture-shadow/15018/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/transparent-texture-shadow/15018/3</link>
+        <pubDate>Fri, 25 Nov 2016 02:44:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15018-3</guid>
+        <source url="https://leakfree.org/t/transparent-texture-shadow/15018.rss">Transparent Texture Shadow</source>
+      </item>
+      <item>
+        <title>Transparent Texture Shadow</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p>I don’t think it would prevent the shadows from compiling directly, but I beleive the “generate and use lightmaps for this static prop” option is for generating lightmaps <span class="bbcode-i">on</span> the model, not from it, which makes the shadows on the mesh more defined than the default vertex lighting. Which is somewhat unneeded for something with that much alpha in its material.</p>
+<p><span class="bbcode-i">Also</span> shouldn’t prevent the shadows from compiling properly, but the extra line with the models/ won’t work, as it would make the compiler check for “models/models/props_wasteland/interior_frence002c.mdl”. (Unless something has changed with the tools recently)</p>
+          <p><a href="https://leakfree.org/t/transparent-texture-shadow/15018/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/transparent-texture-shadow/15018/2</link>
+        <pubDate>Thu, 24 Nov 2016 20:16:35 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15018-2</guid>
+        <source url="https://leakfree.org/t/transparent-texture-shadow/15018.rss">Transparent Texture Shadow</source>
+      </item>
+      <item>
+        <title>Transparent Texture Shadow</title>
+        <dc:creator><![CDATA[grippy]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello,</p>
+<p>I’m struggling with Transparent Texture Shadow with the Black Mesa Retail version.</p>
+<p>I’d like to achieve this effect with a fence:<br>
+<img src="https://www.interlopers.net/images/hl2tutorials/prop_shadows/214v1wj.jpg" alt="" width="580" height="435"><br>
+(Image extracted from the following Interlopers tutorial: <a href="https://www.interlopers.net/tutorials/27738" data-bbcode="true" rel="nofollow noopener">https://www.interlopers.net/tutorials/27738</a>)</p>
+<p>But it’s simply not working.<br>
+Result I have:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/c/c28596c3aa08542111814eee63e9259ea195fd54.jpeg" data-download-href="https://leakfree.org/uploads/default/c28596c3aa08542111814eee63e9259ea195fd54" title="20161124121700_1.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/c/c28596c3aa08542111814eee63e9259ea195fd54_2_690x500.jpeg" alt="20161124121700_1.jpg" data-base62-sha1="rKOQdtnGj3dGOlVIqXxtyZMcwQY" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/c/c28596c3aa08542111814eee63e9259ea195fd54_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/c/c28596c3aa08542111814eee63e9259ea195fd54_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/c/c28596c3aa08542111814eee63e9259ea195fd54_2_1380x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/c/c28596c3aa08542111814eee63e9259ea195fd54_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">20161124121700_1.jpg</span><span class="informations">1920×1080 487 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>I’m using the ‘models/props_wasteland/interior_fence002c.mdl’ model as a prop_static with the property of 'Generate (and use) lightmap for this static set as ‘Yes’. Lightmap  resolution of X and Y set to 2.</p>
+<p>Compilation done with:<br>
+-final -StaticPropPolys -StaticPropLighting -TextureShadows -hdr</p>
+<p>The lights.rad file contains two lines for this model:<br>
+forcetextureshadow props_wasteland/interior_fence002c.mdl<br>
+forcetextureshadow models/props_wasteland/interior_fence002c.mdl (I added this line with models/ at start)</p>
+<p>I’m missing something?</p>
+<p>Cheers</p>
+          <p><a href="https://leakfree.org/t/transparent-texture-shadow/15018/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/transparent-texture-shadow/15018/1</link>
+        <pubDate>Thu, 24 Nov 2016 18:19:10 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15018-1</guid>
+        <source url="https://leakfree.org/t/transparent-texture-shadow/15018.rss">Transparent Texture Shadow</source>
+      </item>
+  </channel>
+</rss>

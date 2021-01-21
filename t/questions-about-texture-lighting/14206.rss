@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>questions about texture lighting</title>
+    <link>https://leakfree.org/t/questions-about-texture-lighting/14206</link>
+    <description>Hey guys.
+I am still working on my own version of crossfire. I&#39;m almost done, but I have wierd problems with the texture lights.
+my .vmt:
+
+
+&quot;LightmappedGeneric&quot;
+{
+ &quot;$basetexture&quot; &quot;dm_pro_crossfire/+0~fifties_lgt2&quot;
+ &quot;$surfaceprop&quot; &quot;glass&quot;
+ &quot;$selfillum&quot; 1
+}
+
+my lights.rad (in bms folder):
+
+dm_pro_crossfire/+0~fifties_lgt2 160 170 220 400
+
+I often use lightmapsize 8.
+Sometimes I want my lambs to be not solid (so I make them func_illusionary)..
+
+When I compile and go in game my lamb texture is not fully lit (it should glow because I set &quot;$selfillum&quot; 1 right?)..
+What am I doing wrong? Do I need to use a certain value for the lightmapsize? Do I need to have my blocks to be world geometry (no entity)? Or are there any other things that I should care about?
+I read some tutorials online but somehow it did not help :/ -.-
+I have one lamb in my map where the whole block (atm it&#39;s func_brush) is completely black ingame (totally unlit?) although I can see the light coming out of the texlight surface... So strange... :/
+Help pls ...</description>
+    
+    <lastBuildDate>Mon, 15 Jun 2015 19:59:15 +0000</lastBuildDate>
+    <category>Help!</category>
+    <atom:link href="https://leakfree.org/t/questions-about-texture-lighting/14206.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>questions about texture lighting</title>
+        <dc:creator><![CDATA[fury]]></dc:creator>
+        <description><![CDATA[
+            <p>Alright… Thx for all the quick answers and information. I think I will try out some things tomorrow…  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/questions-about-texture-lighting/14206/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/questions-about-texture-lighting/14206/4</link>
+        <pubDate>Mon, 15 Jun 2015 19:59:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14206-4</guid>
+        <source url="https://leakfree.org/t/questions-about-texture-lighting/14206.rss">questions about texture lighting</source>
+      </item>
+      <item>
+        <title>questions about texture lighting</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>Don’t use func_illusionary, it’s a defunct entity. You should never use it. Use func_brush with the solidity set to never solid. The issue, as Crypt said, is probably that the texture is set to lightmappedgeneric. If that doesn’t work, compare it to a working example of a texture light which does work in BMS, and try and fix the difference.</p>
+          <p><a href="https://leakfree.org/t/questions-about-texture-lighting/14206/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/questions-about-texture-lighting/14206/3</link>
+        <pubDate>Mon, 15 Jun 2015 19:55:24 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14206-3</guid>
+        <source url="https://leakfree.org/t/questions-about-texture-lighting/14206.rss">questions about texture lighting</source>
+      </item>
+      <item>
+        <title>questions about texture lighting</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>First off, thank you for using func_illusionary.  <img src="https://leakfree.org/images/emoji/twitter/thumbsup.png?v=9" title=":thumbsup:" class="emoji" alt=":thumbsup:"></p>
+<p>Anyway, lightmap size isn’t causing your issue, but I suggest you read up on what they are and how to use them anyway, it sounds you don’t understand them and that could cause you issues later.<br>
+It being a brush ent also probably isn’t at fault.</p>
+<p>I’d try setting its shader to UnlitGeneric and seeing if that fixes it.</p>
+<p>If <span class="bbcode-i">that</span> doesn’t work, since everything else sounds right, what my first guess would be is your texture’s alpha channel. If there’s no normal map or defined mask texture, $selfillum by default uses the image’s alpha channel when figuring what pixels should be how strong in its self-illumination. Are you exporting your image w/ an alpha channel, and using a VTF format that uses it (DXT5, BRGA8888, etc.)? If so, it could be reading it as all dark, and blacking it out.</p>
+<p>Also, personally I wouldn’t use a texlight for them, those are kinda sucky in Source (awesome in GoldSrc, though). Just the self-illumination.</p>
+          <p><a href="https://leakfree.org/t/questions-about-texture-lighting/14206/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/questions-about-texture-lighting/14206/2</link>
+        <pubDate>Mon, 15 Jun 2015 18:24:05 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14206-2</guid>
+        <source url="https://leakfree.org/t/questions-about-texture-lighting/14206.rss">questions about texture lighting</source>
+      </item>
+      <item>
+        <title>questions about texture lighting</title>
+        <dc:creator><![CDATA[fury]]></dc:creator>
+        <description><![CDATA[
+            <p>Hey guys.<br>
+I am still working on my own version of crossfire. I’m almost done, but I have wierd problems with the texture lights.<br>
+my .vmt:</p>
+<p>“LightmappedGeneric”<br>
+{<br>
+“$basetexture” “dm_pro_crossfire/+0~fifties_lgt2”<br>
+“$surfaceprop” “glass”<br>
+“$selfillum” 1<br>
+}</p>
+<p>my lights.rad (in bms folder):</p>
+<p>dm_pro_crossfire/+0~fifties_lgt2 160 170 220 400</p>
+<p>I often use lightmapsize 8.<br>
+Sometimes I want my lambs to be not solid (so I make them func_illusionary)…</p>
+<p>When I compile and go in game my lamb texture is not fully lit (it should glow because I set “$selfillum” 1 right?)…<br>
+What am I doing wrong? Do I need to use a certain value for the lightmapsize? Do I need to have my blocks to be world geometry (no entity)? Or are there any other things that I should care about?<br>
+I read some tutorials online but somehow it did not help <img src="https://leakfree.org/images/emoji/twitter/confused.png?v=9" title=":confused:" class="emoji" alt=":confused:"> -.-<br>
+I have one lamb in my map where the whole block (atm it’s func_brush) is completely black ingame (totally unlit?) although I can see the light coming out of the texlight surface… So strange… <img src="https://leakfree.org/images/emoji/twitter/confused.png?v=9" title=":confused:" class="emoji" alt=":confused:"><br>
+Help pls …</p>
+          <p><a href="https://leakfree.org/t/questions-about-texture-lighting/14206/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/questions-about-texture-lighting/14206/1</link>
+        <pubDate>Mon, 15 Jun 2015 17:55:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14206-1</guid>
+        <source url="https://leakfree.org/t/questions-about-texture-lighting/14206.rss">questions about texture lighting</source>
+      </item>
+  </channel>
+</rss>

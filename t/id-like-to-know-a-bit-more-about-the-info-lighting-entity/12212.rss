@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>I&#39;d like to know a bit more about the info_lighting entity.</title>
+    <link>https://leakfree.org/t/id-like-to-know-a-bit-more-about-the-info-lighting-entity/12212</link>
+    <description>I&#39;m guessing this is the right place for this thread, based on the sticky-posts above, but if not, my mistake.
+
+Anyways. I&#39;m relatively inexperienced in Hammer (Most of my experience is in the area of L4D/2, I don&#39;t have much experience at all with the NPC system, for instance) but I generally know my way around. 
+
+One thing that I&#39;ve read about (both here and on Valve&#39;s Developer wiki) has been the use of info_lighting entities with props. I&#39;d like a bit of clarification about it...
+
+How exactly is it used? What entities can it be used on?
+If it&#39;s not too much trouble, could someone provide a visual example?
+
+Questions might be a bit obvious/dumb/whatever, all I can really say is that I&#39;d rather be thorough with understanding what I&#39;m working with and what it can do as opposed to guessing and testing until I get the results I want.</description>
+    
+    <lastBuildDate>Thu, 21 Mar 2013 05:29:17 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/id-like-to-know-a-bit-more-about-the-info-lighting-entity/12212.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>I&#39;d like to know a bit more about the info_lighting entity.</title>
+        <dc:creator><![CDATA[KyuuGryphon]]></dc:creator>
+        <description><![CDATA[
+            <p>Ahhh, I see. Awesome, thanks you two!  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/id-like-to-know-a-bit-more-about-the-info-lighting-entity/12212/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/id-like-to-know-a-bit-more-about-the-info-lighting-entity/12212/4</link>
+        <pubDate>Thu, 21 Mar 2013 05:29:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12212-4</guid>
+        <source url="https://leakfree.org/t/id-like-to-know-a-bit-more-about-the-info-lighting-entity/12212.rss">I&#39;d like to know a bit more about the info_lighting entity.</source>
+      </item>
+      <item>
+        <title>I&#39;d like to know a bit more about the info_lighting entity.</title>
+        <dc:creator><![CDATA[RK1]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ll demonstrate using some crappy thrown-quickly together paint images.</p>
+<p>Imagine you have a generic prop. This could be a static prop, could be a dynamic prop, whatever. Let’s assume we’re dealing with some sort of model.</p>
+<p><img src="https://leakfree.org/uploads/default/original/3X/8/7/877697ba9cd82066e912b9b0b271fc8ea9f34ef0.png" alt="" data-base62-sha1="jkmxC8CqGJIzdBsKxYgalzlE4ZG" width="532" height="472"></p>
+<p>We have this prop here. The green is the actual model for our prop. The red dot in the center is its origin. Every model/prop has an origin.</p>
+<p>Now, the big difference between brushes and props is that while a brush can receive light on all areas of any face, models on the other hand are lit from one specific point, or the origin point. In the example above, whatever light hits that red dot determines the lighting for the <span class="bbcode-i">entire prop</span>.</p>
+<p>Now, if you had a light hitting your origin directly above it, then your model will compute lighting correctly, no problem.</p>
+<p>It’s not always that easy. Take a look at this next example.</p>
+<p><img src="https://leakfree.org/uploads/default/original/3X/d/7/d73f08ea4cab80b52631673be9a1245a81c9f0c8.png" alt="" data-base62-sha1="uI9HS9B7tWlkjpCPB5yPuPFBCpq" width="532" height="472"></p>
+<p>We see a slightly more complicated setup here. The green is our model, and the red is its origin. We have a light source in the top left of this setup right next to our model. The blue you see is some brush geometry that is around our prop.</p>
+<p>This present a particular problem. Because the origin of our model is hidden from the lightsource (being that it is inside a brush), the origin receives no light and therefore the model, despite being right next to a light source, goes completely unlit.</p>
+<p>So we have to fix this by specifying some other point as our lighting origin. We don’t want the red dot. So we do this instead.</p>
+<p><img src="https://leakfree.org/uploads/default/original/3X/7/f/7ffb500086f3f965ab5fae21cbfd7cb95a1e4e70.png" alt="" data-base62-sha1="igb4xOmSJSYIYrwHQqXMkDRjH7W" width="532" height="472"></p>
+<p>I now add an info_lighting, as you can see in yellow. As you can see this point is in a position where it <span class="bbcode-i">can</span> receive light. And since the whole model samples light from this point, it gets lit.</p>
+          <p><a href="https://leakfree.org/t/id-like-to-know-a-bit-more-about-the-info-lighting-entity/12212/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/id-like-to-know-a-bit-more-about-the-info-lighting-entity/12212/3</link>
+        <pubDate>Thu, 21 Mar 2013 02:51:33 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12212-3</guid>
+        <source url="https://leakfree.org/t/id-like-to-know-a-bit-more-about-the-info-lighting-entity/12212.rss">I&#39;d like to know a bit more about the info_lighting entity.</source>
+      </item>
+      <item>
+        <title>I&#39;d like to know a bit more about the info_lighting entity.</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>Basically, props are really finnicky when it comes to lighting. Occasionally when you put a prop in certain positions in the world relative to a light source, it will be lit totally wrong, or maybe even just subtly wrong (ie, it will have the shadows and highlights in the wrong places. You’ll know it when you see it; it’s very obvious even if it’s not a huge difference and the human mind naturally understands what looks real or not).</p>
+<p>Of course, the Source engine doesn’t understand that it’s wrong, but as a level designer with eyes, YOU know. So, the solution is to use <span class="bbcode-i">info_lighting</span>. Basically what it does is, if an info_lighting is specified by a prop, the prop will pretend that its origin is at the position of the info_lighting, and then it will sample its lighting from THAT point instead. Messing around with it can fix your lighting issues, since a different point could possibly generate better results than where the prop is originally.</p>
+<p>EDIT: Here’s a quick example of one possible lighting error that info_lighting may be useful for.</p>
+<p>Let’s say that for whatever artistic reason, I wish to place this pipe model as shown:</p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<p>We’re going to have some issues since the pipe’s origin is basically buried in that worldbrush over there, as shown in the top view. This will cause Source to think that the pipe should be darkened, since the worldbrush blocks line of sight from the light entity to the prop’s origin, which means no light ever “reaches” the prop.</p>
+<p>The result is that this ends up making the model’s lighting look unnatural and weird:</p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<p>So in comes info_lighting to the rescue, like so:</p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<p>By placing the info_lighting outside the worldbrush, and then linking it to the pipe prop, I just instructed Source to act as if the pipe’s origin is where the info_lighting is, which means the pipe’s lighting should be sampled from the info_lighting’s coordinates instead of the origin of the prop_static.</p>
+<p>Now, light is free to reach the newly-defined “center”, so the prop can now be lit correctly.</p>
+<p>And so, our issue is solved:</p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+          <p><a href="https://leakfree.org/t/id-like-to-know-a-bit-more-about-the-info-lighting-entity/12212/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/id-like-to-know-a-bit-more-about-the-info-lighting-entity/12212/2</link>
+        <pubDate>Thu, 21 Mar 2013 02:41:31 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12212-2</guid>
+        <source url="https://leakfree.org/t/id-like-to-know-a-bit-more-about-the-info-lighting-entity/12212.rss">I&#39;d like to know a bit more about the info_lighting entity.</source>
+      </item>
+      <item>
+        <title>I&#39;d like to know a bit more about the info_lighting entity.</title>
+        <dc:creator><![CDATA[KyuuGryphon]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m guessing this is the right place for this thread, based on the sticky-posts above, but if not, my mistake.</p>
+<p>Anyways. I’m relatively inexperienced in Hammer (Most of my experience is in the area of L4D/2, I don’t have much experience at all with the NPC system, for instance) but I generally know my way around.</p>
+<p>One thing that I’ve read about (both here and on Valve’s Developer wiki) has been the use of info_lighting entities with props. I’d like a bit of clarification about it…</p>
+<p>How exactly is it used? What entities can it be used on?<br>
+If it’s not too much trouble, could someone provide a visual example?</p>
+<p>Questions might be a bit obvious/dumb/whatever, all I can really say is that I’d rather be thorough with understanding what I’m working with and what it can do as opposed to guessing and testing until I get the results I want.</p>
+          <p><a href="https://leakfree.org/t/id-like-to-know-a-bit-more-about-the-info-lighting-entity/12212/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/id-like-to-know-a-bit-more-about-the-info-lighting-entity/12212/1</link>
+        <pubDate>Thu, 21 Mar 2013 02:34:23 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12212-1</guid>
+        <source url="https://leakfree.org/t/id-like-to-know-a-bit-more-about-the-info-lighting-entity/12212.rss">I&#39;d like to know a bit more about the info_lighting entity.</source>
+      </item>
+  </channel>
+</rss>

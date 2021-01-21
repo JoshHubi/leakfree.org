@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/sources-sound-engine-mods-and-otherwise/12955 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 11:03:41 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Source&#39;s Sound Engine (Mods and otherwise) - Technology and Gaming - Leakfree</title>
+    <meta name="description" content="Hey, everyone. There was a locked thread awhile ago about a sound pack someone made, and in that thread, people started to talk about sound propagation, and possibly implementing it into Source. Chickenprotector made a p&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="12955.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Source&#39;s Sound Engine (Mods and otherwise)&#39;" href="12955.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/sources-sound-engine-mods-and-otherwise/12955" />
+<meta name="twitter:url" content="https://leakfree.org/t/sources-sound-engine-mods-and-otherwise/12955" />
+<meta property="og:title" content="Source&#39;s Sound Engine (Mods and otherwise)" />
+<meta name="twitter:title" content="Source&#39;s Sound Engine (Mods and otherwise)" />
+<meta property="og:description" content="Hey, everyone. There was a locked thread awhile ago about a sound pack someone made, and in that thread, people started to talk about sound propagation, and possibly implementing it into Source. Chickenprotector made a post that provided a link to a video where someone achieved this in HL2. The video is awesome, and I’d like to try out the mod… if it exists. Does anyone know if it exists, and/or where I could find it?  Also, if you just want to talk about the topic of source’s sound engine (so t..." />
+<meta name="twitter:description" content="Hey, everyone. There was a locked thread awhile ago about a sound pack someone made, and in that thread, people started to talk about sound propagation, and possibly implementing it into Source. Chickenprotector made a post that provided a link to a video where someone achieved this in HL2. The video is awesome, and I’d like to try out the mod… if it exists. Does anyone know if it exists, and/or where I could find it?  Also, if you just want to talk about the topic of source’s sound engine (so t..." />
+<meta property="article:published_time" content="2014-01-28T06:03:41+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="12955.html">Source&#39;s Sound Engine (Mods and otherwise)</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/technology-and-gaming/19.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #8C6238'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Technology and Gaming</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Swaggless.html'><span itemprop='name'>Swaggless</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12955.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-01-28T06:03:41Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T10:48:30Z' class='post-time'>
+                August 11, 2020, 10:48am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hey, everyone. There was a locked thread awhile ago about a sound pack someone made, and in that thread, people started to talk about sound propagation, and possibly implementing it into Source. Chickenprotector made a <a href="https://forums.blackmesasource.com/showpost.php?p=550892&amp;postcount=7" data-bbcode="true" rel="nofollow noopener">post</a> that provided a link to a video where someone achieved this in HL2. The video is awesome, and I’d like to try out the mod… if it exists. Does anyone know if it exists, and/or where I could find it?</p>
+<p>Also, if you just want to talk about the topic of source’s sound engine (so that this thread isn’t instantly irrelevant once my question is answered), that’s fine by me.</p>
+<p>Thanks!</p>
+<p>(BTW: Just making clear that this thread is about discussing something that was a side-discussion in a now-locked thread. Not about re-opening discussion about the sound pack that thread’s OP created.)</p>
+        </div>
+
+        <meta itemprop='headline' content='Source&#39;s Sound Engine (Mods and otherwise)'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/_rot_fodder.html'><span itemprop='name'>_rot_fodder</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12955.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-01-28T06:35:15Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:54:54Z' class='post-time'>
+                November 25, 2018,  3:54am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yeah I remember watching that, I had a look around at the time and as far as I am aware, it’s not available to anyone. I’d love to be proven wrong though.</p>
+        </div>
+
+        <meta itemprop='headline' content='Source&#39;s Sound Engine (Mods and otherwise)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Swaggless.html'><span itemprop='name'>Swaggless</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12955.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-01-28T15:46:26Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:54:55Z' class='post-time'>
+                November 25, 2018,  3:54am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="(rot)(fodder">
+<div class="title">
+<div class="quote-controls"></div>
+ (rot)(fodder:</div>
+<blockquote>
+<p>Yeah I remember watching that, I had a look around at the time and as far as I am aware, it’s not available to anyone. I’d love to be proven wrong though.</p>
+</blockquote>
+</aside>
+<p>Dangit. What a shame. So much work was obviously put into it and it’s too bad that they didn’t share it… maybe the did/are planning to market it, and that’s why it never saw release…</p>
+        </div>
+
+        <meta itemprop='headline' content='Source&#39;s Sound Engine (Mods and otherwise)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/MSKyuuni.html'><span itemprop='name'>MSKyuuni</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12955.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-01-28T21:39:15Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:54:56Z' class='post-time'>
+                November 25, 2018,  3:54am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>It’s an amazing concept, but I can still see definite flaws. The echo seems relatively overdone. In the citizen “food court”, the echo wouldn’t be that strong, metallic and overpowering; it’d probably be a notable, hollow, toneless echo given that it’s primarily concrete and tiles. in the geometry blocking test, the sound shouldn’t be entirely blocked by the wall; in theory, it should be audible, albeit quieter and muffled. Lastly, in the living room test, the presence of carpet <span class="bbcode-i">should</span> absorb most of the reverberation. I say again, it’s a nice concept, but it needs improvement IMHO.</p>
+        </div>
+
+        <meta itemprop='headline' content='Source&#39;s Sound Engine (Mods and otherwise)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Swaggless.html'><span itemprop='name'>Swaggless</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12955.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-01-29T03:37:44Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:54:59Z' class='post-time'>
+                November 25, 2018,  3:54am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="MSKyuuni">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/m/71c47a/40.png" class="avatar"> MSKyuuni:</div>
+<blockquote>
+<p>It’s an amazing concept, but I can still see definite flaws. The echo seems relatively overdone. In the citizen “food court”, the echo wouldn’t be that strong, metallic and overpowering; it’d probably be a notable, hollow, toneless echo given that it’s primarily concrete and tiles. in the geometry blocking test, the sound shouldn’t be entirely blocked by the wall; in theory, it should be audible, albeit quieter and muffled. Lastly, in the living room test, the presence of carpet <span class="bbcode-i">should</span> absorb most of the reverberation. I say again, it’s a nice concept, but it needs improvement IMHO.</p>
+</blockquote>
+</aside>
+<p>I agree that it is a bit overdone… but I think that it’s something I’d get used to and enjoy. I’d say that its something that’s certainly worth trying, you know?  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>I just wish I could find it…  <img src="../../images/emoji/twitter/frowningc164.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Source&#39;s Sound Engine (Mods and otherwise)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/xalener.html'><span itemprop='name'>xalener</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12955.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-01-29T12:37:33Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:55:00Z' class='post-time'>
+                November 25, 2018,  3:55am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="MSKyuuni">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/m/71c47a/40.png" class="avatar"> MSKyuuni:</div>
+<blockquote>
+<p>It’s an amazing concept, but I can still see definite flaws. The echo seems relatively overdone. In the citizen “food court”, the echo wouldn’t be that strong, metallic and overpowering; it’d probably be a notable, hollow, toneless echo given that it’s primarily concrete and tiles. in the geometry blocking test, the sound shouldn’t be entirely blocked by the wall; in theory, it should be audible, albeit quieter and muffled. Lastly, in the living room test, the presence of carpet <span class="bbcode-i">should</span> absorb most of the reverberation. I say again, it’s a nice concept, but it needs improvement IMHO.</p>
+</blockquote>
+</aside>
+<p>I’m sure they amped it up for demo purposes.</p>
+        </div>
+
+        <meta itemprop='headline' content='Source&#39;s Sound Engine (Mods and otherwise)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/MSKyuuni.html'><span itemprop='name'>MSKyuuni</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12955.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-01-29T22:05:01Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:55:03Z' class='post-time'>
+                November 25, 2018,  3:55am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>^Probably. It still seems too metallic though, which was fine for the Citadel, but not so much the living room.</p>
+        </div>
+
+        <meta itemprop='headline' content='Source&#39;s Sound Engine (Mods and otherwise)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Flatline.html'><span itemprop='name'>Flatline</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12955.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-01-30T09:54:26Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:55:06Z' class='post-time'>
+                November 25, 2018,  3:55am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Swaggless">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/s/a698b9/40.png" class="avatar"> Swaggless:</div>
+<blockquote>
+<p>EDIT: BEFORE ANYONE CUTS MY VIRTUAL HEAD OFF, YES, I SPELLED SOURCE INCORRECTLY. My apologies. It was a typo.</p>
+</blockquote>
+</aside>
+<p>Don’t know what you mean!</p>
+        </div>
+
+        <meta itemprop='headline' content='Source&#39;s Sound Engine (Mods and otherwise)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Swaggless.html'><span itemprop='name'>Swaggless</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12955.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-01-30T17:18:18Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T03:55:08Z' class='post-time'>
+                November 25, 2018,  3:55am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Flatline">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/f/b9bd4f/40.png" class="avatar"> Flatline:</div>
+<blockquote>
+<p>Don’t know what you mean!</p>
+</blockquote>
+</aside>
+<p>Thank you!  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Source&#39;s Sound Engine (Mods and otherwise)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/sources-sound-engine-mods-and-otherwise/12955 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 11:03:42 GMT -->
+</html>

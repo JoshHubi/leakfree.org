@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Unusual Dark Splodges In Lighting</title>
+    <link>https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240</link>
+    <description>In a couple of maps I&#39;ve made I&#39;m noticing these weird areas that are much darker than their surroundings with no clear explanation. Here&#39;s a particularly egregious example from pd_c1a2b:
+![](/uploads/default/original/2X/1/156dfafd8c4acc59dfbd5aaff4081dd7755caf5e.jpeg)
+
+![](/uploads/default/original/2X/6/60abeb3f5b4b59c908bc6f6b4a1b55559fea7308.jpeg)
+
+and here it is with mat_fullbright 2:
+
+![](/uploads/default/original/2X/d/d310bee9db4c3bfce6517f5c0650df1faf02c5c8.jpeg)
+
+![](/uploads/default/original/2X/f/f3c837e4c146fa7c70798459110e26c3da57bdf0.jpeg)
+
+Removing and re-doing the brush or texture in question or the surrounding brushes doesn&#39;t do anything to change the phenomenon, and copying the brush or moving it to a new location will cause it to not be affected. Changing the lightmap resolution makes the dark spot blurrier or sharper just like any other lighting effect but doesn&#39;t seem to do anything about the underlying dark area:
+
+![](/uploads/default/original/2X/2/22d2a330014589298e6372770e9b7a3820abbc95.jpeg)
+
+It&#39;s possible to brighten these areas with a light_spot pointed directly at them, but obviously that means putting a bunch of pointless lights in the map.
+
+Does anybody know what this might be about?</description>
+    
+    <lastBuildDate>Wed, 08 May 2019 00:54:26 +0000</lastBuildDate>
+    <category>General Development</category>
+    <atom:link href="https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Unusual Dark Splodges In Lighting</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Discovered the problem has to do with curved walls and the ‘smoothing’ system; putting each section of the curve in its own smoothing group causes it to light normally (this can also be done for all walls with the -smooth 0 compiler option).</p>
+<p>Pretty sure this is a bug, then, and not an intended part of the engine, but I don’t know if it’s something BM introduced or something pre-existing in Source and so I don’t know where to put the bug report.</p>
+          <p><a href="https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240/9</link>
+        <pubDate>Wed, 08 May 2019 00:54:26 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62240-9</guid>
+        <source url="https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240.rss">Unusual Dark Splodges In Lighting</source>
+      </item>
+      <item>
+        <title>Unusual Dark Splodges In Lighting</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Already tried; no result.</p>
+          <p><a href="https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240/8</link>
+        <pubDate>Fri, 12 Apr 2019 22:46:39 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62240-8</guid>
+        <source url="https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240.rss">Unusual Dark Splodges In Lighting</source>
+      </item>
+      <item>
+        <title>Unusual Dark Splodges In Lighting</title>
+        <dc:creator><![CDATA[Ub-Oh]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Admiral_Sakai" data-post="5" data-topic="62240">
+<div class="title">
+<div class="quote-controls"></div>
+ Admiral_Sakai:</div>
+<blockquote>
+<p>There wasn’t anything <em>obviously</em> wrong with it, but either highlighting all of its vertices in Vertex Mode and snapping them to grid (Ctrl-B), or running it through an empty plane-slice transform, seems to have dealt with this particular issue.</p>
+</blockquote>
+</aside>
+<p>Maybe selecting everything and Ctrl+B’ing in Vertex Mode will work?</p>
+          <p><a href="https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240/7</link>
+        <pubDate>Fri, 12 Apr 2019 20:28:05 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62240-7</guid>
+        <source url="https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240.rss">Unusual Dark Splodges In Lighting</source>
+      </item>
+      <item>
+        <title>Unusual Dark Splodges In Lighting</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>Well so much for that; a fresh-out-of-the-box modern decompile still shows this issue:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/7/7c08b71b9b47e426b0f5fb6642a3cb4044a5a1c6.jpeg" data-download-href="https://leakfree.org/uploads/default/7c08b71b9b47e426b0f5fb6642a3cb4044a5a1c6" title=""><img src="https://leakfree.org/uploads/default/optimized/2X/7/7c08b71b9b47e426b0f5fb6642a3cb4044a5a1c6_2_690x388.jpeg" alt="" width="690" height="388" srcset="https://leakfree.org/uploads/default/optimized/2X/7/7c08b71b9b47e426b0f5fb6642a3cb4044a5a1c6_2_690x388.jpeg, https://leakfree.org/uploads/default/optimized/2X/7/7c08b71b9b47e426b0f5fb6642a3cb4044a5a1c6_2_1035x582.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/7/7c08b71b9b47e426b0f5fb6642a3cb4044a5a1c6_2_1380x776.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/7/7c08b71b9b47e426b0f5fb6642a3cb4044a5a1c6_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080 304 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>I wonder if it’s worth rolling back Steam versions to when official source maps were a thing to try those?</p>
+          <p><a href="https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240/6</link>
+        <pubDate>Thu, 11 Apr 2019 04:20:13 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62240-6</guid>
+        <source url="https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240.rss">Unusual Dark Splodges In Lighting</source>
+      </item>
+      <item>
+        <title>Unusual Dark Splodges In Lighting</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>I was able to track the effect down to a single brush in the doorframe. There wasn’t anything <em>obviously</em> wrong with it, but either highlighting all of its vertices in Vertex Mode and snapping them to grid (Ctrl-B), or running it through an empty plane-slice transform, seems to have dealt with this particular issue.</p>
+<p>However, performing these same operations on the entire map does <em>not</em> seem to have gotten rid of all of the other dark spots visible.</p>
+<p>I’m still not sure what is actually <em>causing</em> this, although I figure it has something to do with the fact that these maps came from older versions of the source bsps run through an older version of the decompiler; no stock maps have this problem that I have seen. Being currently unable to tell which brushes demonstrate the issue and lacking an easy solution to ‘heal’ them, globally or one-at-a-time, I <em>guess</em> my best option would be just to start with a new stock decomp and remake pd_c1a2a/b (not <em>as</em>  big a concern since most of what I changed was with point entities and those I can just copy over) from scratch, then begin pulling in my expanded geometry room by room.</p>
+          <p><a href="https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240/5</link>
+        <pubDate>Thu, 11 Apr 2019 03:13:33 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62240-5</guid>
+        <source url="https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240.rss">Unusual Dark Splodges In Lighting</source>
+      </item>
+      <item>
+        <title>Unusual Dark Splodges In Lighting</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve tried using cordons, and the anomalies appear regardless of the cordon configuration; however I do think it would be a good idea to copy some of these maps (it only seems to be pd_c1a2a and pd_c1a2b that have the problem) into a new VMF and start deleting stuff until the problem goes away.</p>
+          <p><a href="https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240/4</link>
+        <pubDate>Thu, 11 Apr 2019 01:46:19 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62240-4</guid>
+        <source url="https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240.rss">Unusual Dark Splodges In Lighting</source>
+      </item>
+      <item>
+        <title>Unusual Dark Splodges In Lighting</title>
+        <dc:creator><![CDATA[Tuc0]]></dc:creator>
+        <description><![CDATA[
+            <p>Could it be some kind of map limit? Have you tried cropping everything away and bake only that part of map?</p>
+          <p><a href="https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240/3</link>
+        <pubDate>Wed, 10 Apr 2019 22:09:36 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62240-3</guid>
+        <source url="https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240.rss">Unusual Dark Splodges In Lighting</source>
+      </item>
+      <item>
+        <title>Unusual Dark Splodges In Lighting</title>
+        <dc:creator><![CDATA[CPU]]></dc:creator>
+        <description><![CDATA[
+            <p>Just a guess. Have you tried  disabling shadows?</p>
+          <p><a href="https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240/2</link>
+        <pubDate>Wed, 10 Apr 2019 01:55:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62240-2</guid>
+        <source url="https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240.rss">Unusual Dark Splodges In Lighting</source>
+      </item>
+      <item>
+        <title>Unusual Dark Splodges In Lighting</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>In a couple of maps I’ve made I’m noticing these weird areas that are much darker than their surroundings with no clear explanation. Here’s a particularly egregious example from pd_c1a2b:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/1/156dfafd8c4acc59dfbd5aaff4081dd7755caf5e.jpeg" data-download-href="https://leakfree.org/uploads/default/156dfafd8c4acc59dfbd5aaff4081dd7755caf5e" title=""><img src="https://leakfree.org/uploads/default/optimized/2X/1/156dfafd8c4acc59dfbd5aaff4081dd7755caf5e_2_690x388.jpeg" alt="" width="690" height="388" srcset="https://leakfree.org/uploads/default/optimized/2X/1/156dfafd8c4acc59dfbd5aaff4081dd7755caf5e_2_690x388.jpeg, https://leakfree.org/uploads/default/optimized/2X/1/156dfafd8c4acc59dfbd5aaff4081dd7755caf5e_2_1035x582.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/1/156dfafd8c4acc59dfbd5aaff4081dd7755caf5e_2_1380x776.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/1/156dfafd8c4acc59dfbd5aaff4081dd7755caf5e_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080 315 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/6/60abeb3f5b4b59c908bc6f6b4a1b55559fea7308.jpeg" data-download-href="https://leakfree.org/uploads/default/60abeb3f5b4b59c908bc6f6b4a1b55559fea7308" title=""><img src="https://leakfree.org/uploads/default/optimized/2X/6/60abeb3f5b4b59c908bc6f6b4a1b55559fea7308_2_690x388.jpeg" alt="" width="690" height="388" srcset="https://leakfree.org/uploads/default/optimized/2X/6/60abeb3f5b4b59c908bc6f6b4a1b55559fea7308_2_690x388.jpeg, https://leakfree.org/uploads/default/optimized/2X/6/60abeb3f5b4b59c908bc6f6b4a1b55559fea7308_2_1035x582.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/6/60abeb3f5b4b59c908bc6f6b4a1b55559fea7308_2_1380x776.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/6/60abeb3f5b4b59c908bc6f6b4a1b55559fea7308_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080 313 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>and here it is with mat_fullbright 2:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/d/d310bee9db4c3bfce6517f5c0650df1faf02c5c8.jpeg" data-download-href="https://leakfree.org/uploads/default/d310bee9db4c3bfce6517f5c0650df1faf02c5c8" title=""><img src="https://leakfree.org/uploads/default/optimized/2X/d/d310bee9db4c3bfce6517f5c0650df1faf02c5c8_2_690x388.jpeg" alt="" width="690" height="388" srcset="https://leakfree.org/uploads/default/optimized/2X/d/d310bee9db4c3bfce6517f5c0650df1faf02c5c8_2_690x388.jpeg, https://leakfree.org/uploads/default/optimized/2X/d/d310bee9db4c3bfce6517f5c0650df1faf02c5c8_2_1035x582.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/d/d310bee9db4c3bfce6517f5c0650df1faf02c5c8_2_1380x776.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/d/d310bee9db4c3bfce6517f5c0650df1faf02c5c8_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080 151 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/f/f3c837e4c146fa7c70798459110e26c3da57bdf0.jpeg" data-download-href="https://leakfree.org/uploads/default/f3c837e4c146fa7c70798459110e26c3da57bdf0" title=""><img src="https://leakfree.org/uploads/default/optimized/2X/f/f3c837e4c146fa7c70798459110e26c3da57bdf0_2_690x388.jpeg" alt="" width="690" height="388" srcset="https://leakfree.org/uploads/default/optimized/2X/f/f3c837e4c146fa7c70798459110e26c3da57bdf0_2_690x388.jpeg, https://leakfree.org/uploads/default/optimized/2X/f/f3c837e4c146fa7c70798459110e26c3da57bdf0_2_1035x582.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/f/f3c837e4c146fa7c70798459110e26c3da57bdf0_2_1380x776.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/f/f3c837e4c146fa7c70798459110e26c3da57bdf0_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080 177 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Removing and re-doing the brush or texture in question or the surrounding brushes doesn’t do anything to change the phenomenon, and copying the brush or moving it to a new location will cause it to not be affected. Changing the lightmap resolution makes the dark spot blurrier or sharper just like any other lighting effect but doesn’t seem to do anything about the underlying dark area:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/2/22d2a330014589298e6372770e9b7a3820abbc95.jpeg" data-download-href="https://leakfree.org/uploads/default/22d2a330014589298e6372770e9b7a3820abbc95" title=""><img src="https://leakfree.org/uploads/default/optimized/2X/2/22d2a330014589298e6372770e9b7a3820abbc95_2_690x388.jpeg" alt="" width="690" height="388" srcset="https://leakfree.org/uploads/default/optimized/2X/2/22d2a330014589298e6372770e9b7a3820abbc95_2_690x388.jpeg, https://leakfree.org/uploads/default/optimized/2X/2/22d2a330014589298e6372770e9b7a3820abbc95_2_1035x582.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/2/22d2a330014589298e6372770e9b7a3820abbc95_2_1380x776.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/2/22d2a330014589298e6372770e9b7a3820abbc95_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080 153 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>It’s possible to brighten these areas with a light_spot pointed directly at them, but obviously that means putting a bunch of pointless lights in the map.</p>
+<p>Does anybody know what this might be about?</p>
+          <p><a href="https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240/1</link>
+        <pubDate>Wed, 10 Apr 2019 00:38:01 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62240-1</guid>
+        <source url="https://leakfree.org/t/unusual-dark-splodges-in-lighting/62240.rss">Unusual Dark Splodges In Lighting</source>
+      </item>
+  </channel>
+</rss>

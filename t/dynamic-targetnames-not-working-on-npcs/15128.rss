@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Dynamic Targetnames Not Working On NPCs</title>
+    <link>https://leakfree.org/t/dynamic-targetnames-not-working-on-npcs/15128</link>
+    <description>I&#39;m currently trying to make it so that hitting E on an NPC will set its health to 0.
+
+OnPlayerUse &gt; ____ &gt; SetHealth &gt; 0
+
+This works if I name the NPC and then use that name in the blank space, but dynamic targetnames like !self and !caller are not working if they refer to said NPC.
+I could deal with naming each and every NPC I want this to work on, but if I could avoid that somehow I&#39;d certainly like to.</description>
+    
+    <lastBuildDate>Sun, 26 Mar 2017 23:53:27 +0000</lastBuildDate>
+    <category>Help!</category>
+    <atom:link href="https://leakfree.org/t/dynamic-targetnames-not-working-on-npcs/15128.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Dynamic Targetnames Not Working On NPCs</title>
+        <dc:creator><![CDATA[Alnaut]]></dc:creator>
+        <description><![CDATA[
+            <p>That’s unfortunate that it behaves like that, I’ll probably just name the NPCs or find some roundabout ways to make it work on NPCs that don’t have the OnPlayerUse Output.<br>
+Thanks.</p>
+          <p><a href="https://leakfree.org/t/dynamic-targetnames-not-working-on-npcs/15128/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/dynamic-targetnames-not-working-on-npcs/15128/5</link>
+        <pubDate>Sun, 26 Mar 2017 23:53:27 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15128-5</guid>
+        <source url="https://leakfree.org/t/dynamic-targetnames-not-working-on-npcs/15128.rss">Dynamic Targetnames Not Working On NPCs</source>
+      </item>
+      <item>
+        <title>Dynamic Targetnames Not Working On NPCs</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <p>Dynamic targetnames work since I use them to equip scentists with guns in my maps.</p>
+<p>So I did some tests…</p>
+<p>This works perfectly, a whack with crowbar and he’s dead:<br>
+<img src="https://i.imgur.com/7vNz5f9.png" alt="" width="671" height="495"></p>
+<p>This… Ok now I get it.<br>
+When using OnPlayerUse, the !self for some reason is refering to the player and not the npc.<br>
+Replacing the OnPlayerUse with a different event and it works.<br>
+So the thing here causes it to set the health of the player to 0.<br>
+<img src="https://i.imgur.com/RJ6pyAR.png" alt="" width="670" height="497"></p>
+<p>This is from one of my maps and it works:<br>
+<img src="https://i.imgur.com/JZWM1dQ.png" alt="" width="661" height="497"></p>
+<p>So… The OnPlayerUse event causes the !self to refer to the player instead of the npc. Using any other event will refer to the npc. But those events don’t seem to mix with using the npc.</p>
+          <p><a href="https://leakfree.org/t/dynamic-targetnames-not-working-on-npcs/15128/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/dynamic-targetnames-not-working-on-npcs/15128/4</link>
+        <pubDate>Sun, 26 Mar 2017 22:09:13 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15128-4</guid>
+        <source url="https://leakfree.org/t/dynamic-targetnames-not-working-on-npcs/15128.rss">Dynamic Targetnames Not Working On NPCs</source>
+      </item>
+      <item>
+        <title>Dynamic Targetnames Not Working On NPCs</title>
+        <dc:creator><![CDATA[Alnaut]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks!<br>
+So the correct format of this would be</p>
+<p>OnPlayerUse &gt; !self &gt; FireUser1<br>
+OnUser1 &gt; !self &gt; setHealth &gt; 0?</p>
+<p>Because if I do that nothing seems to happen when I hit the use key.<br>
+Unless I use a set name instead of  !self, which is why it seems like dynamic targetnames simply don’t work on NPCs.</p>
+          <p><a href="https://leakfree.org/t/dynamic-targetnames-not-working-on-npcs/15128/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/dynamic-targetnames-not-working-on-npcs/15128/3</link>
+        <pubDate>Sun, 26 Mar 2017 18:28:50 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15128-3</guid>
+        <source url="https://leakfree.org/t/dynamic-targetnames-not-working-on-npcs/15128.rss">Dynamic Targetnames Not Working On NPCs</source>
+      </item>
+      <item>
+        <title>Dynamic Targetnames Not Working On NPCs</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <p>Use:</p>
+<p>OnUser1<br>
+!self<br>
+setHealth<br>
+0<br>
+FireonceOnly</p>
+<p>and then fireUser1 when pressing E on them.</p>
+          <p><a href="https://leakfree.org/t/dynamic-targetnames-not-working-on-npcs/15128/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/dynamic-targetnames-not-working-on-npcs/15128/2</link>
+        <pubDate>Sun, 26 Mar 2017 06:40:54 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15128-2</guid>
+        <source url="https://leakfree.org/t/dynamic-targetnames-not-working-on-npcs/15128.rss">Dynamic Targetnames Not Working On NPCs</source>
+      </item>
+      <item>
+        <title>Dynamic Targetnames Not Working On NPCs</title>
+        <dc:creator><![CDATA[Alnaut]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m currently trying to make it so that hitting E on an NPC will set its health to 0.</p>
+<p>OnPlayerUse &gt; ____ &gt; SetHealth &gt; 0</p>
+<p>This works if I name the NPC and then use that name in the blank space, but dynamic targetnames like !self and !caller are not working if they refer to said NPC.<br>
+I could deal with naming each and every NPC I want this to work on, but if I could avoid that somehow I’d certainly like to.</p>
+          <p><a href="https://leakfree.org/t/dynamic-targetnames-not-working-on-npcs/15128/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/dynamic-targetnames-not-working-on-npcs/15128/1</link>
+        <pubDate>Sun, 26 Mar 2017 00:52:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15128-1</guid>
+        <source url="https://leakfree.org/t/dynamic-targetnames-not-working-on-npcs/15128.rss">Dynamic Targetnames Not Working On NPCs</source>
+      </item>
+  </channel>
+</rss>

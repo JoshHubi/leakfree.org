@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Hacks for citizen animation library?</title>
+    <link>https://leakfree.org/t/hacks-for-citizen-animation-library/15211</link>
+    <description>I&#39;m trying to get a female character to play a certain citizen animation from Anticitizen One- a blink-and-you&#39;ll-miss-it scripted sequence of a citizen climbing a rope. However, the animation apparently only works with a male skeleton. Is there a way to hack a female citizen model to use male citizen animations?</description>
+    
+    <lastBuildDate>Fri, 07 Jul 2017 22:08:49 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/hacks-for-citizen-animation-library/15211.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Hacks for citizen animation library?</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>Honestly my main skillset is in level design and story writing, so I’d need to branch out quite a bit to do all this myself. I plan on getting my head around Blender in at least a rudimentary form, however.<br>
+I’d try to recruit a team but this project has just been my own personal project for so long it’d be hard to read someone new in.</p>
+          <p><a href="https://leakfree.org/t/hacks-for-citizen-animation-library/15211/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hacks-for-citizen-animation-library/15211/5</link>
+        <pubDate>Fri, 07 Jul 2017 22:08:49 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15211-5</guid>
+        <source url="https://leakfree.org/t/hacks-for-citizen-animation-library/15211.rss">Hacks for citizen animation library?</source>
+      </item>
+      <item>
+        <title>Hacks for citizen animation library?</title>
+        <dc:creator><![CDATA[Flavrans]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes, unfortunately, because the male model is slightly taller/larger than the female model, and their rigs are different, it will cause some stretching and odd posturing of the body of the female model.</p>
+<p>In the first attached image you’ll see the female01.mdl citizen model in the female ragdoll pose. In the second image I’ve imported the male01 ragdoll pose and you can see how it affects the model.</p>
+<p>I don’t think that there’s an easy fix for this other than manually tweaking and adjusting the animations.</p>
+<p>However, I’m thinking it might be possible to write a script or a program that measures the differences in the female and the male rigs, and then use that as a baseline for applying corrections to the male animations. That could be a way to go if your programming skills are better than your animation skills.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/5/5e9951042bc0261685d55ae44891a6bdb6e470c3.png" data-download-href="https://leakfree.org/uploads/default/5e9951042bc0261685d55ae44891a6bdb6e470c3" title="female01_female_ragdoll_pose.png"><img src="https://leakfree.org/uploads/default/optimized/2X/5/5e9951042bc0261685d55ae44891a6bdb6e470c3_2_690x500.png" alt="female01_female_ragdoll_pose.png" data-base62-sha1="duRmoCz7Xwu38f3aYEUcWJnyL7l" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/5/5e9951042bc0261685d55ae44891a6bdb6e470c3_2_690x500.png, https://leakfree.org/uploads/default/original/2X/5/5e9951042bc0261685d55ae44891a6bdb6e470c3.png 1.5x, https://leakfree.org/uploads/default/original/2X/5/5e9951042bc0261685d55ae44891a6bdb6e470c3.png 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/5/5e9951042bc0261685d55ae44891a6bdb6e470c3_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">female01_female_ragdoll_pose.png</span><span class="informations">800×860 75.3 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/d/d8589a1b2dba75a59445e8af72df31591b18753c.png" data-download-href="https://leakfree.org/uploads/default/d8589a1b2dba75a59445e8af72df31591b18753c" title="female01_male_ragdoll_pose.png"><img src="https://leakfree.org/uploads/default/optimized/2X/d/d8589a1b2dba75a59445e8af72df31591b18753c_2_690x500.png" alt="female01_male_ragdoll_pose.png" data-base62-sha1="uRSXFLnMrCLYokjnKepNjfUMpyY" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/d/d8589a1b2dba75a59445e8af72df31591b18753c_2_690x500.png, https://leakfree.org/uploads/default/original/2X/d/d8589a1b2dba75a59445e8af72df31591b18753c.png 1.5x, https://leakfree.org/uploads/default/original/2X/d/d8589a1b2dba75a59445e8af72df31591b18753c.png 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/d/d8589a1b2dba75a59445e8af72df31591b18753c_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">female01_male_ragdoll_pose.png</span><span class="informations">800×860 76.6 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+          <p><a href="https://leakfree.org/t/hacks-for-citizen-animation-library/15211/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hacks-for-citizen-animation-library/15211/4</link>
+        <pubDate>Fri, 07 Jul 2017 21:08:07 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15211-4</guid>
+        <source url="https://leakfree.org/t/hacks-for-citizen-animation-library/15211.rss">Hacks for citizen animation library?</source>
+      </item>
+      <item>
+        <title>Hacks for citizen animation library?</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>How much would this warp the model, though? Will it make the female rig bug out?</p>
+          <p><a href="https://leakfree.org/t/hacks-for-citizen-animation-library/15211/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hacks-for-citizen-animation-library/15211/3</link>
+        <pubDate>Wed, 05 Jul 2017 19:44:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15211-3</guid>
+        <source url="https://leakfree.org/t/hacks-for-citizen-animation-library/15211.rss">Hacks for citizen animation library?</source>
+      </item>
+      <item>
+        <title>Hacks for citizen animation library?</title>
+        <dc:creator><![CDATA[Flavrans]]></dc:creator>
+        <description><![CDATA[
+            <p>I may be way off base here, but I think you will need to decompile the female model (using a decompiler like Crowbar). Then edit the .qc file, locate the section with the $IncludeModel options and add the appropriate male shared animation model file. For example:</p>
+<p><code>$IncludeModel "humans/female_shared.mdl"
+$IncludeModel "humans/male_ss.mdl"
+$IncludeModel "humans/female_ss.mdl"
+$IncludeModel "humans/female_gestures.mdl"
+$IncludeModel "humans/female_postures.mdl"</code>Then recompile the model. The new model file should now include all the animations from the male_ss.mdl file. I suppose you could extract only the specific animation(s) you need from the male shared animation model file, but that would require more work obviously.</p>
+          <p><a href="https://leakfree.org/t/hacks-for-citizen-animation-library/15211/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hacks-for-citizen-animation-library/15211/2</link>
+        <pubDate>Wed, 05 Jul 2017 13:53:25 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15211-2</guid>
+        <source url="https://leakfree.org/t/hacks-for-citizen-animation-library/15211.rss">Hacks for citizen animation library?</source>
+      </item>
+      <item>
+        <title>Hacks for citizen animation library?</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m trying to get a female character to play a certain citizen animation from Anticitizen One- a blink-and-you’ll-miss-it scripted sequence of a citizen climbing a rope. However, the animation apparently only works with a male skeleton. Is there a way to hack a female citizen model to use male citizen animations?</p>
+          <p><a href="https://leakfree.org/t/hacks-for-citizen-animation-library/15211/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/hacks-for-citizen-animation-library/15211/1</link>
+        <pubDate>Tue, 04 Jul 2017 20:20:00 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15211-1</guid>
+        <source url="https://leakfree.org/t/hacks-for-citizen-animation-library/15211.rss">Hacks for citizen animation library?</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Fixing Crosshairs for Eyefinity</title>
+    <link>https://leakfree.org/t/fixing-crosshairs-for-eyefinity/10899</link>
+    <description>I&#39;ve been having a great time playing BMS and it looks great maxed out at 5760x1080  :slight_smile: 
+The only issue is that the cross-hairs on everything apart from the round shotgun crosshair seems to have been stretched horizontally  :frowning: 
+Is there a fix for this or are there some values I can play with in order to fix the HUD stretch?
+It would also be nice to have health and ammo appear in the centre screen and not on the edge of the left and right monitor however that&#39;s not a big deal.
+The red damage bars that come up are also a bit weird and overlap each other.
+
+Any help would be great.
+
+Regards,
+Wolf</description>
+    
+    <lastBuildDate>Thu, 20 Sep 2012 18:46:09 +0000</lastBuildDate>
+    <category>Help!</category>
+    <atom:link href="https://leakfree.org/t/fixing-crosshairs-for-eyefinity/10899.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Fixing Crosshairs for Eyefinity</title>
+        <dc:creator><![CDATA[Jenova19]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello there,</p>
+<p>while experimenting with some of the console commands I stumbled over two (2) that might interest you:</p>
+<p><span class="bbcode-u"><span class="bbcode-b">r_aspectratio</span></span></p>
+<pre><code class="lang-auto">r_aspectratio ???</code></pre>
+<p><span class="bbcode-b">Note:</span> “???” stands for a value (0-5 [+/- .50]).</p>
+<p>These could be higher (or lower), but above or below a certain value it appears to make the game (visually) unplayable.</p>
+<p><span class="bbcode-u"><span class="bbcode-b">fov</span></span></p>
+<pre><code class="lang-auto">fov ???</code></pre>
+<p><span class="bbcode-b">Note:</span> “???” stands for a value (55-125 [+/- 10-15]).</p>
+<hr>
+<p><span class="bbcode-u"><span class="bbcode-b">Examples (screenshots):</span></span></p>
+<p><span class="bbcode-b">Note:</span> “<span class="bbcode-b">v-</span>” and “<span class="bbcode-b">-v</span>” are supposed to be arrows, pointing down.</p>
+<p><span class="bbcode-b">v- “r_aspectratio 0” and “fov 75” -v</span><br>
+<span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span><br>
+<span class="bbcode-b">Resolution:</span> <span class="bbcode-i">1920x1080</span></p>
+<p><span class="bbcode-b">v- “r_aspectratio 0” and “fov 95” -v</span><br>
+<span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span><br>
+<span class="bbcode-b">Resolution:</span> <span class="bbcode-i">1920x1080</span></p>
+<p><span class="bbcode-b">v- “r_aspectratio 1” and “fov 75” -v</span><br>
+<span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span><br>
+<span class="bbcode-b">Resolution:</span> <span class="bbcode-i">1920x1080</span></p>
+<p><span class="bbcode-b">v- “r_aspectratio 1” and “fov 95” -v</span><br>
+<span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span><br>
+<span class="bbcode-b">Resolution:</span> <span class="bbcode-i">1920x1080</span></p>
+<hr>
+<p><span class="bbcode-b">You may want to experiment with those two commands, in the console:</span></p>
+<p><span class="bbcode-b">v - How-To enable the console in Black Mesa - v</span></p>
+<aside class="quote no-group">
+<blockquote>
+<ol type="1">
+<li> Close Black Mesa.</li>
+<li> Open Steam.</li>
+<li> Browse to the Library (All Games).</li>
+<li> Right click “<span class="bbcode-b">Black Mesa</span>”.</li>
+<li> Click “<span class="bbcode-b">Properties</span>” (on the bottom of the menu).</li>
+<li> Click “<span class="bbcode-b">Set Launch Options…</span>”.</li>
+<li> Type “<span class="bbcode-b">-dev -console</span>” (without “”).</li>
+<li> Click “<span class="bbcode-b">OK</span>”.</li>
+<li> Close the “<span class="bbcode-b">Black Mesa - Properties</span>” window.</li>
+<li> Start the game.</li>
+</ol>
+</blockquote>
+</aside>
+<hr>
+<p><span class="bbcode-u"><span class="bbcode-b">What they do (presumably):</span></span></p>
+<p>A higher “r_aspectratio ???” (higher than 1) seems to squeeze the image, while a lower value (lower than 1) seems to stretch it.</p>
+<p>A higher “fov ???” (fov = Field Of View) value increases the overall field of view or visible image, while a lower value decreases it.</p>
+<hr>
+<p><span class="bbcode-u"><span class="bbcode-b">Other ways:</span></span></p>
+<p>There are other ways, as well.</p>
+<p>You could try to edit both the values of “<span class="bbcode-b">xpos</span>” and “<span class="bbcode-b">ypos</span>”, for the misplaced HUD elements, inside the “<span class="bbcode-b">HudLayout.res</span>” file ("[b]…\SteamApps\sourcemods\BMS\scripts[/b]"), but that would require even more testing.</p>
+<p><span class="bbcode-i">(Remember to make a backup before editing it, though!)</span></p>
+<p>Moving the health and ammo display(s) of the HUD is also possible (using those xpos and ypos values I mentioned above).</p>
+<p>Don’t forget to preserve “r??” on some values, if there is one.</p>
+<hr>
+<p><span class="bbcode-u"><span class="bbcode-b">Reference:</span></span></p>
+<p><span class="bbcode-b">v- This is a graph for both the X and Y axis (just for reference). -v</span><br>
+<img src="https://leakfree.org/uploads/default/original/3X/9/0/90155779697cd932f79776f069c98274115a90eb.png" alt="" data-base62-sha1="kyCtLzC5YoHuH236rIFQzZNarHR" width="310" height="312"><br>
+<span class="bbcode-i">(Source: <a href="https://www.mathexpression.com/images/graph-x-y-axis.png" data-bbcode="true" rel="nofollow noopener">https://www.mathexpression.com/images/graph-x-y-axis.png</a>)</span></p>
+<hr>
+<p>I hope this helps (in any way)!  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://leakfree.org/t/fixing-crosshairs-for-eyefinity/10899/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fixing-crosshairs-for-eyefinity/10899/2</link>
+        <pubDate>Thu, 20 Sep 2012 18:46:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10899-2</guid>
+        <source url="https://leakfree.org/t/fixing-crosshairs-for-eyefinity/10899.rss">Fixing Crosshairs for Eyefinity</source>
+      </item>
+      <item>
+        <title>Fixing Crosshairs for Eyefinity</title>
+        <dc:creator><![CDATA[BWLF.Wolf]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve been having a great time playing BMS and it looks great maxed out at 5760x1080  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"><br>
+The only issue is that the cross-hairs on everything apart from the round shotgun crosshair seems to have been stretched horizontally  <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"><br>
+Is there a fix for this or are there some values I can play with in order to fix the HUD stretch?<br>
+It would also be nice to have health and ammo appear in the centre screen and not on the edge of the left and right monitor however that’s not a big deal.<br>
+The red damage bars that come up are also a bit weird and overlap each other.</p>
+<p>Any help would be great.</p>
+<p>Regards,<br>
+Wolf</p>
+          <p><a href="https://leakfree.org/t/fixing-crosshairs-for-eyefinity/10899/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/fixing-crosshairs-for-eyefinity/10899/1</link>
+        <pubDate>Thu, 20 Sep 2012 11:27:16 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-10899-1</guid>
+        <source url="https://leakfree.org/t/fixing-crosshairs-for-eyefinity/10899.rss">Fixing Crosshairs for Eyefinity</source>
+      </item>
+  </channel>
+</rss>

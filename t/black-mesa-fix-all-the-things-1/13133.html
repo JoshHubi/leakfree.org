@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/black-mesa-fix-all-the-things-1/13133 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:47:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Black Mesa: Fix all the things #1 - Developer Logs - Leakfree</title>
+    <meta name="description" content="Greetings my name is Johnathan aka Cpl.1nsane or Comrade Badger on steam, I joined the team in 2007 primarily as a level designer. So far since joining I’ve predominantly worked on the chapters Unforeseen Consequences an&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="13133.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Black Mesa: Fix all the things #1&#39;" href="13133.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/3X/a/6/a6e4743db790553de4d55497ab3a11d50ba0e13d.jpeg" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/3X/a/6/a6e4743db790553de4d55497ab3a11d50ba0e13d.jpeg" />
+<meta property="og:url" content="https://leakfree.org/t/black-mesa-fix-all-the-things-1/13133" />
+<meta name="twitter:url" content="https://leakfree.org/t/black-mesa-fix-all-the-things-1/13133" />
+<meta property="og:title" content="Black Mesa: Fix all the things #1" />
+<meta name="twitter:title" content="Black Mesa: Fix all the things #1" />
+<meta property="og:description" content="Greetings my name is Johnathan aka Cpl.1nsane or Comrade Badger on steam, I joined the team in 2007 primarily as a level designer. So far since joining I’ve predominantly worked on the chapters Unforeseen Consequences and Questionable Ethics, the majority of that work went towards the second half of UC with the coolant labs &amp; lower canal up to Office Complex and the first and last maps of QE. Intermingled with that I’ve dipped my toes into a few other  areas with some texture creation but mostly..." />
+<meta name="twitter:description" content="Greetings my name is Johnathan aka Cpl.1nsane or Comrade Badger on steam, I joined the team in 2007 primarily as a level designer. So far since joining I’ve predominantly worked on the chapters Unforeseen Consequences and Questionable Ethics, the majority of that work went towards the second half of UC with the coolant labs &amp; lower canal up to Office Complex and the first and last maps of QE. Intermingled with that I’ve dipped my toes into a few other  areas with some texture creation but mostly..." />
+<meta property="article:published_time" content="2014-03-31T01:04:05+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="13133.html">Black Mesa: Fix all the things #1</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/6.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa Archive</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/developer-logs/15.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Developer Logs</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Cpl.html'><span itemprop='name'>Cpl.1nsane</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13133.html">
+
+            <link itemprop="image" href="../../uploads/default/original/3X/a/6/a6e4743db790553de4d55497ab3a11d50ba0e13d.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-31T01:04:05Z'>
+              <time itemprop='dateModified' datetime='2020-08-12T08:51:31Z' class='post-time'>
+                August 12, 2020,  8:51am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a href="https://i.imgur.com/SP9Pu.gif" data-bbcode="true">Greetings</a> my name is Johnathan aka Cpl.1nsane or Comrade Badger on steam, I joined the team in 2007 primarily as a level designer. So far since joining I’ve predominantly worked on the chapters Unforeseen Consequences and Questionable Ethics, the majority of that work went towards the second half of UC with the coolant labs &amp; lower canal up to Office Complex and the first and last maps of QE. Intermingled with that I’ve dipped my toes into a few other  areas with some texture creation but mostly creating particle effects, many of which are used throughout the mod.</p>
+<p>So with that brief intro out of the way I’d like to tell you about some of things I’ve been working on over the past year or so after the initial release of the mod back in 2012. Following that launch I set out to gather and review the plethora of bug reports (which were very helpful!) that had been submitted on both our forums and the community created bug tracker and start to sift through and begin fixing as much as I could. I could not dare guess at the total number of things that have been fixed since then, but It’s a decent amount (150+ level related issues and improvements at least) and hopefully for the vast majority of cases it may only be small visual quips remaining rather than the more game breaking issues.</p>
+<p>One such <a href="https://forums.blackmesasource.com/showthread.php?t=16904" data-bbcode="true">issue</a> that had been <a href="https://forums.blackmesasource.com/showthread.php?t=16506" data-bbcode="true">reported</a> related to the players weapons disappearing when transitioning between the end of Questionable Ethics and the first map of Surface Tension (bm_c2a4h to bm_c2a5a) The bug itself was caused by there being too much data in the area (in both maps) upon the player moving between maps which caused it to remove some entities in order to make space, in this case it was the players weapons. Ultimately the issue lay within the transition design itself (aka oops, <a href="https://i.imgur.com/9U5qwAi.gif" data-bbcode="true">I dun goofed when making it</a>).</p>
+<p><span class="bbcode-i">(you can click the images for larger versions)</span><br>
+<a href="https://i.imgur.com/ja7Yajw.jpg" data-bbcode="true"><img src="../../uploads/default/original/3X/a/6/a6e4743db790553de4d55497ab3a11d50ba0e13d.jpg" alt="" data-base62-sha1="nOoIGh3Zl4kzunnuoa9oF934gs5" width="357" height="223"></a></p>
+<p>In the original 2012 release version the tunnel section at the end of QE was present both before and after the transition which meant all of the models, decals and other assorted entities were being duplicated from bm_c2a4h to bm_c2a5a upon transitioning, this would continue to happen if the player transitioned back from ST to QE again which would further <a href="https://i.imgur.com/sz9m6Gd.gif" data-bbcode="true">cause problems</a>. To rectify this issue I elected to go with the simpler enclosed transition with a door closing behind the player at the end of QE creating an airlock of sorts. Once moved to Surface Tension they would only see a closed door behind them rather than the full section of the tunnel. This had Its added benefits In both reducing the map size and number of entities in bm_c2a5a and removing the quirk present in starting ST directly from the menu and being able to transition back to QE causing the player to see npcs that have yet to be triggered to spawn among other things. I also added some extra hard cover for the initial engagement the player has a the beginning of ST.</p>
+<p>The player is still able to transition back to QE from ST but only if the player has come from QE and not loaded ST from the menu and has dispatched the near by enemies outside of the tunnel.</p>
+<p><span class="bbcode-b"><span class="bbcode-i">Transition before:</span></span></p>
+<p><a href="https://i.imgur.com/55GhjfY.jpg" data-bbcode="true"><img src="../../uploads/default/original/3X/0/f/0f236b6dd38cbaff2f7c2e488d43ea827b752e57.jpg" alt="" data-base62-sha1="29V2ZE6EX6JnRWhQYl5nczdFpGv" width="357" height="223"></a><a href="https://i.imgur.com/REUYOJL.jpg" data-bbcode="true"><img src="../../uploads/default/original/3X/8/a/8a387925364937feb875212683ff16fb491672e4.jpg" alt="" data-base62-sha1="jIKSP2HsnVpGXD05ha1aJoSsi7G" width="357" height="223"></a></p>
+<p><span class="bbcode-b"><span class="bbcode-i">Transition after:</span></span></p>
+<p><a href="https://i.imgur.com/ircwrjk.jpg" data-bbcode="true"><img src="../../uploads/default/original/3X/4/2/4295cc9d603df120bc2d30aa6c20387b2692f015.jpg" alt="" data-base62-sha1="9v2siRhgS88lu3fUxztNpxFaBeZ" width="357" height="223"></a><a href="https://i.imgur.com/4n2YCRJ.jpg" data-bbcode="true"><img src="../../uploads/default/original/3X/3/7/37706813c9a3f8e976b2ce3285fc88356e3b099e.jpg" alt="" data-base62-sha1="7Ur5D2xPK6Z2SwtqCyhnJ1t6GYK" width="357" height="223"></a></p>
+<p>The difference in the fog between the before and after shots is due to the tunnel fog that was still active in the old transition, in the new one its only using the actual map fog from bm_c2a5a than than having the tunnel fog just for that small area.</p>
+<p>I also fixed this really not noticeable or annoying bug, which I can go into more detail if people are interested.</p>
+<p><span class="bbcode-b"><span class="bbcode-i">Before / After</span></span></p>
+<p><a href="https://i.imgur.com/oACUgmd.jpg" data-bbcode="true"><img src="../../uploads/default/original/3X/1/a/1a2ea2b0b4d514352adae747da27d7ffc4d0d06c.jpg" alt="" data-base62-sha1="3JCktRiO9VuFPqboi7qxCC659Ew" width="357" height="223"></a><a href="https://i.imgur.com/SOFzESg.jpg" data-bbcode="true"><img src="../../uploads/default/original/3X/6/0/602ef0f45234106b2adf1de82a22a1c0daee904c.jpg" alt="" data-base62-sha1="dISpjqDQSK4DQu4trgvrkfOHyGM" width="357" height="223"></a></p>
+<p><a href="https://imgur.com/a/91vXO" data-bbcode="true">Gallery link</a> for anyone that wants it.</p>
+<p>If you have any questions related to the post, feel free to ask.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa: Fix all the things #1'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13133.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-31T02:57:08Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:44Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Huh. What <span class="bbcode-i">was</span> causing that issue in the pipes? I’d been assuming it was some spastic brushes on a fade-to-black effect, but that seems like Source would have to try pretty hard to break.</p>
+<p>Also, thank you so much for those bits of cover in the ST intro tunnel. That part was a nightmare on hard.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa: Fix all the things #1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Chickenprotector.html'><span itemprop='name'>Chickenprotector</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13133.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-31T03:15:39Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:44Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Well this is interesting. Look forward to seeing more 1nsane if you’re willing to share.</p>
+<p>I didn’t notice before crypt pointed it out, thanks for the cover in the corner there, that area is a bitch to deal with if you’re not quick on your feet.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa: Fix all the things #1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/sersoft.html'><span itemprop='name'>sersoft</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13133.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-31T04:25:14Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:44Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yeah the pipes was pretty much the only thing I noticed on my first playthrough, although later when exploring I ran into “going over the entity limit” so to speak…</p>
+<p>Anyway, awesome news, all good to hear, I don’t mind some extra airlocks here and there as long as it doesn’t become like HL2 og xbox version. Jk excellent work.  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa: Fix all the things #1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Salk.html'><span itemprop='name'>Salk</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13133.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-31T04:34:40Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:44Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I love reading about bug fixing and how that’s accomplished.</p>
+<p>Thank you, Cpl.1nsane.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa: Fix all the things #1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Deathmonkey7.html'><span itemprop='name'>Deathmonkey7</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13133.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-31T09:51:59Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:47Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for the update. Its always great to see that some bugs are being squashed. Especially happy for that cover, it was like a firing squad out there!</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa: Fix all the things #1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Ronster.html'><span itemprop='name'>Ronster</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13133.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-31T10:48:38Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:47Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Just so you know the game crashes sometmes for me when I go through the pipe on the right.</p>
+<p>That is the pipe on the right coming from the river into the new map.  if I take the other pipe (left) it never crashes.</p>
+<p>Yeah that door to surface tension had issues, You could load back to the old map far too easily by accident. Transitioning in to questionable ethics also in that underground bit also has a load back and fourth spacial annoyance. Loading back and forth by accident basically.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa: Fix all the things #1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Mabilis.html'><span itemprop='name'>Mabilis</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13133.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-31T11:05:42Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:47Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I think those pipes are models so it could be a light_origin problem but the weird lines on the pipes I’ve no idea what causes that.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa: Fix all the things #1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Cpl.html'><span itemprop='name'>Cpl.1nsane</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13133.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-31T13:39:34Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T10:53:04Z' class='post-time'>
+                August 11, 2020, 10:53am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Crypt">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/crypt/40/4394_2.png" class="avatar"> Crypt:</div>
+<blockquote>
+<p>Huh. What <span class="bbcode-i">was</span> causing that issue in the pipes? I’d been assuming it was some spastic brushes on a fade-to-black effect, but that seems like Source would have to try pretty hard to break.</p>
+<p>Also, thank you so much for those bits of cover in the ST intro tunnel. That part was a nightmare on hard.</p>
+</blockquote>
+</aside>
+<p>The pipe issue was a mixture of things, mostly due to the models <a href="https://en.wikipedia.org/wiki/Level_of_detail" data-bbcode="true">LOD</a> kicking in way too early. The pipe section itself has models at either end with the connection between them being brushes, when the lower detail model kicked in it would clip through and show the brushes underneath.</p>
+<p>To fix it I had to decompile the original hl2 pipe model and both change the scale of it a little and adjust the LOD distance in the <a href="https://developer.valvesoftware.com/wiki/QC" data-bbcode="true">QC</a> so that it wouldn’t kick in quite as early.</p>
+<aside class="quote no-group" data-username="Chickenprotector">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/chickenprotector/40/5653_2.jpg" class="avatar"> Chickenprotector:</div>
+<blockquote>
+<p>Well this is interesting. Look forward to seeing more 1nsane if you’re willing to share.</p>
+<p>I didn’t notice before crypt pointed it out, thanks for the cover in the corner there, that area is a bitch to deal with if you’re not quick on your feet.</p>
+</blockquote>
+</aside>
+<p>More to come in the future for sure :freeman:</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa: Fix all the things #1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Myth_Alex.html'><span itemprop='name'>Myth_Alex</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13133.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-31T17:47:31Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:49Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thank you! I want more map before-after comparison pics  <img src="../../images/emoji/twitter/smileyc164.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa: Fix all the things #1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dragunov2.html'><span itemprop='name'>Dragunov2</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13133.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-03-31T18:21:36Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:50Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Nice to see updates!</p>
+<p>But keep in mind we actually see pics of the game in the new engine, not the old engine (I guess) or this are pics for the free version of Black Mesa and they not gonna show pics for the paid version!</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa: Fix all the things #1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Mr_GameCrazy.html'><span itemprop='name'>Mr_GameCrazy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13133.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-04-01T01:23:53Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:52Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Nice job fixing those issues, Cpl.1nsane.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa: Fix all the things #1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Kenley.html'><span itemprop='name'>Kenley</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13133.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-04-01T04:01:59Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:54Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Keep it coming, it’s great to hear about (and get to appreciate!) the work you all are doing.  I’m eagerly (but patiently) awaiting the coming release!</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa: Fix all the things #1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/sourcegamer101.html'><span itemprop='name'>sourcegamer101</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13133.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-04-01T06:15:48Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:54Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>So much updates. It’s underwhelmingly overwhelming.  <img src="../../images/emoji/twitter/smileyc164.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa: Fix all the things #1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Maxey.html'><span itemprop='name'>Maxey</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13133.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-04-01T09:54:19Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:55Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Good job Welsh, now fix even more of all the things.</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa: Fix all the things #1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dadster.html'><span itemprop='name'>Dadster</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13133.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-04-01T17:28:04Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:01:57Z' class='post-time'>
+                November 25, 2018,  4:01am
+              </time>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for sharing. Really interesting stuff. Keep on nailin’ down dem bugs!</p>
+        </div>
+
+        <meta itemprop='headline' content='Black Mesa: Fix all the things #1'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/black-mesa-fix-all-the-things-1/13133 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:47:59 GMT -->
+</html>

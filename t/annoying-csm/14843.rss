@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Annoying CSM</title>
+    <link>https://leakfree.org/t/annoying-csm/14843</link>
+    <description>I first noticed these issues in QEPD where the brighter lighting makes them more obvious, but they exist in the canon bm_c2a4h map as well.
+
+[img]https://images.akamai.steamusercontent.com/ugc/267217845670044510/9FA991D4C64507E777D313B6CF47B9C504530B75/[/img]
+The big problem is that [i]indoors[/i], the CSM seems to put a single giant &quot;shadow&quot; over everything, resulting in the floors and some walls being covered by this horrible brown patina. You can see here how it discolors the light falling onto the floor, turning it &quot;underexposed&quot; and brown where the &quot;bio labs&quot; sign reveals it to in fact be a bright blue-white.
+
+[img]https://images.akamai.steamusercontent.com/ugc/267217845670044720/524A554B8853D35337C0345A94AEA4D7217F3F8A/[/img]
+This patina-shadow does [i]not[/i] affect props, causing them to in some cases appear to be &quot;glowing&quot;, or, due to the lack of a shadow specifically for them as opposed to everywhere, &quot;floating&quot;.
+
+[img]https://images.akamai.steamusercontent.com/ugc/267217845670044622/304AC9B87DC84790D6364127DCB4F68480E86F33/[/img]
+The patina-shadows do not seem to synch up with the walls quite right in concave interior rooms- there is often a little strip of white in the corners where the floor meets the wall, which from a distance looks very similar to a hole to nodraw.
+
+[img]https://images.akamai.steamusercontent.com/ugc/267217845670044813/A4643DA9AED6BE6338E8CBE66BB018A45BF3D33F/[/img]
+Also observed this strange effect, where the lightmap shadow of the console seems to &quot;blend out&quot; the patina-shadow, producing a darker but more bluish area under the panels.
+
+
+Since (to my knowledge) I&#39;m the first modder to actually [i]interact[/i] with CSM, I&#39;m wondering if there&#39;s any way to &#39;fix&#39; this, for instance by turning the CSM entity itself on or off- none of the other topside maps seem to have the problems c2a4h does, so is there something I&#39;m missing about how to control these entities? Just in general, can we get some more information at some point relating to how CSM works and how to control it in custom maps?</description>
+    
+    <lastBuildDate>Fri, 01 Jul 2016 13:17:00 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/annoying-csm/14843.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Annoying CSM</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>To my knowledge pd_c2a4h has no named lights in it currently, and none are planned. I am perfectly fine knowing that the problem is being worked on, as there are other reasons why I won’t be able to update pd_c2a4h to use a lot of the new functionality for a while yet.</p>
+          <p><a href="https://leakfree.org/t/annoying-csm/14843/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/annoying-csm/14843/5</link>
+        <pubDate>Fri, 01 Jul 2016 13:17:00 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14843-5</guid>
+        <source url="https://leakfree.org/t/annoying-csm/14843.rss">Annoying CSM</source>
+      </item>
+      <item>
+        <title>Annoying CSM</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>Skiplightmap makes CSM skip the reading of the alpha in the lightmap. What this means is that the engine can no longer determine which parts of the map are in direct sunlight, and which parts aren’t.</p>
+<p>It’s a workaround to make lightstyles work with CSM. Lightstyles = switchable, named lights which take up lightmap pages in VRAD. A map with switchable lights has different pages in the lightmap alpha, so CSM does not work with it usually. This would normally mean that maps with CSM cannot have switchable lights, which is bad for obvious reasons - and was a serious limitation of the CSM present in CS:GO.</p>
+<p>When skiplightmap is enabled, the engine will instead approximate the areas which are in shadow and which aren’t, which is why you get that slight darkening effect indoors. It’s a visual issue indeed, but it’s preferable to us not being able to have CSM on maps with switchable lights, which is the alternative. Chetan tried a bunch of ways to resolve this but ultimately this workaround is the only solution we have currently.</p>
+<p>You basically have 2 options:</p>
+<ol>
+<li>
+<p>Live with it.</p>
+</li>
+<li>
+<p>Remove any named lights and turn off skiplightmaps in the CSM entity.</p>
+</li>
+</ol>
+<p>We may be able to resolve the issue in the future, but for now, this is how it is after months of work.</p>
+          <p><a href="https://leakfree.org/t/annoying-csm/14843/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/annoying-csm/14843/4</link>
+        <pubDate>Fri, 01 Jul 2016 01:35:23 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14843-4</guid>
+        <source url="https://leakfree.org/t/annoying-csm/14843.rss">Annoying CSM</source>
+      </item>
+      <item>
+        <title>Annoying CSM</title>
+        <dc:creator><![CDATA[Flavrans]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Admiral Sakai">
+<div class="title">
+<div class="quote-controls"></div>
+ Admiral Sakai:</div>
+<blockquote>
+<p>none of the other topside maps seem to have the problems c2a4h does</p>
+</blockquote>
+</aside>
+<p>It seems to me that they do. Every map that has the CSM entity in it gets this giant dark shadow cast indoors. But it’s not as apparent in other maps–the floors and walls mostly just look darker than they should. You can see the difference by toggling the [tt]cl_csm_enabled[/tt] convar on and off.</p>
+<aside class="quote no-group" data-username="Flavrans">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/flavrans/40/4375_2.png" class="avatar"> Flavrans:</div>
+<blockquote>
+<p>I did some testing and found that the “patina-shadows” go away if you set the SkipLightMapEnabled property in the env_cascade_light entity to 0 (false). It’s set to 1 in the stock bm_c2a4h map.</p>
+</blockquote>
+</aside>
+<p>I looks like it’s set to 1 in every map that has the CSM entity in it, while the default value for this property is 0.</p>
+<p>I’ve experimented a bit more and found that you could also get rid of the brownish cast by setting the LightBlendMode property to 0 (while leaving the SkipLightMapEnabled at 1), which makes the shadows greyish. Another thing you can do is to set the “Light Color” to a more neutral color, and increasing the ShadowColorIntensity from 0.25 to something like 0.7 also makes it better. But none of these tweaks change the fact that the giant shadow is still present indoors. And any tweaks to the CSM settings will also change the way the shadows look outside.</p>
+<h2>The best “fix” seems to be to just set the SkipLightMapEnabled to 0. But I don’t know of there could be side-effects to doing so.</h2>
+<p>You can control the CSM settings in-game via convars. First you need to set the [tt]cl_csm_convar_override[/tt] to 1. You can see all the csm convars by typing [tt]find cl_csm[/tt] into the console. Note that the CSM convars don’t seem to match the values set in the CSM entity in the map. Instead, they use their own default values, so the shadows will instantly change when you enable the [tt]cl_csm_convar_override[/tt].</p>
+<hr>
+<p>I found a blog post by one of the devs who worked on the CSM code. It provides interesting insight into how their CSM implementation works and the challenges they had in implementing it. It also explains some of the convars/properties that control the various aspects of CSM:</p>
+<p><a href="https://chetanjags.wordpress.com/2016/05/12/sourceengine-csm-soft-shadows/" data-bbcode="true" rel="nofollow noopener">https://chetanjags.wordpress.com/2016/05/12/sourceengine-csm-soft-shadows/</a></p>
+          <p><a href="https://leakfree.org/t/annoying-csm/14843/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/annoying-csm/14843/3</link>
+        <pubDate>Thu, 30 Jun 2016 23:53:37 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14843-3</guid>
+        <source url="https://leakfree.org/t/annoying-csm/14843.rss">Annoying CSM</source>
+      </item>
+      <item>
+        <title>Annoying CSM</title>
+        <dc:creator><![CDATA[Flavrans]]></dc:creator>
+        <description><![CDATA[
+            <p>I did some testing and found that the “patina-shadows” go away if you set the SkipLightMapEnabled property in the env_cascade_light entity to 0 (false). It’s set to 1 in the stock bm_c2a4h map.</p>
+<p>The help text for this property says: “If true, CSM will work even on maps compiled without -cascadeshadows. Workaround for lightstyles.”</p>
+<div class="spoiler">
+<p>[attach=4900,none,1920][/attach][attach=4901,none,1920][/attach][attach=4902,none,1920][/attach][attach=4903,none,1920][/attach]</p>
+</div>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/c/cb0b4806ca419a911174540e66cf8d524a05c08a.jpeg" data-download-href="https://leakfree.org/uploads/default/cb0b4806ca419a911174540e66cf8d524a05c08a" title="20160628234525_1.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/c/cb0b4806ca419a911174540e66cf8d524a05c08a_2_690x500.jpeg" alt="20160628234525_1.jpg" data-base62-sha1="sYd5ZFSQubUgLOH3KpIWV9dkHzk" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/c/cb0b4806ca419a911174540e66cf8d524a05c08a_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/c/cb0b4806ca419a911174540e66cf8d524a05c08a_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/c/cb0b4806ca419a911174540e66cf8d524a05c08a_2_1380x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/c/cb0b4806ca419a911174540e66cf8d524a05c08a_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">20160628234525_1.jpg</span><span class="informations">1920×1080 188 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/1/1176f9728982586115e02b3ab0e9250c7810f0f2.jpeg" data-download-href="https://leakfree.org/uploads/default/1176f9728982586115e02b3ab0e9250c7810f0f2" title="20160628234605_1.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/1/1176f9728982586115e02b3ab0e9250c7810f0f2_2_690x500.jpeg" alt="20160628234605_1.jpg" data-base62-sha1="2uv192TCQ5xZxovDdQm0qKw9jhg" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/1/1176f9728982586115e02b3ab0e9250c7810f0f2_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/1/1176f9728982586115e02b3ab0e9250c7810f0f2_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/1/1176f9728982586115e02b3ab0e9250c7810f0f2_2_1380x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/1/1176f9728982586115e02b3ab0e9250c7810f0f2_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">20160628234605_1.jpg</span><span class="informations">1920×1080 193 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/7/72cde5af65c67c43993d43fe44db034746e91457.jpeg" data-download-href="https://leakfree.org/uploads/default/72cde5af65c67c43993d43fe44db034746e91457" title="20160628234701_1.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/7/72cde5af65c67c43993d43fe44db034746e91457_2_690x500.jpeg" alt="20160628234701_1.jpg" data-base62-sha1="gnByZpK7tSNpJfR3OkeO5sagF7x" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/7/72cde5af65c67c43993d43fe44db034746e91457_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/7/72cde5af65c67c43993d43fe44db034746e91457_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/7/72cde5af65c67c43993d43fe44db034746e91457_2_1380x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/7/72cde5af65c67c43993d43fe44db034746e91457_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">20160628234701_1.jpg</span><span class="informations">1920×1080 323 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/d/d04230f84d341d46bb2ad779540ed77e18a3f5c9.jpeg" data-download-href="https://leakfree.org/uploads/default/d04230f84d341d46bb2ad779540ed77e18a3f5c9" title="20160628234736_1.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/d/d04230f84d341d46bb2ad779540ed77e18a3f5c9_2_690x500.jpeg" alt="20160628234736_1.jpg" data-base62-sha1="tIl7WasHQZoAM1ZcD4aN1Xhe6YF" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/d/d04230f84d341d46bb2ad779540ed77e18a3f5c9_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/d/d04230f84d341d46bb2ad779540ed77e18a3f5c9_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/d/d04230f84d341d46bb2ad779540ed77e18a3f5c9_2_1380x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/d/d04230f84d341d46bb2ad779540ed77e18a3f5c9_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">20160628234736_1.jpg</span><span class="informations">1920×1080 379 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+          <p><a href="https://leakfree.org/t/annoying-csm/14843/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/annoying-csm/14843/2</link>
+        <pubDate>Tue, 28 Jun 2016 22:16:22 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14843-2</guid>
+        <source url="https://leakfree.org/t/annoying-csm/14843.rss">Annoying CSM</source>
+      </item>
+      <item>
+        <title>Annoying CSM</title>
+        <dc:creator><![CDATA[Admiral_Sakai]]></dc:creator>
+        <description><![CDATA[
+            <p>I first noticed these issues in QEPD where the brighter lighting makes them more obvious, but they exist in the canon bm_c2a4h map as well.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://images.akamai.steamusercontent.com/ugc/267217845670044510/9FA991D4C64507E777D313B6CF47B9C504530B75/" title="" rel="nofollow noopener"><img src="https://images.akamai.steamusercontent.com/ugc/267217845670044510/9FA991D4C64507E777D313B6CF47B9C504530B75/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+The big problem is that <span class="bbcode-i">indoors</span>, the CSM seems to put a single giant “shadow” over everything, resulting in the floors and some walls being covered by this horrible brown patina. You can see here how it discolors the light falling onto the floor, turning it “underexposed” and brown where the “bio labs” sign reveals it to in fact be a bright blue-white.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://images.akamai.steamusercontent.com/ugc/267217845670044720/524A554B8853D35337C0345A94AEA4D7217F3F8A/" title="" rel="nofollow noopener"><img src="https://images.akamai.steamusercontent.com/ugc/267217845670044720/524A554B8853D35337C0345A94AEA4D7217F3F8A/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+This patina-shadow does <span class="bbcode-i">not</span> affect props, causing them to in some cases appear to be “glowing”, or, due to the lack of a shadow specifically for them as opposed to everywhere, “floating”.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://images.akamai.steamusercontent.com/ugc/267217845670044622/304AC9B87DC84790D6364127DCB4F68480E86F33/" title="" rel="nofollow noopener"><img src="https://images.akamai.steamusercontent.com/ugc/267217845670044622/304AC9B87DC84790D6364127DCB4F68480E86F33/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+The patina-shadows do not seem to synch up with the walls quite right in concave interior rooms- there is often a little strip of white in the corners where the floor meets the wall, which from a distance looks very similar to a hole to nodraw.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://images.akamai.steamusercontent.com/ugc/267217845670044813/A4643DA9AED6BE6338E8CBE66BB018A45BF3D33F/" title="" rel="nofollow noopener"><img src="https://images.akamai.steamusercontent.com/ugc/267217845670044813/A4643DA9AED6BE6338E8CBE66BB018A45BF3D33F/" alt="" width="690" height="388"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+Also observed this strange effect, where the lightmap shadow of the console seems to “blend out” the patina-shadow, producing a darker but more bluish area under the panels.</p>
+<p>Since (to my knowledge) I’m the first modder to actually <span class="bbcode-i">interact</span> with CSM, I’m wondering if there’s any way to ‘fix’ this, for instance by turning the CSM entity itself on or off- none of the other topside maps seem to have the problems c2a4h does, so is there something I’m missing about how to control these entities? Just in general, can we get some more information at some point relating to how CSM works and how to control it in custom maps?</p>
+          <p><a href="https://leakfree.org/t/annoying-csm/14843/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/annoying-csm/14843/1</link>
+        <pubDate>Tue, 28 Jun 2016 18:08:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14843-1</guid>
+        <source url="https://leakfree.org/t/annoying-csm/14843.rss">Annoying CSM</source>
+      </item>
+  </channel>
+</rss>

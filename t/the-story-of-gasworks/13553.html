@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/the-story-of-gasworks/13553 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:32:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>The Story of Gasworks - Developer Logs - Leakfree</title>
+    <meta name="description" content="Greetings, community! 
+My name is Chon Kemp, one of the new level designers on Black Mesa. Those of you who know me, may know me as Text FAMGUY1, or the guy who made the Uncut stuff for Black Mesa. I was brought on to he&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="13553.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;The Story of Gasworks&#39;" href="13553.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/the-story-of-gasworks/13553" />
+<meta name="twitter:url" content="https://leakfree.org/t/the-story-of-gasworks/13553" />
+<meta property="og:title" content="The Story of Gasworks" />
+<meta name="twitter:title" content="The Story of Gasworks" />
+<meta property="og:description" content="Greetings, community!  My name is Chon Kemp, one of the new level designers on Black Mesa. Those of you who know me, may know me as Text FAMGUY1, or the guy who made the Uncut stuff for Black Mesa. I was brought on to help with Black Mesa’s multiplayer. The majority of my work since joining the team has been in 3 primary areas: Gasworks, Lambdabunker, and MP testing.  I am starting up a little community dev blog, for those of you who are interested. Let me explain to you how this is hopefully go..." />
+<meta name="twitter:description" content="Greetings, community!  My name is Chon Kemp, one of the new level designers on Black Mesa. Those of you who know me, may know me as Text FAMGUY1, or the guy who made the Uncut stuff for Black Mesa. I was brought on to help with Black Mesa’s multiplayer. The majority of my work since joining the team has been in 3 primary areas: Gasworks, Lambdabunker, and MP testing.  I am starting up a little community dev blog, for those of you who are interested. Let me explain to you how this is hopefully go..." />
+<meta property="article:published_time" content="2014-11-15T02:10:00+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="next" href="135534658.html?page=2">
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="13553.html">The Story of Gasworks</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/6.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa Archive</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/developer-logs/15.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Developer Logs</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13553.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-11-15T02:10:00Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:18:15Z' class='post-time'>
+                November 25, 2018,  4:18am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Greetings, community!</p>
+<p>My name is Chon Kemp, one of the new level designers on Black Mesa. Those of you who know me, may know me as Text FAMGUY1, or the guy who made the Uncut stuff for Black Mesa. I was brought on to help with Black Mesa’s multiplayer. The majority of my work since joining the team has been in 3 primary areas: Gasworks, Lambdabunker, and MP testing.</p>
+<p>I am starting up a little community dev blog, for those of you who are interested. Let me explain to you how this is hopefully going to work.</p>
+<p>This dev blog will be a detailed account of the entire development of the multiplayer map Gasworks, from start to its current state. Each chapter will examine a specific iteration of the map, and each chapter is broken down into two parts/posts. My aim is to post a part a week. One part of a chapter will look at the story behind the iteration, and will talk about the story of the team, myself, and the decisions/mistakes I made on that iteration, as well as some positives. The second part of each chapter will then examine and explain an element of the design theory which I outlined in the previous post, and how it applies. One part on story, one part on design theory. Something like maybe 10 chapters overall. A bit of fun, a bit of story, a bit of learning. A fairly personal story. The idea is to show you guys the amount of work and failure that goes into a Black Mesa map.</p>
+<p>Unfortunately, this is also me you’re dealing with. I have a lot of trouble writing concisely. I write a lot. Sorry! I just can’t help it. I hope some of you find the strength to read through it.</p>
+<aside class="quote no-group">
+<blockquote>
+<p><span class="bbcode-b">RULES/DISCLAIMER</span>[/SIZE]</p>
+<p><span class="bbcode-b"><span class="bbcode-u">Breaking these rules will result in infractions, bans, rejections, ejections, and if you push me too far, I’ll come round to your house give you a little whack with a crowbar.</span></span></p>
+<p>Very importantly, any images which I post in this thread are ABSOLUTELY NOT REPRESENTATIVE OF THE FINAL PRODUCT. The majority of what I’m going to post here are from very early development versions which were scrapped and redone, from scratch, because they were not good enough. NOTHING you see here represents how Gasworks, or Black Mesa currently looks. Do not judge the game based on what I post here. If images or topics from this thread start getting circulated, with people saying: “look how awful Black Mesa MP looks!” then I will stop doing these entirely. This is the top rule for these blog posts.</p>
+<p>This is a personal dev blog, and is not sanctioned by the Black Mesa team. My views, design abilities and comments do not reflect that of the dev team.</p>
+<p>Please stay on topic. I will happily answer questions and chat, but I won’t answer questions unrelated to my current posts. I am going through the map’s development chronologically. We will get to current versions, eventually.</p>
+<p>Also, don’t be mean. As the least experienced level designer on the team, I have learned incredible amounts over the course of my time here, and vastly improved my abilities. I’m aiming, here, to outline the mistakes and process that led me to this stage. Comment on my mistakes and problems, and give thoughts, by all means, but if people start to be cruel or nasty, they will get infractions. We’re only human.</p>
+</blockquote>
+</aside>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13553.html">
+
+            <link itemprop="image" href="../../uploads/default/original/3X/4/3/43c39ee03b8f0a3b73287f161305f9785f2b069d.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-11-15T02:10:12Z'>
+              <time itemprop='dateModified' datetime='2020-08-12T09:32:04Z' class='post-time'>
+                August 12, 2020,  9:32am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><span class="bbcode-b">THE FIRST ITERATION - A NOBLE (BUT FAILED) FIRST ATTEMPT</span>[/size]</p>
+<p><span class="bbcode-b"><span class="bbcode-u">An Introduction to Gasworks</span></span>[/size]</p>
+<p>Gasworks was one of the larger maps in HL1DM. I believe it was originally a map for Opposing Force which then got ported to HL1DM. It had a really unique and cool layout, with lots of fun sightlines and interesting encounters.</p>
+<p>Most key to the map was that it had 2 very distinct sections. The surface area, and the underground section, with limited means of moving between them. Both areas saw all kinds of unique and crazy combat between their intense sightlines. The underground was well suited to horizontal, close quarters play, and the surface area was very vertical and open. The underground section had a lot of connecting tunnels and hallways, but overall Gasworks has a really simple layout. Jordan (a fellow level designer) summarised it very nicely: <span class="bbcode-i">“it’s like 2 different maps stapled together”</span>. Maybe a flaw, but I think it’s also one of the map’s most unique charms.</p>
+<p>Overall, I have always thought it was pretty much the best designed HL1DM map. It played well from 6 - 24 players. I remember doing some community games on Gasworks fairly recently with 20+ of us and it was a hoot. Might bring those back, at some point.</p>
+<p>So, once I finally joined the team, I was given the task of making Gasworks, and told that it would be the perfect trial-by-fire; a difficult map, but one which suited the style of what I’d worked on before. I was thrilled. It was one of my faves from HL1. So I got to work immediately.</p>
+<p>Jumping in. That was my first mistake. I’d always been a mapper who tended to jump right in rather than plan and refine prior to starting, and it really bit me bad here. It’s not arrogance; more naivety. I’m not so good at the planning side, I prefer a more hands-on approach. But, alas, this made me suffer in the long run. In the companion post to this I will explore the importance of planning, construction, and references, and why I suffered from having none of these.</p>
+<p>Lesson number 1: plan ahead. Think. Don’t just do. A lot of level design is trial and error, but without a fundamental plan, you’ll be trial and erroring forever.</p>
+<p><span class="bbcode-b"><span class="bbcode-u">Layout</span></span>[/size]</p>
+<p>Typically, the actual mapping process, post-planning, starts with what we call the “blockout” phase, on Source called “orange mapping,” which uses orange and grey developer textures. During this phase, you construct the map’s layout in its most basic form - no detail, just the layout. Here are some example blockouts I have done for Black Mesa:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/3X/4/3/43c39ee03b8f0a3b73287f161305f9785f2b069d.jpg" data-download-href="https://leakfree.org/uploads/default/43c39ee03b8f0a3b73287f161305f9785f2b069d" title=""><img src="../../uploads/default/optimized/3X/4/3/43c39ee03b8f0a3b73287f161305f9785f2b069d_2_690x388.jpg" alt="" data-base62-sha1="9Ft6ytgSTVhVdxhZgAiwOqSvpPT" width="690" height="388" srcset="https://leakfree.org/uploads/default/optimized/3X/4/3/43c39ee03b8f0a3b73287f161305f9785f2b069d_2_690x388.jpeg, https://leakfree.org/uploads/default/optimized/3X/4/3/43c39ee03b8f0a3b73287f161305f9785f2b069d_2_1035x582.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/3X/4/3/43c39ee03b8f0a3b73287f161305f9785f2b069d_2_1380x776.jpeg 2x" data-small-upload="../../uploads/default/optimized/3X/4/3/43c39ee03b8f0a3b73287f161305f9785f2b069d_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080 215 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>The team’s take on this is that the first blockout of any of the MP maps should be a 1:1, exact remake of the original, with just developer textures (orange/grey/white). The idea is that you can start with a solid, tested base to work from. You set up and open HL1’s Goldsrc Hammer, run it alongside Source Hammer, and create your own version which matches the dimensions of the original precisely. It may deviate in one or two places for the sake of fixing odd/off-grid dimensions. This is how pretty much all the other maps have started. They use ultra-simplistic, minimalistic and clear lighting, and stick to dev textures only. Then - test and refine. Get everything reading and playing great before going into aesthetics and architectural design. Test and document between each iteration.</p>
+<p>I did not do this. Instead, I spent a long time running around HL1 Gasworks, examining footage and recalling my own memories of the map and how it played. I wanted to immediately fix the flaws of the original, and create more interesting spaces where I thought it was lacking. My first blockout used adjusted dimensions, changed what I saw fit, and had many layout changes and differences. Some were conscious, many were mistakes and oversights. Some areas were too big, sightlines were different; a lot was wrong. I hasten to stress this was not arrogance - simply lack of experience, and overambition. I bit off more than I could chew.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/3X/7/9/792eb2e1ef641f6dafb99d1f4d61613d71eed66e.jpg" data-download-href="https://leakfree.org/uploads/default/792eb2e1ef641f6dafb99d1f4d61613d71eed66e" title=""><img src="../../uploads/default/optimized/3X/7/9/792eb2e1ef641f6dafb99d1f4d61613d71eed66e_2_690x388.jpg" alt="" data-base62-sha1="hi1Pbr9InathdSSMVjkHH8mJQPc" width="690" height="388" srcset="https://leakfree.org/uploads/default/optimized/3X/7/9/792eb2e1ef641f6dafb99d1f4d61613d71eed66e_2_690x388.jpeg, https://leakfree.org/uploads/default/optimized/3X/7/9/792eb2e1ef641f6dafb99d1f4d61613d71eed66e_2_1035x582.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/3X/7/9/792eb2e1ef641f6dafb99d1f4d61613d71eed66e_2_1380x776.jpeg 2x" data-small-upload="../../uploads/default/optimized/3X/7/9/792eb2e1ef641f6dafb99d1f4d61613d71eed66e_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080 321 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/3X/a/f/af54fc74f0e051bf8189dae93d036848114c3765.jpg" data-download-href="https://leakfree.org/uploads/default/af54fc74f0e051bf8189dae93d036848114c3765" title=""><img src="../../uploads/default/optimized/3X/a/f/af54fc74f0e051bf8189dae93d036848114c3765_2_690x388.jpg" alt="" data-base62-sha1="p13DDBv9k1w4ZaVz1FXQjPfjExf" width="690" height="388" srcset="https://leakfree.org/uploads/default/optimized/3X/a/f/af54fc74f0e051bf8189dae93d036848114c3765_2_690x388.jpeg, https://leakfree.org/uploads/default/optimized/3X/a/f/af54fc74f0e051bf8189dae93d036848114c3765_2_1035x582.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/3X/a/f/af54fc74f0e051bf8189dae93d036848114c3765_2_1380x776.jpeg 2x" data-small-upload="../../uploads/default/optimized/3X/a/f/af54fc74f0e051bf8189dae93d036848114c3765_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080 402 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/3X/1/a/1a5982aa6daf8416b6f0750b9de7256dd03663c7.jpg" data-download-href="https://leakfree.org/uploads/default/1a5982aa6daf8416b6f0750b9de7256dd03663c7" title=""><img src="../../uploads/default/optimized/3X/1/a/1a5982aa6daf8416b6f0750b9de7256dd03663c7_2_690x388.jpg" alt="" data-base62-sha1="3L6bK51wjqONNcchOylYLK9kO0f" width="690" height="388" srcset="https://leakfree.org/uploads/default/optimized/3X/1/a/1a5982aa6daf8416b6f0750b9de7256dd03663c7_2_690x388.jpeg, https://leakfree.org/uploads/default/optimized/3X/1/a/1a5982aa6daf8416b6f0750b9de7256dd03663c7_2_1035x582.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/3X/1/a/1a5982aa6daf8416b6f0750b9de7256dd03663c7_2_1380x776.jpeg 2x" data-small-upload="../../uploads/default/optimized/3X/1/a/1a5982aa6daf8416b6f0750b9de7256dd03663c7_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080 342 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Even the areas which I had intended to be the same were different. Note in the outdoor image the HUGE empty space on the right which was not present in the original. Or the colourful containers which are MUCH larger than the originals. Or the towers being way thicker than the originals too. This all adds up. Or the extremely poor placeholder lighting. None of this is suitable for a very first iteration.</p>
+<p><span class="bbcode-b"><span class="bbcode-u">Route Modification</span></span>[/size]</p>
+<p>This whole layout section assumes some degree of familiarity with the layout of the original. If not, my apologies, might want to skip this bit! Or have a run around HL1’s Gasworks!</p>
+<p>My version of Gasworks really only has a few major additions to this day, and even those aren’t that massive. Most of the main layout changes were done early on in the map’s development, which is actually a good thing. The bad aspect was I did them in the VERY FIRST version, which gave me an inaccurate baseline to work from, but this is one aspect of the early versions which turned out to be a double-edged sword. I’ll outline some of those changes now (but not all):</p>
+<p><span class="bbcode-b">NEW ROUTES</span><br>
+The first issue is a fundamental issue I have with Gasworks - in the original there was never much flow between the map’s two main sections - outdoor and underground. At least from my experience, players tended to head for the surface if they were underground, and never return. Or simply stay underground. Both main sections offer uniquely different and exciting gameplay, and I really wanted to make sure that players got a chance to experience both sections equally during any normal game. I wanted to find a good balance. More movement, but not too much.</p>
+<p>One of the reasons I identified for the lack of flow, particularly from the surface to underground - was the lack of viable routes leading back underground. To put it in perspective, the original had 5 ways of reaching the surface from underground. The two main ladder shafts, or the three teleporters (one of the teleporters actually has two potential destinations, depending on whether you went in the left or right side). The teleporters are only 1 way.</p>
+<p>Compare that with leaving the surface. The two way paths allow you to go from the surface to underground, as does the conveyor door with the drop down. So that’s 5 ways up, 3 ways down. A simple issue of ease of access. To address this - I decided to add a 1 way route which only takes you from the surface to underground - and I decided a good place to put the route’s exit would be in the new control room.</p>
+<p>Additionally, all the existing routes from the surface to below, were awkward - particularly the bay doors drop down route. They were awkward because you had to go to a button, press it, and wait for the doors to open, which would then take you on a long route to another drop. Not used much.</p>
+<p>My goal was to make these routes less awkward and more usable, and introduce a new one, to facilitate better flow. I eventually succeeded, but early iterations were not perfect.</p>
+<p><span class="bbcode-b">DROPDOWN DOORS ROUTE</span><br>
+I tried to make the drop down more viable by expanding it into a combat area. Frankly, this achieved nothing. I would later learn that the best way of solving this route’s problems, is to make it as viable as possible as a THROUGH ROUTE. In the original, this area was simply a hallway you could run down. I tried to expand it into a room that combat could happen in, to make it a more complex place which players would be inclined to use. This was the wrong approach. I later worked out the right one.</p>
+<p>I’ll explain how I did this in a later chapter. Simply changing the gameplay space for no reason was a bad idea, it just added a lot of useless space, and I hadn’t addressed the root issues.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/3X/0/d/0d0843f3056282a74651f1601bcbcf5bdd060345.jpg" data-download-href="https://leakfree.org/uploads/default/0d0843f3056282a74651f1601bcbcf5bdd060345" title=""><img src="../../uploads/default/optimized/3X/0/d/0d0843f3056282a74651f1601bcbcf5bdd060345_2_690x388.jpg" alt="" data-base62-sha1="1RhULZFDEbUz5IOJ9clJxwFyR4V" width="690" height="388" srcset="https://leakfree.org/uploads/default/optimized/3X/0/d/0d0843f3056282a74651f1601bcbcf5bdd060345_2_690x388.jpeg, https://leakfree.org/uploads/default/optimized/3X/0/d/0d0843f3056282a74651f1601bcbcf5bdd060345_2_1035x582.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/3X/0/d/0d0843f3056282a74651f1601bcbcf5bdd060345_2_1380x776.jpeg 2x" data-small-upload="../../uploads/default/optimized/3X/0/d/0d0843f3056282a74651f1601bcbcf5bdd060345_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080 518 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Also, DAT LIGHTING. For a first blockout, my early lighting tried way too hard to be artistic, moody, and varied. It just looked bad throughout the whole map. The very first version MUST BE VERY READABLE, especially in lighting. You can develop it from there. If the first version is not lit well and CLEARLY directed, it’s very hard to make subsequent lighting effective. This is something which I would learn the hard way in later versions.</p>
+<p><span class="bbcode-b">THE CONTROL ROOM</span><br>
+This new area came to be known as the “control room” (for obvious reasons). I added this in right from the very first version, and it lives on to this day - but heavily modified.</p>
+<p>The control room was also designed to make the hallway which led to the long shaft (from the original) be more useful and viable a route. I never liked that pathway in the original because all it really did was lead you to the teleporter/underground room again, with no real advantage. With the addition of the control room, I was hoping to reward the player with some goodies, and a nice overlook into the main underground room, without it being too strong a camping spot. Again, in early versions this wasn’t hugely successful but as I refined the route, it grew and improved a lot.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/3X/9/6/96c362c37b852b3769ddab36843541819cd84d2e.jpg" data-download-href="https://leakfree.org/uploads/default/96c362c37b852b3769ddab36843541819cd84d2e" title=""><img src="../../uploads/default/optimized/3X/9/6/96c362c37b852b3769ddab36843541819cd84d2e_2_690x388.jpg" alt="" data-base62-sha1="lvIeqvH3prlH7tPrqZQJC4szcbI" width="690" height="388" srcset="https://leakfree.org/uploads/default/optimized/3X/9/6/96c362c37b852b3769ddab36843541819cd84d2e_2_690x388.jpeg, https://leakfree.org/uploads/default/optimized/3X/9/6/96c362c37b852b3769ddab36843541819cd84d2e_2_1035x582.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/3X/9/6/96c362c37b852b3769ddab36843541819cd84d2e_2_1380x776.jpeg 2x" data-small-upload="../../uploads/default/optimized/3X/9/6/96c362c37b852b3769ddab36843541819cd84d2e_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080 348 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><span class="bbcode-b">NEW VENT ROUTE</span><br>
+I added a new vent which dropped down from the surface into the new control room, again hopefully expanding navigation options while overall keeping things simple. With refinement, this route would become viable, but early versions were not.</p>
+<p>I really struggled with this route and it took a lot of time and perseverance to make it eventually work. The biggest struggle was to make it both a 1 way route down, AND a viable one. The first version (pictured here), was simply a drop into the room.</p>
+<p>It’s interesting. Even though player fall damage is capped at 10, just like in HLDM, players still HATE being forced to take fall damage on a main map route. One of those weird psychological things - players are happy to take shortcuts which defy the main routes and take falling damage as a result (such as by jumping off the main stacks outside to get to the ground floor), but when they have no alternative but to take fall damage along a proper route - they hate it. So this route did not get used at all, because players wanted to avoid falling damage. At the time, making it a dropped seemed the only good way to make it a one-way route. But I later got creative, and solved this issue. But in early versions - this route was a failure, if a good idea on paper.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/3X/c/5/c5b9d259a2f30e647ca676a1f35558a8df20e80d.jpg" data-download-href="https://leakfree.org/uploads/default/c5b9d259a2f30e647ca676a1f35558a8df20e80d" title=""><img src="../../uploads/default/optimized/3X/c/5/c5b9d259a2f30e647ca676a1f35558a8df20e80d_2_690x388.jpg" alt="" data-base62-sha1="sdabkEw2H7cvAIaC3fH0Gv09UAt" width="690" height="388" srcset="https://leakfree.org/uploads/default/optimized/3X/c/5/c5b9d259a2f30e647ca676a1f35558a8df20e80d_2_690x388.jpeg, https://leakfree.org/uploads/default/optimized/3X/c/5/c5b9d259a2f30e647ca676a1f35558a8df20e80d_2_1035x582.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/3X/c/5/c5b9d259a2f30e647ca676a1f35558a8df20e80d_2_1380x776.jpeg 2x" data-small-upload="../../uploads/default/optimized/3X/c/5/c5b9d259a2f30e647ca676a1f35558a8df20e80d_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080 300 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p><span class="bbcode-b"><span class="bbcode-u">Visuals and Art Direction</span></span>[/size]</p>
+<p>One other overarching issue you will notice from the images; I also did not use developer textures. Personally, at least before now, I had always hated orange mapping. My logic, at the time, was that the textures and theme of a map are so core to how it plays and feels, that testing without at least some semblance of textures and lighting does not give you a representative experience of how the map plays. To me at the time, I felt that texture and lighting choices are so central to how the map plays, and how players navigate and use places, that removing them from the equation does not accurately allow you to test the layout well. This is true, to an extent. But that is also the point! Orange mapping is designed to make it so that you are only ever adjusting the layout and perfecting that, starting from the 1:1 base. I guess you could consider it a “scientific” approach to level design. The textures and lighting COMPLEMENT the layout, and must be considered separately and in their own great detail. The layout has to work, first. Additionally, as Chris (our lead mapper) always stresses - just texturing a blockout is often a really bad idea. Because then you just have textured blocks. Nothing cohesive, architectural, structural, or thought out. You just end up slapping detail onto textured blocks, rather than having a vision and artistic direction. Look again at the screenshots I posted above. Everything is really just textured blocks. No actual detail or design. If you start with this, you end with this.</p>
+<p>The first version of Gasworks which we tested, was “artistically” lit and textured. What actually was a mistake in retrospect, had given the illusion of really fast progress. It playtested fairly well, we enjoyed it, and the response was good. Or…so it seemed! I would suffer a rude awakening, soon…</p>
+<p>Let’s explore some of the art direction, first.</p>
+<p><span class="bbcode-b">COMPARISONS</span><br>
+I had something of an advantage with my version of Gasworks. One of our former level designers, Chuck (who has worked on Titanfall), had created 2 previous versions of Gasworks in the distant past for BM, and had very kindly sent me the vmfs to comb through and analyse. The layouts and ideas present in his designs (both of which were unfinished), were solid, but the constructions were not perfect, and the theme and aesthetic was quite at odds with anything else seen at Black Mesa. The team and I had already made the decision not to reuse any material from those versions - it simply made more sense to do a neat, clean design from scratch. We at Black Mesa have a long and illustrious history of redoing maps from scratch - but it’s often the best way, honest. You should see how many times Stalkyard has been redone!</p>
+<p>One thing that particularly stuck with me, with Chuck’s versions of Gasworks, was the visual style. He’d gone very much for a 60s, brickwork style of design. It was a very unique and interesting look - but it didn’t fit in very well with the rest of Black Mesa, nor did it fit in well with Half-Life 1’s version. I really liked it, but it didn’t match what I wanted.</p>
+<p>Here are some shots of Chuck’s old version:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/3X/f/4/f41e9fe53751f4ea5cc80aec5d3c89fbeee8fe5e.jpg" data-download-href="https://leakfree.org/uploads/default/f41e9fe53751f4ea5cc80aec5d3c89fbeee8fe5e" title=""><img src="../../uploads/default/optimized/3X/f/4/f41e9fe53751f4ea5cc80aec5d3c89fbeee8fe5e_2_690x414.jpg" alt="" data-base62-sha1="yPA7aEjDhKpczPCiPMcE41AE41M" width="690" height="414" srcset="https://leakfree.org/uploads/default/optimized/3X/f/4/f41e9fe53751f4ea5cc80aec5d3c89fbeee8fe5e_2_690x414.jpeg, https://leakfree.org/uploads/default/optimized/3X/f/4/f41e9fe53751f4ea5cc80aec5d3c89fbeee8fe5e_2_1035x621.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/3X/f/4/f41e9fe53751f4ea5cc80aec5d3c89fbeee8fe5e_2_1380x828.jpeg 2x" data-small-upload="../../uploads/default/optimized/3X/f/4/f41e9fe53751f4ea5cc80aec5d3c89fbeee8fe5e_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1152 292 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>My initial thought process with Gasworks was to look at what Chuck had done, what the original had done, and then give it what I thought of as the “Black Mesa” treatment. This is where I made my first big directional and visual mistake, and it stemmed from my origins in the community, where I had gotten used to imitating Black Mesa’s style on my SP works, with Surface Tension Uncut and On a Rail Uncut. I did the only thing I’ve really known, thematically speaking. I imitated chapters from Black Mesa’s SP. This wasn’t a conscious or even lazy decision, it’s just the way I was used to doing things, at this point, the idea was to make it cohesive and fit in. Sounds solid, on paper.</p>
+<p>One of the thematic elements from the original Gasworks, which I had always loved, was its mishmash of themes and styles. For those of you who are less familiar with the original - aesthetically, it was a mess. It had no real cohesive style or design. Its interior hallways were done in the Lambda Core style, the underground tunnels and huge cavern was done in the style of Apprehension, and the surface was very Surface-Tensiony. I found this myriad of styles charming in the original, and thought that its unique charm could be brought over into Black Mesa. My first iteration tried to preserve this.</p>
+<p>So, I wound up brainstorming theme ideas in a group Skype call on how to reconcile this mishmash with Black Mesa, and make it feel cohesive and well-designed, rather than an oversight. Mike Hillard (our scientist voice actor and resident BSP lover), suggested that the Apprehensiony parts of the facility could perhaps be generating power for, and be a cover for the hidden Lambda Core parts of the facility, which would be hidden behind secret/closed doors, which had been jammed open/overridden/broken/whatever, for the sake of MP. I jumped on this, because I thought it was a great idea! It would also allow us to explain the experimental teleporters which happened to be lying around, and give the map a unique blend of ideas, while making some degree of sense. It sounds silly on paper (it is), but it seemed like a fun way to reconcile the stylistic differences between the areas.</p>
+<p>And so, I made my choices. The large underground cavern, and some of the tunnels were done in the style of Residue Processing (RP). The hallways from there were done in the Apprehension style. Then you had the Lambda Core hallways, and the Surface-Tensiony surface area. The idea was, I would later design the “transitional areas” to make it appear like they were meant to be hidden, to make it not so jarring. The end result, was not cohesive, and was a mess:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/3X/5/c/5c89f5f7ad0f2cd808497f3f140fc97985f8e36e.jpg" data-download-href="https://leakfree.org/uploads/default/5c89f5f7ad0f2cd808497f3f140fc97985f8e36e" title=""><img src="../../uploads/default/optimized/3X/5/c/5c89f5f7ad0f2cd808497f3f140fc97985f8e36e_2_690x388.jpg" alt="" data-base62-sha1="dcDvqJtdppatvv4JEJugdRYChJk" width="690" height="388" srcset="https://leakfree.org/uploads/default/optimized/3X/5/c/5c89f5f7ad0f2cd808497f3f140fc97985f8e36e_2_690x388.jpeg, https://leakfree.org/uploads/default/optimized/3X/5/c/5c89f5f7ad0f2cd808497f3f140fc97985f8e36e_2_1035x582.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/3X/5/c/5c89f5f7ad0f2cd808497f3f140fc97985f8e36e_2_1380x776.jpeg 2x" data-small-upload="../../uploads/default/optimized/3X/5/c/5c89f5f7ad0f2cd808497f3f140fc97985f8e36e_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1920×1080 459 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>I had no real solid direction. No clear image of where I wanted the map to go. I was working hard and making progress on it, but I hadn’t taken the right approach. The end result was a map which didn’t work well compared to the original, but also did not work well in its own right. My only real visual direction was “copy Black Mesa,” hardly a useful target. A map’s visual style needs so much more than this, something I will explore in the next part. Direction and reference are key.</p>
+<p>I tried really hard to make the mismash of styles work - but that’s one of the interesting things about video games. Things are often designed poorly in real life too - the example I always love to think of is tiles lining up with the walls and such. This actually rarely happens in real life. There’s always some misalignment and weirdly cut ones, or angles. But all the tiles in Black Mesa, everything tends to line up perfectly. When these real world imperfections are replicated in a video game, it’s very easy to read it as poor or lazy design. This is the issue I found with the mishmash of themes. Even though there are more than enough places in real life with different styles contrasting one another in a tight space, it just comes across badly and poorly-thought out in a game. Perhaps it’s because in real life, with buildings, you have to make do with what you’ve got, and make it work. But you don’t have to do that, in video game design. Changing a room to make the tiles line up perfectly is a few minute’s work in a game - but months of work in real life! Just a random musing.</p>
+<p><span class="bbcode-b">CONCLUSION</span><br>
+All I’ve really done so far is look at Gasworks’s first iteration, and peek into some of its failings, with hindsight. The next chapter will talk about my rude awakening, and the subsequent, even worse version which came after it,<br>
+followed by its phoenix-like rebirth into something beautiful. Part 2 of this chapter will look at the importance of references, direction, and solid construction at the blockout phase, all of which are ultimately the reason this version failed and was redone from scratch.</p>
+<p>To cap off the post, here’s a fun image of Gasworks. See if you can figure out what it is:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/3X/a/1/a1a0a385733a718eaee00beab5c7caf62a26f3a0.jpg" data-download-href="https://leakfree.org/uploads/default/a1a0a385733a718eaee00beab5c7caf62a26f3a0" title=""><img src="../../uploads/default/optimized/3X/a/1/a1a0a385733a718eaee00beab5c7caf62a26f3a0_2_690x379.jpg" alt="" data-base62-sha1="n3P2syGxVve60GAdBkh4bjAmLZK" width="690" height="379" srcset="https://leakfree.org/uploads/default/optimized/3X/a/1/a1a0a385733a718eaee00beab5c7caf62a26f3a0_2_690x379.jpeg, https://leakfree.org/uploads/default/optimized/3X/a/1/a1a0a385733a718eaee00beab5c7caf62a26f3a0_2_1035x568.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/3X/a/1/a1a0a385733a718eaee00beab5c7caf62a26f3a0_2_1380x758.jpeg 2x" data-small-upload="../../uploads/default/optimized/3X/a/1/a1a0a385733a718eaee00beab5c7caf62a26f3a0_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1705×937 402 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Feel free to give me feedback on what you did and didn’t like about this post, or what you’d like to see more of. Just be polite about it. Tune in next week, for more, if these are well received!</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13553.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-11-15T02:10:28Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:18:15Z' class='post-time'>
+                November 25, 2018,  4:18am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Reserved.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13553.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-11-15T02:10:44Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:18:15Z' class='post-time'>
+                November 25, 2018,  4:18am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This post is also reserved.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Crypt.html'><span itemprop='name'>Crypt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13553.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-11-15T02:56:38Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:18:15Z' class='post-time'>
+                November 25, 2018,  4:18am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<p>I’d always been a mapper who tended to jump right in rather than plan and refine prior to starting, and it really bit me bad here. It’s not arrogance; more naivety. I’m not so good at the planning side, I prefer a more hands-on approach. But, alas, this made me suffer in the long run.</p>
+</blockquote>
+</aside>
+<p>Oh jeez, I relate to this too much. Honestly, it should be more emphasized to newer designers that you should get a solid direction beforehand. It’s not all that talked about, but god, it’s important. Otherwise you’ll be stuck in DevHell, or end up with a product leagues below what it could have been.  <img src="../../images/emoji/twitter/frowningc164.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+<p>As much as I hate to sound plug-y, a certain BM add-on suffered from a lot of what you’ve talked about in this post, hardcore. No planning, “copy existing Black Mesa” as the initial direction, lots. Can totally relate and empathize with what you’ve written out here.</p>
+<aside class="quote no-group">
+<blockquote>
+<p>See if you can figure out what it is</p>
+</blockquote>
+</aside>
+<p>When you say this, do you mean figure out it’s [COLOR=’<span class="hashtag">#191919</span>’]a view of the map in Hammer with all visgroups sans props disabled, or something entirely different?</p>
+<p>I look forward to the following posts! You write well, and it’s nice seeing some development history. I like hearing about the thought that goes into projects.  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Dotard.html'><span itemprop='name'>Dotard</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13553.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-11-15T11:51:11Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:18:17Z' class='post-time'>
+                November 25, 2018,  4:18am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Very well-written devblog. To be completely honest, if you hadn’t told us that what’s shown on the screenshots is Gasworks, I wouldn’t have figured it out, but then again, it’s been a while since I played HL1DM and that map in particular. But maybe I didn’t recognize it because this first iteration of yours really looks different?  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:">  In fact yes, I think it’s mainly because of the lighting which WAS a mistake.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/yrr.html'><span itemprop='name'>yrr</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13553.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-11-15T12:43:36Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:18:17Z' class='post-time'>
+                November 25, 2018,  4:18am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>First of all, thanks for getting in touch with the community again <em>digital hug</em></p>
+<p>I like these DevBlogs, gives some interesting insights and I can only begin to glimpse what going through an MP map without a proper planning can be pretty  challenging.</p>
+<p>I remember my first mapping hours with a few friends (I was and am still a total amateur and stopped mapping at all) and we made two maps for Counter-Strike, with the different approaches you talked about: The first was, we wanted to make a new rats map, so we just threw different ideas into the room, designing it, started mapping, outlining, etc. and then got to play it. It sucked. For the other map on the other hand, we first laid out our concept and didn’t care about the visuals at all, so we just wanted to test it on a LAN-party with some friends and while it was looking pretty awful with also only placeholder textures and so on, the map became quickly a favorite at playing (mind you, still they were pretty baaad maps in terms of almost everything).</p>
+<p>I don’t think that it’s a disadvantage to have a more “hands-on” approach like you described, I just guess it was the wrong decision for this particular project, not in general. If I remember correctly, your approach for the Uncut-Maps was also more of an “hands-on”  without so much planning and it changed as you played it, tested it and went through many iterations. But look where that got you ! More streamlined, visually and gameplay-wise really great additions to the Singleplayer in my opinion that design-wise even top the main game !</p>
+<p>By the way, stories like these we right now would be PERFECTLY suited for any kind of developer commentary… Well, not those things you and Brian for example talked about already on the Dev-Blogs, but maybe other things ? (I’m still hoping and crossing fingers for an developer commentary, even if that means BM is coming out in 2017 or something  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"> )</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13553.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-11-15T22:25:11Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:18:18Z' class='post-time'>
+                November 25, 2018,  4:18am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I was expecting more of a response than this :[</p>
+<p>Oh well.</p>
+<aside class="quote no-group" data-username="Crypt">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/crypt/40/4394_2.png" class="avatar"> Crypt:</div>
+<blockquote>
+<p>-Snip-</p>
+</blockquote>
+</aside>
+<p>You are correct about the image. It’s from kind of an oldish version, but I like it - it’s so surreal looking.</p>
+<aside class="quote no-group" data-username="Dotard">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/d/d26b3c/40.png" class="avatar"> Dotard:</div>
+<blockquote>
+<p>Very well-written devblog. To be completely honest, if you hadn’t told us that what’s shown on the screenshots is Gasworks, I wouldn’t have figured it out, but then again, it’s been a while since I played HL1DM and that map in particular. But maybe I didn’t recognize it because this first iteration of yours really looks different?  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:">  In fact yes, I think it’s mainly because of the lighting which WAS a mistake.</p>
+</blockquote>
+</aside>
+<p>I think that’s probably because you just don’t remember it so well. My iteration actually resembled the original a lot, even if it didn’t dimensionally match it properly.</p>
+<aside class="quote no-group" data-username="yrr">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/y/2bfe46/40.png" class="avatar"> yrr:</div>
+<blockquote>
+<p>First of all, thanks for getting in touch with the community again <em>digital hug</em></p>
+<p>I like these DevBlogs, gives some interesting insights and I can only begin to glimpse what going through an MP map without a proper planning can be pretty  challenging.</p>
+<p>I remember my first mapping hours with a few friends (I was and am still a total amateur and stopped mapping at all) and we made two maps for Counter-Strike, with the different approaches you talked about: The first was, we wanted to make a new rats map, so we just threw different ideas into the room, designing it, started mapping, outlining, etc. and then got to play it. It sucked. For the other map on the other hand, we first laid out our concept and didn’t care about the visuals at all, so we just wanted to test it on a LAN-party with some friends and while it was looking pretty awful with also only placeholder textures and so on, the map became quickly a favorite at playing (mind you, still they were pretty baaad maps in terms of almost everything).</p>
+<p>I don’t think that it’s a disadvantage to have a more “hands-on” approach like you described, I just guess it was the wrong decision for this particular project, not in general. If I remember correctly, your approach for the Uncut-Maps was also more of an “hands-on”  without so much planning and it changed as you played it, tested it and went through many iterations. But look where that got you ! More streamlined, visually and gameplay-wise really great additions to the Singleplayer in my opinion that design-wise even top the main game !</p>
+<p>By the way, stories like these we right now would be PERFECTLY suited for any kind of developer commentary… Well, not those things you and Brian for example talked about already on the Dev-Blogs, but maybe other things ? (I’m still hoping and crossing fingers for an developer commentary, even if that means BM is coming out in 2017 or something  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"> )</p>
+</blockquote>
+</aside>
+<p>Nice points. Generally speaking - your story is why orange maps are so useful. Very often the visual direction of a map is VERY closely related to its layout. Starting with the visual direction and layout at the same time often ties you down too much - rather than you creating the layout and then planning out a solid visual direction. This is again, the mistake in not orange mapping. The two should be considered separately, even if they’re very closely related - at least in the early stages.</p>
+<p>As for the whole “hands-on” stuff, I would say it’s still generally a bad thing when trying to create a professional finished product in decent time. My “hands on” approach with that stuff only worked out okay because I was spitballing and changing ideas with the community constantly as I went along (which WAS AWESOME, by the way). But on a dev team that’s really something you want to do earlier on - especially when you’re tied into other artists and developers. Changing direction on a team is a bad thing - assets have to be redone, textures have to be changed, which can be a big motivation killer, particularly on a large project such as Black Mesa where everyone as very limited time to begin with. It really didn’t matter much, on my own.</p>
+<p>As for the whole “topping the main game” stuff about Uncut, that’s not true, I’m afraid. On an objective level my stuff just isn’t as good, in pretty much any way. I can quite clearly see that now, especially with a lot more experience behind me and lessons learned. I could do an outrageously better job now. Will never have the time, though.</p>
+<p>If I decide to continue these stories (may not), you’ll see what happens once I find a proper direction and plan. Everything changes.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/JeffMOD.html'><span itemprop='name'>JeffMOD</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13553.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-11-16T02:14:35Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:18:19Z' class='post-time'>
+                November 25, 2018,  4:18am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yay, new devblog series! <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"><br>
+To be honest, I haven’t played all that much HLDM, but I do remember Gasworks being a great deal of fun. Looking forward to seeing more shots and hearing more about your methods!</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Codes.html'><span itemprop='name'>Codes</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13553.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-11-16T03:12:10Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:18:19Z' class='post-time'>
+                November 25, 2018,  4:18am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I was really hoping you would release something along these lines when you joined the team, but honestly was very surprised that you did.</p>
+<p>Your write-ups are always a great read and well put together.</p>
+<p>Those long posts (and vids) about your uncut maps were a great way to re-live mapping and game design, as I have been away from it for a number of years (RTCW days if that means anything) and I miss it sooo very much.<br>
+Makes me want to get back into it when I see you working through all the aspects and coming up with great solutions.</p>
+<p>Can’t wait to read the next chapter!!  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Chickenprotector.html'><span itemprop='name'>Chickenprotector</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13553.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-11-16T03:20:13Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:18:19Z' class='post-time'>
+                November 25, 2018,  4:18am
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Ha, it takes time for us to get into it.  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+<p>I look forward to seeing more of your stuff (if you decide to put more out), it looks really good. I vaguely remember playing Gasworks in OP4, it was one of my favorites when I did play DM.</p>
+<p>I have a question actually, considering your history that you discussed in your last two projects before joining the team: the one about developing maps for MP in some game, I believe it was Counter-Strike; don’t hold me to that.</p>
+<p>Has that past played a factor in your development of Gasworks in addition to your debut projects for Black Mesa (OAR:U and ST:U)?</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/jessiestorm88.html'><span itemprop='name'>jessiestorm88</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13553.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-11-16T04:05:02Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:18:19Z' class='post-time'>
+                November 25, 2018,  4:18am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This was a good read. It’s really interesting to have insight into the process behind making a multi-player map in a game like black mesa. I’ve worked on mp maps in the past for other games and it’s a completely different experience from single player. It can be difficult to predict how others are going to play the map versus what you intended or imagined would happen. Looking forward to more chapters and I can’t wait<em>edit</em> to play BMDM. Thanks for taking the time to write these.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Narfin.html'><span itemprop='name'>Narfin</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13553.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-11-16T04:06:31Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:18:20Z' class='post-time'>
+                November 25, 2018,  4:18am
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<p>I was expecting more of a response than this :[</p>
+</blockquote>
+</aside>
+<p>Hey, not everyone visits these forums every day  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+<p>I love reading these development posts though. It’s really neat seeing how quality mappers/modellers/etc go through so many iterations of their work and keep remaking everything until it’s just right. It takes waaay more perseverance than I’ve ever had  <img src="../../images/emoji/twitter/smileyc164.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"><br>
+I’m looking forward to seeing how Gasworks improves in your upcoming chapters. I’ve always assumed the map wouldn’t get a very pretty remake since the original wasn’t too good looking to begin with.</p>
+<p>I wish more dev posts like this found their way into this section though. I remember a few on Questionable Ethics that are buried deep inside other threads somewhere  <img src="../../images/emoji/twitter/frowningc164.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Swaggless.html'><span itemprop='name'>Swaggless</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13553.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-11-16T04:33:14Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:18:20Z' class='post-time'>
+                November 25, 2018,  4:18am
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks so much for doing these! I love reading this sort of stuff. I find it facinating.</p>
+<p>Orange Mapping has always been stomething I’ve had trouble with too, beeing a total noob at mapping. I always start trying to texture it and stuff waaay too early.</p>
+<p>I hope you do decide to continue these! Even if you have to shorten them up to save time (personally, I like your writing style).</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/ac3d.html'><span itemprop='name'>ac3d</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13553.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-11-16T11:20:27Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:18:20Z' class='post-time'>
+                November 25, 2018,  4:18am
+              </time>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Interesting read, keep up the fantastic work Text  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/imadoofus.html'><span itemprop='name'>imadoofus</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13553.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-11-16T16:32:55Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:18:21Z' class='post-time'>
+                November 25, 2018,  4:18am
+              </time>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Reality is Unrealistic is a common effect with audiences. When I experiment with mapping (I never finish anything, of course), I just try to fit the aesthetic of the game as I see it, and work from there.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13553.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-11-17T10:32:32Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:18:24Z' class='post-time'>
+                November 25, 2018,  4:18am
+              </time>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Codes">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/c/e9a140/40.png" class="avatar"> Codes:</div>
+<blockquote>
+<p>I was really hoping you would release something along these lines when you joined the team, but honestly was very surprised that you did.</p>
+<p>Your write-ups are always a great read and well put together.</p>
+<p>Those long posts (and vids) about your uncut maps were a great way to re-live mapping and game design, as I have been away from it for a number of years (RTCW days if that means anything) and I miss it sooo very much.<br>
+Makes me want to get back into it when I see you working through all the aspects and coming up with great solutions.</p>
+<p>Can’t wait to read the next chapter!!  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+</blockquote>
+</aside>
+<p>It’s hard to write a development dev blog without a bit of retrospect and hindsight - and I didn’t think there was enough material to be interesting when I started out. I have a lot to say now - it’s just a question of whether people want to hear it or not. That’s why I’m doing it now - I have the material!</p>
+<aside class="quote no-group" data-username="Chickenprotector">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/chickenprotector/40/5653_2.jpg" class="avatar"> Chickenprotector:</div>
+<blockquote>
+<p>Ha, it takes time for us to get into it.  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+<p>I look forward to seeing more of your stuff (if you decide to put more out), it looks really good. I vaguely remember playing Gasworks in OP4, it was one of my favorites when I did play DM.</p>
+<p>I have a question actually, considering your history that you discussed in your last two projects before joining the team: the one about developing maps for MP in some game, I believe it was Counter-Strike; don’t hold me to that.</p>
+<p>Has that past played a factor in your development of Gasworks in addition to your debut projects for Black Mesa (OAR:U and ST:U)?</p>
+</blockquote>
+</aside>
+<p>I never really considered my work on Counter-Strike to be any real experience with actual, proper level design. It was more me acquainting myself with the Source tools. I only ever designed I think…3 finished maps, which I mostly played with my friends when we played on my server. I never made conventional CS maps, either.</p>
+<p>In fact, it was this fact which came back to bite me a little bit - so you could actually say it did influence my development of Gasworks, negatively. One of the key features of all the CS maps I made was that they featured a huge variety of OPTIONS for the player, at any one time. They were not conventional CS maps, in this regard. I loved having random stuff everywhere you could climb up, loads of little jumps, tricks and pipes you could walk across, shortcuts, hidden routes, the works. I was all about cramming as much complexity into my maps as possible - not because I thought it was good design or anything like that, but because it was fun and not like every other CS map out there! The problem with that is - it’s conducive to fairly sloppy and chaotic gameplay - which is fine when you’re playing a fun map with friends, but trying to design a professional product? Not so much!</p>
+<p>I was guilty of doing this in early versions of Gasworks. Not the initial one I just talked about, but some of the versions after that. I started putting in lots of trick jumps, new routes, props you can climb on - things like that, and it made the gameplay sloppy and chaotic. In a fast paced game like Black Mesa, you need to find a very difficult balance between limiting the player and giving them options. Being too limited is obviously boring - but having too many options creates chaotic and confusing gameplay. We have a good idea of this balance now.</p>
+<aside class="quote no-group" data-username="Narfin">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/n/46a35a/40.png" class="avatar"> Narfin:</div>
+<blockquote>
+<p>Hey, not everyone visits these forums every day  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+<p>I love reading these development posts though. It’s really neat seeing how quality mappers/modellers/etc go through so many iterations of their work and keep remaking everything until it’s just right. It takes waaay more perseverance than I’ve ever had  <img src="../../images/emoji/twitter/smileyc164.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"><br>
+I’m looking forward to seeing how Gasworks improves in your upcoming chapters. I’ve always assumed the map wouldn’t get a very pretty remake since the original wasn’t too good looking to begin with.</p>
+<p>I wish more dev posts like this found their way into this section though. I remember a few on Questionable Ethics that are buried deep inside other threads somewhere  <img src="../../images/emoji/twitter/frowningc164.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+</blockquote>
+</aside>
+<p>It doesn’t matter how the original was - we want all of our maps to be as gorgeous as possible! It’s tricky to pull off as we’ve gone for a fairly minimalist aesthetic in the name of uncluttered and smooth gameplay - making it look good and play great is very tough. We’ve tried super hard to make it look good and simultaneously uncluttered - a very difficult balance to strike indeed.</p>
+<aside class="quote no-group" data-username="imadoofus">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/i/c5a1d2/40.png" class="avatar"> imadoofus:</div>
+<blockquote>
+<p>Reality is Unrealistic is a common effect with audiences. When I experiment with mapping (I never finish anything, of course), I just try to fit the aesthetic of the game as I see it, and work from there.</p>
+</blockquote>
+</aside>
+<p>Very true. Reality also isn’t that immersive!</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/imadoofus.html'><span itemprop='name'>imadoofus</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13553.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-11-17T16:56:35Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:18:24Z' class='post-time'>
+                November 25, 2018,  4:18am
+              </time>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Another thing I’d like to point out, which I’m sure is obvious for someone who’s trying to remake these maps, is how utterly ridiculous the old Deathmatch maps are. Half-Life’s Black Mesa is a shining example of OSHA compliance compared to maps like Undertow and Gasworks. It’s a twisted, sealed labyrinth, and that’s not what you want in a map styled after BMS. There have to be changes just to allow the environment to make a little more sense.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Chickenprotector.html'><span itemprop='name'>Chickenprotector</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13553.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-11-17T17:07:08Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:18:24Z' class='post-time'>
+                November 25, 2018,  4:18am
+              </time>
+          <span itemprop='position'>#19</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<p>-snip-</p>
+</blockquote>
+</aside>
+<p>Heh, that’s true, CS and BM <img src="../../images/emoji/twitter/smileyc164.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"> M are two completely different beasts after all. Same goes for Fortress Forever vs TF2.</p>
+<p>What’s an example of this balance, if you can share? I’m a bit curious now.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="13553.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2014-11-17T18:34:42Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T04:18:25Z' class='post-time'>
+                November 25, 2018,  4:18am
+              </time>
+          <span itemprop='position'>#20</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="imadoofus">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/i/c5a1d2/40.png" class="avatar"> imadoofus:</div>
+<blockquote>
+<p>Another thing I’d like to point out, which I’m sure is obvious for someone who’s trying to remake these maps, is how utterly ridiculous the old Deathmatch maps are. Half-Life’s Black Mesa is a shining example of OSHA compliance compared to maps like Undertow and Gasworks. It’s a twisted, sealed labyrinth, and that’s not what you want in a map styled after BMS. There have to be changes just to allow the environment to make a little more sense.</p>
+</blockquote>
+</aside>
+<p>We’re well aware of that - it has been a prime consideration for us. Some parts of Gasworks I have absolutely agonized over to try and make sense.</p>
+<p>The thing about the HL1DM maps is that, not only were they generally very hastily designed, they also never really had much of a purpose ascribed to them - a byproduct of the basically nonexistent detailing. So yes, as you said, just a twisted labyrinth. We’ve tried very hard to give the areas a clear visual purpose that makes sense - but at the end of the day - gameplay is king.</p>
+<p>Most of Gasworks is the same, layout wise - except I’ve tried to give each area a clear visual purpose, and it works, for the most part. It’s still weirdly laid out if you think about it - but none of us are willing to change the layout and hurt gameplay to benefit an area making sense. It’s a delicate balance.</p>
+<aside class="quote no-group" data-username="Chickenprotector">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/chickenprotector/40/5653_2.jpg" class="avatar"> Chickenprotector:</div>
+<blockquote>
+<p>Heh, that’s true, CS and BM <img src="../../images/emoji/twitter/smileyc164.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"> M are two completely different beasts after all. Same goes for Fortress Forever vs TF2.</p>
+<p>What’s an example of this balance, if you can share? I’m a bit curious now.</p>
+</blockquote>
+</aside>
+<p>I can’t really give a specific example of the balance, as it really depends on the map, number of players, etc. That’s one of the things you have to determine as the map evolves, and based on the layout of the area.</p>
+<p>Basically, if a player has a hard time knowing where they’re getting shot from, or how to get somewhere, it’s a bad thing. One of the things you’ll notice about Gasworks is that, even on the big outdoor area with loads of angles and spaces - you pretty much always know where you’re getting shot from, and are aware of the route to navigate to that position if necessary. If there are too many routes to one place, it becomes a crapshoot. This was a particular problem for me with early iterations of the RPG Fort - I didn’t like the fort aspect so I kept adding new ways to get up (climbing up barrels, elevators, staircases, etc). It just got really annoying for any player camping up there, because they never knew where they were going to get attacked from.</p>
+<p>There’s strictly no correct answer, but in BMS we’ve gone for simple basic layouts with optional nuance. You can still do just fine if you ignore all the little things and tricks in our layouts, but knowing them helps. It’s when a map ABSOLUTELY REQUIRES you to know all that complex stuff and a million routes that it can be an issue, but again, depends on the map.</p>
+        </div>
+
+        <meta itemprop='headline' content='The Story of Gasworks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="135534658.html?page=2">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/the-story-of-gasworks/13553 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:33:04 GMT -->
+</html>

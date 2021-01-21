@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>The Crossfire Update - Content Update 0.2.0</title>
+    <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512</link>
+    <description>[align=center][img]https://i.imgur.com/0QJzpzH.jpg[/img][/align]
+[i]Server owners - Multiplayer Servers must be updated[/i]
+[b]NewFeatures[/b]
+	* Added	Crossfire!
+* Added	&#39;God	Rays&#39;
+* Multiplayer	animation system has been overhauled and rebuilt. New multiplayer	animations.
+* Weapon	Bob and Weapon Drag Added
+* Score	Persist on Leaving and Rejoining a Multiplayer Match	(bm_multiplayer_persistent_scores cvar added to disable this)
+* Steam	controller configuration
+* Servers	now track stats for players and rank them on that server
+* New	Gluon Gun model
+* New	Crossbow model
+* New	RPG model
+* New	Shotgun model
+* Shogun	will now gibb characters if damage is high enough
+* Added	third person shell ejects from NPCs
+* Added	Tau Wallshotting in Multiplayer
+* All	workshop submissions have no filesize limit anymore. Make stuff	without limits!
+[b]SinglePlayer[/b]
+	* Closed	Captions/Translations: Black Mesa now has updated closed captions	for all supported languages: English, Finnish, German, Italian,	Norwegian and Spanish.
+* All	voice-over dialogue has been updated to use soundscript entries.
+* Updated	Localization Files
+* Added	H-Grunt	death noises when gibbed
+* Head	crabs inherit momentum when shot off a zombies head! (zoom!)
+* Increased	view model blood texture resolution
+* Increased	flashlight and FOV cone
+* Increased	crossbow bolt speed
+* [i]Anomalous	Materials[/i]	
+[list][*]Map		A (bm_c1a0a)
+* Made		visual improvements to airlock particles
+[/*:m][*][i]Unforeseen	Consequences[/i]	
+* Map		C (bm_c1a1c)		
+[list][*]Adjusted			trigger placement for zombie that flings flaming barrel at the			player
+[/*:m][/list:u][/*:m][*][i]Office	Complex[/i]	
+* Map		A (bm_c1a2a)		
+[list][*]Various			miscellaneous fixes
+* Fixed			Barney getting stuck on a crate near the sentry turret
+[/*:m][/list:u][/*:m][*]Map	C (bm_c1a2c)	
+* Fixed		triggering the transition to We&#39;ve Got Hostiles by going underneath		the lift at the end of the level
+* Various		miscellaneous fixes
+* Fixed		walkway		glass before the final lift shaft not breaking upon xen portals		opening
+* Fixed		texture sorting issue at end of chapter
+[/*:m][*][i]We&#39;ve	Got Hostiles[/i]	
+* Map		A &amp; B (bm_c1a3s/bm_c1a3b)		
+[list][*]Fixed			fire doors being blocked by ground sentry turrets
+[/*:m][/list:u][/*:m][*][i]Power	Up[/i]	
+* Map		A (bm_c2a1a)		
+[list][*]Removed			charge from broken health charge in the track control room
+[/*:m][/list:u][/*:m][*][i]On	A Rail[/i]	
+* Map		A &amp; B (bm_C2a2a/bm_c2a2b)		
+[list][*]Adjusted			the c2a2a to c2a2b level transition to counteract a variety of			bugs that appear relating to the tram, from now on in order to			proceed to c2a2b the tram needs to have been bought to the top of			the rotating lift
+[/*:m][/list:u][/*:m][*][i]Apprehension[/i]	
+* Map		A (bm_c2a3a)		
+[list][*]Fixed			mysterious floating box shadow near the start of the level
+* Adjusted			position of crossbow in the cage and added a clip to the bottom of			it to prevent it from falling into the water
+[/*:m][*]Map		C (bm_c2a3c)		
+* Increased			fade distance on some vehicles in the main hangar room
+[/*:m][/list:u][/*:m][*][i]Residue	Processing[/i]	
+* Map		A (bm_c2a4a)		
+[list][*]Added			missing env_sun entity for use with godrays
+[/*:m][*]Map		B (bm_c2a4b)		
+* Fixed			visible nodraw
+[/*:m][/list:u][/*:m][*][i]Questionable	Ethics[/i]	
+* Map		E (bm_c2a4e)
+* Tweaked		lighting around the ladder transition to QE to make it more visible
+[/*:m][*][i]Surface	Tension[/i]	
+* Map		B (c2a5b)		
+[list][*]Added			sounds for when the apache flies over the player near the start of			the level
+[/*:m][*]Map		E (bm_c2a5e)		
+* Fixed			Hivehand falling through lift near the end of the level
+[/*:m][/list:u][/*:m][*][i]Forget	About Freeman[/i]	
+* Map		A (bm_c3a1a)		
+[list][*]The			ceiling turrets near the beginning of the level are friendly to			both the guard and player once deployed.
+[/*:m][/list:u][/*:m][*][i]Lambda	Core[/i]	
+* Maps		A to H (bm_c3a2a – c3a2h)		
+[list][*]Various			miscellaneous console error fixes
+* Removed			redundant entities related to the spawning of npcs
+
+
+
+
+
+[/*:m][/list:u][/*:m][/list:u][b]Multiplayer[/b]
+
+
+
+
+	* New	multiplayer animation system
+* Crossbow	zoomed shot is now predicted. It	appropriately handles	latency now.
+* Added	godrays to MP maps
+* Additional	detailing on Stalkyard
+* Added	Tau wallshotting
+* Particles	and sounds play on player and weapon spawns for better player	awareness
+* Servers	now track stats for players and rank them on that server
+* Can	now lock teams for competitive play
+* Intermission	improvements 1st, 2nd, 3rd announcement and icons
+* Scoreboard	now shows next map
+* GMan	now has proper hand model
+* Increased	footstep volume
+* Use	button now slows player like in Half-Life 1
+* Added	a walk button with no footstep sounds
+* Fixed	sheen effect not showing on some items in MP
+* Fixed	players spawning during intermission
+* Fixed	players not freezing in place during intermission
+* MP	score persists on leaving a match and re-joining
+* Team	colors now	appear in kill feed
+* Added	post match timer
+* Rewrote	and shortened loading screen tips
+* Added	multiplayer team chat colors
+* Added	Chopper, Rail and Power to the official MP map list.
+[b]Bugs[/b]
+	* Possibly	fixed jiggly tie bug
+* Fixed	HECU taking cover from hive hand bees
+* Fixed	steam cloud not working
+* Fixed	satchel detonation delay
+* Fixed	satchel detonation switching to left click on last satchel
+* Fixed	satchel flicker bug
+* MP5	muzzle flash on ground bug
+* Disappearing	viewmodels fixed
+* Fixed	crossbow and tau tracers coming From player face
+* Tau	Effects Staying on Weapons
+* 357	now plays draw_admire animation
+* Fixed	MP5 Grenade spawning from center of the screen
+* Fixed	reload sound stopping when&quot;+use&quot; is called
+* Fixed	bloom glowing window textures
+* Reduced	Sensitivity when zoomed in with crossbow
+* Fixed	hive hand pickup in single player
+* Fixed	Gman spawning HEV gibs
+* Fixed	sheen not showing on all pickups in MP
+* Fixed	Guards not playing gestures
+* Fixed	static props disappearing in MP
+* Fixed	tracers from HECU appearing from above gun
+* Fixed	crossbow zoom sensitivity
+* Fixed	MP screens showing on SP load screens
+* Fixed	func_rotating objects stopping
+* Fixed	Assassin&#39;s holding incorrect Glock model in left hand
+* Fixed	357 not playing correct aim down sight animation
+* Fixed	Freeze damage displaying incorrect damage type on hud
+* Fixed	Apache not acquiring missile targets. Apache now shoots Surface	Tension dam like in the Mod
+* Fixed	Gman text on character select screen
+* Changed	default gamma to 2.0 instead of 2.2
+[b]SDK/Modding[/b]
+	* Workshop	data filesize limit has been removed.
+* Deathmatch/Team	Deathmatch Spawns and Items Enable/Disable for MP Assault
+* New	user generated content Tool with uncapped mod size
+* Added	enable/disable inputs for pickups so weapon pickups can be turned on	and off
+* Added	game_round_start entity
+* Stationary	rocketlauncher added for multiplayer (func_tow_mp)
+* Added	enable/disable inputs for Deathmatch/Team Deathmatch spawns
+* Added	the ability for info_player_deathmatch to specific which items the	players can start with in multiplayer.	
+[list][*]To		set which items players spawn with, set the &quot;List of Items to		spawn the player with.&quot; keyvalue to the entity name(s) of what		you spawned.
+* Setting		items to this list will overwrite the default list of spawn items		(Pistol + Grenades), so		you will need to add in ammo and such.
+* This		feature is meant to spawn just weapons and ammo, but at the moment		can spawn any entity at spawn. We aren&#39;t too sure what you can do		with other entities in MP, but we&#39;re excited to see what you come		up with.
+* If		you&#39;re setting multiple items on spawning, separate each of these		items by a comma.		
+[list][*]For			example, to spawn with a 357, and extra 357 ammo you would put			item_weapon_357, item_ammo_357 into the Value.
+[/*:m][/list:u]
+
+
+
+
+[/*:m]
+[*]VRAD	now has additional commands to support texture lights with higher	lightmap sizes, and to control color transmission and overall global	illumination. (previous update)[/*:m][/list:u][b]Other:[/b]
+
+
+
+
+	* Added	Patch Notes
+
+
+
+KNOWN ISSUES:
+* Server ranks lists players as un-named
+* Snarks are floating on Crossfire
+* Players can pass through some barrels in Crossfire
+* Flash effect applies to people in bunker
+* Crossbow sound effect have horrible screeching sound (link on how to fix that coming soon)
+* Turning off muzzle flashes does not work (fix coming in next patch)
+* Tau is overpowered
+* Tow launcher aim get screwed up if you step to close
+* Crossbow may float in some single player maps
+* Game may build .ain files when changing levels
+* Collision is on teammates in TDM
+* [s]Closed Captions May not be working[/s] - Please see workaround for Closed Caption Enabling [url=&#39;https://forums.blackmesasource.com/index.php/Thread/28692-WORKAROUND-How-to-enable-supported-Closed-Captions/?postID=615762#post615762&#39;]here.[/url] They do work!
+* Fix UGC workshop Publish tool so that it can actually launch. (It did before the update, we swear!)
+
+
+We are currently and actively updating this list.</description>
+    
+    <lastBuildDate>Mon, 11 Jan 2016 15:08:08 +0000</lastBuildDate>
+    <category>Patches</category>
+    <atom:link href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[Fr0z3n]]></dc:creator>
+        <description><![CDATA[
+            <p>Once we know things are working and aren’t crashing, we’ll push it out to he main clients. there are some other things in the patch that are holding it back.</p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/152">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/152</link>
+        <pubDate>Mon, 11 Jan 2016 15:08:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-152</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[AvoidPaypal]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="AvoidPaypal">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/a/e95f7d/40.png" class="avatar"> AvoidPaypal:</div>
+<blockquote>
+<p>Was chatting up with an EX Black Mesa developer that still has access to some old Black Mesa MP code (that is still used) with the hope that we will find a cause &amp; fix for the following problems:</p>
+<aside class="quote no-group" data-username="Fr0z3nR">
+<div class="title">
+<div class="quote-controls"></div>
+ Fr0z3nR:</div>
+<blockquote>
+<p>Lag is being reported on some maps, but not others. It’s being reported that it is tied into either weapons spawning, or players spawning. We have yet to determine which one it is, or if it’s both, or if it’s neither.</p>
+</blockquote>
+</aside>
+<aside class="quote no-group" data-username="•CraB•">
+<div class="title">
+<div class="quote-controls"></div>
+ •CraB•:</div>
+<blockquote>
+<p>I get freeze every time if some player exploded in MP<br>
+Of course this is not players but it has similar freeze</p>
+<p><a href="https://youtu.be/4RlgJpyttPE" rel="nofollow noopener">youtu.be/4RlgJpyttPE</a></p>
+</blockquote>
+</aside>
+<p>Modifications have been made and now both problems should be fixed in a̶n̶ ̶u̶p̶c̶o̶m̶i̶n̶g̶  a future patch, he’s passed on the fixes to the current Black Mesa team, hope you guys will push them out in a decent amount of time ^^</p>
+</blockquote>
+</aside>
+<p>The performance fixes for multiplayer in the public beta work great, the part including the fixes for <a href="https://www.youtube.com/watch?v=4RlgJpyttPE" rel="nofollow noopener">youtube.com/watch?v=4RlgJpyttPE</a> should in my opinion be pushed out as soon as possible to the non-beta / normal branch since a very few people actually use beta, no point for them to not benefit from the already existing fix.</p>
+<p>People having the upgraded .vpk files from the beta cause problems while playing on non-beta servers in certain scenarios (can’t blacklist tampering with textures / models / other files…since beta and normal .vpk’s are different), this would be solved if this essential fix was pushed to the non-beta / normal branch since then players + servers will have the same .vpk’s.</p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/151">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/151</link>
+        <pubDate>Mon, 11 Jan 2016 13:54:21 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-151</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[bkdale86]]></dc:creator>
+        <description><![CDATA[
+            <p>If you have questions or bugs post the in the appropriate threads.</p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/150">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/150</link>
+        <pubDate>Sun, 10 Jan 2016 23:10:24 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-150</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[omegalucas]]></dc:creator>
+        <description><![CDATA[
+            <p>Are you guys thinking of ever redoing the snarks? They are kinda have the lowest quality of all the viewmodels. Then again that may be 'cuz they are a worldmodel being held so, I dunno…</p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/149">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/149</link>
+        <pubDate>Sun, 10 Jan 2016 21:38:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-149</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[Chickenprotector]]></dc:creator>
+        <description><![CDATA[
+            <p>When wasn’t it?</p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/148">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/148</link>
+        <pubDate>Wed, 06 Jan 2016 00:02:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-148</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[bkdale86]]></dc:creator>
+        <description><![CDATA[
+            <p>It’s annoying…</p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/147">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/147</link>
+        <pubDate>Tue, 05 Jan 2016 23:18:24 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-147</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>You guys gotta be used to the passive aggression from the fans by now.</p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/146">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/146</link>
+        <pubDate>Tue, 05 Jan 2016 19:54:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-146</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[bkdale86]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Johnwalter">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/johnwalter/40/4365_2.png" class="avatar"> Johnwalter:</div>
+<blockquote>
+<p>"Btw CC peps, do you feel that you may overdone the Bounce map, just with the new areas?<br>
+(ill probably receive a slap for this)</p>
+</blockquote>
+</aside>
+<p>No we don’t feel that way and why ask a passive aggressive question like that?<br>
+Consider yourself slapped…</p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/145">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/145</link>
+        <pubDate>Tue, 05 Jan 2016 19:26:49 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-145</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[Dragunov2]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Tenshi07">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/t/e9c0ed/40.png" class="avatar"> Tenshi07:</div>
+<blockquote>
+<aside class="quote no-group" data-username="Juicy">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/j/74df32/40.png" class="avatar"> Juicy:</div>
+<blockquote>
+<p>Gibbing should be a lot more localized, it’d make things look so much better and it’ll be so satisfying to make someone’s head explode without destroying the whole body.</p>
+</blockquote>
+</aside>
+<p>Would also make blowing somebody’s limbs off more enjoyable too.  <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:">  “I just took off his leg, cripple mode” /gg<br>
+“oh he’s dead…”</p>
+</blockquote>
+</aside>
+<p>Soldier of Fortune comes to my mind!</p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/144">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/144</link>
+        <pubDate>Mon, 04 Jan 2016 16:50:49 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-144</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[Johnwalter]]></dc:creator>
+        <description><![CDATA[
+            <p>I get it why it is popular, i like it.But i’m just saying the map feels “too new” to me<br>
+with the new areas like the sewer access near the wall in middle of the map<br>
+where as in the old map the sewer was away from the wall inside a building.<br>
+Just sayin’.</p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/143">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/143</link>
+        <pubDate>Mon, 04 Jan 2016 15:56:31 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-143</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[Fr0z3n]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Johnwalter">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/johnwalter/40/4365_2.png" class="avatar"> Johnwalter:</div>
+<blockquote>
+<p>“No Xen, stop it!” - hahaha that part had me rolling on the floor laughing.  <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+<p>Damnit i missed Ross aswell.</p>
+<p>Btw CC peps, do you feel that you may overdone the Bounce map, just with the new areas?<br>
+(ill probably receive a slap for this)</p>
+<p>And with the Crossfire map, do you guys think it would be fair to make a secret room (which should be obvious to find, but don’t tell us its whereabouts)<br>
+which would allow up to 2 players to hide from the bombing but it should be located away from the bunker?</p>
+</blockquote>
+</aside>
+<p>Bounce was one of the popular (if not the most popular) map during internal testing.</p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/142">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/142</link>
+        <pubDate>Mon, 04 Jan 2016 12:49:46 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-142</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[Tenshi07]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Juicy">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/j/74df32/40.png" class="avatar"> Juicy:</div>
+<blockquote>
+<p>Gibbing should be a lot more localized, it’d make things look so much better and it’ll be so satisfying to make someone’s head explode without destroying the whole body.</p>
+</blockquote>
+</aside>
+<p>Would also make blowing somebody’s limbs off more enjoyable too.  <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"><br>
+“I just took off his leg, cripple mode” /gg<br>
+“oh he’s dead…”</p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/141">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/141</link>
+        <pubDate>Mon, 04 Jan 2016 11:03:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-141</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[Johnwalter]]></dc:creator>
+        <description><![CDATA[
+            <p>“No Xen, stop it!” - hahaha that part had me rolling on the floor laughing.  <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+<p>Damnit i missed Ross aswell.</p>
+<p>Btw CC peps, do you feel that you may overdone the Bounce map, just with the new areas?<br>
+(ill probably receive a slap for this)</p>
+<p>And with the Crossfire map, do you guys think it would be fair to make a secret room (which should be obvious to find, but don’t tell us its whereabouts)<br>
+which would allow up to 2 players to hide from the bombing but it should be located away from the bunker?</p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/140">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/140</link>
+        <pubDate>Mon, 04 Jan 2016 10:23:19 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-140</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="danielsangeo">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/danielsangeo/40/4347_2.png" class="avatar"> danielsangeo:</div>
+<blockquote>
+<p>Of course, they scheduled it for exactly the same time as the Ross “Freeman’s Mind” Scott Video Chat stream.  I had to attend that–I was a moderator.  Sorry, folks.   <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+</blockquote>
+</aside>
+<p>I completely forgot about both. :c</p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/139">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/139</link>
+        <pubDate>Mon, 04 Jan 2016 03:57:45 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-139</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[Juicy]]></dc:creator>
+        <description><![CDATA[
+            <p>Gibbing should be a lot more localized, it’d make things look so much better and it’ll be so satisfying to make someone’s head explode without destroying the whole body.</p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/138">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/138</link>
+        <pubDate>Mon, 04 Jan 2016 02:25:05 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-138</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[Fr0z3n]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="danielsangeo">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/danielsangeo/40/4347_2.png" class="avatar"> danielsangeo:</div>
+<blockquote>
+<aside class="quote no-group" data-username="RedEye">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/redeye/40/4899_2.png" class="avatar"> RedEye:</div>
+<blockquote>
+<p>Required reading,<br>
+<a href="https://lambdageneration.com/discussion/half-life/interview-with-black-mesa-developer-chon-kemp-exclusive-look-at-surface-tension-uncut-info-on-xen-livestream-giveaway/" data-bbcode="true" rel="nofollow noopener">Interview with Black Mesa Developer Chon Kemp – Exclusive Look at Surface Tension Uncut, Info on Xen + Livestream Giveaway</a></p>
+<aside class="quote no-group" data-username="Fr0z3nR;458604254466564131">
+<div class="title">
+<div class="quote-controls"></div>
+ Fr0z3nR;458604254466564131:</div>
+<blockquote>
+<p>For those interested:</p>
+<p><a href="https://lambdageneration.com/discussion/half-life/interview-with-black-mesa-developer-chon-kemp-exclusive-look-at-surface-tension-uncut-info-on-xen-livestream-giveaway/" data-bbcode="true" rel="nofollow noopener">https://lambdageneration.com/discussion/half-life/interview-with-black-mesa-developer-chon-kemp-exclusive-look-at-surface-tension-uncut-info-on-xen-livestream-giveaway/</a></p>
+</blockquote>
+</aside>
+</blockquote>
+</aside>
+<p>Of course, they scheduled it for exactly the same time as the Ross “Freeman’s Mind” Scott Video Chat stream.  I had to attend that–I was a moderator.  Sorry, folks.   <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+</blockquote>
+</aside>
+<p>VoD’s up <a href="https://www.youtube.com/watch?v=mFSZ3ACu_64" rel="nofollow noopener">youtube.com/watch?v=mFSZ3ACu_64</a></p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/137">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/137</link>
+        <pubDate>Mon, 04 Jan 2016 02:23:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-137</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[danielsangeo]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="RedEye">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/redeye/40/4899_2.png" class="avatar"> RedEye:</div>
+<blockquote>
+<p>Required reading,<br>
+<a href="https://lambdageneration.com/discussion/half-life/interview-with-black-mesa-developer-chon-kemp-exclusive-look-at-surface-tension-uncut-info-on-xen-livestream-giveaway/" data-bbcode="true">Interview with Black Mesa Developer Chon Kemp – Exclusive Look at Surface Tension Uncut, Info on Xen + Livestream Giveaway</a></p>
+<aside class="quote no-group" data-username="Fr0z3nR;458604254466564131">
+<div class="title">
+<div class="quote-controls"></div>
+ Fr0z3nR;458604254466564131:</div>
+<blockquote>
+<p>For those interested:</p>
+<p><a href="https://lambdageneration.com/discussion/half-life/interview-with-black-mesa-developer-chon-kemp-exclusive-look-at-surface-tension-uncut-info-on-xen-livestream-giveaway/" data-bbcode="true">https://lambdageneration.com/discussion/half-life/interview-with-black-mesa-developer-chon-kemp-exclusive-look-at-surface-tension-uncut-info-on-xen-livestream-giveaway/</a></p>
+</blockquote>
+</aside>
+</blockquote>
+</aside>
+<p>Of course, they scheduled it for exactly the same time as the Ross “Freeman’s Mind” Scott Video Chat stream.  I had to attend that–I was a moderator.  Sorry, folks.   <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/136">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/136</link>
+        <pubDate>Mon, 04 Jan 2016 01:45:39 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-136</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[Fr0z3n]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Brocan">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/b/a88e57/40.png" class="avatar"> Brocan:</div>
+<blockquote>
+<p>Any date about when are the subtitles expected to be re-activated? although steam has the right language, my subs (and the whole game) are always in english  <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+<p>Thanks in advance! nice update.</p>
+</blockquote>
+</aside>
+<p>Check this post out.</p>
+<p><a href="https://forums.blackmesasource.com/index.php/Thread/28692-WORKAROUND-How-to-enable-supported-Closed-Captions/" data-bbcode="true" rel="nofollow noopener">[WORKAROUND] How to enable supported Closed Captions.</a></p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/135">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/135</link>
+        <pubDate>Mon, 04 Jan 2016 00:07:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-135</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[Brocan]]></dc:creator>
+        <description><![CDATA[
+            <p>Any date about when are the subtitles expected to be re-activated? although steam has the right language, my subs (and the whole game) are always in english  <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+<p>Thanks in advance! nice update.</p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/134">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/134</link>
+        <pubDate>Sun, 03 Jan 2016 23:32:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-134</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[RedEye]]></dc:creator>
+        <description><![CDATA[
+            <p>Required reading,<br>
+<a href="https://lambdageneration.com/discussion/half-life/interview-with-black-mesa-developer-chon-kemp-exclusive-look-at-surface-tension-uncut-info-on-xen-livestream-giveaway/" data-bbcode="true" rel="nofollow noopener">Interview with Black Mesa Developer Chon Kemp – Exclusive Look at Surface Tension Uncut, Info on Xen + Livestream Giveaway</a>[/size]</p>
+<aside class="quote no-group" data-username="Fr0z3nR;458604254466564131">
+<div class="title">
+<div class="quote-controls"></div>
+ Fr0z3nR;458604254466564131:</div>
+<blockquote>
+<p>For those interested:</p>
+<p><a href="https://lambdageneration.com/discussion/half-life/interview-with-black-mesa-developer-chon-kemp-exclusive-look-at-surface-tension-uncut-info-on-xen-livestream-giveaway/" data-bbcode="true" rel="nofollow noopener">https://lambdageneration.com/discussion/half-life/interview-with-black-mesa-developer-chon-kemp-exclusive-look-at-surface-tension-uncut-info-on-xen-livestream-giveaway/</a></p>
+</blockquote>
+</aside>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/133">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/133</link>
+        <pubDate>Sun, 03 Jan 2016 23:11:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-133</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[Fr0z3n]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="AvoidPaypal">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/a/e95f7d/40.png" class="avatar"> AvoidPaypal:</div>
+<blockquote>
+<p>Was chatting up with an EX Black Mesa developer that still has access to some old Black Mesa MP code (that is still used) with the hope that we will find a cause &amp; fix for the following problems:</p>
+<p>Modifications have been made and now both problems should be fixed in an upcoming patch, he’s passed on the fixes to the current Black Mesa team, hope you guys will push them out in a decent amount of time <img src="https://forums.blackmesasource.com/wcf/images/smilies/grin.png" alt="" width="" height=""></p>
+</blockquote>
+</aside>
+<p>Until our programmers take a look at the issue, we can’t say when a fix will be out. It is up on our list of things to have fixed soon, but we cannot say if it’ll be in an upcoming patch.</p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/132">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/132</link>
+        <pubDate>Sun, 03 Jan 2016 14:09:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-132</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[AvoidPaypal]]></dc:creator>
+        <description><![CDATA[
+            <p>Was chatting up with an EX Black Mesa developer that still has access to some old Black Mesa MP code (that is still used) with the hope that we will find a cause &amp; fix for the following problems:</p>
+<aside class="quote no-group" data-username="Fr0z3nR">
+<div class="title">
+<div class="quote-controls"></div>
+ Fr0z3nR:</div>
+<blockquote>
+<p>Lag is being reported on some maps, but not others. It’s being reported that it is tied into either weapons spawning, or players spawning. We have yet to determine which one it is, or if it’s both, or if it’s neither.</p>
+</blockquote>
+</aside>
+<aside class="quote no-group" data-username="•CraB•">
+<div class="title">
+<div class="quote-controls"></div>
+ •CraB•:</div>
+<blockquote>
+<p>I get freeze every time if some player exploded in MP<br>
+Of course this is not players but it has similar freeze</p>
+<p><a href="https://youtu.be/4RlgJpyttPE" rel="nofollow noopener">youtu.be/4RlgJpyttPE</a></p>
+</blockquote>
+</aside>
+<p>Modifications have been made and now both problems should be fixed in a̶n̶ ̶u̶p̶c̶o̶m̶i̶n̶g̶  a future patch, he’s passed on the fixes to the current Black Mesa team, hope you guys will push them out in a decent amount of time ^^</p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/131">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/131</link>
+        <pubDate>Sun, 03 Jan 2016 13:23:54 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-131</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[JeffMOD]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve had it not gib even on double blast quite a few times with hgrunts. Seems to be very dependent on the hitboxes and their specific modifiers - hitting someone in the head with a single blast is usually enough to gib them, while a double blast to the arm may or may not gib depending on how many pellets hit.</p>
+<p>I think it is a <span class="bbcode-i">bit</span> too sensitive, personally. Any non-hgrunt human NPC is liable to gib no matter what, for instance. May want to increase (or, I guess, decrease, since it checks for how far below 0 health is) the damage threshold just a tad.</p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/130">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/130</link>
+        <pubDate>Fri, 01 Jan 2016 23:12:36 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-130</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>Seems like it gibs w/ any death by shotty, as opposed to “if the damage is high enough.”</p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/129">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/129</link>
+        <pubDate>Fri, 01 Jan 2016 22:13:47 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-129</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+      <item>
+        <title>The Crossfire Update - Content Update 0.2.0</title>
+        <dc:creator><![CDATA[bkdale86]]></dc:creator>
+        <description><![CDATA[
+            <p>It gibs if the health is below a certain level if I remember correctly.</p>
+          <p><a href="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/128">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512/128</link>
+        <pubDate>Fri, 01 Jan 2016 22:08:16 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-14512-128</guid>
+        <source url="https://leakfree.org/t/the-crossfire-update-content-update-0-2-0/14512.rss">The Crossfire Update - Content Update 0.2.0</source>
+      </item>
+  </channel>
+</rss>

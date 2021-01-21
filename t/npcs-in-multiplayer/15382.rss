@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>NPC&#39;s in Multiplayer</title>
+    <link>https://leakfree.org/t/npcs-in-multiplayer/15382</link>
+    <description>Hello,
+
+
+My attempt was to implement coop via sourcemod. At the moment, i only evaluating and testing to determine the effort.
+I have written a few plugins which solve minor problems, but now i am facing problems that i cannot get past.
+My hope is that someone has worked out a solution to the individual problems or the dev&#39;s have mercy to take a few hours  :wink: .
+The setup is simple: A clean srcds with metamod &amp; sourcemod.
+
+-&gt;Weapon &amp; npcs
+Some npcs don’t shoot with their weapons. It seems there is some code missing in the multiplayer part.
+The npc recognize the enemy and “try” to shoot - but cannt. The npc model vibrates due to recoil, but no bullets &amp; no damage.
+The only weapon that seems to work is the shotgun in the hands of the soldiers. Maybe it’s a modified version of the hl2 code.
+reproduce: ent_create in mp.
+
+NPC/weapon bug that I have verified:
+npc_human_assassin
+npc_human_commander
+npc_human_grenadier
+npc_human_grunt
+npc_human_medic
+npc_human_security
+
+little other behavior for npc_alien_grunt. npc_alien_grunt shoot the hivehand, but no damage.
+
+
+-&gt;Melee attacks
+Some npcs use melee attacks. Punch/slap/hits… whatever you call it.
+In MP they don’t work.
+If i host the game local via listenserver, i got the damage. If i host the game via srcds, i do not get hurt.
+I think that has something todo with the ent/player/index / or determine the victims.
+reproduce: ent_create in mp.
+
+NPC/melee bug that I have verified:
+npc_alien_grunt
+npc_alien_grunt_melee
+npc_alien_slave/npc_vortigaunt
+npc_gargantua
+npc_headcrab
+npc_human_assassin
+npc_human_commander
+npc_human_grenadier
+npc_human_grunt
+npc_human_medic
+npc_zombie_*
+
+note: melee attack works between npc&#39;s - but dont work against players.
+note²: npc_bullsquid_melee&#39;s melee attack works (one of both)
+
+
+-&gt;The server crashes alot.
+This following bugs happens a lot.
+
+#1 - You can reproduce the bug by loading bm_c0a0b
+and take the tram to npc_crow. I also recognize this bug later in the game with npc_human_grunt&#39;s.
+It seems there is some info_node code missing or wrong.
+[spoiler]
+Program received signal SIGSEGV, Segmentation fault.
+0xf2632913 in V_stricmp(char const*, char const*) ()
+from /bms/bms/bin/server_srv.so
+(gdb) bt
+#0  0xf2632913 in V_stricmp(char const*, char const*) ()
+from /bms/bms/bin/server_srv.so
+#1  0xf2197dcf in CBaseEntity::NameMatchesComplex(char const*) ()
+from /bms/bms/bin/server_srv.so
+#2  0xf213a6ca in CAI_Pathfinder::IsLinkUsable(CAI_Link*, int) ()
+from /bms/bms/bin/server_srv.so
+#3  0xf213b7d5 in CAI_Pathfinder::FindBestPath(int, int) ()
+from /bms/bms/bin/server_srv.so
+#4  0xf213bb9d in CAI_Pathfinder::BuildNodeRoute(Vector const&amp;, Vector const&amp;, int, float) ()
+from /bms/bms/bin/server_srv.so
+#5  0xf21371af in CAI_Pathfinder::BuildRoute(Vector const&amp;, Vector const&amp;, CBaseEntity*, float, Navigation_t, bool) ()
+from /bms/bms/bin/server_srv.so
+#6  0xf211ed64 in CAI_Navigator: :smiley: oFindPathToPos() ()
+from /bms/bms/bin/server_srv.so
+#7  0xf2125f41 in CAI_Navigator: :smiley: oFindPath() ()
+from /bms/bms/bin/server_srv.so
+#8  0xf21261be in CAI_Navigator::FindPath(bool, bool) ()
+from /bms/bms/bin/server_srv.so
+#9  0xf2126487 in CAI_Navigator::FindPath(AI_NavGoal_t const&amp;, unsigned int) ()
+from /bms/bms/bin/server_srv.so
+#10 0xf2128158 in CAI_Navigator::SetGoal(AI_NavGoal_t const&amp;, unsigned int) ()
+from /bms/bms/bin/server_srv.so
+#11 0xf20db64b in CAI_BaseNPC::StartScriptMoveToTargetTask(int) ()
+from /bms/bms/bin/server_srv.so
+#12 0xf20de95c in CAI_BaseNPC::StartTask(Task_t const*) ()
+from /bms/bms/bin/server_srv.so
+#13 0xf20daa58 in CAI_BaseNPC::MaintainSchedule() ()
+from /bms/bms/bin/server_srv.so
+#14 0xf20bcc6d in CAI_BaseNPC::RunAI() ()
+from /bms/bms/bin/server_srv.so
+#15 0xf20c5cb1 in CAI_BaseNPC::NPCThink() ()
+from /bms/bms/bin/server_srv.so
+#16 0xf20cddf9 in CAI_BaseNPC::CallNPCThink() ()
+from /bms/bms/bin/server_srv.so
+#17 0xf25155f0 in CBaseEntity: :stuck_out_tongue: hysicsDispatchThink(void (CBaseEntity::*)()) ()
+from /bms/bms/bin/server_srv.so
+#18 0xf202e60b in CBaseEntity: :stuck_out_tongue: hysicsRunSpecificThink(int, void (CBaseEntity::*)()) ()
+from /bms/bms/bin/server_srv.so
+#19 0xf202e992 in CBaseEntity: :stuck_out_tongue: hysicsRunThink(CBaseEntity::thinkmethods_t) [clone .part.143] ()
+from /bms/bms/bin/server_srv.so
+#20 0xf2517a9f in CBaseEntity::StepSimulationThink(float) ()
+from /bms/bms/bin/server_srv.so
+#21 0xf2517dc9 in CBaseEntity: :stuck_out_tongue: hysicsStep() ()
+from /bms/bms/bin/server_srv.so
+#22 0xf202f93d in CBaseEntity: :stuck_out_tongue: hysicsSimulate() ()
+from /bms/bms/bin/server_srv.so
+#23 0xf2518b2b in Physics_SimulateEntity(CBaseEntity*) ()
+from /bms/bms/bin/server_srv.so
+#24 0xf2518f11 in Physics_RunThinkFunctions(bool) ()
+from /bms/bms/bin/server_srv.so
+#25 0xf23f3074 in CServerGameDLL::GameFrame(bool) ()
+from /bms/bms/bin/server_srv.so
+#26 0xe9681eb4 in __SourceHook_FHCls_IServerGameDLLGameFramefalse::Func(bool) ()
+from /bms/bms/addons/sourcemod/bin/sourcemod.2.bms.so
+#27 0xf68033d9 in SV_Think(bool) ()
+from /bms/bin/engine_srv.so
+#28 0xf6804192 in SV_Frame(bool) ()
+from /bms/bin/engine_srv.so
+#29 0xf6789fda in _Host_RunFrame_Server(bool) ()
+from /bms/bin/engine_srv.so
+#30 0xf678b0f4 in _Host_RunFrame(float) ()
+from /bms/bin/engine_srv.so
+#31 0xf67958a7 in CHostState::State_Run(float) ()
+from /bms/bin/engine_srv.so
+#32 0xf6795c06 in CHostState::FrameUpdate(float) ()
+from /bms/bin/engine_srv.so
+#33 0xf6795c4d in HostState_Frame(float) ()
+from /bms/bin/engine_srv.so
+#34 0xf681942c in CEngine::Frame() ()
+from /bms/bin/engine_srv.so
+#35 0xf6816b86 in CDedicatedServerAPI::RunFrame() ()
+from /bms/bin/engine_srv.so
+#36 0xf759775a in RunServer() () from bin/dedicated_srv.so
+#37 0xf6816c7d in CModAppSystemGroup::Main() ()
+from /bms/bin/engine_srv.so
+#38 0xf6862b48 in CAppSystemGroup::Run() ()
+from /bms/bin/engine_srv.so
+#39 0xf68178ad in CDedicatedServerAPI::ModInit(ModInfo_t&amp;) ()
+from /bms/bin/engine_srv.so
+#40 0xf75973d3 in CDedicatedAppSystemGroup::Main() () from bin/dedicated_srv.so
+#41 0xf75bce48 in CAppSystemGroup::Run() () from bin/dedicated_srv.so
+#42 0xf75bce48 in CAppSystemGroup::Run() () from bin/dedicated_srv.so
+#43 0xf756a864 in main () from bin/dedicated_srv.so
+#44 0x080489fb in main ()
+[/spoiler]
+
+#2 - Scientists are so heavy scared.. that the server crash.
+This seems to happen if the npc_human_sci* recognize some npc that wants to kill them.
+against npc_human&#39;s and npc_xen`s.
+reproduce: ent_create some scientists... spawn gargantua
+
+
+[spoiler]
+#0  0xf21f6edd in CAI_FearBehavior::FindFearWithdrawalDest() ()
+from /bms/bms/bin/server_srv.so
+#1  0xf21f7300 in CAI_FearBehavior::RunTask(Task_t const*) ()
+from /bms/bms/bin/server_srv.so
+#2  0xf20abc0e in CAI_BaseHumanoid::RunTask(Task_t const*) ()
+from /bms/bms/bin/server_srv.so
+#3  0xf242f8dc in CNPC_PlayerCompanion::RunTask(Task_t const*) ()
+from /bms/bms/bin/server_srv.so
+#4  0xf20dad23 in CAI_BaseNPC::MaintainSchedule() ()
+from /bms/bms/bin/server_srv.so
+#5  0xf20bcc6d in CAI_BaseNPC::RunAI() ()
+from /bms/bms/bin/server_srv.so
+#6  0xf20c5cb1 in CAI_BaseNPC::NPCThink() ()
+from /bms/bms/bin/server_srv.so
+#7  0xf20cddf9 in CAI_BaseNPC::CallNPCThink() ()
+from /bms/bms/bin/server_srv.so
+#8  0xf25155f0 in CBaseEntity: :stuck_out_tongue: hysicsDispatchThink(void (CBaseEntity::*)()) ()
+from /bms/bms/bin/server_srv.so
+#9  0xf202e60b in CBaseEntity: :stuck_out_tongue: hysicsRunSpecificThink(int, void (CBaseEntity::*)()) ()
+from /bms/bms/bin/server_srv.so
+#10 0xf202e992 in CBaseEntity: :stuck_out_tongue: hysicsRunThink(CBaseEntity::thinkmethods_t) [clone .part.143] ()
+from /bms/bms/bin/server_srv.so
+#11 0xf2517a9f in CBaseEntity::StepSimulationThink(float) ()
+from /bms/bms/bin/server_srv.so
+#12 0xf2517dc9 in CBaseEntity: :stuck_out_tongue: hysicsStep() ()
+from /bms/bms/bin/server_srv.so
+#13 0xf202f93d in CBaseEntity: :stuck_out_tongue: hysicsSimulate() ()
+from /bms/bms/bin/server_srv.so
+#14 0xf2518b2b in Physics_SimulateEntity(CBaseEntity*) ()
+from /bms/bms/bin/server_srv.so
+#15 0xf2518f11 in Physics_RunThinkFunctions(bool) ()
+from /bms/bms/bin/server_srv.so
+#16 0xf23f3074 in CServerGameDLL::GameFrame(bool) ()
+from /bms/bms/bin/server_srv.so
+#17 0xe9681eb4 in __SourceHook_FHCls_IServerGameDLLGameFramefalse::Func(bool) ()
+from /bms/bms/addons/sourcemod/bin/sourcemod.2.bms.so
+#18 0xf68033d9 in SV_Think(bool) () from /bms/bin/engine_srv.so
+#19 0xf6804192 in SV_Frame(bool) () from /bms/bin/engine_srv.so
+#20 0xf6789fda in _Host_RunFrame_Server(bool) ()
+from /bms/bin/engine_srv.so
+#21 0xf678b0f4 in _Host_RunFrame(float) ()
+from /bms/bin/engine_srv.so
+#22 0xf67958a7 in CHostState::State_Run(float) ()
+from /bms/bin/engine_srv.so
+#23 0xf6795c06 in CHostState::FrameUpdate(float) ()
+from /bms/bin/engine_srv.so
+#24 0xf6795c4d in HostState_Frame(float) ()
+from /bms/bin/engine_srv.so
+#25 0xf681942c in CEngine::Frame() () from /bms/bin/engine_srv.so
+#26 0xf6816b86 in CDedicatedServerAPI::RunFrame() ()
+from /bms/bin/engine_srv.so
+#27 0xf759775a in RunServer() () from bin/dedicated_srv.so
+#28 0xf6816c7d in CModAppSystemGroup::Main() ()
+from /bms/bin/engine_srv.so
+#29 0xf6862b48 in CAppSystemGroup::Run() ()
+from /bms/bin/engine_srv.so
+#30 0xf68178ad in CDedicatedServerAPI::ModInit(ModInfo_t&amp;) ()
+from /bms/bin/engine_srv.so
+#31 0xf75973d3 in CDedicatedAppSystemGroup::Main() () from bin/dedicated_srv.so
+#32 0xf75bce48 in CAppSystemGroup::Run() () from bin/dedicated_srv.so
+#33 0xf75bce48 in CAppSystemGroup::Run() () from bin/dedicated_srv.so
+#34 0xf756a864 in main () from bin/dedicated_srv.so
+#35 0x080489fb in main ()
+[/spoiler]
+
+
+Maybe this will help to solve some problems:
+[url]https://developer.valvesoftware.com/wiki/Talk:Fixing_AI_in_multiplayer#No_NPC.27s_can_shoot[/url]</description>
+    
+    <lastBuildDate>Wed, 13 Jun 2018 18:49:01 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/npcs-in-multiplayer/15382.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>NPC&#39;s in Multiplayer</title>
+        <dc:creator><![CDATA[HLTV1]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello,</p>
+<p>My attempt was to implement coop via sourcemod. At the moment, i only evaluating and testing to determine the effort.<br>
+I have written a few plugins which solve minor problems, but now i am facing problems that i cannot get past.<br>
+My hope is that someone has worked out a solution to the individual problems or the dev’s have mercy to take a few hours  <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"> .<br>
+The setup is simple: A clean srcds with metamod &amp; sourcemod.</p>
+<p>-&gt;Weapon &amp; npcs<br>
+Some npcs don’t shoot with their weapons. It seems there is some code missing in the multiplayer part.<br>
+The npc recognize the enemy and “try” to shoot - but cannt. The npc model vibrates due to recoil, but no bullets &amp; no damage.<br>
+The only weapon that seems to work is the shotgun in the hands of the soldiers. Maybe it’s a modified version of the hl2 code.<br>
+reproduce: ent_create in mp.</p>
+<p>NPC/weapon bug that I have verified:<br>
+npc_human_assassin<br>
+npc_human_commander<br>
+npc_human_grenadier<br>
+npc_human_grunt<br>
+npc_human_medic<br>
+npc_human_security</p>
+<p>little other behavior for npc_alien_grunt. npc_alien_grunt shoot the hivehand, but no damage.</p>
+<p>-&gt;Melee attacks<br>
+Some npcs use melee attacks. Punch/slap/hits… whatever you call it.<br>
+In MP they don’t work.<br>
+If i host the game local via listenserver, i got the damage. If i host the game via srcds, i do not get hurt.<br>
+I think that has something todo with the ent/player/index / or determine the victims.<br>
+reproduce: ent_create in mp.</p>
+<p>NPC/melee bug that I have verified:<br>
+npc_alien_grunt<br>
+npc_alien_grunt_melee<br>
+npc_alien_slave/npc_vortigaunt<br>
+npc_gargantua<br>
+npc_headcrab<br>
+npc_human_assassin<br>
+npc_human_commander<br>
+npc_human_grenadier<br>
+npc_human_grunt<br>
+npc_human_medic<br>
+npc_zombie_*</p>
+<p>note: melee attack works between npc’s - but dont work against players.<br>
+note²: npc_bullsquid_melee’s melee attack works (one of both)</p>
+<p>-&gt;The server crashes alot.<br>
+This following bugs happens a lot.</p>
+<p><span class="hashtag">#1</span> - You can reproduce the bug by loading bm_c0a0b<br>
+and take the tram to npc_crow. I also recognize this bug later in the game with npc_human_grunt’s.<br>
+It seems there is some info_node code missing or wrong.</p>
+<div class="spoiler">
+<p>Program received signal SIGSEGV, Segmentation fault.<br>
+0xf2632913 in V_stricmp(char const*, char const*) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+(gdb) bt<br>
+<span class="hashtag">#0</span>  0xf2632913 in V_stricmp(char const*, char const*) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#1</span>  0xf2197dcf in CBaseEntity::NameMatchesComplex(char const*) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#2</span>  0xf213a6ca in CAI_Pathfinder::IsLinkUsable(CAI_Link*, int) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#3</span>  0xf213b7d5 in CAI_Pathfinder::FindBestPath(int, int) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#4</span>  0xf213bb9d in CAI_Pathfinder::BuildNodeRoute(Vector const&amp;, Vector const&amp;, int, float) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#5</span>  0xf21371af in CAI_Pathfinder::BuildRoute(Vector const&amp;, Vector const&amp;, CBaseEntity*, float, Navigation_t, bool) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#6</span>  0xf211ed64 in CAI_Navigator: <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"> oFindPathToPos() ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#7</span>  0xf2125f41 in CAI_Navigator: <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"> oFindPath() ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#8</span>  0xf21261be in CAI_Navigator::FindPath(bool, bool) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#9</span>  0xf2126487 in CAI_Navigator::FindPath(AI_NavGoal_t const&amp;, unsigned int) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#10</span> 0xf2128158 in CAI_Navigator::SetGoal(AI_NavGoal_t const&amp;, unsigned int) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#11</span> 0xf20db64b in CAI_BaseNPC::StartScriptMoveToTargetTask(int) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#12</span> 0xf20de95c in CAI_BaseNPC::StartTask(Task_t const*) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#13</span> 0xf20daa58 in CAI_BaseNPC::MaintainSchedule() ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#14</span> 0xf20bcc6d in CAI_BaseNPC::RunAI() ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#15</span> 0xf20c5cb1 in CAI_BaseNPC::NPCThink() ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#16</span> 0xf20cddf9 in CAI_BaseNPC::CallNPCThink() ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#17</span> 0xf25155f0 in CBaseEntity: <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"> hysicsDispatchThink(void (CBaseEntity::<em>)()) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#18</span> 0xf202e60b in CBaseEntity: <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"> hysicsRunSpecificThink(int, void (CBaseEntity::</em>)()) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#19</span> 0xf202e992 in CBaseEntity: <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"> hysicsRunThink(CBaseEntity::thinkmethods_t) [clone .part.143] ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#20</span> 0xf2517a9f in CBaseEntity::StepSimulationThink(float) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#21</span> 0xf2517dc9 in CBaseEntity: <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"> hysicsStep() ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#22</span> 0xf202f93d in CBaseEntity: <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"> hysicsSimulate() ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#23</span> 0xf2518b2b in Physics_SimulateEntity(CBaseEntity*) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#24</span> 0xf2518f11 in Physics_RunThinkFunctions(bool) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#25</span> 0xf23f3074 in CServerGameDLL::GameFrame(bool) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#26</span> 0xe9681eb4 in __SourceHook_FHCls_IServerGameDLLGameFramefalse::Func(bool) ()<br>
+from /bms/bms/addons/sourcemod/bin/sourcemod.2.bms.so<br>
+<span class="hashtag">#27</span> 0xf68033d9 in SV_Think(bool) ()<br>
+from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#28</span> 0xf6804192 in SV_Frame(bool) ()<br>
+from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#29</span> 0xf6789fda in _Host_RunFrame_Server(bool) ()<br>
+from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#30</span> 0xf678b0f4 in _Host_RunFrame(float) ()<br>
+from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#31</span> 0xf67958a7 in CHostState::State_Run(float) ()<br>
+from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#32</span> 0xf6795c06 in CHostState::FrameUpdate(float) ()<br>
+from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#33</span> 0xf6795c4d in HostState_Frame(float) ()<br>
+from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#34</span> 0xf681942c in CEngine::Frame() ()<br>
+from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#35</span> 0xf6816b86 in CDedicatedServerAPI::RunFrame() ()<br>
+from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#36</span> 0xf759775a in RunServer() () from bin/dedicated_srv.so<br>
+<span class="hashtag">#37</span> 0xf6816c7d in CModAppSystemGroup::Main() ()<br>
+from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#38</span> 0xf6862b48 in CAppSystemGroup::Run() ()<br>
+from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#39</span> 0xf68178ad in CDedicatedServerAPI::ModInit(ModInfo_t&amp;) ()<br>
+from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#40</span> 0xf75973d3 in CDedicatedAppSystemGroup::Main() () from bin/dedicated_srv.so<br>
+<span class="hashtag">#41</span> 0xf75bce48 in CAppSystemGroup::Run() () from bin/dedicated_srv.so<br>
+<span class="hashtag">#42</span> 0xf75bce48 in CAppSystemGroup::Run() () from bin/dedicated_srv.so<br>
+<span class="hashtag">#43</span> 0xf756a864 in main () from bin/dedicated_srv.so<br>
+<span class="hashtag">#44</span> 0x080489fb in main ()</p>
+</div>
+<p><span class="hashtag">#2</span> - Scientists are so heavy scared… that the server crash.<br>
+This seems to happen if the npc_human_sci* recognize some npc that wants to kill them.<br>
+against npc_human’s and npc_xen`s.<br>
+reproduce: ent_create some scientists… spawn gargantua</p>
+<div class="spoiler">
+<p><span class="hashtag">#0</span>  0xf21f6edd in CAI_FearBehavior::FindFearWithdrawalDest() ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#1</span>  0xf21f7300 in CAI_FearBehavior::RunTask(Task_t const*) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#2</span>  0xf20abc0e in CAI_BaseHumanoid::RunTask(Task_t const*) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#3</span>  0xf242f8dc in CNPC_PlayerCompanion::RunTask(Task_t const*) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#4</span>  0xf20dad23 in CAI_BaseNPC::MaintainSchedule() ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#5</span>  0xf20bcc6d in CAI_BaseNPC::RunAI() ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#6</span>  0xf20c5cb1 in CAI_BaseNPC::NPCThink() ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#7</span>  0xf20cddf9 in CAI_BaseNPC::CallNPCThink() ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#8</span>  0xf25155f0 in CBaseEntity: <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"> hysicsDispatchThink(void (CBaseEntity::<em>)()) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#9</span>  0xf202e60b in CBaseEntity: <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"> hysicsRunSpecificThink(int, void (CBaseEntity::</em>)()) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#10</span> 0xf202e992 in CBaseEntity: <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"> hysicsRunThink(CBaseEntity::thinkmethods_t) [clone .part.143] ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#11</span> 0xf2517a9f in CBaseEntity::StepSimulationThink(float) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#12</span> 0xf2517dc9 in CBaseEntity: <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"> hysicsStep() ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#13</span> 0xf202f93d in CBaseEntity: <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"> hysicsSimulate() ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#14</span> 0xf2518b2b in Physics_SimulateEntity(CBaseEntity*) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#15</span> 0xf2518f11 in Physics_RunThinkFunctions(bool) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#16</span> 0xf23f3074 in CServerGameDLL::GameFrame(bool) ()<br>
+from /bms/bms/bin/server_srv.so<br>
+<span class="hashtag">#17</span> 0xe9681eb4 in __SourceHook_FHCls_IServerGameDLLGameFramefalse::Func(bool) ()<br>
+from /bms/bms/addons/sourcemod/bin/sourcemod.2.bms.so<br>
+<span class="hashtag">#18</span> 0xf68033d9 in SV_Think(bool) () from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#19</span> 0xf6804192 in SV_Frame(bool) () from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#20</span> 0xf6789fda in _Host_RunFrame_Server(bool) ()<br>
+from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#21</span> 0xf678b0f4 in _Host_RunFrame(float) ()<br>
+from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#22</span> 0xf67958a7 in CHostState::State_Run(float) ()<br>
+from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#23</span> 0xf6795c06 in CHostState::FrameUpdate(float) ()<br>
+from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#24</span> 0xf6795c4d in HostState_Frame(float) ()<br>
+from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#25</span> 0xf681942c in CEngine::Frame() () from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#26</span> 0xf6816b86 in CDedicatedServerAPI::RunFrame() ()<br>
+from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#27</span> 0xf759775a in RunServer() () from bin/dedicated_srv.so<br>
+<span class="hashtag">#28</span> 0xf6816c7d in CModAppSystemGroup::Main() ()<br>
+from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#29</span> 0xf6862b48 in CAppSystemGroup::Run() ()<br>
+from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#30</span> 0xf68178ad in CDedicatedServerAPI::ModInit(ModInfo_t&amp;) ()<br>
+from /bms/bin/engine_srv.so<br>
+<span class="hashtag">#31</span> 0xf75973d3 in CDedicatedAppSystemGroup::Main() () from bin/dedicated_srv.so<br>
+<span class="hashtag">#32</span> 0xf75bce48 in CAppSystemGroup::Run() () from bin/dedicated_srv.so<br>
+<span class="hashtag">#33</span> 0xf75bce48 in CAppSystemGroup::Run() () from bin/dedicated_srv.so<br>
+<span class="hashtag">#34</span> 0xf756a864 in main () from bin/dedicated_srv.so<br>
+<span class="hashtag">#35</span> 0x080489fb in main ()</p>
+</div>
+<p>Maybe this will help to solve some problems:<br>
+<a href="https://developer.valvesoftware.com/wiki/Talk:Fixing_AI_in_multiplayer#No_NPC.27s_can_shoot" data-bbcode="true" rel="nofollow noopener">https://developer.valvesoftware.com/wiki/Talk:Fixing_AI_in_multiplayer#No_NPC.27s_can_shoot</a></p>
+          <p><a href="https://leakfree.org/t/npcs-in-multiplayer/15382/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npcs-in-multiplayer/15382/1</link>
+        <pubDate>Wed, 13 Jun 2018 18:49:01 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15382-1</guid>
+        <source url="https://leakfree.org/t/npcs-in-multiplayer/15382.rss">NPC&#39;s in Multiplayer</source>
+      </item>
+  </channel>
+</rss>

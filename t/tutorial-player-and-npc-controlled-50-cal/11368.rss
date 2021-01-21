@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>[Tutorial] Player and NPC controlled 50 cal.</title>
+    <link>https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368</link>
+    <description>There is no real mapping forum, so I figure I&#39;ll just put this here. I saw a few people wondering how to set up the 50 cal. gun. Here is how you make a player controlled and an NPC controlled 50 cal.
+
+[b]Player Controlled 50 Cal. Machinegun[/b]
+1. Create a prop_dynamic.
+Name : 50cal_model
+Model: models/props_marines/50cal.mdl
+Tag Flags: Start with Collision Disabled
+
+2. Create a platform or prop (like a ammo crate), which is about 32 units high and put the 50 cal on top of it. At this height, the player and enemy grunts can use it standing.
+
+3. Create a brush with the &quot;triggertool&quot; texture. This is the field in which the player has to stand to control the turret, so make it big enough for the player to stand in and put it behind the gun handles. Make it into trigger_multiple. 
+
+Name: 50cal_control
+Tag Flags: Clients (should be on by default)
+
+4. Create a new brush with the &quot;toolsinvisible&quot; or &quot;nodraw&quot; texture and make it: h: 16, w: 16, l:64 and put it inside the 50 cal model. Make sure it covers the entire length of the gun. Make this into a func_50cal. Now align the origin of the brush to the middle of the model (right above the tripod, there where the turret can turn)
+
+Name: 50cal_gun
+Parent 50cal_model (the model will copy the movements of the func_tank this way)
+Contol Volume: 50cal_control
+Tag Flags: Controllable, Non-Solid
+
+Make sure the brush has the same angles as the model!
+
+5. Then connect the animations of the 50cal model to the yaw and pitch movement of the func_50cal by entering these values:
+Gun Base Attachment: aimrotation
+Gun Barrel Attachment: muzzle
+Gun Yaw Pose Param: aim_yaw
+Gun Pitch Pose Param: aim_pitch
+
+6. Now you&#39;ll need to set the fire properties. You can experiment with different settings, but here is how I&#39;ve set up mine:
+
+Rate of Fire: 10
+Damage per bullet: 15
+Bullet Accuracy: Medium Cone
+
+7. More experimenting can be done with the movement of the turret, by setting the Yaw and Pitch. Yaw controls all horizontal movement and Pitchs is for all vertical movement. Range will determine how far you can turn the gun and rate controls the speed of the turn.
+
+My settings of choice:
+Yaw rate: 45
+Yaw rang: 120
+Yaw tolerance: 15
+Pitch rate: 45
+Pitch range: 15
+Pitch tolerance: 5
+
+8. And you&#39;re done! Go ingame and see if the turret behaves like you want it to. You might want to tweak some fire and movement properties to make it perfect for your setting. In Hammer it should look something like this now:
+
+[img]https://deved-portal.com/hezus/up/tutorials/50cal_1.jpg[/img]
+
+
+[b]NPC Controlled 50 Cal. Machinegun[/b]
+To make NPCs use the 50 cal. you&#39;ll need to make a few additions and changes. First, create a 50cal by using the tutorial above. If you make a second 50cal like I do, make sure you use unique names for this second gun. For this my tutorial I&#39;m using a prefix: npc_50cal_gun. Note that you don&#39;t need to do this for the Attachment and Pose parameters of the func_50cal. If you&#39;re not making a second 50cal, leave out the npc_ prefix.
+
+1. Create a human_grunt and put him right behind the gun in firing position.
+Name: npc_50cal_grunt
+Tag Flags: Long Visibility/Shoot
+
+2. Between the Grunt&#39;s boots, place an info_target.
+Name: npc_50cal_manpoint
+
+This is where the grunt will stand when he shoots the 50cal. Make sure it has the same view angle as the gun itself.
+
+3. In the func_50cal add the following:
+Firing Persistence: 2
+Firing Persitance2: 1
+Damage per bullet vs player: 10
+NPC Man Point: npc_50cal_manpoint
+Player Lock time: 1
+Tag Flags: Only Direct, Controllable, NPC Controllable, Non-Solid
+
+4. In the trigger_multiple (the control field):
+Tag Flags: Clients, NPCs
+
+5. Now create a trigger_auto. Set the following Output:
+OnMapSpawn &gt; npc_50cal_grunt &gt; FindNPCToManTank &gt; npc_50cal_grunt
+
+This will cause the grunt to take control of the 50cal at the start of the map. You can also set this up with a different trigger if you want him to start using the turret at a given time.
+
+If you start the map now, the grunt will start using the turret after he sees you. There is only one draw-back. If you rush towards him and stand behind him, he&#39;ll hold on to the turret, not able to fight you anymore. We want him to let go off the turret and fight the player with his mp5, once the player gets too close. Here is how that&#39;s done:
+
+6. Create a brush with the toolstrigger texture and make it a trigger_once. Put it in front of the gun, so the player will touch it when he gets close. You can also create brushes along the side of the grunt&#39;s position in case the player flanks him.
+
+Create the following Output:
+OnTrigger &gt; npc_50cal_gun &gt; ForceNPCOff
+
+7. All done! Compile and give it a try. Hammer should look something like this:
+[img]https://deved-portal.com/hezus/up/tutorials/50cal_2.jpg[/img]
+
+Hope these tutorials were helpful. You can download the example VMF here:
+[url=&#39;https://deved-portal.com/hezus/up/tutorials/50cal_tutorial.zip&#39;]50 Cal Tutorial[/url]</description>
+    
+    <lastBuildDate>Mon, 04 Apr 2016 15:55:22 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>[Tutorial] Player and NPC controlled 50 cal.</title>
+        <dc:creator><![CDATA[Dmx6]]></dc:creator>
+        <description><![CDATA[
+            <p>The vmf is down. Could you upload it again?</p>
+          <p><a href="https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368/9</link>
+        <pubDate>Mon, 04 Apr 2016 15:55:22 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11368-9</guid>
+        <source url="https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368.rss">[Tutorial] Player and NPC controlled 50 cal.</source>
+      </item>
+      <item>
+        <title>[Tutorial] Player and NPC controlled 50 cal.</title>
+        <dc:creator><![CDATA[Mr.who]]></dc:creator>
+        <description><![CDATA[
+            <p>From what I can tell (After a lot of testing) the only turret that works in MP is the func_tow_mp and .50 Cal. I’m not sure if a brush based gun can be used… All I tried was models with these.</p>
+          <p><a href="https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368/8</link>
+        <pubDate>Sun, 21 Feb 2016 17:53:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11368-8</guid>
+        <source url="https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368.rss">[Tutorial] Player and NPC controlled 50 cal.</source>
+      </item>
+      <item>
+        <title>[Tutorial] Player and NPC controlled 50 cal.</title>
+        <dc:creator><![CDATA[Mr.who]]></dc:creator>
+        <description><![CDATA[
+            <p>I tried to open to open the latest crossfire to see how the turrets work in that map.  Couldn’t seem to open the map. Hameer kept timing out. Is that a func_50cal or a different setup?</p>
+          <p><a href="https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368/7</link>
+        <pubDate>Fri, 05 Feb 2016 23:41:31 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11368-7</guid>
+        <source url="https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368.rss">[Tutorial] Player and NPC controlled 50 cal.</source>
+      </item>
+      <item>
+        <title>[Tutorial] Player and NPC controlled 50 cal.</title>
+        <dc:creator><![CDATA[Mr.who]]></dc:creator>
+        <description><![CDATA[
+            <p>Does this work in multi-player? I can’t seem to get it working as of yet.</p>
+          <p><a href="https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368/6</link>
+        <pubDate>Thu, 04 Feb 2016 15:50:49 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11368-6</guid>
+        <source url="https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368.rss">[Tutorial] Player and NPC controlled 50 cal.</source>
+      </item>
+      <item>
+        <title>[Tutorial] Player and NPC controlled 50 cal.</title>
+        <dc:creator><![CDATA[Hezus]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="brokenfridgehinge">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/b/87869e/40.png" class="avatar"> brokenfridgehinge:</div>
+<blockquote>
+<p>It took a few weeks of persistent requesting, but we finally have our mapping subforum!  <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+</blockquote>
+</aside>
+<p>For 40 days our people wandered through the desert… now we have our own place we can call home.  <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+          <p><a href="https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368/5</link>
+        <pubDate>Sun, 04 Nov 2012 17:04:40 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11368-5</guid>
+        <source url="https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368.rss">[Tutorial] Player and NPC controlled 50 cal.</source>
+      </item>
+      <item>
+        <title>[Tutorial] Player and NPC controlled 50 cal.</title>
+        <dc:creator><![CDATA[brokenfridgehinge]]></dc:creator>
+        <description><![CDATA[
+            <p>It took a few weeks of persistent requesting, but we finally have our mapping subforum!  <img src="https://leakfree.org/images/emoji/twitter/smiley.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+          <p><a href="https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368/4</link>
+        <pubDate>Sun, 04 Nov 2012 13:40:36 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11368-4</guid>
+        <source url="https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368.rss">[Tutorial] Player and NPC controlled 50 cal.</source>
+      </item>
+      <item>
+        <title>[Tutorial] Player and NPC controlled 50 cal.</title>
+        <dc:creator><![CDATA[Hezus]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Bloodshot">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/b/839c29/40.png" class="avatar"> Bloodshot:</div>
+<blockquote>
+<p>Cool, I vote we make an actual BMS mapping forum to post this kind of stuff</p>
+</blockquote>
+</aside>
+<p>Seconded! Lets go annoy some admins about it  <img src="https://leakfree.org/images/emoji/twitter/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+          <p><a href="https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368/3</link>
+        <pubDate>Sat, 06 Oct 2012 21:09:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11368-3</guid>
+        <source url="https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368.rss">[Tutorial] Player and NPC controlled 50 cal.</source>
+      </item>
+      <item>
+        <title>[Tutorial] Player and NPC controlled 50 cal.</title>
+        <dc:creator><![CDATA[Bloodshot]]></dc:creator>
+        <description><![CDATA[
+            <p>Cool, I vote we make an actual BMS mapping forum to post this kind of stuff</p>
+          <p><a href="https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368/2</link>
+        <pubDate>Sat, 06 Oct 2012 21:08:06 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11368-2</guid>
+        <source url="https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368.rss">[Tutorial] Player and NPC controlled 50 cal.</source>
+      </item>
+      <item>
+        <title>[Tutorial] Player and NPC controlled 50 cal.</title>
+        <dc:creator><![CDATA[Hezus]]></dc:creator>
+        <description><![CDATA[
+            <p>There is no real mapping forum, so I figure I’ll just put this here. I saw a few people wondering how to set up the 50 cal. gun. Here is how you make a player controlled and an NPC controlled 50 cal.</p>
+<p><span class="bbcode-b">Player Controlled 50 Cal. Machinegun</span></p>
+<ol>
+<li>
+<p>Create a prop_dynamic.<br>
+Name : 50cal_model<br>
+Model: models/props_marines/50cal.mdl<br>
+Tag Flags: Start with Collision Disabled</p>
+</li>
+<li>
+<p>Create a platform or prop (like a ammo crate), which is about 32 units high and put the 50 cal on top of it. At this height, the player and enemy grunts can use it standing.</p>
+</li>
+<li>
+<p>Create a brush with the “triggertool” texture. This is the field in which the player has to stand to control the turret, so make it big enough for the player to stand in and put it behind the gun handles. Make it into trigger_multiple.</p>
+</li>
+</ol>
+<p>Name: 50cal_control<br>
+Tag Flags: Clients (should be on by default)</p>
+<ol start="4">
+<li>Create a new brush with the “toolsinvisible” or “nodraw” texture and make it: h: 16, w: 16, l:64 and put it inside the 50 cal model. Make sure it covers the entire length of the gun. Make this into a func_50cal. Now align the origin of the brush to the middle of the model (right above the tripod, there where the turret can turn)</li>
+</ol>
+<p>Name: 50cal_gun<br>
+Parent 50cal_model (the model will copy the movements of the func_tank this way)<br>
+Contol Volume: 50cal_control<br>
+Tag Flags: Controllable, Non-Solid</p>
+<p>Make sure the brush has the same angles as the model!</p>
+<ol start="5">
+<li>
+<p>Then connect the animations of the 50cal model to the yaw and pitch movement of the func_50cal by entering these values:<br>
+Gun Base Attachment: aimrotation<br>
+Gun Barrel Attachment: muzzle<br>
+Gun Yaw Pose Param: aim_yaw<br>
+Gun Pitch Pose Param: aim_pitch</p>
+</li>
+<li>
+<p>Now you’ll need to set the fire properties. You can experiment with different settings, but here is how I’ve set up mine:</p>
+</li>
+</ol>
+<p>Rate of Fire: 10<br>
+Damage per bullet: 15<br>
+Bullet Accuracy: Medium Cone</p>
+<ol start="7">
+<li>More experimenting can be done with the movement of the turret, by setting the Yaw and Pitch. Yaw controls all horizontal movement and Pitchs is for all vertical movement. Range will determine how far you can turn the gun and rate controls the speed of the turn.</li>
+</ol>
+<p>My settings of choice:<br>
+Yaw rate: 45<br>
+Yaw rang: 120<br>
+Yaw tolerance: 15<br>
+Pitch rate: 45<br>
+Pitch range: 15<br>
+Pitch tolerance: 5</p>
+<ol start="8">
+<li>And you’re done! Go ingame and see if the turret behaves like you want it to. You might want to tweak some fire and movement properties to make it perfect for your setting. In Hammer it should look something like this now:</li>
+</ol>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<p><span class="bbcode-b">NPC Controlled 50 Cal. Machinegun</span><br>
+To make NPCs use the 50 cal. you’ll need to make a few additions and changes. First, create a 50cal by using the tutorial above. If you make a second 50cal like I do, make sure you use unique names for this second gun. For this my tutorial I’m using a prefix: npc_50cal_gun. Note that you don’t need to do this for the Attachment and Pose parameters of the func_50cal. If you’re not making a second 50cal, leave out the npc_ prefix.</p>
+<ol>
+<li>
+<p>Create a human_grunt and put him right behind the gun in firing position.<br>
+Name: npc_50cal_grunt<br>
+Tag Flags: Long Visibility/Shoot</p>
+</li>
+<li>
+<p>Between the Grunt’s boots, place an info_target.<br>
+Name: npc_50cal_manpoint</p>
+</li>
+</ol>
+<p>This is where the grunt will stand when he shoots the 50cal. Make sure it has the same view angle as the gun itself.</p>
+<ol start="3">
+<li>
+<p>In the func_50cal add the following:<br>
+Firing Persistence: 2<br>
+Firing Persitance2: 1<br>
+Damage per bullet vs player: 10<br>
+NPC Man Point: npc_50cal_manpoint<br>
+Player Lock time: 1<br>
+Tag Flags: Only Direct, Controllable, NPC Controllable, Non-Solid</p>
+</li>
+<li>
+<p>In the trigger_multiple (the control field):<br>
+Tag Flags: Clients, NPCs</p>
+</li>
+<li>
+<p>Now create a trigger_auto. Set the following Output:<br>
+OnMapSpawn &gt; npc_50cal_grunt &gt; FindNPCToManTank &gt; npc_50cal_grunt</p>
+</li>
+</ol>
+<p>This will cause the grunt to take control of the 50cal at the start of the map. You can also set this up with a different trigger if you want him to start using the turret at a given time.</p>
+<p>If you start the map now, the grunt will start using the turret after he sees you. There is only one draw-back. If you rush towards him and stand behind him, he’ll hold on to the turret, not able to fight you anymore. We want him to let go off the turret and fight the player with his mp5, once the player gets too close. Here is how that’s done:</p>
+<ol start="6">
+<li>Create a brush with the toolstrigger texture and make it a trigger_once. Put it in front of the gun, so the player will touch it when he gets close. You can also create brushes along the side of the grunt’s position in case the player flanks him.</li>
+</ol>
+<p>Create the following Output:<br>
+OnTrigger &gt; npc_50cal_gun &gt; ForceNPCOff</p>
+<ol start="7">
+<li>All done! Compile and give it a try. Hammer should look something like this:<br>
+<span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span>
+</li>
+</ol>
+<p>Hope these tutorials were helpful. You can download the example VMF here:<br>
+<a href="https://deved-portal.com/hezus/up/tutorials/50cal_tutorial.zip" data-bbcode="true" rel="nofollow noopener">50 Cal Tutorial</a></p>
+          <p><a href="https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368/1</link>
+        <pubDate>Sat, 06 Oct 2012 21:06:30 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-11368-1</guid>
+        <source url="https://leakfree.org/t/tutorial-player-and-npc-controlled-50-cal/11368.rss">[Tutorial] Player and NPC controlled 50 cal.</source>
+      </item>
+  </channel>
+</rss>

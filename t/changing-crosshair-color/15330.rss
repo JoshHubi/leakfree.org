@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Changing crosshair color ?</title>
+    <link>https://leakfree.org/t/changing-crosshair-color/15330</link>
+    <description>In the MOD era, there were commands to change the crosshair colors: crosshair_color_red (value 0..255) etc. These do not work since the Steam version release. Crosshair visibility with the dirty-orange color is very low on some scenes, and changing the color to bright green helped immensely. Is there a way to do this now? I have looked through the CVARS and found nothing.</description>
+    
+    <lastBuildDate>Fri, 04 May 2018 06:03:49 +0000</lastBuildDate>
+    <category>Help!</category>
+    <atom:link href="https://leakfree.org/t/changing-crosshair-color/15330.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Changing crosshair color ?</title>
+        <dc:creator><![CDATA[Hp_Sauce]]></dc:creator>
+        <description><![CDATA[
+            <p>Flavrans, my colour blind eyes thank you very much for this!</p>
+<p>-hps</p>
+          <p><a href="https://leakfree.org/t/changing-crosshair-color/15330/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/changing-crosshair-color/15330/7</link>
+        <pubDate>Fri, 04 May 2018 06:03:49 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15330-7</guid>
+        <source url="https://leakfree.org/t/changing-crosshair-color/15330.rss">Changing crosshair color ?</source>
+      </item>
+      <item>
+        <title>Changing crosshair color ?</title>
+        <dc:creator><![CDATA[Flavrans]]></dc:creator>
+        <description><![CDATA[
+            <p>Glad I could help!</p>
+          <p><a href="https://leakfree.org/t/changing-crosshair-color/15330/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/changing-crosshair-color/15330/6</link>
+        <pubDate>Sat, 10 Feb 2018 14:09:19 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15330-6</guid>
+        <source url="https://leakfree.org/t/changing-crosshair-color/15330.rss">Changing crosshair color ?</source>
+      </item>
+      <item>
+        <title>Changing crosshair color ?</title>
+        <dc:creator><![CDATA[zarnivop]]></dc:creator>
+        <description><![CDATA[
+            <p><span class="bbcode-b">WORKS GREAT!<br>
+</span>Thank you,<br>
+<a href="https://forums.blackmesasource.com/index.php/User/37961-Flavrans/?" data-bbcode="true" rel="nofollow noopener">Flavrans</a>[/size]<br>
+!</p>
+          <p><a href="https://leakfree.org/t/changing-crosshair-color/15330/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/changing-crosshair-color/15330/5</link>
+        <pubDate>Thu, 08 Feb 2018 11:46:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15330-5</guid>
+        <source url="https://leakfree.org/t/changing-crosshair-color/15330.rss">Changing crosshair color ?</source>
+      </item>
+      <item>
+        <title>Changing crosshair color ?</title>
+        <dc:creator><![CDATA[zarnivop]]></dc:creator>
+        <description><![CDATA[
+            <p>Wow. Thanks galore! I’ll give it a try!</p>
+          <p><a href="https://leakfree.org/t/changing-crosshair-color/15330/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/changing-crosshair-color/15330/4</link>
+        <pubDate>Mon, 05 Feb 2018 20:53:42 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15330-4</guid>
+        <source url="https://leakfree.org/t/changing-crosshair-color/15330.rss">Changing crosshair color ?</source>
+      </item>
+      <item>
+        <title>Changing crosshair color ?</title>
+        <dc:creator><![CDATA[Flavrans]]></dc:creator>
+        <description><![CDATA[
+            <p>It takes a bit more work than simply setting a convar, but this procedure should work:</p>
+<ol>
+<li>Set up a <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=502670746" data-bbcode="true" rel="nofollow noopener">custom folder</a>.</li>
+<li>Using <a href="https://nemesis.thewavelength.net/index.php?p=26" data-bbcode="true" rel="nofollow noopener">GCFScape</a>, extract the files “resource\clientscheme.res” and “scripts\hudlayout.res” from “Black Mesa\bms\bms_misc_dir.vpk” and place them into the custom folder. For example, the folder structure might look like this:</li>
+</ol>
+<p><code>C:\Program Files (x86)\Steam\steamapps\common\Black Mesa\bms\custom
+└───crosshairmod
+    ├───resource
+    │       clientscheme.res
+    │
+    └───scripts
+            hudlayout.res</code></p>
+<ol>
+<li>Open “scripts\hudlayout.res” in a text editor and locate this block:</li>
+</ol>
+<p><code>...
+	CHudCrosshair
+	{
+		"fieldName"			"CHudCrosshair"
+		"textAlignment"			"center"
+		"paintbackground"		"0"
+		"brighttext"			"1"
+		"centerwrap"			"1"
+		"CrosshairColor"		"OrangeBright" 
+	}
+...</code></p>
+<ol>
+<li>Change the “CrosshairColor” from “OrangeBright” to one of the predefined colors in “resource\clientscheme.res”, for example “GreenBright”, or edit to add your own custom color definition:</li>
+</ol>
+<p>[code=‘clientscheme.res’]…<br>
+Colors<br>
+{<br>
+// base colors<br>
+“Orange”		“255 176 0 160”<br>
+“OrangeDark”		“255 176 0 42”<br>
+“OrangeDim”		“255 176 0 110”<br>
+“OrangeBright”		“255 176 0 255”<br>
+“LightOrange”		“188 112 0 128”</p>
+<pre><code>	"FadedBGColor"		"0 0 0 255"
+
+	"OrangeDarker"		"255 176 0 20"
+	"OrangeDarkest"		"255 176 0 8"
+	"Green"			"28 192 0 140"
+	"GreenBright"		"28 192 0 255"
+	"GreenDark"		"28 192 0 42"
+
+	"Red"			"192 28 0 140"
+	"RedBright"		"255 28 0 255"
+	"RedDark"		"255 28 0 42"
+
+	"Black"			"0 0 0 196"
+	"TransparentBlack"	"0 0 0 196"
+	"TransparentLightBlack"	"0 0 0 90"
+
+	"Blank"			"0 0 0 0"
+	"ForTesting"		"255 0 0 32"
+	"ForTesting_Magenta"	"255 0 255 255"
+	"ForTesting_MagentaDim"	"255 0 255 120"
+}
+</code></pre>
+<p>…[/code]</p>
+          <p><a href="https://leakfree.org/t/changing-crosshair-color/15330/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/changing-crosshair-color/15330/3</link>
+        <pubDate>Mon, 05 Feb 2018 20:45:12 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15330-3</guid>
+        <source url="https://leakfree.org/t/changing-crosshair-color/15330.rss">Changing crosshair color ?</source>
+      </item>
+      <item>
+        <title>Changing crosshair color ?</title>
+        <dc:creator><![CDATA[zarnivop]]></dc:creator>
+        <description><![CDATA[
+            <p>No one at all? Depressing  <img src="https://leakfree.org/images/emoji/twitter/frowning.png?v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+          <p><a href="https://leakfree.org/t/changing-crosshair-color/15330/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/changing-crosshair-color/15330/2</link>
+        <pubDate>Mon, 05 Feb 2018 11:19:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15330-2</guid>
+        <source url="https://leakfree.org/t/changing-crosshair-color/15330.rss">Changing crosshair color ?</source>
+      </item>
+      <item>
+        <title>Changing crosshair color ?</title>
+        <dc:creator><![CDATA[zarnivop]]></dc:creator>
+        <description><![CDATA[
+            <p>In the MOD era, there were commands to change the crosshair colors: crosshair_color_red (value 0…255) etc. These do not work since the Steam version release. Crosshair visibility with the dirty-orange color is very low on some scenes, and changing the color to bright green helped immensely. Is there a way to do this now? I have looked through the CVARS and found nothing.</p>
+          <p><a href="https://leakfree.org/t/changing-crosshair-color/15330/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/changing-crosshair-color/15330/1</link>
+        <pubDate>Fri, 02 Feb 2018 21:39:26 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15330-1</guid>
+        <source url="https://leakfree.org/t/changing-crosshair-color/15330.rss">Changing crosshair color ?</source>
+      </item>
+  </channel>
+</rss>

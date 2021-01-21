@@ -1,0 +1,2166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Code Problem...</title>
+    <link>https://leakfree.org/t/code-problem/1569</link>
+    <description>This is a mod I wrote for SourceMod a while back. It&#39;s broken and I have no idea why. The continuity of the scoring system breaks whenever people connect or leave (not sure which exactly causes it), but not all the time, so it seems random. Also, I&#39;m fairly certain that there&#39;s a memory leak in this.
+At any rate, if you could point me in the right direction, I&#39;d like to finally fix this bugger. Thanks  :slight_smile: 
+
+[code]
+
+#include &lt;sourcemod&gt;
+#include &lt;sdktools&gt;
+#define PLUGIN_VERSION &quot;1.6.5.9&quot;
+
+
+
+public Plugin:myinfo = {
+    name        = &quot;DoD:S Reverse Tag&quot;,
+    author      = &quot;Dillxn&quot;,
+    description = &quot;DoD:S Reverse Tag for SourceMod&quot;,
+    version     = PLUGIN_VERSION,
+    url         = &quot;https://www.Dillxn.com&quot;
+}
+
+
+
+
+
+
+new Handle :s howscores = INVALID_HANDLE;
+new Handle :s corechecktimer;
+new Handle:g_ShowActivity = INVALID_HANDLE;
+new Handle:g_SafeZone = INVALID_HANDLE;
+
+
+new String:it[MAX_NAME_LENGTH + 1] = &quot;notasingleplayer&quot;;
+new score[MAXPLAYERS + 1] = 0;
+new ended = 1;
+new totalpoints = 100;
+new choseinitial = 0;
+new idtable[MAXPLAYERS + 1] = 0;
+new scoretable[MAXPLAYERS + 1] = 0;
+new leadertable[MAXPLAYERS + 1] = 1;
+new useflags = 1;
+new defaultactiv = -1;
+dod_friendlyfiresafezone value
+new defaultsafe = -1;
+new allthetime = 0;
+new tempallthetime = 0;
+new endmapchange = 0;
+new tempendmapchange = 0;
+new pointpenalty = 1;
+new gamemode = 1;
+new itindex = -1;
+
+
+
+
+public OnPluginStart()
+{
+
+    CreateConVar(&quot;dodsrevtag_version&quot;, PLUGIN_VERSION, &quot;DoD:S Reverse Tag Version&quot;, FCVAR_PLUGIN|FCVAR_SPONLY|FCVAR_REPLICATED|FCVAR_NOTIFY|FCVAR_DONTRECORD);
+
+    new i;
+    while (i++ &lt; GetMaxClients())
+    {
+        score[i] = 0;
+        leadertable[i] = 1;
+        idtable[i] = i;
+    }
+
+
+    RegAdminCmd(&quot;reversetag&quot;, open_menu, ADMFLAG_GENERIC, &quot;reversetag&quot;);
+    RegServerCmd(&quot;startitmode&quot;, start_game);
+    RegServerCmd(&quot;enditmode&quot;, end_game);
+    RegServerCmd(&quot;showitscores&quot;, show_scores);
+    RegConsoleCmd(&quot;ithelp&quot;, help_instr);
+    RegConsoleCmd(&quot;!itboard&quot;, off_leaderboard);
+    RegConsoleCmd(&quot;voterevtag&quot;, open_vote);
+    RegConsoleCmd(&quot;itversion&quot;, display_version);
+
+    HookEvent(&quot;player_death&quot;, playerdeathcheck, EventHookMode_Pre);
+    HookEvent(&quot;player_spawn&quot;, playerspawncheck, EventHookMode_Pre);
+    HookEvent(&quot;round_start&quot;, roundstartcheck, EventHookMode_Pre);
+
+    PrintToChatAll(&quot;DoD:S Reverse Tag v%s is now loaded!&quot;,PLUGIN_VERSION);
+
+}
+
+
+
+public Action:help_instr(client, args)
+{    
+    PrintToChat(client,&quot;Reverse Tag Instructions / Rules:&quot;);
+    PrintToChat(client,&quot;1. You WANT to be &#39;it&#39;.&quot;);
+    PrintToChat(client,&quot;2. When a game begins, the first person to be &#39;it&#39; is the first person to kill someone on the other team.&quot;);
+    PrintToChat(client,&quot;3. Once the initial &#39;it&#39; is chosen, anyone can kill the &#39;it&#39; to become the new &#39;it&#39;, even your own team mates.&quot;);
+    PrintToChat(client,&quot;4. If you are &#39;it&#39; your score will gradually go up.&quot;);
+    PrintToChat(client,&quot;5. The first person to get to the max points (default is 100) wins.&quot;);
+}
+
+
+
+
+public Action:off_leaderboard(client, args)
+{    
+    if (leadertable[client] == 0){
+        leadertable[client] = 1;
+    }else{
+        leadertable[client] = 0;
+    }
+}
+
+
+public Action:display_version(client, args)
+{    
+    PrintToChat(client,&quot;DoD:S Reverse Tag Version %s is loaded on this server!&quot;, PLUGIN_VERSION);
+}
+
+
+
+
+
+public Action :s tart_game(args)
+{
+    new clientcount = 0;
+    while (clientcount++ &lt; GetMaxClients()){
+        if (IsClientInGame(clientcount)){
+            ClientCommand(clientcount, &quot;playgamesound reversetag/intro.mp3&quot;)
+        }
+    }
+    g_ShowActivity = FindConVar(&quot;sm_show_activity&quot;);
+    defaultactiv = GetConVarInt(g_ShowActivity);
+
+    g_SafeZone= FindConVar(&quot;dod_friendlyfiresafezone&quot;);
+    defaultsafe = GetConVarInt(g_SafeZone);
+    
+    ServerCommand(&quot;logaddress_delall&quot;);
+    ServerCommand(&quot;log 0&quot;);
+    ServerCommand(&quot;sm plugins unload hlstatsx&quot;);
+    ServerCommand(&quot;sm plugins unload weapon_logging&quot;);
+    
+    ServerCommand(&quot;sm_show_activity 0&quot;)
+    ServerCommand(&quot;dod_friendlyfiresafezone 0&quot;)
+
+    useflags = 0;
+    checkflags();
+
+    itindex = -1;
+
+    choseinitial = 0;
+    tempendmapchange = 0;
+    tempallthetime = 0;
+
+    PrintToChatAll(&quot;\x05Reverse tag has been turned on!&quot;);
+    PrintToChatAll(&quot;\x05Kill the first person on the other team to be \&quot;it!\&quot;&quot;);
+
+    new i;
+    while (i++ &lt; GetMaxClients())
+    {
+        score[i] = 0;
+    }
+
+    ended = 0;
+
+    strcopy(it, 17, &quot;notasingleplayer&quot;);
+    it[18] = 0;
+
+    scorechecktimer = CreateTimer(2.0, playerscorecheck, _, TIMER_REPEAT);
+    setbeacons();
+
+    return Plugin_Continue;
+}
+
+
+
+
+public Action:end_game(args)
+{
+    if (allthetime == 0){
+
+        new clientcount = 0;
+        while (clientcount++ &lt; GetMaxClients()){
+            if (IsClientInGame(clientcount)){
+                ClientCommand(clientcount, &quot;playgamesound reversetag/outro.mp3&quot;)
+            }
+        }
+    }
+
+    SetConVarInt(g_ShowActivity, defaultactiv);
+    SetConVarInt(g_SafeZone, defaultsafe);
+    
+
+    ServerCommand(&quot;logaddress_delall&quot;);
+    ServerCommand(&quot;log 1&quot;);
+    ServerCommand(&quot;sm plugins load hlstatsx&quot;);
+    ServerCommand(&quot;sm plugins load weapon_logging&quot;);
+    
+
+    PrintToChatAll(&quot;\x05Reverse tag has ended.&quot;);
+    new i;
+    while (i++ &lt; GetMaxClients())
+    {
+        score[i] = 0;
+    }
+
+    useflags = 1;
+    checkflags();
+
+    itindex = -1;
+
+    choseinitial = 0;
+
+    strcopy(it, 17, &quot;notasingleplayer&quot;);
+    it[18] = 0;
+
+    ServerCommand(&quot;sm_beacon @all 1&quot;)
+
+    ServerCommand(&quot;sm_beacon @all&quot;)
+    new a = 0;
+    while (a++ &lt; GetMaxClients()){
+        if (IsClientInGame(a)){
+            SetEntityRenderMode(a,RENDER_NORMAL)
+            SetEntityRenderColor(a)
+        }
+    }
+
+    ended = 1;
+
+    if(scorechecktimer != INVALID_HANDLE){
+        KillTimer(scorechecktimer);
+        CloseHandle(scorechecktimer);
+        scorechecktimer = INVALID_HANDLE;
+    }
+
+    if (endmapchange == 1){
+        if (tempendmapchange == 0){
+            ServerCommand(&quot;nextmap&quot;);
+        }
+        tempendmapchange = 0;
+    }
+    if (allthetime == 1){
+        if (tempallthetime == 0){
+            start_game(99);
+        }
+        tempallthetime = 0;
+    }
+
+    return Plugin_Continue;
+}
+
+
+
+
+public OnClientDisconnect(client)
+{
+
+    new String:clientname[MAX_NAME_LENGTH];
+
+    GetClientName(client, clientname, sizeof(clientname));
+
+    if (choseinitial == 1){
+
+        if (StrEqual(clientname, it)){
+
+            strcopy(it, 17, &quot;notasingleplayer&quot;);
+            it[18] = 0;
+
+            choseinitial = 0;
+
+            PrintToChatAll(&quot;%s left.&quot;, clientname);
+
+            PrintToChatAll(&quot;Kill the first person on the other team to be \&quot;it!\&quot;&quot;);
+        }
+
+        score[client] = 0;
+    }
+    
+
+    if (GetClientCount() &lt;= 1){
+        PrintToChatAll(&quot;The scoreboard has been reset since there&#39;s only on person playing.&quot;);
+        new i;
+        while (i++ &lt; GetMaxClients())
+        {
+            score[i] = 0;
+        }
+    }
+
+}
+
+
+
+public playerdeathcheck(Handle:event, const String:name[], bool:dontBroadcast)
+{
+
+    if (ended == 0) {
+
+        new victim_id = GetEventInt(event, &quot;userid&quot;);
+        new attacker_id = GetEventInt(event, &quot;attacker&quot;);
+
+        new victim = GetClientOfUserId(victim_id);
+        new attacker = GetClientOfUserId(attacker_id);
+        
+
+        new String:victimname[MAX_NAME_LENGTH];
+        GetClientName(victim, victimname, sizeof(victimname));
+
+        new String:attackername[MAX_NAME_LENGTH];
+        GetClientName(attacker, attackername, sizeof(attackername));
+        
+
+        if (StrEqual(victimname, it)) {
+
+            if (!attacker) {
+
+                PrintToChatAll(&quot;%s died unexpectedly.&quot;, it);
+
+                PrintToChatAll(&quot;Kill the first person on the other team to be \&quot;it!\&quot;&quot;);
+
+                strcopy(it, 17, &quot;notasingleplayer&quot;);
+                it[18] = 0;
+
+                choseinitial = 0;
+
+            }else if (attacker != victim){
+                new clientcount = 0;
+                while (clientcount++ &lt; GetMaxClients()){
+                    if (IsClientInGame(clientcount)){
+                        ClientCommand(clientcount, &quot;playgamesound reversetag/newit.mp3&quot;)
+                    }
+                }
+
+                PrintToChatAll(&quot;%s is now it!&quot;, attackername);
+
+                strcopy(it, sizeof(attackername), attackername);
+                it[sizeof(attackername) + 1] = 0;
+                itindex = attacker;
+                
+
+            }else{
+
+                PrintToChatAll(&quot;%s killed themself.&quot;,it);
+
+                PrintToChatAll(&quot;Kill the first person on the other team to be \&quot;it!\&quot;&quot;);
+
+                strcopy(it, 17, &quot;notasingleplayer&quot;);
+                it[18] = 0;
+
+                choseinitial = 0;
+            }
+
+        }else{
+
+            if (choseinitial == 0){
+
+
+                new victimteam = GetClientTeam(victim);
+                new attackerteam = GetClientTeam(attacker);
+
+                if (victimteam != attackerteam){
+
+
+                    choseinitial = 1;
+                    
+                    PrintToChatAll(&quot;%s is it!&quot;,attackername);
+
+                    strcopy(it, sizeof(attackername), attackername);
+                    it[sizeof(attackername) + 1] = 0;
+                    itindex = attacker;
+                }
+
+            }else{
+
+                if (!StrEqual(attackername, it)){
+                    
+                    if (pointpenalty == 1){
+
+                        score[attacker] = score[attacker] - 5;
+                        if (score[attacker] &lt; 0){
+                            score[attacker] = 0;
+                        }
+
+                        PrintToChat(attacker,&quot;\x04You just lost points because you killed someone who wasn&#39;t it!&quot;);
+                    }
+
+                }else{
+
+                    if (gamemode == 2){
+                        score[attacker] = score[attacker] + 10
+                    }
+                }
+            }
+            
+        }
+        setbeacons();
+    }
+}
+
+
+
+
+public playerspawncheck(Handle:event, const String:name[], bool:dontBroadcast)
+{
+    setbeacons();
+}
+
+
+
+
+public roundstartcheck(Handle:event, const String:name[], bool:dontBroadcast)
+{    
+    if (ended == 0){
+        end_game(1);
+    }
+
+    ServerCommand(&quot;sm plugins reload reversetag&quot;)
+}
+
+
+
+public OnMapStart()
+{
+
+    AddFileToDownloadsTable(&quot;sound/reversetag/intro.mp3&quot;)
+    AddFileToDownloadsTable(&quot;sound/reversetag/outro.mp3&quot;)
+    AddFileToDownloadsTable(&quot;sound/reversetag/newit.mp3&quot;)
+    
+    if (ended == 0){
+        end_game(1);
+    }
+    
+}
+
+
+
+setbeacons()
+{
+
+    if (ended == 0){
+
+        ServerCommand(&quot;sm_beacon @all 1&quot;)
+
+        ServerCommand(&quot;sm_beacon @all&quot;)
+
+        ServerCommand(&quot;sm_beacon %s 1&quot;,it)
+
+        
+        new a = 0;
+        while (a++ &lt; GetMaxClients()){
+            if (IsClientInGame(a)){
+                SetEntityRenderMode(a,RENDER_NORMAL)
+                SetEntityRenderColor(a)
+            }
+        }
+
+        SetEntityRenderMode(itindex,RENDER_TRANSCOLOR)
+        SetEntityRenderColor(itindex,0,255,0,255)
+    }
+}
+
+
+public Action:playerscorecheck(Handle:timer)
+{
+    if (ended == 0) {
+
+        useflags = 0;
+        checkflags();
+
+        new String:itname[MAX_NAME_LENGTH];
+
+        new i;
+        i = 0;
+
+        while (i++ &lt; GetMaxClients())
+        {
+            if (IsClientInGame(i)){
+
+                GetClientName(i, itname, sizeof(itname));
+
+                if (StrEqual(it, itname)){
+
+                    if (gamemode == 1){
+
+                        score[i] = score[i] + 1;
+                    }
+                    //If thier score is greater than (or equal to) the total points required
+                    if (score[i] &gt;= totalpoints)
+                    {
+                        //Tell all the players who beat them
+                        PrintToChatAll(&quot;\x04%s won the game!&quot;,itname);
+                        //Print this message on the center screen of every client
+                        PrintCenterTextAll(&quot;%s won the game!&quot;,itname);
+                        //Tell the server that the initial &quot;it&quot; is no longer chosen
+                        choseinitial = 0;
+                        //Run the end_game scripts
+                        end_game(99);
+                    }
+                    
+                }
+                //So now, if it&#39;s not ended
+                if (ended == 0) {
+                    //Let them know what their current score is
+                    PrintHintText(i,&quot;Your score : %d&quot;,score[i]);
+                }
+            }
+        }
+        if (ended == 0){
+        //Ok, let&#39;s move on to displaying the leaderboard
+        show_scores(99);
+        }
+    }
+
+    //Return
+    return Plugin_Continue;
+}
+
+//When the admin types &quot;reversetag&quot; in his / her console
+public Action:open_menu(client, args)
+{
+    //We know that if a user was able to exec this then they are admin
+    //So let&#39;s make sure they don&#39;t see the leaderboard for this instance
+    leadertable[client] = 0;
+    //Let&#39;s create the variables that will hold the amount of points required
+    new String:temppoints1[64] = &quot;Increase required points to &quot;;
+    new String:temppoints2[64] = &quot;Decrease required points to &quot;;
+    new String:tempamount1[64];
+    new String:tempamount2[64];
+    //This is the menu handle
+    new Handle:menu = CreateMenu(MenuHandler1);
+    //Set the title of the menu
+    SetMenuTitle(menu, &quot;Choose an action:&quot;);
+    
+    //Add the items to the menu
+    
+    //Item 1
+    AddMenuItem(menu, &quot;1&quot;, &quot;Load Reverse Tag&quot;);
+    
+    //Item 2
+    AddMenuItem(menu, &quot;2&quot;, &quot;Unload Reverse Tag&quot;);
+    
+    //Item 3
+    AddMenuItem(menu, &quot;3&quot;, &quot;Bring  Up A Vote&quot;);
+    
+    //Item 4
+    AddMenuItem(menu, &quot;4&quot;, &quot;Check for updates!&quot;);
+    
+    //Item 5
+    IntToString(totalpoints + 50, tempamount1,32);
+    StrCat(temppoints1, sizeof(temppoints1) - 1, tempamount1);
+    AddMenuItem(menu, &quot;5&quot;, temppoints1);
+    
+    //Item 6
+    IntToString(totalpoints - 50, tempamount2,32);
+    StrCat(temppoints2, sizeof(temppoints2) - 1, tempamount2);
+    AddMenuItem(menu, &quot;6&quot;, temppoints2);
+    
+    AddMenuItem(menu, &quot;7&quot;, &quot;&quot;, ITEMDRAW_SPACER);
+    
+    //Item 8
+    if(allthetime == 1){
+        AddMenuItem(menu, &quot;8&quot;, &quot;Turn Auto-Restart Off&quot;);
+    }else{
+        AddMenuItem(menu, &quot;8&quot;, &quot;Turn Auto-Restart On&quot;);
+    }
+    
+    //Item 9
+    if(pointpenalty == 1){
+        AddMenuItem(menu, &quot;9&quot;, &quot;Turn Point Penalties Off&quot;);
+    }else{
+        AddMenuItem(menu, &quot;9&quot;, &quot;Turn Point Penalties On&quot;);
+    }
+    
+    //Item 10
+    if(endmapchange == 1){
+        AddMenuItem(menu, &quot;10&quot;, &quot;Turn Map Switch (At End) Off&quot;);
+    }else{
+        AddMenuItem(menu, &quot;10&quot;, &quot;Turn Map Switch (At End) On&quot;);
+    }
+    
+    //Item 11
+    if(gamemode == 1){
+        AddMenuItem(menu, &quot;11&quot;, &quot;Normal Mode Is Enabled&quot;, ITEMDRAW_DISABLED);
+    }else{
+        AddMenuItem(menu, &quot;11&quot;, &quot;Turn Normal Mode On&quot;);
+    }
+    
+    //Item 12
+    if(gamemode == 2){
+        AddMenuItem(menu, &quot;12&quot;, &quot;Hard Mode Is Enabled&quot;, ITEMDRAW_DISABLED);
+    }else{
+        AddMenuItem(menu, &quot;12&quot;, &quot;Turn Hard Mode On&quot;);
+    }
+    
+    //Item 13
+    if(gamemode == 3){
+        //AddMenuItem(menu, &quot;13&quot;, &quot;Reverse Mode Is Enabled&quot;, ITEMDRAW_DISABLED);
+    }else{
+        //AddMenuItem(menu, &quot;13&quot;, &quot;Turn Reverse Mode On&quot;);
+    }
+
+    //Actually display the menu
+    DisplayMenu(menu, client, MENU_TIME_FOREVER);
+}
+
+
+
+//Ok, this is a handle to carry out the functions of the admin menu
+public MenuHandler1(Handle:menu, MenuAction:action, param1, param2)
+{
+    //Ok, they&#39;ve closed the menu somehow (by hitting some number on their keyboard)
+    //Let&#39;s make sure they can see the leaderboard again
+    leadertable[param1] = 1;
+
+    //If they&#39;ve selected a menu item
+    if (action == MenuAction_Select)
+    {
+        //If they&#39;ve selected option 1
+        if (param2 == 0)
+        {
+            if(ended == 1){
+                //Run the start_game scripts
+                tempendmapchange = 0;
+                tempallthetime = 0;
+                start_game(99);
+            }else{
+                PrintToChat(param1,&quot;The game is already started!&quot;);
+            }
+        }    
+        //If they&#39;ve selected option 2
+        if (param2 == 1)
+        {
+            if (ended == 0){
+                ended = 1;
+                tempendmapchange = 1;
+                tempallthetime = 1;
+                //Run the end_game scripts
+                end_game(99);
+            }else{
+                PrintToChat(param1,&quot;The game is already ended!&quot;);
+            }
+        }    
+        //If they&#39;ve selected option 3
+        if (param2 == 2)
+        {
+            open_vote(param1,1);
+        }    
+        //If they&#39;ve selected option 5
+        if (param2 == 4)
+        {
+            //Add 50 to the total points required to win
+            totalpoints += 50;
+            //If the game is going on
+            if (ended == 0){
+                //Display that the score change has taken place
+                PrintToChatAll(&quot;Total required points to win is now %d&quot;,totalpoints);
+            }
+        }
+        //If they&#39;ve selected option 6    
+        if (param2 == 5)
+        {
+            //Subtract 50 from the total points required to win
+            totalpoints -= 50;
+            //If the game is going on
+            if (ended == 0){
+                //Let the players know that the change has happened
+                PrintToChatAll(&quot;Total required points to win is now %d&quot;,totalpoints);
+            }
+        }
+        //If they&#39;ve selected option 4
+        if (param2 == 3)
+        {
+            //Check the update page
+            versioncheck(param1, 99);
+        }
+        //If they&#39;ve selected option 8
+        if (param2 == 7)
+        {
+            //Toggle the allthetime var
+            if(allthetime == 1){
+                allthetime = 0;
+            }else{
+                allthetime = 1;
+            }
+        }
+        //If they&#39;ve selected option 9
+        if (param2 == 8)
+        {
+            //Toggle the endmapchange var
+            if(pointpenalty == 1){
+                pointpenalty = 0;
+            }else{
+                pointpenalty = 1;
+            }
+            
+        }
+        //If they&#39;ve selected option 10
+        if (param2 == 9)
+        {
+            //Toggle the endmapchange var
+            if(endmapchange == 1){
+                endmapchange = 0;
+            }else{
+                endmapchange = 1;
+            }
+            
+        }
+        //If they&#39;ve selected option 11
+        if (param2 == 10)
+        {
+            gamemode = 1;
+            PrintToChatAll(&quot;\x04Normal Mode Has Been Turned On!&quot;);            
+        }
+        //If they&#39;ve selected option 12
+        if (param2 == 11)
+        {
+            gamemode = 2;
+            PrintToChatAll(&quot;\x04Hard Mode Has Been Turned On!&quot;);            
+        }
+        //If they&#39;ve selected option 13
+        if (param2 == 12)
+        {
+            gamemode = 3;
+            PrintToChatAll(&quot;\x04Reverse Mode Has Been Turned On!&quot;);            
+        }
+
+    }
+    if (action == MenuAction_End)
+    {
+        CloseHandle(menu)
+    }
+}
+
+
+
+//When starting a vote
+public Action:open_vote(client, args)
+{
+    //If they&#39;re voting...
+    if (IsVoteInProgress())
+    {
+        //Get outta&#39; here!
+        return Plugin_Handled;
+    }
+    //If there&#39;s no current game going on (why would you vote to start the game when it&#39;s already on?)
+    if (ended == 1){
+        //This is the menu handle
+        new Handle:voting = CreateMenu(votehandler);
+        
+        //Set the title of the menu
+        SetMenuTitle(voting, &quot;Would you like to start reverse tag?&quot;);
+        
+        //Add the items to the menu
+        AddMenuItem(voting, &quot;1&quot;, &quot;Yes&quot;);
+        AddMenuItem(voting, &quot;2&quot;, &quot;No&quot;);
+        
+        //Actually display the menu
+        VoteMenuToAll(voting, 20);
+    }
+    return Plugin_Handled;
+}
+
+
+
+//The vote handler
+//This determines who voted what
+public votehandler(Handle:voting, MenuAction:action, param1, param2)
+{
+    //If they voted
+    if (action == MenuAction_End)
+    {
+        //Close the voting handle
+        CloseHandle(voting);
+    } else if (action == MenuAction_VoteEnd) {
+        //If they voted to start the game
+        if (param1 == 0)
+        {
+            //Tell &#39;em what they won!
+            PrintToChatAll(&quot;The yea&#39;s have it!&quot;)
+            //Start the game
+            start_game(99);
+        }else{
+            PrintToChatAll(&quot;The vote failed.&quot;)
+        }
+    }
+}
+
+
+
+//The score handler
+//Not sure why I need this...
+public scorehandler(Handle:nothingyo, MenuAction:action, param1, param2)
+{
+}
+
+//This is called to display the leaderboards
+public Action :s how_scores(args)
+{
+    //If the menu exists, then end it!
+    if(showscores != INVALID_HANDLE){
+        CloseHandle(showscores);
+    }
+    //The showscores menu handler
+    showscores = CreateMenu(scorehandler);
+    //curname is used to hold a temporary name in a loop
+    new String:curname[MAX_NAME_LENGTH];
+    //theirscore holds, well, their score...
+    new String:theirscore[34];
+    //finishloop is a check to see if the loop has finished
+    new finishloop = 0;
+    // finishcheck is similar to finishloop, they both are used to sort the &#39;display&#39; arrays (idtable, scoretable)
+    //The reason I use different arrays (ie. scoretable[] instead of score[]) when sorting is so that when I sort
+    //them, I don&#39;t screw up the scores.
+    new finishcheck = 0;
+    //thisisit tells the server if the current player is it
+    new thisisit = 0;
+    //Define loop counter variables
+    new z = 0;
+    new y = 0;
+    new a = 0;
+    new d = 0;
+    
+    //For every client...
+    while (z++ &lt; GetMaxClients())
+    {
+        //Make scoretable[] equal score[]
+        scoretable[z] = score[z];
+    }
+    //I&#39;m cautious about my variables, so I have to make EXTRA sure that z = 0... I&#39;m ocd like that  :P 
+    z = 0;
+    //Ok, so for every client...
+    while (z++ &lt; GetMaxClients())
+    {
+        //Reset idtable so that it&#39;s like [1,2,3,4,5,6,etc]
+        idtable[z] = z;
+    }
+    //Ok, so while finishloop = 0, which it is by default
+    while (finishloop == 0){
+        //Make finishcheck = 0
+        finishcheck = 0;
+        //Make sure I reset y so that it goes through this (y - clientcount) loop everytime in the (finishloop = 0) loop
+        y = 0;
+        //For every client
+        while (y++ &lt; GetMaxClients()) {
+            if (IsClientInGame(y)){
+                //We have to make sure it&#39;s at least at 2, because 1 - 1 = 0 and there is not &quot;0&quot; client index...
+                if ( y != 1 ){    
+                    //If the score of the [y]th person represented in both arrays is greater than
+                    //the score of the [y - 1]th person represented before them, then...
+                    if (scoretable[y] &gt; scoretable[y - 1]){
+                        //Ok, let&#39;s set finishcheck to 1 because it had to make an adjustment to the arrays
+                        finishcheck = 1;
+                        //Switch the two spots in both arrays
+                        a = idtable[y - 1];
+                        idtable[y - 1] = idtable[y];
+                        idtable[y] = a;
+                        a = scoretable[y - 1];
+                        scoretable[y - 1] = scoretable[y];
+                        scoretable[y] = a;
+                    }
+                }
+            }
+        }
+        //Ok, so we looked at all the clients in the arrays
+        //Did we have to make a change to the array?
+        if (finishcheck == 0){
+            //If we didn&#39;t have to make a change, then let&#39;s get out of this loop by doing (finishloop = 1)
+            //because we know that it&#39;s sorted.
+            finishloop = 1;
+        }
+        //If we did have to make a change then we&#39;ll stay in the loop, because it still might be out of order
+    }
+    //Ok, once we&#39;ve sorted our arrays by score, let&#39;s create the leaderboard
+    //in the form of a menu
+    
+    //Let&#39;s set the menu title
+    SetMenuTitle(showscores, &quot;Leaderboard:&quot;);
+    //I&#39;m setting z back to zero because I used it in an earlier loop
+    z = 0;
+    //Ok, so for every client...
+    while (z++ &lt; GetMaxClients()) {
+        if (IsClientInGame(z)){
+            //Store their name into curname[], which will serve as a temp placeholder until the data is displayed
+            GetClientName(idtable[z], curname, sizeof(curname));
+            //We want to make the person that is it stick out on the leaderboard
+            //So if the curname (the name of the person we&#39;re dealing with) is equal to the
+            //name of the &#39;it&#39; then (they&#39;re &#39;it&#39;)
+            thisisit = 0;
+            if (StrEqual(curname, it)){
+                thisisit = 1;
+            }
+            //If the length of their name is greater than so many characters (probably in a clan) then...
+            if (strlen(curname) &gt;= 16){
+                strcopy(curname, 16, curname);
+                curname[17] = 0;
+            }
+            //Now let&#39;s begin making the string that will be displayed (ex: &quot;Dillxn - 99&quot;, as in Dillxn has a score of 99)
+            //I actually do this process, because I couldn&#39;t get variables to work in menu items... very nifty.
+            StrCat(curname, sizeof(curname) - 1, &quot; - &quot;);
+            IntToString(scoretable[z],theirscore,32);
+            StrCat(curname, sizeof(curname) - 1, theirscore);
+            //Ok, once it&#39;s all concatenated we can add the menu item with the new, complete, string!
+            if (thisisit == 1){
+                //Make the menu item which, because it is a normal style, will be orange (and stick out)
+                AddMenuItem(showscores, curname, curname);
+            }else{
+                //Disable the menu item, which coincidentally also grays it out
+                AddMenuItem(showscores, curname, curname, ITEMDRAW_DISABLED);
+            }
+            //Now, since it is a leaderboard, and since it will continue to pop up every 2 seconds
+            //let&#39;s just not have an exit button. There&#39;s no point.
+            SetMenuExitButton(showscores, false);
+        }
+    }
+    //For every client
+    d = 0;
+    while (d++ &lt; GetMaxClients() + 1){
+        //If the admin isn&#39;t viewing some command at the moment
+        if (leadertable[d] == 1){
+            //Display the leaderboard
+            DisplayMenu(showscores, d, 20);
+        }
+    }
+
+    //Return
+    return Plugin_Handled;
+}
+
+//Let&#39;s make sure they&#39;re up to date
+public versioncheck(client, args)
+{
+   new String:url[256]
+   url = &quot;https://www.Dillxn.com/dods/addons/revtag/version.asp?version=&quot;
+   StrCat(url, sizeof(url) - 1, PLUGIN_VERSION);
+   ShowMOTDPanel(client,&quot;DoD:S Reverse Tag Version Checker&quot;, url, MOTDPANEL_TYPE_URL);
+}
+
+//Blocking caps
+//The following &quot;checkflags&quot; function was taken from:
+//DoD:S GunGame 0.4
+//By DJ Tsunami
+//https://www.tsunami-productions.nl
+//Modified by me for the use of this plugin
+checkflags() {
+    new iCaptureArea = -1;
+    while ((iCaptureArea = FindEntityByClassname(iCaptureArea, &quot;dod_capture_area&quot;)) != -1) {
+        if (useflags == 1){
+            AcceptEntityInput(iCaptureArea, &quot;Enable&quot;);
+        }else{
+            AcceptEntityInput(iCaptureArea, &quot;Disable&quot;);
+        }
+    }
+}
+ 
+[/code]
+
+Original post can be found here:
+[url]https://forums.alliedmods.net/showthread.php?t=81879[/url]
+(all comments removed in the beginning due to size of post restriction)</description>
+    
+    <lastBuildDate>Sat, 10 Oct 2009 13:10:11 +0000</lastBuildDate>
+    <category>Help and Support</category>
+    <atom:link href="https://leakfree.org/t/code-problem/1569.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Code Problem...</title>
+        <dc:creator><![CDATA[Dillxn]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Level">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/l/85e7bf/40.png" class="avatar"> Level:</div>
+<blockquote>
+<p>I hate it when people post huge masses of code and ask why it doesn’t work. What breaks, what errors do you get? I don’t know anything about sourcemod or whatever, but you couldn’t have gone through it by yourself and narrowed it down a bit?</p>
+<p>Seriously, nobody has the time to go through your code with a fine toothed comb to fix your problems, especially when you post a thousand lines of code.</p>
+</blockquote>
+</aside>
+<p>Oh well, I’m a sourcepawn noob so I wasn’t able to figure out the problem on my own, so that’s why I posted. I’m sorry I offended you. (I’m not being sarcastic)</p>
+          <p><a href="https://leakfree.org/t/code-problem/1569/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/code-problem/1569/17</link>
+        <pubDate>Sat, 10 Oct 2009 13:10:11 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1569-17</guid>
+        <source url="https://leakfree.org/t/code-problem/1569.rss">Code Problem...</source>
+      </item>
+      <item>
+        <title>Code Problem...</title>
+        <dc:creator><![CDATA[Level]]></dc:creator>
+        <description><![CDATA[
+            <p>I hate it when people post huge masses of code and ask why it doesn’t work. What breaks, what errors do you get? I don’t know anything about sourcemod or whatever, but you couldn’t have gone through it by yourself and narrowed it down a bit?</p>
+<p>Seriously, nobody has the time to go through your code with a fine toothed comb to fix your problems, especially when you post a thousand lines of code.</p>
+          <p><a href="https://leakfree.org/t/code-problem/1569/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/code-problem/1569/16</link>
+        <pubDate>Sat, 10 Oct 2009 07:19:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1569-16</guid>
+        <source url="https://leakfree.org/t/code-problem/1569.rss">Code Problem...</source>
+      </item>
+      <item>
+        <title>Code Problem...</title>
+        <dc:creator><![CDATA[Dias]]></dc:creator>
+        <description><![CDATA[
+            <p>The thing about maturity is knowing when it’s necessary. This is clearly not the time or place.</p>
+          <p><a href="https://leakfree.org/t/code-problem/1569/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/code-problem/1569/15</link>
+        <pubDate>Sat, 10 Oct 2009 04:34:50 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1569-15</guid>
+        <source url="https://leakfree.org/t/code-problem/1569.rss">Code Problem...</source>
+      </item>
+      <item>
+        <title>Code Problem...</title>
+        <dc:creator><![CDATA[Zageron]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="SassyRobot">
+<div class="title">
+<div class="quote-controls"></div>
+ SassyRobot:</div>
+<blockquote>
+<p>Also, Vagina Boobs.</p>
+</blockquote>
+</aside>
+<p>Maturity is not over rated.</p>
+          <p><a href="https://leakfree.org/t/code-problem/1569/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/code-problem/1569/14</link>
+        <pubDate>Sat, 10 Oct 2009 03:36:32 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1569-14</guid>
+        <source url="https://leakfree.org/t/code-problem/1569.rss">Code Problem...</source>
+      </item>
+      <item>
+        <title>Code Problem...</title>
+        <dc:creator><![CDATA[Collision]]></dc:creator>
+        <description><![CDATA[
+            <p>A combo requires 3 of it.</p>
+<p>There were only 2, so you didn’t break any combo and failed.</p>
+          <p><a href="https://leakfree.org/t/code-problem/1569/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/code-problem/1569/13</link>
+        <pubDate>Fri, 09 Oct 2009 10:19:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1569-13</guid>
+        <source url="https://leakfree.org/t/code-problem/1569.rss">Code Problem...</source>
+      </item>
+      <item>
+        <title>Code Problem...</title>
+        <dc:creator><![CDATA[Brother_Shrike]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="TheeGoatPig">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/theegoatpig/40/4495_2.png" class="avatar"> TheeGoatPig:</div>
+<blockquote>
+<p>It’s not a combo breaker if you don’t break the combo. You didn’t break the combo. You fail.</p>
+</blockquote>
+</aside>
+<p>The combo that I was referring to was “^this,” not the expecting verse.</p>
+          <p><a href="https://leakfree.org/t/code-problem/1569/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/code-problem/1569/12</link>
+        <pubDate>Thu, 08 Oct 2009 00:06:03 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1569-12</guid>
+        <source url="https://leakfree.org/t/code-problem/1569.rss">Code Problem...</source>
+      </item>
+      <item>
+        <title>Code Problem...</title>
+        <dc:creator><![CDATA[raw_bean]]></dc:creator>
+        <description><![CDATA[
+            <p>No big deal. If you look at the top level forum index, you can see a brief descriuption of each subforum: <a href="https://forums.blackmesasource.com/index.php" data-bbcode="true" rel="nofollow noopener">https://forums.blackmesasource.com/index.php</a></p>
+          <p><a href="https://leakfree.org/t/code-problem/1569/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/code-problem/1569/11</link>
+        <pubDate>Mon, 05 Oct 2009 15:52:23 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1569-11</guid>
+        <source url="https://leakfree.org/t/code-problem/1569.rss">Code Problem...</source>
+      </item>
+      <item>
+        <title>Code Problem...</title>
+        <dc:creator><![CDATA[Dillxn]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="raw_bean">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/letter_avatar_proxy/v4/letter/r/439d5e/40.png" class="avatar"> raw_bean:</div>
+<blockquote>
+<p>[COLOR=‘Red’]<em>sigh</em> maybe if you’d given the thread a vaguely apprpriate name and put in in the right forum, you’d have had better luck. Moved and renamed.</p>
+</blockquote>
+</aside>
+<p>Thanks. I’m sorry I don’t usually use the forums for these kinds of things. I apologize for making you do extra work, Raw_Bean.</p>
+          <p><a href="https://leakfree.org/t/code-problem/1569/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/code-problem/1569/10</link>
+        <pubDate>Mon, 05 Oct 2009 15:26:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1569-10</guid>
+        <source url="https://leakfree.org/t/code-problem/1569.rss">Code Problem...</source>
+      </item>
+      <item>
+        <title>Code Problem...</title>
+        <dc:creator><![CDATA[raw_bean]]></dc:creator>
+        <description><![CDATA[
+            <p>[COLOR=‘Red’]<em>sigh</em> maybe if you’d given the thread a vaguely apprpriate name and put in in the right forum, you’d have had better luck. Moved and renamed.</p>
+          <p><a href="https://leakfree.org/t/code-problem/1569/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/code-problem/1569/9</link>
+        <pubDate>Mon, 05 Oct 2009 15:05:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1569-9</guid>
+        <source url="https://leakfree.org/t/code-problem/1569.rss">Code Problem...</source>
+      </item>
+      <item>
+        <title>Code Problem...</title>
+        <dc:creator><![CDATA[Dillxn]]></dc:creator>
+        <description><![CDATA[
+            <p>aw… when I saw 6 replies I thought you were all answering my question.<br>
+needless to say, you’ve disappointed me.</p>
+          <p><a href="https://leakfree.org/t/code-problem/1569/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/code-problem/1569/8</link>
+        <pubDate>Mon, 05 Oct 2009 15:04:52 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1569-8</guid>
+        <source url="https://leakfree.org/t/code-problem/1569.rss">Code Problem...</source>
+      </item>
+      <item>
+        <title>Code Problem...</title>
+        <dc:creator><![CDATA[TheeGoatPig]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Brother Shrike">
+<div class="title">
+<div class="quote-controls"></div>
+ Brother Shrike:</div>
+<blockquote>
+<p>C-C-C-COMBO BREAKER</p>
+<p>but me too</p>
+</blockquote>
+</aside>
+<p>It’s not a combo breaker if you don’t break the combo. You didn’t break the combo. You fail.</p>
+          <p><a href="https://leakfree.org/t/code-problem/1569/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/code-problem/1569/7</link>
+        <pubDate>Mon, 05 Oct 2009 12:30:16 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1569-7</guid>
+        <source url="https://leakfree.org/t/code-problem/1569.rss">Code Problem...</source>
+      </item>
+      <item>
+        <title>Code Problem...</title>
+        <dc:creator><![CDATA[Com_e_r]]></dc:creator>
+        <description><![CDATA[
+            <p><font face="Palatino Linotype"><span class="bbcode-b"><span class="bbcode-i">mov ax,70h<br>
+mov dx,1010h<br>
+out ax,dx</span></span>[/size]<br>
+</font>-------<a>COLOR=‘DimGray’</a></p>
+          <p><a href="https://leakfree.org/t/code-problem/1569/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/code-problem/1569/6</link>
+        <pubDate>Mon, 05 Oct 2009 11:25:16 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1569-6</guid>
+        <source url="https://leakfree.org/t/code-problem/1569.rss">Code Problem...</source>
+      </item>
+      <item>
+        <title>Code Problem...</title>
+        <dc:creator><![CDATA[Brother_Shrike]]></dc:creator>
+        <description><![CDATA[
+            <p>C-C-C-COMBO BREAKER</p>
+<p>but me too</p>
+          <p><a href="https://leakfree.org/t/code-problem/1569/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/code-problem/1569/5</link>
+        <pubDate>Mon, 05 Oct 2009 11:00:54 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1569-5</guid>
+        <source url="https://leakfree.org/t/code-problem/1569.rss">Code Problem...</source>
+      </item>
+      <item>
+        <title>Code Problem...</title>
+        <dc:creator><![CDATA[Zsub]]></dc:creator>
+        <description><![CDATA[
+            <p>^ This.</p>
+          <p><a href="https://leakfree.org/t/code-problem/1569/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/code-problem/1569/4</link>
+        <pubDate>Mon, 05 Oct 2009 08:46:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1569-4</guid>
+        <source url="https://leakfree.org/t/code-problem/1569.rss">Code Problem...</source>
+      </item>
+      <item>
+        <title>Code Problem...</title>
+        <dc:creator><![CDATA[Collision]]></dc:creator>
+        <description><![CDATA[
+            <p>^ This.</p>
+          <p><a href="https://leakfree.org/t/code-problem/1569/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/code-problem/1569/3</link>
+        <pubDate>Mon, 05 Oct 2009 04:08:00 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1569-3</guid>
+        <source url="https://leakfree.org/t/code-problem/1569.rss">Code Problem...</source>
+      </item>
+      <item>
+        <title>Code Problem...</title>
+        <dc:creator><![CDATA[Winged_One]]></dc:creator>
+        <description><![CDATA[
+            <p>I came in expecting verse written solely in computer code.</p>
+<p>Needless to say, you’ve disappointed me.</p>
+          <p><a href="https://leakfree.org/t/code-problem/1569/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/code-problem/1569/2</link>
+        <pubDate>Mon, 05 Oct 2009 03:57:13 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1569-2</guid>
+        <source url="https://leakfree.org/t/code-problem/1569.rss">Code Problem...</source>
+      </item>
+      <item>
+        <title>Code Problem...</title>
+        <dc:creator><![CDATA[Dillxn]]></dc:creator>
+        <description><![CDATA[
+            <p>This is a mod I wrote for SourceMod a while back. It’s broken and I have no idea why. The continuity of the scoring system breaks whenever people connect or leave (not sure which exactly causes it), but not all the time, so it seems random. Also, I’m fairly certain that there’s a memory leak in this.<br>
+At any rate, if you could point me in the right direction, I’d like to finally fix this bugger. Thanks  <img src="https://leakfree.org/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<pre><code class="lang-auto">
+#include &lt;sourcemod&gt;
+#include &lt;sdktools&gt;
+#define PLUGIN_VERSION "1.6.5.9"
+
+
+
+public Plugin:myinfo = {
+    name        = "DoD:S Reverse Tag",
+    author      = "Dillxn",
+    description = "DoD:S Reverse Tag for SourceMod",
+    version     = PLUGIN_VERSION,
+    url         = "https://www.Dillxn.com"
+}
+
+
+
+
+
+
+new Handle :s howscores = INVALID_HANDLE;
+new Handle :s corechecktimer;
+new Handle:g_ShowActivity = INVALID_HANDLE;
+new Handle:g_SafeZone = INVALID_HANDLE;
+
+
+new String:it[MAX_NAME_LENGTH + 1] = "notasingleplayer";
+new score[MAXPLAYERS + 1] = 0;
+new ended = 1;
+new totalpoints = 100;
+new choseinitial = 0;
+new idtable[MAXPLAYERS + 1] = 0;
+new scoretable[MAXPLAYERS + 1] = 0;
+new leadertable[MAXPLAYERS + 1] = 1;
+new useflags = 1;
+new defaultactiv = -1;
+dod_friendlyfiresafezone value
+new defaultsafe = -1;
+new allthetime = 0;
+new tempallthetime = 0;
+new endmapchange = 0;
+new tempendmapchange = 0;
+new pointpenalty = 1;
+new gamemode = 1;
+new itindex = -1;
+
+
+
+
+public OnPluginStart()
+{
+
+    CreateConVar("dodsrevtag_version", PLUGIN_VERSION, "DoD:S Reverse Tag Version", FCVAR_PLUGIN|FCVAR_SPONLY|FCVAR_REPLICATED|FCVAR_NOTIFY|FCVAR_DONTRECORD);
+
+    new i;
+    while (i++ &lt; GetMaxClients())
+    {
+        score[i] = 0;
+        leadertable[i] = 1;
+        idtable[i] = i;
+    }
+
+
+    RegAdminCmd("reversetag", open_menu, ADMFLAG_GENERIC, "reversetag");
+    RegServerCmd("startitmode", start_game);
+    RegServerCmd("enditmode", end_game);
+    RegServerCmd("showitscores", show_scores);
+    RegConsoleCmd("ithelp", help_instr);
+    RegConsoleCmd("!itboard", off_leaderboard);
+    RegConsoleCmd("voterevtag", open_vote);
+    RegConsoleCmd("itversion", display_version);
+
+    HookEvent("player_death", playerdeathcheck, EventHookMode_Pre);
+    HookEvent("player_spawn", playerspawncheck, EventHookMode_Pre);
+    HookEvent("round_start", roundstartcheck, EventHookMode_Pre);
+
+    PrintToChatAll("DoD:S Reverse Tag v%s is now loaded!",PLUGIN_VERSION);
+
+}
+
+
+
+public Action:help_instr(client, args)
+{    
+    PrintToChat(client,"Reverse Tag Instructions / Rules:");
+    PrintToChat(client,"1. You WANT to be 'it'.");
+    PrintToChat(client,"2. When a game begins, the first person to be 'it' is the first person to kill someone on the other team.");
+    PrintToChat(client,"3. Once the initial 'it' is chosen, anyone can kill the 'it' to become the new 'it', even your own team mates.");
+    PrintToChat(client,"4. If you are 'it' your score will gradually go up.");
+    PrintToChat(client,"5. The first person to get to the max points (default is 100) wins.");
+}
+
+
+
+
+public Action:off_leaderboard(client, args)
+{    
+    if (leadertable[client] == 0){
+        leadertable[client] = 1;
+    }else{
+        leadertable[client] = 0;
+    }
+}
+
+
+public Action:display_version(client, args)
+{    
+    PrintToChat(client,"DoD:S Reverse Tag Version %s is loaded on this server!", PLUGIN_VERSION);
+}
+
+
+
+
+
+public Action :s tart_game(args)
+{
+    new clientcount = 0;
+    while (clientcount++ &lt; GetMaxClients()){
+        if (IsClientInGame(clientcount)){
+            ClientCommand(clientcount, "playgamesound reversetag/intro.mp3")
+        }
+    }
+    g_ShowActivity = FindConVar("sm_show_activity");
+    defaultactiv = GetConVarInt(g_ShowActivity);
+
+    g_SafeZone= FindConVar("dod_friendlyfiresafezone");
+    defaultsafe = GetConVarInt(g_SafeZone);
+    
+    ServerCommand("logaddress_delall");
+    ServerCommand("log 0");
+    ServerCommand("sm plugins unload hlstatsx");
+    ServerCommand("sm plugins unload weapon_logging");
+    
+    ServerCommand("sm_show_activity 0")
+    ServerCommand("dod_friendlyfiresafezone 0")
+
+    useflags = 0;
+    checkflags();
+
+    itindex = -1;
+
+    choseinitial = 0;
+    tempendmapchange = 0;
+    tempallthetime = 0;
+
+    PrintToChatAll("\x05Reverse tag has been turned on!");
+    PrintToChatAll("\x05Kill the first person on the other team to be \"it!\"");
+
+    new i;
+    while (i++ &lt; GetMaxClients())
+    {
+        score[i] = 0;
+    }
+
+    ended = 0;
+
+    strcopy(it, 17, "notasingleplayer");
+    it[18] = 0;
+
+    scorechecktimer = CreateTimer(2.0, playerscorecheck, _, TIMER_REPEAT);
+    setbeacons();
+
+    return Plugin_Continue;
+}
+
+
+
+
+public Action:end_game(args)
+{
+    if (allthetime == 0){
+
+        new clientcount = 0;
+        while (clientcount++ &lt; GetMaxClients()){
+            if (IsClientInGame(clientcount)){
+                ClientCommand(clientcount, "playgamesound reversetag/outro.mp3")
+            }
+        }
+    }
+
+    SetConVarInt(g_ShowActivity, defaultactiv);
+    SetConVarInt(g_SafeZone, defaultsafe);
+    
+
+    ServerCommand("logaddress_delall");
+    ServerCommand("log 1");
+    ServerCommand("sm plugins load hlstatsx");
+    ServerCommand("sm plugins load weapon_logging");
+    
+
+    PrintToChatAll("\x05Reverse tag has ended.");
+    new i;
+    while (i++ &lt; GetMaxClients())
+    {
+        score[i] = 0;
+    }
+
+    useflags = 1;
+    checkflags();
+
+    itindex = -1;
+
+    choseinitial = 0;
+
+    strcopy(it, 17, "notasingleplayer");
+    it[18] = 0;
+
+    ServerCommand("sm_beacon @all 1")
+
+    ServerCommand("sm_beacon @all")
+    new a = 0;
+    while (a++ &lt; GetMaxClients()){
+        if (IsClientInGame(a)){
+            SetEntityRenderMode(a,RENDER_NORMAL)
+            SetEntityRenderColor(a)
+        }
+    }
+
+    ended = 1;
+
+    if(scorechecktimer != INVALID_HANDLE){
+        KillTimer(scorechecktimer);
+        CloseHandle(scorechecktimer);
+        scorechecktimer = INVALID_HANDLE;
+    }
+
+    if (endmapchange == 1){
+        if (tempendmapchange == 0){
+            ServerCommand("nextmap");
+        }
+        tempendmapchange = 0;
+    }
+    if (allthetime == 1){
+        if (tempallthetime == 0){
+            start_game(99);
+        }
+        tempallthetime = 0;
+    }
+
+    return Plugin_Continue;
+}
+
+
+
+
+public OnClientDisconnect(client)
+{
+
+    new String:clientname[MAX_NAME_LENGTH];
+
+    GetClientName(client, clientname, sizeof(clientname));
+
+    if (choseinitial == 1){
+
+        if (StrEqual(clientname, it)){
+
+            strcopy(it, 17, "notasingleplayer");
+            it[18] = 0;
+
+            choseinitial = 0;
+
+            PrintToChatAll("%s left.", clientname);
+
+            PrintToChatAll("Kill the first person on the other team to be \"it!\"");
+        }
+
+        score[client] = 0;
+    }
+    
+
+    if (GetClientCount() &lt;= 1){
+        PrintToChatAll("The scoreboard has been reset since there's only on person playing.");
+        new i;
+        while (i++ &lt; GetMaxClients())
+        {
+            score[i] = 0;
+        }
+    }
+
+}
+
+
+
+public playerdeathcheck(Handle:event, const String:name[], bool:dontBroadcast)
+{
+
+    if (ended == 0) {
+
+        new victim_id = GetEventInt(event, "userid");
+        new attacker_id = GetEventInt(event, "attacker");
+
+        new victim = GetClientOfUserId(victim_id);
+        new attacker = GetClientOfUserId(attacker_id);
+        
+
+        new String:victimname[MAX_NAME_LENGTH];
+        GetClientName(victim, victimname, sizeof(victimname));
+
+        new String:attackername[MAX_NAME_LENGTH];
+        GetClientName(attacker, attackername, sizeof(attackername));
+        
+
+        if (StrEqual(victimname, it)) {
+
+            if (!attacker) {
+
+                PrintToChatAll("%s died unexpectedly.", it);
+
+                PrintToChatAll("Kill the first person on the other team to be \"it!\"");
+
+                strcopy(it, 17, "notasingleplayer");
+                it[18] = 0;
+
+                choseinitial = 0;
+
+            }else if (attacker != victim){
+                new clientcount = 0;
+                while (clientcount++ &lt; GetMaxClients()){
+                    if (IsClientInGame(clientcount)){
+                        ClientCommand(clientcount, "playgamesound reversetag/newit.mp3")
+                    }
+                }
+
+                PrintToChatAll("%s is now it!", attackername);
+
+                strcopy(it, sizeof(attackername), attackername);
+                it[sizeof(attackername) + 1] = 0;
+                itindex = attacker;
+                
+
+            }else{
+
+                PrintToChatAll("%s killed themself.",it);
+
+                PrintToChatAll("Kill the first person on the other team to be \"it!\"");
+
+                strcopy(it, 17, "notasingleplayer");
+                it[18] = 0;
+
+                choseinitial = 0;
+            }
+
+        }else{
+
+            if (choseinitial == 0){
+
+
+                new victimteam = GetClientTeam(victim);
+                new attackerteam = GetClientTeam(attacker);
+
+                if (victimteam != attackerteam){
+
+
+                    choseinitial = 1;
+                    
+                    PrintToChatAll("%s is it!",attackername);
+
+                    strcopy(it, sizeof(attackername), attackername);
+                    it[sizeof(attackername) + 1] = 0;
+                    itindex = attacker;
+                }
+
+            }else{
+
+                if (!StrEqual(attackername, it)){
+                    
+                    if (pointpenalty == 1){
+
+                        score[attacker] = score[attacker] - 5;
+                        if (score[attacker] &lt; 0){
+                            score[attacker] = 0;
+                        }
+
+                        PrintToChat(attacker,"\x04You just lost points because you killed someone who wasn't it!");
+                    }
+
+                }else{
+
+                    if (gamemode == 2){
+                        score[attacker] = score[attacker] + 10
+                    }
+                }
+            }
+            
+        }
+        setbeacons();
+    }
+}
+
+
+
+
+public playerspawncheck(Handle:event, const String:name[], bool:dontBroadcast)
+{
+    setbeacons();
+}
+
+
+
+
+public roundstartcheck(Handle:event, const String:name[], bool:dontBroadcast)
+{    
+    if (ended == 0){
+        end_game(1);
+    }
+
+    ServerCommand("sm plugins reload reversetag")
+}
+
+
+
+public OnMapStart()
+{
+
+    AddFileToDownloadsTable("sound/reversetag/intro.mp3")
+    AddFileToDownloadsTable("sound/reversetag/outro.mp3")
+    AddFileToDownloadsTable("sound/reversetag/newit.mp3")
+    
+    if (ended == 0){
+        end_game(1);
+    }
+    
+}
+
+
+
+setbeacons()
+{
+
+    if (ended == 0){
+
+        ServerCommand("sm_beacon @all 1")
+
+        ServerCommand("sm_beacon @all")
+
+        ServerCommand("sm_beacon %s 1",it)
+
+        
+        new a = 0;
+        while (a++ &lt; GetMaxClients()){
+            if (IsClientInGame(a)){
+                SetEntityRenderMode(a,RENDER_NORMAL)
+                SetEntityRenderColor(a)
+            }
+        }
+
+        SetEntityRenderMode(itindex,RENDER_TRANSCOLOR)
+        SetEntityRenderColor(itindex,0,255,0,255)
+    }
+}
+
+
+public Action:playerscorecheck(Handle:timer)
+{
+    if (ended == 0) {
+
+        useflags = 0;
+        checkflags();
+
+        new String:itname[MAX_NAME_LENGTH];
+
+        new i;
+        i = 0;
+
+        while (i++ &lt; GetMaxClients())
+        {
+            if (IsClientInGame(i)){
+
+                GetClientName(i, itname, sizeof(itname));
+
+                if (StrEqual(it, itname)){
+
+                    if (gamemode == 1){
+
+                        score[i] = score[i] + 1;
+                    }
+                    //If thier score is greater than (or equal to) the total points required
+                    if (score[i] &gt;= totalpoints)
+                    {
+                        //Tell all the players who beat them
+                        PrintToChatAll("\x04%s won the game!",itname);
+                        //Print this message on the center screen of every client
+                        PrintCenterTextAll("%s won the game!",itname);
+                        //Tell the server that the initial "it" is no longer chosen
+                        choseinitial = 0;
+                        //Run the end_game scripts
+                        end_game(99);
+                    }
+                    
+                }
+                //So now, if it's not ended
+                if (ended == 0) {
+                    //Let them know what their current score is
+                    PrintHintText(i,"Your score : %d",score[i]);
+                }
+            }
+        }
+        if (ended == 0){
+        //Ok, let's move on to displaying the leaderboard
+        show_scores(99);
+        }
+    }
+
+    //Return
+    return Plugin_Continue;
+}
+
+//When the admin types "reversetag" in his / her console
+public Action:open_menu(client, args)
+{
+    //We know that if a user was able to exec this then they are admin
+    //So let's make sure they don't see the leaderboard for this instance
+    leadertable[client] = 0;
+    //Let's create the variables that will hold the amount of points required
+    new String:temppoints1[64] = "Increase required points to ";
+    new String:temppoints2[64] = "Decrease required points to ";
+    new String:tempamount1[64];
+    new String:tempamount2[64];
+    //This is the menu handle
+    new Handle:menu = CreateMenu(MenuHandler1);
+    //Set the title of the menu
+    SetMenuTitle(menu, "Choose an action:");
+    
+    //Add the items to the menu
+    
+    //Item 1
+    AddMenuItem(menu, "1", "Load Reverse Tag");
+    
+    //Item 2
+    AddMenuItem(menu, "2", "Unload Reverse Tag");
+    
+    //Item 3
+    AddMenuItem(menu, "3", "Bring  Up A Vote");
+    
+    //Item 4
+    AddMenuItem(menu, "4", "Check for updates!");
+    
+    //Item 5
+    IntToString(totalpoints + 50, tempamount1,32);
+    StrCat(temppoints1, sizeof(temppoints1) - 1, tempamount1);
+    AddMenuItem(menu, "5", temppoints1);
+    
+    //Item 6
+    IntToString(totalpoints - 50, tempamount2,32);
+    StrCat(temppoints2, sizeof(temppoints2) - 1, tempamount2);
+    AddMenuItem(menu, "6", temppoints2);
+    
+    AddMenuItem(menu, "7", "", ITEMDRAW_SPACER);
+    
+    //Item 8
+    if(allthetime == 1){
+        AddMenuItem(menu, "8", "Turn Auto-Restart Off");
+    }else{
+        AddMenuItem(menu, "8", "Turn Auto-Restart On");
+    }
+    
+    //Item 9
+    if(pointpenalty == 1){
+        AddMenuItem(menu, "9", "Turn Point Penalties Off");
+    }else{
+        AddMenuItem(menu, "9", "Turn Point Penalties On");
+    }
+    
+    //Item 10
+    if(endmapchange == 1){
+        AddMenuItem(menu, "10", "Turn Map Switch (At End) Off");
+    }else{
+        AddMenuItem(menu, "10", "Turn Map Switch (At End) On");
+    }
+    
+    //Item 11
+    if(gamemode == 1){
+        AddMenuItem(menu, "11", "Normal Mode Is Enabled", ITEMDRAW_DISABLED);
+    }else{
+        AddMenuItem(menu, "11", "Turn Normal Mode On");
+    }
+    
+    //Item 12
+    if(gamemode == 2){
+        AddMenuItem(menu, "12", "Hard Mode Is Enabled", ITEMDRAW_DISABLED);
+    }else{
+        AddMenuItem(menu, "12", "Turn Hard Mode On");
+    }
+    
+    //Item 13
+    if(gamemode == 3){
+        //AddMenuItem(menu, "13", "Reverse Mode Is Enabled", ITEMDRAW_DISABLED);
+    }else{
+        //AddMenuItem(menu, "13", "Turn Reverse Mode On");
+    }
+
+    //Actually display the menu
+    DisplayMenu(menu, client, MENU_TIME_FOREVER);
+}
+
+
+
+//Ok, this is a handle to carry out the functions of the admin menu
+public MenuHandler1(Handle:menu, MenuAction:action, param1, param2)
+{
+    //Ok, they've closed the menu somehow (by hitting some number on their keyboard)
+    //Let's make sure they can see the leaderboard again
+    leadertable[param1] = 1;
+
+    //If they've selected a menu item
+    if (action == MenuAction_Select)
+    {
+        //If they've selected option 1
+        if (param2 == 0)
+        {
+            if(ended == 1){
+                //Run the start_game scripts
+                tempendmapchange = 0;
+                tempallthetime = 0;
+                start_game(99);
+            }else{
+                PrintToChat(param1,"The game is already started!");
+            }
+        }    
+        //If they've selected option 2
+        if (param2 == 1)
+        {
+            if (ended == 0){
+                ended = 1;
+                tempendmapchange = 1;
+                tempallthetime = 1;
+                //Run the end_game scripts
+                end_game(99);
+            }else{
+                PrintToChat(param1,"The game is already ended!");
+            }
+        }    
+        //If they've selected option 3
+        if (param2 == 2)
+        {
+            open_vote(param1,1);
+        }    
+        //If they've selected option 5
+        if (param2 == 4)
+        {
+            //Add 50 to the total points required to win
+            totalpoints += 50;
+            //If the game is going on
+            if (ended == 0){
+                //Display that the score change has taken place
+                PrintToChatAll("Total required points to win is now %d",totalpoints);
+            }
+        }
+        //If they've selected option 6    
+        if (param2 == 5)
+        {
+            //Subtract 50 from the total points required to win
+            totalpoints -= 50;
+            //If the game is going on
+            if (ended == 0){
+                //Let the players know that the change has happened
+                PrintToChatAll("Total required points to win is now %d",totalpoints);
+            }
+        }
+        //If they've selected option 4
+        if (param2 == 3)
+        {
+            //Check the update page
+            versioncheck(param1, 99);
+        }
+        //If they've selected option 8
+        if (param2 == 7)
+        {
+            //Toggle the allthetime var
+            if(allthetime == 1){
+                allthetime = 0;
+            }else{
+                allthetime = 1;
+            }
+        }
+        //If they've selected option 9
+        if (param2 == 8)
+        {
+            //Toggle the endmapchange var
+            if(pointpenalty == 1){
+                pointpenalty = 0;
+            }else{
+                pointpenalty = 1;
+            }
+            
+        }
+        //If they've selected option 10
+        if (param2 == 9)
+        {
+            //Toggle the endmapchange var
+            if(endmapchange == 1){
+                endmapchange = 0;
+            }else{
+                endmapchange = 1;
+            }
+            
+        }
+        //If they've selected option 11
+        if (param2 == 10)
+        {
+            gamemode = 1;
+            PrintToChatAll("\x04Normal Mode Has Been Turned On!");            
+        }
+        //If they've selected option 12
+        if (param2 == 11)
+        {
+            gamemode = 2;
+            PrintToChatAll("\x04Hard Mode Has Been Turned On!");            
+        }
+        //If they've selected option 13
+        if (param2 == 12)
+        {
+            gamemode = 3;
+            PrintToChatAll("\x04Reverse Mode Has Been Turned On!");            
+        }
+
+    }
+    if (action == MenuAction_End)
+    {
+        CloseHandle(menu)
+    }
+}
+
+
+
+//When starting a vote
+public Action:open_vote(client, args)
+{
+    //If they're voting...
+    if (IsVoteInProgress())
+    {
+        //Get outta' here!
+        return Plugin_Handled;
+    }
+    //If there's no current game going on (why would you vote to start the game when it's already on?)
+    if (ended == 1){
+        //This is the menu handle
+        new Handle:voting = CreateMenu(votehandler);
+        
+        //Set the title of the menu
+        SetMenuTitle(voting, "Would you like to start reverse tag?");
+        
+        //Add the items to the menu
+        AddMenuItem(voting, "1", "Yes");
+        AddMenuItem(voting, "2", "No");
+        
+        //Actually display the menu
+        VoteMenuToAll(voting, 20);
+    }
+    return Plugin_Handled;
+}
+
+
+
+//The vote handler
+//This determines who voted what
+public votehandler(Handle:voting, MenuAction:action, param1, param2)
+{
+    //If they voted
+    if (action == MenuAction_End)
+    {
+        //Close the voting handle
+        CloseHandle(voting);
+    } else if (action == MenuAction_VoteEnd) {
+        //If they voted to start the game
+        if (param1 == 0)
+        {
+            //Tell 'em what they won!
+            PrintToChatAll("The yea's have it!")
+            //Start the game
+            start_game(99);
+        }else{
+            PrintToChatAll("The vote failed.")
+        }
+    }
+}
+
+
+
+//The score handler
+//Not sure why I need this...
+public scorehandler(Handle:nothingyo, MenuAction:action, param1, param2)
+{
+}
+
+//This is called to display the leaderboards
+public Action :s how_scores(args)
+{
+    //If the menu exists, then end it!
+    if(showscores != INVALID_HANDLE){
+        CloseHandle(showscores);
+    }
+    //The showscores menu handler
+    showscores = CreateMenu(scorehandler);
+    //curname is used to hold a temporary name in a loop
+    new String:curname[MAX_NAME_LENGTH];
+    //theirscore holds, well, their score...
+    new String:theirscore[34];
+    //finishloop is a check to see if the loop has finished
+    new finishloop = 0;
+    // finishcheck is similar to finishloop, they both are used to sort the 'display' arrays (idtable, scoretable)
+    //The reason I use different arrays (ie. scoretable[] instead of score[]) when sorting is so that when I sort
+    //them, I don't screw up the scores.
+    new finishcheck = 0;
+    //thisisit tells the server if the current player is it
+    new thisisit = 0;
+    //Define loop counter variables
+    new z = 0;
+    new y = 0;
+    new a = 0;
+    new d = 0;
+    
+    //For every client...
+    while (z++ &lt; GetMaxClients())
+    {
+        //Make scoretable[] equal score[]
+        scoretable[z] = score[z];
+    }
+    //I'm cautious about my variables, so I have to make EXTRA sure that z = 0... I'm ocd like that  :P 
+    z = 0;
+    //Ok, so for every client...
+    while (z++ &lt; GetMaxClients())
+    {
+        //Reset idtable so that it's like [1,2,3,4,5,6,etc]
+        idtable[z] = z;
+    }
+    //Ok, so while finishloop = 0, which it is by default
+    while (finishloop == 0){
+        //Make finishcheck = 0
+        finishcheck = 0;
+        //Make sure I reset y so that it goes through this (y - clientcount) loop everytime in the (finishloop = 0) loop
+        y = 0;
+        //For every client
+        while (y++ &lt; GetMaxClients()) {
+            if (IsClientInGame(y)){
+                //We have to make sure it's at least at 2, because 1 - 1 = 0 and there is not "0" client index...
+                if ( y != 1 ){    
+                    //If the score of the [y]th person represented in both arrays is greater than
+                    //the score of the [y - 1]th person represented before them, then...
+                    if (scoretable[y] &gt; scoretable[y - 1]){
+                        //Ok, let's set finishcheck to 1 because it had to make an adjustment to the arrays
+                        finishcheck = 1;
+                        //Switch the two spots in both arrays
+                        a = idtable[y - 1];
+                        idtable[y - 1] = idtable[y];
+                        idtable[y] = a;
+                        a = scoretable[y - 1];
+                        scoretable[y - 1] = scoretable[y];
+                        scoretable[y] = a;
+                    }
+                }
+            }
+        }
+        //Ok, so we looked at all the clients in the arrays
+        //Did we have to make a change to the array?
+        if (finishcheck == 0){
+            //If we didn't have to make a change, then let's get out of this loop by doing (finishloop = 1)
+            //because we know that it's sorted.
+            finishloop = 1;
+        }
+        //If we did have to make a change then we'll stay in the loop, because it still might be out of order
+    }
+    //Ok, once we've sorted our arrays by score, let's create the leaderboard
+    //in the form of a menu
+    
+    //Let's set the menu title
+    SetMenuTitle(showscores, "Leaderboard:");
+    //I'm setting z back to zero because I used it in an earlier loop
+    z = 0;
+    //Ok, so for every client...
+    while (z++ &lt; GetMaxClients()) {
+        if (IsClientInGame(z)){
+            //Store their name into curname[], which will serve as a temp placeholder until the data is displayed
+            GetClientName(idtable[z], curname, sizeof(curname));
+            //We want to make the person that is it stick out on the leaderboard
+            //So if the curname (the name of the person we're dealing with) is equal to the
+            //name of the 'it' then (they're 'it')
+            thisisit = 0;
+            if (StrEqual(curname, it)){
+                thisisit = 1;
+            }
+            //If the length of their name is greater than so many characters (probably in a clan) then...
+            if (strlen(curname) &gt;= 16){
+                strcopy(curname, 16, curname);
+                curname[17] = 0;
+            }
+            //Now let's begin making the string that will be displayed (ex: "Dillxn - 99", as in Dillxn has a score of 99)
+            //I actually do this process, because I couldn't get variables to work in menu items... very nifty.
+            StrCat(curname, sizeof(curname) - 1, " - ");
+            IntToString(scoretable[z],theirscore,32);
+            StrCat(curname, sizeof(curname) - 1, theirscore);
+            //Ok, once it's all concatenated we can add the menu item with the new, complete, string!
+            if (thisisit == 1){
+                //Make the menu item which, because it is a normal style, will be orange (and stick out)
+                AddMenuItem(showscores, curname, curname);
+            }else{
+                //Disable the menu item, which coincidentally also grays it out
+                AddMenuItem(showscores, curname, curname, ITEMDRAW_DISABLED);
+            }
+            //Now, since it is a leaderboard, and since it will continue to pop up every 2 seconds
+            //let's just not have an exit button. There's no point.
+            SetMenuExitButton(showscores, false);
+        }
+    }
+    //For every client
+    d = 0;
+    while (d++ &lt; GetMaxClients() + 1){
+        //If the admin isn't viewing some command at the moment
+        if (leadertable[d] == 1){
+            //Display the leaderboard
+            DisplayMenu(showscores, d, 20);
+        }
+    }
+
+    //Return
+    return Plugin_Handled;
+}
+
+//Let's make sure they're up to date
+public versioncheck(client, args)
+{
+   new String:url[256]
+   url = "https://www.Dillxn.com/dods/addons/revtag/version.asp?version="
+   StrCat(url, sizeof(url) - 1, PLUGIN_VERSION);
+   ShowMOTDPanel(client,"DoD:S Reverse Tag Version Checker", url, MOTDPANEL_TYPE_URL);
+}
+
+//Blocking caps
+//The following "checkflags" function was taken from:
+//DoD:S GunGame 0.4
+//By DJ Tsunami
+//https://www.tsunami-productions.nl
+//Modified by me for the use of this plugin
+checkflags() {
+    new iCaptureArea = -1;
+    while ((iCaptureArea = FindEntityByClassname(iCaptureArea, "dod_capture_area")) != -1) {
+        if (useflags == 1){
+            AcceptEntityInput(iCaptureArea, "Enable");
+        }else{
+            AcceptEntityInput(iCaptureArea, "Disable");
+        }
+    }
+}
+ </code></pre>
+<p>Original post can be found here:<br>
+<a href="https://forums.alliedmods.net/showthread.php?t=81879" data-bbcode="true" rel="nofollow noopener">https://forums.alliedmods.net/showthread.php?t=81879</a><br>
+(all comments removed in the beginning due to size of post restriction)</p>
+          <p><a href="https://leakfree.org/t/code-problem/1569/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/code-problem/1569/1</link>
+        <pubDate>Mon, 05 Oct 2009 03:22:25 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-1569-1</guid>
+        <source url="https://leakfree.org/t/code-problem/1569.rss">Code Problem...</source>
+      </item>
+  </channel>
+</rss>

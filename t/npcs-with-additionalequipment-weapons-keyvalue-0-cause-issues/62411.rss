@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>NPCs with &#39;additionalequipment&#39;/Weapons keyvalue 0 cause issues</title>
+    <link>https://leakfree.org/t/npcs-with-additionalequipment-weapons-keyvalue-0-cause-issues/62411</link>
+    <description>The `additionalequipment` keyvalue (Weapons) can take on the string values &quot;weapon_glock&quot;, &quot;weapon_mp5&quot;, &quot;weapon_shotgun&quot;, &quot;weapon_rpg&quot;, and 0 which represents random. When loading a map for the first time, this seems to function correctly. However, all subsequent loads will not give a valid weapon.
+
+Each load seems to attempt to spawn a random string as an entity, which to me looks like a use-after-free from the array indexed to give a random weapon. This causes the NPC to be spawned without a weapon.
+
+I created a map to test this theory, which you can find [here (vmf)](https://content.jame.xyz/sharex/crash_test.vmf) and [here (bsp)](https://content.jame.xyz/sharex/crash_test.bsp).
+
+Simply load this map after a fresh restart, and the grunt will spawn with a random weapon. Load it again (without a save load, change the map fully) and he will not have a weapon. The console will reveal messages like such:
+```
+Attempted to create unknown entity type ACT_VM_FIZZLE!
+Couldn&#39;t create weapon ACT_VM_FIZZLE to give NPC .
+```
+Sometimes even producing unprintable characters appearing as question marks.
+
+An entity like this appears in map `bm_c2a4f` with hammerid `932430` named `hall_grunt`.</description>
+    
+    <lastBuildDate>Sun, 07 Jul 2019 13:31:33 +0000</lastBuildDate>
+    <category>In-game Issues</category>
+    <atom:link href="https://leakfree.org/t/npcs-with-additionalequipment-weapons-keyvalue-0-cause-issues/62411.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>NPCs with &#39;additionalequipment&#39;/Weapons keyvalue 0 cause issues</title>
+        <dc:creator><![CDATA[DrUnderscore]]></dc:creator>
+        <description><![CDATA[
+            <p>The <code>additionalequipment</code> keyvalue (Weapons) can take on the string values “weapon_glock”, “weapon_mp5”, “weapon_shotgun”, “weapon_rpg”, and 0 which represents random. When loading a map for the first time, this seems to function correctly. However, all subsequent loads will not give a valid weapon.</p>
+<p>Each load seems to attempt to spawn a random string as an entity, which to me looks like a use-after-free from the array indexed to give a random weapon. This causes the NPC to be spawned without a weapon.</p>
+<p>I created a map to test this theory, which you can find <a href="https://content.jame.xyz/sharex/crash_test.vmf" rel="nofollow noopener">here (vmf)</a> and <a href="https://content.jame.xyz/sharex/crash_test.bsp" rel="nofollow noopener">here (bsp)</a>.</p>
+<p>Simply load this map after a fresh restart, and the grunt will spawn with a random weapon. Load it again (without a save load, change the map fully) and he will not have a weapon. The console will reveal messages like such:</p>
+<pre><code class="lang-auto">Attempted to create unknown entity type ACT_VM_FIZZLE!
+Couldn't create weapon ACT_VM_FIZZLE to give NPC .
+</code></pre>
+<p>Sometimes even producing unprintable characters appearing as question marks.</p>
+<p>An entity like this appears in map <code>bm_c2a4f</code> with hammerid <code>932430</code> named <code>hall_grunt</code>.</p>
+          <p><a href="https://leakfree.org/t/npcs-with-additionalequipment-weapons-keyvalue-0-cause-issues/62411/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/npcs-with-additionalequipment-weapons-keyvalue-0-cause-issues/62411/1</link>
+        <pubDate>Sun, 07 Jul 2019 13:24:05 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-62411-1</guid>
+        <source url="https://leakfree.org/t/npcs-with-additionalequipment-weapons-keyvalue-0-cause-issues/62411.rss">NPCs with &#39;additionalequipment&#39;/Weapons keyvalue 0 cause issues</source>
+      </item>
+  </channel>
+</rss>

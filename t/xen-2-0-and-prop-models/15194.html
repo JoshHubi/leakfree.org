@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/xen-2-0-and-prop-models/15194 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:32:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Xen 2.0 and prop models - Developer Logs - Leakfree</title>
+    <meta name="description" content="Going to do things a bit different than what I usually do, I’ll give some background on how we are doing the levels and then show some of the small props I have been making. So we posted new images today to go along with&amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="15194.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Xen 2.0 and prop models&#39;" href="15194.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/7/7fe7f80bb475dc7736a2ee8e47ff63a5203bd387.jpeg" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/7/7fe7f80bb475dc7736a2ee8e47ff63a5203bd387.jpeg" />
+<meta property="og:url" content="https://leakfree.org/t/xen-2-0-and-prop-models/15194" />
+<meta name="twitter:url" content="https://leakfree.org/t/xen-2-0-and-prop-models/15194" />
+<meta property="og:title" content="Xen 2.0 and prop models" />
+<meta name="twitter:title" content="Xen 2.0 and prop models" />
+<meta property="og:description" content="Going to do things a bit different than what I usually do, I’ll give some background on how we are doing the levels and then show some of the small props I have been making. So we posted new images today to go along with the summer sale showing new images from the map Xen.  C4a1a which is where all the images have come from so far (except for my wire frame shots)  is a desert like area that is quite rocky and has many different islands. Adam, Shawn and I have been detailing the map using 3dsmax ..." />
+<meta name="twitter:description" content="Going to do things a bit different than what I usually do, I’ll give some background on how we are doing the levels and then show some of the small props I have been making. So we posted new images today to go along with the summer sale showing new images from the map Xen.  C4a1a which is where all the images have come from so far (except for my wire frame shots)  is a desert like area that is quite rocky and has many different islands. Adam, Shawn and I have been detailing the map using 3dsmax ..." />
+<meta property="article:published_time" content="2017-06-20T21:49:45+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="next" href="151944658.html?page=2">
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="15194.html">Xen 2.0 and prop models</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/6.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Black Mesa Archive</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/black-mesa-archive/developer-logs/15.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Developer Logs</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bkdale86.html'><span itemprop='name'>bkdale86</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15194.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/7/7fe7f80bb475dc7736a2ee8e47ff63a5203bd387.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-20T21:49:45Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:40:27Z' class='post-time'>
+                August 11, 2020, 11:40am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Going to do things a bit different than what I usually do, I’ll give some background on how we are doing the levels and then show some of the small props I have been making. So we posted new images today to go along with the summer sale showing new images from the map Xen.  C4a1a which is where all the images have come from so far (except for my wire frame shots)  is a desert like area that is quite rocky and has many different islands. Adam, Shawn and I have been detailing the map using 3dsmax and a plug-in called WallWorm (WW) developed by Shawn Olsen (a team member and creator of the program, buy it it is great you will need Max though).  Our process is to import a vmf that a LD has already made and has been divided up into a instance for ease of bringing back into hammer later. Once in Max we can turn all the displacements into a sculpt mesh and sculpt it very easily. We also can vertex paint 4way blended textures onto the mesh. We also can sculpt the mesh to form around pretty much anything. Our next task is to place and scatter various props around that need to added to specific areas. We use an importer from WW to import either single source .mdls or large numbers of them into the scene. We can either place each prop by hand or use one of paint functions to paint props on the mesh or just shift drag them (copying them) . This is a pretty intensive process, but can be quite fun. We have rocks that are modular and can be rotated around to look different. We also have some large rock props that are used to cover larger areas. These all match our base rock texture.There is then a foliage pass that is either hand placed or in the case of the grass and some other plants scattered using a powerful program called forest. Once every thing is finished we collapse back to displacements, group props, cull polys, create collisions for the new groupings and export the vmf. The LD then takes and tweaks it all doing the optimizing,lighting scripting etc. By using this pipeline we can get really natural looking vegetation and rock formations. These end up being a lot more dense than doing it in hammer.<br>
+Here are a small sampling of the models I made to be scattered around in Xen.</p>
+<p>          <a href="https://i.imgur.com/OHBJlro.jpg" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="../../uploads/default/original/2X/7/7fe7f80bb475dc7736a2ee8e47ff63a5203bd387.jpg" width="508" height="500">
+          </a>
+<br>
+          <a href="https://i.imgur.com/b4LJtZs.jpg" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="../../uploads/default/original/2X/2/258919b6fa31d0d4339fcdc2b5053366c0185fe6.jpg" width="508" height="500">
+          </a>
+<br>
+          <a href="https://i.imgur.com/ptybWZr.jpg" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="../../uploads/default/original/2X/b/b5412f6e50414fe418436254e1ed9ba6eca3099f.jpg" width="690" height="355">
+          </a>
+<br>
+          <a href="https://i.imgur.com/aSwp3fW.jpg" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="../../uploads/default/original/2X/5/5a9e99d6db640098d0d3b7b6025fa94be8c654bb.jpg" width="508" height="500">
+          </a>
+</p>
+<p>These are the shots used in the media release just a bit bigger. Tree textures are just placeholder.<br>
+          <a href="https://i.imgur.com/uqAi7la.jpg" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="../../uploads/default/original/2X/e/e2a26ab9c20f97458f34dea075b7130c533c3c25.jpg" width="690" height="395">
+          </a>
+<br>
+          <a href="https://i.imgur.com/qTSlup8.jpg" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="../../uploads/default/original/2X/1/15732ad5dfa118754c20f7cc5d2dde570cbd0d08.jpg" width="690" height="395">
+          </a>
+<br>
+          <a href="https://i.imgur.com/3EN4m7Z.jpg" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="../../uploads/default/original/2X/e/ed04410dc258ade0e6311a845bb1fc0f22719392.jpg" width="690" height="395">
+          </a>
+<br>
+          <a href="https://i.imgur.com/pZeI6MF.jpg" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="../../uploads/default/original/2X/d/da7a9100a0adae5f7076ba8e72d7826169e2ccb4.jpg" width="690" height="395">
+          </a>
+<br>
+An overhead shot of this small portion of C4a1b.<br>
+          <a href="https://i.imgur.com/RAR2ZQu.jpg" target="_blank" rel="nofollow noopener" class="onebox">
+            <img src="../../uploads/default/original/2X/9/99393c49a1d246f1b68dce05202478178141afc7.jpg" width="690" height="396">
+          </a>
+</p>
+        </div>
+
+        <meta itemprop='headline' content='Xen 2.0 and prop models'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Lord_Grievous.html'><span itemprop='name'>Lord_Grievous</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15194.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-20T22:13:02Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:04:53Z' class='post-time'>
+                November 25, 2018,  5:04am
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Nice  <img src="../../images/emoji/twitter/stuck_out_tonguec164.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Xen 2.0 and prop models'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Zeroniz0.html'><span itemprop='name'>Zeroniz0</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15194.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-21T03:32:09Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:04:53Z' class='post-time'>
+                November 25, 2018,  5:04am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Very nice!</p>
+        </div>
+
+        <meta itemprop='headline' content='Xen 2.0 and prop models'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Vel0city.html'><span itemprop='name'>Vel0city</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15194.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-21T04:20:24Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:04:53Z' class='post-time'>
+                November 25, 2018,  5:04am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Not to rain down on your parade, but while these all look fabulous, I do feel they’re a little bit <span class="bbcode-i">too </span>much inspired by under water life, especially the anemone-like plant in the first exterior screenshot. I get more of a feeling of being under water rather than being on an alien world. Could use more non-logical structures that don’t make sense on a planet like Earth, and some more green colours in the ground texture and models would also help a lot.</p>
+        </div>
+
+        <meta itemprop='headline' content='Xen 2.0 and prop models'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15194.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-21T04:23:21Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:04:53Z' class='post-time'>
+                November 25, 2018,  5:04am
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This isn’t relevant to what Brian has posted here. Please keep comments on topic.</p>
+        </div>
+
+        <meta itemprop='headline' content='Xen 2.0 and prop models'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Racket_Man.html'><span itemprop='name'>Racket_Man</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15194.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-21T04:26:00Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:04:53Z' class='post-time'>
+                November 25, 2018,  5:04am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>OOOOOHHHHHHH nerd-gasm</p>
+        </div>
+
+        <meta itemprop='headline' content='Xen 2.0 and prop models'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Cryoshell.html'><span itemprop='name'>Cryoshell</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15194.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/e/e0409e4c0347a968f515326ff998a173be145497.jpg">
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-21T04:46:41Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:04:54Z' class='post-time'>
+                November 25, 2018,  5:04am
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hey Brian can you show some classic props like xen tree ,plant light or fungus<br>
+<img src="../../uploads/default/original/2X/e/e0409e4c0347a968f515326ff998a173be145497.jpg" alt="11-44-55-250px-Xen_tree.jpg" data-base62-sha1="vZPoEbBPmErR1qQw3fX99WjjwJp" width="250" height="429"><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/e/ecbdead9368b373a3a6eb98d8684bfaea63dcf91.jpg" data-download-href="https://leakfree.org/uploads/default/ecbdead9368b373a3a6eb98d8684bfaea63dcf91" title="Fungus_on_Xen11-46-18-.jpg"><img src="../../uploads/default/optimized/2X/e/ecbdead9368b373a3a6eb98d8684bfaea63dcf91_2_690x500.jpg" alt="Fungus_on_Xen11-46-18-.jpg" data-base62-sha1="xMjzUaKRCAiJ9kEWNLEtoGNsmZ3" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/e/ecbdead9368b373a3a6eb98d8684bfaea63dcf91_2_690x500.jpeg, https://leakfree.org/uploads/default/original/2X/e/ecbdead9368b373a3a6eb98d8684bfaea63dcf91.jpeg 1.5x, https://leakfree.org/uploads/default/original/2X/e/ecbdead9368b373a3a6eb98d8684bfaea63dcf91.jpeg 2x" data-small-upload="../../uploads/default/optimized/2X/e/ecbdead9368b373a3a6eb98d8684bfaea63dcf91_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">Fungus_on_Xen11-46-18-.jpg</span><span class="informations">900×615 333 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Xen 2.0 and prop models'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/TextFAMGUY1.html'><span itemprop='name'>TextFAMGUY1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15194.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-21T06:43:16Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:04:54Z' class='post-time'>
+                November 25, 2018,  5:04am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This isn’t a request thread. It’s a blog from Brian. Next off topic reply gets banned. Try me.</p>
+        </div>
+
+        <meta itemprop='headline' content='Xen 2.0 and prop models'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Han_Shot_First.html'><span itemprop='name'>Han_Shot_First</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15194.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-21T08:05:18Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:04:55Z' class='post-time'>
+                November 25, 2018,  5:04am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Lol we are getting so spoiled with these updates…</p>
+<p>More on topic, I’m loving the new “syntheically-organic” aesthetic that you’ve adopted for the Xen flora. I guess I’m also just a big sucker for neon blue/purple. Not to mention, it must be ridiculously difficult to convincingly model fleshy/squishy looking stuff in the source engine, so even more props to you, BKDale.</p>
+        </div>
+
+        <meta itemprop='headline' content='Xen 2.0 and prop models'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/wayne_acoba.html'><span itemprop='name'>wayne_acoba</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15194.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-21T09:45:25Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:04:55Z' class='post-time'>
+                November 25, 2018,  5:04am
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks Brian for these crazy insights! I don’t do gamedesign but it sure sounds like you found yourself a really helpful pipeline to work with. That’s great! I am still so much impressed by the dedication and motivation - and quite frankly - the balls to just say “Let’s scarp most of Xen and do it like we think it should have been” That’s really curageous, and I mean it in the best of ways.</p>
+<p>Anyway, looking at your Xen plantlife props, I do wonder if we are going to see more “grown” (eg. bigger) iterations of these. I am thinking about this, because in the first Xen pic that has been released in december, there were these tiny Xentrees in the bottom left hand corner of the pic. As we know that there will be - most likely - grown versions of these, I do wonder if these new lats grow eventually into something bigger - and more dangerous.</p>
+<p>Keep it up, I am looking forward to see more, if you’re willing to share more! Your first propblogs on the forums were the reason for me to finally sign up in the first place after years of lurking.</p>
+        </div>
+
+        <meta itemprop='headline' content='Xen 2.0 and prop models'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Johnwalter.html'><span itemprop='name'>Johnwalter</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15194.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-21T21:13:12Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:04:57Z' class='post-time'>
+                November 25, 2018,  5:04am
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That+s an interesting texture for the coral. Looks like sand paper.</p>
+<p>BTW do you guys name the “plants” you make?</p>
+        </div>
+
+        <meta itemprop='headline' content='Xen 2.0 and prop models'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bkdale86.html'><span itemprop='name'>bkdale86</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15194.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-22T01:29:58Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:04:57Z' class='post-time'>
+                November 25, 2018,  5:04am
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Vel0city">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/v/a9a28c/40.png" class="avatar"> Vel0city:</div>
+<blockquote>
+<p>Not to rain down on your parade, but while these all look fabulous, I do feel they’re a little bit <span class="bbcode-i">too </span>much inspired by under water life, especially the anemone-like plant in the first exterior screenshot. I get more of a feeling of being under water rather than being on an alien world. Could use more non-logical structures that don’t make sense on a planet like Earth, and some more green colours in the ground texture and models would also help a lot.</p>
+</blockquote>
+</aside>
+<p>Well I’m sorry our vision of Xen doesn’t match your concept. Derail my blog again and you get banned it is in the rules I set up and I get really annoyed when people don’t follow my rules. If you want to bitch about things start your own thread somewhere, just don’t expect me to respond to any of it.</p>
+<aside class="quote no-group" data-username="wayne_acoba">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/wayne_acoba/40/4378_2.jpg" class="avatar"> wayne_acoba:</div>
+<blockquote>
+<p>Anyway, looking at your Xen plantlife props, I do wonder if we are going to see more “grown” (eg. bigger) iterations of these. I am thinking about this, because in the first Xen pic that has been released in december, there were these tiny Xentrees in the bottom left hand corner of the pic. As we know that there will be - most likely - grown versions of these, I do wonder if these new lats grow eventually into something bigger - and more dangerous.</p>
+</blockquote>
+</aside>
+<p>The pumpkin is actually stage 3… There are a few others that are like that.</p>
+<aside class="quote no-group" data-username="Johnwalter">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/johnwalter/40/4365_2.png" class="avatar"> Johnwalter:</div>
+<blockquote>
+<p>That+s an interesting texture for the coral. Looks like sand paper.</p>
+<p>BTW do you guys name the “plants” you make?</p>
+</blockquote>
+</aside>
+<p>Yes whoever makes it names it. We aren’t terribly creative with the names gets hard after 10 or so.</p>
+        </div>
+
+        <meta itemprop='headline' content='Xen 2.0 and prop models'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Deathmonkey7.html'><span itemprop='name'>Deathmonkey7</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15194.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-22T13:11:01Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:04:57Z' class='post-time'>
+                November 25, 2018,  5:04am
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Great work, Brian! I can’t wait to see these in-game.</p>
+        </div>
+
+        <meta itemprop='headline' content='Xen 2.0 and prop models'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/darkone.html'><span itemprop='name'>darkone</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15194.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-22T14:42:33Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T11:40:30Z' class='post-time'>
+                August 11, 2020, 11:40am
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Cryoshell">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/leakfree.org/cryoshell/40/4415_2.png" class="avatar"> Cryoshell:</div>
+<blockquote>
+<p>Hey Brian can you show some classic props like xen tree ,plant light or fungus</p>
+</blockquote>
+</aside>
+<p><a href="https://cdn.edgecast.steamstatic.com/steamcommunity/public/images/clans/8672783/a747b51d505718fda2509877c4e6816e27ea4bf4.jpg" data-bbcode="true" rel="nofollow noopener">https://cdn.edgecast.steamstatic.com/steamcommunity/public/images/clans/8672783/a747b51d505718fda2509877c4e6816e27ea4bf4.jpg</a></p>
+<p>has the tree, or is it the fungus. what ever the breathing thing with 4 legs is.</p>
+<p>ON TOPIC: love how the plants look. Can’t wait to see more when xen comes out.</p>
+        </div>
+
+        <meta itemprop='headline' content='Xen 2.0 and prop models'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Admiral_Sakai.html'><span itemprop='name'>Admiral_Sakai</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15194.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-22T15:01:31Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:04:58Z' class='post-time'>
+                November 25, 2018,  5:04am
+              </time>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>How flexible are the pre-existing props, and how available are the tools used to make them for modders? If I wanted to make new sections of Xen, could I just assemble the existing rock sections differently to suit whatever structure I want to make, or are the sections large enough that they determine the overall shape of the level by themselves? If I wanted to make new sections, would I <span class="bbcode-i">need </span>WW and Max, or can a similar result be produced in Hammer (presumably just with more work)?</p>
+        </div>
+
+        <meta itemprop='headline' content='Xen 2.0 and prop models'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/bkdale86.html'><span itemprop='name'>bkdale86</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15194.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-23T04:34:43Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:04:58Z' class='post-time'>
+                November 25, 2018,  5:04am
+              </time>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>You can just use the rocks in hammer. Where you will run into issues is with the number or props hitting the entity count. WW/max just allows us to group them and get more on the level. You can place 100 grass models and group them so they count as 4 or 5 entites. There is also a ton of other tools in WW/max that it a lot faster.</p>
+        </div>
+
+        <meta itemprop='headline' content='Xen 2.0 and prop models'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Hox3D.html'><span itemprop='name'>Hox3D</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15194.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-06-24T11:41:28Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:05:00Z' class='post-time'>
+                November 25, 2018,  5:05am
+              </time>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Great job in here, sir.<br>
+Love the way you manage to find your own workaround to push Hammer’s limits.</p>
+<p>Love the foliage-dense vision of yours. Makes Xen a really wild place, interesting and creepy in the same time to explore.</p>
+        </div>
+
+        <meta itemprop='headline' content='Xen 2.0 and prop models'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/anastiel.html'><span itemprop='name'>anastiel</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15194.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-07-01T04:11:22Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:05:16Z' class='post-time'>
+                November 25, 2018,  5:05am
+              </time>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>great! nice job</p>
+        </div>
+
+        <meta itemprop='headline' content='Xen 2.0 and prop models'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/quantumnoize.html'><span itemprop='name'>quantumnoize</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15194.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-08-29T17:40:40Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:06:52Z' class='post-time'>
+                November 25, 2018,  5:06am
+              </time>
+          <span itemprop='position'>#19</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Jeez why are the mods so hostile? Starting to not like the vibe I get from these devs from time to time. I mean the guy just  asked if you could show what the new version of some old xen props look like. You know a simple no suffices instead of threatening bans left and right like its purposeful thread sabotage. Anyways, I really like the foliage of xen that you guys are creating it really makes xen look alive and foreign. I have high hopes for the coming xen levels.</p>
+        </div>
+
+        <meta itemprop='headline' content='Xen 2.0 and prop models'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/darkone.html'><span itemprop='name'>darkone</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="15194.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2017-08-29T17:59:17Z'>
+              <time itemprop='dateModified' datetime='2018-11-25T05:06:52Z' class='post-time'>
+                November 25, 2018,  5:06am
+              </time>
+          <span itemprop='position'>#20</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>its more the fact that the origin post states not to ask stuff like that.</p>
+        </div>
+
+        <meta itemprop='headline' content='Xen 2.0 and prop models'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="151944658.html?page=2">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/xen-2-0-and-prop-models/15194 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 09:32:38 GMT -->
+</html>

@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from leakfree.org/t/steam-profile-xml/1120 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 13:51:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Steam profile XML - Help and Support - Leakfree</title>
+    <meta name="description" content="how to parse the steamcommunity profile xml in php? 
+at the time I have it that way: 
+[children] =&amp;gt; Array
+        (
+            [0] =&amp;gt; domelement Object
+                (
+                    [type] =&amp;gt; 1
+                 &amp;hellip;">
+    <meta name="generator" content="Discourse 2.6.0.beta5 - https://github.com/discourse/discourse version b9fb1cebcd8c8dc34800692fd6f8b72c47b51ad3">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="1120.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://leakfree.org","potentialAction":{"@type":"SearchAction","target":"https://leakfree.org/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Leakfree Search">
+
+      <link href="../../stylesheets/desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdab.css_%3b%20filename_%3dUTF-8%27%27desktop_8_78a84313b1758221d1fdcffd1499666af5b5fdabd733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop" data-theme-id="11"/>
+      <link href="../../stylesheets/desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732.css_%3b%20filename_%3dUTF-8%27%27desktop_theme_11_bcef0414ba3b66792586d18ce571f192263e1732d733.css?__ws=leakfree.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="11"/>
+    <script data-ad-client="ca-pub-2079330348735278" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Steam profile XML&#39;" href="1120.rss" />
+    <meta property="og:site_name" content="Leakfree" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:image" content="https://leakfree.org/uploads/default/original/2X/1/1b69109125d4946f223f71d45e038e4e8e7410f9.png" />
+<meta property="og:url" content="https://leakfree.org/t/steam-profile-xml/1120" />
+<meta name="twitter:url" content="https://leakfree.org/t/steam-profile-xml/1120" />
+<meta property="og:title" content="Steam profile XML" />
+<meta name="twitter:title" content="Steam profile XML" />
+<meta property="og:description" content="how to parse the steamcommunity profile xml in php?  at the time I have it that way:  [children] =&gt; Array         (             [0] =&gt; domelement Object                 (                     [type] =&gt; 1                     [tagname] =&gt; profile                     [0] =&gt; 5                     [1] =&gt; 47824184                     [children] =&gt; Array                         (                             [0] =&gt; domtext Object                                 (                                     [type..." />
+<meta name="twitter:description" content="how to parse the steamcommunity profile xml in php?  at the time I have it that way:  [children] =&gt; Array         (             [0] =&gt; domelement Object                 (                     [type] =&gt; 1                     [tagname] =&gt; profile                     [0] =&gt; 5                     [1] =&gt; 47824184                     [children] =&gt; Array                         (                             [0] =&gt; domtext Object                                 (                                     [type..." />
+<meta property="article:published_time" content="2009-08-06T16:55:08+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="next" href="11204658.html?page=2">
+
+
+    
+  </head>
+  <body class="crawler">
+    
+
+
+
+
+
+
+
+
+<script src="../../theme-javascripts/451263f573ec5e4eb9c81f3085c4024d360f28d7.js_%3b%20filename_%3dUTF-8%27%27451263f573ec5e4eb9c81f3085c4024d360f28d7d733.js?__ws=leakfree.org"></script>
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png" alt="Leakfree" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="1120.html">Steam profile XML</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/technology-and-gaming/19.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #8C6238'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Technology and Gaming</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/technology-and-gaming/help-and-support/39.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #808281'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Help and Support</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/pfannkuchen_gesicht.html'><span itemprop='name'>pfannkuchen_gesicht</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1120.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-08-06T16:55:08Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:08:31Z' class='post-time'>
+                November 24, 2018,  6:08pm
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>how to parse the steamcommunity profile xml in php?<br>
+at the time I have it that way:</p>
+<pre><code class="lang-auto">[children] =&gt; Array
+        (
+            [0] =&gt; domelement Object
+                (
+                    [type] =&gt; 1
+                    [tagname] =&gt; profile
+                    [0] =&gt; 5
+                    [1] =&gt; 47824184
+                    [children] =&gt; Array
+                        (
+                            [0] =&gt; domtext Object
+                                (
+                                    [type] =&gt; 3
+                                    [name] =&gt; #text
+                                    [content] =&gt; 
+	
+                                    [0] =&gt; 6
+                                    [1] =&gt; 47827496
+                                )
+
+                            [1] =&gt; domelement Object
+                                (
+                                    [type] =&gt; 1
+                                    [tagname] =&gt; steamID64
+                                    [0] =&gt; 7
+                                    [1] =&gt; 47827568
+                                    [children] =&gt; Array
+                                        (
+                                            [0] =&gt; domtext Object
+                                                (
+                                                    [type] =&gt; 3
+                                                    [name] =&gt; #text
+                                                    [content] =&gt; 76561197984082852
+                                                    [0] =&gt; 8
+                                                    [1] =&gt; 47827640
+                                                )
+
+                                        )
+</code></pre>
+<p>but this is kind of unpractical</p>
+        </div>
+
+        <meta itemprop='headline' content='Steam profile XML'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/cman2k.html'><span itemprop='name'>cman2k</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1120.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-08-06T19:23:59Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:08:36Z' class='post-time'>
+                November 24, 2018,  6:08pm
+              </time>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I don’t know much about xml but if you figure this out, please share.  <img src="../../images/emoji/twitter/slight_smilec164.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Steam profile XML'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/pfannkuchen_gesicht.html'><span itemprop='name'>pfannkuchen_gesicht</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1120.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-08-06T20:45:46Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T01:23:30Z' class='post-time'>
+                August 11, 2020,  1:23am
+              </time>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>not perfect, but at least it works:</p>
+<pre><code class="lang-auto">
+function getSteamprofile($url, $return_all = 0)
+{
+    $parser = xml_parser_create();
+    xml_parser_set_option($parser, XML_OPTION_SKIP_WHITE, 1);
+    xml_parser_set_option($parser, XML_OPTION_CASE_FOLDING, 0);
+    $xml = file_get_contents($url);
+    xml_parse_into_struct($parser, $xml, $value);
+    xml_parser_free($parser);
+
+
+         if($value[12]['tag'] === "inGameInfo")
+         {
+             $contents['inGameInfo'][] = $value[13]['value'];
+             $contents['inGameInfo'][] = $value[14]['value'];
+             $contents['inGameInfo'][] = $value[15]['value'];
+             $contents['inGameInfo'][] = $value[16]['value'];
+             $contents['inGameInfo'][] = $value[17]['value'];
+             unset($value[13]);
+             unset($value[14]);
+             unset($value[15]);
+             unset($value[16]);
+             unset($value[17]);
+             $user['ingameinfo']['name'] = $contents['inGameInfo'][0];
+             $user['ingameinfo']['link'] = $contents['inGameInfo'][1];
+             $user['ingameinfo']['icon'] = $contents['inGameInfo'][2];
+             $user['ingameinfo']['logo'] = $contents['inGameInfo'][3];
+             $user['ingameinfo']['logo_s'] = $contents['inGameInfo'][4];
+         }
+         else
+         {
+         }
+
+    foreach( $value as $values )
+    {
+             $contents[$values['tag']][] = $values['value'];
+    }
+         unset($contents['inGameInfo'][5]);
+         unset($contents['inGameInfo'][6]);
+
+
+    $user['name'] = $contents['steamID'][0];
+    $user['state'] = $contents['onlineState'][0];
+    $user['msg'] = $contents['stateMessage'][0];
+    $user['avatar'] = $contents['avatarFull'][0];
+    $user['avatar_med'] = $contents['avatarMedium'][0];
+    $user['avatar_ico'] = $contents['avatarIcon'][0];
+    $user['vac'] = $contents['vacBanned'][0];
+    $user['url'] = $contents['customURL'][0];
+    $user['since'] = $contents['memberSince'][0];
+    $user['rating'] = $contents['steamRating'][0];
+    $user['hours_2wk'] = $contents['hoursPlayed2Wk'][0];
+    $user['headline'] = $contents['headline'][0];
+    $user['summary'] = $contents['summary'][0];
+
+
+         $user['mostplayed']['mostplayed'] = $contents['statsName'][0];
+    $user['mostplayed']['games'][$contents['gameName'][0]]['hours'] = $contents['hoursPlayed'][0];
+    $user['mostplayed']['games'][$contents['gameName'][1]]['hours'] = $contents['hoursPlayed'][1];
+    $user['mostplayed']['games'][$contents['gameName'][2]]['hours'] = $contents['hoursPlayed'][2];
+
+         $user['mostplayed']['games'][$contents['gameName'][0]]['link'] = $contents['gameLink'][0];
+    $user['mostplayed']['games'][$contents['gameName'][1]]['link'] = $contents['gameLink'][1];
+    $user['mostplayed']['games'][$contents['gameName'][2]]['link'] = $contents['gameLink'][2];
+
+         $user['mostplayed']['games'][$contents['gameName'][0]]['icon'] = $contents['gameIcon'][0];
+    $user['mostplayed']['games'][$contents['gameName'][1]]['icon'] = $contents['gameIcon'][1];
+    $user['mostplayed']['games'][$contents['gameName'][2]]['icon'] = $contents['gameIcon'][2];
+
+         $user['mostplayed']['games'][$contents['gameName'][0]]['logo'] = $contents['gameLogo'][0];
+    $user['mostplayed']['games'][$contents['gameName'][1]]['logo'] = $contents['gameLogo'][1];
+    $user['mostplayed']['games'][$contents['gameName'][2]]['logo'] = $contents['gameLogo'][2];
+
+         $user['mostplayed']['games'][$contents['gameName'][0]]['logo_s'] = $contents['gameLogoSmall'][0];
+    $user['mostplayed']['games'][$contents['gameName'][1]]['logo_s'] = $contents['gameLogoSmall'][1];
+    $user['mostplayed']['games'][$contents['gameName'][2]]['logo_s'] = $contents['gameLogoSmall'][2];
+
+
+    $user['favgame']['name'] = $contents['name'][0];
+    $user['favgame']['link'] = $contents['link'][0];
+    $user['favgame']['logo'] = $contents['logo'][0];
+    $user['favgame']['hours'] = $contents['hoursPlayed2wk'][0];
+
+         if( $return_all == false )
+         {
+             return $user;
+         }
+         else
+         {
+             return $contents;
+         }
+}
+$link = "https://steamcommunity.com/id/pfannkuchen_gesicht?xml=1";
+$datas = getSteamprofile($link, 0);
+echo "&lt;pre&gt;";print_r($datas);"&lt;/pre&gt;";
+
+ </code></pre>
+<p>Output:</p>
+<p>[code]Array<br>
+(<br>
+[ingameinfo] =&gt; Array<br>
+(<br>
+[name] =&gt; Team Fortress 2<br>
+[link] =&gt; <a href="https://store.steampowered.com/app/440" rel="nofollow noopener">https://store.steampowered.com/app/440</a><br>
+[icon] =&gt; <a href="https://media.steampowered.com/steamcommunity/public/images/apps/440/e3f595a92552da3d664ad00277fad2107345f743.jpg" rel="nofollow noopener">https://media.steampowered.com/steamcommunity/public/images/apps/440/e3f595a92552da3d664ad00277fad2107345f743.jpg</a><br>
+[logo] =&gt; <a href="https://media.steampowered.com/steamcommunity/public/images/apps/440/6f6d22ab0c357d9f02a11f76ff35797e4ccdf19f.jpg" rel="nofollow noopener">https://media.steampowered.com/steamcommunity/public/images/apps/440/6f6d22ab0c357d9f02a11f76ff35797e4ccdf19f.jpg</a><br>
+[logo_s] =&gt; <a href="https://media.steampowered.com/steamcommunity/public/images/apps/440/d606e5858ff874b22647b6a2ae5f4d654eb2f4e5.jpg" rel="nofollow noopener">https://media.steampowered.com/steamcommunity/public/images/apps/440/d606e5858ff874b22647b6a2ae5f4d654eb2f4e5.jpg</a><br>
+)</p>
+<pre><code>[name] =&gt; pfannkuchen_gesicht
+[state] =&gt; in-game
+[msg] =&gt; In-Game
+</code></pre>
+<p>Team Fortress 2 - Join<br>
+[avatar] =&gt; <a href="https://media.steampowered.com/steamcommunity/public/images/avatars/74/74015438594ba8032cc41698bacc46deef2af787_full.jpg" rel="nofollow noopener">https://media.steampowered.com/steamcommunity/public/images/avatars/74/74015438594ba8032cc41698bacc46deef2af787_full.jpg</a><br>
+[avatar_med] =&gt; <a href="https://media.steampowered.com/steamcommunity/public/images/avatars/74/74015438594ba8032cc41698bacc46deef2af787_medium.jpg" rel="nofollow noopener">https://media.steampowered.com/steamcommunity/public/images/avatars/74/74015438594ba8032cc41698bacc46deef2af787_medium.jpg</a><br>
+[avatar_ico] =&gt; <a href="https://media.steampowered.com/steamcommunity/public/images/avatars/74/74015438594ba8032cc41698bacc46deef2af787.jpg" rel="nofollow noopener">https://media.steampowered.com/steamcommunity/public/images/avatars/74/74015438594ba8032cc41698bacc46deef2af787.jpg</a><br>
+[vac] =&gt; 0<br>
+[url] =&gt; pfannkuchen_gesicht<br>
+[since] =&gt; August 2, 2006<br>
+[rating] =&gt; 10<br>
+[hours_2wk] =&gt; 40.9<br>
+[headline] =&gt;<br>
+[summary] =&gt; No information given.<br>
+[mostplayed] =&gt; Array<br>
+(<br>
+[mostplayed] =&gt; L4D<br>
+[games] =&gt; Array<br>
+(<br>
+[Left 4 Dead] =&gt; Array<br>
+(<br>
+[hours] =&gt; 18.5<br>
+[link] =&gt; <a href="https://store.steampowered.com/app/500" rel="nofollow noopener">https://store.steampowered.com/app/500</a><br>
+[icon] =&gt; <a href="https://media.steampowered.com/steamcommunity/public/images/apps/500/428df26bc35b09319e31b1ffb712487b20b3245c.jpg" rel="nofollow noopener">https://media.steampowered.com/steamcommunity/public/images/apps/500/428df26bc35b09319e31b1ffb712487b20b3245c.jpg</a><br>
+[logo] =&gt; <a href="https://media.steampowered.com/steamcommunity/public/images/apps/500/0f67ee504d8f04ecd83986dd7855821dc21f7a78.jpg" rel="nofollow noopener">https://media.steampowered.com/steamcommunity/public/images/apps/500/0f67ee504d8f04ecd83986dd7855821dc21f7a78.jpg</a><br>
+[logo_s] =&gt; <a href="https://media.steampowered.com/steamcommunity/public/images/apps/500/0f67ee504d8f04ecd83986dd7855821dc21f7a78_thumb.jpg" rel="nofollow noopener">https://media.steampowered.com/steamcommunity/public/images/apps/500/0f67ee504d8f04ecd83986dd7855821dc21f7a78_thumb.jpg</a><br>
+)</p>
+<pre><code>                [Painkiller Gold Edition] =&gt; Array
+                    (
+                        [hours] =&gt; 9.9
+                        [link] =&gt; https://store.steampowered.com/app/3200
+                        [icon] =&gt; https://media.steampowered.com/steamcommunity/public/images/apps/3200/3e8830b9553bc7b12fb3762eec097b44551988b2.jpg
+                        [logo] =&gt; https://media.steampowered.com/steamcommunity/public/images/apps/3200/915a8bef104490cc568d5eacb3df680e13f11bb9.jpg
+                        [logo_s] =&gt; https://media.steampowered.com/steamcommunity/public/images/apps/3200/1bb33297854c09f996dc3d8480f35c565f03c728.jpg
+                    )
+
+                [Painkiller Overdose] =&gt; Array
+                    (
+                        [hours] =&gt; 6.8
+                        [link] =&gt; https://store.steampowered.com/app/3270
+                        [icon] =&gt; https://media.steampowered.com/steamcommunity/public/images/apps/3270/ab47a9209c8b6e7c5b81736a27489c9d22af46ff.jpg
+                        [logo] =&gt; https://media.steampowered.com/steamcommunity/public/images/apps/3270/549dca50d8e2fd555a6abe115ac127731fc416a0.jpg
+                        [logo_s] =&gt; https://media.steampowered.com/steamcommunity/public/images/apps/3270/2c3fbe2eceabe40c3cd98510b5ed51cd0e866a85.jpg
+                    )
+
+            )
+
+    )
+
+[favgame] =&gt; Array
+    (
+        [name] =&gt; Half-Life
+        [link] =&gt; https://store.steampowered.com/app/70
+        [logo] =&gt; https://media.steampowered.com/steamcommunity/public/images/apps/70/6bd76ff700a8c7a5460fbae3cf60cb930279897d.jpg
+        [hours] =&gt; 0
+    )
+</code></pre>
+<p>)<br>
+[/code]</p>
+<p>EDIT:<br>
+example of use:<br>
+online<br>
+<a href="https://img17.imageshack.us/i/exampley.png/" data-bbcode="true" rel="nofollow noopener"><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></a><br>
+Ingame:<br>
+<a href="https://img33.imageshack.us/i/examplek.png/" data-bbcode="true" rel="nofollow noopener"><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></a><br>
+the joinbutton works!</p>
+<p>Edit2:<br>
+another example:<br>
+<a href="https://img8.imageshack.us/i/steamstatimage.png/" data-bbcode="true" rel="nofollow noopener"><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></a></p>
+        </div>
+
+        <meta itemprop='headline' content='Steam profile XML'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/pfannkuchen_gesicht.html'><span itemprop='name'>pfannkuchen_gesicht</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1120.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-08-07T13:57:14Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T01:23:43Z' class='post-time'>
+                August 11, 2020,  1:23am
+              </time>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>and my last example:<br>
+<a href="https://img291.imageshack.us/i/steamstatimage2.png/" data-bbcode="true" rel="nofollow noopener"><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></a></p>
+<p>EDIT: doublepost :facepalm:</p>
+        </div>
+
+        <meta itemprop='headline' content='Steam profile XML'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Level.html'><span itemprop='name'>Level</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1120.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-08-07T15:23:13Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:08:52Z' class='post-time'>
+                November 24, 2018,  6:08pm
+              </time>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hmm, not bad. Does it always show 3 games, or anything over 0 hours?</p>
+        </div>
+
+        <meta itemprop='headline' content='Steam profile XML'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/pfannkuchen_gesicht.html'><span itemprop='name'>pfannkuchen_gesicht</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1120.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-08-07T15:31:52Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T01:23:45Z' class='post-time'>
+                August 11, 2020,  1:23am
+              </time>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>only 3, the 3 most played.<br>
+btw: could someone make a better design for this?<br>
+EDIT:<br>
+Raminators profile:<br>
+<span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span><br>
+cman2ks profile:<br>
+<span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+        </div>
+
+        <meta itemprop='headline' content='Steam profile XML'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Level.html'><span itemprop='name'>Level</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1120.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-08-07T21:31:02Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:08:56Z' class='post-time'>
+                November 24, 2018,  6:08pm
+              </time>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Is that just a image you’re using as the background?</p>
+        </div>
+
+        <meta itemprop='headline' content='Steam profile XML'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/pfannkuchen_gesicht.html'><span itemprop='name'>pfannkuchen_gesicht</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1120.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-08-07T21:36:37Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T01:23:51Z' class='post-time'>
+                August 11, 2020,  1:23am
+              </time>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>yes, except the blue iconboxes.<br>
+but I can change that, if it’s easier to make designs for it</p>
+<p>EDIT:<br>
+better font:<br>
+<span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span><br>
+EDIT2:<br>
+improved design:<br>
+<span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span><br>
+EDIT3:<br>
+<span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<p>EDIT4:<br>
+different styles:<br>
+<span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span><br>
+<span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span><br>
+<span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span><br>
+<span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<p>EDIT5:<br>
+to make styles:<br>
+background image:<br>
+size 280x128px</p>
+<p>border of avatar:<br>
+size [COLOR=‘Blue’]<span class="bbcode-b">76x76</span> with an [COLOR=‘Black’]<span class="bbcode-b">64x64</span> square( 6px offset )<br>
+<span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span> ( PNG, RGBA )</p>
+<p>border for gameicons:<br>
+size [COLOR=‘Blue’]<span class="bbcode-b">40x40</span> with an [COLOR=‘Black’]<span class="bbcode-b">32x32</span> square( 4px offset )<br>
+<span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span> ( PNG, RGBA )</p>
+        </div>
+
+        <meta itemprop='headline' content='Steam profile XML'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/pfannkuchen_gesicht.html'><span itemprop='name'>pfannkuchen_gesicht</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1120.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-08-08T21:01:02Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T01:24:08Z' class='post-time'>
+                August 11, 2020,  1:24am
+              </time>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>does someone know a free serverprovider with fopen wrappers activated?</p>
+<p>EDIT:<br>
+<span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<pre><code class="lang-auto">[style]
+background = steam_bg.png
+avatar_border = steam_avatar_bg.png
+game_border = steam_games_bg.png
+
+[fonts]
+steamID_color_r = 251
+steamID_color_g = 235
+steamID_color_b = 202
+profileinfo_color_r = 251
+profileinfo_color_g = 235
+profileinfo_color_b = 202
+gamename_color_r = 251
+gamename_color_g = 235
+gamename_color_b = 202
+steamID_font = tf2secondary.ttf
+profileinfo_font = tf2secondary.ttf
+gamename_font = tf2secondary.ttf
+steamID_fontsize = 16
+profileinfo_fontsize = 9
+gamename_fontsize = 12
+
+[positions]
+steamID_posX = 82
+steamID_posY = 20
+avatar_posX = 9
+avatar_posY = 9
+profileinfo_posX = 82
+profileinfo_posY = 36
+gamename_posX[] = 50
+gamename_posY[] = 98
+gamename_maxlen = 16
+gamepic_posX[] = 9
+gamepic_posY[] = 88
+gamepic_posX[] = 195
+gamepic_posY[] = 88
+gamepic_posX[] = 240
+gamepic_posY[] = 88
+
+[appearance]
+show_gamename[] = 1
+show_gamename[] = 0
+show_gamename[] = 0</code></pre>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<pre><code class="lang-auto">[style]
+background = steam_bg.png
+avatar_border = steam_avatar_bg.png
+game_border = steam_games_bg.png
+
+[fonts]
+steamID_color_r = 251
+steamID_color_g = 235
+steamID_color_b = 202
+profileinfo_color_r = 251
+profileinfo_color_g = 235
+profileinfo_color_b = 202
+gamename_color_r = 251
+gamename_color_g = 235
+gamename_color_b = 202
+steamID_font = tf2secondary.ttf
+profileinfo_font = tf2secondary.ttf
+gamename_font = tf2secondary.ttf
+steamID_fontsize = 16
+profileinfo_fontsize = 9
+gamename_fontsize = 12
+
+[positions]
+steamID_posX = 82
+steamID_posY = 20
+avatar_posX = 9
+avatar_posY = 9
+profileinfo_posX = 82
+profileinfo_posY = 36
+gamename_maxlen = 40
+gamename_posX[] = 50
+gamename_posY[] = 98
+gamename_posX[] = 60
+gamename_posY[] = 140
+gamename_posX[] = 70
+gamename_posY[] = 182
+gamepic_posX[] = 9
+gamepic_posY[] = 88
+gamepic_posX[] = 19
+gamepic_posY[] = 130
+gamepic_posX[] = 29
+gamepic_posY[] = 172
+
+[appearance]
+show_gamename[] = 1
+show_gamename[] = 1
+show_gamename[] = 1</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Steam profile XML'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Level.html'><span itemprop='name'>Level</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1120.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-08-09T04:42:09Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:09:23Z' class='post-time'>
+                November 24, 2018,  6:09pm
+              </time>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Buy your own server? Not a whole lot of people will give you webspace for free with all the options you want.</p>
+        </div>
+
+        <meta itemprop='headline' content='Steam profile XML'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/pfannkuchen_gesicht.html'><span itemprop='name'>pfannkuchen_gesicht</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1120.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-08-10T18:17:18Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:09:57Z' class='post-time'>
+                November 24, 2018,  6:09pm
+              </time>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>and where to get the money from? printing some?<br>
+I have no workplace, where I could get some money from, I’m still learning.</p>
+        </div>
+
+        <meta itemprop='headline' content='Steam profile XML'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Level.html'><span itemprop='name'>Level</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1120.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-08-10T19:46:39Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:09:59Z' class='post-time'>
+                November 24, 2018,  6:09pm
+              </time>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Do what I do, sell stuff on Craigs list. Someone is coming over tonight to buy my 8800 GTS and possibly to rape me.</p>
+        </div>
+
+        <meta itemprop='headline' content='Steam profile XML'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/raw_bean.html'><span itemprop='name'>raw_bean</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1120.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-08-11T20:40:43Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:10:28Z' class='post-time'>
+                November 24, 2018,  6:10pm
+              </time>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That is totally fucking cool.</p>
+<p>Would you mind if I ripped off some of the code and tinkered with it to make my own version?</p>
+        </div>
+
+        <meta itemprop='headline' content='Steam profile XML'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/pfannkuchen_gesicht.html'><span itemprop='name'>pfannkuchen_gesicht</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1120.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-08-12T13:59:49Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:10:45Z' class='post-time'>
+                November 24, 2018,  6:10pm
+              </time>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>as soon as I think it’s ready</p>
+<p>EDIT:</p>
+<p>getSteamprofile</p>
+<pre><code class="lang-auto">
+function getSteamprofile($url, $return_all = 0)
+{
+    $parser = xml_parser_create();
+    xml_parser_set_option($parser, XML_OPTION_SKIP_WHITE, 1);
+    xml_parser_set_option($parser, XML_OPTION_CASE_FOLDING, 0);
+    $xml = file_get_contents($url);
+    xml_parse_into_struct($parser, $xml, $value);
+    xml_parser_free($parser);
+
+         if($value[12]['tag'] === "inGameInfo")
+         {
+             $contents['inGameInfo'][] = $value[13]['value'];
+             $contents['inGameInfo'][] = $value[14]['value'];
+             $contents['inGameInfo'][] = $value[15]['value'];
+             $contents['inGameInfo'][] = $value[16]['value'];
+             $contents['inGameInfo'][] = $value[17]['value'];
+             unset($value[13]);
+             unset($value[14]);
+             unset($value[15]);
+             unset($value[16]);
+             unset($value[17]);
+             $user['ingameinfo']['name'] = $contents['inGameInfo'][0];
+             $user['ingameinfo']['link'] = $contents['inGameInfo'][1];
+             $user['ingameinfo']['icon'] = $contents['inGameInfo'][2];
+             $user['ingameinfo']['logo'] = $contents['inGameInfo'][3];
+             $user['ingameinfo']['logo_s'] = $contents['inGameInfo'][4];
+         }
+         else
+         {
+         }
+
+    foreach( $value as $values )
+    {
+             $contents[$values['tag']][] = $values['value'];
+    }
+         unset($contents['inGameInfo'][5]);
+         unset($contents['inGameInfo'][6]);
+
+    $user['name'] = $contents['steamID'][0];
+    $user['state'] = $contents['onlineState'][0];
+    $user['msg'] = $contents['stateMessage'][0];
+    $user['avatar'] = $contents['avatarFull'][0];
+    $user['avatar_med'] = $contents['avatarMedium'][0];
+    $user['avatar_ico'] = $contents['avatarIcon'][0];
+    $user['vac'] = $contents['vacBanned'][0];
+    $user['url'] = $contents['customURL'][0];
+    $user['since'] = $contents['memberSince'][0];
+    $user['rating'] = $contents['steamRating'][0];
+    $user['hours_2wk'] = $contents['hoursPlayed2Wk'][0];
+    $user['headline'] = $contents['headline'][0];
+    $user['summary'] = $contents['summary'][0];
+
+
+         $user['mostplayed']['mostplayed'] = $contents['statsName'][0];
+    $user['mostplayed']['games'][$contents['gameName'][0]]['hours'] = $contents['hoursPlayed'][0];
+    $user['mostplayed']['games'][$contents['gameName'][1]]['hours'] = $contents['hoursPlayed'][1];
+    $user['mostplayed']['games'][$contents['gameName'][2]]['hours'] = $contents['hoursPlayed'][2];
+
+         $user['mostplayed']['games'][$contents['gameName'][0]]['link'] = $contents['gameLink'][0];
+    $user['mostplayed']['games'][$contents['gameName'][1]]['link'] = $contents['gameLink'][1];
+    $user['mostplayed']['games'][$contents['gameName'][2]]['link'] = $contents['gameLink'][2];
+
+         $user['mostplayed']['games'][$contents['gameName'][0]]['icon'] = $contents['gameIcon'][0];
+    $user['mostplayed']['games'][$contents['gameName'][1]]['icon'] = $contents['gameIcon'][1];
+    $user['mostplayed']['games'][$contents['gameName'][2]]['icon'] = $contents['gameIcon'][2];
+
+         $user['mostplayed']['games'][$contents['gameName'][0]]['logo'] = $contents['gameLogo'][0];
+    $user['mostplayed']['games'][$contents['gameName'][1]]['logo'] = $contents['gameLogo'][1];
+    $user['mostplayed']['games'][$contents['gameName'][2]]['logo'] = $contents['gameLogo'][2];
+
+         $user['mostplayed']['games'][$contents['gameName'][0]]['logo_s'] = $contents['gameLogoSmall'][0];
+    $user['mostplayed']['games'][$contents['gameName'][1]]['logo_s'] = $contents['gameLogoSmall'][1];
+    $user['mostplayed']['games'][$contents['gameName'][2]]['logo_s'] = $contents['gameLogoSmall'][2];
+
+
+    $user['favgame']['name'] = $contents['name'][0];
+    $user['favgame']['link'] = $contents['link'][0];
+    $user['favgame']['logo'] = $contents['logo'][0];
+    $user['favgame']['hours'] = $contents['hoursPlayed2wk'][0];
+
+         if( $return_all == false )
+         {
+             return $user;
+         }
+         else
+         {
+             return $contents;
+         }
+}
+ </code></pre>
+<p>raw_bean, do you know about the GDLib?</p>
+<p>EDIT: removed Imagecreation code.</p>
+        </div>
+
+        <meta itemprop='headline' content='Steam profile XML'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/iKy.html'><span itemprop='name'>iKy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1120.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-08-14T20:30:10Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:11:47Z' class='post-time'>
+                November 24, 2018,  6:11pm
+              </time>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="raw_bean">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/r/439d5e/40.png" class="avatar"> raw_bean:</div>
+<blockquote>
+<p>That is totally fucking cool.</p>
+<p>Would you mind if I ripped off some of the code and tinkered with it to make my own version?</p>
+</blockquote>
+</aside>
+<p>i wanted to say just that , omg you people are really cool</p>
+        </div>
+
+        <meta itemprop='headline' content='Steam profile XML'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/raw_bean.html'><span itemprop='name'>raw_bean</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1120.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-08-18T01:11:06Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:13:03Z' class='post-time'>
+                November 24, 2018,  6:13pm
+              </time>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="pfannkuchen_ges">
+<div class="title">
+<div class="quote-controls"></div>
+ pfannkuchen_ges:</div>
+<blockquote>
+<p>raw_bean, do you know about the GDLib?</p>
+</blockquote>
+</aside>
+<p>I’d never heard about it until you mentioned it, but I just looked it up. Looks interesting, I might have a fiddle with it. Why do you ask?</p>
+        </div>
+
+        <meta itemprop='headline' content='Steam profile XML'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/pfannkuchen_gesicht.html'><span itemprop='name'>pfannkuchen_gesicht</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1120.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-08-18T15:13:06Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:13:18Z' class='post-time'>
+                November 24, 2018,  6:13pm
+              </time>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>'cause of the generated image examples.<br>
+I thought you’ll do something like this.</p>
+        </div>
+
+        <meta itemprop='headline' content='Steam profile XML'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Hubicorn.html'><span itemprop='name'>Hubicorn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1120.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-08-18T19:45:22Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:13:24Z' class='post-time'>
+                November 24, 2018,  6:13pm
+              </time>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I really like what you are doing. PM me and i’ll host you :3</p>
+        </div>
+
+        <meta itemprop='headline' content='Steam profile XML'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/Hamst3r.html'><span itemprop='name'>Hamst3r</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1120.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-08-27T07:08:50Z'>
+              <time itemprop='dateModified' datetime='2020-08-11T01:31:54Z' class='post-time'>
+                August 11, 2020,  1:31am
+              </time>
+          <span itemprop='position'>#19</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Could you make it work for this design?</p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<p>Here’s the blank card:</p>
+<p><span alt="" class="broken-image" title="This image is broken"><svg class="fa d-icon d-icon-unlink svg-icon" aria-hidden="true"><use xlink:href="#unlink"></use></svg></span></p>
+<p>Cause I’d really love a simple and compact steam card like that! Especially if I can host my own and not have to rely on some other site.  <img src="../../images/emoji/twitter/smileyc164.png?v=9" title=":smiley:" class="emoji" alt=":smiley:"></p>
+<p>btw, the font is Verdana.</p>
+        </div>
+
+        <meta itemprop='headline' content='Steam profile XML'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Pixelblast Media LLC'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='../../uploads/default/original/2X/b/b4f2bc6e5e04e842eae8b788313c606f873a973b.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='../../u/pfannkuchen_gesicht.html'><span itemprop='name'>pfannkuchen_gesicht</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1120.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2009-08-27T13:41:48Z'>
+              <time itemprop='dateModified' datetime='2018-11-24T18:16:36Z' class='post-time'>
+                November 24, 2018,  6:16pm
+              </time>
+          <span itemprop='position'>#20</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>yes, of course.<br>
+I’ll work on it.<br>
+on your own server?<br>
+keep in mind, you must have fopen_wrappers activated.</p>
+<p>EDIT: did you make the card design?</p>
+        </div>
+
+        <meta itemprop='headline' content='Steam profile XML'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="11204658.html?page=2">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org/">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    <div class="headerNotice">
+    <div class="headerNoticeWrapper wrap">
+        <p>Founded in 2004, Leakfree.org became one of the first online communities dedicated to Valve’s Source engine development. It is more famously known for the formation of Black Mesa: Source under the 'Leakfree Modification Team' handle in September 2004.</p>
+    </div>
+</div>
+    
+  </body>
+  
+
+<!-- Mirrored from leakfree.org/t/steam-profile-xml/1120 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Jan 2021 13:51:53 GMT -->
+</html>

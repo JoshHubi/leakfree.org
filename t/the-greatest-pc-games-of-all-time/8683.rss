@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>The Greatest PC Games of All Time</title>
+    <link>https://leakfree.org/t/the-greatest-pc-games-of-all-time/8683</link>
+    <description>Hey I&#39;m just some lurker here that checks from time to time hoping that BM will one day be released.
+
+Anyway I always wanted to find a reliable list that details out with limited bias the best PC games of all time. You can&#39;t count on critics and there isn&#39;t a good site like imdb that&#39;s for games only, so I decided to do some scrounging and make my own list (mathematically). I&#39;m putting it here on the assumption that someone else will find the data interesting.
+
+I *think* it&#39;s as unbiased and reliable as you can get on the web.
+Check it out:
+[url]https://docs.google.com/spreadsheet/pub?key=0Au25ZsnOzirudGM4V3FMeWVZcGY2YmNtMzVydk9OaGc&amp;single=true&amp;gid=0&amp;output=html[/url]
+
+
+Here&#39;s the TL;DR for how I made it. Feel free to ignore these technicalities if you&#39;re not interested.
+
+In matlab I made a simple program that goes to metacritic&#39;s page for PC games and downloaded the stats on the top 1000 (as rated by critics) games. It snatched the title, the date it was released, the metascore, the number of critic reviews, the user score, and the number of user reviews.
+
+At first I tried simply returning a Bayesian estimate using just the user scores and the user votes, but I felt this had a fatal flaw. To a much more severe extent than movies, video games simply drop off the radar as they age. It&#39;s very difficult to find old games, often they don&#39;t work on modern computers, and there is almost no interest in the public to play them compared to modern games. So a simple Bayesian estimate will introduce a bias to older games, since they simply do not get the number of votes that modern games get, and so they will be unnecessarily pulled toward the middle of the range. So I realized that the date the game was published plays a significant role.
+
+I searched for &#39;metacritic&#39; on google trends and downloaded the data for that term. I figured that metacritic&#39;s popularity at the time the game was released should have a reasonable correlation to the amount of votes a game receives. I fitted a logistic curve to the trend data with asymptotes at 0.5 (as x -&gt; -inf) and 4.25 (as x-&gt; +inf) which makes sense if you look at the trend data with fixed scaling. The curve lines up with the data extremely well. I may post the graph of this later if anyone&#39;s interested.
+
+I then adjusted the vote count by looking at the game&#39;s release date and multiplying its votes by the logistic model&#39;s popularity now (about 4.09) divided by it&#39;s popularity at the time of release. That&#39;s what the Kfactor column is. I then used this vote number in calculating the Bayesian estimate, using the average vote count of the games on the list (520) and a mean user vote of 6. Since this is the top 1000 games as defined by critics, their mean score will be artificially high (it&#39;s 7.74,) so I opted for 6 being more realistic.
+
+So there you have it. Counter Strike is the best PC game of all time, and Call of Duty: MW3 one of the worst. It&#39;s interesting to see just how good of games Valve makes compared to any other company.</description>
+    
+    <lastBuildDate>Fri, 20 Apr 2012 23:18:04 +0000</lastBuildDate>
+    <category>Technology and Gaming</category>
+    <atom:link href="https://leakfree.org/t/the-greatest-pc-games-of-all-time/8683.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>The Greatest PC Games of All Time</title>
+        <dc:creator><![CDATA[saphendym]]></dc:creator>
+        <description><![CDATA[
+            <p>Hey I’m just some lurker here that checks from time to time hoping that BM will one day be released.</p>
+<p>Anyway I always wanted to find a reliable list that details out with limited bias the best PC games of all time. You can’t count on critics and there isn’t a good site like imdb that’s for games only, so I decided to do some scrounging and make my own list (mathematically). I’m putting it here on the assumption that someone else will find the data interesting.</p>
+<p>I <em>think</em> it’s as unbiased and reliable as you can get on the web.<br>
+Check it out:<br>
+<a href="https://docs.google.com/spreadsheet/pub?key=0Au25ZsnOzirudGM4V3FMeWVZcGY2YmNtMzVydk9OaGc&amp;single=true&amp;gid=0&amp;output=html" data-bbcode="true" rel="nofollow noopener">https://docs.google.com/spreadsheet/pub?key=0Au25ZsnOzirudGM4V3FMeWVZcGY2YmNtMzVydk9OaGc&amp;single=true&amp;gid=0&amp;output=html</a></p>
+<p>Here’s the TL;DR for how I made it. Feel free to ignore these technicalities if you’re not interested.</p>
+<p>In matlab I made a simple program that goes to metacritic’s page for PC games and downloaded the stats on the top 1000 (as rated by critics) games. It snatched the title, the date it was released, the metascore, the number of critic reviews, the user score, and the number of user reviews.</p>
+<p>At first I tried simply returning a Bayesian estimate using just the user scores and the user votes, but I felt this had a fatal flaw. To a much more severe extent than movies, video games simply drop off the radar as they age. It’s very difficult to find old games, often they don’t work on modern computers, and there is almost no interest in the public to play them compared to modern games. So a simple Bayesian estimate will introduce a bias to older games, since they simply do not get the number of votes that modern games get, and so they will be unnecessarily pulled toward the middle of the range. So I realized that the date the game was published plays a significant role.</p>
+<p>I searched for ‘metacritic’ on google trends and downloaded the data for that term. I figured that metacritic’s popularity at the time the game was released should have a reasonable correlation to the amount of votes a game receives. I fitted a logistic curve to the trend data with asymptotes at 0.5 (as x -&gt; -inf) and 4.25 (as x-&gt; +inf) which makes sense if you look at the trend data with fixed scaling. The curve lines up with the data extremely well. I may post the graph of this later if anyone’s interested.</p>
+<p>I then adjusted the vote count by looking at the game’s release date and multiplying its votes by the logistic model’s popularity now (about 4.09) divided by it’s popularity at the time of release. That’s what the Kfactor column is. I then used this vote number in calculating the Bayesian estimate, using the average vote count of the games on the list (520) and a mean user vote of 6. Since this is the top 1000 games as defined by critics, their mean score will be artificially high (it’s 7.74,) so I opted for 6 being more realistic.</p>
+<p>So there you have it. Counter Strike is the best PC game of all time, and Call of Duty: MW3 one of the worst. It’s interesting to see just how good of games Valve makes compared to any other company.</p>
+          <p><a href="https://leakfree.org/t/the-greatest-pc-games-of-all-time/8683/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/the-greatest-pc-games-of-all-time/8683/1</link>
+        <pubDate>Fri, 20 Apr 2012 23:18:04 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-8683-1</guid>
+        <source url="https://leakfree.org/t/the-greatest-pc-games-of-all-time/8683.rss">The Greatest PC Games of All Time</source>
+      </item>
+  </channel>
+</rss>

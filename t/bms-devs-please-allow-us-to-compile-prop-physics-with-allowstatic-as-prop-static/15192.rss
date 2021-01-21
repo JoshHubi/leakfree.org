@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.</title>
+    <link>https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192</link>
+    <description>Long story short, see all the HL2 props? Well, they are compiled as physics, yes, but in the GUI they also show as available as static. Why? Because they have an &quot;allowstatic&quot; parameter embedded in them, however, ever since the SDK 2013 that parameter remains undetected by the VBSP and so the only way to use these props in non-physics way is with prop_dynamic_override, which can very much negatively impact performance, especially on older machines.[/size]
+
+[b][url=&#39;https://facepunch.com/showthread.php?t=1488605&#39;]This guy has fixed this for SDK 2013[/url], I would kindly ask[/b] BMS devs to try and fix it in their version of the engine.[/size]
+
+Why am I writing this? Why am I writing this right now? Well, some time ago before I took a break from my mod, I faced the same issue. My friend right now is forced to either recompile hundreds of models or consistently use prop_dynamic_override.</description>
+    
+    <lastBuildDate>Thu, 13 Jul 2017 11:15:09 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.</title>
+        <dc:creator><![CDATA[Snaiper]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Flavrans">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/flavrans/40/4375_2.png" class="avatar"> Flavrans:</div>
+<blockquote>
+<p>I’m not entirely sure what the OP is asking for, but I’ve looked at the VBSP source code in SDK 2013, and as far as I can tell, it’s working as intended. As long as the model has the keyvalue “allowstatic” set to “1” in the model’s prop_data, it can be used as prop_static. For example, the crate <a href="https://forums.blackmesasource.com/index.php/User/29054-LordDz/" data-bbcode="true" rel="nofollow noopener">@LordDz</a> used in his example does not have the “allowstatic” keyvalue set:</p>
+<p><a href="https://localhost/mybb/attachment.php?aid=4139" data-bbcode="true" rel="nofollow noopener"><img src="https://localhost/mybb/attachment.php?thumbnail=4139" alt=""></a></p>
+<p>Whereas, for example, this model has the “allowstatic” keyvalue set:</p>
+<p><a href="https://localhost/mybb/attachment.php?aid=4140" data-bbcode="true" rel="nofollow noopener"><img src="https://localhost/mybb/attachment.php?thumbnail=4140" alt=""></a></p>
+<p>I did some tests and confirmed that BM’s VBSP is accepting the barrel01 model as prop_static, whereas the metalcrate01 model gets deleted:</p>
+<p><code>Error! prop_static using model "models/props_blackmesa/metalcrate01.mdl", which must be used on a dynamic entity (i.e. prop_physics). Deleted.
+Error loading studio model "models/props_blackmesa/metalcrate01.mdl"!</code>However, what that mod does, which was linked to by the OP, is enabling models to be used as prop_static regardless of whether the “allowstatic” keyvalue is set or not.</p>
+</blockquote>
+</aside>
+<p>Wait, really? I swear that last time I put in a physics prop with “allowstatic” in it, it didn’t appear. I’ll test more.</p>
+          <p><a href="https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192/10</link>
+        <pubDate>Thu, 13 Jul 2017 11:15:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15192-10</guid>
+        <source url="https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192.rss">BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.</source>
+      </item>
+      <item>
+        <title>BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.</title>
+        <dc:creator><![CDATA[Flavrans]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m not entirely sure what the OP is asking for, but I’ve looked at the VBSP source code in SDK 2013, and as far as I can tell, it’s working as intended. As long as the model has the keyvalue “allowstatic” set to “1” in the model’s prop_data, it can be used as prop_static. For example, the crate <a href="https://forums.blackmesasource.com/index.php/User/29054-LordDz/" data-bbcode="true" rel="nofollow noopener">@LordDz</a> used in his example does not have the “allowstatic” keyvalue set:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/a/a0417012231c5b25f61b8a8d0996c842a6b0d85e.png" data-download-href="https://leakfree.org/uploads/default/a0417012231c5b25f61b8a8d0996c842a6b0d85e" title="barrel01.png"><img src="https://leakfree.org/uploads/default/optimized/2X/a/a0417012231c5b25f61b8a8d0996c842a6b0d85e_2_690x500.png" alt="barrel01.png" data-base62-sha1="mRGATpVcYypdzRYb282yj2yyv9A" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/a/a0417012231c5b25f61b8a8d0996c842a6b0d85e_2_690x500.png, https://leakfree.org/uploads/default/original/2X/a/a0417012231c5b25f61b8a8d0996c842a6b0d85e.png 1.5x, https://leakfree.org/uploads/default/original/2X/a/a0417012231c5b25f61b8a8d0996c842a6b0d85e.png 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/a/a0417012231c5b25f61b8a8d0996c842a6b0d85e_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">barrel01.png</span><span class="informations">956×598 101 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Whereas, for example, this model has the “allowstatic” keyvalue set:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/3/308ca68cf367047acf00d39c7c9b04ba6ed29df5.png" data-download-href="https://leakfree.org/uploads/default/308ca68cf367047acf00d39c7c9b04ba6ed29df5" title="metalcrate01.png"><img src="https://leakfree.org/uploads/default/optimized/2X/3/308ca68cf367047acf00d39c7c9b04ba6ed29df5_2_690x500.png" alt="metalcrate01.png" data-base62-sha1="6VugbzYDnYfVdV1wp8v8YdC9rJH" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/3/308ca68cf367047acf00d39c7c9b04ba6ed29df5_2_690x500.png, https://leakfree.org/uploads/default/original/2X/3/308ca68cf367047acf00d39c7c9b04ba6ed29df5.png 1.5x, https://leakfree.org/uploads/default/original/2X/3/308ca68cf367047acf00d39c7c9b04ba6ed29df5.png 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/3/308ca68cf367047acf00d39c7c9b04ba6ed29df5_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">metalcrate01.png</span><span class="informations">956×598 98.2 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>I did some tests and confirmed that BM’s VBSP is accepting the barrel01 model as prop_static, whereas the metalcrate01 model gets deleted:</p>
+<p><code>Error! prop_static using model "models/props_blackmesa/metalcrate01.mdl", which must be used on a dynamic entity (i.e. prop_physics). Deleted.
+Error loading studio model "models/props_blackmesa/metalcrate01.mdl"!</code><br>
+However, what that mod does, which was linked to by the OP, is enabling models to be used as prop_static regardless of whether the “allowstatic” keyvalue is set or not.</p>
+          <p><a href="https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192/9</link>
+        <pubDate>Tue, 04 Jul 2017 18:56:29 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15192-9</guid>
+        <source url="https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192.rss">BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.</source>
+      </item>
+      <item>
+        <title>BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.</title>
+        <dc:creator><![CDATA[LordDz]]></dc:creator>
+        <description><![CDATA[
+            <p>It’s not just for the hl2 props… Fixing two lines of code would solve a lot of headaches for mappers alike.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/c/c79b5fdb79e53456146123041f9cc8adc897da10.jpeg" data-download-href="https://leakfree.org/uploads/default/c79b5fdb79e53456146123041f9cc8adc897da10" title="crates1.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/c/c79b5fdb79e53456146123041f9cc8adc897da10_2_690x500.jpeg" alt="crates1.jpg" data-base62-sha1="stNU69K4uI8i8dmWmQCXzhkKJCU" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/c/c79b5fdb79e53456146123041f9cc8adc897da10_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/c/c79b5fdb79e53456146123041f9cc8adc897da10_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/c/c79b5fdb79e53456146123041f9cc8adc897da10_2_1380x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/c/c79b5fdb79e53456146123041f9cc8adc897da10_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">crates1.jpg</span><span class="informations">1792×569 332 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://leakfree.org/uploads/default/original/2X/a/a939a68370e7442c245b9d285385715b59ccfa16.jpeg" data-download-href="https://leakfree.org/uploads/default/a939a68370e7442c245b9d285385715b59ccfa16" title="crates2.jpg"><img src="https://leakfree.org/uploads/default/optimized/2X/a/a939a68370e7442c245b9d285385715b59ccfa16_2_690x500.jpeg" alt="crates2.jpg" data-base62-sha1="o92cTALgnYud2uOeloC4rNhJZIO" width="690" height="500" srcset="https://leakfree.org/uploads/default/optimized/2X/a/a939a68370e7442c245b9d285385715b59ccfa16_2_690x500.jpeg, https://leakfree.org/uploads/default/optimized/2X/a/a939a68370e7442c245b9d285385715b59ccfa16_2_1035x750.jpeg 1.5x, https://leakfree.org/uploads/default/optimized/2X/a/a939a68370e7442c245b9d285385715b59ccfa16_2_1380x1000.jpeg 2x" data-small-upload="https://leakfree.org/uploads/default/optimized/2X/a/a939a68370e7442c245b9d285385715b59ccfa16_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">crates2.jpg</span><span class="informations">1920×1080 260 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+          <p><a href="https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192/8</link>
+        <pubDate>Tue, 04 Jul 2017 15:17:09 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15192-8</guid>
+        <source url="https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192.rss">BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.</source>
+      </item>
+      <item>
+        <title>BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.</title>
+        <dc:creator><![CDATA[Snaiper]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Crypt">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/crypt/40/4394_2.png" class="avatar"> Crypt:</div>
+<blockquote>
+<p>I understand the technical caveats and difference between the entities, I’ve made a map or two in my time. I’m just curious of how it’s really a hindrance considering in practice this is a really limited issue wouldn’t have a huge impact considering the props it affects.</p>
+<p>Not that it shouldn’t be fixed of course, just that I didn’t imagine it being a real obstacle in any otherwise properly optimized map. Not to the degree of having to recompile hundreds of props, anyway. Seems like the sort of edge case where Motion Disabled would do the trick. Unless your map is entirely HL2 phys props made static, in which case <span class="bbcode-b"><span class="bbcode-i">EW</span></span>   <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+</blockquote>
+</aside>
+<p>The devs do not have to recompile the props. They just have to add a line or two into their VBSP, as I’ve originally stated. The props support this, but the VBSP does not, for some reason, this is the case in SDK 2013 as well.<br>
+Only 1/3 things I stated was about performance. So, there’s other reasons too.</p>
+          <p><a href="https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192/7</link>
+        <pubDate>Fri, 30 Jun 2017 09:36:34 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15192-7</guid>
+        <source url="https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192.rss">BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.</source>
+      </item>
+      <item>
+        <title>BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>I understand the technical caveats and difference between the entities, I’ve made a map or two in my time. I’m just curious of how it’s really a hindrance considering in practice this is a really limited issue wouldn’t have a huge impact considering the props it affects.</p>
+<p>Not that it shouldn’t be fixed of course, just that I didn’t imagine it being a real obstacle in any otherwise properly optimized map. Not to the degree of having to recompile hundreds of props, anyway. Seems like the sort of edge case where Motion Disabled would do the trick. Unless your map is entirely HL2 phys props made static, in which case <span class="bbcode-b"><span class="bbcode-i">EW</span></span>   <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+          <p><a href="https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192/6</link>
+        <pubDate>Thu, 29 Jun 2017 21:44:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15192-6</guid>
+        <source url="https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192.rss">BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.</source>
+      </item>
+      <item>
+        <title>BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.</title>
+        <dc:creator><![CDATA[Snaiper]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Crypt">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/crypt/40/4394_2.png" class="avatar"> Crypt:</div>
+<blockquote>
+<p>What’s wrong with the “motion disabled” flag?</p>
+</blockquote>
+</aside>
+<ol>
+<li>Static is much cheaper than physics, which means better performance.</li>
+<li>Static does not count towards engine’s entity limit, which means that you can put in as much as compiler can take.</li>
+<li>Knowing which props are static and physics out right helps with mapping, instead of having to look at their flags individually, especially if for debugging you want to disable certain prop type.</li>
+</ol>
+          <p><a href="https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192/5</link>
+        <pubDate>Thu, 29 Jun 2017 13:52:14 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15192-5</guid>
+        <source url="https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192.rss">BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.</source>
+      </item>
+      <item>
+        <title>BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>Static props are cheaper to render and you can use more of them than dynamic objects without significantly affecting performance, at least from my understanding.</p>
+          <p><a href="https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192/4</link>
+        <pubDate>Tue, 20 Jun 2017 17:41:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15192-4</guid>
+        <source url="https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192.rss">BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.</source>
+      </item>
+      <item>
+        <title>BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>What’s wrong with the “motion disabled” flag?</p>
+          <p><a href="https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192/3</link>
+        <pubDate>Tue, 20 Jun 2017 11:42:57 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15192-3</guid>
+        <source url="https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192.rss">BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.</source>
+      </item>
+      <item>
+        <title>BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.</title>
+        <dc:creator><![CDATA[Johnwalter]]></dc:creator>
+        <description><![CDATA[
+            <p>Maybe it will be fixed with the Xen update?<br>
+Just asking.</p>
+          <p><a href="https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192/2</link>
+        <pubDate>Tue, 20 Jun 2017 05:50:15 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15192-2</guid>
+        <source url="https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192.rss">BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.</source>
+      </item>
+      <item>
+        <title>BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.</title>
+        <dc:creator><![CDATA[Snaiper]]></dc:creator>
+        <description><![CDATA[
+            <p>Long story short, see all the HL2 props? Well, they are compiled as physics, yes, but in the GUI they also show as available as static. Why? Because they have an “allowstatic” parameter embedded in them, however, ever since the SDK 2013 that parameter remains undetected by the VBSP and so the only way to use these props in non-physics way is with prop_dynamic_override, which can very much negatively impact performance, especially on older machines.[/size]</p>
+<p><span class="bbcode-b"><a href="https://facepunch.com/showthread.php?t=1488605" data-bbcode="true" rel="nofollow noopener">This guy has fixed this for SDK 2013</a>, I would kindly ask</span> BMS devs to try and fix it in their version of the engine.[/size]</p>
+<p>Why am I writing this? Why am I writing this right now? Well, some time ago before I took a break from my mod, I faced the same issue. My friend right now is forced to either recompile hundreds of models or consistently use prop_dynamic_override.</p>
+          <p><a href="https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192/1</link>
+        <pubDate>Mon, 19 Jun 2017 21:17:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-15192-1</guid>
+        <source url="https://leakfree.org/t/bms-devs-please-allow-us-to-compile-prop-physics-with-allowstatic-as-prop-static/15192.rss">BMS devs, please allow us to compile prop_physics with &quot;allowstatic&quot; as prop_static.</source>
+      </item>
+  </channel>
+</rss>

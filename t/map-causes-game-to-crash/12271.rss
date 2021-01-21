@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Map causes game to crash.</title>
+    <link>https://leakfree.org/t/map-causes-game-to-crash/12271</link>
+    <description>For some reason when I load my map it crashes the game.The log looks fine to me though.
+[quote]
+================== VBSP ==================
+
+
+
+materialPath: c:\program files (x86)\steam\SteamApps\sourcemods\BMS\materials
+Loading X:\Onno\Induction\Vmf\induction.vmf
+Patching WVT material: maps/induction/dev/dev_blendmeasure_wvt_patch
+fixing up env_cubemap materials on brush sides...
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10Processing areas...done (0)
+Building Faces...done (0)
+Chop Details...done (0)
+Find Visible Detail Sides...
+Merged 606 detail faces...done (0)
+Merging details...done (0)
+FixTjuncs...
+PruneNodes...
+WriteBSP...
+done (1)
+writing X:\Onno\Induction\Vmf\induction.prt...Building visibility clusters...
+done (0)
+Creating default LDR cubemaps for env_cubemap using skybox materials:
+   skybox/sky_day01_01*.vmt
+ ! Run buildcubemaps in the engine to get the correct cube maps.
+Creating default HDR cubemaps for env_cubemap using skybox materials:
+   skybox/sky_day01_01*.vmt
+ ! Run buildcubemaps in the engine to get the correct cube maps.
+Finding displacement neighbors...
+Finding lightmap sample positions...
+Displacement Alpha : 0...1...2...3...4...5...6...7...8...9...10
+Building Physics collision data...
+done (1) (769717 bytes)
+Placing detail props : 0...1...2...3...4...5...6...7...8...9...10
+Compacting texture/material tables...
+Reduced 5951 texinfos to 2972
+Reduced 346 texdatas to 249 (14612 bytes to 11376)
+Writing X:\Onno\Induction\Vmf\induction.bsp
+7 seconds elapsed
+
+================== VVIS ==================
+
+
+
+
+4 threads
+reading x:\onno\induction\vmf\induction.bsp
+reading x:\onno\induction\vmf\induction.prt
+1129 portalclusters
+2786 numportals
+0...1...2...3...4...5...6...7...8...9...10Optimized: 57153 visible clusters (0.00%)
+Total clusters visible: 404006
+Average clusters visible: 357
+Building PAS...
+Average clusters audible: 824
+visdatasize:231235  compressed from 325152
+writing x:\onno\induction\vmf\induction.bsp
+2 seconds elapsed
+
+================== VRAD ==================
+
+
+
+
+[Reading texlights from &#39;lights.rad&#39;]
+[48 texlights parsed from &#39;lights.rad&#39;]
+
+Loading x:\onno\induction\vmf\induction.bsp
+7569 faces
+5 degenerate faces
+542380 square feet [78102720.00 square inches]
+0 Displacements
+0 Square Feet [0.00 Square Inches]
+7564 patches before subdivision
+129278 patches after subdivision
+222 direct lights
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10transfers 28833707, max 1159
+transfer lists: 220.0 megs
+0...1...2...3...4...5...6...7...8...9...10	Bounce #1 added RGB(575878, 917349, 1087184)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #2 added RGB(198633, 338313, 408105)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #3 added RGB(44348, 73589, 81807)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #4 added RGB(12781, 21644, 23629)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #5 added RGB(3331, 5536, 5650)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #6 added RGB(927, 1543, 1519)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #7 added RGB(252, 415, 385)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #8 added RGB(70, 114, 102)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #9 added RGB(19, 31, 26)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #10 added RGB(5, 9, 7)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #11 added RGB(2, 2, 2)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #12 added RGB(0, 1, 0)
+Build Patch/Sample Hash Table(s).....Done&lt;0.0779 sec&gt;
+0...1...2...3...4...5...6...7...8...9...10FinalLightFace Done
+0 of 0 (0% of) surface lights went in leaf ambient cubes.
+0...1...2...3...4...5...6...7...8...9...10Writing leaf ambient...done
+Ready to Finish
+
+Object names       Objects/Maxobjs  Memory / Maxmem  Fullness 
+------------       ---------------  ---------------  -------- 
+models                  89/1024         4272/49152    ( 8.7%) 
+brushes               2035/8192        24420/98304    (24.8%) 
+brushsides           16156/65536      129248/524288   (24.7%) 
+planes                9494/65536      189880/1310720  (14.5%) 
+vertexes             13898/65536      166776/786432   (21.2%) 
+nodes                 3140/65536      100480/2097152  ( 4.8%) 
+texinfos              2972/12288      213984/884736   (24.2%) 
+texdata                249/2048         7968/65536    (12.2%) 
+dispinfos                0/0               0/0        ( 0.0%) 
+disp_verts               0/0               0/0        ( 0.0%) 
+disp_tris                0/0               0/0        ( 0.0%) 
+disp_lmsamples           0/0               0/0        ( 0.0%) 
+faces                 7569/65536      423864/3670016  (11.5%) 
+hdr faces                0/65536           0/3670016  ( 0.0%) 
+origfaces             4500/65536      252000/3670016  ( 6.9%) 
+leaves                3230/65536      103360/2097152  ( 4.9%) 
+leaffaces             9430/65536       18860/131072   (14.4%) 
+leafbrushes           4419/65536        8838/131072   ( 6.7%) 
+areas                    2/256            16/2048     ( 0.8%) 
+surfedges            55443/512000     221772/2048000  (10.8%) 
+edges                34216/256000     136864/1024000  (13.4%) 
+LDR worldlights        222/8192        19536/720896   ( 2.7%) 
+HDR worldlights          0/8192            0/720896   ( 0.0%) 
+leafwaterdata            0/32768           0/393216   ( 0.0%) 
+waterstrips           1018/32768       10180/327680   ( 3.1%) 
+waterverts               0/65536           0/786432   ( 0.0%) 
+waterindices         18252/65536       36504/131072   (27.9%) 
+cubemapsamples          20/1024          320/16384    ( 2.0%) 
+overlays                 7/512          2464/180224   ( 1.4%) 
+LDR lightdata         [variable]    16345212/0        ( 0.0%) 
+HDR lightdata         [variable]           0/0        ( 0.0%) 
+visdata               [variable]      231235/16777216 ( 1.4%) 
+entdata               [variable]      289806/393216   (73.7%) 
+LDR ambient table     3230/65536       12920/262144   ( 4.9%) 
+HDR ambient table     3230/65536       12920/262144   ( 4.9%) 
+LDR leaf ambient      8951/65536      250628/1835008  (13.7%) 
+HDR leaf ambient      3230/65536       90440/1835008  ( 4.9%) 
+occluders                0/0               0/0        ( 0.0%) 
+occluder polygons        0/0               0/0        ( 0.0%) 
+occluder vert ind        0/0               0/0        ( 0.0%) 
+detail props          [variable]           1/12       ( 8.3%) 
+static props          [variable]           1/32876    ( 0.0%) 
+pakfile               [variable]     2298570/0        ( 0.0%) 
+physics               [variable]      769717/4194304  (18.4%) 
+physics terrain       [variable]           2/1048576  ( 0.0%) 
+
+Level flags = 0
+
+Total triangle count: 22179
+Writing x:\onno\induction\vmf\induction.bsp
+2 minutes, 16 seconds elapsed
+[/quote]
+I have checked for errors using ALT + P but no luck.</description>
+    
+    <lastBuildDate>Fri, 26 Apr 2013 12:11:43 +0000</lastBuildDate>
+    <category>Source 1</category>
+    <atom:link href="https://leakfree.org/t/map-causes-game-to-crash/12271.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>Do a binary search. Cordon half the map, and if the map loads fine then the problem isn’t there. Then for the half of the map that crashes, divide that into two parts and cordon one of those halves. Repeat. If you do this enough, you’ll eventually get down to a pretty precise idea of where the problem is fairly soon.</p>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/24">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/24</link>
+        <pubDate>Fri, 26 Apr 2013 12:11:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-24</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[D3lta]]></dc:creator>
+        <description><![CDATA[
+            <p>Yeah…I dont want to do that <img src="https://leakfree.org/images/emoji/twitter/confused.png?v=9" title=":confused:" class="emoji" alt=":confused:"></p>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/23">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/23</link>
+        <pubDate>Thu, 25 Apr 2013 15:54:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-23</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>Well start cordoning small spaces and gradually increase the size or move it around. Start off with one room, or so, and if it loads fine, the problem isn’t there.</p>
+<p>You <span class="bbcode-i">could</span> also upload the vmf and someone could take a look, but then that’d be sharing your mod’s source files, which very few people are okay with doing.</p>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/22">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/22</link>
+        <pubDate>Wed, 24 Apr 2013 20:58:08 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-22</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[D3lta]]></dc:creator>
+        <description><![CDATA[
+            <p>Ok, so I cordon’d out some rooms that were recently added and still the same fucking problem :/.</p>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/21">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/21</link>
+        <pubDate>Wed, 24 Apr 2013 15:07:25 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-21</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="TehBoxNoob">
+<div class="title">
+<div class="quote-controls"></div>
+ TehBoxNoob:</div>
+<blockquote>
+<p>Holy shit, it took a while to realize what its purpose was.</p>
+</blockquote>
+</aside>
+<p>Cordon has several uses. In this case, it can be used to compile only certain portions of the map to figure out where an error is happening. Usually you only need to resort to that in extreme cases though… which this probably qualifies for.</p>
+<p>In other times, the Cordon tool is a convenience tool that allows you to compile only a certain portion of the map in order to save time compiling and testing things out in a specific area without having to spend 10 minutes waiting for the whole map to compile.</p>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/20</link>
+        <pubDate>Wed, 24 Apr 2013 09:55:27 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-20</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>I didn’t learn about Cordon until last year. And I’ve technically been mapping since 2005. Don’t feel bad about it dude  <img src="https://leakfree.org/images/emoji/twitter/stuck_out_tongue.png?v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/19</link>
+        <pubDate>Tue, 23 Apr 2013 18:17:45 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-19</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[D3lta]]></dc:creator>
+        <description><![CDATA[
+            <p>Holy shit, it took a while to realize what its purpose was.</p>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/18</link>
+        <pubDate>Mon, 22 Apr 2013 19:50:02 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-18</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="TehBoxNoob">
+<div class="title">
+<div class="quote-controls"></div>
+ TehBoxNoob:</div>
+<blockquote>
+<p>Already tried cordon, it also just crashes right when its loading up.Besides, I’ve already fixed all the leaks.</p>
+</blockquote>
+</aside>
+<p>It’s not about leaks. You want to cordon and compile different areas of the map to see see which areas load up fine and which don’t, to help isolate the problem area.</p>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/17</link>
+        <pubDate>Mon, 22 Apr 2013 18:58:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-17</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[D3lta]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username=".RK">
+<div class="title">
+<div class="quote-controls"></div>
+ .RK:</div>
+<blockquote>
+<p>I can’t really say a lack of func_details is the problem, since the only thing that does is tell vbsp not to cut visleaves there. Then again, it could be possible there’s just far too many visleaves in the map. I just don’t know. Either way, I agree with dky; I would start thinking about detailing, especially since you are trying to run the map.</p>
+<p>Good luck in solving this problem!</p>
+</blockquote>
+</aside>
+<p>Detailed the place up, and still the same problem :/.</p>
+<aside class="quote no-group" data-username="dky.tehkingd.u">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/dky.tehkingd.u/40/4377_2.png" class="avatar"> dky.tehkingd.u:</div>
+<blockquote>
+<p>Always func_detail things out of habit. It’s not hard. Just ctrl+t. Doing it as you go prevents massive errors from popping up later on due to shoddy brushwork that you did ages ago.</p>
+<p>As for fixing it, there isn’t much to do except use the Cordon tool to isolate the issue.</p>
+</blockquote>
+</aside>
+<p>Already tried cordon, it also just crashes right when its loading up.Besides, I’ve already fixed all the leaks.</p>
+<aside class="quote group-black-mesa-devs" data-username="TextFAMGUY1">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://leakfree.org/user_avatar/leakfree.org/textfamguy1/40/4294_2.png" class="avatar"> TextFAMGUY1:</div>
+<blockquote>
+<p>From my memory, one thing which can potentially cause the game to crash but the compiler to work fine is when you have some brushwork textures screwed up somehow.<span class="bbcode-b"> In the editor the texture will look like it’s been stretched infinitely, or something like that.</span> I had this happen on a CS map once and if I remember correctly, I got no compile errors, but the map would crash. Check through parts you’ve recently worked on and look to see if any of the textures look really, really wrong.</p>
+<p>Bad textures and weird brushwork are things which the editor might be okay with, but the engine won’t be. So as others have said, check these things. The culprit is likely to be there somewhere.</p>
+<p>If that’s not it, which it very well may not be, you could try using the -condebug switch under the launch options for HL2. This prints the output of the console to console.log, in the game’s folder. This might give you some clue as to why the map crashes, provided you have developer mode enabled (“developer 2”) in the console when you launch the game.</p>
+</blockquote>
+</aside>
+<p>I had that in the past, most of them are deleted and replaced by a model that has been sealed off by a nodraw brush.<br>
+Oh yeah, and Interlopers error check came up with this:</p>
+<aside class="quote no-group">
+<blockquote>
+<p>Description:<br>
+You seem to be running vvis in -fast mode. This is okay for testing purposes, but mind that this will cause:</p>
+<p>Strange compile errors, like ‘cluster saw into cluster’ errors<br>
+Strange errors ingame (including unexpected crashes)<br>
+Hitting limits ingame, by skipping essential optimization processses<br>
+Lower performance ingame</p>
+<p>Solution:<br>
+If you experience any of these problems, and don’t have any specific clues for the cause, please try to compile without the -fast option, see if that helps. If compiling without -fast is taking too long /seems to crash vvis, you may need to optimize your map using func_detail</p>
+</blockquote>
+</aside>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/16</link>
+        <pubDate>Mon, 22 Apr 2013 18:38:20 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-16</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[RK1]]></dc:creator>
+        <description><![CDATA[
+            <p>I can’t really say a lack of func_details is the problem, since the only thing that does is tell vbsp not to cut visleaves there. Then again, it could be possible there’s just far too many visleaves in the map. I just don’t know. Either way, I agree with dky; I would start thinking about detailing, especially since you are trying to run the map.</p>
+<p>Good luck in solving this problem!</p>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/15</link>
+        <pubDate>Mon, 22 Apr 2013 15:56:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-15</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[TextFAMGUY1]]></dc:creator>
+        <description><![CDATA[
+            <p>From my memory, one thing which can potentially cause the game to crash but the compiler to work fine is when you have some brushwork textures screwed up somehow. In the editor the texture will look like it’s been stretched infinitely, or something like that. I had this happen on a CS map once and if I remember correctly, I got no compile errors, but the map would crash. Check through parts you’ve recently worked on and look to see if any of the textures look really, really wrong.</p>
+<p>Bad textures and weird brushwork are things which the editor might be okay with, but the engine won’t be. So as others have said, check these things. The culprit is likely to be there somewhere.</p>
+<p>If that’s not it, which it very well may not be, you could try using the -condebug switch under the launch options for HL2. This prints the output of the console to console.log, in the game’s folder. This might give you some clue as to why the map crashes, provided you have developer mode enabled (“developer 2”) in the console when you launch the game.</p>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/14</link>
+        <pubDate>Mon, 22 Apr 2013 15:05:43 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-14</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>Always func_detail things out of habit. It’s not hard. Just ctrl+t. Doing it as you go prevents massive errors from popping up later on due to shoddy brushwork that you did ages ago.</p>
+<p>As for fixing it, there isn’t much to do except use the Cordon tool to isolate the issue.</p>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/13</link>
+        <pubDate>Mon, 22 Apr 2013 14:52:55 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-13</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[D3lta]]></dc:creator>
+        <description><![CDATA[
+            <p>Nope, most of it are just blocks.I havent func_detailed the things though, could that be a problem?</p>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/12</link>
+        <pubDate>Mon, 22 Apr 2013 06:20:28 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-12</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[Crypt]]></dc:creator>
+        <description><![CDATA[
+            <p>Do you have anything like lots of complex, intersecting brushwork?</p>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/11</link>
+        <pubDate>Mon, 22 Apr 2013 00:58:05 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-11</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>About the only other thing I can think of is doing cordon compiles to figure out which part of the map is causing the crash.</p>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/10</link>
+        <pubDate>Sun, 21 Apr 2013 20:17:58 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-10</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[D3lta]]></dc:creator>
+        <description><![CDATA[
+            <p>^Dont got the SourceCode so its no use.And I dont think I’ll ever get either, because of a small project.<br>
+Nope, no error.It just says “HL2.exe stopped working”, and thats it.<br>
+Dont got it with other maps though.</p>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/9</link>
+        <pubDate>Sun, 21 Apr 2013 06:45:46 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-9</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>Check the mdmp file?</p>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/8</link>
+        <pubDate>Sun, 21 Apr 2013 06:40:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-8</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>Crashes with no error?</p>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/7</link>
+        <pubDate>Sun, 21 Apr 2013 06:23:17 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-7</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[D3lta]]></dc:creator>
+        <description><![CDATA[
+            <p>Basicilly HL2 crashes when loading the map.</p>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/6</link>
+        <pubDate>Sun, 21 Apr 2013 06:13:24 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-6</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>If it’s the “specified module could not be found” error, then usually running the game you’re compiling for first then going back to the SDK fixes it. If not then there’s something else going on and I forget what it was and how to fix it.</p>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/5</link>
+        <pubDate>Sun, 21 Apr 2013 02:44:56 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-5</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[dky.tehkingd.u]]></dc:creator>
+        <description><![CDATA[
+            <p>The compile log doesn’t show anything useful in this situation. What exactly is the error message on crash?</p>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/4</link>
+        <pubDate>Sun, 21 Apr 2013 01:51:49 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-4</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[D3lta]]></dc:creator>
+        <description><![CDATA[
+            <p>Who knows.I’m using VBCT because Hammer would eat my processors speed.</p>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/3</link>
+        <pubDate>Sat, 20 Apr 2013 22:05:26 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-3</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[k3nny1550]]></dc:creator>
+        <description><![CDATA[
+            <p>You look like you’re running a custom VVIS replacement. Could be something related to that.</p>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/2</link>
+        <pubDate>Sat, 20 Apr 2013 21:57:54 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-2</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+      <item>
+        <title>Map causes game to crash.</title>
+        <dc:creator><![CDATA[D3lta]]></dc:creator>
+        <description><![CDATA[
+            <p>For some reason when I load my map it crashes the game.The log looks fine to me though.</p>
+<aside class="quote no-group">
+<blockquote>
+<p>================== VBSP ==================</p>
+<p>materialPath: c:\program files (x86)\steam\SteamApps\sourcemods\BMS\materials<br>
+Loading X:\Onno\Induction\Vmf\induction.vmf<br>
+Patching WVT material: maps/induction/dev/dev_blendmeasure_wvt_patch<br>
+fixing up env_cubemap materials on brush sides…<br>
+0…1…2…3…4…5…6…7…8…9…100…1…2…3…4…5…6…7…8…9…10Processing areas…done (0)<br>
+Building Faces…done (0)<br>
+Chop Details…done (0)<br>
+Find Visible Detail Sides…<br>
+Merged 606 detail faces…done (0)<br>
+Merging details…done (0)<br>
+FixTjuncs…<br>
+PruneNodes…<br>
+WriteBSP…<br>
+done (1)<br>
+writing X:\Onno\Induction\Vmf\induction.prt…Building visibility clusters…<br>
+done (0)<br>
+Creating default LDR cubemaps for env_cubemap using skybox materials:<br>
+skybox/sky_day01_01*.vmt<br>
+! Run buildcubemaps in the engine to get the correct cube maps.<br>
+Creating default HDR cubemaps for env_cubemap using skybox materials:<br>
+skybox/sky_day01_01*.vmt<br>
+! Run buildcubemaps in the engine to get the correct cube maps.<br>
+Finding displacement neighbors…<br>
+Finding lightmap sample positions…<br>
+Displacement Alpha : 0…1…2…3…4…5…6…7…8…9…10<br>
+Building Physics collision data…<br>
+done (1) (769717 bytes)<br>
+Placing detail props : 0…1…2…3…4…5…6…7…8…9…10<br>
+Compacting texture/material tables…<br>
+Reduced 5951 texinfos to 2972<br>
+Reduced 346 texdatas to 249 (14612 bytes to 11376)<br>
+Writing X:\Onno\Induction\Vmf\induction.bsp<br>
+7 seconds elapsed</p>
+<p>================== VVIS ==================</p>
+<p>4 threads<br>
+reading x:\onno\induction\vmf\induction.bsp<br>
+reading x:\onno\induction\vmf\induction.prt<br>
+1129 portalclusters<br>
+2786 numportals<br>
+0…1…2…3…4…5…6…7…8…9…10Optimized: 57153 visible clusters (0.00%)<br>
+Total clusters visible: 404006<br>
+Average clusters visible: 357<br>
+Building PAS…<br>
+Average clusters audible: 824<br>
+visdatasize:231235  compressed from 325152<br>
+writing x:\onno\induction\vmf\induction.bsp<br>
+2 seconds elapsed</p>
+<p>================== VRAD ==================</p>
+<p>[Reading texlights from ‘lights.rad’]<br>
+[48 texlights parsed from ‘lights.rad’]</p>
+<p>Loading x:\onno\induction\vmf\induction.bsp<br>
+7569 faces<br>
+5 degenerate faces<br>
+542380 square feet [78102720.00 square inches]<br>
+0 Displacements<br>
+0 Square Feet [0.00 Square Inches]<br>
+7564 patches before subdivision<br>
+129278 patches after subdivision<br>
+222 direct lights<br>
+0…1…2…3…4…5…6…7…8…9…100…1…2…3…4…5…6…7…8…9…10transfers 28833707, max 1159<br>
+transfer lists: 220.0 megs<br>
+0…1…2…3…4…5…6…7…8…9…10	Bounce <span class="hashtag">#1</span> added RGB(575878, 917349, 1087184)<br>
+0…1…2…3…4…5…6…7…8…9…10	Bounce <span class="hashtag">#2</span> added RGB(198633, 338313, 408105)<br>
+0…1…2…3…4…5…6…7…8…9…10	Bounce <span class="hashtag">#3</span> added RGB(44348, 73589, 81807)<br>
+0…1…2…3…4…5…6…7…8…9…10	Bounce <span class="hashtag">#4</span> added RGB(12781, 21644, 23629)<br>
+0…1…2…3…4…5…6…7…8…9…10	Bounce <span class="hashtag">#5</span> added RGB(3331, 5536, 5650)<br>
+0…1…2…3…4…5…6…7…8…9…10	Bounce <span class="hashtag">#6</span> added RGB(927, 1543, 1519)<br>
+0…1…2…3…4…5…6…7…8…9…10	Bounce <span class="hashtag">#7</span> added RGB(252, 415, 385)<br>
+0…1…2…3…4…5…6…7…8…9…10	Bounce <span class="hashtag">#8</span> added RGB(70, 114, 102)<br>
+0…1…2…3…4…5…6…7…8…9…10	Bounce <span class="hashtag">#9</span> added RGB(19, 31, 26)<br>
+0…1…2…3…4…5…6…7…8…9…10	Bounce <span class="hashtag">#10</span> added RGB(5, 9, 7)<br>
+0…1…2…3…4…5…6…7…8…9…10	Bounce <span class="hashtag">#11</span> added RGB(2, 2, 2)<br>
+0…1…2…3…4…5…6…7…8…9…10	Bounce <span class="hashtag">#12</span> added RGB(0, 1, 0)<br>
+Build Patch/Sample Hash Table(s)…Done&lt;0.0779 sec&gt;<br>
+0…1…2…3…4…5…6…7…8…9…10FinalLightFace Done<br>
+0 of 0 (0% of) surface lights went in leaf ambient cubes.<br>
+0…1…2…3…4…5…6…7…8…9…10Writing leaf ambient…done<br>
+Ready to Finish</p>
+<p>Object names       Objects/Maxobjs  Memory / Maxmem  Fullness</p>
+<hr>
+<p>models                  89/1024         4272/49152    ( 8.7%)<br>
+brushes               2035/8192        24420/98304    (24.8%)<br>
+brushsides           16156/65536      129248/524288   (24.7%)<br>
+planes                9494/65536      189880/1310720  (14.5%)<br>
+vertexes             13898/65536      166776/786432   (21.2%)<br>
+nodes                 3140/65536      100480/2097152  ( 4.8%)<br>
+texinfos              2972/12288      213984/884736   (24.2%)<br>
+texdata                249/2048         7968/65536    (12.2%)<br>
+dispinfos                0/0               0/0        ( 0.0%)<br>
+disp_verts               0/0               0/0        ( 0.0%)<br>
+disp_tris                0/0               0/0        ( 0.0%)<br>
+disp_lmsamples           0/0               0/0        ( 0.0%)<br>
+faces                 7569/65536      423864/3670016  (11.5%)<br>
+hdr faces                0/65536           0/3670016  ( 0.0%)<br>
+origfaces             4500/65536      252000/3670016  ( 6.9%)<br>
+leaves                3230/65536      103360/2097152  ( 4.9%)<br>
+leaffaces             9430/65536       18860/131072   (14.4%)<br>
+leafbrushes           4419/65536        8838/131072   ( 6.7%)<br>
+areas                    2/256            16/2048     ( 0.8%)<br>
+surfedges            55443/512000     221772/2048000  (10.8%)<br>
+edges                34216/256000     136864/1024000  (13.4%)<br>
+LDR worldlights        222/8192        19536/720896   ( 2.7%)<br>
+HDR worldlights          0/8192            0/720896   ( 0.0%)<br>
+leafwaterdata            0/32768           0/393216   ( 0.0%)<br>
+waterstrips           1018/32768       10180/327680   ( 3.1%)<br>
+waterverts               0/65536           0/786432   ( 0.0%)<br>
+waterindices         18252/65536       36504/131072   (27.9%)<br>
+cubemapsamples          20/1024          320/16384    ( 2.0%)<br>
+overlays                 7/512          2464/180224   ( 1.4%)<br>
+LDR lightdata         [variable]    16345212/0        ( 0.0%)<br>
+HDR lightdata         [variable]           0/0        ( 0.0%)<br>
+visdata               [variable]      231235/16777216 ( 1.4%)<br>
+entdata               [variable]      289806/393216   (73.7%)<br>
+LDR ambient table     3230/65536       12920/262144   ( 4.9%)<br>
+HDR ambient table     3230/65536       12920/262144   ( 4.9%)<br>
+LDR leaf ambient      8951/65536      250628/1835008  (13.7%)<br>
+HDR leaf ambient      3230/65536       90440/1835008  ( 4.9%)<br>
+occluders                0/0               0/0        ( 0.0%)<br>
+occluder polygons        0/0               0/0        ( 0.0%)<br>
+occluder vert ind        0/0               0/0        ( 0.0%)<br>
+detail props          [variable]           1/12       ( 8.3%)<br>
+static props          [variable]           1/32876    ( 0.0%)<br>
+pakfile               [variable]     2298570/0        ( 0.0%)<br>
+physics               [variable]      769717/4194304  (18.4%)<br>
+physics terrain       [variable]           2/1048576  ( 0.0%)</p>
+<p>Level flags = 0</p>
+<p>Total triangle count: 22179<br>
+Writing x:\onno\induction\vmf\induction.bsp<br>
+2 minutes, 16 seconds elapsed</p>
+</blockquote>
+</aside>
+<p>I have checked for errors using ALT + P but no luck.</p>
+          <p><a href="https://leakfree.org/t/map-causes-game-to-crash/12271/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://leakfree.org/t/map-causes-game-to-crash/12271/1</link>
+        <pubDate>Sat, 20 Apr 2013 21:29:49 +0000</pubDate>
+        <guid isPermaLink="false">leakfree.org-post-12271-1</guid>
+        <source url="https://leakfree.org/t/map-causes-game-to-crash/12271.rss">Map causes game to crash.</source>
+      </item>
+  </channel>
+</rss>
